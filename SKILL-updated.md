@@ -233,11 +233,14 @@ If `VIDEO_AVAILABLE = false`, skip this entire step.
 
 21. **Upload the video file:**
 
-    ```
-    Step 7: find(query: "file input for video upload") → get the ref
-    Step 8: file_upload(paths: ["[DIGEST_DIR]/video-YYYY-MM-DD.mp4"], ref: [ref], tabId: [tabId])
-    Step 9: Wait 5 seconds for upload to begin processing
-    ```
+    **KNOWN LIMITATION:** YouTube blocks programmatic `file_upload` via Chrome DevTools
+    (returns "Not allowed"). The user must manually click "Select files" and pick the MP4.
+    Prompt the user: "Please click 'Select files' in the YouTube upload dialog and select
+    `[DIGEST_DIR]/video-YYYY-MM-DD.mp4`. I'll handle the rest (title, description, publish)."
+
+    Wait for the user to confirm the file is uploading before proceeding to Step 22.
+
+    **Future fix:** Migrate to YouTube Data API v2 to bypass this limitation.
 
 22. **Fill video metadata:**
 
