@@ -658,6 +658,10 @@ to koda.community. It is NOT a copy of the full digest.
 
 ```
 cazmarincowitz@outlook.com
+markmarincowitz9@gmail.com
+charlene@vanillasky.co.za
+Arno_marincowitz@yahoo.co.uk
+saffaboyjm@gmail.com
 ```
 
 ### Voice profile
