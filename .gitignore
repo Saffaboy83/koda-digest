@@ -3,3 +3,5 @@
 *.mp4
 podcast-raw.*
 video-raw.*
+client_secret.json
+.youtube_token.json

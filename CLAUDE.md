@@ -76,13 +76,14 @@ This digest is PUBLIC-FACING. Do NOT include any personal data:
 - Trade-off: YouTube dependency. If YouTube is down, video section is simply skipped.
 - AI-generated content disclosure is MANDATORY on every upload (YouTube policy)
 
-### YouTube Upload: Chrome Browser MCP
-- No YouTube API integration yet (would require OAuth refresh token setup)
-- **Solution**: Use Chrome MCP (with Google session cookies) to navigate YouTube Studio and upload
-- Same authentication pattern as NotebookLM downloads
-- Uses `file_upload` tool to attach the local MP4 to the upload form
-- Fragile (YouTube UI changes frequently) — migrate to YouTube API when this breaks
+### YouTube Upload: YouTube Data API v3
+- Fully automated via `youtube_upload.py` in the Digest folder
+- Uses OAuth 2.0 Desktop client ("GWS CLI") from Google Cloud project `gen-lang-client-0610910477`
+- Token stored at `Digest/.youtube_token.json` (auto-refreshes)
+- Client secret at `Digest/client_secret.json` (gitignored)
+- First run opens browser for consent; all subsequent runs are headless
 - YouTube channel: "Koda"
+- Titles are hook-based and theme-driven (not generic)
 
 ### ffmpeg Path (Windows)
 ```
@@ -100,7 +101,7 @@ Authenticated as Saffaboy83. Used for creating releases (legacy) and general Git
 - No `gmail_send_draft` MCP tool exists
 - **Workaround**: Create draft via `gmail_create_draft`, then navigate to Gmail in Chrome and click Send
 - Voice profile: Punchy, direct, Hormozi-style ("Look.", "The reality is,", imperatives)
-- Distribution list: cazmarincowitz@outlook.com
+- Distribution list: cazmarincowitz@outlook.com, markmarincowitz9@gmail.com, charlene@vanillasky.co.za, Arno_marincowitz@yahoo.co.uk, saffaboyjm@gmail.com
 
 ### All External Links: target="_blank"
 - Every `<a href>` in the HTML dashboard opens in a new tab
@@ -115,8 +116,11 @@ C:\Users\arno_\Digest\
   podcast-YYYY-MM-DD.mp3              # Committed to git, served by Vercel
   infographic-YYYY-MM-DD.jpg          # Committed to git, served by Vercel
   video-YYYY-MM-DD.mp4                # TEMPORARY — uploaded to YouTube then deleted
+  youtube_upload.py                   # YouTube Data API upload script (automated)
+  client_secret.json                  # OAuth client secret (gitignored)
+  .youtube_token.json                 # OAuth refresh token (gitignored)
   vercel.json                         # Vercel config
-  .gitignore                          # Excludes *.m4a, *.mp4, podcast-raw.*, video-raw.*
+  .gitignore                          # Excludes *.m4a, *.mp4, client_secret.json, .youtube_token.json
   SKILL-updated.md                    # Source of truth for the skill
   CLAUDE.md                           # This file
 ```
@@ -196,11 +200,12 @@ and repackage the .skill file.
 - Facts aren't copyrightable; the video is transformative synthesis
 - For scale/monetization, get proper legal advice
 
-### Future: YouTube API (v2)
-- More reliable than Chrome UI automation
-- YouTube Data API v3 is **enabled** on Google Cloud project `gen-lang-client-0610910477`
-- Requires: new client secret, Python script with google-api-python-client, OAuth refresh token
-- Migrate when Chrome approach proves too fragile
+### YouTube API: Setup Details
+- Script: `Digest/youtube_upload.py`
+- OAuth client: "GWS CLI" (Desktop), Client ID `252978099526-8tjvq17odf9m9k39vv1ffe252m0mhkig`
+- Scopes: `youtube.upload`
+- Token auto-refreshes; if token is deleted, re-run the script and authorize in browser
+- Dependencies: `google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2`
 
 ## Skill Sync Procedure
 

@@ -216,84 +216,74 @@ Video generation was kicked off in Step 2A (step 6). Now poll and download.
 19. **Do NOT commit the MP4 to git.** YouTube will host the video. The local file is
     temporary and will be cleaned up after upload.
 
-### 2E — Upload video to YouTube via Chrome
+### 2E — Upload video to YouTube via API
 
 If `VIDEO_AVAILABLE = false`, skip this entire step.
 
-20. **Navigate to YouTube Studio upload:**
+20. **Generate a hook-based YouTube title and description from today's themes.**
+
+    The title must NOT be generic. It must hook viewers by referencing today's actual stories.
+    Review the gathered news from Step 1 and pick the 2-3 most compelling themes.
+
+    **Title formula:** Pick contrasting or surprising themes and combine them.
+    Keep it under 70 characters. Use power words. Create curiosity gaps.
+
+    Examples of GOOD titles (hook-based, theme-driven):
+    - `Missiles Near Dimona, AI Writes Your Code Now | Koda Intel`
+    - `OpenAI's Superapp Changes Everything. Markets Don't Care. | Koda`
+    - `Hormuz Is Closing. AI Agents Are Opening. | Koda Intel Brief`
+    - `Google Stitch + Cuba Blackout + BTC Crash | Koda Daily Intel`
+
+    Examples of BAD titles (generic, no hook):
+    - `Koda Intelligence Briefing — March 22, 2026`
+    - `Daily AI Digest`
+    - `AI News Today`
+
+    **Description formula:** 3-4 punchy lines summarizing what viewers will learn,
+    then hashtags and the site link. Include the AI-generated content disclaimer.
 
     ```
-    Step 1: tabs_context_mcp(createIfEmpty: true) → get a tab ID
-    Step 2: navigate to https://studio.youtube.com
-    Step 3: Wait 3 seconds for YouTube Studio to load
-    Step 4: find(query: "Create button or Upload button") → click it
-    Step 5: find(query: "Upload videos") → click it
-    Step 6: Wait 2 seconds for upload dialog to appear
+    YOUTUBE_TITLE = "[Hook-based title from today's themes] | Koda Intel"
+
+    YOUTUBE_DESCRIPTION = """[One punchy sentence about the biggest AI story today.]
+    [One sentence about the geopolitical or market story.]
+    [One sentence about what tools or trends viewers should know.]
+
+    Full interactive digest with podcast, infographic, and deep dives: https://www.koda.community
+
+    This video was generated with AI assistance via Google NotebookLM.
+    Content is synthesized from public news sources and newsletters.
+
+    #AI #DailyBriefing #KodaIntelligence #AINews #Tech"""
     ```
 
-21. **Upload the video file:**
+    Save `YOUTUBE_TITLE` and `YOUTUBE_DESCRIPTION` for use in the upload command.
 
-    **KNOWN LIMITATION:** YouTube blocks programmatic `file_upload` via Chrome DevTools
-    (returns "Not allowed"). The user must manually click "Select files" and pick the MP4.
-    Prompt the user: "Please click 'Select files' in the YouTube upload dialog and select
-    `[DIGEST_DIR]/video-YYYY-MM-DD.mp4`. I'll handle the rest (title, description, publish)."
+21. **Upload via YouTube Data API (fully automated, no manual steps):**
 
-    Wait for the user to confirm the file is uploading before proceeding to Step 22.
-
-    **Future fix:** Migrate to YouTube Data API v2 to bypass this limitation.
-
-22. **Fill video metadata:**
-
-    ```
-    Step 10: find(query: "Title input field") → get ref
-    Step 11: Triple-click to select existing text, then type:
-             "Koda Intelligence Briefing — [Month DD, YYYY]"
-    Step 12: find(query: "Description input field") → get ref
-    Step 13: Type the description:
-             "Daily AI intelligence briefing covering today's biggest developments.
-
-             🤖 AI Breakthroughs · 🌍 World Events · 📊 Market Data · 🛠️ AI Tools
-
-             Read the full interactive digest: https://www.koda.community
-
-             ⚠️ This video was generated with AI assistance via Google NotebookLM.
-             Content is synthesized from public news sources and newsletters.
-
-             #AI #DailyBriefing #KodaIntelligence #AINews"
+    ```bash
+    cd [DIGEST_DIR]
+    python youtube_upload.py \
+      --file "[DIGEST_DIR]/video-YYYY-MM-DD.mp4" \
+      --title "$YOUTUBE_TITLE" \
+      --description "$YOUTUBE_DESCRIPTION" \
+      --tags AI DailyBriefing KodaIntelligence AINews Tech \
+      --privacy public \
+      --output-json "[DIGEST_DIR]/youtube-result.json"
     ```
 
-23. **AI-generated content disclosure (MANDATORY):**
+    The script handles OAuth automatically (token stored in `.youtube_token.json`).
+    First-ever run opens a browser for consent; all subsequent runs are fully headless.
 
-    ```
-    Step 14: Scroll down in the upload form
-    Step 15: find(query: "Altered or synthetic content" or "AI-generated content")
-    Step 16: Click the disclosure checkbox/radio to indicate this content is AI-generated
-    ```
+22. **Extract the YouTube video ID from the output:**
 
-    If the disclosure UI cannot be found, log a warning but continue.
-    The description disclaimer is a backup.
-
-24. **Set visibility and publish:**
-
-    ```
-    Step 17: Navigate through the upload wizard steps by clicking "Next" repeatedly:
-             Details → Video elements → Checks → Visibility
-    Step 18: On the Visibility step, find(query: "Public") → click it
-    Step 19: find(query: "Publish" or "Save" button) → click it
-    Step 20: Wait 5 seconds for publish to complete
+    ```bash
+    YOUTUBE_VIDEO_ID=$(python -c "import json; print(json.load(open('[DIGEST_DIR]/youtube-result.json'))['video_id'])")
     ```
 
-25. **Capture the YouTube URL:**
+    Save `YOUTUBE_VIDEO_ID` for use in the HTML embed.
 
-    ```
-    Step 21: After publishing, YouTube shows a confirmation with the video URL.
-             find(query: "video link") or read_page to find a URL containing
-             youtube.com/watch or youtu.be
-    Step 22: Extract the video ID (the part after v= or after youtu.be/)
-             Save as YOUTUBE_VIDEO_ID and YOUTUBE_URL
-    ```
-
-    **Fallback — if YouTube upload fails at any step:**
+    **Fallback — if YouTube upload fails:**
     Set `YOUTUBE_VIDEO_ID = null`. The HTML will skip the video section entirely.
     Clean up the local MP4 file. Continue to Step 3.
 
@@ -463,12 +453,12 @@ HTML:
 <section class="section fade-in">
     <h2 class="section-title"><span class="section-icon">&#127909;</span> Daily Video Briefing</h2>
     <div class="video-card">
-        <h3>Koda Intelligence Briefing — [Month DD, YYYY]</h3>
+        <h3>[YOUTUBE_TITLE]</h3>
         <p>Generated by NotebookLM AI</p>
         <div class="video-wrapper">
             <iframe
                 src="https://www.youtube.com/embed/[YOUTUBE_VIDEO_ID]"
-                title="Koda Intelligence Briefing — [Month DD, YYYY]"
+                title="[YOUTUBE_TITLE]"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen>
