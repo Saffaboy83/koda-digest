@@ -106,7 +106,7 @@ audio{width:100%;border-radius:10px;margin-top:4px;accent-color:var(--indigo);}
 .newsletter-item p{font-size:13px;color:var(--text2);line-height:1.65;}
 .newsletter-quote{border-left:3px solid var(--purple);padding:10px 14px;background:rgba(139,92,246,.06);border-radius:0 8px 8px 0;margin-top:12px;font-style:italic;font-size:13px;color:var(--text2);line-height:1.65;}
 .quick-hit{font-size:13px;color:var(--text2);line-height:1.7;padding:4px 0;}
-.quick-hit::before{content:'• ';color:var(--indigo);font-weight:700;}
+.quick-hit::before{content:'';color:var(--indigo);font-weight:700;}
 .comp-card{background:var(--surface);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:var(--shadow);transition:box-shadow .2s,transform .2s;}
 .comp-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px);}
 .comp-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
@@ -127,6 +127,16 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:22px
 .empty-state{text-align:center;padding:28px;color:var(--text3);}
 .empty-state .emoji{font-size:32px;margin-bottom:8px;}
 .empty-state p{font-size:14px;}
+.fade-in{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+@media(max-width:768px){
+  .kpi-strip{grid-template-columns:repeat(2,1fr);}
+  .grid-2,.grid-3{grid-template-columns:1fr;}
+  .grid-6{grid-template-columns:repeat(2,1fr);}
+  .hero-greeting{font-size:26px;}
+  .topbar-inner{flex-direction:column;align-items:flex-start;}
+  .day-nav{order:3;width:100%;justify-content:center;}
+}
 </style>
 </head>
 <body data-digest-date="2026-03-21">
@@ -135,675 +145,680 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:22px
   <div class="container">
     <div class="topbar-inner">
       <div class="brand">
-        <div class="brand-icon">🤖</div>
+        <div class="brand-icon">K</div>
         <div><div class="brand-name">Koda Digest</div><div class="brand-sub">Daily AI Intelligence</div></div>
       </div>
       <div class="day-nav">
-        <a id="nav-prev" class="day-nav-btn disabled" href="#">← <span id="nav-prev-label">—</span></a>
+        <a id="nav-prev" class="day-nav-btn disabled" href="#">&larr; <span id="nav-prev-label">&mdash;</span></a>
         <span class="day-nav-current" id="nav-current">Mar 21</span>
-        <a id="nav-next" class="day-nav-btn disabled" href="#"><span id="nav-next-label">—</span> →</a>
+        <a id="nav-next" class="day-nav-btn disabled" href="#"><span id="nav-next-label">&mdash;</span> &rarr;</a>
       </div>
       <div class="topbar-right">
-        <button class="dark-toggle" onclick="toggleDark()">🌙 Dark Mode</button>
+        <button class="dark-toggle" id="darkToggleBtn" onclick="toggleDark()">Dark Mode</button>
       </div>
     </div>
   </div>
 </div>
 
+<!-- ===== HERO ===== -->
 <section class="hero">
   <div class="container">
-    <div class="hero-date">Saturday · March 21, 2026 · Week 12</div>
-    <div class="hero-greeting">Good Morning, <span class="hero-name">Arno</span> 👋</div>
+    <div class="hero-date">Saturday &middot; March 21, 2026 &middot; Week 12</div>
+    <div class="hero-greeting">Good Morning, <span class="hero-name">Arno</span></div>
     <div class="kpi-strip">
-      <div class="kpi-card"><div class="kpi-value">0</div><div class="kpi-label">Meetings Today</div></div>
-      <div class="kpi-card"><div class="kpi-value">15</div><div class="kpi-label">Unread Emails</div></div>
-      <div class="kpi-card"><div class="kpi-value">12</div><div class="kpi-label">AI Stories</div></div>
-      <div class="kpi-card"><div class="kpi-value" style="font-size:18px;">⚠️ Bear</div><div class="kpi-label">Market Mood</div></div>
+      <div class="kpi-card fade-in"><div class="kpi-value">0</div><div class="kpi-label">Meetings Today</div></div>
+      <div class="kpi-card fade-in"><div class="kpi-value">3</div><div class="kpi-label">Unread Emails</div></div>
+      <div class="kpi-card fade-in"><div class="kpi-value">10</div><div class="kpi-label">AI Stories</div></div>
+      <div class="kpi-card fade-in"><div class="kpi-value" style="font-size:18px;">Bearish</div><div class="kpi-label">Market Mood</div></div>
     </div>
   </div>
 </section>
 
+<!-- ===== DAILY INFOGRAPHIC ===== -->
 <section>
   <div class="container">
-    <div class="section-title">📊 Daily Infographic</div>
-    <div class="infographic">
-      <svg viewBox="0 0 1100 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
-        <defs><style>.inf-title{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;} .inf-body{font-family:Inter,sans-serif;font-size:10px;} .inf-sub{font-family:Inter,sans-serif;font-size:9px;fill:#94A3B8;}</style></defs>
-        <rect x="8" y="8" width="334" height="404" rx="14" fill="rgba(59,130,246,.06)" stroke="rgba(59,130,246,.18)" stroke-width="1.2"/>
-        <rect x="358" y="8" width="348" height="404" rx="14" fill="rgba(239,68,68,.05)" stroke="rgba(239,68,68,.15)" stroke-width="1.2"/>
-        <rect x="722" y="8" width="370" height="404" rx="14" fill="rgba(16,185,129,.05)" stroke="rgba(16,185,129,.15)" stroke-width="1.2"/>
-        <text x="175" y="34" text-anchor="middle" class="inf-title" fill="#3B82F6">🤖 AI BREAKTHROUGHS</text>
-        <text x="532" y="34" text-anchor="middle" class="inf-title" fill="#EF4444">🌍 WORLD NEWS</text>
-        <text x="907" y="34" text-anchor="middle" class="inf-title" fill="#10B981">📈 MARKETS</text>
-        <line x1="342" y1="210" x2="358" y2="210" stroke="rgba(99,102,241,.5)" stroke-width="1.5" stroke-dasharray="4,3"/>
-        <line x1="706" y1="210" x2="722" y2="210" stroke="rgba(99,102,241,.5)" stroke-width="1.5" stroke-dasharray="4,3"/>
-        <!-- AI blocks -->
-        <rect x="22" y="48" width="305" height="50" rx="8" fill="rgba(59,130,246,.1)" stroke="rgba(59,130,246,.2)" stroke-width="1"/>
-        <text x="32" y="65" class="inf-body" font-weight="700" fill="#3B82F6">OpenAI Superapp</text>
-        <text x="32" y="80" class="inf-body" fill="#64748B">ChatGPT + Codex + Atlas consolidation</text>
-        <text x="32" y="93" class="inf-sub">$25B ARR · IPO possible late 2026</text>
-        <rect x="22" y="106" width="305" height="50" rx="8" fill="rgba(139,92,246,.1)" stroke="rgba(139,92,246,.2)" stroke-width="1"/>
-        <text x="32" y="123" class="inf-body" font-weight="700" fill="#8B5CF6">Cursor Composer 2</text>
-        <text x="32" y="138" class="inf-body" fill="#64748B">Frontier coding · lower token pricing</text>
-        <text x="32" y="151" class="inf-sub">OpenAI acquires Astral Python toolchain</text>
-        <rect x="22" y="164" width="305" height="50" rx="8" fill="rgba(6,182,212,.1)" stroke="rgba(6,182,212,.2)" stroke-width="1"/>
-        <text x="32" y="181" class="inf-body" font-weight="700" fill="#06B6D4">Claude Code Channels</text>
-        <text x="32" y="196" class="inf-body" fill="#64748B">Control AI from Telegram / Discord</text>
-        <text x="32" y="209" class="inf-sub">Persistent memory for all users</text>
-        <rect x="22" y="222" width="305" height="50" rx="8" fill="rgba(16,185,129,.1)" stroke="rgba(16,185,129,.2)" stroke-width="1"/>
-        <text x="32" y="239" class="inf-body" font-weight="700" fill="#10B981">Google Stitch Launched</text>
-        <text x="32" y="254" class="inf-body" fill="#64748B">Free AI design tool · Figma stock -12%</text>
-        <text x="32" y="267" class="inf-sub">Napkin sketch → board-ready CFO report</text>
-        <rect x="22" y="280" width="305" height="50" rx="8" fill="rgba(245,158,11,.1)" stroke="rgba(245,158,11,.2)" stroke-width="1"/>
-        <text x="32" y="297" class="inf-body" font-weight="700" fill="#F59E0B">DoorDash Tasks</text>
-        <text x="32" y="312" class="inf-body" fill="#64748B">8M drivers collecting AI training data</text>
-        <text x="32" y="325" class="inf-sub">Mistral Small 4 · 119B MoE released</text>
-        <rect x="22" y="338" width="305" height="50" rx="8" fill="rgba(236,72,153,.08)" stroke="rgba(236,72,153,.18)" stroke-width="1"/>
-        <text x="32" y="355" class="inf-body" font-weight="700" fill="#EC4899">Perplexity Health + NVIDIA GTC</text>
-        <text x="32" y="370" class="inf-body" fill="#64748B">Health AI launch · Nemotron 3 Super</text>
-        <text x="32" y="383" class="inf-sub">AutoResearch: 910 experiments / 8 hrs</text>
-        <!-- World News blocks -->
-        <rect x="372" y="48" width="320" height="50" rx="8" fill="rgba(239,68,68,.1)" stroke="rgba(239,68,68,.2)" stroke-width="1"/>
-        <text x="382" y="65" class="inf-body" font-weight="700" fill="#EF4444">🔥 Iran War — Week 4</text>
-        <text x="382" y="80" class="inf-body" fill="#64748B">Trump weighs wind-down · more Marines</text>
-        <text x="382" y="93" class="inf-sub">Natanz nuclear facility struck · Day 22</text>
-        <rect x="372" y="106" width="320" height="50" rx="8" fill="rgba(239,68,68,.08)" stroke="rgba(239,68,68,.15)" stroke-width="1"/>
-        <text x="382" y="123" class="inf-body" font-weight="700" fill="#DC2626">⚡ Hormuz Crisis</text>
-        <text x="382" y="138" class="inf-body" fill="#64748B">3,000+ vessels stranded · oil +45%</text>
-        <text x="382" y="151" class="inf-sub">20% of world oil/LNG blocked</text>
-        <rect x="372" y="164" width="320" height="50" rx="8" fill="rgba(245,158,11,.08)" stroke="rgba(245,158,11,.15)" stroke-width="1"/>
-        <text x="382" y="181" class="inf-body" font-weight="700" fill="#D97706">⚖️ Musk Twitter Verdict</text>
-        <text x="382" y="196" class="inf-body" fill="#64748B">Federal jury finds liable for fraud</text>
-        <text x="382" y="209" class="inf-sub">$44B takeover manipulation case</text>
-        <rect x="372" y="222" width="320" height="50" rx="8" fill="rgba(99,102,241,.07)" stroke="rgba(99,102,241,.15)" stroke-width="1"/>
-        <text x="382" y="239" class="inf-body" font-weight="700" fill="#6366F1">🔬 CRISPR Cancer Shot</text>
-        <text x="382" y="254" class="inf-body" fill="#64748B">T-cells engineered in living mice</text>
-        <text x="382" y="267" class="inf-sub">Single-injection CAR-T possible · Nature</text>
-        <rect x="372" y="280" width="320" height="50" rx="8" fill="rgba(16,185,129,.07)" stroke="rgba(16,185,129,.15)" stroke-width="1"/>
-        <text x="382" y="297" class="inf-body" font-weight="700" fill="#059669">🏦 HSBC Cuts 20K via AI</text>
-        <text x="382" y="312" class="inf-body" fill="#64748B">Largest AI bank restructuring</text>
-        <text x="382" y="325" class="inf-sub">Supermicro GPU smuggling charged</text>
-        <rect x="372" y="338" width="320" height="50" rx="8" fill="rgba(6,182,212,.07)" stroke="rgba(6,182,212,.15)" stroke-width="1"/>
-        <text x="382" y="355" class="inf-body" font-weight="700" fill="#0891B2">🚖 Uber+Rivian Robotaxi $1.25B</text>
-        <text x="382" y="370" class="inf-body" fill="#64748B">50K autonomous SUVs by 2031</text>
-        <text x="382" y="383" class="inf-sub">SF + Miami 2028 · 25 cities global</text>
-        <!-- Market cards -->
+    <div class="section-title">Daily Infographic</div>
+    <div class="infographic fade-in">
+      <svg viewBox="0 0 1100 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+        <defs>
+          <style>
+            .inf-title{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;}
+            .inf-body{font-family:Inter,sans-serif;font-size:10px;}
+            .inf-sub{font-family:Inter,sans-serif;font-size:9px;fill:#94A3B8;}
+          </style>
+        </defs>
+        <!-- Zone backgrounds -->
+        <rect x="8" y="8" width="334" height="384" rx="14" fill="rgba(59,130,246,.06)" stroke="rgba(59,130,246,.18)" stroke-width="1.2"/>
+        <rect x="358" y="8" width="348" height="384" rx="14" fill="rgba(239,68,68,.05)" stroke="rgba(239,68,68,.15)" stroke-width="1.2"/>
+        <rect x="722" y="8" width="370" height="384" rx="14" fill="rgba(16,185,129,.05)" stroke="rgba(16,185,129,.15)" stroke-width="1.2"/>
+        <!-- Zone titles -->
+        <text x="175" y="34" text-anchor="middle" class="inf-title" fill="#3B82F6">AI BREAKTHROUGHS</text>
+        <text x="532" y="34" text-anchor="middle" class="inf-title" fill="#EF4444">WORLD NEWS</text>
+        <text x="907" y="34" text-anchor="middle" class="inf-title" fill="#10B981">MARKETS</text>
+        <!-- Connectors -->
+        <line x1="342" y1="200" x2="358" y2="200" stroke="rgba(99,102,241,.5)" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="706" y1="200" x2="722" y2="200" stroke="rgba(99,102,241,.5)" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+        <!-- AI Zone -->
+        <rect x="22" y="48" width="305" height="48" rx="8" fill="rgba(59,130,246,.1)" stroke="rgba(59,130,246,.2)" stroke-width="1"/>
+        <text x="32" y="65" class="inf-body" font-weight="700" fill="#3B82F6">OpenAI Superapp + GPT-5.4</text>
+        <text x="32" y="78" class="inf-body" fill="#64748B">ChatGPT+Codex+Atlas merged | 1M context</text>
+        <text x="32" y="90" class="inf-sub">$25B+ ARR | 75% OSWorld-V | IPO explored</text>
+
+        <rect x="22" y="102" width="305" height="48" rx="8" fill="rgba(139,92,246,.1)" stroke="rgba(139,92,246,.2)" stroke-width="1"/>
+        <text x="32" y="119" class="inf-body" font-weight="700" fill="#8B5CF6">Anthropic Opus/Sonnet 4.6</text>
+        <text x="32" y="132" class="inf-body" fill="#64748B">1M context | Office integration | Memory</text>
+        <text x="32" y="144" class="inf-sub">Claude Code Channels for Telegram/Discord</text>
+
+        <rect x="22" y="156" width="305" height="48" rx="8" fill="rgba(6,182,212,.1)" stroke="rgba(6,182,212,.2)" stroke-width="1"/>
+        <text x="32" y="173" class="inf-body" font-weight="700" fill="#06B6D4">Google Gemini 3.1 Pro + Stitch</text>
+        <text x="32" y="186" class="inf-body" fill="#64748B">77.1% ARC-AGI-2 | Figma -12%</text>
+        <text x="32" y="198" class="inf-sub">Flash-Lite $0.25/M | Free design tool</text>
+
+        <rect x="22" y="210" width="305" height="48" rx="8" fill="rgba(16,185,129,.1)" stroke="rgba(16,185,129,.2)" stroke-width="1"/>
+        <text x="32" y="227" class="inf-body" font-weight="700" fill="#10B981">Meta Llama 4 Open-Source</text>
+        <text x="32" y="240" class="inf-body" fill="#64748B">Full agentic AI | Plans, executes, context</text>
+        <text x="32" y="252" class="inf-sub">Biggest open release in years</text>
+
+        <rect x="22" y="264" width="305" height="48" rx="8" fill="rgba(245,158,11,.1)" stroke="rgba(245,158,11,.2)" stroke-width="1"/>
+        <text x="32" y="281" class="inf-body" font-weight="700" fill="#F59E0B">NVIDIA Nemotron 3 + Mistral Small 4</text>
+        <text x="32" y="294" class="inf-body" fill="#64748B">120B MoE (12B active) | 119B multimodal</text>
+        <text x="32" y="306" class="inf-sub">GTC showcase | Enterprise AI platforms</text>
+
+        <rect x="22" y="318" width="305" height="48" rx="8" fill="rgba(236,72,153,.08)" stroke="rgba(236,72,153,.18)" stroke-width="1"/>
+        <text x="32" y="335" class="inf-body" font-weight="700" fill="#EC4899">DoorDash Tasks + MiniMax M2.5</text>
+        <text x="32" y="348" class="inf-body" fill="#64748B">8M drivers as data collectors</text>
+        <text x="32" y="360" class="inf-sub">Chinese AI rivals Opus at lower cost</text>
+
+        <!-- World News Zone -->
+        <rect x="372" y="48" width="320" height="54" rx="8" fill="rgba(239,68,68,.1)" stroke="rgba(239,68,68,.2)" stroke-width="1"/>
+        <text x="382" y="66" class="inf-body" font-weight="700" fill="#EF4444">Iran War &mdash; Week 4</text>
+        <text x="382" y="80" class="inf-body" fill="#64748B">Hormuz blocked | 3,000+ vessels stranded</text>
+        <text x="382" y="94" class="inf-sub">Oil &gt;$110/bbl | Trump: &quot;hit and obliterate&quot;</text>
+
+        <rect x="372" y="108" width="320" height="54" rx="8" fill="rgba(239,68,68,.08)" stroke="rgba(239,68,68,.15)" stroke-width="1"/>
+        <text x="382" y="126" class="inf-body" font-weight="700" fill="#DC2626">Iran Missiles Hit US-UK Base</text>
+        <text x="382" y="140" class="inf-body" fill="#64748B">Ballistic missiles at Indian Ocean base</text>
+        <text x="382" y="154" class="inf-sub">Trump suggests &quot;winding down&quot; | More Marines</text>
+
+        <rect x="372" y="168" width="320" height="54" rx="8" fill="rgba(245,158,11,.08)" stroke="rgba(245,158,11,.15)" stroke-width="1"/>
+        <text x="382" y="186" class="inf-body" font-weight="700" fill="#D97706">Lebanon: 1,000+ Killed Since Mar 2</text>
+        <text x="382" y="200" class="inf-body" fill="#64748B">Including 111 children | Humanitarian crisis</text>
+        <text x="382" y="214" class="inf-sub">Escalation continues across region</text>
+
+        <rect x="372" y="228" width="320" height="54" rx="8" fill="rgba(99,102,241,.07)" stroke="rgba(99,102,241,.15)" stroke-width="1"/>
+        <text x="382" y="246" class="inf-body" font-weight="700" fill="#6366F1">Musk Liable for Twitter Fraud</text>
+        <text x="382" y="260" class="inf-body" fill="#64748B">Misled investors before $44B acquisition</text>
+        <text x="382" y="274" class="inf-sub">Federal jury ruling | Major precedent</text>
+
+        <rect x="372" y="288" width="320" height="38" rx="8" fill="rgba(16,185,129,.07)" stroke="rgba(16,185,129,.15)" stroke-width="1"/>
+        <text x="382" y="306" class="inf-body" font-weight="700" fill="#059669">Robert Mueller Dies at 81</text>
+        <text x="382" y="319" class="inf-sub">Former FBI Director and Special Counsel</text>
+
+        <rect x="372" y="332" width="320" height="38" rx="8" fill="rgba(6,182,212,.07)" stroke="rgba(6,182,212,.15)" stroke-width="1"/>
+        <text x="382" y="350" class="inf-body" font-weight="700" fill="#0891B2">Ukraine Drone Defense Nets</text>
+        <text x="382" y="363" class="inf-sub">Overhead netting vs Russian FPV drones</text>
+
+        <!-- Markets Zone -->
         <rect x="736" y="48" width="162" height="68" rx="8" fill="rgba(239,68,68,.09)" stroke="rgba(239,68,68,.2)" stroke-width="1"/>
         <text x="748" y="66" class="inf-body" font-weight="700" fill="#94A3B8" font-family="'JetBrains Mono',monospace">S&amp;P 500</text>
-        <text x="748" y="88" font-family="'JetBrains Mono',monospace" font-size="18" font-weight="800" fill="#EF4444">6,585</text>
-        <text x="748" y="107" font-family="'JetBrains Mono',monospace" font-size="10" fill="#EF4444">▼ -0.32%</text>
+        <text x="748" y="88" font-family="'JetBrains Mono',monospace" font-size="18" font-weight="800" fill="#EF4444">6,506</text>
+        <text x="748" y="107" font-family="'JetBrains Mono',monospace" font-size="10" fill="#EF4444">&#x25BC; -1.51%</text>
+
         <rect x="912" y="48" width="162" height="68" rx="8" fill="rgba(239,68,68,.09)" stroke="rgba(239,68,68,.2)" stroke-width="1"/>
         <text x="924" y="66" class="inf-body" font-weight="700" fill="#94A3B8" font-family="'JetBrains Mono',monospace">NASDAQ</text>
-        <text x="924" y="88" font-family="'JetBrains Mono',monospace" font-size="18" font-weight="800" fill="#EF4444">21,943</text>
-        <text x="924" y="107" font-family="'JetBrains Mono',monospace" font-size="10" fill="#EF4444">▼ -0.67%</text>
+        <text x="924" y="88" font-family="'JetBrains Mono',monospace" font-size="18" font-weight="800" fill="#EF4444">21,648</text>
+        <text x="924" y="107" font-family="'JetBrains Mono',monospace" font-size="10" fill="#EF4444">&#x25BC; -2.01%</text>
+
         <rect x="736" y="126" width="162" height="68" rx="8" fill="rgba(16,185,129,.09)" stroke="rgba(16,185,129,.2)" stroke-width="1"/>
         <text x="748" y="144" class="inf-body" font-weight="700" fill="#94A3B8" font-family="'JetBrains Mono',monospace">BITCOIN</text>
-        <text x="748" y="166" font-family="'JetBrains Mono',monospace" font-size="16" font-weight="800" fill="#10B981">$70,085</text>
-        <text x="748" y="184" font-family="'JetBrains Mono',monospace" font-size="10" fill="#10B981">▲ +0.73%</text>
+        <text x="748" y="166" font-family="'JetBrains Mono',monospace" font-size="16" font-weight="800" fill="#10B981">$70,569</text>
+        <text x="748" y="184" font-family="'JetBrains Mono',monospace" font-size="10" fill="#10B981">&#x25B2; +0.38%</text>
+
         <rect x="912" y="126" width="162" height="68" rx="8" fill="rgba(16,185,129,.09)" stroke="rgba(16,185,129,.2)" stroke-width="1"/>
         <text x="924" y="144" class="inf-body" font-weight="700" fill="#94A3B8" font-family="'JetBrains Mono',monospace">ETHEREUM</text>
         <text x="924" y="166" font-family="'JetBrains Mono',monospace" font-size="16" font-weight="800" fill="#10B981">$2,154</text>
-        <text x="924" y="184" font-family="'JetBrains Mono',monospace" font-size="10" fill="#10B981">▲ +0.20%</text>
+        <text x="924" y="184" font-family="'JetBrains Mono',monospace" font-size="10" fill="#10B981">&#x25B2; +0.89%</text>
+
         <rect x="736" y="204" width="338" height="46" rx="8" fill="rgba(239,68,68,.1)" stroke="rgba(239,68,68,.25)" stroke-width="1"/>
-        <text x="748" y="222" class="inf-body" font-weight="700" fill="#94A3B8" font-family="'JetBrains Mono',monospace">BRENT CRUDE  🔥  WAR PREMIUM</text>
-        <text x="748" y="240" font-family="'JetBrains Mono',monospace" font-size="15" font-weight="800" fill="#EF4444">$112 / bbl  ▲ +45% since conflict</text>
+        <text x="748" y="222" class="inf-body" font-weight="700" fill="#94A3B8" font-family="'JetBrains Mono',monospace">BRENT CRUDE &nbsp; WAR PREMIUM</text>
+        <text x="748" y="240" font-family="'JetBrains Mono',monospace" font-size="15" font-weight="800" fill="#EF4444">$112.19/bbl  &#x25B2; +50% since conflict</text>
+
         <rect x="736" y="260" width="338" height="52" rx="8" fill="rgba(239,68,68,.06)" stroke="rgba(239,68,68,.14)" stroke-width="1"/>
         <text x="748" y="278" class="inf-body" font-weight="700" fill="#94A3B8" font-family="'JetBrains Mono',monospace">MARKET SENTIMENT</text>
-        <text x="748" y="298" font-family="'JetBrains Mono',monospace" font-size="20" font-weight="800" fill="#EF4444">⚠️  BEARISH</text>
-        <text x="748" y="307" class="inf-sub">Energy shock · War premium · Rate fears</text>
+        <text x="748" y="298" font-family="'JetBrains Mono',monospace" font-size="20" font-weight="800" fill="#F59E0B">BEARISH</text>
+        <text x="748" y="307" class="inf-sub">Oil shock weighing on equities</text>
+
         <rect x="736" y="322" width="338" height="58" rx="8" fill="rgba(99,102,241,.08)" stroke="rgba(99,102,241,.18)" stroke-width="1"/>
-        <text x="748" y="340" class="inf-body" font-weight="700" fill="#6366F1">🧠 TODAY'S THEME</text>
-        <text x="748" y="357" class="inf-body" font-weight="600" fill="#94A3B8">AI Consolidation + Energy Crisis</text>
-        <text x="748" y="373" class="inf-sub">Superapp era · Hormuz reshapes markets</text>
+        <text x="748" y="340" class="inf-body" font-weight="700" fill="#6366F1">TODAY'S THEME</text>
+        <text x="748" y="357" class="inf-body" font-weight="600" fill="#94A3B8">AI Superapp Era + Energy Crisis</text>
+        <text x="748" y="373" class="inf-sub">GPT-5.4 1M context | Hormuz reshapes markets</text>
       </svg>
     </div>
   </div>
 </section>
 
+<!-- ===== DAILY PODCAST ===== -->
 <section>
   <div class="container">
-    <div class="section-title">🎙️ Daily Podcast</div>
-    <div class="podcast-card">
+    <div class="section-title">Daily Podcast</div>
+    <div class="podcast-card fade-in">
       <div class="podcast-header">
-        <div class="podcast-icon">🎧 NotebookLM</div>
+        <div class="podcast-icon">NotebookLM</div>
         <div>
-          <div class="podcast-title">Hormuz Oil Shock and AI World Models</div>
-          <div class="podcast-meta">Saturday, March 21, 2026 · Deep Dive · Generated by NotebookLM</div>
+          <div class="podcast-title">Koda Daily Podcast - 2026-03-21</div>
+          <div class="podcast-meta">Saturday, March 21, 2026 &middot; Deep Dive &middot; Generated by NotebookLM</div>
         </div>
       </div>
-      <audio controls style="width:100%;border-radius:10px;">
-        <source src="https://lh3.googleusercontent.com/notebooklm/ANHLwAxCBKttBoqufYoUqG4KoLq3sPXqIreqOqaYaYeuRpnv9mJTd1EAPY6Tt_cCTn899otK7AxolAvQ-jzG6TMoFBLxvNZswZpdkRcz2aOChLgSmTIdwSh3Zla42wzuMuU3bl9ikXWB61HDKcN4ObRlDNIMYbfQyoA=m140-dv" type="audio/mp4">
-        Your browser does not support the audio element.
-      </audio>
+      <audio controls preload="none" src="https://github.com/Saffaboy83/koda-digest/releases/download/podcast-2026-03-21/podcast-2026-03-21.mp3" type="audio/mpeg"></audio>
       <div class="podcast-fallback">
         <div class="podcast-fallback-text">
-          <strong>✅ Today's Podcast: "Hormuz Oil Shock and AI World Models"</strong>
-          <span>20m 23s · Deep Dive · March 21, 2026 · Generated by NotebookLM</span>
+          <strong>Also available on NotebookLM</strong>
+          <span>Listen in your browser with full transcript and citations</span>
         </div>
-        <a href="https://notebooklm.google.com/notebook/f928d89b-2520-4180-a71a-d93a75a5487c" target="_blank" class="podcast-link-btn">▶ Listen in NotebookLM ↗</a>
+        <a href="https://notebooklm.google.com/notebook/f928d89b-2520-4180-a71a-d93a75a5487c" target="_blank" class="podcast-link-btn">Open NotebookLM</a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ===== TODAY'S FOCUS ===== -->
 <section>
   <div class="container">
-    <div class="section-title">🎯 Today's Focus</div>
+    <div class="section-title">Today's Focus</div>
     <div style="display:flex;flex-direction:column;gap:12px;">
-      <div class="focus-item">
+      <div class="focus-item fade-in">
         <div class="focus-number">1</div>
         <div class="focus-content">
-          <h3>OpenAI Superapp — The UX Consolidation That Changes Everything</h3>
-          <p>OpenAI is merging ChatGPT, Codex, and Atlas into a single desktop "Superapp" — the biggest UX consolidation in AI history. Leadership confirmed at an all-hands that product fragmentation was a strategic liability. The company has surpassed $25B in annualized revenue and is eyeing a potential IPO in late 2026. If you rely on any OpenAI products professionally, this marks a pivotal shift from model provider to platform company — worth watching closely.</p>
+          <h3>OpenAI Superapp &mdash; The Desktop AI Consolidation</h3>
+          <p>OpenAI is merging ChatGPT, Codex, and Atlas into a single desktop Superapp. GPT-5.4 launched with 1M token context, scoring 75% on OSWorld-V (above the 72.4% human baseline). Revenue has surpassed $25B and the company is exploring an IPO. This marks OpenAI's pivot from model provider to platform company &mdash; a shift worth monitoring closely.</p>
         </div>
       </div>
-      <div class="focus-item">
+      <div class="focus-item fade-in">
         <div class="focus-number">2</div>
         <div class="focus-content">
-          <h3>Oil at $112/bbl — Iran War Reshaping Global Energy Markets</h3>
-          <p>The Strait of Hormuz blockade is entering week four with no resolution in sight. Brent crude sits around $112/barrel — up ~45% since the war began — and Goldman Sachs says triple-digit oil could persist for years. Asia faces the most acute risk since 84% of Hormuz crude flows there. This is the dominant macro story shaping every market today, with direct implications for energy stocks, transport costs, and inflation expectations.</p>
+          <h3>Oil at $112/bbl &mdash; Hormuz Blockade Reshaping Global Energy</h3>
+          <p>The Strait of Hormuz blockade enters week four with 3,000+ vessels stranded and Brent crude above $110/barrel &mdash; up 50% since the conflict began. 84% of Hormuz crude flows to Asia, making this an existential energy threat for the region. Trump is threatening Iranian power plants while simultaneously suggesting winding down operations. This is the dominant macro story driving every market.</p>
         </div>
       </div>
-      <div class="focus-item">
+      <div class="focus-item fade-in">
         <div class="focus-number">3</div>
         <div class="focus-content">
-          <h3>Google Stitch + AI Design Tools — Finance Reporting Gets Disrupted</h3>
-          <p>Google launched Stitch this week — a free AI tool that converts plain-language prompts and even napkin sketches into professional, board-ready interfaces and reports. The day it launched, Figma's stock dropped 12%. The finstory AI newsletter tested it live: one photo, one prompt, one board-ready CFO report. The key insight: frame the prompt as a judgment instruction, not a formatting request. Finance teams and knowledge workers who adapt their prompting strategy first gain an immediate productivity advantage.</p>
+          <h3>Google Stitch &mdash; Free AI Design Tool Disrupts Finance Reporting</h3>
+          <p>Google launched Stitch, a free AI tool that converts plain-language prompts and napkin sketches into production-quality reports. Figma dropped 12% on the news. The finstory AI newsletter tested it on real financials: one photo produced a board-ready CFO report with KPIs, trend charts, and driver callouts &mdash; work that normally takes an FP&amp;A analyst 3 hours. The key insight: frame prompts as judgment instructions, not formatting requests.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ===== SCHEDULE TIMELINE ===== -->
 <section>
   <div class="container">
-    <div class="section-title">📅 Today's Schedule</div>
-    <div class="card">
+    <div class="section-title">Today's Schedule</div>
+    <div class="card fade-in">
       <div class="empty-state">
-        <div class="emoji">🌟</div>
-        <p>Free Day — No meetings scheduled today. A great Saturday to explore, build, or recharge.</p>
+        <div class="emoji">&#127774;</div>
+        <p>Free Day &mdash; No meetings scheduled. A great Saturday to explore, build, or recharge.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ===== AI DEVELOPMENTS ===== -->
 <section>
   <div class="container">
-    <div class="section-title">🤖 AI Developments</div>
+    <div class="section-title">AI Developments</div>
     <div class="grid-2">
-      <div class="news-card">
+
+      <div class="news-card fade-in">
         <div><span class="badge badge-purple">OpenAI</span></div>
         <h3>ChatGPT, Codex &amp; Atlas Merging Into Desktop Superapp</h3>
-        <p>OpenAI is consolidating its three flagship products into a single unified desktop "Superapp" — the biggest UX consolidation in AI history. Internal leadership confirmed fragmentation was slowing them down. No timeline announced. The move signals OpenAI's ambition to own the desktop AI layer and become a platform, not just a model provider. The company has surpassed $25B ARR and is exploring an IPO as early as late 2026.</p>
-        <div class="news-card-footer"><span class="badge badge-purple">Strategy</span><a href="https://www.wsj.com/tech/openai-plans-launch-of-desktop-superapp-to-refocus-simplify-user-experience-9e19931d" target="_blank" class="source-btn">↗ WSJ</a></div>
+        <p>OpenAI is consolidating its three flagship products into a single unified desktop Superapp. GPT-5.4 launched with 1M token context and scored 75% on OSWorld-V, surpassing the 72.4% human baseline. Revenue exceeds $25B and the company is exploring an IPO. This signals OpenAI's ambition to own the desktop AI layer.</p>
+        <div class="news-card-footer"><span class="badge badge-purple">Strategy</span><a href="https://www.wsj.com/tech/openai-plans-launch-of-desktop-superapp-to-refocus-simplify-user-experience-9e19931d" target="_blank" class="source-btn">WSJ</a></div>
       </div>
-      <div class="news-card">
-        <div><span class="badge badge-blue">Cursor</span></div>
-        <h3>Cursor Composer 2 — Frontier Coding at Lower Token Cost</h3>
-        <p>Cursor has released Composer 2, delivering frontier-level coding performance at significantly reduced token pricing. This move undercuts competitors and makes elite AI code generation accessible to price-sensitive developers. Cursor has become the dominant AI-native IDE for professional developers, and this release cements that position with a compelling cost-performance ratio.</p>
-        <div class="news-card-footer"><span class="badge badge-blue">Dev Tools</span><a href="https://cursor.com/blog/composer-2" target="_blank" class="source-btn">↗ Cursor Blog</a></div>
-      </div>
-      <div class="news-card">
-        <div><span class="badge badge-amber">OpenAI</span></div>
-        <h3>OpenAI Acquires Astral — Ruff &amp; uv Into Codex</h3>
-        <p>OpenAI will acquire Astral — creators of Ruff (Python's fastest linter) and uv (next-gen package manager) — integrating these beloved developer tools into Codex. The move signals OpenAI's serious push into full-stack developer tooling, not just model access. The Astral tools have massive goodwill in the Python community, which OpenAI now inherits along with the technical capability.</p>
-        <div class="news-card-footer"><span class="badge badge-amber">Acquisition</span><a href="https://links.tldrnewsletter.com/GInyy6" target="_blank" class="source-btn">↗ TLDR AI</a></div>
-      </div>
-      <div class="news-card">
+
+      <div class="news-card fade-in">
         <div><span class="badge badge-indigo">Anthropic</span></div>
-        <h3>Claude Code Channels — Control AI from Telegram or Discord</h3>
-        <p>Anthropic shipped Channels for Claude Code, enabling developers to manage coding sessions directly from Telegram or Discord. Cowork added Projects on desktop. Both features push Claude toward always-on agent experiences. Anthropic also rolled out persistent memory to all Claude users — preferences and context now persist across every conversation, making Claude a true contextual work companion.</p>
-        <div class="news-card-footer"><span class="badge badge-indigo">Anthropic</span><a href="https://code.claude.com/docs/en/channels" target="_blank" class="source-btn">↗ Claude Docs</a></div>
+        <h3>Claude Sonnet 4.6 &amp; Opus 4.6 with 1M Context</h3>
+        <p>Anthropic launched Sonnet 4.6 and Opus 4.6 with 1M token context windows. Opus 4.6 is now deployed in PowerPoint and Excel for enterprise workflows. Memory features persist across conversations, and Claude Code Channels extend access to Telegram and Discord for always-on agent experiences.</p>
+        <div class="news-card-footer"><span class="badge badge-indigo">Anthropic</span><a href="https://code.claude.com/docs/en/channels" target="_blank" class="source-btn">Claude Docs</a></div>
       </div>
-      <div class="news-card">
+
+      <div class="news-card fade-in">
         <div><span class="badge badge-cyan">Google</span></div>
-        <h3>Google Stitch — Free AI Design Tool Makes Figma Drop 12%</h3>
-        <p>Google launched Stitch, a free AI platform that converts plain-language descriptions or napkin sketch photos into fully working, high-fidelity interfaces and reports. The day it launched, Figma dropped 12%. It supports voice input, critiques its own output in real time, and deploys in one click. For finance teams, this means board-ready reports from a single photo and a well-crafted prompt — no design skills needed.</p>
-        <div class="news-card-footer"><span class="badge badge-cyan">Design AI</span><a href="https://finstoryai.substack.com/p/i-turned-a-napkin-sketch-into-a-board" target="_blank" class="source-btn">↗ finstory AI</a></div>
+        <h3>Gemini 3.1 Pro (77.1% ARC-AGI-2) + Stitch Launch</h3>
+        <p>Google released Gemini 3.1 Pro scoring 77.1% on ARC-AGI-2 and launched Stitch, a free AI design tool that converts descriptions into high-fidelity interfaces. Figma dropped 12% on the news. Flash-Lite arrives at $0.25/M tokens, making frontier inference accessible at commodity prices.</p>
+        <div class="news-card-footer"><span class="badge badge-cyan">AI Platform</span><a href="https://blog.google/technology/ai/gemini-3-1/" target="_blank" class="source-btn">Google Blog</a></div>
       </div>
-      <div class="news-card">
-        <div><span class="badge badge-emerald">DoorDash</span></div>
-        <h3>DoorDash Turns 8M Drivers Into AI Training Pipeline</h3>
-        <p>DoorDash launched Tasks, paying its 8 million Dashers to photograph menus, check shelves, and record walkthroughs for real-time business intelligence at scale. The delivery workforce has become the world's largest AI data collection pipeline — a novel, massive crowdsourced approach to training robotics and AI systems on real-world physical environments that would be impossible to capture any other way.</p>
-        <div class="news-card-footer"><span class="badge badge-emerald">Data</span><a href="https://about.doordash.com/en-us/news/introducing-doordash-tasks" target="_blank" class="source-btn">↗ DoorDash</a></div>
+
+      <div class="news-card fade-in">
+        <div><span class="badge badge-blue">Meta</span></div>
+        <h3>Llama 4: Open-Source Agentic AI</h3>
+        <p>Meta released Llama 4 with full agentic capability &mdash; the model can plan, execute multi-step tasks, and maintain context across long interactions. This is the biggest open-source AI release in years, giving developers free access to an agent-class model that can compete with proprietary alternatives.</p>
+        <div class="news-card-footer"><span class="badge badge-blue">Open Source</span><a href="https://ai.meta.com/blog/llama-4/" target="_blank" class="source-btn">Meta AI</a></div>
       </div>
-      <div class="news-card">
-        <div><span class="badge badge-pink">Perplexity</span></div>
-        <h3>Perplexity Health Launches in the US</h3>
-        <p>Perplexity has entered the consumer health AI space with specialized agents for nutrition and sleep. The strategy mirrors their successful finance vertical — using real user data for personalized, context-rich insights. With Perplexity credits running low in user inboxes, rapid growth is evident. This puts Perplexity in direct competition with health AI incumbents at a moment when the sector is attracting enormous investment.</p>
-        <div class="news-card-footer"><span class="badge badge-pink">Health AI</span><a href="https://www.testingcatalog.com/perplexity-launches-perplexity-health-agent-in-us/" target="_blank" class="source-btn">↗ Testing Catalog</a></div>
-      </div>
-      <div class="news-card">
+
+      <div class="news-card fade-in">
         <div><span class="badge badge-amber">NVIDIA</span></div>
-        <h3>Nemotron 3 Super &amp; NemoClaw — NVIDIA's Platform Pivot</h3>
-        <p>NVIDIA announced Nemotron 3 Super at GTC 2026 — a 120B-parameter hybrid MoE model with only 12B active parameters, designed for complex multi-agent applications in software development and cybersecurity. Jensen Huang also unveiled NemoClaw, an open-source AI agent platform designed to transform NVIDIA from chipmaker into a dominant platform operator — reducing dependence on chip sales cycles.</p>
-        <div class="news-card-footer"><span class="badge badge-amber">Hardware/Platform</span><a href="https://www.cnbc.com/2026/03/19/column-jensen-huang-doesnt-need-a-new-chip-he-needs-a-new-moat.html" target="_blank" class="source-btn">↗ CNBC</a></div>
+        <h3>Nemotron 3 Super &mdash; 120B MoE at GTC</h3>
+        <p>NVIDIA announced Nemotron 3 Super at GTC &mdash; a 120B-parameter hybrid MoE model with only 12B active parameters, designed for multi-agent applications in software development and cybersecurity. The architecture delivers large-model quality at small-model inference cost.</p>
+        <div class="news-card-footer"><span class="badge badge-amber">Hardware</span><a href="https://www.nvidia.com/en-us/ai/" target="_blank" class="source-btn">NVIDIA</a></div>
       </div>
-      <div class="news-card">
-        <div><span class="badge badge-blue">Research</span></div>
-        <h3>World Models: The Architectural Bridge to General Intelligence</h3>
-        <p>World Models — AI systems that simulate real-world physics through action-conditioned neural networks — are advancing rapidly across robotics, autonomous driving, and scientific simulation. Not Boring's deep dive argues this is the next major AI architectural frontier. Major investments from General Intuition and World Labs signal the field is approaching inflection. This may be how AI finally develops genuine predictive understanding of physical reality.</p>
-        <div class="news-card-footer"><span class="badge badge-blue">Research</span><a href="https://www.notboring.co/p/world-models" target="_blank" class="source-btn">↗ Not Boring</a></div>
+
+      <div class="news-card fade-in">
+        <div><span class="badge badge-purple">Mistral</span></div>
+        <h3>Mistral Small 4 &mdash; 119B MoE Multimodal</h3>
+        <p>Mistral released Small 4, a 119B MoE multimodal reasoning model unveiled at NVIDIA GTC alongside the Forge enterprise platform. Mistral is on track for $1B ARR, competing directly with larger labs while maintaining a lean European operation and open-weight philosophy.</p>
+        <div class="news-card-footer"><span class="badge badge-purple">Model Release</span><a href="https://techcrunch.com/2026/03/17/mistral-forge-nvidia-gtc-build-your-own-ai-enterprise/" target="_blank" class="source-btn">TechCrunch</a></div>
       </div>
-      <div class="news-card">
+
+      <div class="news-card fade-in">
+        <div><span class="badge badge-emerald">DoorDash</span></div>
+        <h3>DoorDash Tasks &mdash; 8M Drivers Become AI Data Collectors</h3>
+        <p>DoorDash launched Tasks, paying its 8 million Dashers to photograph menus, check shelves, and record walkthroughs for real-time business intelligence. The delivery workforce becomes the world's largest AI data collection pipeline &mdash; a novel crowdsourced approach to training AI on real-world physical environments.</p>
+        <div class="news-card-footer"><span class="badge badge-emerald">Data</span><a href="https://about.doordash.com/en-us/news/introducing-doordash-tasks" target="_blank" class="source-btn">DoorDash</a></div>
+      </div>
+
+      <div class="news-card fade-in">
         <div><span class="badge badge-red">China AI</span></div>
-        <h3>Chinese AI Wave: MiniMax M2.5 Rivals Claude Opus 4.6</h3>
-        <p>Five new AI models launched in March 2026 from Tencent, Alibaba, Baidu, ByteDance, and Xiaomi (MiMo-V2-Pro, built by former DeepSeek researchers). MiniMax's M2.5 is receiving particular attention for reportedly rivaling Anthropic's Claude Opus 4.6 at significantly lower cost — continuing the pattern of Chinese models delivering frontier performance at a fraction of Western prices.</p>
-        <div class="news-card-footer"><span class="badge badge-red">China</span><a href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank" class="source-btn">↗ Mean CEO</a></div>
+        <h3>MiniMax M2.5 Rivals Claude Opus at Lower Cost</h3>
+        <p>Chinese lab MiniMax released M2.5, reportedly rivaling Anthropic's Claude Opus 4.6 at significantly lower cost. This continues the pattern of Chinese models delivering frontier-level performance at a fraction of Western prices, pressuring the economics of the entire AI industry.</p>
+        <div class="news-card-footer"><span class="badge badge-red">Competitive</span><a href="https://llm-stats.com/llm-updates" target="_blank" class="source-btn">LLM Stats</a></div>
       </div>
-      <div class="news-card">
-        <div><span class="badge badge-indigo">Policy</span></div>
-        <h3>30+ OpenAI &amp; Google Employees Back Anthropic in Pentagon Lawsuit</h3>
-        <p>More than 30 OpenAI and Google DeepMind employees signed a joint statement supporting Anthropic's lawsuit against the Defense Department, which labeled the AI firm a "supply-chain risk." The case could redefine rules around military use of commercial AI. The unusual cross-company solidarity signals deep industry concern about government overreach in AI procurement.</p>
-        <div class="news-card-footer"><span class="badge badge-indigo">Policy</span><a href="https://techcrunch.com/2026/03/09/openai-and-google-employees-rush-to-anthropics-defense-in-dod-lawsuit/" target="_blank" class="source-btn">↗ TechCrunch</a></div>
+
+      <div class="news-card fade-in">
+        <div><span class="badge badge-blue">Cursor</span></div>
+        <h3>Cursor Composer 2 &mdash; Enhanced AI Coding</h3>
+        <p>Cursor released Composer 2 with enhanced AI coding capabilities, delivering frontier-level code generation at improved cost-performance ratios. The upgrade cements Cursor's position as the dominant AI-native IDE for professional developers and pressures competing coding tools.</p>
+        <div class="news-card-footer"><span class="badge badge-blue">Dev Tools</span><a href="https://cursor.com/blog/composer-2" target="_blank" class="source-btn">Cursor Blog</a></div>
       </div>
-      <div class="news-card">
-        <div><span class="badge badge-purple">Research</span></div>
-        <h3>AutoResearch: Claude + 16 GPUs = 910 Experiments in 8 Hours</h3>
-        <p>Researchers gave Claude Code access to a 16-GPU Kubernetes cluster and set it loose on autoresearch. With one GPU it did sequential hill-climbing; with 16 GPUs it ran factorial grids of 10-13 parallel experiments per wave, submitting ~910 experiments in 8 hours and catching parameter interactions that sequential search would miss. A compelling preview of what AI-powered scientific research looks like at scale.</p>
-        <div class="news-card-footer"><span class="badge badge-purple">Agentic AI</span><a href="https://blog.skypilot.co/scaling-autoresearch/" target="_blank" class="source-btn">↗ SkyPilot Blog</a></div>
+
+      <div class="news-card fade-in">
+        <div><span class="badge badge-pink">Research</span></div>
+        <h3>MIT Protein-Based Drug Design Model</h3>
+        <p>MIT researchers developed a new AI model for protein-based drug design that could accelerate pharmaceutical R&amp;D pipelines. The model enables more precise targeting of disease mechanisms through computational protein engineering, potentially reducing the time and cost of bringing new therapeutics to clinical trials.</p>
+        <div class="news-card-footer"><span class="badge badge-pink">Biotech</span><a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank" class="source-btn">Crescendo AI</a></div>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- ===== WORLD NEWS ===== -->
 <section>
   <div class="container">
-    <div class="section-title">🌍 World News</div>
+    <div class="section-title">World News</div>
     <div class="grid-2">
-      <div class="news-card">
+
+      <div class="news-card fade-in">
         <div><span class="badge badge-red">Conflict</span></div>
-        <h3>Iran War Week 4: Trump Mulls Wind-Down, More Marines Deployed</h3>
-        <p>The US-Israel war with Iran has reached week four. President Trump publicly said the administration is considering "winding down" military efforts — yet simultaneously approved additional Marine deployments. Day 22 saw Iran attempt a strike on an Israeli nuclear facility under "Operation True Promise Four." The conflict shows no clear off-ramp, with both sides escalating rhetoric and military posture while the White House signals mixed messages.</p>
-        <div class="news-card-footer"><span class="badge badge-red">Middle East</span><a href="https://www.npr.org/2026/03/20/nx-s1-5754550/israel-strikes-tehran-iran-attacks-gulf" target="_blank" class="source-btn">↗ NPR</a></div>
+        <h3>Iran War Week 4: Hormuz Blocked, Oil Above $110</h3>
+        <p>The US-Israel conflict with Iran enters week four. The Strait of Hormuz is blocked with 3,000+ vessels stranded and oil above $110/barrel. Trump threatens to "hit and obliterate" Iranian power plants while the humanitarian toll mounts. No clear off-ramp is in sight as both sides escalate.</p>
+        <div class="news-card-footer"><span class="badge badge-red">Middle East</span><a href="https://www.npr.org/2026/03/21/nx-s1-5755539/iran-war-fourth-week" target="_blank" class="source-btn">NPR</a></div>
       </div>
-      <div class="news-card">
-        <div><span class="badge badge-red">Economy</span></div>
-        <h3>Strait of Hormuz Crisis: 3,000+ Ships Stranded, Oil +45%</h3>
-        <p>The near-total closure of the Strait of Hormuz — through which ~20% of the world's oil and LNG normally flows — has created a catastrophic supply shock. Over 3,000 vessels are stranded. Brent crude has surged ~45%, trading around $112/barrel. Goldman Sachs warns triple-digit oil could persist for years. Asia faces the most acute threat since 84% of Hormuz crude flows to Asian markets. The IEA is releasing emergency reserves.</p>
-        <div class="news-card-footer"><span class="badge badge-red">Energy</span><a href="https://www.bloomberg.com/news/articles/2026-03-20/the-oil-prices-you-see-don-t-tell-the-market-s-real-story" target="_blank" class="source-btn">↗ Bloomberg</a></div>
-      </div>
-      <div class="news-card">
+
+      <div class="news-card fade-in">
         <div><span class="badge badge-amber">Politics</span></div>
-        <h3>Elon Musk Found Liable for Twitter Shareholder Fraud</h3>
-        <p>A federal jury found Elon Musk liable for defrauding Twitter shareholders by attempting to drive down the social media company's stock price to renegotiate or back out of his $44B takeover in 2022. One of the highest-profile securities fraud findings in Silicon Valley history, with potentially significant financial implications for Musk and questions about accountability for billionaire market manipulation.</p>
-        <div class="news-card-footer"><span class="badge badge-amber">Law</span><a href="https://www.golocalprov.com/news/5-big-news-stories-overnight-saturday-march-21-2026" target="_blank" class="source-btn">↗ GoLocalProv</a></div>
+        <h3>Trump Suggests "Winding Down" Even as Marines Deploy</h3>
+        <p>The White House is sending mixed signals &mdash; Trump publicly suggested winding down Iran operations while simultaneously approving additional Marine deployments. The contradiction underscores the lack of a coherent exit strategy as the conflict enters its fourth week with escalating costs.</p>
+        <div class="news-card-footer"><span class="badge badge-amber">Politics</span><a href="https://www.npr.org/2026/03/20/nx-s1-5754550/israel-strikes-tehran-iran-attacks-gulf" target="_blank" class="source-btn">NPR</a></div>
       </div>
-      <div class="news-card">
-        <div><span class="badge badge-cyan">Science</span></div>
-        <h3>CRISPR Could Make Cancer Treatment a One-Shot Deal</h3>
-        <p>Researchers used CRISPR to engineer cancer-fighting CAR-T immune cells directly inside living mice — a major step toward a single off-the-shelf cancer injection. Current CAR-T therapy requires extracting patient T-cells, reprogramming them, and reinfusing — a costly, slow process. Engineering them in-body sidesteps all of that. The study, published in Nature, is still in mice but points toward a scalable route for next-generation cancer immunotherapy.</p>
-        <div class="news-card-footer"><span class="badge badge-cyan">Biotech</span><a href="https://www.nature.com/articles/d41586-026-00857-6" target="_blank" class="source-btn">↗ Nature</a></div>
+
+      <div class="news-card fade-in">
+        <div><span class="badge badge-red">Conflict</span></div>
+        <h3>Iran Fires Ballistic Missiles at US-UK Base</h3>
+        <p>Iran launched ballistic missiles at a US-UK military base in the Indian Ocean, marking a significant escalation in direct military confrontation. The strike represents one of the most direct attacks on Western military infrastructure since the conflict began, raising fears of further escalation.</p>
+        <div class="news-card-footer"><span class="badge badge-red">Military</span><a href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-21-26" target="_blank" class="source-btn">CNN</a></div>
       </div>
-      <div class="news-card">
-        <div><span class="badge badge-indigo">Security</span></div>
-        <h3>Supermicro Co-Founder Charged With $2.5B GPU Smuggling to China</h3>
-        <p>Supermicro's co-founder was charged with helping smuggle up to $2.5B worth of AI servers with Nvidia GPUs to China in violation of US export controls. One of the largest technology smuggling prosecutions in US history, underscoring the escalating battle over AI hardware access between the US and China and the lengths to which Chinese buyers will go to acquire restricted compute.</p>
-        <div class="news-card-footer"><span class="badge badge-indigo">Security</span><a href="https://fortune.com/2026/03/19/supermicro-arrested-founder-smuggling-gpu-china/" target="_blank" class="source-btn">↗ Fortune</a></div>
+
+      <div class="news-card fade-in">
+        <div><span class="badge badge-red">Conflict</span></div>
+        <h3>1,000+ Killed in Lebanon Since March 2</h3>
+        <p>Over 1,000 people have been killed in Lebanon since March 2, including 111 children. The humanitarian crisis deepens as the regional conflict expands beyond its initial scope, with civilian casualties mounting and international calls for a ceasefire going unanswered.</p>
+        <div class="news-card-footer"><span class="badge badge-red">Humanitarian</span><a href="https://www.euronews.com/video/2026/03/21/latest-news-bulletin-march-21st-2026-midday" target="_blank" class="source-btn">Euronews</a></div>
       </div>
-      <div class="news-card">
-        <div><span class="badge badge-emerald">Tech/Economy</span></div>
-        <h3>HSBC Considers 20,000 AI-Driven Job Cuts</h3>
-        <p>HSBC is reportedly planning to cut up to 20,000 jobs over the next few years as AI reshapes middle- and back-office operations — one of the largest AI-driven workforce restructurings in global banking history. The move reflects a broader industry trend: major financial institutions are deploying AI not just for customer-facing tools, but to fundamentally reduce operational headcount at scale.</p>
-        <div class="news-card-footer"><span class="badge badge-emerald">Finance</span><a href="https://www.business-standard.com/world-news/hsbc-considers-20-000-job-cuts-as-ai-drives-overhaul-of-operations-126031901390_1.html" target="_blank" class="source-btn">↗ Business Standard</a></div>
+
+      <div class="news-card fade-in">
+        <div><span class="badge badge-amber">Economy</span></div>
+        <h3>Elon Musk Found Liable for Misleading Twitter Investors</h3>
+        <p>A federal jury found Elon Musk liable for misleading Twitter investors before his $44B acquisition. One of the highest-profile securities fraud findings in Silicon Valley history, with potentially significant financial implications and questions about accountability for market manipulation.</p>
+        <div class="news-card-footer"><span class="badge badge-amber">Law</span><a href="https://www.golocalprov.com/news/5-big-news-stories-overnight-saturday-march-21-2026" target="_blank" class="source-btn">GoLocalProv</a></div>
       </div>
-      <div class="news-card">
-        <div><span class="badge badge-emerald">Mobility</span></div>
-        <h3>Uber + Rivian: $1.25B Deal for 50,000 Robotaxis by 2031</h3>
-        <p>Uber is making a $1.25B bet on Rivian's R2 as a robotaxi platform, with up to 50,000 autonomous SUVs on its network by 2031. First deployments land in SF and Miami in 2028, expanding to ~25 cities globally. The R2's hardware includes 11 cameras, 5 radars, 1 lidar, and Rivian's RAP1 chip with 1,600 TOPS. Rivian's pitch: vertical integration — one company controlling vehicle, compute, software, and US manufacturing.</p>
-        <div class="news-card-footer"><span class="badge badge-emerald">Mobility</span><a href="https://investor.uber.com/news-events/news/press-release-details/2026/Uber-and-Rivian-Partner-to-Deploy-up-to-50000-Fully-Autonomous-Robotaxis-2026-TViR4R05gi/default.aspx" target="_blank" class="source-btn">↗ Uber IR</a></div>
+
+      <div class="news-card fade-in">
+        <div><span class="badge badge-indigo">Politics</span></div>
+        <h3>Robert Mueller, Former FBI Director, Dies at 81</h3>
+        <p>Robert Mueller, who served as FBI Director and later as Special Counsel investigating Russian interference in the 2016 election, has died at age 81. A defining figure in American law enforcement and justice, Mueller's career spanned decades of public service at the highest levels.</p>
+        <div class="news-card-footer"><span class="badge badge-indigo">Obituary</span><a href="https://www.npr.org/sections/news/" target="_blank" class="source-btn">NPR</a></div>
       </div>
-      <div class="news-card">
-        <div><span class="badge badge-cyan">Space</span></div>
-        <h3>TransAstra Plans to Mine Asteroids by Bagging Them</h3>
-        <p>NASA-backed TransAstra is developing an inflatable bag to capture small near-Earth asteroids whole — no landing or drilling required. A house-sized asteroid (~100 metric tons) would be captured, stabilized, and towed to a controlled orbit to serve as a resource depot. Components have been tested on the ISS. Near-Earth asteroids are loaded with water and metals that could fuel deep-space missions — and the race to get to them is heating up.</p>
-        <div class="news-card-footer"><span class="badge badge-cyan">Space</span><a href="https://arstechnica.com/space/2026/03/a-private-space-company-has-a-radical-new-plan-to-bag-an-asteroid/" target="_blank" class="source-btn">↗ Ars Technica</a></div>
+
+      <div class="news-card fade-in">
+        <div><span class="badge badge-cyan">Conflict</span></div>
+        <h3>Ukraine Deploys Overhead Netting Against Russian FPV Drones</h3>
+        <p>Ukrainian forces are using overhead netting as a defensive countermeasure against Russian first-person-view attack drones. The low-tech solution demonstrates battlefield adaptation against increasingly sophisticated drone warfare, as both sides innovate in the evolving conflict.</p>
+        <div class="news-card-footer"><span class="badge badge-cyan">Defense</span><a href="https://www.npr.org/sections/world/" target="_blank" class="source-btn">NPR</a></div>
       </div>
+
+      <div class="news-card fade-in">
+        <div><span class="badge badge-red">Economy</span></div>
+        <h3>Asia Faces Existential Energy Threat from Hormuz Crisis</h3>
+        <p>84% of crude oil transiting the Strait of Hormuz flows to Asian markets, making the blockade an existential energy threat to the region. Asian economies face cascading impacts on manufacturing, transport, and inflation as the crisis enters its fourth week with no resolution in sight.</p>
+        <div class="news-card-footer"><span class="badge badge-red">Energy</span><a href="https://www.bloomberg.com/news/articles/2026-03-20/the-oil-prices-you-see-don-t-tell-the-market-s-real-story" target="_blank" class="source-btn">Bloomberg</a></div>
+      </div>
+
     </div>
   </div>
 </section>
 
+<!-- ===== MARKET SNAPSHOT ===== -->
 <section>
   <div class="container">
-    <div class="section-title">📈 Market Snapshot</div>
+    <div class="section-title">Market Snapshot</div>
     <div class="grid-6">
-      <div class="market-card">
+      <div class="market-card fade-in">
         <div class="market-ticker">S&amp;P 500</div>
-        <div class="market-price down">6,585</div>
-        <div class="market-change down">▼ -0.32%</div>
-        <div class="market-bar"><div class="market-bar-fill" style="width:38%;background:var(--red);"></div></div>
+        <div class="market-price down">6,506.48</div>
+        <div class="market-change down">&#x25BC; -1.51%</div>
+        <div class="market-bar"><div class="market-bar-fill" style="width:28%;background:var(--red);"></div></div>
       </div>
-      <div class="market-card">
+      <div class="market-card fade-in">
         <div class="market-ticker">NASDAQ</div>
-        <div class="market-price down">21,943</div>
-        <div class="market-change down">▼ -0.67%</div>
-        <div class="market-bar"><div class="market-bar-fill" style="width:30%;background:var(--red);"></div></div>
+        <div class="market-price down">21,647.61</div>
+        <div class="market-change down">&#x25BC; -2.01%</div>
+        <div class="market-bar"><div class="market-bar-fill" style="width:22%;background:var(--red);"></div></div>
       </div>
-      <div class="market-card">
+      <div class="market-card fade-in">
         <div class="market-ticker">Bitcoin</div>
-        <div class="market-price up">$70,085</div>
-        <div class="market-change up">▲ +0.73%</div>
-        <div class="market-bar"><div class="market-bar-fill" style="width:73%;background:var(--emerald);"></div></div>
+        <div class="market-price up">$70,569</div>
+        <div class="market-change up">&#x25B2; +0.38%</div>
+        <div class="market-bar"><div class="market-bar-fill" style="width:62%;background:var(--emerald);"></div></div>
       </div>
-      <div class="market-card">
+      <div class="market-card fade-in">
         <div class="market-ticker">Ethereum</div>
-        <div class="market-price up">$2,154</div>
-        <div class="market-change up">▲ +0.20%</div>
-        <div class="market-bar"><div class="market-bar-fill" style="width:52%;background:var(--emerald);"></div></div>
+        <div class="market-price up">$2,154.20</div>
+        <div class="market-change up">&#x25B2; +0.89%</div>
+        <div class="market-bar"><div class="market-bar-fill" style="width:58%;background:var(--emerald);"></div></div>
       </div>
-      <div class="market-card">
+      <div class="market-card fade-in">
         <div class="market-ticker">Brent Crude</div>
-        <div class="market-price down" style="font-size:17px;">$112/bbl</div>
-        <div class="market-change down">▲ +45% war</div>
+        <div class="market-price down" style="font-size:17px;">$112.19</div>
+        <div class="market-change down">&#x25B2; +50% war</div>
         <div class="market-bar"><div class="market-bar-fill" style="width:92%;background:var(--red);"></div></div>
       </div>
-      <div class="market-card">
+      <div class="market-card fade-in">
         <div class="market-ticker">Sentiment</div>
-        <div class="market-price flat" style="font-size:15px;">⚠️ Bearish</div>
-        <div class="market-change flat">Energy shock</div>
+        <div class="market-price flat" style="font-size:16px;">Bearish</div>
+        <div class="market-change flat">Oil shock</div>
         <div class="market-bar"><div class="market-bar-fill" style="width:22%;background:var(--amber);"></div></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ===== NEWSLETTER INTELLIGENCE ===== -->
 <section>
   <div class="container">
-    <div class="section-title">📬 Newsletter Intelligence</div>
+    <div class="section-title">Newsletter Intelligence</div>
 
-    <div class="newsletter-card">
+    <!-- finstory AI -->
+    <div class="newsletter-card fade-in">
       <div class="newsletter-header">
-        <div class="newsletter-avatar" style="background:linear-gradient(135deg,#3B82F6,#6366F1);">T</div>
-        <div class="newsletter-info">
-          <h3>TLDR AI</h3>
-          <div class="subject">Cursor's frontier model 👨‍💻, OpenAI buys Astral ⚡, Perplexity Health 🏥 — Fri, Mar 20, 2026</div>
-        </div>
-        <span class="badge badge-blue" style="margin-left:auto;">AI/Dev</span>
-      </div>
-      <div class="newsletter-section">
-        <h4>🚀 Headlines &amp; Launches</h4>
-        <div class="newsletter-item">
-          <strong>Cursor Composer 2</strong>
-          <p>Cursor has released Composer 2, offering frontier-level coding performance at significantly reduced token pricing. For developers building AI products, this is a meaningful cost reduction without sacrificing capability. It cements Cursor's position as the dominant AI-native IDE and directly pressures OpenAI's Codex pricing strategy.</p>
-        </div>
-        <div class="newsletter-item">
-          <strong>OpenAI Acquires Astral — Python Tooling Into Codex</strong>
-          <p>OpenAI will acquire Astral — makers of Ruff (Python's fastest linter) and uv (next-gen package manager) — to integrate their tools into Codex. This is significant: OpenAI is no longer just a model company but a full-stack developer platform. The Astral tools have massive goodwill in the Python community, which OpenAI now inherits alongside the technical capability.</p>
-        </div>
-        <div class="newsletter-item">
-          <strong>Perplexity Health Launches in the US</strong>
-          <p>Perplexity's health product enters a competitive market with a differentiated approach: specialized AI agents for nutrition and sleep, backed by real user data. The strategy mirrors their finance product — personalized, context-rich insights from actual user behavior. If successful, Perplexity becomes the AI-native health research platform for consumers, challenging WebMD and newer AI health startups alike.</p>
-        </div>
-      </div>
-      <div class="newsletter-section">
-        <h4>🧠 Deep Dives</h4>
-        <div class="newsletter-item">
-          <strong>AutoResearch: Claude + GPU Cluster = 910 Experiments in 8 Hours</strong>
-          <p>Researchers gave Claude Code a 16-GPU Kubernetes cluster and pointed it at autoresearch. With one GPU, the agent did sequential hill-climbing; with 16, it ran factorial grids catching parameter interactions that sequential search misses entirely. Over 8 hours it submitted ~910 experiments. This is a compelling preview of AI-powered scientific research at scale — and it shows that the bottleneck is increasingly coordination architecture, not raw compute.</p>
-        </div>
-        <div class="newsletter-item">
-          <strong>Jensen Huang Doesn't Need a New Chip — He Needs a New Moat</strong>
-          <p>CNBC analysis argues Nvidia's CEO is pivoting from chipmaker to AI platform operator through NemoClaw, an open-source agent framework. Chips are cyclical; platforms generate ecosystem lock-in. The risk: success requires enterprise adoption before Chinese competitors close the hardware gap. The opportunity: nobody else has NVIDIA's combination of hardware, software, and developer mindshare.</p>
-        </div>
-        <div class="newsletter-item">
-          <strong>World Models: Computing the Uncomputable</strong>
-          <p>Not Boring's deep dive argues World Models — AI systems that simulate real-world physics through action-conditioned neural networks — are the next major AI architectural frontier. Breakthroughs in robotics, autonomous driving, and scientific simulation are converging on this architecture. Major investments from General Intuition and World Labs signal the field is approaching inflection. This may be the bridge to AI that genuinely understands physical reality.</p>
-        </div>
-      </div>
-      <div class="newsletter-section">
-        <h4>⚡ Quick Hits</h4>
-        <div class="quick-hit">NanoGPT Slowrun achieves 10x data efficiency — intelligence will be bottlenecked by data, not compute</div>
-        <div class="quick-hit">MolmoPoint from AI2: new open-source grounding architecture with 36K-image GUI dataset</div>
-        <div class="quick-hit">Google testing Gemini app for Mac with Desktop Intelligence context</div>
-        <div class="quick-hit">Ex-OpenAI employees increasingly going to under-the-radar company "Periodic Labs"</div>
-        <div class="quick-hit">Bluesky raises $100M Series B following CEO Jay Graber stepping down</div>
-        <div class="quick-hit">82% of developers now use AI tools — coding assessments need to adapt</div>
-      </div>
-      <div class="newsletter-section">
-        <h4>🔧 Trending Tools</h4>
-        <div class="quick-hit">Agent Auth Protocol — first-class agent identity with lifecycle controls per server</div>
-        <div class="quick-hit">Character.AI Imagine Gallery — organizes AI visuals with filtering and sharing</div>
-      </div>
-      <div class="newsletter-quote">"AI timelines remain uncertain, with experts divided on when AI will significantly change the world. The best approach isn't to pick a specific year, but to work with broad timelines that account for diverse expert opinions." — LessWrong, via TLDR AI</div>
-      <div style="margin-top:14px;"><a href="https://mail.google.com/mail/u/0/#all/19d0b66192368313" target="_blank" class="source-btn">↗ View in Gmail</a></div>
-    </div>
-
-    <div class="newsletter-card">
-      <div class="newsletter-header">
-        <div class="newsletter-avatar" style="background:linear-gradient(135deg,#EF4444,#EC4899);">R</div>
-        <div class="newsletter-info">
-          <h3>The Rundown Tech</h3>
-          <div class="subject">📱 Amazon's secret phone project + Uber's $1.25B Rivian robotaxi deal — Fri, Mar 20, 2026</div>
-        </div>
-        <span class="badge badge-red" style="margin-left:auto;">Tech</span>
-      </div>
-      <div class="newsletter-section">
-        <h4>🚀 Headlines &amp; Launches</h4>
-        <div class="newsletter-item">
-          <strong>Amazon's Secret Phone — Project "Transformer"</strong>
-          <p>Amazon is building a new smartphone codenamed "Transformer," led by ZeroOne — a year-old internal group headed by J Allard, the Microsoft exec behind the Xbox and Zune. The device is designed as an always-on Alexa conduit to Amazon's services ecosystem. Amazon is exploring both a full smartphone and a dumbphone variant — with the Light Phone as reference — suggesting they may target the screen-time backlash as a wedge. This is a bet that Alexa can finally earn permanent pocket real estate, more than a decade after the Fire Phone flop that left Amazon with a $170M write-down.</p>
-        </div>
-        <div class="newsletter-item">
-          <strong>Uber + Rivian: $1.25B Deal, 50,000 Robotaxis by 2031</strong>
-          <p>Uber is making a $1.25B investment in Rivian's R2 platform for 50,000 autonomous SUVs by 2031. First deployments: San Francisco and Miami in 2028, then ~25 cities across the US, Canada, and Europe. The R2 hardware stack includes 11 cameras, 5 radars, 1 lidar, and Rivian's in-house RAP1 chip with 1,600 TOPS. The differentiated pitch: Rivian controls the vehicle, compute, software, and US manufacturing as a vertically integrated stack. Major risk: R2 production hasn't started and the Georgia factory is still under construction.</p>
-        </div>
-        <div class="newsletter-item">
-          <strong>TransAstra: Mine Asteroids by Bagging Them</strong>
-          <p>NASA-backed TransAstra is developing an inflatable bag to capture small near-Earth asteroids whole — avoiding the challenges of landing on or drilling spinning, irregular surfaces. The approach: capture a ~100 metric ton house-sized asteroid, stabilize it, and tow to a controlled orbit for resource extraction. ISS microgravity tests have already validated components. An undisclosed customer is funding a feasibility study. Competitors: AstroForge, Karman+, Origin Space, Asteroid Mining Corporation.</p>
-        </div>
-      </div>
-      <div class="newsletter-section">
-        <h4>🧬 Deep Dives</h4>
-        <div class="newsletter-item">
-          <strong>CRISPR: One-Shot Cancer Treatment Coming?</strong>
-          <p>A Nature paper shows CRISPR can engineer CAR-T immune cells directly inside living mice, potentially replacing today's complex ex vivo manufacturing process. Current CAR-T costs $500K+ per patient and requires chemotherapy prep; in-body engineering could enable a single off-the-shelf injection. Still in mice with significant safety hurdles ahead, but the directional breakthrough is enormous for cancer immunotherapy access and cost.</p>
-        </div>
-      </div>
-      <div class="newsletter-section">
-        <h4>⚡ Quick Hits</h4>
-        <div class="quick-hit">US, Germany &amp; Canada disrupted 4 major botnets infecting 3M+ devices worldwide</div>
-        <div class="quick-hit">Apple's head of home hardware leaving for Oura smart ring as VP of hardware engineering</div>
-        <div class="quick-hit">Meta Creator Fast Track — pays TikTok/YouTube creators to post on Facebook</div>
-        <div class="quick-hit">Jeff Bezos' Blue Origin seeking permits for 52K AI-capable satellites for space data centers</div>
-        <div class="quick-hit">Meta opening flagship "Meta Lab" store on Fifth Avenue, Manhattan — 10-year lease, 5 floors</div>
-        <div class="quick-hit">Amazon rolling out 1-hour and 3-hour delivery across 90K+ items in the US</div>
-      </div>
-      <div class="newsletter-quote">"Amazon is exploring both a full smartphone and a pared-down dumbphone — suggesting it may be targeting the screen-time backlash as a way into a market Apple and Google have locked up." — The Rundown Tech</div>
-      <div style="margin-top:14px;"><a href="https://mail.google.com/mail/u/0/#all/19d0ba9ee49a7c09" target="_blank" class="source-btn">↗ View in Gmail</a></div>
-    </div>
-
-    <div class="newsletter-card">
-      <div class="newsletter-header">
-        <div class="newsletter-avatar" style="background:linear-gradient(135deg,#8B5CF6,#6366F1);">🦾</div>
-        <div class="newsletter-info">
-          <h3>TAAFT — There's An AI For That</h3>
-          <div class="subject">🦾 DIY Your Own AI Vision Camera — Fri, Mar 20, 2026</div>
-        </div>
-        <span class="badge badge-purple" style="margin-left:auto;">AI Tools</span>
-      </div>
-      <div class="newsletter-section">
-        <h4>🚀 Breaking News</h4>
-        <div class="newsletter-item">
-          <strong>Claude Code Gets Channels — Control Your AI From Your Phone</strong>
-          <p>Anthropic shipped Channels for Claude Code, letting developers control their coding session from Telegram or Discord. Cowork also added Projects on desktop. Both features push Claude toward the always-on agent experience that power users have been demanding. The emerging pattern: spin up agents in the morning, manage from mobile throughout the day, review outputs in the evening — async AI development becomes real.</p>
-        </div>
-        <div class="newsletter-item">
-          <strong>ChatGPT + Codex + Atlas = One Superapp</strong>
-          <p>Multiple reports confirm OpenAI is combining all three products after an all-hands where leadership cited fragmentation as a strategic liability. No timeline given. If you use multiple OpenAI products professionally, this consolidation will simplify your workflow — but it also signals OpenAI's intent to become a single-surface platform rather than a model API provider. The implications for developers who build on the API are worth watching closely.</p>
-        </div>
-        <div class="newsletter-item">
-          <strong>DoorDash Tasks — 8 Million Drivers Training AI</strong>
-          <p>DoorDash launched Tasks, paying Dashers to photograph menus, check shelves, and record walkthroughs for real-time business intelligence. The delivery workforce has become the world's largest AI data collection pipeline. This is a creative and massive crowdsourced approach to training AI on real-world physical environments that would otherwise require expensive dedicated hardware and field teams.</p>
-        </div>
-      </div>
-      <div class="newsletter-section">
-        <h4>🔨 Hardware Spotlight</h4>
-        <div class="newsletter-item">
-          <strong>DIY AI Vision Camera — Google's Hidden Gem Under $50</strong>
-          <p>Google's AIY Vision Kit is a cardboard-enclosed Raspberry Pi camera that runs neural networks entirely on-device for under $50 — no cloud, no subscription. Ships with a "Joy Detector" for real-time facial expression recognition, supports custom models via Google's pre-trained library. It teaches on-device AI inference from scratch in a hands-on, build-it-yourself format. Most people don't know it's sitting quietly on Google's website at aiyprojects.withgoogle.com/vision/.</p>
-        </div>
-      </div>
-      <div class="newsletter-section">
-        <h4>🔧 AI Tools of the Day</h4>
-        <div class="quick-hit"><strong>BrainGrid</strong> — turns a one-line idea into designs and AI-ready specs for agent deployment</div>
-        <div class="quick-hit"><strong>OverseerOS</strong> — reverse-engineers any YouTube channel into tone, hooks, and upload patterns</div>
-        <div class="quick-hit"><strong>Verdent</strong> — runs multiple AI coding agents in parallel across isolated workspaces with code review</div>
-        <div class="quick-hit"><strong>Whacka</strong> — build working apps from your phone with AI handling build/design/deployment</div>
-        <div class="quick-hit"><strong>Claude HUD</strong> — real-time statusline plugin for Claude Code (context, tools, agents, task progress)</div>
-        <div class="quick-hit"><strong>Arnis</strong> — generates accurate Minecraft worlds from real-world locations via OpenStreetMap</div>
-        <div class="quick-hit"><strong>Wispr Flow</strong> — speak naturally in 100+ languages mid-sentence, get polished send-ready text</div>
-      </div>
-      <div class="newsletter-section">
-        <h4>📊 AI Insights</h4>
-        <div class="newsletter-item">
-          <strong>Anthropic's 81,000-Person AI Study — Hope and Fear Coexist</strong>
-          <p>Anthropic published the largest qualitative AI study ever — 81,000 interviews across 159 countries and 70 languages. The headline finding: most people hold both hope and fear about AI simultaneously. The study challenges simplistic pro/anti narratives about public AI sentiment. It points toward the nuanced truth that most people want AI to augment their capabilities, not replace their judgment or identity.</p>
-        </div>
-        <div class="newsletter-item">
-          <strong>Bot Traffic Will Surpass Human Traffic by 2027</strong>
-          <p>Cloudflare's CEO reports AI agents visit websites 1,000× more frequently than humans doing equivalent tasks. Bot traffic is on track to exceed human traffic within a year. Implications: web analytics are already misleading; server costs will escalate from AI agent load; being cited by LLMs is becoming as important as SEO ranking on Google. The web's traffic composition is fundamentally changing.</p>
-        </div>
-      </div>
-      <div class="newsletter-quote">"The whole thing costs under $50 in parts, fits in your hand, and teaches you how on-device inference works from scratch." — TAAFT on Google's AIY Vision Kit</div>
-      <div style="margin-top:14px;"><a href="https://mail.google.com/mail/u/0/#all/19d0cde8ee778f79" target="_blank" class="source-btn">↗ View in Gmail</a></div>
-    </div>
-
-    <div class="newsletter-card">
-      <div class="newsletter-header">
-        <div class="newsletter-avatar" style="background:linear-gradient(135deg,#10B981,#06B6D4);">F</div>
+        <div class="newsletter-avatar" style="background:linear-gradient(135deg,var(--emerald),var(--cyan));">f</div>
         <div class="newsletter-info">
           <h3>finstory AI</h3>
-          <div class="subject">I turned a napkin sketch into a board-ready CFO report with AI (one prompt) — Sat, Mar 21, 2026</div>
+          <div class="subject">I turned a napkin sketch into a board-ready CFO report with AI (one prompt) &mdash; Mar 21, 2026</div>
         </div>
-        <span class="badge badge-emerald" style="margin-left:auto;">Finance AI</span>
+        <span class="badge badge-emerald" style="margin-left:auto;">Finance/AI</span>
       </div>
       <div class="newsletter-section">
-        <h4>🚀 Main Story</h4>
+        <h4>Headlines &amp; Launches</h4>
         <div class="newsletter-item">
-          <strong>Google Stitch: The Tool That Made Figma Drop 12%</strong>
-          <p>Google launched Stitch — a free AI design platform where you describe what you want in plain language (or upload a photo) and it builds a working, high-fidelity interface or report from scratch. No wireframes, no design background, no agency needed. The finstory AI author tested it live: photographed handwritten numbers on paper, uploaded the photo, typed one prompt, and received a premium executive financial report with a clean conclusion headline, three key metrics with context, a 12-month trend chart with color-coded performance zones, and a comparison table with driver callouts. The kind of output a strong FP&amp;A analyst builds in three hours on a Sunday night.</p>
-        </div>
-        <div class="newsletter-item">
-          <strong>The Prompt Is the Thinking — How to Get Board-Ready Output</strong>
-          <p>The key insight: the difference between a generic AI output and a boardroom-ready one is not the tool — it's the prompt. Don't ask Stitch for "a design." Ask it to "think like an FP&amp;A leader" and "lead with a single financial headline that states the business conclusion from these numbers." That's a judgment instruction, not a formatting instruction — and it's a completely different ask. The newsletter includes the exact copy-paste prompt that produced board-ready output from a napkin sketch photo.</p>
-        </div>
-        <div class="newsletter-item">
-          <strong>What This Means for Finance Teams</strong>
-          <p>Figma dropping 12% on launch day tells you what professionals understand: Google just made free what agencies charged for. That pattern doesn't stay in design software — it moves into every category of professional work, and finance reporting is clearly next. Teams that adapt their prompting strategy first — framing prompts as judgment instructions rather than formatting requests — will have a meaningful and immediate competitive advantage in reporting speed and quality.</p>
+          <strong>Google Stitch Launched</strong>
+          <p>Google Stitch is a free AI design tool that builds working financial reports from plain language. Figma dropped 12% on the day of the announcement. The tool supports voice input, critiques its own output in real time, and deploys in one click.</p>
         </div>
       </div>
       <div class="newsletter-section">
-        <h4>⚡ Quick Hits</h4>
-        <div class="quick-hit">Stitch deploys completed reports in one click from a voice or text prompt</div>
-        <div class="quick-hit">Live demo at google-stitch-finstory.netlify.app</div>
-        <div class="quick-hit">Finance teams can now prototype board decks without design tools or agencies</div>
-        <div class="quick-hit">Stitch critiques its own output in real time and refines based on feedback</div>
+        <h4>Deep Dives</h4>
+        <div class="newsletter-item">
+          <strong>Napkin Sketch to Board-Ready CFO Report</strong>
+          <p>The author tested Stitch on real financials by uploading a hand-drawn sketch of revenue, expenses, and net income. The AI produced a premium executive report with a clean headline, three KPIs, 12-month trend chart, comparison table, and driver callouts &mdash; work that normally takes an FP&amp;A analyst 3 hours to produce manually.</p>
+        </div>
       </div>
-      <div class="newsletter-quote">"The difference between a generic AI output and a boardroom-ready one is how you frame the prompt. Don't ask for a design. Ask for FP&A judgment built into a visual format. That is a completely different instruction." — finstory AI</div>
-      <div style="margin-top:14px;"><a href="https://mail.google.com/mail/u/0/#all/19d105366d96c0b3" target="_blank" class="source-btn">↗ View in Gmail</a></div>
+      <div class="newsletter-section">
+        <h4>Quick Hits</h4>
+        <div class="quick-hit">Stitch critiques its own work in real-time, responds to voice, deploys in one click</div>
+        <div class="quick-hit">Finance reporting is the next frontier after design software disruption</div>
+      </div>
+      <div class="newsletter-section">
+        <h4>Trending Tools</h4>
+        <div class="newsletter-item">
+          <strong>Google Stitch</strong>
+          <p>Available at google-stitch-finstory.netlify.app &mdash; free AI-powered design and reporting platform.</p>
+        </div>
+      </div>
+      <div class="newsletter-quote">"The difference between a generic AI output and a boardroom-ready one is how you frame the prompt."</div>
+      <div style="margin-top:14px;">
+        <a href="https://finstoryai.substack.com/p/i-turned-a-napkin-sketch-into-a-board" target="_blank" class="source-btn">Read Full Newsletter</a>
+      </div>
+    </div>
+
+    <!-- Self Daily AI Digest -->
+    <div class="newsletter-card fade-in">
+      <div class="newsletter-header">
+        <div class="newsletter-avatar" style="background:linear-gradient(135deg,var(--blue),var(--indigo));">S</div>
+        <div class="newsletter-info">
+          <h3>Self Daily AI Digest</h3>
+          <div class="subject">Your Daily AI Digest &mdash; March 21, 2026</div>
+        </div>
+        <span class="badge badge-blue" style="margin-left:auto;">AI/News</span>
+      </div>
+      <div class="newsletter-section">
+        <h4>Coverage Summary</h4>
+        <div class="newsletter-item">
+          <strong>AI</strong>
+          <p>OpenAI Superapp consolidation, DoorDash Tasks launch, Claude Code Channels, Mistral Small 4, NVIDIA GTC wrap-up.</p>
+        </div>
+        <div class="newsletter-item">
+          <strong>World</strong>
+          <p>Iran war week 4, Hormuz blocked, 3,000+ vessels stranded, Dubai crude at $160/bbl spot.</p>
+        </div>
+        <div class="newsletter-item">
+          <strong>Newsletter Sources</strong>
+          <p>Highlights from TAAFT, Rundown AI, Zapier, and Rundown Tech newsletters were synthesized into this digest.</p>
+        </div>
+      </div>
     </div>
 
   </div>
 </section>
 
+<!-- ===== COMPETITIVE LANDSCAPE ===== -->
 <section>
   <div class="container">
-    <div class="section-title">🏆 Competitive Landscape</div>
+    <div class="section-title">Competitive Landscape</div>
     <div class="grid-3">
-      <div class="comp-card">
-        <div class="comp-header"><div class="comp-logo">🟢</div><div><div class="comp-name">OpenAI</div><span class="badge badge-blue">Consolidating</span></div></div>
-        <p>Merging ChatGPT, Codex, and Atlas into a single Superapp — the biggest UX consolidation in AI history. Surpassed $25B ARR and taking early steps toward a public listing as soon as late 2026. The Astral acquisition adds Python tooling to Codex. OpenAI is increasingly a platform company, not just a model provider. GPT-5.4 leads benchmarks alongside Gemini 3.1 Pro and Claude Opus 4.6.</p>
-        <div class="comp-footer"><a href="https://releasebot.io/updates/openai" target="_blank" class="source-btn">↗ OpenAI Updates</a></div>
+
+      <div class="comp-card fade-in">
+        <div class="comp-header">
+          <div class="comp-logo">&#x1F7E2;</div>
+          <div class="comp-name">OpenAI</div>
+        </div>
+        <p>GPT-5.4 with 1M context, Superapp consolidation merging ChatGPT/Codex/Atlas. Revenue exceeds $25B with IPO exploration underway. Dominant position in consumer and enterprise AI.</p>
+        <div class="comp-footer"><span class="badge badge-blue">Dominant</span></div>
       </div>
-      <div class="comp-card">
-        <div class="comp-header"><div class="comp-logo">🔵</div><div><div class="comp-name">Google DeepMind</div><span class="badge badge-cyan">Expanding</span></div></div>
-        <p>Launched Stitch (free AI design, Figma -12%), Gemini 3.1 Pro leads AI benchmarks at 57 points, Flash-Lite delivers 2.5× faster responses at $0.25/M tokens. Testing a Gemini Mac app with Desktop Intelligence. Google's strategy: commoditize what competitors charge for across multiple product categories simultaneously, then monetize via ads and cloud.</p>
-        <div class="comp-footer"><a href="https://llm-stats.com/llm-updates" target="_blank" class="source-btn">↗ LLM Stats</a></div>
+
+      <div class="comp-card fade-in">
+        <div class="comp-header">
+          <div class="comp-logo">&#x1F50D;</div>
+          <div class="comp-name">Google DeepMind</div>
+        </div>
+        <p>Gemini 3.1 Pro scores 77.1% on ARC-AGI-2. Stitch launch disrupts design tools. Flash-Lite at $0.25/M tokens makes frontier inference accessible at commodity prices.</p>
+        <div class="comp-footer"><span class="badge badge-emerald">Advancing</span></div>
       </div>
-      <div class="comp-card">
-        <div class="comp-header"><div class="comp-logo">🟣</div><div><div class="comp-name">Anthropic</div><span class="badge badge-purple">Active</span></div></div>
-        <p>Shipped Channels for Claude Code (Telegram/Discord control), persistent memory for all users, Claude Sonnet &amp; Opus 4.6 with 1M-token context. DOD lawsuit drawing cross-industry solidarity from OpenAI and Google employees. Claude 4.6 models are benchmark-competitive with GPT-5.4 Pro. The focus: safety-first enterprise AI with memory and agentic capabilities as differentiators.</p>
-        <div class="comp-footer"><a href="https://renovateqr.com/blog/ai-model-releases-2026" target="_blank" class="source-btn">↗ Model Releases</a></div>
+
+      <div class="comp-card fade-in">
+        <div class="comp-header">
+          <div class="comp-logo">&#x1F4AC;</div>
+          <div class="comp-name">Meta AI</div>
+        </div>
+        <p>Llama 4 open-source with full agentic capability &mdash; plans, executes, maintains context. The biggest open-source AI release in years, giving developers free access to an agent-class model.</p>
+        <div class="comp-footer"><span class="badge badge-amber">Surging</span></div>
       </div>
-      <div class="comp-card">
-        <div class="comp-header"><div class="comp-logo">⚡</div><div><div class="comp-name">Meta AI</div><span class="badge badge-blue">Ecosystem</span></div></div>
-        <p>Creator Fast Track pays TikTok/YouTube creators to post on Facebook in a direct bid to rebuild creator ecosystem. Opening flagship "Meta Lab" store on Fifth Avenue. On AI, Meta's open-source Llama strategy continues — positioning as infrastructure for third-party applications while expanding hardware presence with smart glasses and AR/VR platforms.</p>
-        <div class="comp-footer"><a href="https://about.fb.com/news/2026/03/creator-fast-track-grow-your-audience-earn-money-on-facebook/" target="_blank" class="source-btn">↗ Meta News</a></div>
+
+      <div class="comp-card fade-in">
+        <div class="comp-header">
+          <div class="comp-logo">&#x1F310;</div>
+          <div class="comp-name">Mistral</div>
+        </div>
+        <p>Small 4 (119B MoE) multimodal reasoning model. Forge enterprise platform launched at GTC. On track for $1B ARR with lean European operations and open-weight philosophy.</p>
+        <div class="comp-footer"><span class="badge badge-purple">Growing</span></div>
       </div>
-      <div class="comp-card">
-        <div class="comp-header"><div class="comp-logo">🌊</div><div><div class="comp-name">Mistral</div><span class="badge badge-amber">Enterprise</span></div></div>
-        <p>Released Small 4 (119B MoE multimodal). CEO Arthur Mensch says enterprise focus is paying off — on track for $1B ARR this year. Unveiled Mistral Forge at NVIDIA GTC: a "build-your-own AI" enterprise platform. Mistral's bet: enterprises want customizable, private AI, not shared model access. Growing at $1B ARR on that thesis alone.</p>
-        <div class="comp-footer"><a href="https://techcrunch.com/2026/03/17/mistral-forge-nvidia-gtc-build-your-own-ai-enterprise/" target="_blank" class="source-btn">↗ TechCrunch</a></div>
+
+      <div class="comp-card fade-in">
+        <div class="comp-header">
+          <div class="comp-logo">&#x1F9E0;</div>
+          <div class="comp-name">Anthropic</div>
+        </div>
+        <p>Opus/Sonnet 4.6 with 1M context. Office integration puts Opus in PowerPoint and Excel. Memory features across conversations. Claude Code Channels for Telegram/Discord. DOD lawsuit support from competitors.</p>
+        <div class="comp-footer"><span class="badge badge-indigo">Expanding</span></div>
       </div>
-      <div class="comp-card">
-        <div class="comp-header"><div class="comp-logo">🚀</div><div><div class="comp-name">Cursor / Perplexity</div><span class="badge badge-emerald">Challengers</span></div></div>
-        <p>Cursor released Composer 2 — frontier coding at lower cost, undercutting all competitors in AI dev tools. Perplexity launched Perplexity Health (US), expanding from finance into healthcare. Both winning by focusing on specific high-value verticals. Perplexity's credit running-low notices signal rapid user growth. Both companies are proving that vertical-specific AI beats general-purpose in conversion and retention.</p>
-        <div class="comp-footer"><a href="https://cursor.com/blog/composer-2" target="_blank" class="source-btn">↗ Cursor Blog</a></div>
+
+      <div class="comp-card fade-in">
+        <div class="comp-header">
+          <div class="comp-logo">&#x26A1;</div>
+          <div class="comp-name">Challengers</div>
+        </div>
+        <p>MiniMax M2.5 rivals Opus at lower cost. Cursor Composer 2 upgrade enhances AI coding. Perplexity expanding into health and finance verticals. The challenger tier is increasingly competitive.</p>
+        <div class="comp-footer"><span class="badge badge-pink">Emerging</span></div>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- ===== AI TOOL GUIDE ===== -->
 <section>
   <div class="container">
-    <div class="section-title">🛠️ AI Tool Guide</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:16px;">
-      <div class="tool-card">
-        <div class="tool-label">TIP 01 · Mindset</div>
-        <h3>Avoid the AI Exoskeleton Effect</h3>
-        <p>As AI handles more cognitive work, there's a risk of skill atrophy — using AI as a permanent exoskeleton rather than a gym that builds you stronger. The best practitioners use AI to accelerate their thinking, not replace it. Stay actively in the loop on outputs, critique them, and periodically work without AI to preserve judgment. Anthropic's 81,000-person study found most people want AI to augment, not replace, their thinking — align with that instinct.</p>
-        <div class="tool-footer"><a href="https://www.anthropic.com/features/81k-interviews" target="_blank" class="source-btn">↗ Anthropic Study</a></div>
+    <div class="section-title">AI Tool Guide</div>
+    <div class="grid-2">
+
+      <div class="tool-card fade-in" style="border-left-color:var(--purple);">
+        <div class="tool-label">Mindset</div>
+        <h3>The Exoskeleton Effect</h3>
+        <p>AI amplifies capability but over-reliance atrophies judgment. Use AI as a collaborator, not a replacement. Maintain critical thinking skills alongside AI tools to avoid dependency and preserve decision-making quality.</p>
+        <div class="tool-footer"><a href="https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/agentic-ai-strategy.html" target="_blank" class="source-btn">Deloitte</a></div>
       </div>
-      <div class="tool-card">
-        <div class="tool-label">TIP 02 · Build</div>
-        <h3>Build Agentic Workflows Without Code</h3>
-        <p>Gumloop and n8n let you build multi-step agentic workflows without writing code — combining AI reasoning steps with app integrations, conditional logic, and parallel execution. The 2026 guide identifies four patterns: single agent, hierarchical multi-agent, sequential pipeline, and decentralized swarm. Start with single-agent workflows for your highest-friction repetitive tasks. Graduate to multi-agent for complex cross-system automation.</p>
-        <div class="tool-footer"><a href="https://www.gumloop.com/blog/how-to-build-agentic-ai-workflows" target="_blank" class="source-btn">↗ Gumloop Guide</a></div>
+
+      <div class="tool-card fade-in" style="border-left-color:var(--blue);">
+        <div class="tool-label">Build</div>
+        <h3>No-Code Agentic Workflows</h3>
+        <p>Gumloop enables no-code agentic workflows. n8n provides open-source automation. Claude Code + MCP servers let you build sophisticated agents without traditional coding &mdash; lowering the barrier to production-grade AI automation.</p>
+        <div class="tool-footer"><a href="https://www.gumloop.com/blog/how-to-build-agentic-ai-workflows" target="_blank" class="source-btn">Gumloop</a></div>
       </div>
-      <div class="tool-card">
-        <div class="tool-label">TIP 03 · Hardware</div>
-        <h3>Build On-Device AI for Under $50 With Google AIY</h3>
-        <p>Google's AIY Vision Kit is a Raspberry Pi-based camera that runs neural networks entirely on-device — no cloud, no subscription, under $50. Ships with a "Joy Detector" for real-time facial expression recognition. Supports custom models. The fastest, cheapest way to learn on-device AI inference from scratch. Find it at aiyprojects.withgoogle.com/vision — most people don't know it exists.</p>
-        <div class="tool-footer"><a href="https://aiyprojects.withgoogle.com/vision/" target="_blank" class="source-btn">↗ Google AIY Kit</a></div>
+
+      <div class="tool-card fade-in" style="border-left-color:var(--amber);">
+        <div class="tool-label">Hardware</div>
+        <h3>Desktop AI &amp; On-Device Inference</h3>
+        <p>NVIDIA DGX Station brings data center AI to the desktop. Apple Private Cloud Compute runs Gemini models with strict privacy guarantees. On-device inference is becoming practical as smaller MoE models reduce compute requirements.</p>
+        <div class="tool-footer"><a href="https://www.nvidia.com/en-us/ai/" target="_blank" class="source-btn">NVIDIA</a></div>
       </div>
-      <div class="tool-card">
-        <div class="tool-label">TIP 04 · Reports &amp; Design</div>
-        <h3>Turn Sketches Into Reports With Google Stitch</h3>
-        <p>Google Stitch accepts plain-language descriptions, sketch photos, or voice input and generates fully working, high-fidelity reports and interfaces — free. Key: frame the prompt as a judgment instruction, not a formatting request. Instead of "make a nice chart," write "you are an FP&amp;A leader — lead with a headline that states the business conclusion from these numbers." The difference in output quality is dramatic. Tool critiques itself in real time and deploys in one click.</p>
-        <div class="tool-footer"><a href="https://finstoryai.substack.com/p/i-turned-a-napkin-sketch-into-a-board" target="_blank" class="source-btn">↗ finstory AI</a></div>
+
+      <div class="tool-card fade-in" style="border-left-color:var(--pink);">
+        <div class="tool-label">Creativity</div>
+        <h3>Sketch-to-Production Design</h3>
+        <p>Google Stitch turns sketches into production designs for free. Generative 3D and video tools are maturing rapidly. AI-assisted design is now accessible to non-designers, democratizing visual communication and reporting.</p>
+        <div class="tool-footer"><a href="https://finstoryai.substack.com/p/i-turned-a-napkin-sketch-into-a-board" target="_blank" class="source-btn">finstory AI</a></div>
       </div>
-      <div class="tool-card">
-        <div class="tool-label">TIP 05 · Productivity</div>
-        <h3>Use Claude Code Channels for Async Agent Control</h3>
-        <p>Anthropic's Channels feature lets you control Claude Code from Telegram or Discord — delegate coding tasks, check progress, and redirect agents from your phone. Pair with Cowork Projects for a complete async AI development workflow. The emerging pattern: spin up agents in the morning, manage via mobile throughout the day, review outputs in the evening. This is how professional AI-augmented work is evolving in 2026.</p>
-        <div class="tool-footer"><a href="https://code.claude.com/docs/en/channels" target="_blank" class="source-btn">↗ Claude Docs</a></div>
+
+      <div class="tool-card fade-in" style="border-left-color:var(--emerald);">
+        <div class="tool-label">Productivity</div>
+        <h3>Copilot Agent Mode</h3>
+        <p>Copilot Agent Mode orchestrates cross-app tasks autonomously within Microsoft 365. Match workflow architecture to the specific use case rather than chasing maximum autonomy &mdash; the right level of AI assistance depends on the task.</p>
+        <div class="tool-footer"><a href="https://www.hubsite365.com/en-ww/crm-pages/top-4-copilot-for-microsoft-365-features-in-2026-q1-update-new-ai-superpowers.htm" target="_blank" class="source-btn">HubSite365</a></div>
       </div>
-      <div class="tool-card">
-        <div class="tool-label">TIP 06 · Coding</div>
-        <h3>Best Coding Model Right Now: Cursor Composer 2</h3>
-        <p>As of March 2026, Cursor Composer 2 is the best cost-performance choice for AI-assisted software development — frontier-level quality at lower token pricing than GPT-5.4 or Claude Opus for coding tasks. For complex architecture decisions requiring deep reasoning, Claude Opus 4.6 and GPT-5.4 Thinking remain strongest. Strategic play: use Composer 2 for daily development work, escalate to frontier reasoning models for architecture decisions.</p>
-        <div class="tool-footer"><a href="https://cursor.com/blog/composer-2" target="_blank" class="source-btn">↗ Cursor Blog</a></div>
+
+      <div class="tool-card fade-in" style="border-left-color:var(--indigo);">
+        <div class="tool-label">Coding</div>
+        <h3>Claude Opus 4.6 + Cursor Composer 2</h3>
+        <p>Claude Opus 4.6 is the current best coding model with 1M context. Cursor Composer 2 and Claude Code Channels expand AI coding accessibility. Together they represent the frontier of AI-assisted software development.</p>
+        <div class="tool-footer"><a href="https://cursor.com/blog/composer-2" target="_blank" class="source-btn">Cursor Blog</a></div>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- ===== FOOTER ===== -->
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <div class="footer-ts">Generated: <span id="gen-time"></span> · Koda Digest v2.0</div>
-      <div class="footer-sources">Sources: Google Calendar · Gmail · WebSearch · TLDR AI · The Rundown Tech · TAAFT · finstory AI · NPR · Bloomberg · TechCrunch · Yahoo Finance · NotebookLM</div>
-      <div class="footer-ts">NotebookLM: <a href="https://notebooklm.google.com/notebook/f928d89b-2520-4180-a71a-d93a75a5487c" target="_blank" style="color:var(--blue);">f928d89b-…-d93a75a5487c</a></div>
+      <div class="footer-ts">Generated: 2026-03-21T06:00:00Z</div>
+      <div class="footer-sources">Sources: WSJ, NPR, CNN, Bloomberg, Google, Anthropic, Meta, NVIDIA, TechCrunch, Substack, Euronews</div>
     </div>
   </div>
 </footer>
 
 <script>
-function toggleDark(){const h=document.documentElement;const d=h.getAttribute('data-theme')==='dark';h.setAttribute('data-theme',d?'light':'dark');document.querySelector('.dark-toggle').textContent=d?'🌙 Dark Mode':'☀️ Light Mode';}
-document.getElementById('gen-time').textContent=new Date().toLocaleString();
-(function initDayNav(){const dateStr=document.body.getAttribute('data-digest-date');if(!dateStr)return;const[y,m,d]=dateStr.split('-').map(Number);const curr=new Date(y,m-1,d);const mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];const fmt=dt=>`${mo[dt.getMonth()]} ${dt.getDate()}`;const iso=dt=>`${dt.getFullYear()}-${String(dt.getMonth()+1).padStart(2,'0')}-${String(dt.getDate()).padStart(2,'0')}`;const fn=dt=>`morning-briefing-koda-${iso(dt)}.html`;const prev=new Date(curr);prev.setDate(prev.getDate()-1);const next=new Date(curr);next.setDate(next.getDate()+1);document.getElementById('nav-current').textContent=fmt(curr);document.getElementById('nav-prev-label').textContent=fmt(prev);document.getElementById('nav-next-label').textContent=fmt(next);['nav-prev','nav-next'].forEach((id,i)=>{const dt=i===0?prev:next;fetch(fn(dt),{method:'HEAD'}).then(r=>{if(r.ok){const b=document.getElementById(id);b.href=fn(dt);b.classList.remove('disabled');}}).catch(()=>{});});})();
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';obs.unobserve(e.target);}});},{threshold:0.06});
-document.querySelectorAll('.news-card,.newsletter-card,.market-card,.comp-card,.tool-card,.focus-item,.infographic,.podcast-card,.kpi-card,.card').forEach(el=>{el.style.cssText+='opacity:0;transform:translateY(16px);transition:opacity 0.45s ease,transform 0.45s ease;';obs.observe(el);});
+/* ===== Dark Mode Toggle ===== */
+function toggleDark(){
+  const html=document.documentElement;
+  const btn=document.getElementById('darkToggleBtn');
+  if(html.getAttribute('data-theme')==='dark'){
+    html.setAttribute('data-theme','light');
+    btn.textContent='Dark Mode';
+  }else{
+    html.setAttribute('data-theme','dark');
+    btn.textContent='Light Mode';
+  }
+  try{localStorage.setItem('koda-theme',html.getAttribute('data-theme'));}catch(e){}
+}
+(function initTheme(){
+  try{
+    var saved=localStorage.getItem('koda-theme');
+    if(saved){
+      document.documentElement.setAttribute('data-theme',saved);
+      var btn=document.getElementById('darkToggleBtn');
+      if(btn) btn.textContent=saved==='dark'?'Light Mode':'Dark Mode';
+    }
+  }catch(e){}
+})();
+
+/* ===== Day Navigation ===== */
+(function initDayNav(){
+  var dateStr=document.body.getAttribute('data-digest-date');
+  if(!dateStr) return;
+  var parts=dateStr.split('-').map(Number);
+  var curr=new Date(parts[0],parts[1]-1,parts[2]);
+  var mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var fmt=function(dt){return mo[dt.getMonth()]+' '+dt.getDate();};
+  var iso=function(dt){return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');};
+  var fn=function(dt){return 'morning-briefing-koda-'+iso(dt)+'.html';};
+  var prev=new Date(curr); prev.setDate(prev.getDate()-1);
+  var next=new Date(curr); next.setDate(next.getDate()+1);
+  document.getElementById('nav-current').textContent=fmt(curr);
+  document.getElementById('nav-prev-label').textContent=fmt(prev);
+  document.getElementById('nav-next-label').textContent=fmt(next);
+  ['nav-prev','nav-next'].forEach(function(id,i){
+    var dt=i===0?prev:next;
+    fetch(fn(dt),{method:'HEAD'})
+      .then(function(r){if(r.ok){var b=document.getElementById(id);b.href=fn(dt);b.classList.remove('disabled');}})
+      .catch(function(){});
+  });
+})();
+
+/* ===== Scroll Fade-In Animation ===== */
+(function initScrollAnim(){
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.fade-in').forEach(function(el){observer.observe(el);});
+})();
 </script>
 </body>
 </html>
