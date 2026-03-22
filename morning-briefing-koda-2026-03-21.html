@@ -43,7 +43,44 @@ section{padding:28px 0;}
 .kpi-card{background:var(--surface);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:16px 18px;text-align:center;box-shadow:var(--shadow);}
 .kpi-value{font-size:26px;font-weight:800;font-family:'JetBrains Mono',monospace;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .kpi-label{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-top:4px;font-weight:600;}
-.infographic{background:var(--surface);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:16px;box-shadow:var(--shadow);overflow:hidden;}
+.infographic{background:linear-gradient(135deg,#0a0f1e 0%,#0d1528 40%,#111827 100%);border:1px solid rgba(59,130,246,.25);border-radius:20px;padding:0;box-shadow:0 8px 40px rgba(0,0,0,.5);overflow:hidden;color:#e2e8f0;}
+.inf-header{text-align:center;padding:20px 24px 14px;border-bottom:1px solid rgba(255,255,255,.06);background:linear-gradient(180deg,rgba(59,130,246,.08),transparent);}
+.inf-header h2{font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:2px;background:linear-gradient(90deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px;}
+.inf-header .inf-date{font-size:11px;color:#64748b;font-family:'JetBrains Mono',monospace;letter-spacing:1px;}
+.inf-grid{display:grid;grid-template-columns:1fr 1fr 1fr;min-height:420px;}
+@media(max-width:900px){.inf-grid{grid-template-columns:1fr;}}
+.inf-zone{padding:18px;border-right:1px solid rgba(255,255,255,.05);}
+.inf-zone:last-child{border-right:none;}
+.inf-zone-title{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:6px 12px;border-radius:6px;display:inline-block;margin-bottom:14px;}
+.inf-zone-ai .inf-zone-title{color:#60a5fa;background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.25);}
+.inf-zone-world .inf-zone-title{color:#f87171;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.25);}
+.inf-zone-market .inf-zone-title{color:#34d399;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.25);}
+.inf-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:10px 12px;margin-bottom:8px;transition:border-color .2s;}
+.inf-item:hover{border-color:rgba(255,255,255,.15);}
+.inf-item h4{font-size:12px;font-weight:700;margin-bottom:3px;line-height:1.3;}
+.inf-item p{font-size:10px;color:#94a3b8;line-height:1.4;margin:0;}
+.inf-zone-ai .inf-item h4{color:#93c5fd;}
+.inf-zone-world .inf-item h4{color:#fca5a5;}
+.inf-zone-market .inf-item h4{color:#6ee7b7;}
+.inf-metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
+.inf-metric{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:10px 12px;text-align:center;}
+.inf-metric .ticker{font-family:'JetBrains Mono',monospace;font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:1px;}
+.inf-metric .price{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:800;margin:4px 0 2px;}
+.inf-metric .change{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;}
+.inf-metric.down .price,.inf-metric.down .change{color:#f87171;}
+.inf-metric.up .price,.inf-metric.up .change{color:#34d399;}
+.inf-oil-bar{background:linear-gradient(90deg,rgba(239,68,68,.15),rgba(239,68,68,.3));border:1px solid rgba(239,68,68,.3);border-radius:10px;padding:12px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;}
+.inf-oil-bar .label{font-family:'JetBrains Mono',monospace;font-size:10px;color:#fca5a5;font-weight:600;}
+.inf-oil-bar .value{font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:800;color:#f87171;}
+.inf-sentiment{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:12px;text-align:center;}
+.inf-sentiment .label{font-family:'JetBrains Mono',monospace;font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:1px;}
+.inf-sentiment .value{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:800;color:#fbbf24;margin:4px 0;}
+.inf-sentiment p{font-size:10px;color:#94a3b8;margin:0;}
+.inf-bottom-strip{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid rgba(255,255,255,.06);background:rgba(99,102,241,.04);}
+.inf-bottom-item{padding:14px 18px;border-right:1px solid rgba(255,255,255,.05);text-align:center;}
+.inf-bottom-item:last-child{border-right:none;}
+.inf-bottom-item h4{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:#a5b4fc;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.inf-bottom-item p{font-size:10px;color:#94a3b8;margin:0;line-height:1.4;}
 .podcast-card{background:linear-gradient(135deg,#1a1a2e,#16213e);border:1px solid rgba(99,102,241,.3);border-radius:20px;padding:26px;box-shadow:0 8px 32px rgba(0,0,0,.3);}
 .podcast-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px;}
 .podcast-icon{padding:8px 14px;background:linear-gradient(135deg,var(--indigo),var(--purple));border-radius:10px;font-size:14px;white-space:nowrap;color:white;font-weight:700;}
@@ -179,121 +216,50 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:22px
   <div class="container">
     <div class="section-title">Daily Infographic</div>
     <div class="infographic fade-in">
-      <svg viewBox="0 0 1100 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
-        <defs>
-          <style>
-            .inf-title{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;}
-            .inf-body{font-family:Inter,sans-serif;font-size:10px;}
-            .inf-sub{font-family:Inter,sans-serif;font-size:9px;fill:#94A3B8;}
-          </style>
-        </defs>
-        <!-- Zone backgrounds -->
-        <rect x="8" y="8" width="334" height="384" rx="14" fill="rgba(59,130,246,.06)" stroke="rgba(59,130,246,.18)" stroke-width="1.2"/>
-        <rect x="358" y="8" width="348" height="384" rx="14" fill="rgba(239,68,68,.05)" stroke="rgba(239,68,68,.15)" stroke-width="1.2"/>
-        <rect x="722" y="8" width="370" height="384" rx="14" fill="rgba(16,185,129,.05)" stroke="rgba(16,185,129,.15)" stroke-width="1.2"/>
-        <!-- Zone titles -->
-        <text x="175" y="34" text-anchor="middle" class="inf-title" fill="#3B82F6">AI BREAKTHROUGHS</text>
-        <text x="532" y="34" text-anchor="middle" class="inf-title" fill="#EF4444">WORLD NEWS</text>
-        <text x="907" y="34" text-anchor="middle" class="inf-title" fill="#10B981">MARKETS</text>
-        <!-- Connectors -->
-        <line x1="342" y1="200" x2="358" y2="200" stroke="rgba(99,102,241,.5)" stroke-width="1.5" stroke-dasharray="4,3"/>
-        <line x1="706" y1="200" x2="722" y2="200" stroke="rgba(99,102,241,.5)" stroke-width="1.5" stroke-dasharray="4,3"/>
-
+      <div class="inf-header">
+        <h2>Koda Intelligence: State of the World</h2>
+        <div class="inf-date">March 21, 2026 &mdash; The Agentic Shift &amp; The Hormuz Crisis</div>
+      </div>
+      <div class="inf-grid">
         <!-- AI Zone -->
-        <rect x="22" y="48" width="305" height="48" rx="8" fill="rgba(59,130,246,.1)" stroke="rgba(59,130,246,.2)" stroke-width="1"/>
-        <text x="32" y="65" class="inf-body" font-weight="700" fill="#3B82F6">OpenAI Superapp + GPT-5.4</text>
-        <text x="32" y="78" class="inf-body" fill="#64748B">ChatGPT+Codex+Atlas merged | 1M context</text>
-        <text x="32" y="90" class="inf-sub">$25B+ ARR | 75% OSWorld-V | IPO explored</text>
-
-        <rect x="22" y="102" width="305" height="48" rx="8" fill="rgba(139,92,246,.1)" stroke="rgba(139,92,246,.2)" stroke-width="1"/>
-        <text x="32" y="119" class="inf-body" font-weight="700" fill="#8B5CF6">Anthropic Opus/Sonnet 4.6</text>
-        <text x="32" y="132" class="inf-body" fill="#64748B">1M context | Office integration | Memory</text>
-        <text x="32" y="144" class="inf-sub">Claude Code Channels for Telegram/Discord</text>
-
-        <rect x="22" y="156" width="305" height="48" rx="8" fill="rgba(6,182,212,.1)" stroke="rgba(6,182,212,.2)" stroke-width="1"/>
-        <text x="32" y="173" class="inf-body" font-weight="700" fill="#06B6D4">Google Gemini 3.1 Pro + Stitch</text>
-        <text x="32" y="186" class="inf-body" fill="#64748B">77.1% ARC-AGI-2 | Figma -12%</text>
-        <text x="32" y="198" class="inf-sub">Flash-Lite $0.25/M | Free design tool</text>
-
-        <rect x="22" y="210" width="305" height="48" rx="8" fill="rgba(16,185,129,.1)" stroke="rgba(16,185,129,.2)" stroke-width="1"/>
-        <text x="32" y="227" class="inf-body" font-weight="700" fill="#10B981">Meta Llama 4 Open-Source</text>
-        <text x="32" y="240" class="inf-body" fill="#64748B">Full agentic AI | Plans, executes, context</text>
-        <text x="32" y="252" class="inf-sub">Biggest open release in years</text>
-
-        <rect x="22" y="264" width="305" height="48" rx="8" fill="rgba(245,158,11,.1)" stroke="rgba(245,158,11,.2)" stroke-width="1"/>
-        <text x="32" y="281" class="inf-body" font-weight="700" fill="#F59E0B">NVIDIA Nemotron 3 + Mistral Small 4</text>
-        <text x="32" y="294" class="inf-body" fill="#64748B">120B MoE (12B active) | 119B multimodal</text>
-        <text x="32" y="306" class="inf-sub">GTC showcase | Enterprise AI platforms</text>
-
-        <rect x="22" y="318" width="305" height="48" rx="8" fill="rgba(236,72,153,.08)" stroke="rgba(236,72,153,.18)" stroke-width="1"/>
-        <text x="32" y="335" class="inf-body" font-weight="700" fill="#EC4899">DoorDash Tasks + MiniMax M2.5</text>
-        <text x="32" y="348" class="inf-body" fill="#64748B">8M drivers as data collectors</text>
-        <text x="32" y="360" class="inf-sub">Chinese AI rivals Opus at lower cost</text>
-
-        <!-- World News Zone -->
-        <rect x="372" y="48" width="320" height="54" rx="8" fill="rgba(239,68,68,.1)" stroke="rgba(239,68,68,.2)" stroke-width="1"/>
-        <text x="382" y="66" class="inf-body" font-weight="700" fill="#EF4444">Iran War &mdash; Week 4</text>
-        <text x="382" y="80" class="inf-body" fill="#64748B">Hormuz blocked | 3,000+ vessels stranded</text>
-        <text x="382" y="94" class="inf-sub">Oil &gt;$110/bbl | Trump: &quot;hit and obliterate&quot;</text>
-
-        <rect x="372" y="108" width="320" height="54" rx="8" fill="rgba(239,68,68,.08)" stroke="rgba(239,68,68,.15)" stroke-width="1"/>
-        <text x="382" y="126" class="inf-body" font-weight="700" fill="#DC2626">Iran Missiles Hit US-UK Base</text>
-        <text x="382" y="140" class="inf-body" fill="#64748B">Ballistic missiles at Indian Ocean base</text>
-        <text x="382" y="154" class="inf-sub">Trump suggests &quot;winding down&quot; | More Marines</text>
-
-        <rect x="372" y="168" width="320" height="54" rx="8" fill="rgba(245,158,11,.08)" stroke="rgba(245,158,11,.15)" stroke-width="1"/>
-        <text x="382" y="186" class="inf-body" font-weight="700" fill="#D97706">Lebanon: 1,000+ Killed Since Mar 2</text>
-        <text x="382" y="200" class="inf-body" fill="#64748B">Including 111 children | Humanitarian crisis</text>
-        <text x="382" y="214" class="inf-sub">Escalation continues across region</text>
-
-        <rect x="372" y="228" width="320" height="54" rx="8" fill="rgba(99,102,241,.07)" stroke="rgba(99,102,241,.15)" stroke-width="1"/>
-        <text x="382" y="246" class="inf-body" font-weight="700" fill="#6366F1">Musk Liable for Twitter Fraud</text>
-        <text x="382" y="260" class="inf-body" fill="#64748B">Misled investors before $44B acquisition</text>
-        <text x="382" y="274" class="inf-sub">Federal jury ruling | Major precedent</text>
-
-        <rect x="372" y="288" width="320" height="38" rx="8" fill="rgba(16,185,129,.07)" stroke="rgba(16,185,129,.15)" stroke-width="1"/>
-        <text x="382" y="306" class="inf-body" font-weight="700" fill="#059669">Robert Mueller Dies at 81</text>
-        <text x="382" y="319" class="inf-sub">Former FBI Director and Special Counsel</text>
-
-        <rect x="372" y="332" width="320" height="38" rx="8" fill="rgba(6,182,212,.07)" stroke="rgba(6,182,212,.15)" stroke-width="1"/>
-        <text x="382" y="350" class="inf-body" font-weight="700" fill="#0891B2">Ukraine Drone Defense Nets</text>
-        <text x="382" y="363" class="inf-sub">Overhead netting vs Russian FPV drones</text>
-
+        <div class="inf-zone inf-zone-ai">
+          <div class="inf-zone-title">The AI Frontier</div>
+          <div class="inf-item"><h4>OpenAI Superapp + GPT-5.4</h4><p>ChatGPT+Codex+Atlas merged. 1M context. 75% OSWorld-V (above 72.4% human). $25B+ ARR, IPO explored.</p></div>
+          <div class="inf-item"><h4>Anthropic Opus/Sonnet 4.6</h4><p>1M context window. Deployed in PowerPoint &amp; Excel. Memory features. Claude Code Channels.</p></div>
+          <div class="inf-item"><h4>Google Gemini 3.1 + Stitch</h4><p>77.1% ARC-AGI-2. Stitch: free AI design tool. Figma stock &minus;12%. Flash-Lite at $0.25/M tokens.</p></div>
+          <div class="inf-item"><h4>Meta Llama 4 Open-Source</h4><p>Full agentic capability. Plans, executes, maintains context. Biggest open release in years.</p></div>
+          <div class="inf-item"><h4>NVIDIA Nemotron 3 + Mistral Small 4</h4><p>120B MoE (12B active) at GTC. Mistral 119B multimodal. Enterprise AI platforms.</p></div>
+          <div class="inf-item"><h4>DoorDash Tasks + MiniMax M2.5</h4><p>8M drivers become AI data collectors. Chinese AI rivals Opus at lower cost.</p></div>
+        </div>
+        <!-- World Zone -->
+        <div class="inf-zone inf-zone-world">
+          <div class="inf-zone-title">Global Conflict &amp; Energy Crisis</div>
+          <div class="inf-item"><h4>Iran War &mdash; Week 4</h4><p>Hormuz blocked. 3,000+ vessels stranded. Trump threatens to &ldquo;hit and obliterate&rdquo; power plants.</p></div>
+          <div class="inf-item"><h4>Iran Missiles Hit US-UK Base</h4><p>Ballistic missiles at Indian Ocean base. Trump suggests &ldquo;winding down&rdquo; while deploying more Marines.</p></div>
+          <div class="inf-item"><h4>Lebanon: 1,000+ Killed Since Mar 2</h4><p>Including 111 children. Humanitarian crisis deepens as regional escalation continues.</p></div>
+          <div class="inf-item"><h4>Musk Liable for Twitter Fraud</h4><p>Jury finds deliberate stock price manipulation before $44B acquisition. Major precedent.</p></div>
+          <div class="inf-item"><h4>Robert Mueller Dies at 81</h4><p>Former FBI Director and Special Counsel who investigated Russia-Trump campaign ties.</p></div>
+          <div class="inf-item"><h4>Ukraine Drone Defense Nets</h4><p>Towns cover roads with overhead netting to defend against persistent Russian FPV drone attacks.</p></div>
+        </div>
         <!-- Markets Zone -->
-        <rect x="736" y="48" width="162" height="68" rx="8" fill="rgba(239,68,68,.09)" stroke="rgba(239,68,68,.2)" stroke-width="1"/>
-        <text x="748" y="66" class="inf-body" font-weight="700" fill="#94A3B8" font-family="'JetBrains Mono',monospace">S&amp;P 500</text>
-        <text x="748" y="88" font-family="'JetBrains Mono',monospace" font-size="18" font-weight="800" fill="#EF4444">6,506</text>
-        <text x="748" y="107" font-family="'JetBrains Mono',monospace" font-size="10" fill="#EF4444">&#x25BC; -1.51%</text>
-
-        <rect x="912" y="48" width="162" height="68" rx="8" fill="rgba(239,68,68,.09)" stroke="rgba(239,68,68,.2)" stroke-width="1"/>
-        <text x="924" y="66" class="inf-body" font-weight="700" fill="#94A3B8" font-family="'JetBrains Mono',monospace">NASDAQ</text>
-        <text x="924" y="88" font-family="'JetBrains Mono',monospace" font-size="18" font-weight="800" fill="#EF4444">21,648</text>
-        <text x="924" y="107" font-family="'JetBrains Mono',monospace" font-size="10" fill="#EF4444">&#x25BC; -2.01%</text>
-
-        <rect x="736" y="126" width="162" height="68" rx="8" fill="rgba(16,185,129,.09)" stroke="rgba(16,185,129,.2)" stroke-width="1"/>
-        <text x="748" y="144" class="inf-body" font-weight="700" fill="#94A3B8" font-family="'JetBrains Mono',monospace">BITCOIN</text>
-        <text x="748" y="166" font-family="'JetBrains Mono',monospace" font-size="16" font-weight="800" fill="#10B981">$70,569</text>
-        <text x="748" y="184" font-family="'JetBrains Mono',monospace" font-size="10" fill="#10B981">&#x25B2; +0.38%</text>
-
-        <rect x="912" y="126" width="162" height="68" rx="8" fill="rgba(16,185,129,.09)" stroke="rgba(16,185,129,.2)" stroke-width="1"/>
-        <text x="924" y="144" class="inf-body" font-weight="700" fill="#94A3B8" font-family="'JetBrains Mono',monospace">ETHEREUM</text>
-        <text x="924" y="166" font-family="'JetBrains Mono',monospace" font-size="16" font-weight="800" fill="#10B981">$2,154</text>
-        <text x="924" y="184" font-family="'JetBrains Mono',monospace" font-size="10" fill="#10B981">&#x25B2; +0.89%</text>
-
-        <rect x="736" y="204" width="338" height="46" rx="8" fill="rgba(239,68,68,.1)" stroke="rgba(239,68,68,.25)" stroke-width="1"/>
-        <text x="748" y="222" class="inf-body" font-weight="700" fill="#94A3B8" font-family="'JetBrains Mono',monospace">BRENT CRUDE &nbsp; WAR PREMIUM</text>
-        <text x="748" y="240" font-family="'JetBrains Mono',monospace" font-size="15" font-weight="800" fill="#EF4444">$112.19/bbl  &#x25B2; +50% since conflict</text>
-
-        <rect x="736" y="260" width="338" height="52" rx="8" fill="rgba(239,68,68,.06)" stroke="rgba(239,68,68,.14)" stroke-width="1"/>
-        <text x="748" y="278" class="inf-body" font-weight="700" fill="#94A3B8" font-family="'JetBrains Mono',monospace">MARKET SENTIMENT</text>
-        <text x="748" y="298" font-family="'JetBrains Mono',monospace" font-size="20" font-weight="800" fill="#F59E0B">BEARISH</text>
-        <text x="748" y="307" class="inf-sub">Oil shock weighing on equities</text>
-
-        <rect x="736" y="322" width="338" height="58" rx="8" fill="rgba(99,102,241,.08)" stroke="rgba(99,102,241,.18)" stroke-width="1"/>
-        <text x="748" y="340" class="inf-body" font-weight="700" fill="#6366F1">TODAY'S THEME</text>
-        <text x="748" y="357" class="inf-body" font-weight="600" fill="#94A3B8">AI Superapp Era + Energy Crisis</text>
-        <text x="748" y="373" class="inf-sub">GPT-5.4 1M context | Hormuz reshapes markets</text>
-      </svg>
+        <div class="inf-zone inf-zone-market">
+          <div class="inf-zone-title">Markets &amp; Economic Data</div>
+          <div class="inf-metric-grid">
+            <div class="inf-metric down"><div class="ticker">S&amp;P 500</div><div class="price">6,506</div><div class="change">&darr; &minus;1.51%</div></div>
+            <div class="inf-metric down"><div class="ticker">NASDAQ</div><div class="price">21,648</div><div class="change">&darr; &minus;2.01%</div></div>
+            <div class="inf-metric up"><div class="ticker">Bitcoin</div><div class="price">$70,569</div><div class="change">&uarr; +0.38%</div></div>
+            <div class="inf-metric up"><div class="ticker">Ethereum</div><div class="price">$2,154</div><div class="change">&uarr; +0.89%</div></div>
+          </div>
+          <div class="inf-oil-bar"><div><div class="label">BRENT CRUDE &middot; WAR PREMIUM</div></div><div class="value">$112/bbl</div></div>
+          <div class="inf-item"><h4>Existential Energy Threat for Asia</h4><p>84% of Hormuz crude goes to Asian markets. Oil +50% since conflict. IEA releasing reserves.</p></div>
+          <div class="inf-sentiment"><div class="label">Market Sentiment</div><div class="value">BEARISH</div><p>Oil shock weighing on equities. Crypto shows modest resilience.</p></div>
+        </div>
+      </div>
+      <div class="inf-bottom-strip">
+        <div class="inf-bottom-item"><h4>The Agentic Shift</h4><p>AI moves from chat to autonomous multi-step task execution across apps</p></div>
+        <div class="inf-bottom-item"><h4>DoorDash Data Paradigm</h4><p>8M drivers collecting real-world training data for robotics systems</p></div>
+        <div class="inf-bottom-item"><h4>Copilot Agent Mode</h4><p>Microsoft Q1 update: agents perform cross-app tasks autonomously</p></div>
+      </div>
     </div>
   </div>
 </section>
