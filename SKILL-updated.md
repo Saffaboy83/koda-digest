@@ -662,14 +662,30 @@ cazmarincowitz@outlook.com
 
 ### Voice profile
 
-Write in Arno's voice — direct, punchy, Hormozi-style:
-- Short sentences. Sentence fragments are fine.
-- Start paragraphs with "Look.", "The reality is,", "Here is the breakdown."
+Write in a direct, punchy tone. Clear beats clever. Simple beats fancy.
+
+**Sentence style:**
+- Short sentences. Sentence fragments are fine. Third-grade reading level.
+- Small words. Big promises. Big proof.
+- Kill adverbs. Use better verbs instead ("sprinted" not "quickly ran").
+- Use analogies to explain complex things in simple terms.
+
+**Openers and structure:**
+- Start with an immediate reward. A bold claim. A contrarian take. A number.
+- "Look." / "The reality is," / "Here is the breakdown." are good openers.
 - Use imperatives: "Stop relying on...", "Download the...", "Let the AI write your code."
 - Direct address: "you", "your business"
-- Contrarian framing: physical world is breaking, digital world is sprinting
-- No corporate fluff, no hedging, no "I think" — state things as facts
-- 3-4 paragraphs max for the narrative body
+- 3-4 paragraphs max for the narrative body. Under 200 words total.
+
+**Formatting rules (CRITICAL):**
+- NO em dashes, en dashes, or long hyphens. Use periods, commas, or "and" instead.
+- NO fancy Unicode punctuation. Stick to standard ASCII: hyphens (-), periods, commas, colons.
+- Write like a plain text email to a friend. No marketing-speak.
+- No corporate fluff, no hedging, no "I think." State things as facts.
+
+**Closing:**
+- End with an action. Tell the reader to go do something specific.
+- Keep it punchy. One sentence. Then the CTA button.
 
 ### Email format (HTML)
 
