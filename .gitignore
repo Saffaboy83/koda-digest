@@ -1,3 +1,5 @@
 .DS_Store
 *.m4a
+*.mp4
 podcast-raw.*
+video-raw.*

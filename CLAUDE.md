@@ -4,27 +4,27 @@
 
 A fully automated daily intelligence dashboard at **koda.community** (Vercel).
 Covers AI developments, world news, markets, newsletters, competitive landscape,
-and AI tools — with a NotebookLM podcast and infographic.
+and AI tools — with a NotebookLM podcast, cinematic video (YouTube), and infographic.
 
 ## Architecture
 
 ```
-Data Sources (parallel)          NotebookLM (sequential)
+Data Sources (parallel)          NotebookLM (sequential + parallel)
   - WebSearch x4 (AI, world,      - Permanent notebook: f928d89b-2520-4180-a71a-d93a75a5487c
     markets, competitive)          - Audio: deep_dive podcast (~22 min)
   - Gmail (newsletters ONLY)      - Infographic: landscape, detailed
-  - NO calendar, NO personal       - Video: cinematic explainer (TODO)
+  - NO calendar, NO personal       - Video: cinematic explainer → YouTube
     email queries
          |                                  |
          v                                  v
-   HTML Dashboard                  Chrome Download + ffmpeg
-   (12 sections, single file)      (compress m4a -> mp3)
+   HTML Dashboard                  Chrome Download + ffmpeg + YouTube Upload
+   (13 sections, single file)      (compress m4a -> mp3, upload mp4 -> YouTube)
    NO Schedule Timeline            infographic saved as jpg
          |                                  |
          v                                  v
    morning-briefing-koda.html      podcast-YYYY-MM-DD.mp3
    morning-briefing-koda-YYYY-MM-DD.html   infographic-YYYY-MM-DD.jpg
-         |                                  |
+         |                          YouTube iframe (video)
          +----------------------------------+
          |
          v
@@ -45,6 +45,7 @@ This digest is PUBLIC-FACING. Do NOT include any personal data:
 - NO NotebookLM notebook ID (f928d89b...) in any public-facing HTML or links
 - NO direct links to notebooklm.google.com — remove all href links to NotebookLM
 - Footer sources: "Web Search, Newsletter feeds, NotebookLM" — no Gmail, no Calendar
+- NO YouTube video titles containing personal identifiers
 - Today's Focus: derived from TOP NEWS STORIES, not personal calendar/email
 
 ## Key Design Decisions
@@ -58,7 +59,7 @@ This digest is PUBLIC-FACING. Do NOT include any personal data:
 ### NotebookLM: Single Permanent Notebook
 - Notebook ID: `f928d89b-2520-4180-a71a-d93a75a5487c`
 - Old text sources are deleted daily to keep it clean
-- Old audio/infographic artifacts are NEVER deleted (archive value)
+- Old audio/infographic/video artifacts are NEVER deleted (archive value)
 - Avoids hitting NotebookLM's notebook count limit
 
 ### Audio Download: Chrome Browser MCP
@@ -67,6 +68,21 @@ This digest is PUBLIC-FACING. Do NOT include any personal data:
 - **Solution**: Use Chrome MCP (which has Google session cookies) to click the Download button
 - The three-dot menu on each audio artifact has a "Download" option
 - Downloaded as .m4a to ~/Downloads, then moved to Digest folder
+
+### Video Serving: YouTube (not Vercel)
+- Videos are typically 20-50MB — too large to commit to git daily
+- YouTube provides free hosting, CDN, and adaptive bitrate streaming
+- Embedded as `<iframe>` in the HTML dashboard — no local file needed after upload
+- Trade-off: YouTube dependency. If YouTube is down, video section is simply skipped.
+- AI-generated content disclosure is MANDATORY on every upload (YouTube policy)
+
+### YouTube Upload: Chrome Browser MCP
+- No YouTube API integration yet (would require OAuth refresh token setup)
+- **Solution**: Use Chrome MCP (with Google session cookies) to navigate YouTube Studio and upload
+- Same authentication pattern as NotebookLM downloads
+- Uses `file_upload` tool to attach the local MP4 to the upload form
+- Fragile (YouTube UI changes frequently) — migrate to YouTube API when this breaks
+- YouTube channel: "Koda"
 
 ### ffmpeg Path (Windows)
 ```
@@ -98,9 +114,10 @@ C:\Users\arno_\Digest\
   morning-briefing-koda-YYYY-MM-DD.html  # Dated archive (permanent)
   podcast-YYYY-MM-DD.mp3              # Committed to git, served by Vercel
   infographic-YYYY-MM-DD.jpg          # Committed to git, served by Vercel
+  video-YYYY-MM-DD.mp4                # TEMPORARY — uploaded to YouTube then deleted
   vercel.json                         # Vercel config
-  .gitignore                          # Excludes only *.m4a and podcast-raw.*
-  SKILL-updated.md                    # Source of truth for the skill (673 lines)
+  .gitignore                          # Excludes *.m4a, *.mp4, podcast-raw.*, video-raw.*
+  SKILL-updated.md                    # Source of truth for the skill
   CLAUDE.md                           # This file
 ```
 
@@ -148,47 +165,41 @@ and repackage the .skill file.
 - Draft is still created in Gmail — can be sent manually
 - Common cause: Gmail compose window didn't load. Increase wait time in Step 6.
 
-## TODO — Cinematic Video (Next Session)
+### Video doesn't appear in digest
+- Check if `video_overview_create` completed in NotebookLM (poll `studio_status`)
+- Check Chrome download succeeded (look in ~/Downloads for .mp4 files)
+- Check YouTube upload succeeded (navigate to YouTube Studio to verify)
+- If any step failed, the skill degrades gracefully — no video section is shown
+- Common cause: NotebookLM video generation timeout (>8 minutes). Try again next day.
 
-NotebookLM can generate cinematic videos via `video_overview_create`. The plan:
+### YouTube upload fails
+- YouTube UI may have changed — inspect the upload flow manually
+- Check that the Google account is signed into YouTube in Chrome
+- Verify the "Koda" channel exists and is in good standing
+- The skill has graceful degradation — HTML omits video section, digest is otherwise complete
 
-### What's ready
-- YouTube Data API v3 is **enabled** on project `gen-lang-client-0610910477`
-- YouTube scope (`...auth/youtube`) is **configured** in OAuth consent screen
-- Existing OAuth client: "GWS CLI" (Desktop type), client ID: `252978099526-8tjvq17odf9m9k39vv1ffe252m0mhkig.apps.googleusercontent.com`
-- Client secret exists but is **masked** — may need to create a new one via "+ Add secret"
+## Video Briefing
 
-### Recommended approach: Chrome upload (v1)
-Instead of YouTube API (complex OAuth setup), use Chrome MCP to upload:
-1. `video_overview_create` in NotebookLM (format: explainer, visual_style: classic/auto_select)
-2. Poll `studio_status` until completed
-3. Download video via Chrome (same three-dot menu approach as podcast)
-4. Navigate to youtube.com/upload in Chrome
-5. Upload video file via file input
-6. Fill title: "Koda Intelligence Briefing — [Date]"
-7. Fill description with digest summary + link to koda.community
-8. **Check the AI-generated content disclosure checkbox** (MANDATORY)
-9. Add disclaimer: "Generated with AI assistance via NotebookLM"
-10. Set visibility (Public or Unlisted)
-11. Click Publish
-12. Grab YouTube URL, embed as `<iframe>` in HTML dashboard
-
-### YouTube channel
-- Channel name: "Koda Intelligence" (to be created)
-- User has approved auto-publish (add to skill pre-auth when implementing)
-- One video per day — no spam risk
+- Generated daily via `video_overview_create` (format: explainer, visual_style: auto_select)
+- Kicked off in Step 2A alongside audio, cooks in background during Steps 2B-2C
+- Downloaded from NotebookLM via Chrome (three-dot menu, same as audio/infographic)
+- Uploaded to YouTube via Chrome browser automation (YouTube Studio upload wizard)
+- Embedded in HTML dashboard as responsive YouTube iframe (16:9)
+- AI-generated content disclosure is checked on every upload (YouTube policy)
+- YouTube channel: "Koda"
+- If any step fails, video section is silently omitted (graceful degradation)
 
 ### Legal considerations
-- Must label as AI-generated content (YouTube policy)
-- Must add description disclaimer
+- Must label as AI-generated content (YouTube policy) — checkbox checked during upload
+- Description includes disclaimer: "Generated with AI assistance via NotebookLM"
 - NotebookLM ToS generally allows using generated outputs
 - Facts aren't copyrightable; the video is transformative synthesis
 - For scale/monetization, get proper legal advice
 
 ### Future: YouTube API (v2)
 - More reliable than Chrome UI automation
+- YouTube Data API v3 is **enabled** on Google Cloud project `gen-lang-client-0610910477`
 - Requires: new client secret, Python script with google-api-python-client, OAuth refresh token
-- Google Cloud project: `gen-lang-client-0610910477` (Default Gemini Project)
 - Migrate when Chrome approach proves too fragile
 
 ## Skill Sync Procedure
