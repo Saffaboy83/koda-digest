@@ -190,26 +190,41 @@ Video generation was kicked off in Step 2A (step 6). Now poll and download.
     If video generation fails or times out after 8 minutes, set `VIDEO_AVAILABLE = false`
     and continue to Step 3 (graceful degradation — no video section in HTML).
 
-18. **Download via Chrome:** Same three-dot menu approach as audio and infographic:
+18. **Download via Chrome:** Same three-dot menu approach as audio and infographic.
+
+    **IMPORTANT:** The NotebookLM page takes time to render all artifacts. Be patient and
+    use robust selectors. The video artifacts appear in the "Studio" panel on the right side.
 
     ```
     Step 1: tabs_context_mcp(createIfEmpty: true) → get a tab ID
             (reuse existing tab if already open to NotebookLM)
     Step 2: navigate to https://notebooklm.google.com/notebook/f928d89b-2520-4180-a71a-d93a75a5487c
-    Step 3: Wait 4 seconds for the page to load
-    Step 4: find(query: "three dot menu or more options button near the newest video artifact")
-            → get the ref for the "More" button
-    Step 5: click the "More" button ref
-    Step 6: find(query: "Download menu item") → get the ref
-    Step 7: click the "Download" menuitem ref
-    Step 8: Wait 15 seconds for Chrome to complete the download (videos are larger than audio)
-    Step 9: Find the downloaded .mp4 file:
-            ls -t ~/Downloads/*.mp4 | head -1
-    Step 10: Move it to the Digest folder:
-             mv ~/Downloads/[FILENAME].mp4 [DIGEST_DIR]/video-YYYY-MM-DD.mp4
+    Step 3: Wait 6 seconds for the page to fully load (increased from 4 — artifacts load slowly)
+    Step 4: Take a screenshot to verify the page loaded and artifacts are visible
+    Step 5: find(query: "three dot menu button or more options button on the video artifact")
+            → If no results, try: find(query: "overflow menu button") or find(query: "more_vert icon")
+            → get the ref for the three-dot "More" button on the VIDEO (not audio) artifact.
+            → IMPORTANT: Videos have a thumbnail preview, audio artifacts have a play button.
+              Make sure you are clicking the three-dot menu on the VIDEO, not the audio.
+    Step 6: click the three-dot button ref
+    Step 7: Wait 1 second for the menu to open
+    Step 8: Take a screenshot to confirm the dropdown menu appeared
+    Step 9: find(query: "Download") → get the ref for the "Download" menuitem
+    Step 10: click the "Download" menuitem ref
+    Step 11: Wait 20 seconds for Chrome to complete the download (videos are 20-50MB)
+    Step 12: Find the downloaded .mp4 file:
+             ls -t ~/Downloads/*.mp4 | head -1
+             (the filename will match the video title, e.g., "AI_&_Crisis__New_Reality.mp4")
+    Step 13: Move it to the Digest folder:
+             mv "$(ls -t ~/Downloads/*.mp4 | head -1)" [DIGEST_DIR]/video-YYYY-MM-DD.mp4
     ```
 
-    **Fallback — if Chrome download fails:**
+    **If step 5 fails (can't find three-dot menu):**
+    Try scrolling down in the Studio panel — the video artifact may be below the fold.
+    Use: `computer(action: "scroll", coordinate: [center_x, center_y], scroll_direction: "down")`
+    Then retry find. Try up to 2 scroll attempts.
+
+    **Fallback — if Chrome download fails after retries:**
     Set `VIDEO_AVAILABLE = false`. Skip YouTube upload. The HTML will not include
     a video section (graceful degradation). Continue to Step 3.
 
@@ -303,7 +318,7 @@ If `VIDEO_AVAILABLE = false`, skip this entire step.
 <body data-digest-date="YYYY-MM-DD">
   Topbar (sticky, with day nav)
   Hero (greeting + KPI strip)
-  Daily Podcast (dark card)
+  Media Strip (2-col: Podcast tile + Video tile, side by side)
   Daily Summary (executive brief — Hormozi-style narrative)
   Daily Infographic (NotebookLM image)
   Today's Focus (top 3 priorities)
@@ -313,7 +328,6 @@ If `VIDEO_AVAILABLE = false`, skip this entire step.
   Newsletter Intelligence (full-width cards)
   Competitive Landscape (3-col grid)
   AI Tool Guide (2-col grid)
-  Daily Video Briefing (YouTube iframe — if available)
   Footer
 ```
 
@@ -521,32 +535,140 @@ but with MORE detail than the email teaser. Target: 300-400 words total.
 
 ---
 
-### Daily Video Briefing (YouTube embed)
+### Media Strip (Podcast + Video side by side)
 
-**If `YOUTUBE_VIDEO_ID` is available** (video was generated and uploaded in Steps 2D–2E):
+The podcast and video briefing are displayed as **two compact tiles in a 2-column grid**,
+replacing the old full-width podcast card and bottom video section. The video tile has an
+"Expand" button that expands it to full-width 16:9 when clicked.
 
 CSS (add to the `<style>` block):
 ```css
-/* ── VIDEO ── */
-.video-card {
-    padding: 32px;
+/* ── MEDIA STRIP ── */
+.media-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 0 0 48px; }
+.media-tile {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border: 1px solid rgba(99,102,241, 0.3);
     border-radius: 20px;
-    border: 1px solid rgba(99,102,241,0.3);
-    text-align: center;
+    padding: 24px;
     color: white;
+    display: flex;
+    flex-direction: column;
 }
-.video-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
-.video-card p { font-size: 13px; opacity: 0.7; margin-bottom: 20px; }
-.video-wrapper {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-    border-radius: 12px;
+.media-tile-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.media-tile-pill {
+    padding: 6px 14px; border-radius: 30px; font-size: 12px; font-weight: 700; color: white; flex-shrink: 0;
 }
-.video-wrapper iframe {
+.media-tile-pill.podcast { background: linear-gradient(135deg, var(--indigo), var(--purple)); }
+.media-tile-pill.video { background: linear-gradient(135deg, var(--red), var(--pink)); }
+.media-tile-title { font-size: 15px; font-weight: 700; line-height: 1.3; }
+.media-tile-meta { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 3px; }
+.media-tile-body { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; }
+.video-thumb {
+    position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 12px;
+    overflow: hidden; cursor: pointer; background: #000;
+}
+.video-thumb iframe {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; border-radius: 12px;
+}
+.video-expand-btn {
+    display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 12px;
+    padding: 8px 16px; border-radius: 10px; border: 1px solid rgba(99,102,241,0.3);
+    background: rgba(99,102,241,0.1); color: #a78bfa; font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; font-family: 'JetBrains Mono', monospace;
+}
+.video-expand-btn:hover { background: rgba(99,102,241,0.25); }
+/* Expanded video overlay */
+.video-overlay {
+    display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.9);
+    align-items: center; justify-content: center; padding: 40px;
+}
+.video-overlay.active { display: flex; }
+.video-overlay-inner {
+    width: 100%; max-width: 1100px; position: relative;
+}
+.video-overlay-inner iframe {
+    width: 100%; aspect-ratio: 16/9; border: 0; border-radius: 16px;
+}
+.video-overlay-close {
+    position: absolute; top: -40px; right: 0; background: none; border: none;
+    color: white; font-size: 28px; cursor: pointer; padding: 8px;
+}
+@media (max-width: 768px) {
+    .media-strip { grid-template-columns: 1fr; }
+}
+```
+
+HTML (replaces both the old Podcast section and Video Briefing section):
+```html
+<!-- ── MEDIA STRIP ── -->
+<div class="media-strip fade-in">
+  <!-- PODCAST TILE -->
+  <div class="media-tile">
+    <div class="media-tile-header">
+      <div class="media-tile-pill podcast">&#127911; Podcast</div>
+      <div>
+        <div class="media-tile-title">[PODCAST_TITLE]</div>
+        <div class="media-tile-meta">NotebookLM · [DATE] · ~23 min</div>
+      </div>
+    </div>
+    <div class="media-tile-body">
+      <audio controls style="width:100%;border-radius:10px;accent-color:#6366F1;">
+        <source src="[PODCAST_URL]" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <!-- VIDEO TILE (if YOUTUBE_VIDEO_ID is available) -->
+  <div class="media-tile">
+    <div class="media-tile-header">
+      <div class="media-tile-pill video">&#127909; Video</div>
+      <div>
+        <div class="media-tile-title">[YOUTUBE_TITLE_SHORT]</div>
+        <div class="media-tile-meta">NotebookLM · YouTube · ~5 min</div>
+      </div>
+    </div>
+    <div class="media-tile-body">
+      <div class="video-thumb">
+        <iframe src="https://www.youtube.com/embed/[YOUTUBE_VIDEO_ID]"
+          title="[YOUTUBE_TITLE]"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <button class="video-expand-btn" onclick="document.getElementById('video-overlay').classList.add('active')">
+        &#x26F6; Expand Video
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- EXPANDED VIDEO OVERLAY -->
+<div id="video-overlay" class="video-overlay" onclick="if(event.target===this)this.classList.remove('active')">
+  <div class="video-overlay-inner">
+    <button class="video-overlay-close" onclick="document.getElementById('video-overlay').classList.remove('active')">&times;</button>
+    <iframe src="https://www.youtube.com/embed/[YOUTUBE_VIDEO_ID]"
+      title="[YOUTUBE_TITLE]"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+</div>
+```
+
+**If PODCAST download failed** (no `PODCAST_URL`), replace the audio element with a "Listen in NotebookLM" link button.
+
+**If VIDEO is not available** (`YOUTUBE_VIDEO_ID` is null), show only the podcast tile at full width:
+```css
+.media-strip { grid-template-columns: 1fr; } /* single column when no video */
+```
+
+**If BOTH podcast and video are not available**, skip the entire media strip.
+
+---
+
+### Daily Podcast card (DEPRECATED — replaced by Media Strip above)
+
+The old full-width podcast card is replaced by the Media Strip. Keep this section only
+as a fallback reference. The Media Strip's podcast tile uses the same audio element and
+styling but in a compact 50% width tile.
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
