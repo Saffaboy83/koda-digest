@@ -303,10 +303,9 @@ If `VIDEO_AVAILABLE = false`, skip this entire step.
 <body data-digest-date="YYYY-MM-DD">
   Topbar (sticky, with day nav)
   Hero (greeting + KPI strip)
+  Daily Podcast (dark card)
   Daily Summary (executive brief — Hormozi-style narrative)
   Daily Infographic (NotebookLM image)
-  Daily Video Briefing (YouTube iframe — if available)
-  Daily Podcast (dark card)
   Today's Focus (top 3 priorities)
   AI Developments (card grid)
   World News (card grid)
@@ -314,6 +313,7 @@ If `VIDEO_AVAILABLE = false`, skip this entire step.
   Newsletter Intelligence (full-width cards)
   Competitive Landscape (3-col grid)
   AI Tool Guide (2-col grid)
+  Daily Video Briefing (YouTube iframe — if available)
   Footer
 ```
 
