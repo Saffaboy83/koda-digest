@@ -535,166 +535,83 @@ but with MORE detail than the email teaser. Target: 300-400 words total.
 
 ---
 
-### Media Strip (Podcast + Video side by side)
+### Media Strip (Centered Banner Cards)
 
-The podcast and video briefing are displayed as **two compact tiles in a 2-column grid**,
-replacing the old full-width podcast card and bottom video section. The video tile has an
-"Expand" button that expands it to full-width 16:9 when clicked.
+The podcast and video are displayed as **centered banner cards in a 2-column grid**.
+Each banner has an icon, title, subtitle, and CTA button. The podcast "Listen Now"
+button toggles an inline audio player. The video has "Watch on YouTube" (new tab)
+and "Expand Inline" (full-screen overlay).
 
 CSS (add to the `<style>` block):
 ```css
 /* ── MEDIA STRIP ── */
-.media-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 0 0 48px; }
-.media-tile {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    border: 1px solid rgba(99,102,241, 0.3);
-    border-radius: 20px;
-    padding: 24px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-}
-.media-tile-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-.media-tile-pill {
-    padding: 6px 14px; border-radius: 30px; font-size: 12px; font-weight: 700; color: white; flex-shrink: 0;
-}
-.media-tile-pill.podcast { background: linear-gradient(135deg, var(--indigo), var(--purple)); }
-.media-tile-pill.video { background: linear-gradient(135deg, var(--red), var(--pink)); }
-.media-tile-title { font-size: 15px; font-weight: 700; line-height: 1.3; }
-.media-tile-meta { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 3px; }
-.media-tile-body { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; }
-.video-thumb {
-    position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 12px;
-    overflow: hidden; cursor: pointer; background: #000;
-}
-.video-thumb iframe {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; border-radius: 12px;
-}
-.video-expand-btn {
-    display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 12px;
-    padding: 8px 16px; border-radius: 10px; border: 1px solid rgba(99,102,241,0.3);
-    background: rgba(99,102,241,0.1); color: #a78bfa; font-size: 12px; font-weight: 600;
-    cursor: pointer; transition: all 0.2s; font-family: 'JetBrains Mono', monospace;
-}
-.video-expand-btn:hover { background: rgba(99,102,241,0.25); }
-/* Expanded video overlay */
-.video-overlay {
-    display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.9);
-    align-items: center; justify-content: center; padding: 40px;
-}
-.video-overlay.active { display: flex; }
-.video-overlay-inner {
-    width: 100%; max-width: 1100px; position: relative;
-}
-.video-overlay-inner iframe {
-    width: 100%; aspect-ratio: 16/9; border: 0; border-radius: 16px;
-}
-.video-overlay-close {
-    position: absolute; top: -40px; right: 0; background: none; border: none;
-    color: white; font-size: 28px; cursor: pointer; padding: 8px;
-}
-@media (max-width: 768px) {
-    .media-strip { grid-template-columns: 1fr; }
-}
+.media-strip{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 36px;}
+.media-banner{background:linear-gradient(135deg,#0f1629 0%,#162040 100%);border:1px solid rgba(99,102,241,0.2);border-radius:18px;padding:28px 32px;color:white;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;transition:border-color 0.3s;}
+.media-banner:hover{border-color:rgba(99,102,241,0.45);}
+.media-banner-icon{font-size:28px;margin-bottom:4px;opacity:0.9;}
+.media-banner-title{font-size:15px;font-weight:700;letter-spacing:0.2px;}
+.media-banner-sub{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:10px;line-height:1.4;}
+.media-banner-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 28px;border-radius:30px;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.25s;text-decoration:none;border:none;}
+.media-banner-btn.podcast-btn{background:linear-gradient(135deg,var(--indigo),var(--purple));color:white;}
+.media-banner-btn.podcast-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(99,102,241,0.4);}
+.media-banner-btn.video-btn{background:linear-gradient(135deg,#EF4444,#EC4899);color:white;}
+.media-banner-btn.video-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(239,68,68,0.4);}
+.media-banner-btn.expand-btn{background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.3);color:#a78bfa;font-size:11px;padding:7px 18px;margin-top:6px;}
+.media-banner-btn.expand-btn:hover{background:rgba(99,102,241,0.2);}
+.podcast-player-wrap{width:100%;max-width:340px;margin-top:14px;display:none;}
+.podcast-player-wrap.active{display:block;}
+.video-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;padding:40px;}
+.video-overlay.active{display:flex;}
+.video-overlay-inner{width:100%;max-width:1100px;position:relative;}
+.video-overlay-inner iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:16px;}
+.video-overlay-close{position:absolute;top:-44px;right:0;background:none;border:none;color:white;font-size:32px;cursor:pointer;padding:8px;opacity:0.7;transition:opacity 0.2s;}
+.video-overlay-close:hover{opacity:1;}
+@media(max-width:768px){.media-strip{grid-template-columns:1fr;}}
 ```
 
-HTML (replaces both the old Podcast section and Video Briefing section):
+HTML (both podcast + video available):
 ```html
 <!-- ── MEDIA STRIP ── -->
 <div class="media-strip fade-in">
-  <!-- PODCAST TILE -->
-  <div class="media-tile">
-    <div class="media-tile-header">
-      <div class="media-tile-pill podcast">&#127911; Podcast</div>
-      <div>
-        <div class="media-tile-title">[PODCAST_TITLE]</div>
-        <div class="media-tile-meta">NotebookLM · [DATE] · ~23 min</div>
-      </div>
-    </div>
-    <div class="media-tile-body">
+  <div class="media-banner">
+    <div class="media-banner-icon">&#127911;</div>
+    <div class="media-banner-title">Daily Podcast</div>
+    <div class="media-banner-sub">"[PODCAST_TITLE]" &mdash; ~23 min</div>
+    <button class="media-banner-btn podcast-btn" onclick="var p=document.getElementById('podPlayer');p.classList.toggle('active');if(p.classList.contains('active'))p.querySelector('audio').play();">&#9654; Listen Now</button>
+    <div class="podcast-player-wrap" id="podPlayer">
       <audio controls style="width:100%;border-radius:10px;accent-color:#6366F1;">
         <source src="[PODCAST_URL]" type="audio/mpeg">
       </audio>
     </div>
   </div>
-
-  <!-- VIDEO TILE (if YOUTUBE_VIDEO_ID is available) -->
-  <div class="media-tile">
-    <div class="media-tile-header">
-      <div class="media-tile-pill video">&#127909; Video</div>
-      <div>
-        <div class="media-tile-title">[YOUTUBE_TITLE_SHORT]</div>
-        <div class="media-tile-meta">NotebookLM · YouTube · ~5 min</div>
-      </div>
-    </div>
-    <div class="media-tile-body">
-      <div class="video-thumb">
-        <iframe src="https://www.youtube.com/embed/[YOUTUBE_VIDEO_ID]"
-          title="[YOUTUBE_TITLE]"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-      <button class="video-expand-btn" onclick="document.getElementById('video-overlay').classList.add('active')">
-        &#x26F6; Expand Video
-      </button>
-    </div>
+  <div class="media-banner">
+    <div class="media-banner-icon">&#127909;</div>
+    <div class="media-banner-title">Daily Video Briefing</div>
+    <div class="media-banner-sub">"[YOUTUBE_TITLE_SHORT]" &mdash; visual explainer</div>
+    <a class="media-banner-btn video-btn" href="https://www.youtube.com/watch?v=[YOUTUBE_VIDEO_ID]" target="_blank">&#9654; Watch on YouTube</a>
+    <button class="media-banner-btn expand-btn" onclick="document.getElementById('video-overlay').classList.add('active')">&#x26F6; Expand Inline</button>
   </div>
 </div>
-
-<!-- EXPANDED VIDEO OVERLAY -->
 <div id="video-overlay" class="video-overlay" onclick="if(event.target===this)this.classList.remove('active')">
   <div class="video-overlay-inner">
     <button class="video-overlay-close" onclick="document.getElementById('video-overlay').classList.remove('active')">&times;</button>
-    <iframe src="https://www.youtube.com/embed/[YOUTUBE_VIDEO_ID]"
-      title="[YOUTUBE_TITLE]"
+    <iframe src="https://www.youtube.com/embed/[YOUTUBE_VIDEO_ID]" title="[YOUTUBE_TITLE]"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
 </div>
 ```
 
-**If PODCAST download failed** (no `PODCAST_URL`), replace the audio element with a "Listen in NotebookLM" link button.
-
-**If VIDEO is not available** (`YOUTUBE_VIDEO_ID` is null), show only the podcast tile at full width:
-```css
-.media-strip { grid-template-columns: 1fr; } /* single column when no video */
-```
-
-**If BOTH podcast and video are not available**, skip the entire media strip.
-
----
-
-### Daily Podcast card (DEPRECATED — replaced by Media Strip above)
-
-The old full-width podcast card is replaced by the Media Strip. Keep this section only
-as a fallback reference. The Media Strip's podcast tile uses the same audio element and
-styling but in a compact 50% width tile.
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    border: 0;
-    border-radius: 12px;
-}
-```
-
-HTML:
+**If VIDEO is not available** (`YOUTUBE_VIDEO_ID` is null), show only podcast banner (single column):
 ```html
-<!-- ── DAILY VIDEO BRIEFING ── -->
-<section class="section fade-in">
-    <h2 class="section-title"><span class="section-icon">&#127909;</span> Daily Video Briefing</h2>
-    <div class="video-card">
-        <h3>[YOUTUBE_TITLE]</h3>
-        <p>Generated by NotebookLM AI</p>
-        <div class="video-wrapper">
-            <iframe
-                src="https://www.youtube.com/embed/[YOUTUBE_VIDEO_ID]"
-                title="[YOUTUBE_TITLE]"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen>
-            </iframe>
-        </div>
-    </div>
+<div class="media-strip fade-in" style="grid-template-columns:1fr;max-width:500px;">
+  <!-- Podcast banner only -->
+</div>
+```
+
+**If PODCAST download failed**, show a "Listen in NotebookLM" link instead of the audio player.
+
+**If BOTH are unavailable**, skip the entire media strip.
 </section>
 ```
 
