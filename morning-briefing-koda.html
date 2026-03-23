@@ -39,7 +39,8 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 .dark-toggle:hover{background:var(--indigo);color:white;border-color:var(--indigo);}
 .hero{padding:48px 0 32px;text-align:center;}
 .hero-date{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;}
-.hero-title{font-size:clamp(28px,5vw,48px);font-weight:800;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;}
+.hero-title{font-size:42px;font-weight:800;line-height:1.2;margin-bottom:8px;}
+.hero-name{background:linear-gradient(135deg,var(--blue),var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .hero-sub{font-size:16px;color:var(--text-secondary);margin-bottom:36px;}
 .kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:900px;margin:0 auto;}
 .kpi-card{background:var(--bg-card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;text-align:center;box-shadow:0 4px 16px var(--shadow);}
@@ -187,7 +188,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 <div class="container">
   <div class="hero">
     <div class="hero-date">Monday, March 23, 2026</div>
-    <h1 class="hero-title">Koda Intelligence Briefing</h1>
+    <h1 class="hero-title"><span class="hero-name">Koda Intelligence Briefing</span></h1>
     <p class="hero-sub">AI · World · Markets · Tools — Your daily edge</p>
     <div class="kpi-strip">
       <div class="kpi-card fade-in">
