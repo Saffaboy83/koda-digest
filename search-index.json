@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-23T01:31:13Z",
+  "generated": "2026-03-23T02:22:47Z",
   "days": [
     {
       "date": "2026-03-22",
@@ -18,6 +18,31 @@
             {
               "headline": "Market Stress",
               "text": "S&P down 1.51%, NASDAQ down 2.01%, crypto also falling. Goldman says oil may stay at triple digits for years."
+            }
+          ]
+        },
+        {
+          "title": "⚡ Daily Summary",
+          "items": [
+            {
+              "headline": "Summary",
+              "text": "Three wars are running in parallel right now. One involves missiles near a nuclear reactor. Another is an AI arms race where four companies shipped frontier models in a single week. The third is oil at $106 a barrel dragging every portfolio on earth into the red. Here is the breakdown."
+            },
+            {
+              "headline": "AI",
+              "text": "OpenAI merged ChatGPT, Codex, and Atlas into one desktop Superapp with a 1.05M token context window. Google fired back with Stitch, a free design tool that tanked Figma stock 12% in a single session. Anthropic's Claude Opus 4.6 now leads every coding benchmark at 80.8% SWE-Bench. The frontier model war just became a platform war. Pick your stack carefully."
+            },
+            {
+              "headline": "World",
+              "text": "Iran fired missiles near Israel's Dimona nuclear center. That is a first. 100+ injured, and Trump gave a 48-hour ultimatum to reopen the Strait of Hormuz. Over 5,000 vessels are stranded. Iran responded by threatening full closure. Diego Garcia, a US-UK base in the Indian Ocean, also took fire. This is not contained anymore."
+            },
+            {
+              "headline": "Markets",
+              "text": "Everything is red. S&P down 1.51%. NASDAQ down 2.01%. Bitcoin dropped 2.77% to $68,616. Brent crude surged past $106 on Hormuz fears. Goldman says triple-digit oil could last years if the strait stays closed. The sell-off is energy-driven, not tech-driven. Watch oil, not earnings."
+            },
+            {
+              "headline": "Wild Card",
+              "text": "The Pentagon just made Palantir's Maven a permanent program of record. That means long-term military AI funding across every branch. AI in defense went from experimental to infrastructure overnight. Meanwhile, you can now run DeepSeek and Llama on your phone with zero internet. Private AI is real. The gap between what governments build and what individuals can run is shrinking fast."
             }
           ]
         },

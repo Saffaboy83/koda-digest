@@ -214,6 +214,19 @@ def parse_with_regex(filepath):
         ):
             items.append({"headline": strip_html(m.group(1)), "text": strip_html(m.group(2))})
 
+        # Pattern 9: Daily Summary — summary-hook + summary-brief-text
+        hook_m = re.search(
+            r'class="summary-hook"[^>]*>(.*?)</div>',
+            section_html, re.DOTALL,
+        )
+        if hook_m:
+            items.append({"headline": "Summary", "text": strip_html(hook_m.group(1))})
+        for m in re.finditer(
+            r'class="summary-brief-label"[^>]*>(.*?)</span>.*?class="summary-brief-text"[^>]*>(.*?)</div>',
+            section_html, re.DOTALL,
+        ):
+            items.append({"headline": strip_html(m.group(1)), "text": strip_html(m.group(2))})
+
         if items:
             result["sections"].append({"title": title, "items": items})
 

@@ -303,6 +303,7 @@ If `VIDEO_AVAILABLE = false`, skip this entire step.
 <body data-digest-date="YYYY-MM-DD">
   Topbar (sticky, with day nav)
   Hero (greeting + KPI strip)
+  Daily Summary (executive brief — Hormozi-style narrative)
   Daily Infographic (NotebookLM image)
   Daily Video Briefing (YouTube iframe — if available)
   Daily Podcast (dark card)
@@ -326,7 +327,7 @@ If `VIDEO_AVAILABLE = false`, skip this entire step.
   <div class="container">
     <div class="topbar-inner">  <!-- flex, space-between -->
       <div class="brand">
-        <div class="brand-icon">🤖</div>  <!-- gradient bg -->
+        <div class="brand-icon">K</div>  <!-- white bold K on blue-purple gradient bg -->
         <div>
           <div class="brand-name">Koda Digest</div>
           <div class="brand-sub">Daily AI Intelligence</div>
@@ -397,6 +398,113 @@ The nav uses `fetch HEAD` to check if adjacent dated files exist in the same fol
 - Date label (JetBrains Mono, blue, uppercase)
 - `Koda Intelligence Briefing` heading with gradient text
 - KPI strip (4 frosted cards): AI Stories | World Events | Market Mood | Tools Featured
+
+---
+
+### Daily Summary
+
+A high-level executive brief inserted between the KPI strip and the infographic.
+Same voice as the newsletter email (Hormozi-style: punchy, direct, contrarian)
+but with MORE detail than the email teaser. Target: 300-400 words total.
+
+**Section ID:** `daily-summary`
+
+**Structure:**
+
+1. **Hook** (1-2 sentences, 20-40 words): Bold claim, contrarian take, or shocking number.
+   Opens with "Look." / "The reality is," / a number / a bold statement.
+   This is the single sentence that makes someone stop scrolling.
+
+2. **Four themed briefs** (each 2-3 sentences, ~60-80 words each):
+   - **AI** (blue icon): Biggest AI development. What happened. Why it matters. What to do about it.
+   - **World** (red icon): Key geopolitical/world event. Context. What it means for the reader.
+   - **Markets** (emerald icon): Market direction. What moved. Cause and effect chain.
+   - **Wild Card** (purple icon): The story most people missed. A sleeper trend. A bold prediction.
+     This is the "one more thing" that makes the summary feel exclusive.
+
+3. **CTA** (1 sentence): Direct imperative to keep scrolling.
+   Examples: "Full breakdown below." / "Start with the infographic."
+
+**Tone rules (same as newsletter):**
+- Short sentences. Fragments fine. Third-grade reading level.
+- Small words. Big promises. Big proof.
+- Kill adverbs. Use better verbs.
+- NO em dashes, en dashes, or long hyphens. Use periods, commas, or "and" instead.
+- NO fancy Unicode punctuation. Standard ASCII only.
+- No corporate fluff, no hedging. State things as facts.
+- Use analogies to explain complex things simply.
+- Direct address: "you", "your"
+
+**HTML template:**
+```html
+<section class="section fade-in" id="daily-summary">
+    <h2 class="section-title"><span class="section-icon">&#9889;</span> Daily Summary</h2>
+    <div class="summary-card">
+        <div class="summary-hook">[HOOK]</div>
+        <div class="summary-briefs">
+            <div class="summary-brief">
+                <div class="summary-brief-header">
+                    <span class="summary-brief-icon" style="background:rgba(59,130,246,0.15);color:var(--blue);">&#9889;</span>
+                    <span class="summary-brief-label" style="color:var(--blue);">AI</span>
+                </div>
+                <div class="summary-brief-text">[AI_BRIEF]</div>
+            </div>
+            <div class="summary-brief">
+                <div class="summary-brief-header">
+                    <span class="summary-brief-icon" style="background:rgba(239,68,68,0.15);color:var(--red);">&#127758;</span>
+                    <span class="summary-brief-label" style="color:var(--red);">World</span>
+                </div>
+                <div class="summary-brief-text">[WORLD_BRIEF]</div>
+            </div>
+            <div class="summary-brief">
+                <div class="summary-brief-header">
+                    <span class="summary-brief-icon" style="background:rgba(16,185,129,0.15);color:var(--emerald);">&#128200;</span>
+                    <span class="summary-brief-label" style="color:var(--emerald);">Markets</span>
+                </div>
+                <div class="summary-brief-text">[MARKETS_BRIEF]</div>
+            </div>
+            <div class="summary-brief">
+                <div class="summary-brief-header">
+                    <span class="summary-brief-icon" style="background:rgba(139,92,246,0.15);color:var(--purple);">&#128161;</span>
+                    <span class="summary-brief-label" style="color:var(--purple);">Wild Card</span>
+                </div>
+                <div class="summary-brief-text">[WILDCARD_BRIEF]</div>
+            </div>
+        </div>
+        <div class="summary-cta">[CTA_LINE]</div>
+    </div>
+</section>
+```
+
+**CSS for the summary section** (include in the `<style>` block after KPI styles):
+```css
+.summary-card {
+    padding: 32px; padding-left: 36px;
+    background: var(--bg-card); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border); border-radius: 20px;
+    box-shadow: 0 4px 16px var(--shadow); position: relative; overflow: hidden;
+}
+.summary-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: linear-gradient(180deg, var(--blue), var(--purple)); border-radius: 20px 0 0 20px;
+}
+.summary-hook {
+    font-size: 20px; font-weight: 700; line-height: 1.5; color: var(--text);
+    margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border);
+}
+.summary-briefs { display: flex; flex-direction: column; gap: 20px; margin-bottom: 24px; }
+.summary-brief { display: flex; gap: 16px; align-items: flex-start; }
+.summary-brief-header { display: flex; flex-direction: column; align-items: center; gap: 4px; flex-shrink: 0; width: 48px; }
+.summary-brief-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+.summary-brief-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; }
+.summary-brief-text { font-size: 15px; line-height: 1.7; color: var(--text-secondary); flex: 1; }
+.summary-cta { font-size: 14px; font-weight: 700; color: var(--blue); padding-top: 16px; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.3px; }
+@media (max-width: 768px) {
+    .summary-card { padding: 24px 20px; }
+    .summary-hook { font-size: 17px; }
+    .summary-brief-text { font-size: 14px; }
+}
+```
 
 ---
 
@@ -614,6 +722,7 @@ The day-nav JS uses `fetch HEAD` on adjacent dated filenames to auto-discover ar
 Every generated digest HTML MUST include:
 
 1. **Section IDs** on all content sections for deep-link scrolling:
+   - `<section ... id="daily-summary">`
    - `<section ... id="todays-focus">`
    - `<section ... id="ai-developments">`
    - `<section ... id="world-news">`
@@ -915,7 +1024,7 @@ const obs = new IntersectionObserver(entries => {
     }
   });
 }, {threshold:0.06});
-document.querySelectorAll('.card,.newsletter-card,.market-card,.comp-card,.tool-card,.focus-item,.infographic,.podcast-card,.video-card').forEach(el => {
+document.querySelectorAll('.card,.newsletter-card,.market-card,.comp-card,.tool-card,.focus-item,.infographic,.podcast-card,.video-card,.summary-card').forEach(el => {
   el.style.cssText += 'opacity:0;transform:translateY(16px);transition:opacity 0.45s ease,transform 0.45s ease;';
   obs.observe(el);
 });

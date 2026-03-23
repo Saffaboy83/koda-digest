@@ -57,14 +57,14 @@ This digest is PUBLIC-FACING. Do NOT include any personal data:
 - Archive grid below shows all historical digests from `manifest.json`
 - `build-index.py` (Python stdlib only) generates `manifest.json` + `search-index.json`
 - **MUST run `python build-index.py` after each daily digest** to update the index
-- Search index covers: Focus, AI Developments, World News, Markets, Newsletters, Competitive, Tools
+- Search index covers: Daily Summary, Focus, AI Developments, World News, Markets, Newsletters, Competitive, Tools
 - Search results deep-link to specific sections (e.g., `briefing.html#ai-developments`)
 - `/today` route redirects to `morning-briefing-koda.html`
 - Dark mode toggle shares `koda-theme` localStorage key with digest pages
 
 ### Section IDs & Deep-Linking
 - Every digest section MUST have an `id` attribute for search deep-linking:
-  `todays-focus`, `ai-developments`, `world-news`, `market-snapshot`,
+  `daily-summary`, `todays-focus`, `ai-developments`, `world-news`, `market-snapshot`,
   `newsletter-intelligence`, `competitive-landscape`, `ai-tool-guide`
 - Sections need `scroll-margin-top: 80px` in CSS to offset the fixed topbar
 - Each digest includes JS that reads `location.hash` and scrolls to the target after page load
