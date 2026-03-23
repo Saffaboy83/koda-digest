@@ -75,18 +75,18 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 .summary-brief-text{font-size:15px;line-height:1.7;color:var(--text-secondary);flex:1;}
 .summary-cta{font-size:14px;font-weight:700;color:var(--blue);padding-top:16px;border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace;letter-spacing:0.3px;}
 /* MEDIA STRIP */
-.media-strip{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:0 0 48px;}
-.media-tile{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);border:1px solid rgba(99,102,241,0.3);border-radius:20px;padding:24px;color:white;display:flex;flex-direction:column;}
-.media-tile-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
-.media-tile-pill{padding:6px 14px;border-radius:30px;font-size:12px;font-weight:700;color:white;flex-shrink:0;}
+.media-strip{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 32px;max-width:680px;}
+.media-tile{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);border:1px solid rgba(99,102,241,0.3);border-radius:14px;padding:14px;color:white;display:flex;flex-direction:column;}
+.media-tile-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.media-tile-pill{padding:4px 10px;border-radius:20px;font-size:10px;font-weight:700;color:white;flex-shrink:0;}
 .media-tile-pill.podcast{background:linear-gradient(135deg,var(--indigo),var(--purple));}
 .media-tile-pill.video{background:linear-gradient(135deg,var(--red),var(--pink));}
-.media-tile-title{font-size:15px;font-weight:700;line-height:1.3;}
-.media-tile-meta{font-size:11px;color:rgba(255,255,255,0.5);margin-top:3px;}
+.media-tile-title{font-size:12px;font-weight:700;line-height:1.3;}
+.media-tile-meta{font-size:9px;color:rgba(255,255,255,0.5);margin-top:2px;}
 .media-tile-body{flex:1;display:flex;flex-direction:column;justify-content:flex-end;}
-.video-thumb{position:relative;width:100%;padding-bottom:56.25%;border-radius:12px;overflow:hidden;background:#000;}
-.video-thumb iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;border-radius:12px;}
-.video-expand-btn{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;padding:8px 16px;border-radius:10px;border:1px solid rgba(99,102,241,0.3);background:rgba(99,102,241,0.1);color:#a78bfa;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'JetBrains Mono',monospace;}
+.video-thumb{position:relative;width:100%;padding-bottom:56.25%;border-radius:8px;overflow:hidden;background:#000;}
+.video-thumb iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;border-radius:8px;}
+.video-expand-btn{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:8px;padding:5px 12px;border-radius:8px;border:1px solid rgba(99,102,241,0.3);background:rgba(99,102,241,0.1);color:#a78bfa;font-size:10px;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'JetBrains Mono',monospace;}
 .video-expand-btn:hover{background:rgba(99,102,241,0.25);}
 .video-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;padding:40px;}
 .video-overlay.active{display:flex;}
@@ -485,8 +485,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 
       <div class="newsletter-quote">"The difference between a generic AI output and a boardroom-ready one is how you frame the prompt. Don't ask for a design. Ask for FP&A judgment built into a visual format."</div>
 
-      <a href="https://mail.google.com/mail/u/0/#all/19d105366d96c0b3" target="_blank" class="source-link">&#8599; Read in Gmail</a>
-      <a href="https://finstoryai.substack.com/p/i-turned-a-napkin-sketch-into-a-board" target="_blank" class="source-link" style="margin-left:8px;">&#8599; Read on Substack</a>
+      <a href="https://finstoryai.substack.com" target="_blank" class="source-link">&#8599; finstory AI</a>
     </div>
 
     <!-- Pinecone -->
@@ -519,7 +518,77 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 
       <div class="newsletter-quote">"BYOC removes the #1 enterprise objection: data sovereignty. Your vectors, metadata, and queries never leave your environment."</div>
 
-      <a href="https://mail.google.com/mail/u/0/#all/19d0143275407090" target="_blank" class="source-link">&#8599; Read in Gmail</a>
+      <a href="https://www.pinecone.io/blog" target="_blank" class="source-link">&#8599; Pinecone</a>
+    </div>
+
+    <!-- TLDR -->
+    <div class="newsletter-card">
+      <div class="newsletter-header">
+        <div class="newsletter-avatar" style="background:linear-gradient(135deg,#F59E0B,#EF4444);">T</div>
+        <div>
+          <div class="newsletter-name">TLDR</div>
+          <div class="newsletter-subject">Meta's CEO Agent, Amazon's AI phone, SpaceX + Tesla chip factory</div>
+        </div>
+        <div class="newsletter-date">Mar 23, 2026</div>
+      </div>
+      <div class="newsletter-section-title">&#128640; Headlines &amp; Launches</div>
+      <div class="newsletter-item"><strong>Meta is building a CEO agent:</strong> Mark Zuckerberg is building an AI agent to help him run Meta. He envisions a future where everyone has their own AI agents handling tasks, communication, and decision support. This is not a chatbot experiment. This is the CEO of a $1.5T company betting his own workflow on autonomous AI.</div>
+      <div class="newsletter-item"><strong>Amazon's AI-native phone:</strong> Amazon is developing a phone built around AI from the ground up, not AI bolted onto an existing OS. If it ships, it would be the first major consumer hardware designed for agentic workflows by default.</div>
+      <div class="newsletter-item"><strong>SpaceX + Tesla chip factory:</strong> Elon Musk's "Terafab" AI chip factory will combine SpaceX and Tesla resources to manufacture custom AI silicon. The goal is to reduce dependency on NVIDIA and build chips optimized for Tesla's self-driving and xAI's Grok infrastructure.</div>
+      <div class="newsletter-section-title">&#9889; Quick Hits</div>
+      <div class="newsletter-item">85% of YC's W26 batch is AI-first. 56 of 198 companies are building fully autonomous agents positioned as AI employees.</div>
+      <div class="newsletter-item">Gemini (crypto exchange) hit with class-action lawsuit over IPO disclosures.</div>
+      <a href="https://tldr.tech" target="_blank" class="source-link">&#8599; TLDR</a>
+    </div>
+
+    <!-- The Rundown AI -->
+    <div class="newsletter-card">
+      <div class="newsletter-header">
+        <div class="newsletter-avatar" style="background:linear-gradient(135deg,#8B5CF6,#EC4899);">R</div>
+        <div>
+          <div class="newsletter-name">The Rundown AI</div>
+          <div class="newsletter-subject">Elon Musk's 'Terafab' AI chip factory + Google Stitch website redesign</div>
+        </div>
+        <div class="newsletter-date">Mar 23, 2026</div>
+      </div>
+      <div class="newsletter-section-title">&#128640; Headlines &amp; Launches</div>
+      <div class="newsletter-item"><strong>Terafab is Musk's play for AI hardware independence:</strong> The Rundown breaks down how the factory would produce custom chips for both Tesla FSD training and xAI's Grok models. Current NVIDIA dependency is a bottleneck for both companies. Vertical integration is the move.</div>
+      <div class="newsletter-item"><strong>Google Stitch website redesign tutorial:</strong> Step-by-step guide on using Google Stitch to completely redesign a website from scratch using only prompts. The tool generates responsive HTML/CSS and deploys in one click. This is the practical how-to the finstory AI newsletter teased.</div>
+      <a href="https://therundown.ai" target="_blank" class="source-link">&#8599; The Rundown AI</a>
+    </div>
+
+    <!-- Superhuman -->
+    <div class="newsletter-card">
+      <div class="newsletter-header">
+        <div class="newsletter-avatar" style="background:linear-gradient(135deg,#06B6D4,#3B82F6);">S</div>
+        <div>
+          <div class="newsletter-name">Superhuman AI</div>
+          <div class="newsletter-subject">Scientists use plastic to beat Parkinson's</div>
+        </div>
+        <div class="newsletter-date">Mar 22, 2026</div>
+      </div>
+      <div class="newsletter-section-title">&#128640; Headlines &amp; Launches</div>
+      <div class="newsletter-item"><strong>Plastic-based treatment for Parkinson's:</strong> Scientists developed a plastic material that can deliver dopamine-producing cells directly to the brain, bypassing the blood-brain barrier. Early results show significant motor function improvement in animal models. This could change the treatment paradigm for neurodegenerative diseases.</div>
+      <div class="newsletter-item"><strong>AI in scientific discovery is accelerating:</strong> This week's issue highlights how AI models are now being used to predict protein folding, drug interactions, and treatment outcomes at speeds that compress years of research into weeks. The pattern: AI handles the combinatorial explosion of possibilities, humans handle the judgment calls.</div>
+      <a href="https://joinsuperhuman.ai" target="_blank" class="source-link">&#8599; Superhuman AI</a>
+    </div>
+
+    <!-- simple.ai by Dharmesh -->
+    <div class="newsletter-card">
+      <div class="newsletter-header">
+        <div class="newsletter-avatar" style="background:linear-gradient(135deg,#10B981,#3B82F6);">D</div>
+        <div>
+          <div class="newsletter-name">simple.ai by Dharmesh</div>
+          <div class="newsletter-subject">A 3-Part Strategy for Keeping Up with AI</div>
+        </div>
+        <div class="newsletter-date">Mar 22, 2026</div>
+      </div>
+      <div class="newsletter-section-title">&#128640; Headlines &amp; Launches</div>
+      <div class="newsletter-item"><strong>Use AI daily, do not just study it:</strong> Dharmesh Shah (HubSpot co-founder) argues that hands-on experience teaches more than reading research papers. The most important thing is not tracking every development but actually using AI in your day-to-day work. He recommends tools like Company Research Agent, Prospect Extractor, and ICP Builder on agent.ai.</div>
+      <div class="newsletter-item"><strong>Schedule quarterly AI opportunity reviews:</strong> Every quarter, take your top 3 growth obstacles and check if new AI tools can now address them. Keep a "not yet, but soon" list. Companies that evaluated AI once and gave up fell behind competitors who revisited regularly.</div>
+      <div class="newsletter-item"><strong>Try new tools with specific problems in mind:</strong> Problem-first evaluation beats aimless exploration. When Claude 3.7 Sonnet launched, Dharmesh tested it specifically for code review efficiency and found hybrid reasoning was remarkably effective at understanding complex codebases.</div>
+      <div class="newsletter-quote">"What you shouldn't do is decide at any point that AI is not good enough to tackle a problem and then forget about it. The answer might change faster than you expect."</div>
+      <a href="https://simple.ai" target="_blank" class="source-link">&#8599; simple.ai</a>
     </div>
   </section>
 

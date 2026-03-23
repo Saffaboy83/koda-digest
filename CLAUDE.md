@@ -1,5 +1,24 @@
 # Koda Daily AI Digest
 
+## Startup Routine
+
+1. Read all files in `context/` if present. This is your foundation.
+2. Read `MEMORY.md` in the memory directory. This is what you have learned over time.
+3. Use both to shape every task.
+
+## Memory System
+
+When you are corrected or learn something new, update the relevant section in MEMORY.md:
+
+- **Voice** - tone, phrasing, writing corrections
+- **Process** - how tasks should be done
+- **People** - who people are, relationships
+- **Projects** - active work, current tasks, status
+- **Output** - formats, naming, delivery preferences
+- **Tools** - which tools to use and how
+
+Keep MEMORY.md current. When something changes, update it in place. Replace outdated info, do not just append below it. The file should always reflect the latest state.
+
 ## What This Is
 
 A fully automated daily intelligence dashboard at **koda.community** (Vercel).
