@@ -900,11 +900,18 @@
             var grid = document.getElementById('snapshotGrid');
             var html = '';
             var topics = latest.focusTopics || [];
+            var digestFile = latest.file || 'morning-briefing-koda.html';
             for (var i = 0; i < topics.length && i < 3; i++) {
-                html += '<div class="snapshot-card">' +
+                // Support both old string format and new {title, desc} format
+                var title = typeof topics[i] === 'string' ? topics[i] : (topics[i].title || '');
+                var desc = typeof topics[i] === 'object' ? (topics[i].desc || '') : '';
+                // Truncate desc to ~120 chars for the card
+                if (desc.length > 140) desc = desc.substring(0, 137) + '...';
+                html += '<a href="./' + digestFile + '#todays-focus" style="text-decoration:none;color:inherit;" class="snapshot-card">' +
                     '<div class="snapshot-number">' + (i + 1) + '</div>' +
-                    '<div class="snapshot-title">' + escapeHtml(topics[i]) + '</div>' +
-                    '</div>';
+                    '<div class="snapshot-title">' + escapeHtml(title) + '</div>' +
+                    (desc ? '<div class="snapshot-desc">' + escapeHtml(desc) + '</div>' : '') +
+                    '</a>';
             }
             if (!html) {
                 html = '<div class="archive-empty">No focus topics available.</div>';
@@ -922,7 +929,8 @@
             var html = '';
             for (var i = 0; i < digests.length; i++) {
                 var d = digests[i];
-                var focusText = (d.focusTopics && d.focusTopics[0]) || 'Intelligence Briefing';
+                var ft = (d.focusTopics && d.focusTopics[0]);
+                var focusText = ft ? (typeof ft === 'string' ? ft : (ft.title || 'Intelligence Briefing')) : 'Intelligence Briefing';
 
                 var badges = '';
                 if (d.kpis.aiStories) badges += '<span class="archive-badge stories">' + d.kpis.aiStories + ' AI</span>';

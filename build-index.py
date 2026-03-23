@@ -82,8 +82,15 @@ def parse_with_regex(filepath):
         elif "tool" in label_lower:
             result["kpis"]["toolsFeatured"] = value
 
-    # Extract focus topics: look for focus-content blocks with either
-    # div.focus-title + div.focus-desc (March 22) or h3 + p (March 21)
+    # Extract focus topics: multiple HTML formats across digest versions
+    # v3: focus-content-title + focus-content-body (March 23+)
+    # v2: focus-title + focus-desc (March 22)
+    # v1: focus-content > h3 + p (March 21)
+    focus_pattern_v3 = re.compile(
+        r'class="focus-content-title"[^>]*>(.*?)</div>\s*'
+        r'.*?class="focus-content-body"[^>]*>(.*?)</div>',
+        re.DOTALL,
+    )
     focus_pattern_v2 = re.compile(
         r'class="focus-title"[^>]*>(.*?)</div>\s*'
         r'.*?class="focus-desc"[^>]*>(.*?)</div>',
@@ -94,7 +101,9 @@ def parse_with_regex(filepath):
         re.DOTALL,
     )
 
-    focus_matches = focus_pattern_v2.findall(html)
+    focus_matches = focus_pattern_v3.findall(html)
+    if not focus_matches:
+        focus_matches = focus_pattern_v2.findall(html)
     if not focus_matches:
         focus_matches = focus_pattern_v1.findall(html)
 
@@ -120,8 +129,10 @@ def parse_with_regex(filepath):
     section_starts = []
     for m in section_title_pattern.finditer(html):
         raw_title = strip_html(m.group(1))
-        # Remove emoji/icon characters
-        raw_title = re.sub(r"[\U0001F300-\U0001FAFF\U00002702-\U000027B0]", "", raw_title).strip()
+        # Remove emoji/icon characters and common HTML entity remnants
+        raw_title = re.sub(r"[\U0001F300-\U0001FAFF\U00002702-\U000027B0\u2600-\u27FF\u2B50]", "", raw_title).strip()
+        # Remove leading/trailing punctuation and whitespace
+        raw_title = re.sub(r"^[\s\u26A1\u2764\u2728]+|[\s]+$", "", raw_title).strip()
         section_starts.append((m.start(), m.end(), raw_title))
 
     # Skip media sections
@@ -143,9 +154,9 @@ def parse_with_regex(filepath):
 
         items = []
 
-        # Pattern 1: card-title + card-text (March 22 AI Developments, World News)
+        # Pattern 1: card-title + card-text/card-body (AI Developments, World News)
         for m in re.finditer(
-            r'class="card-title"[^>]*>(.*?)</div>.*?class="card-text"[^>]*>(.*?)</div>',
+            r'class="card-title"[^>]*>(.*?)</div>.*?class="card-(?:text|body)"[^>]*>(.*?)</div>',
             section_html, re.DOTALL,
         ):
             items.append({"headline": strip_html(m.group(1)), "text": strip_html(m.group(2))})
@@ -157,16 +168,16 @@ def parse_with_regex(filepath):
         ):
             items.append({"headline": strip_html(m.group(1)), "text": strip_html(m.group(2))})
 
-        # Pattern 3: comp-name + comp-text (March 22 Competitive Landscape)
+        # Pattern 3: comp-name + comp-text/comp-body (Competitive Landscape)
         for m in re.finditer(
-            r'class="comp-name"[^>]*>(.*?)</(?:span|div)>.*?class="comp-text"[^>]*>(.*?)</div>',
+            r'class="comp-name"[^>]*>(.*?)</(?:span|div)>.*?class="comp-(?:text|body)"[^>]*>(.*?)</div>',
             section_html, re.DOTALL,
         ):
             items.append({"headline": strip_html(m.group(1)), "text": strip_html(m.group(2))})
 
-        # Pattern 4: tip-title + tip-text (March 22 AI Tool Guide)
+        # Pattern 4: tip-title/tool-title + tip-text/tool-body (AI Tool Guide)
         for m in re.finditer(
-            r'class="tip-title"[^>]*>(.*?)</div>.*?class="tip-text"[^>]*>(.*?)</div>',
+            r'class="(?:tip-title|tool-title)"[^>]*>(.*?)</div>.*?class="(?:tip-text|tool-body)"[^>]*>(.*?)</div>',
             section_html, re.DOTALL,
         ):
             items.append({"headline": strip_html(m.group(1)), "text": strip_html(m.group(2))})
@@ -183,18 +194,23 @@ def parse_with_regex(filepath):
             change = strip_html(m.group(3))
             items.append({"headline": ticker, "text": f"{price} ({change})"})
 
-        # Pattern 6: newsletter-card — split by card boundaries, extract h4 + content
+        # Pattern 6: newsletter-card — split by card boundaries, extract name + content
         card_splits = re.split(r'<div\s+class="newsletter-card"', section_html)
         for card_chunk in card_splits[1:]:  # skip first chunk (before first card)
+            # Try multiple name patterns: h4, newsletter-name div
             name_m = re.search(r"<h4[^>]*>(.*?)</h4>", card_chunk, re.DOTALL)
+            if not name_m:
+                name_m = re.search(r'class="newsletter-name"[^>]*>(.*?)</div>', card_chunk, re.DOTALL)
             name = strip_html(name_m.group(1)).split("\n")[0].strip() if name_m else ""
             # Remove date badge from name
             name = re.sub(r"\s*Mar \d+\s*$", "", name).strip()
-            subj_m = re.search(r'class="nl-subject"[^>]*>(.*?)</div>', card_chunk, re.DOTALL)
+            # Try multiple subject patterns
+            subj_m = re.search(r'class="(?:nl-subject|newsletter-subject)"[^>]*>(.*?)</div>', card_chunk, re.DOTALL)
             subject = strip_html(subj_m.group(1)) if subj_m else ""
+            # Try multiple content patterns
             texts = [strip_html(t.group(1)) for t in re.finditer(
-                r'class="nl-section-text"[^>]*>(.*?)</div>', card_chunk, re.DOTALL)]
-            for q in re.finditer(r'class="nl-quote"[^>]*>(.*?)</div>', card_chunk, re.DOTALL):
+                r'class="(?:nl-section-text|newsletter-item)"[^>]*>(.*?)</div>', card_chunk, re.DOTALL)]
+            for q in re.finditer(r'class="(?:nl-quote|newsletter-quote)"[^>]*>(.*?)</div>', card_chunk, re.DOTALL):
                 texts.append(strip_html(q.group(1)))
             full_text = (subject + " | " if subject else "") + " ".join(texts)
             if name and full_text.strip():
@@ -245,7 +261,10 @@ def parse_html_file(filepath):
     manifest_entry = {
         "date": data["date"],
         "dayOfWeek": data["dayOfWeek"],
-        "focusTopics": [t["title"] for t in data["focusTopics"][:3]],
+        "focusTopics": [
+            {"title": t["title"], "desc": t.get("desc", "")}
+            for t in data["focusTopics"][:3]
+        ],
         "kpis": {
             "aiStories": data["kpis"].get("aiStories", ""),
             "worldEvents": data["kpis"].get("worldEvents", ""),
