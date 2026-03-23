@@ -1,6 +1,65 @@
 {
-  "generated": "2026-03-23T02:45:13Z",
+  "generated": "2026-03-23T12:03:15Z",
   "days": [
+    {
+      "date": "2026-03-23",
+      "sections": [
+        {
+          "title": "⚡ Daily Summary",
+          "items": [
+            {
+              "headline": "Summary",
+              "text": "The world is on fire, oil is at $111, and AI just got a 1-million-token brain. Pick which one you care about more. Both will reshape how you work this week."
+            },
+            {
+              "headline": "AI",
+              "text": "OpenAI shipped GPT-5.4 with a 1.05 million token context window and the ability to autonomously execute multi-step workflows. That is not an upgrade. That is a category shift. At the same time, Google Stitch dropped free and Figma stock fell 12% on day one. The pattern is clear: AI is making professional tools free. Finance reporting is next."
+            },
+            {
+              "headline": "World",
+              "text": "Day 23 of the US-Israel-Iran war. Iran struck Arad and Dimona, injuring 100+. Trump threatened to obliterate Iran's power plants. Then he backed off for 5 days, citing \"productive conversations.\" The Strait of Hormuz is still disrupted. IEA says this is the largest oil supply shock in history. Cuba went dark for the third time this month. Sudan lost 64 civilians in a hospital strike."
+            },
+            {
+              "headline": "Markets",
+              "text": "Everything is red. S&P 500 down 1.51%. NASDAQ down 1.29%. BTC at $68k, ETH at $2,062. The one thing going up: oil. Brent crude at $111, up over 50% this month alone. Hormuz flows dropped from 20 million barrels per day to nearly zero. Goldman Sachs says triple-digit oil could stick for years. Energy sector is the only hedge that's working right now."
+            },
+            {
+              "headline": "Wild Card",
+              "text": "Chinese AI is not losing. Five Chinese models dropped this month. MiniMax M2.5 now rivals Claude Opus 4.6 at a fraction of the cost. Kimi K2.5 runs on Cloudflare's edge. The West is spending billions on AI infrastructure. China is shipping cheaper, faster models. The cost war is on. And the winner is every developer who does not care which flag is on the model card."
+            }
+          ]
+        },
+        {
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,506 (-1.51%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "23,791 (-1.29%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$68,045 (-1.50%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$2,062 (-2.01%)"
+            },
+            {
+              "headline": "Brent Oil",
+              "text": "$111 (+50% MTD)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "Fear (Hormuz Risk)"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-03-22",
       "sections": [
