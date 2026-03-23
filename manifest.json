@@ -1,10 +1,23 @@
 {
-  "generated": "2026-03-23T12:41:40Z",
+  "generated": "2026-03-23T12:48:11Z",
   "digests": [
     {
       "date": "2026-03-23",
       "dayOfWeek": "Monday",
-      "focusTopics": [],
+      "focusTopics": [
+        {
+          "title": "GPT-5.4 Goes Live: 1M Tokens, Autonomous Workflows",
+          "desc": "OpenAI's GPT-5.4 is not just a better chatbot. It can read your entire codebase, your full contract history, your year of emails, all at once, and take action across software environments autonomously. The 1.05M-token context window is now the commercial standard. If you haven't tested it on a real work task yet, today is the day. Release notes ↗"
+        },
+        {
+          "title": "Hormuz Crisis: Oil at $111 and Climbing",
+          "desc": "The Strait of Hormuz handled 20 million barrels per day before the war. It's now near zero. Brent crude is up 50% this month. Trump paused US strikes for 5 days to negotiate, but nothing is resolved. This is not a short-term spike. Plan your energy exposure and supply chain accordingly. CNN Live Updates ↗"
+        },
+        {
+          "title": "Google Stitch: Free AI Design Tool Disrupts Professional Work",
+          "desc": "Google Stitch turned a napkin sketch into a board-ready CFO report with one prompt. It's free. It critiques its own work in real time. Figma lost 12% of its stock value the day it launched. If you're still manually building financial presentations, stop. Test Stitch today. finstory AI ↗"
+        }
+      ],
       "kpis": {
         "aiStories": "8",
         "worldEvents": "4",
@@ -21,9 +34,18 @@
       "date": "2026-03-22",
       "dayOfWeek": "Sunday",
       "focusTopics": [
-        "Iran-Hormuz Crisis Week 4",
-        "AI Superapp Wars",
-        "Market Stress"
+        {
+          "title": "Iran-Hormuz Crisis Week 4",
+          "desc": "Missiles hit near Dimona nuclear center, Trump gives 48hr ultimatum to reopen Strait. Oil above $100/barrel threatening global energy supply."
+        },
+        {
+          "title": "AI Superapp Wars",
+          "desc": "OpenAI consolidating into desktop Superapp, Google Stitch disrupts design (Figma -12%), Claude Opus 4.6 leads SWE-Bench at 80.8%."
+        },
+        {
+          "title": "Market Stress",
+          "desc": "S&P down 1.51%, NASDAQ down 2.01%, crypto also falling. Goldman says oil may stay at triple digits for years."
+        }
       ],
       "kpis": {
         "aiStories": "12",
@@ -41,9 +63,18 @@
       "date": "2026-03-21",
       "dayOfWeek": "Saturday",
       "focusTopics": [
-        "OpenAI Superapp — The Desktop AI Consolidation",
-        "Oil at $112/bbl — Hormuz Blockade Reshaping Global Energy",
-        "Google Stitch — Free AI Design Tool Disrupts Finance Reporting"
+        {
+          "title": "OpenAI Superapp — The Desktop AI Consolidation",
+          "desc": "OpenAI is merging ChatGPT, Codex, and Atlas into a single desktop Superapp. GPT-5.4 launched with 1M token context, scoring 75% on OSWorld-V (above the 72.4% human baseline). Revenue has surpassed $25B and the company is exploring an IPO. This marks OpenAI's pivot from model provider to platform company — a shift worth monitoring closely."
+        },
+        {
+          "title": "Oil at $112/bbl — Hormuz Blockade Reshaping Global Energy",
+          "desc": "The Strait of Hormuz blockade enters week four with 3,000+ vessels stranded and Brent crude above $110/barrel — up 50% since the conflict began. 84% of Hormuz crude flows to Asia, making this an existential energy threat for the region. Trump is threatening Iranian power plants while simultaneously suggesting winding down operations. This is the dominant macro story driving every market."
+        },
+        {
+          "title": "Google Stitch — Free AI Design Tool Disrupts Finance Reporting",
+          "desc": "Google launched Stitch, a free AI tool that converts plain-language prompts and napkin sketches into production-quality reports. Figma dropped 12% on the news. The finstory AI newsletter tested it on real financials: one photo produced a board-ready CFO report with KPIs, trend charts, and driver callouts — work that normally takes an FP&A analyst 3 hours. The key insight: frame prompts as judgment instructions, not formatting requests."
+        }
       ],
       "kpis": {
         "aiStories": "10",

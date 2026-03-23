@@ -1,11 +1,28 @@
 {
-  "generated": "2026-03-23T12:41:40Z",
+  "generated": "2026-03-23T12:48:11Z",
   "days": [
     {
       "date": "2026-03-23",
       "sections": [
         {
-          "title": "⚡ Daily Summary",
+          "title": "Today's Focus",
+          "items": [
+            {
+              "headline": "GPT-5.4 Goes Live: 1M Tokens, Autonomous Workflows",
+              "text": "OpenAI's GPT-5.4 is not just a better chatbot. It can read your entire codebase, your full contract history, your year of emails, all at once, and take action across software environments autonomously. The 1.05M-token context window is now the commercial standard. If you haven't tested it on a real work task yet, today is the day. Release notes ↗"
+            },
+            {
+              "headline": "Hormuz Crisis: Oil at $111 and Climbing",
+              "text": "The Strait of Hormuz handled 20 million barrels per day before the war. It's now near zero. Brent crude is up 50% this month. Trump paused US strikes for 5 days to negotiate, but nothing is resolved. This is not a short-term spike. Plan your energy exposure and supply chain accordingly. CNN Live Updates ↗"
+            },
+            {
+              "headline": "Google Stitch: Free AI Design Tool Disrupts Professional Work",
+              "text": "Google Stitch turned a napkin sketch into a board-ready CFO report with one prompt. It's free. It critiques its own work in real time. Figma lost 12% of its stock value the day it launched. If you're still manually building financial presentations, stop. Test Stitch today. finstory AI ↗"
+            }
+          ]
+        },
+        {
+          "title": "Daily Summary",
           "items": [
             {
               "headline": "Summary",
@@ -26,6 +43,64 @@
             {
               "headline": "Wild Card",
               "text": "Chinese AI is not losing. Five Chinese models dropped this month. MiniMax M2.5 now rivals Claude Opus 4.6 at a fraction of the cost. Kimi K2.5 runs on Cloudflare's edge. The West is spending billions on AI infrastructure. China is shipping cheaper, faster models. The cost war is on. And the winner is every developer who does not care which flag is on the model card."
+            }
+          ]
+        },
+        {
+          "title": "AI Developments",
+          "items": [
+            {
+              "headline": "GPT-5.4: 1.05M Tokens, Autonomous Execution, 75% on OSWorld-V",
+              "text": "OpenAI's GPT-5.4 sets a new commercial benchmark with a 1.05-million-token context window. The model scores 75% on OSWorld-V, just above the human baseline of 72.4%, and can autonomously execute multi-step workflows across software environments. Mini version now rolling out to Free and Go users. OpenAI has surpassed $25B in annualized revenue and is eyeing a late-2026 IPO."
+            },
+            {
+              "headline": "Gemini 3.1 Pro: 77.1% ARC-AGI-2, 1M Context, Full Multimodal",
+              "text": "Google DeepMind's Gemini 3.1 Pro scores 77.1% on ARC-AGI-2 with a 1M-token context window and multimodal reasoning across text, images, audio, video, and code. Flash-Lite variant offers 2.5x faster responses at just $0.25 per million input tokens, making it the most cost-effective frontier model available."
+            },
+            {
+              "headline": "Google Stitch: Free AI Design Tool Crashes Figma 12%",
+              "text": "Google Stitch builds working, high-fidelity reports and interfaces from plain-language prompts. No wireframes, no design background needed. It critiques its own work in real time, responds to voice, and deploys in one click. The day it launched, Figma dropped 12%. Finance reporting, legal documents, and board materials are all in the crosshairs next."
+            },
+            {
+              "headline": "Five Chinese Models Drop: MiniMax M2.5 Rivals Claude Opus 4.6",
+              "text": "Tencent, Alibaba, Baidu, ByteDance, and MiniMax all launched models in March. MiniMax's M2.5 rivals Anthropic's Claude Opus 4.6 at a significantly lower cost. Moonshot AI's Kimi K2.5 is now available in Cloudflare Workers AI for edge inference, no server management required. Chinese models are winning the cost war."
+            },
+            {
+              "headline": "Nemotron 3 Super: 120B Parameters, 12B Active, Built for Agents",
+              "text": "NVIDIA's Nemotron 3 Super is a 120B-total-parameter hybrid Mixture-of-Experts model with only 12B active parameters per forward pass. Announced at GTC on March 11, it's designed specifically for complex multi-agent enterprise applications where inference efficiency matters as much as raw capability."
+            },
+            {
+              "headline": "Anthropic Rolls Out Memory for All Claude Users",
+              "text": "Anthropic's persistent memory feature is now available to all Claude users. The assistant retains context, preferences, and project history across conversations. Combined with Claude Sonnet 4.6 and Opus 4.6 (released in February), Anthropic now offers a 1-million-token context window in beta with improved coding capabilities. Over 30 OpenAI and Google employees publicly backed Anthropic's DOD lawsuit."
+            },
+            {
+              "headline": "MIT AI Model Slashes Drug Development Costs by Billions",
+              "text": "MIT's protein-based drug design model predicts how synthetic proteins fold and interact with molecular targets, cutting pharmaceutical R&D costs by billions of dollars. The model accelerates treatment development for cancer, autoimmune diseases, and rare genetic disorders. Medical AI matured from research curiosity to pipeline reality this month."
+            },
+            {
+              "headline": "Kimi K2.5 on Cloudflare Edge: Frontier AI Without Servers",
+              "text": "Moonshot AI's Kimi K2.5 is now available in the Cloudflare Workers AI ecosystem, enabling developers to run a frontier-level AI model directly on edge computing infrastructure. No servers to manage, no GPU clusters to provision. This signals the next phase: frontier-grade AI as a commodity infrastructure layer."
+            }
+          ]
+        },
+        {
+          "title": "World News",
+          "items": [
+            {
+              "headline": "Iran-US-Israel War Day 23: Hormuz Ultimatum, Trump Pauses Strikes",
+              "text": "Iran struck the Israeli cities of Arad and Dimona (near Israel's nuclear research center), injuring 100+ people. Trump issued a 48-hour ultimatum to reopen the Strait of Hormuz or face strikes on Iran's largest power plant. Iran warned it would \"completely close\" Hormuz if power plants are struck. Trump then halted all US energy infrastructure strikes for five days, citing productive diplomatic conversations. Nothing is resolved."
+            },
+            {
+              "headline": "Strait of Hormuz: IEA Calls It the Worst Supply Shock in History",
+              "text": "The International Energy Agency warns the Hormuz disruption is the largest supply shock in the history of the global oil market. Crude and oil product flows through the Strait have fallen from around 20 million barrels per day before the war to near zero currently. Goldman Sachs says triple-digit oil prices could persist for years if the conflict is not resolved."
+            },
+            {
+              "headline": "Ukraine: Low-Tech Overhead Netting Deployed Against Russian FPV Drones",
+              "text": "Ukrainian towns are installing overhead netting as a low-cost defense against Russian FPV (first-person view) drones — the latest generation of cheap, precise, lethal weapons deployed by Russian forces. Cities along the advancing eastern front line are preparing infrastructure for sustained urban combat. Russia's full-scale invasion is now in its fifth year."
+            },
+            {
+              "headline": "Cuba Goes Dark for Third Time in March as Grid Collapses Again",
+              "text": "Cuba's power grid collapsed for the third time in March, leaving the entire country without electricity. The communist government is battling a combination of decaying Soviet-era infrastructure, lack of investment, and a US oil blockade that has gutted energy generation capacity. The recurring blackouts signal a systemic collapse, not a temporary failure."
             }
           ]
         },
@@ -57,6 +132,77 @@
               "text": "Fear (Hormuz Risk)"
             }
           ]
+        },
+        {
+          "title": "Newsletter Intelligence",
+          "items": [
+            {
+              "headline": "finstory AI",
+              "text": "I turned a napkin sketch into a board-ready CFO report with AI (one prompt) | Google Stitch is free and it's already breaking things: Google launched Stitch this week — a free AI design tool that builds working, board-quality reports and interfaces from plain-language prompts. No wireframes. No Figma. No design agency. The author tested it on real financial data: uploaded a photo of hand-drawn numbers, typed one prompt, and got back a premium executive financial report complete with a clean headline, 12-month trend charts with green/red performance indicators, a comparison table, and three FP&A driver callouts. Output quality equivalent to three hours of analyst work on a Sunday night. Figma lost 12% the day Stitch launched: That market signal is the story. Google just made free what professional teams used to pay $50-100 per seat per month for. This pattern does not stay in design software. It moves to every category of professional work. Finance reporting is next. Legal document generation after that. The prompt is the FP&A judgment: The key insight in this issue is not about the tool. It's about how you prompt it. \"Don't ask for a design. Ask for FP&A judgment built into a visual format.\" That is a completely different instruction. Generic AI outputs look generic because the prompt was generic. Specificity in the prompt produces specificity in the output. The author provides a copy-paste prompt template for generating CFO-ready reports. The professional work disruption curve is accelerating: Stitch is a signal, not an endpoint. AI is systematically making professional tools free. Each disruption follows the same pattern: tool launches free, incumbents drop in market value, early adopters get an unfair advantage for 6-12 months before the skill becomes table stakes. You are inside the 6-12 month window right now for finance AI tools. You can see the live demo at google-stitch-finstory.netlify.app Stitch critiques its own work in real time and responds to voice commands One-click deploy to production — no engineering required \"The difference between a generic AI output and a boardroom-ready one is how you frame the prompt. Don't ask for a design. Ask for FP&A judgment built into a visual format.\""
+            },
+            {
+              "headline": "Pinecone",
+              "text": "February/March Global Newsletter: BYOC on All 3 Clouds, HIPAA Standard, Deletion at Scale | BYOC (Bring Your Own Cloud) now in public preview on AWS, GCP, and Azure: This is a major enterprise unlock. BYOC lets you run Pinecone's data plane inside your own cloud account. Your vectors, metadata, and queries never leave your environment. Setup is fully self-serve via a Pulumi-based wizard with pull-based operations that execute locally in your cluster. No SSH, no VPN, no inbound network access required. This removes the #1 objection for enterprise AI deployments: data sovereignty. HIPAA compliance for Standard plan at $190/month: Previously available only on Enterprise. Starting now, Standard plan customers can add HIPAA compliance including encrypted data storage, audit logging, enhanced security controls, and BAA execution support. This opens the healthcare AI market to mid-market companies that couldn't afford Enterprise pricing. Garbage Day — How Pinecone Safely Deletes Billions of Objects: Deleting data at scale is harder than adding it. Pinecone's Janitor garbage collection system safely removes billions of objects from immutable blob storage without disrupting live queries. The post covers why deletion in distributed systems requires more than a delete call, and how Pinecone keeps storage costs low without sacrificing query reliability. Essential reading if you're running a production vector database. When \"Performance\" Means Two Different Things: Speed and accuracy are both called \"performance\" in AI, but optimizing for one trades off against the other. This post breaks down the distinction for production systems: when you need latency-optimized retrieval vs. when precision matters more. A practical framework for setting the right performance target before you build. Upcoming webinar: Pinecone Platform Series — Slab Architecture (March 24) Upcoming webinar: Nuances of Hybrid Search (March 26) Vector Search for Agentic AI hands-on introduction series starting April 23 Pinecone + n8n official node: The official Pinecone Assistant node for n8n is live, enabling no-code vector search workflows in automated pipelines. 10M-vector benchmark guide: New guide covers how to benchmark Pinecone at 10M+ vectors with real performance data. \"BYOC removes the #1 enterprise objection: data sovereignty. Your vectors, metadata, and queries never leave your environment.\""
+            }
+          ]
+        },
+        {
+          "title": "Competitive Landscape",
+          "items": [
+            {
+              "headline": "OpenAI",
+              "text": "GPT-5.4 launched with 1.05M token context and autonomous execution (75% OSWorld-V). $25B annualized revenue, eyeing a late-2026 IPO. GPT-5.4 mini rolling out to Free and Go users. Autonomous multi-step software execution marks a shift from assistant to agent."
+            },
+            {
+              "headline": "Google DeepMind",
+              "text": "Gemini 3.1 Pro at 77.1% ARC-AGI-2. Flash-Lite at $0.25/M tokens (2.5x faster). Stitch design tool disrupted Figma on day one. Google is attacking incumbents with free AI tools while also competing at the frontier model level."
+            },
+            {
+              "headline": "Anthropic",
+              "text": "Memory features now live for all users. Claude Sonnet 4.6 and Opus 4.6 released in February with 1M-token context in beta. Over 30 OpenAI and Google employees publicly backed Anthropic in its DOD lawsuit. Cross-industry support signals growing trust in Anthropic's safety-focused approach."
+            },
+            {
+              "headline": "Mistral",
+              "text": "Forge enterprise platform launched at NVIDIA GTC, enabling \"build-your-own-AI\" for enterprises. On track to surpass $1B annual recurring revenue this year. Mistral's bet: enterprises want full control over their AI stack, not dependence on OpenAI or Google."
+            },
+            {
+              "headline": "Meta AI",
+              "text": "Llama deployments continue expanding across enterprise. Meta's open-source strategy keeps Llama in every stack where developers want to avoid vendor lock-in. No major model launch this week but Meta's infrastructure bets (custom silicon, data center expansion) keep it competitive on cost."
+            },
+            {
+              "headline": "China AI",
+              "text": "Five models launched this month from Tencent, Alibaba, Baidu, ByteDance, and MiniMax. MiniMax M2.5 rivals Claude Opus 4.6 at a fraction of the cost. Kimi K2.5 runs on Cloudflare's edge. Chinese AI is winning on price and shipping speed. The West's infrastructure spending advantage may not translate to model quality lead for long."
+            }
+          ]
+        },
+        {
+          "title": "AI Tool Guide",
+          "items": [
+            {
+              "headline": "Don't Let AI Become Your Exoskeleton",
+              "text": "GPT-5.4 and Claude Opus 4.6 can do your thinking for you. That is exactly the problem. Use AI to accelerate your thinking, not replace it. Feed your analysis to the model. Don't ask the model for your analysis. The exoskeleton effect is real: professionals who outsource judgment to AI lose the muscle over time. Keep the hard thinking in your head. Use AI for execution and research."
+            },
+            {
+              "headline": "Build Agentic Workflows Without Code",
+              "text": "n8n, Make.com, and Zapier Central all let you build AI agents visually. No code required. A research agent that runs daily costs $5-20/month in API fees. The 2026 architecture that matters most: a RAG-grounded agent with a vector database backend (Pinecone), a frontier model for reasoning (GPT-5.4 or Claude), and a workflow layer for orchestration (n8n). Build this and you have an employee that works 24/7 for $25/month."
+            },
+            {
+              "headline": "Turn Napkin Numbers into CFO Reports with Google Stitch",
+              "text": "Google Stitch is free. Go to stitch.google.com, upload a photo of your hand-drawn numbers or paste raw data, and use this prompt template: \"Build an executive financial report. Lead with a single headline that states the conclusion. Show three key metrics with context. Include a 12-month trend chart where green = over plan, red = under. Add three driver callouts explaining the story.\" You will get a board-ready report in under 60 seconds."
+            },
+            {
+              "headline": "GPT-5.4 is Now the Best Coding Model for Long Context",
+              "text": "1.05 million tokens means GPT-5.4 can read your entire codebase in one pass. For refactoring, debugging across files, and architecture reviews, this is the new standard. Use it with a strong system prompt: \"You are a senior engineer reviewing this codebase. Identify the three highest-risk areas. For each, explain the risk, the impact, and the fix.\" You get a full engineering audit in seconds."
+            },
+            {
+              "headline": "Use Pinecone + n8n for Persistent AI Memory",
+              "text": "Anthropic added memory to Claude. But if you want cross-platform, cross-model AI memory, build it yourself. Store all your conversations, documents, and work outputs as vector embeddings in Pinecone. Connect it to n8n. Every time you start a new AI conversation, retrieve the top 5 most relevant memories first. This gives you context persistence across any model, any tool, any platform."
+            },
+            {
+              "headline": "Deploy Frontier AI on Cloudflare Workers: Zero Servers",
+              "text": "Kimi K2.5 is now available in Cloudflare Workers AI. You can call a frontier-level AI model in a Cloudflare Worker with three lines of code. No GPU servers, no scaling headaches, no cold starts. This is the cheapest way to add AI to any web application. Response times are under 200ms globally. Try it: build a one-page app that summarizes any URL you paste into it. Cost: near zero."
+            }
+          ]
         }
       ]
     },
@@ -81,7 +227,7 @@
           ]
         },
         {
-          "title": "⚡ Daily Summary",
+          "title": "Daily Summary",
           "items": [
             {
               "headline": "Summary",

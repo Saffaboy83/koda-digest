@@ -879,10 +879,38 @@ python build-index.py
 ```
 
 This parses ALL `morning-briefing-koda-YYYY-MM-DD.html` files and generates:
-- `manifest.json` — archive metadata (dates, focus topics, KPIs, media indicators)
+- `manifest.json` — archive metadata (dates, focus topics with descriptions, KPIs, media indicators)
 - `search-index.json` — full-text content for cross-day search
 
 Both files MUST be committed to git alongside the HTML files.
+
+### How `build-index.py` works (important for HTML compatibility)
+
+The script uses regex patterns to extract content from each digest HTML file.
+When writing digest HTML, **use these CSS class names** so the search index picks them up:
+
+| Section | Title class | Body class | Notes |
+|---------|-----------|-----------|-------|
+| Focus | `focus-content-title` | `focus-content-body` | Also supports `focus-title`/`focus-desc` |
+| AI / World News cards | `card-title` | `card-body` or `card-text` | |
+| Competitive | `comp-name` | `comp-body` or `comp-text` | |
+| Tools | `tool-title` | `tool-body` | Also supports `tip-title`/`tip-text` |
+| Newsletter | `newsletter-name` | `newsletter-item` | Also supports `nl-subject`/`nl-section-text` |
+| Newsletter quote | | `newsletter-quote` or `nl-quote` | |
+| Market | `market-ticker` | `market-price` + `market-change` | |
+| Summary | `summary-hook` | `summary-brief-text` + `summary-brief-label` | |
+
+**If you change CSS class names in the HTML**, update `build-index.py` patterns to match,
+otherwise the search index and landing page will not show that content.
+
+### Landing page integration
+
+The landing page (`index.html`) reads `manifest.json` and `search-index.json` to render:
+- **Today's Focus**: 3 cards showing the latest digest's focus topics (title + description).
+  Focus descriptions are truncated to ~140 chars per card, linking to `#todays-focus` in the digest.
+- **Archive grid**: Cards for each digest with date, focus headline, KPI badges, and media indicators.
+- **Search**: Full-text search across all indexed days with keyword highlighting and deep-links
+  to specific sections (e.g., `briefing.html#ai-developments`).
 
 ---
 
