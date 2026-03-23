@@ -228,6 +228,7 @@
         /* ── SECTIONS ── */
         .section {
             margin-bottom: 48px;
+            scroll-margin-top: 80px;
         }
 
         .section-title {
@@ -778,14 +779,16 @@
 
     <!-- ── TOPBAR ── -->
     <nav class="topbar">
-        <div class="topbar-brand">
+        <a href="./index.html" class="topbar-brand" style="text-decoration:none;color:inherit;">
             <div class="topbar-icon">&#129302;</div>
             <div>
                 <div class="topbar-title">Koda Digest</div>
                 <div class="topbar-subtitle">Daily AI Intelligence</div>
             </div>
-        </div>
+        </a>
         <div class="topbar-nav">
+            <a href="./index.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:10px;background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;font-size:13px;font-weight:700;font-family:'JetBrains Mono',monospace;transition:all 0.2s;"
+               onmouseover="this.style.opacity='0.85';this.style.transform='translateY(-1px)'" onmouseout="this.style.opacity='1';this.style.transform='none'">&#8592; Home</a>
             <button class="nav-btn" id="navPrev" disabled title="Previous day">&larr;</button>
             <button class="nav-btn" id="navNext" disabled title="Next day">&rarr;</button>
         </div>
@@ -863,7 +866,7 @@
         </section>
 
         <!-- ── TODAY'S FOCUS ── -->
-        <section class="section fade-in">
+        <section class="section fade-in" id="todays-focus">
             <h2 class="section-title"><span class="section-icon">&#127919;</span> Today's Focus</h2>
             <div class="stack">
                 <div class="focus-item">
@@ -891,7 +894,7 @@
         </section>
 
         <!-- ── AI DEVELOPMENTS ── -->
-        <section class="section fade-in">
+        <section class="section fade-in" id="ai-developments">
             <h2 class="section-title"><span class="section-icon">&#128640;</span> AI Developments</h2>
             <div class="grid-2">
                 <div class="card">
@@ -958,7 +961,7 @@
         </section>
 
         <!-- ── WORLD NEWS ── -->
-        <section class="section fade-in">
+        <section class="section fade-in" id="world-news">
             <h2 class="section-title"><span class="section-icon">&#127758;</span> World News</h2>
             <div class="grid-2">
                 <div class="card">
@@ -1007,7 +1010,7 @@
         </section>
 
         <!-- ── MARKET SNAPSHOT ── -->
-        <section class="section fade-in">
+        <section class="section fade-in" id="market-snapshot">
             <h2 class="section-title"><span class="section-icon">&#128200;</span> Market Snapshot</h2>
             <div class="grid-6">
                 <div class="market-card">
@@ -1050,7 +1053,7 @@
         </section>
 
         <!-- ── NEWSLETTER INTELLIGENCE ── -->
-        <section class="section fade-in">
+        <section class="section fade-in" id="newsletter-intelligence">
             <h2 class="section-title"><span class="section-icon">&#128240;</span> Newsletter Intelligence</h2>
             <div class="stack">
 
@@ -1165,7 +1168,7 @@
         </section>
 
         <!-- ── COMPETITIVE LANDSCAPE ── -->
-        <section class="section fade-in">
+        <section class="section fade-in" id="competitive-landscape">
             <h2 class="section-title"><span class="section-icon">&#127942;</span> Competitive Landscape</h2>
             <div class="grid-3">
                 <div class="comp-card">
@@ -1226,7 +1229,7 @@
         </section>
 
         <!-- ── AI TOOL GUIDE ── -->
-        <section class="section fade-in">
+        <section class="section fade-in" id="ai-tool-guide">
             <h2 class="section-title"><span class="section-icon">&#128736;&#65039;</span> AI Tool Guide</h2>
             <div class="grid-2">
                 <div class="tip-card">
@@ -1365,6 +1368,25 @@
                     });
                 }
             }).catch(function() {});
+        })();
+
+        /* ── Hash deep-link scroll ── */
+        (function() {
+            if (!window.location.hash) return;
+            var id = window.location.hash.substring(1);
+            function scrollToTarget() {
+                var el = document.getElementById(id);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+            if (document.readyState === 'complete') {
+                setTimeout(scrollToTarget, 300);
+            } else {
+                window.addEventListener('load', function() {
+                    setTimeout(scrollToTarget, 300);
+                });
+            }
         })();
     </script>
 </body>

@@ -6,7 +6,7 @@
 cd "$(dirname "$0")"
 
 # Stage all HTML files and config
-git add morning-briefing-koda.html morning-briefing-koda-*.html vercel.json .gitignore 2>/dev/null
+git add morning-briefing-koda.html morning-briefing-koda-*.html manifest.json search-index.json index.html vercel.json .gitignore 2>/dev/null
 
 # Check if there are changes to commit
 if git diff --cached --quiet; then

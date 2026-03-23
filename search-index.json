@@ -1,0 +1,375 @@
+{
+  "generated": "2026-03-23T01:31:13Z",
+  "days": [
+    {
+      "date": "2026-03-22",
+      "sections": [
+        {
+          "title": "Today's Focus",
+          "items": [
+            {
+              "headline": "Iran-Hormuz Crisis Week 4",
+              "text": "Missiles hit near Dimona nuclear center, Trump gives 48hr ultimatum to reopen Strait. Oil above $100/barrel threatening global energy supply."
+            },
+            {
+              "headline": "AI Superapp Wars",
+              "text": "OpenAI consolidating into desktop Superapp, Google Stitch disrupts design (Figma -12%), Claude Opus 4.6 leads SWE-Bench at 80.8%."
+            },
+            {
+              "headline": "Market Stress",
+              "text": "S&P down 1.51%, NASDAQ down 2.01%, crypto also falling. Goldman says oil may stay at triple digits for years."
+            }
+          ]
+        },
+        {
+          "title": "AI Developments",
+          "items": [
+            {
+              "headline": "OpenAI Superapp",
+              "text": "GPT-5.4 consolidation of ChatGPT, Codex, and Atlas into a single desktop application. Features 1.05M token context window. Represents the largest UX consolidation in AI history, targeting $25B+ revenue."
+            },
+            {
+              "headline": "Google Gemini 3.1 Pro",
+              "text": "Tops the intelligence index at 57 points with 1M context window and 77.1% ARC-AGI-2 score. Full multimodal reasoning across text, image, audio, and video makes it the most versatile model released this quarter."
+            },
+            {
+              "headline": "Anthropic Claude 4.6",
+              "text": "Achieves 80.8% on SWE-Bench Verified, leading all coding benchmarks. Pentagon DOD lawsuit draws support from OpenAI and Google employees. Enterprise deployment expanding via Microsoft partnership."
+            },
+            {
+              "headline": "Google Stitch",
+              "text": "Free AI design tool that generates high-fidelity reports from natural language prompts. Converts napkin sketches into board-ready executive reports. Figma stock dropped 12% on launch day, signaling a major disruption."
+            },
+            {
+              "headline": "NVIDIA Nemotron 3 Super",
+              "text": "120B-parameter hybrid mixture-of-experts model with only 12B active per forward pass. Built specifically for multi-agent applications. Announced at GTC 2026 as a cornerstone of NVIDIA's AI software stack."
+            },
+            {
+              "headline": "MiniMax M2.5",
+              "text": "Rivals Claude Opus 4.6 at significantly lower cost, emerging as a new challenger in the frontier model race. Strong performance across coding and reasoning benchmarks positions it as a cost-effective alternative."
+            },
+            {
+              "headline": "Mistral Forge",
+              "text": "Enterprise platform for building custom AI models. Company on track for $1B ARR with CEO confirming enterprise focus is paying off. GPU-efficient architecture differentiates from larger competitors."
+            },
+            {
+              "headline": "Palantir Maven",
+              "text": "Pentagon designates Maven as a formal program of record with long-term military funding across all branches. Marks the transition of AI from experimental defense projects to core military infrastructure."
+            },
+            {
+              "headline": "Cursor Plan Mode",
+              "text": "Users commit at 2x the rate with Plan Mode enabled. Head of Design shows designers coding actual features instead of Figma mockups. Shift+Tab activates structured step-by-step execution for complex tasks."
+            },
+            {
+              "headline": "Private LLM",
+              "text": "Run DeepSeek, Llama, Phi, and Gemma on-device with zero internet connectivity. Full privacy-first AI on your phone with no cloud dependency. Works with Siri shortcuts for seamless mobile integration."
+            }
+          ]
+        },
+        {
+          "title": "World News",
+          "items": [
+            {
+              "headline": "Iran Missiles Near Dimona",
+              "text": "Strikes hit Arad and Dimona near Israel's nuclear research center, injuring 100+. First time in history a nuclear facility has been directly targeted. Major escalation in regional conflict with global implications."
+            },
+            {
+              "headline": "Hormuz Strait Crisis",
+              "text": "Trump gives Iran 48hr ultimatum to reopen strait. Iran says the strait will be completely closed if the US follows through on threats. Over 5,000 vessels stranded as global shipping faces unprecedented disruption."
+            },
+            {
+              "headline": "Diego Garcia Attacked",
+              "text": "Iran fired two intermediate-range ballistic missiles at the US-UK military base on Diego Garcia in the Indian Ocean. Neither missile struck the base directly, but the attack marks a significant geographic expansion of hostilities."
+            },
+            {
+              "headline": "Lebanon Strikes",
+              "text": "Israel launches new strikes targeting Hezbollah infrastructure in southern Lebanon. The operations aim to degrade cross-border attack capabilities amid the broader regional escalation driven by the Iran crisis."
+            },
+            {
+              "headline": "Sudan Hospital Strike",
+              "text": "64 killed including 13 children in a hospital strike in western Darfur, confirmed by the WHO. The ongoing conflict continues to produce devastating civilian casualties with limited international intervention."
+            },
+            {
+              "headline": "Cuba Blackout",
+              "text": "Cuba's power grid collapsed for the third time in March, leaving the entire country without electricity. The recurring infrastructure failures reflect deep systemic issues with public health and economic consequences."
+            },
+            {
+              "headline": "Ohio Meteor",
+              "text": "A suspected meteor lit up skies across Ohio and Pennsylvania accompanied by sonic booms. Residents reported brilliant flashes and shaking windows. Authorities confirmed no damage but investigations continue."
+            }
+          ]
+        },
+        {
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,506.48 (&darr; -1.51%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "21,647.61 (&darr; -2.01%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$68,616 (&darr; -2.77%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$2,080 (&darr; -3.41%)"
+            },
+            {
+              "headline": "Brent Oil",
+              "text": "$106.41 (&uarr; +3.4%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "Bearish (Oil crisis, equities sliding)"
+            }
+          ]
+        },
+        {
+          "title": "Newsletter Intelligence",
+          "items": [
+            {
+              "headline": "Superhuman AI",
+              "text": "Zain Kahn — &ldquo;Scientists use plastic to beat Parkinson&rsquo;s&rdquo; | Science Sunday special covering non-AI breakthroughs across space, medicine, and hardware innovation. Hubble catches comet exploding in real time. Man survives 48 hours without lungs. Edinburgh scientists convert plastic bottles to Parkinson's medication. Harvard builds chip to twist and control light. Taya AI necklace for journaling, Nosh One robot chef, iGarden Swim Jet, Fort wearable for strength training. Botox shows promise as antidepressant. Wearable compression sleeve aids cancer recovery. New cholesterol pill enlicitide cuts LDL by 60%. &ldquo;The odds of witnessing a comet breaking up live through Hubble are vanishingly small&rdquo;"
+            },
+            {
+              "headline": "TAAFT",
+              "text": "&ldquo;Run LLMs on Your Phone&rdquo; | Pentagon makes Palantir Maven official. White House drops national AI framework. WordPress gives AI agents publish access via MCP integration with 19 write operations. KiloClaw, LEANSpark, Unbiased Ventures pitch deck scorer, PixAI Art, ProfilePro. Karpathy says engineering is 80% delegating to AI agents. Cursor Head of Design shows designers coding actual features instead of Figma mockups. openpilot (driver assistance for 300+ cars), MetaClaw (self-evolving agent framework). &ldquo;Engineering is now 80% delegating to AI agents&rdquo; — Andrej Karpathy"
+            },
+            {
+              "headline": "finstory AI",
+              "text": "&ldquo;Napkin sketch to board-ready CFO report&rdquo; | Google Stitch turns hand-drawn financial sketches into premium executive reports with one prompt. Demonstrates FP&A judgment, not just formatting. One-click deployment from sketch to boardroom-ready output. The difference between generic AI output and boardroom-ready output is asking for judgment, not design. Figma stock dropped 12% on Stitch launch day. This pattern will move into every category of professional work where design meets domain expertise. &ldquo;Don&rsquo;t ask for a design. Ask for FP&A judgment built into a visual format.&rdquo;"
+            },
+            {
+              "headline": "Dharmesh Shah @ simple.ai",
+              "text": "&ldquo;3-Part Strategy for Keeping Up with AI&rdquo; | 1) Use AI daily — don&rsquo;t just study it. 2) Schedule quarterly AI opportunity reviews. 3) Try new tools with specific problems in mind, not generic curiosity. Companies that evaluate AI, find it not ready, and don&rsquo;t revisit for a year fall behind competitors who were more persistent. Maintain a &ldquo;not yet but soon&rdquo; list. Company Research Agent, Prospect Extractor, ICP Builder on agent.ai. &ldquo;The frequency with which we get new [X changes everything] values is accelerating&rdquo;"
+            }
+          ]
+        },
+        {
+          "title": "Competitive Landscape",
+          "items": [
+            {
+              "headline": "OpenAI",
+              "text": "GPT-5.4 Superapp consolidation merges ChatGPT, Codex, and Atlas into one desktop app with 1.05M tokens. Targeting $25B revenue. Largest UX consolidation in AI history positions them as the default consumer AI platform."
+            },
+            {
+              "headline": "Google DeepMind",
+              "text": "Gemini 3.1 Pro tops intelligence benchmarks at 57 points with 1M context and 77.1% ARC-AGI-2. Stitch disrupts the design tool category on day one. Strong multimodal reasoning across all modalities gives them unique breadth."
+            },
+            {
+              "headline": "Meta AI",
+              "text": "Llama 4 open-source release focuses on agentic capability and developer ecosystem. Strategy: out-distribute rather than out-spend. Building the largest open-source AI community as a competitive moat against closed-source rivals."
+            },
+            {
+              "headline": "Mistral",
+              "text": "On track for $1B ARR with the Forge enterprise platform for custom AI models. GPU-efficient architecture appeals to cost-conscious enterprises. European headquarters provides regulatory advantage as EU AI Act takes effect."
+            },
+            {
+              "headline": "Anthropic",
+              "text": "Claude 4.6 leads SWE-Bench Verified at 80.8%, the top coding benchmark score. Pentagon lawsuit draws cross-industry support from OpenAI and Google employees. Enterprise deployment expanding via Microsoft Azure partnership."
+            },
+            {
+              "headline": "Challengers",
+              "text": "Cursor achieves 2x commit rates with Plan Mode. MiniMax M2.5 rivals frontier models at lower cost. Xiaomi MiMo-V2-Pro enters the arena. The challenger tier is compressing the gap with incumbents faster than expected."
+            }
+          ]
+        },
+        {
+          "title": "️ AI Tool Guide",
+          "items": [
+            {
+              "headline": "Mindset",
+              "text": "Dharmesh's 3-Part Strategy: Use AI daily, schedule quarterly opportunity reviews, adopt a problem-first tool evaluation approach. Don't dismiss AI and forget — revisit regularly with a &ldquo;not yet but soon&rdquo; list."
+            },
+            {
+              "headline": "Build",
+              "text": "Agentic workflows without code using Gumloop, n8n, or Zapier Central. Simple research agents cost $5-20/month. Four architectures available from single-agent to multi-agent orchestration."
+            },
+            {
+              "headline": "Hardware",
+              "text": "Private LLM runs DeepSeek, Llama, Phi, and Gemma on your phone with zero internet. Full privacy, no cloud dependency. Works with Siri shortcuts for hands-free private AI access."
+            },
+            {
+              "headline": "Creativity",
+              "text": "Google Stitch generates high-fidelity designs from plain language. No wireframes or design background needed. Deploys in one click from sketch to production-ready output across finance, marketing, and operations."
+            },
+            {
+              "headline": "Productivity",
+              "text": "Base44 Superagents run 24/7 — scan inbox, draft replies, follow up with leads, pull weekly reports. No servers or Docker needed. Always-on automation for repetitive business workflows."
+            },
+            {
+              "headline": "Coding",
+              "text": "Claude Opus 4.6 leads SWE-Bench at 80.8%. Cursor Plan Mode doubles commit rates. WordPress MCP integration adds 19 write operations for AI agents to manage content programmatically."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-21",
+      "sections": [
+        {
+          "title": "Today's Focus",
+          "items": [
+            {
+              "headline": "OpenAI Superapp — The Desktop AI Consolidation",
+              "text": "OpenAI is merging ChatGPT, Codex, and Atlas into a single desktop Superapp. GPT-5.4 launched with 1M token context, scoring 75% on OSWorld-V (above the 72.4% human baseline). Revenue has surpassed $25B and the company is exploring an IPO. This marks OpenAI's pivot from model provider to platform company — a shift worth monitoring closely."
+            },
+            {
+              "headline": "Oil at $112/bbl — Hormuz Blockade Reshaping Global Energy",
+              "text": "The Strait of Hormuz blockade enters week four with 3,000+ vessels stranded and Brent crude above $110/barrel — up 50% since the conflict began. 84% of Hormuz crude flows to Asia, making this an existential energy threat for the region. Trump is threatening Iranian power plants while simultaneously suggesting winding down operations. This is the dominant macro story driving every market."
+            },
+            {
+              "headline": "Google Stitch — Free AI Design Tool Disrupts Finance Reporting",
+              "text": "Google launched Stitch, a free AI tool that converts plain-language prompts and napkin sketches into production-quality reports. Figma dropped 12% on the news. The finstory AI newsletter tested it on real financials: one photo produced a board-ready CFO report with KPIs, trend charts, and driver callouts — work that normally takes an FP&A analyst 3 hours. The key insight: frame prompts as judgment instructions, not formatting requests."
+            }
+          ]
+        },
+        {
+          "title": "AI Developments",
+          "items": [
+            {
+              "headline": "ChatGPT, Codex & Atlas Merging Into Desktop Superapp",
+              "text": "OpenAI is consolidating its three flagship products into a single unified desktop Superapp. GPT-5.4 launched with 1M token context and scored 75% on OSWorld-V, surpassing the 72.4% human baseline. Revenue exceeds $25B and the company is exploring an IPO. This signals OpenAI's ambition to own the desktop AI layer."
+            },
+            {
+              "headline": "Claude Sonnet 4.6 & Opus 4.6 with 1M Context",
+              "text": "Anthropic launched Sonnet 4.6 and Opus 4.6 with 1M token context windows. Opus 4.6 is now deployed in PowerPoint and Excel for enterprise workflows. Memory features persist across conversations, and Claude Code Channels extend access to Telegram and Discord for always-on agent experiences."
+            },
+            {
+              "headline": "Gemini 3.1 Pro (77.1% ARC-AGI-2) + Stitch Launch",
+              "text": "Google released Gemini 3.1 Pro scoring 77.1% on ARC-AGI-2 and launched Stitch, a free AI design tool that converts descriptions into high-fidelity interfaces. Figma dropped 12% on the news. Flash-Lite arrives at $0.25/M tokens, making frontier inference accessible at commodity prices."
+            },
+            {
+              "headline": "Llama 4: Open-Source Agentic AI",
+              "text": "Meta released Llama 4 with full agentic capability — the model can plan, execute multi-step tasks, and maintain context across long interactions. This is the biggest open-source AI release in years, giving developers free access to an agent-class model that can compete with proprietary alternatives."
+            },
+            {
+              "headline": "Nemotron 3 Super — 120B MoE at GTC",
+              "text": "NVIDIA announced Nemotron 3 Super at GTC — a 120B-parameter hybrid MoE model with only 12B active parameters, designed for multi-agent applications in software development and cybersecurity. The architecture delivers large-model quality at small-model inference cost."
+            },
+            {
+              "headline": "Mistral Small 4 — 119B MoE Multimodal",
+              "text": "Mistral released Small 4, a 119B MoE multimodal reasoning model unveiled at NVIDIA GTC alongside the Forge enterprise platform. Mistral is on track for $1B ARR, competing directly with larger labs while maintaining a lean European operation and open-weight philosophy."
+            },
+            {
+              "headline": "DoorDash Tasks — 8M Drivers Become AI Data Collectors",
+              "text": "DoorDash launched Tasks, paying its 8 million Dashers to photograph menus, check shelves, and record walkthroughs for real-time business intelligence. The delivery workforce becomes the world's largest AI data collection pipeline — a novel crowdsourced approach to training AI on real-world physical environments."
+            },
+            {
+              "headline": "MiniMax M2.5 Rivals Claude Opus at Lower Cost",
+              "text": "Chinese lab MiniMax released M2.5, reportedly rivaling Anthropic's Claude Opus 4.6 at significantly lower cost. This continues the pattern of Chinese models delivering frontier-level performance at a fraction of Western prices, pressuring the economics of the entire AI industry."
+            },
+            {
+              "headline": "Cursor Composer 2 — Enhanced AI Coding",
+              "text": "Cursor released Composer 2 with enhanced AI coding capabilities, delivering frontier-level code generation at improved cost-performance ratios. The upgrade cements Cursor's position as the dominant AI-native IDE for professional developers and pressures competing coding tools."
+            },
+            {
+              "headline": "MIT Protein-Based Drug Design Model",
+              "text": "MIT researchers developed a new AI model for protein-based drug design that could accelerate pharmaceutical R&D pipelines. The model enables more precise targeting of disease mechanisms through computational protein engineering, potentially reducing the time and cost of bringing new therapeutics to clinical trials."
+            }
+          ]
+        },
+        {
+          "title": "World News",
+          "items": [
+            {
+              "headline": "Iran War Week 4: Hormuz Blocked, Oil Above $110",
+              "text": "The US-Israel conflict with Iran enters week four. The Strait of Hormuz is blocked with 3,000+ vessels stranded and oil above $110/barrel. Trump threatens to \"hit and obliterate\" Iranian power plants while the humanitarian toll mounts. No clear off-ramp is in sight as both sides escalate."
+            },
+            {
+              "headline": "Trump Suggests \"Winding Down\" Even as Marines Deploy",
+              "text": "The White House is sending mixed signals — Trump publicly suggested winding down Iran operations while simultaneously approving additional Marine deployments. The contradiction underscores the lack of a coherent exit strategy as the conflict enters its fourth week with escalating costs."
+            },
+            {
+              "headline": "Iran Fires Ballistic Missiles at US-UK Base",
+              "text": "Iran launched ballistic missiles at a US-UK military base in the Indian Ocean, marking a significant escalation in direct military confrontation. The strike represents one of the most direct attacks on Western military infrastructure since the conflict began, raising fears of further escalation."
+            },
+            {
+              "headline": "1,000+ Killed in Lebanon Since March 2",
+              "text": "Over 1,000 people have been killed in Lebanon since March 2, including 111 children. The humanitarian crisis deepens as the regional conflict expands beyond its initial scope, with civilian casualties mounting and international calls for a ceasefire going unanswered."
+            },
+            {
+              "headline": "Elon Musk Found Liable for Misleading Twitter Investors",
+              "text": "A federal jury found Elon Musk liable for misleading Twitter investors before his $44B acquisition. One of the highest-profile securities fraud findings in Silicon Valley history, with potentially significant financial implications and questions about accountability for market manipulation."
+            },
+            {
+              "headline": "Robert Mueller, Former FBI Director, Dies at 81",
+              "text": "Robert Mueller, who served as FBI Director and later as Special Counsel investigating Russian interference in the 2016 election, has died at age 81. A defining figure in American law enforcement and justice, Mueller's career spanned decades of public service at the highest levels."
+            },
+            {
+              "headline": "Ukraine Deploys Overhead Netting Against Russian FPV Drones",
+              "text": "Ukrainian forces are using overhead netting as a defensive countermeasure against Russian first-person-view attack drones. The low-tech solution demonstrates battlefield adaptation against increasingly sophisticated drone warfare, as both sides innovate in the evolving conflict."
+            },
+            {
+              "headline": "Asia Faces Existential Energy Threat from Hormuz Crisis",
+              "text": "84% of crude oil transiting the Strait of Hormuz flows to Asian markets, making the blockade an existential energy threat to the region. Asian economies face cascading impacts on manufacturing, transport, and inflation as the crisis enters its fourth week with no resolution in sight."
+            }
+          ]
+        },
+        {
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,506.48 (&#x25BC; -1.51%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "21,647.61 (&#x25BC; -2.01%)"
+            },
+            {
+              "headline": "Bitcoin",
+              "text": "$70,569 (&#x25B2; +0.38%)"
+            },
+            {
+              "headline": "Ethereum",
+              "text": "$2,154.20 (&#x25B2; +0.89%)"
+            },
+            {
+              "headline": "Brent Crude",
+              "text": "$112.19 (&#x25B2; +50% war)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "Bearish (Oil shock)"
+            }
+          ]
+        },
+        {
+          "title": "AI Tool Guide",
+          "items": [
+            {
+              "headline": "The Exoskeleton Effect",
+              "text": "AI amplifies capability but over-reliance atrophies judgment. Use AI as a collaborator, not a replacement. Maintain critical thinking skills alongside AI tools to avoid dependency and preserve decision-making quality."
+            },
+            {
+              "headline": "No-Code Agentic Workflows",
+              "text": "Gumloop enables no-code agentic workflows. n8n provides open-source automation. Claude Code + MCP servers let you build sophisticated agents without traditional coding — lowering the barrier to production-grade AI automation."
+            },
+            {
+              "headline": "Desktop AI & On-Device Inference",
+              "text": "NVIDIA DGX Station brings data center AI to the desktop. Apple Private Cloud Compute runs Gemini models with strict privacy guarantees. On-device inference is becoming practical as smaller MoE models reduce compute requirements."
+            },
+            {
+              "headline": "Sketch-to-Production Design",
+              "text": "Google Stitch turns sketches into production designs for free. Generative 3D and video tools are maturing rapidly. AI-assisted design is now accessible to non-designers, democratizing visual communication and reporting."
+            },
+            {
+              "headline": "Copilot Agent Mode",
+              "text": "Copilot Agent Mode orchestrates cross-app tasks autonomously within Microsoft 365. Match workflow architecture to the specific use case rather than chasing maximum autonomy — the right level of AI assistance depends on the task."
+            },
+            {
+              "headline": "Claude Opus 4.6 + Cursor Composer 2",
+              "text": "Claude Opus 4.6 is the current best coding model with 1M context. Cursor Composer 2 and Claude Code Channels expand AI coding accessibility. Together they represent the frontier of AI-assisted software development."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

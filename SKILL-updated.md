@@ -609,6 +609,50 @@ cp [DIGEST_DIR]/morning-briefing-koda.html [DIGEST_DIR]/morning-briefing-koda-YY
 
 The day-nav JS uses `fetch HEAD` on adjacent dated filenames to auto-discover archives — no index file needed.
 
+### HTML Template Requirements for Every Digest
+
+Every generated digest HTML MUST include:
+
+1. **Section IDs** on all content sections for deep-link scrolling:
+   - `<section ... id="todays-focus">`
+   - `<section ... id="ai-developments">`
+   - `<section ... id="world-news">`
+   - `<section ... id="market-snapshot">`
+   - `<section ... id="newsletter-intelligence">`
+   - `<section ... id="competitive-landscape">`
+   - `<section ... id="ai-tool-guide">`
+
+2. **scroll-margin-top: 80px** on the `.section` CSS class (accounts for fixed topbar)
+
+3. **Home button** in the topbar nav (blue gradient, links to `./index.html`):
+   ```html
+   <a href="./index.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:10px;background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;font-size:13px;font-weight:700;font-family:'JetBrains Mono',monospace;">&#8592; Home</a>
+   ```
+
+4. **Hash deep-link scroll JS** before the closing `</script>` tag:
+   ```javascript
+   (function(){if(!window.location.hash)return;var id=window.location.hash.substring(1);function go(){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}if(document.readyState==='complete')setTimeout(go,300);else window.addEventListener('load',function(){setTimeout(go,300);});})();
+   ```
+
+5. **Topbar brand** wrapped in `<a href="./index.html">` (not a plain `<div>`)
+
+---
+
+## STEP 4.5 — REBUILD SEARCH INDEX
+
+After saving both HTML files, rebuild the manifest and search index so the landing page has up-to-date archive and search data:
+
+```bash
+cd [DIGEST_DIR]
+python build-index.py
+```
+
+This parses ALL `morning-briefing-koda-YYYY-MM-DD.html` files and generates:
+- `manifest.json` — archive metadata (dates, focus topics, KPIs, media indicators)
+- `search-index.json` — full-text content for cross-day search
+
+Both files MUST be committed to git alongside the HTML files.
+
 ---
 
 ## STEP 5 — DEPLOY TO VERCEL (via GitHub)
@@ -626,6 +670,7 @@ After saving both HTML files, deploy:
 cd [DIGEST_DIR]
 git add morning-briefing-koda.html morning-briefing-koda-*.html \
         podcast-YYYY-MM-DD.mp3 infographic-YYYY-MM-DD.jpg \
+        manifest.json search-index.json index.html \
         vercel.json .gitignore
 git commit -m "Digest $(date +%Y-%m-%d)"
 git push origin main

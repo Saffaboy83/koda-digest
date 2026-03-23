@@ -29,7 +29,7 @@ a{color:inherit;text-decoration:none;}
 .topbar-right{display:flex;align-items:center;gap:10px;}
 .dark-toggle{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:7px 14px;font-size:12px;font-weight:600;cursor:pointer;color:var(--text);font-family:'Inter',sans-serif;transition:all .2s;}
 .dark-toggle:hover{background:var(--indigo);color:white;border-color:var(--indigo);}
-section{padding:28px 0;}
+section{padding:28px 0;scroll-margin-top:80px;}
 .section-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);margin-bottom:18px;display:flex;align-items:center;gap:8px;}
 .section-title::after{content:'';flex:1;height:1px;background:var(--border);}
 .grid-2{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;}
@@ -181,11 +181,12 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:22px
 <div class="topbar">
   <div class="container">
     <div class="topbar-inner">
-      <div class="brand">
+      <a href="./index.html" class="brand" style="text-decoration:none;color:inherit;">
         <div class="brand-icon">K</div>
         <div><div class="brand-name">Koda Digest</div><div class="brand-sub">Daily AI Intelligence</div></div>
-      </div>
+      </a>
       <div class="day-nav">
+        <a href="./index.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:10px;background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;font-size:13px;font-weight:700;font-family:'JetBrains Mono',monospace;">&#8592; Home</a>
         <a id="nav-prev" class="day-nav-btn disabled" href="#">&larr; <span id="nav-prev-label">&mdash;</span></a>
         <span class="day-nav-current" id="nav-current">Mar 21</span>
         <a id="nav-next" class="day-nav-btn disabled" href="#"><span id="nav-next-label">&mdash;</span> &rarr;</a>
@@ -245,7 +246,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:22px
 </section>
 
 <!-- ===== TODAY'S FOCUS ===== -->
-<section>
+<section id="todays-focus">
   <div class="container">
     <div class="section-title">Today's Focus</div>
     <div style="display:flex;flex-direction:column;gap:12px;">
@@ -276,7 +277,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:22px
 
 
 <!-- ===== AI DEVELOPMENTS ===== -->
-<section>
+<section id="ai-developments">
   <div class="container">
     <div class="section-title">AI Developments</div>
     <div class="grid-2">
@@ -356,7 +357,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:22px
 </section>
 
 <!-- ===== WORLD NEWS ===== -->
-<section>
+<section id="world-news">
   <div class="container">
     <div class="section-title">World News</div>
     <div class="grid-2">
@@ -422,7 +423,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:22px
 </section>
 
 <!-- ===== MARKET SNAPSHOT ===== -->
-<section>
+<section id="market-snapshot">
   <div class="container">
     <div class="section-title">Market Snapshot</div>
     <div class="grid-6">
@@ -467,7 +468,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:22px
 </section>
 
 <!-- ===== NEWSLETTER INTELLIGENCE ===== -->
-<section>
+<section id="newsletter-intelligence">
   <div class="container">
     <div class="section-title">Newsletter Intelligence</div>
 
@@ -544,7 +545,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:22px
 </section>
 
 <!-- ===== COMPETITIVE LANDSCAPE ===== -->
-<section>
+<section id="competitive-landscape">
   <div class="container">
     <div class="section-title">Competitive Landscape</div>
     <div class="grid-3">
@@ -608,7 +609,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:22px
 </section>
 
 <!-- ===== AI TOOL GUIDE ===== -->
-<section>
+<section id="ai-tool-guide">
   <div class="container">
     <div class="section-title">AI Tool Guide</div>
     <div class="grid-2">
@@ -729,6 +730,7 @@ function toggleDark(){
   },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.fade-in').forEach(function(el){observer.observe(el);});
 })();
+(function(){if(!window.location.hash)return;var id=window.location.hash.substring(1);function go(){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}if(document.readyState==='complete')setTimeout(go,300);else window.addEventListener('load',function(){setTimeout(go,300);});})();
 </script>
 </body>
 </html>
