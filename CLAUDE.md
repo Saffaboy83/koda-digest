@@ -17,8 +17,8 @@ Data Sources (parallel)          NotebookLM (sequential + parallel)
     email queries
          |                                  |
          v                                  v
-   HTML Dashboard                  Chrome Download + ffmpeg + YouTube Upload
-   (13 sections, single file)      (compress m4a -> mp3, upload mp4 -> YouTube)
+   HTML Dashboard                  Chrome Download + ffmpeg + YouTube API
+   (13 sections, single file)      (compress m4a -> mp3, upload mp4 via API)
    NO Schedule Timeline            infographic saved as jpg
          |                                  |
          v                                  v
@@ -31,7 +31,7 @@ Data Sources (parallel)          NotebookLM (sequential + parallel)
    git commit + push -> Vercel auto-deploy (www.koda.community)
          |
          v
-   Newsletter email -> cazmarincowitz@outlook.com (auto-send via Chrome)
+   Newsletter email -> 5-person distribution list (auto-send via Chrome)
 ```
 
 ## Depersonalization (IMPORTANT)
@@ -177,8 +177,9 @@ and repackage the .skill file.
 - Common cause: NotebookLM video generation timeout (>8 minutes). Try again next day.
 
 ### YouTube upload fails
-- YouTube UI may have changed — inspect the upload flow manually
-- Check that the Google account is signed into YouTube in Chrome
+- Check `youtube_upload.py` output for errors
+- If token expired, delete `.youtube_token.json` and re-run (will open browser for re-auth)
+- If `client_secret.json` missing, download from Google Cloud Console (project `gen-lang-client-0610910477`, OAuth client "GWS CLI")
 - Verify the "Koda" channel exists and is in good standing
 - The skill has graceful degradation — HTML omits video section, digest is otherwise complete
 
@@ -187,9 +188,9 @@ and repackage the .skill file.
 - Generated daily via `video_overview_create` (format: explainer, visual_style: auto_select)
 - Kicked off in Step 2A alongside audio, cooks in background during Steps 2B-2C
 - Downloaded from NotebookLM via Chrome (three-dot menu, same as audio/infographic)
-- Uploaded to YouTube via Chrome browser automation (YouTube Studio upload wizard)
+- Uploaded to YouTube via `youtube_upload.py` (Data API v3, fully headless)
+- YouTube titles are hook-based and theme-driven from the day's news (not generic)
 - Embedded in HTML dashboard as responsive YouTube iframe (16:9)
-- AI-generated content disclosure is checked on every upload (YouTube policy)
 - YouTube channel: "Koda"
 - If any step fails, video section is silently omitted (graceful degradation)
 
