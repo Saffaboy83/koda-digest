@@ -75,20 +75,23 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 .summary-brief-text{font-size:15px;line-height:1.7;color:var(--text-secondary);flex:1;}
 .summary-cta{font-size:14px;font-weight:700;color:var(--blue);padding-top:16px;border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace;letter-spacing:0.3px;}
 /* MEDIA STRIP */
-.media-strip{display:grid;grid-template-columns:5fr 4fr;gap:14px;margin:0 0 36px;}
-.media-tile{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);border:1px solid rgba(99,102,241,0.25);border-radius:16px;padding:20px;color:white;display:flex;flex-direction:column;}
-.media-tile-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;}
-.media-tile-pill{padding:5px 12px;border-radius:20px;font-size:10px;font-weight:700;color:white;flex-shrink:0;margin-top:2px;}
-.media-tile-pill.podcast{background:linear-gradient(135deg,var(--indigo),var(--purple));}
-.media-tile-pill.video{background:linear-gradient(135deg,var(--red),var(--pink));}
-.media-tile-title{font-size:14px;font-weight:700;line-height:1.3;}
-.media-tile-meta{font-size:10px;color:rgba(255,255,255,0.45);margin-top:3px;font-family:'JetBrains Mono',monospace;}
-.media-tile-body{flex:1;display:flex;flex-direction:column;justify-content:space-between;}
-.podcast-desc{font-size:12px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:16px;flex:1;}
-.video-thumb{position:relative;width:100%;padding-bottom:56.25%;border-radius:10px;overflow:hidden;background:#000;}
-.video-thumb iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;border-radius:10px;}
-.video-expand-btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;margin-top:10px;padding:6px 14px;border-radius:8px;border:1px solid rgba(99,102,241,0.3);background:rgba(99,102,241,0.08);color:#a78bfa;font-size:10px;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'JetBrains Mono',monospace;align-self:flex-start;}
-.video-expand-btn:hover{background:rgba(99,102,241,0.2);border-color:rgba(99,102,241,0.5);}
+.media-strip{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 36px;}
+.media-banner{background:linear-gradient(135deg,#0f1629 0%,#162040 100%);border:1px solid rgba(99,102,241,0.2);border-radius:18px;padding:28px 32px;color:white;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;transition:border-color 0.3s;}
+.media-banner:hover{border-color:rgba(99,102,241,0.45);}
+.media-banner-icon{font-size:28px;margin-bottom:4px;opacity:0.9;}
+.media-banner-title{font-size:15px;font-weight:700;letter-spacing:0.2px;}
+.media-banner-sub{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:10px;line-height:1.4;}
+.media-banner-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 28px;border-radius:30px;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.25s;text-decoration:none;border:none;}
+.media-banner-btn.podcast-btn{background:linear-gradient(135deg,var(--indigo),var(--purple));color:white;}
+.media-banner-btn.podcast-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(99,102,241,0.4);}
+.media-banner-btn.video-btn{background:linear-gradient(135deg,#EF4444,#EC4899);color:white;}
+.media-banner-btn.video-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(239,68,68,0.4);}
+.media-banner-btn.expand-btn{background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.3);color:#a78bfa;font-size:11px;padding:7px 18px;margin-top:6px;}
+.media-banner-btn.expand-btn:hover{background:rgba(99,102,241,0.2);}
+/* Hidden audio player, toggled by JS */
+.podcast-player-wrap{width:100%;max-width:340px;margin-top:14px;display:none;}
+.podcast-player-wrap.active{display:block;}
+@media(max-width:768px){.media-strip{grid-template-columns:1fr;}}
 .video-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;padding:40px;}
 .video-overlay.active{display:flex;}
 .video-overlay-inner{width:100%;max-width:1100px;position:relative;}
@@ -208,39 +211,25 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 
   <!-- MEDIA STRIP -->
   <div class="media-strip fade-in">
-    <!-- PODCAST TILE -->
-    <div class="media-tile">
-      <div class="media-tile-header">
-        <div class="media-tile-pill podcast">&#127911; Podcast</div>
-        <div>
-          <div class="media-tile-title">AI agents versus physical world gridlock</div>
-          <div class="media-tile-meta">NotebookLM &middot; March 23, 2026 &middot; ~23 min</div>
-        </div>
-      </div>
-      <div class="media-tile-body">
-        <div class="podcast-desc">GPT-5.4's million-token brain meets $111 oil and a Hormuz shutdown. Two hosts break down what it means for developers, markets, and the tools you should test today.</div>
+    <!-- PODCAST BANNER -->
+    <div class="media-banner">
+      <div class="media-banner-icon">&#127911;</div>
+      <div class="media-banner-title">Daily Podcast</div>
+      <div class="media-banner-sub">"AI agents versus physical world gridlock" &mdash; ~23 min</div>
+      <button class="media-banner-btn podcast-btn" onclick="var p=document.getElementById('podPlayer');p.classList.toggle('active');if(p.classList.contains('active'))p.querySelector('audio').play();">&#9654; Listen Now</button>
+      <div class="podcast-player-wrap" id="podPlayer">
         <audio controls style="width:100%;border-radius:10px;accent-color:#6366F1;">
           <source src="./podcast-2026-03-23.mp3" type="audio/mpeg">
         </audio>
       </div>
     </div>
-    <!-- VIDEO TILE -->
-    <div class="media-tile">
-      <div class="media-tile-header">
-        <div class="media-tile-pill video">&#127909; Video</div>
-        <div>
-          <div class="media-tile-title">AI &amp; Crisis: The New Reality</div>
-          <div class="media-tile-meta">NotebookLM &middot; YouTube &middot; ~5 min</div>
-        </div>
-      </div>
-      <div class="media-tile-body">
-        <div class="video-thumb">
-          <iframe src="https://www.youtube.com/embed/99B-o6wdtso" title="AI &amp; Crisis: The New Reality"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <button class="video-expand-btn" onclick="document.getElementById('video-overlay').classList.add('active')">&#x26F6; Expand Video</button>
-      </div>
+    <!-- VIDEO BANNER -->
+    <div class="media-banner">
+      <div class="media-banner-icon">&#127909;</div>
+      <div class="media-banner-title">Daily Video Briefing</div>
+      <div class="media-banner-sub">"AI &amp; Crisis: The New Reality" &mdash; visual explainer</div>
+      <a class="media-banner-btn video-btn" href="https://www.youtube.com/watch?v=99B-o6wdtso" target="_blank">&#9654; Watch on YouTube</a>
+      <button class="media-banner-btn expand-btn" onclick="document.getElementById('video-overlay').classList.add('active')">&#x26F6; Expand Inline</button>
     </div>
   </div>
   <!-- EXPANDED VIDEO OVERLAY -->
@@ -768,7 +757,7 @@ const obs=new IntersectionObserver(entries=>{
     if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';obs.unobserve(e.target);}
   });
 },{threshold:0.06});
-document.querySelectorAll('.card,.newsletter-card,.market-card,.comp-card,.tool-card,.focus-item,.media-tile,.summary-card,.kpi-card').forEach(el=>{
+document.querySelectorAll('.card,.newsletter-card,.market-card,.comp-card,.tool-card,.focus-item,.media-banner,.summary-card,.kpi-card').forEach(el=>{
   el.style.cssText+='opacity:0;transform:translateY(16px);transition:opacity 0.45s ease,transform 0.45s ease;';
   obs.observe(el);
 });
