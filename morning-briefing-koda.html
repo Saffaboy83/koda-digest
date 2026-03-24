@@ -750,7 +750,7 @@ var obs=new IntersectionObserver(function(entries){
         }
     });
 },{threshold:0.06});
-document.querySelectorAll('.fade-in,.card,.newsletter-card,.market-card,.comp-card,.tool-card,.focus-item,.infographic,.summary-card,.kpi-card,.media-banner,.media-strip').forEach(function(el){
+document.querySelectorAll('.card,.newsletter-card,.market-card,.comp-card,.tool-card,.focus-item,.infographic,.summary-card').forEach(function(el){
     el.style.opacity='0';el.style.transform='translateY(16px)';el.style.transition='opacity 0.45s ease,transform 0.45s ease';
     obs.observe(el);
 });
