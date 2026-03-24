@@ -161,8 +161,7 @@
         .footer-text{font-size:12px;color:var(--text-secondary);}
         .footer-brand{font-size:14px;font-weight:700;margin-bottom:8px;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 
-        /* Fade-in */
-        .fade-in{opacity:0;transform:translateY(16px);transition:opacity 0.45s ease,transform 0.45s ease;}
+        /* Fade-in — initial state set by JS only, not CSS */
     </style>
 </head>
 <body data-digest-date="2026-03-24">
@@ -751,8 +750,8 @@ var obs=new IntersectionObserver(function(entries){
         }
     });
 },{threshold:0.06});
-document.querySelectorAll('.card,.newsletter-card,.market-card,.comp-card,.tool-card,.focus-item,.infographic,.summary-card,.kpi-card,.media-banner').forEach(function(el){
-    el.style.cssText+='opacity:0;transform:translateY(16px);transition:opacity 0.45s ease,transform 0.45s ease;';
+document.querySelectorAll('.fade-in,.card,.newsletter-card,.market-card,.comp-card,.tool-card,.focus-item,.infographic,.summary-card,.kpi-card,.media-banner,.media-strip').forEach(function(el){
+    el.style.opacity='0';el.style.transform='translateY(16px)';el.style.transition='opacity 0.45s ease,transform 0.45s ease';
     obs.observe(el);
 });
 </script>
