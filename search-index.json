@@ -1,9 +1,246 @@
 {
-  "generated": "2026-03-24T11:07:55Z",
+  "generated": "2026-03-24T11:53:46Z",
   "days": [
     {
       "date": "2026-03-24",
-      "sections": []
+      "sections": [
+        {
+          "title": "Today's Focus",
+          "items": [
+            {
+              "headline": "Middle East Escalation Intensifies",
+              "text": "Israel launched wide-scale strikes on IRGC headquarters in Tehran. Saudi Arabia expelled Iranian military staff. Trump claims 15 points of agreement, but Iran denies any dialogue. Five-day pause on energy site strikes, but Hormuz shipping lanes remain under threat."
+            },
+            {
+              "headline": "AI Coding Wars Heat Up",
+              "text": "Claude Opus 4.6 leads SWE-Bench Verified at 80.8%, ahead of GPT-5.4's 77.2%. OpenAI's GPT-5.4 ships with 1.05M token context. Chinese models from MiniMax and Xiaomi match Western quality at dramatically lower cost. The race is no longer about who is smartest. It is about who is cheapest."
+            },
+            {
+              "headline": "Crypto Relief Rally Amid Extreme Fear",
+              "text": "Bitcoin reclaimed $71K with a 3.79% surge. Ethereum outperformed at +5.16%. The Fear and Greed Index sits at 11, the deepest extreme fear reading this year. Equities rallied too. The market is betting on containment. If that changes, crypto goes first."
+            }
+          ]
+        },
+        {
+          "title": "Daily Summary",
+          "items": [
+            {
+              "headline": "Summary",
+              "text": "Israel hit Tehran. Bitcoin rallied. Claude writes better code than most developers. That is your world on March 24, 2026."
+            },
+            {
+              "headline": "AI",
+              "text": "Claude Opus 4.6 now scores 80.8% on SWE-Bench Verified, pulling ahead of GPT-5.4. OpenAI launched GPT-5.4 with a 1.05 million token context window. China's MiniMax M2.5 matches Claude quality at a fraction of the cost. The AI coding war is real, and your IDE is the battlefield."
+            },
+            {
+              "headline": "World",
+              "text": "Israel struck IRGC headquarters in Tehran in a wide-scale wave of attacks. Iran says there are no talks with Washington despite Trump claiming 15 points of agreement. Saudi Arabia expelled Iranian diplomats. The Strait of Hormuz remains the world's pressure point."
+            },
+            {
+              "headline": "Markets",
+              "text": "S&P 500 up 1.15%. NASDAQ up 1.38%. Bitcoin reclaimed $71K on a relief rally despite extreme fear at 11. Ethereum outperformed at +5.16%. The market is pricing in a short war. If that bet is wrong, expect fireworks."
+            },
+            {
+              "headline": "Wild Card",
+              "text": "Mistral is quietly sprinting to $1B ARR while everyone watches the OpenAI, Google, and Anthropic race. Enterprise customers do not want the biggest model. They want the cheapest one that works. China knows this. Mistral knows this. Does Silicon Valley?"
+            }
+          ]
+        },
+        {
+          "title": "AI Developments",
+          "items": [
+            {
+              "headline": "GPT-5.4 Launches with 1.05M Token Context",
+              "text": "OpenAI released GPT-5.4 on March 5, designed for professional multi-step tasks. The context window is the largest OpenAI has ever offered commercially. Factual accuracy improved 33% on individual claims. Ties with Gemini 3.1 Pro at 57 on the Artificial Analysis Intelligence Index."
+            },
+            {
+              "headline": "Claude Opus 4.6 Leads SWE-Bench at 80.8%",
+              "text": "Anthropic's Claude Opus 4.6 scores 80.8% on SWE-Bench Verified, ahead of GPT-5.4's 77.2%. The 1M token context window is now in beta across both Opus and Sonnet tiers, allowing entire codebases in a single conversation. Depth over breadth continues to be Anthropic's strategy."
+            },
+            {
+              "headline": "Gemini 3.1 Pro Hits 77.1% on ARC-AGI-2",
+              "text": "Google DeepMind's Gemini 3.1 Pro features a 1M token context window with multimodal reasoning across text, images, audio, video, and code. It leads the Artificial Analysis Intelligence Index at 57 points, tied with GPT-5.4 Pro. The most capable Pro-tier model as of February 2026."
+            },
+            {
+              "headline": "Chinese AI Models Match Western Quality",
+              "text": "Five new models dropped from Tencent, Alibaba, Baidu, ByteDance, and MiniMax this month. MiniMax's M2.5 rivals Claude Opus 4.6 at significantly lower cost. Xiaomi's MiMo-V2-Pro, led by a former DeepSeek researcher, is turning heads. China is winning the cost efficiency race."
+            },
+            {
+              "headline": "Kimi K2.5 Optimized for Agentic Tasks",
+              "text": "Moonshot AI's Kimi K2.5 is now available in Cloudflare Workers AI with 256K token context. Built specifically for multi-step agentic tasks, tool calling, and visual understanding. The model is optimized for workflows where AI agents plan, act, and iterate without human intervention."
+            },
+            {
+              "headline": "NVIDIA Nemotron 3 Super: 120B for Multi-Agent",
+              "text": "NVIDIA released Nemotron 3 Super, a 120 billion parameter model designed specifically for multi-agent applications. Purpose-built for orchestrating multiple AI agents working together on complex tasks. Signals that the hardware giant is moving deeper into the model layer."
+            },
+            {
+              "headline": "MIT Protein-Based Drug Design Model",
+              "text": "MIT researchers released a model that predicts how synthetic proteins fold and interact. This could reduce pharmaceutical R&D costs by billions and accelerate treatment for cancer, autoimmune diseases, and rare genetic disorders. Medical AI is moving from diagnosis to drug design."
+            },
+            {
+              "headline": "Mistral Forge: Build-Your-Own Enterprise AI",
+              "text": "Mistral launched Forge at NVIDIA GTC, a platform letting enterprises build custom AI models without sharing proprietary data. The company is on track to surpass $1B ARR this year. Their laser focus on enterprise is working while competitors chase consumer market share."
+            },
+            {
+              "headline": "Google Stitch Disrupts Design Tools",
+              "text": "Google launched Stitch, a free AI design tool that builds high-fidelity reports from plain language. It caused Figma's stock to drop 12% on launch day. The tool represents the next wave: AI that does not assist designers but replaces the design step entirely for standard outputs."
+            },
+            {
+              "headline": "Pentagon Labels Anthropic a Supply-Chain Risk",
+              "text": "The DoD labeled Anthropic a supply-chain risk after the company refused to allow its technology for mass surveillance or autonomous weapons. Over 30 OpenAI and Google DeepMind employees filed statements in Anthropic's defense. The White House released a six-part AI legislative blueprint."
+            },
+            {
+              "headline": "Agentic Workflows Become Dominant Productivity Trend",
+              "text": "Gartner predicts over 40% of enterprise apps will embed role-specific AI agents by end of 2026. No-code platforms like Gumloop, n8n, and Zapier Central let anyone build agent workflows. Tech leader Andrej Karpathy notes software engineering is now 80% delegation to AI agents."
+            },
+            {
+              "headline": "OpenAI Superapp Consolidation",
+              "text": "OpenAI consolidated ChatGPT, Codex, and Atlas into a single desktop Superapp, the largest UX consolidation in AI history. Complete with a 1.05M token context window. The strategy: one app to rule them all. Mirrors the WeChat playbook: everything in one place, no switching."
+            }
+          ]
+        },
+        {
+          "title": "World News",
+          "items": [
+            {
+              "headline": "Israel Strikes IRGC Headquarters in Tehran",
+              "text": "The Israeli Air Force carried out a wide-scale wave of strikes on Iranian regime infrastructure, hitting one of the IRGC's main headquarters and several military buildings in Tehran. The strikes represent a significant escalation in the direct confrontation between Israel and Iran."
+            },
+            {
+              "headline": "Trump Claims 15 Points of Agreement with Iran",
+              "text": "President Trump announced 15 points of agreement with Iran and stated he will hold off strikes against Iranian energy sites for five days. However, Iran's foreign ministry denied any dialogue between Tehran and Washington. The gap between American claims and Iranian statements grows wider."
+            },
+            {
+              "headline": "Israel Destroys All Crossings Over Litani River",
+              "text": "In Lebanon, Israel struck the main bridge linking the south to the rest of the country. The Israeli military ordered its troops to destroy all crossings over the Litani River and step up demolition of homes near the southern border. Southern Lebanon is being systematically isolated."
+            },
+            {
+              "headline": "Saudi Arabia Expels Iranian Diplomats",
+              "text": "Saudi Arabia ordered Iran's military attache and four embassy staff to leave the kingdom within 24 hours. The Saudi Foreign Ministry cited repeated Iranian attacks on Saudi territory. This reverses the China-brokered rapprochement of 2023 and signals a deeper regional fracture."
+            },
+            {
+              "headline": "64 Killed in Sudan Hospital Strike",
+              "text": "At least 64 people were killed in a strike on a hospital in East Darfur, with 89 injured according to the WHO. Sudan's civil war continues with devastating humanitarian consequences. Medical facilities remain targets despite international law protections."
+            },
+            {
+              "headline": "Cuba Partially Restores Power After Grid Collapse",
+              "text": "Cuban authorities partially restored electricity after more than 10 million people lost power following another collapse of the national power grid. This is the latest in a series of grid failures hitting the island. The aging infrastructure cannot keep up with demand."
+            },
+            {
+              "headline": "White House Releases AI Legislative Blueprint",
+              "text": "The White House released a six-part AI legislative blueprint addressing safety, competition, and national security. Palantir's Maven AI was designated as a formal program of record with long-term Pentagon funding. The US government is moving from AI strategy to AI implementation."
+            },
+            {
+              "headline": "Hormuz Strait Tensions Keep Oil Elevated",
+              "text": "Oil prices remain elevated as Strait of Hormuz shipping lanes face continued threat from the Iran-Israel conflict. Any disruption to the strait, through which 20% of global oil flows, would send energy prices spiking. Markets watch every naval movement in the region."
+            }
+          ]
+        },
+        {
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,581 (+1.15%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "21,947 (+1.38%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$71,000 (+3.79%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$2,134 (+5.16%)"
+            },
+            {
+              "headline": "Oil (Brent)",
+              "text": "$110+ (Elevated)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "11 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "Newsletter Intelligence",
+          "items": [
+            {
+              "headline": "BuildFast with AI",
+              "text": "12+ AI Models in March 2026: The Week That Changed AI | GPT-5.4 Pro: OpenAI's new flagship ties with Gemini 3.1 Pro at 57 on the Artificial Analysis Intelligence Index. The 1.05M token context window is the largest commercially available. Designed for complex multi-step professional tasks. Claude Opus 4.6: Anthropic's depth-first strategy pays off with 80.8% on SWE-Bench Verified. The 1M context beta means entire codebases fit in one conversation. This is the model professional developers are switching to. MiniMax M2.5: The standout Chinese model that rivals Claude at dramatically lower cost. This is the price disruption that Western labs feared. Enterprise buyers are paying attention. OpenAI Superapp consolidation: ChatGPT, Codex, and Atlas merged into one desktop app. This is the biggest UX change in AI history. One interface for chat, code, and research. The WeChat playbook comes to AI. NVIDIA Nemotron 3 Super: A 120B parameter model built for multi-agent orchestration. NVIDIA is not just selling GPUs anymore. They are building the software layer that makes those GPUs useful for agent swarms. Kimi K2.5 from Moonshot AI now in Cloudflare Workers with 256K context for agentic tasks Xiaomi's MiMo-V2-Pro built by former DeepSeek researcher Luo Fuli WordPress adds AI integrations letting agents draft posts and manage content \"The differences between GPT-5.4, Gemini 3.1 Pro, and Claude 4.6 on most practical tasks are increasingly marginal. The real battle is cost, speed, and ecosystem lock-in.\""
+            },
+            {
+              "headline": "Deloitte Insights",
+              "text": "Agentic AI Strategy: From Hype to Enterprise Reality | 40% of enterprise apps will embed AI agents by end of 2026 according to Gartner predictions. The shift from chatbots to autonomous agents is accelerating faster than anyone expected. Four architecture patterns dominate: single agent, hierarchical multi-agent, sequential pipeline, and decentralized swarm. The key is matching architecture to use case, not chasing maximum autonomy. Why agentic implementations fail: Most organizations try to automate existing processes instead of reimagining operations. Leading companies manage AI agents as workers with clear roles, KPIs, and escalation paths. The winners treat agents like new hires, not software. No-code agent builders: Gumloop, n8n, Zapier Central, and Make.com now offer visual agent builders. For simple to intermediate workflows, you do not need coding skills. The barrier to building your first autonomous workflow has never been lower. Gumloop: Visual agent builder for non-technical teams n8n: Open-source workflow automation with AI agent nodes Claude Code: CLI-based agentic coding with 1M context \"Agentic AI is no longer a research concept. They are the most transformative productivity tool since the spreadsheet.\""
+            },
+            {
+              "headline": "RiskInfo AI",
+              "text": "AI Insights: Key Global Developments in March 2026 | Pentagon designates Palantir's Maven AI as a formal program of record with long-term funding. AI integration in government is accelerating from strategy documents to operational deployment. MIT protein drug design: A new model predicts synthetic protein folding, potentially cutting pharma R&D costs by billions. Cancer, autoimmune, and rare disease treatments could arrive years faster. AI moving from theory to practice: The bigger story of March 2026 is not new model releases. It is how AI is being embedded into real-world systems, government programs, military operations, and medical research. The gap between AI capability and AI deployment is closing rapidly. \"The period from late February into mid-March saw AI moving from theory into practice. New model releases grab headlines but the bigger story is how AI is embedded into real-world systems.\""
+            }
+          ]
+        },
+        {
+          "title": "Competitive Landscape",
+          "items": [
+            {
+              "headline": "OpenAI",
+              "text": "GPT-5.4 launched with 1.05M context. Superapp consolidation merges ChatGPT, Codex, and Atlas into one desktop app. Ties with Gemini at 57 on the Intelligence Index. 33% fewer factual errors. Going all-in on the single-app strategy."
+            },
+            {
+              "headline": "Google DeepMind",
+              "text": "Gemini 3.1 Pro leads the Intelligence Index. 77.1% on ARC-AGI-2 with full multimodal reasoning. Google Stitch launched as a free AI design tool, causing Figma to drop 12%. DeepMind is attacking the creative tools market while the model race tightens."
+            },
+            {
+              "headline": "Anthropic",
+              "text": "Claude Opus 4.6 leads SWE-Bench at 80.8%. 1M context in beta. Over 30 OpenAI and Google employees filed statements defending Anthropic after the Pentagon labeled it a supply-chain risk for refusing to enable mass surveillance. Integrity as a differentiator."
+            },
+            {
+              "headline": "Meta AI",
+              "text": "Meta continues investing heavily in open-source AI models. Llama family remains the go-to for self-hosted enterprise deployments. The open-source vs closed-source battle intensifies as Chinese models prove you can match top performance at fraction of the cost."
+            },
+            {
+              "headline": "Mistral",
+              "text": "Launched Forge at NVIDIA GTC for enterprise custom model building. On track to surpass $1B ARR this year. Laser focus on enterprise is working. While big labs chase benchmarks, Mistral quietly captures the customers who pay. The European dark horse is galloping."
+            },
+            {
+              "headline": "China Challengers",
+              "text": "Five models from Tencent, Alibaba, Baidu, ByteDance, and MiniMax in one month. MiniMax M2.5 matches Claude at lower cost. Xiaomi's MiMo-V2-Pro led by ex-DeepSeek talent. The cost efficiency race is theirs to lose. Western labs need a pricing response."
+            }
+          ]
+        },
+        {
+          "title": "AI Tool Guide",
+          "items": [
+            {
+              "headline": "Avoid the AI Exoskeleton Effect",
+              "text": "If you let AI do all the thinking, you lose the ability to think. Use AI as a force multiplier, not a replacement for your judgment. Review every output. Question the reasoning. The moment you stop checking is the moment you become dependent on a system you do not understand."
+            },
+            {
+              "headline": "Build Agentic Workflows Without Code",
+              "text": "Gumloop, n8n, and Zapier Central now let you build autonomous AI workflows with drag-and-drop interfaces. Connect an AI agent to your email, CRM, and calendar. Let it triage, draft, and schedule. Start with one simple workflow and expand from there. No engineering team required."
+            },
+            {
+              "headline": "NVIDIA Nemotron for Multi-Agent Projects",
+              "text": "If you are building systems where multiple AI agents need to coordinate, NVIDIA's Nemotron 3 Super (120B) is purpose-built for this. It handles agent orchestration natively. Useful for teams building customer service, research, or operations automation with multiple specialized agents."
+            },
+            {
+              "headline": "Google Stitch for Instant Design",
+              "text": "Google's new Stitch tool generates high-fidelity UI designs from plain language descriptions. It is free and it caused Figma to drop 12% on launch day. If you need mockups, reports, or interface designs and do not have a designer, this is your shortcut. Skip the learning curve entirely."
+            },
+            {
+              "headline": "Daily AI Habit: Use, Review, Learn",
+              "text": "HubSpot's Dharmesh Shah recommends a three-part strategy for keeping up: use AI daily in your actual work, schedule quarterly reviews of new tools, and try one new tool per week with a specific problem in mind. Consistency beats intensity. Small daily experiments compound."
+            },
+            {
+              "headline": "Best Coding Model Right Now: Claude Opus 4.6",
+              "text": "For coding tasks specifically, Claude Opus 4.6 with its 1M context window and 80.8% SWE-Bench score is the current leader. Use Claude Code for CLI-based agentic coding. Pair it with Cursor IDE for an integrated experience. The model that understands your entire codebase wins."
+            }
+          ]
+        }
+      ]
     },
     {
       "date": "2026-03-23",

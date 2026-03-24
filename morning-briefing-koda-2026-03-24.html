@@ -8,1089 +8,753 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        *{margin:0;padding:0;box-sizing:border-box;}
+        :root{
+            --blue:#3B82F6;--purple:#8B5CF6;--red:#EF4444;--amber:#F59E0B;
+            --emerald:#10B981;--indigo:#6366F1;--pink:#EC4899;--cyan:#06B6D4;
+            --bg:#FFFFFF;--bg-secondary:#F8FAFC;--bg-card:rgba(255,255,255,0.7);
+            --text:#0F172A;--text-secondary:#475569;--border:rgba(0,0,0,0.08);
+            --shadow:rgba(0,0,0,0.04);
         }
-
-        :root {
-            --blue: #3B82F6;
-            --purple: #8B5CF6;
-            --red: #EF4444;
-            --amber: #F59E0B;
-            --emerald: #10B981;
-            --indigo: #6366F1;
-            --pink: #EC4899;
-            --cyan: #06B6D4;
-            --bg-light: #FFFFFF;
-            --bg-light-secondary: #F9FAFB;
-            --text-light: #0F172A;
-            --text-light-muted: #475569;
-            --border-light: rgba(0, 0, 0, 0.08);
-            --bg-dark: #0F172A;
-            --bg-dark-secondary: #1A1F3A;
-            --text-dark: #F1F5F9;
-            --text-dark-muted: #CBD5E1;
-            --border-dark: rgba(255, 255, 255, 0.1);
+        html.dark-mode{
+            --bg:#0F172A;--bg-secondary:#1E293B;--bg-card:rgba(30,41,59,0.8);
+            --text:#F1F5F9;--text-secondary:#94A3B8;--border:rgba(255,255,255,0.08);
+            --shadow:rgba(0,0,0,0.3);
         }
-
-        html.dark-mode {
-            --bg-light: #0F172A;
-            --bg-light-secondary: #1A1F3A;
-            --text-light: #F1F5F9;
-            --text-light-muted: #CBD5E1;
-            --border-light: rgba(255, 255, 255, 0.1);
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-light);
-            line-height: 1.6;
-            transition: background-color 0.3s, color 0.3s;
-        }
+        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background 0.3s,color 0.3s;}
+        .container{max-width:1200px;margin:0 auto;padding:0 24px;}
+        .section{scroll-margin-top:80px;margin-bottom:40px;}
+        .section-title{font-size:22px;font-weight:800;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+        .section-icon{font-size:24px;}
 
         /* Topbar */
-        .topbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 64px;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-light);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 24px;
-            z-index: 1000;
-            transition: background 0.3s, border-color 0.3s;
-        }
+        .topbar{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);z-index:1000;transition:background 0.3s;}
+        html.dark-mode .topbar{background:rgba(15,23,42,0.85);}
+        .topbar-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;justify-content:space-between;}
+        .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);}
+        .brand-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--blue),var(--purple));border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:16px;}
+        .brand-name{font-size:16px;font-weight:800;letter-spacing:-0.3px;}
+        .brand-sub{font-size:10px;color:var(--text-secondary);font-weight:500;}
+        .day-nav{display:flex;align-items:center;gap:8px;}
+        .day-nav-btn{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:7px 13px;font-size:12px;font-weight:600;cursor:pointer;color:var(--text);font-family:'JetBrains Mono',monospace;backdrop-filter:blur(12px);transition:all 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:5px;}
+        .day-nav-btn:hover:not(.disabled){background:var(--indigo);color:white;border-color:var(--indigo);}
+        .day-nav-btn.disabled{opacity:0.3;cursor:default;pointer-events:none;}
+        .day-nav-current{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--blue);padding:4px 10px;background:rgba(59,130,246,0.1);border-radius:6px;}
+        .topbar-right{display:flex;align-items:center;gap:10px;}
+        .dark-toggle{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;color:var(--text);transition:all 0.2s;font-family:'Inter',sans-serif;}
+        .dark-toggle:hover{border-color:var(--indigo);color:var(--indigo);}
+        .home-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:10px;background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;font-size:13px;font-weight:700;font-family:'JetBrains Mono',monospace;text-decoration:none;transition:transform 0.2s;}
+        .home-btn:hover{transform:translateY(-1px);}
 
-        html.dark-mode .topbar {
-            background: rgba(15, 23, 42, 0.8);
-            border-bottom-color: var(--border-light);
-        }
+        /* Hero */
+        .hero{padding:100px 0 40px;text-align:center;}
+        .hero-date{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;}
+        .hero-title{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,var(--blue),var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+        .hero-sub{font-size:16px;color:var(--text-secondary);max-width:600px;margin:0 auto;}
 
-        .topbar-brand {
-            font-size: 18px;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--blue), var(--purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-decoration: none;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
+        /* KPI Strip */
+        .kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:32px 0 36px;}
+        .kpi-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;text-align:center;box-shadow:0 2px 8px var(--shadow);}
+        .kpi-value{font-size:28px;font-weight:800;font-family:'JetBrains Mono',monospace;}
+        .kpi-label{font-size:12px;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+        @media(max-width:768px){.kpi-strip{grid-template-columns:repeat(2,1fr);}}
 
-        .topbar-brand:hover {
-            opacity: 0.8;
-        }
+        /* Media Strip */
+        .media-strip{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 36px;}
+        .media-banner{background:linear-gradient(135deg,#0f1629 0%,#162040 100%);border:1px solid rgba(99,102,241,0.2);border-radius:18px;padding:28px 32px;color:white;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;transition:border-color 0.3s;}
+        .media-banner:hover{border-color:rgba(99,102,241,0.45);}
+        .media-banner-icon{font-size:28px;margin-bottom:4px;opacity:0.9;}
+        .media-banner-title{font-size:15px;font-weight:700;letter-spacing:0.2px;}
+        .media-banner-sub{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:10px;line-height:1.4;}
+        .media-banner-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 28px;border-radius:30px;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.25s;text-decoration:none;border:none;}
+        .media-banner-btn.podcast-btn{background:linear-gradient(135deg,var(--indigo),var(--purple));color:white;}
+        .media-banner-btn.podcast-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(99,102,241,0.4);}
+        .media-banner-btn.video-btn{background:linear-gradient(135deg,#EF4444,#EC4899);color:white;}
+        .media-banner-btn.video-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(239,68,68,0.4);}
+        .media-banner-btn.expand-btn{background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.3);color:#a78bfa;font-size:11px;padding:7px 18px;margin-top:6px;}
+        .media-banner-btn.expand-btn:hover{background:rgba(99,102,241,0.2);}
+        .podcast-player-wrap{width:100%;max-width:340px;margin-top:14px;display:none;}
+        .podcast-player-wrap.active{display:block;}
+        .video-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;padding:40px;}
+        .video-overlay.active{display:flex;}
+        .video-overlay-inner{width:100%;max-width:1100px;position:relative;}
+        .video-overlay-inner iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:16px;}
+        .video-overlay-close{position:absolute;top:-44px;right:0;background:none;border:none;color:white;font-size:32px;cursor:pointer;padding:8px;opacity:0.7;transition:opacity 0.2s;}
+        .video-overlay-close:hover{opacity:1;}
+        @media(max-width:768px){.media-strip{grid-template-columns:1fr;}}
 
-        .topbar-controls {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .home-btn {
-            padding: 8px 16px;
-            background: linear-gradient(135deg, var(--blue), var(--cyan));
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: opacity 0.2s;
-        }
-
-        .home-btn:hover {
-            opacity: 0.9;
-        }
-
-        .dark-toggle {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            background: var(--bg-light-secondary);
-            border: 1px solid var(--border-light);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            transition: background 0.2s, border-color 0.2s;
-        }
-
-        .dark-toggle:hover {
-            background: var(--bg-light);
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 80px 24px 48px;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            margin-bottom: 48px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, var(--blue), var(--purple), var(--pink));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero .date {
-            font-size: 18px;
-            color: var(--text-light-muted);
-            margin-bottom: 32px;
-        }
-
-        .kpi-strip {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 12px;
-            margin-bottom: 32px;
-        }
-
-        .kpi-card {
-            background: rgba(59, 130, 246, 0.08);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .kpi-card:hover {
-            transform: translateY(-2px);
-            background: rgba(59, 130, 246, 0.12);
-        }
-
-        .kpi-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-light-muted);
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-
-        .kpi-value {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-light);
-        }
-
-        /* Section Base */
-        section {
-            margin-bottom: 48px;
-            scroll-margin-top: 80px;
-        }
-
-        section h2 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            position: relative;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--border-light);
-        }
+        /* Summary */
+        .summary-card{padding:32px 36px;background:var(--bg-card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;box-shadow:0 4px 16px var(--shadow);position:relative;overflow:hidden;}
+        .summary-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--blue),var(--purple));border-radius:20px 0 0 20px;}
+        .summary-hook{font-size:20px;font-weight:700;line-height:1.5;color:var(--text);margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border);}
+        .summary-briefs{display:flex;flex-direction:column;gap:20px;margin-bottom:24px;}
+        .summary-brief{display:flex;gap:16px;align-items:flex-start;}
+        .summary-brief-header{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0;width:48px;}
+        .summary-brief-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+        .summary-brief-label{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;}
+        .summary-brief-text{font-size:15px;line-height:1.7;color:var(--text-secondary);flex:1;}
+        .summary-cta{font-size:14px;font-weight:700;color:var(--blue);padding-top:16px;border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace;letter-spacing:0.3px;}
+        @media(max-width:768px){.summary-card{padding:24px 20px;}.summary-hook{font-size:17px;}.summary-brief-text{font-size:14px;}}
 
         /* Infographic */
-        .infographic-card {
-            background: var(--bg-light-secondary);
-            border: 1px solid var(--border-light);
-            border-radius: 16px;
-            padding: 32px 24px;
-            margin-bottom: 32px;
-            opacity: 0;
-            transform: translateY(16px);
-            animation: fadeIn 0.6s ease-out forwards;
-        }
+        .infographic{background:#0a0f1e;border:1px solid rgba(59,130,246,0.25);border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.5);padding:0;}
+        .infographic img{width:100%;height:auto;display:block;border-radius:20px;}
 
-        .infographic-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: center;
-        }
+        /* Focus */
+        .focus-grid{display:flex;flex-direction:column;gap:16px;}
+        .focus-item{display:flex;gap:20px;align-items:flex-start;background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:0 2px 8px var(--shadow);}
+        .focus-num{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple));color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;flex-shrink:0;}
+        .focus-content{flex:1;}
+        .focus-content-title{font-size:17px;font-weight:700;margin-bottom:6px;}
+        .focus-content-body{font-size:14px;color:var(--text-secondary);line-height:1.7;}
 
-        .infographic-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .infographic-block {
-            flex: 0 0 calc(33.333% - 8px);
-            padding: 20px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 13px;
-            text-align: center;
-            color: white;
-            min-height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .infographic-block.blue { background: linear-gradient(135deg, #3B82F6, #2563EB); }
-        .infographic-block.purple { background: linear-gradient(135deg, #8B5CF6, #7C3AED); }
-        .infographic-block.red { background: linear-gradient(135deg, #EF4444, #DC2626); }
-        .infographic-block.amber { background: linear-gradient(135deg, #F59E0B, #D97706); }
-        .infographic-block.emerald { background: linear-gradient(135deg, #10B981, #059669); }
-        .infographic-block.indigo { background: linear-gradient(135deg, #6366F1, #4F46E5); }
-
-        .infographic-arrow {
-            font-size: 24px;
-            color: var(--text-light-muted);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(4px); }
-        }
-
-        /* Podcast Card */
-        .podcast-card {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 16px;
-            padding: 32px;
-            margin-bottom: 32px;
-            color: white;
-            opacity: 0;
-            transform: translateY(16px);
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        .podcast-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .podcast-metadata {
-            font-size: 12px;
-            opacity: 0.7;
-            margin-bottom: 20px;
-        }
-
-        audio {
-            width: 100%;
-            margin-top: 16px;
-        }
-
-        /* Cards */
-        .card {
-            background: var(--bg-light-secondary);
-            border: 1px solid var(--border-light);
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 16px;
-            opacity: 0;
-            transform: translateY(16px);
-            animation: fadeIn 0.6s ease-out forwards;
-            transition: all 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            border-color: var(--blue);
-        }
-
-        .card h3 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .card p {
-            font-size: 14px;
-            color: var(--text-light-muted);
-            line-height: 1.7;
-            margin-bottom: 12px;
-        }
-
-        .source-badge {
-            display: inline-block;
-            font-size: 11px;
-            padding: 4px 10px;
-            border-radius: 20px;
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--blue);
-            font-weight: 600;
-            margin-top: 8px;
-        }
-
-        .category-badge {
-            display: inline-block;
-            font-size: 11px;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-
-        .category-badge.conflict {
-            background: rgba(239, 68, 68, 0.1);
-            color: var(--red);
-        }
-
-        .category-badge.economy {
-            background: rgba(245, 158, 11, 0.1);
-            color: var(--amber);
-        }
-
-        .category-badge.society {
-            background: rgba(139, 92, 246, 0.1);
-            color: var(--purple);
-        }
-
-        .category-badge.politics {
-            background: rgba(51, 102, 255, 0.1);
-            color: var(--indigo);
-        }
-
-        .category-badge.science {
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--emerald);
-        }
-
-        .card a {
-            color: var(--blue);
-            text-decoration: none;
-            font-weight: 600;
-            transition: opacity 0.2s;
-        }
-
-        .card a:hover {
-            opacity: 0.7;
-        }
+        /* Card Grid */
+        .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;}
+        .card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:0 2px 8px var(--shadow);display:flex;flex-direction:column;}
+        .card-badge{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 10px;border-radius:6px;margin-bottom:12px;width:fit-content;}
+        .card-title{font-size:16px;font-weight:700;margin-bottom:8px;line-height:1.4;}
+        .card-body{font-size:14px;color:var(--text-secondary);line-height:1.7;flex:1;}
+        .card-source{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;color:var(--blue);text-decoration:none;margin-top:12px;font-family:'JetBrains Mono',monospace;}
+        .card-source:hover{text-decoration:underline;}
 
         /* Market Grid */
-        .market-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
-            margin-bottom: 24px;
-        }
+        .market-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;}
+        .market-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;text-align:center;box-shadow:0 2px 8px var(--shadow);}
+        .market-ticker{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+        .market-price{font-size:24px;font-weight:800;font-family:'JetBrains Mono',monospace;}
+        .market-change{font-size:13px;font-weight:700;font-family:'JetBrains Mono',monospace;margin-top:4px;}
+        .market-bar{height:3px;border-radius:2px;margin-top:10px;}
 
-        .market-item {
-            background: var(--bg-light-secondary);
-            border: 1px solid var(--border-light);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(16px);
-            animation: fadeIn 0.6s ease-out forwards;
-        }
+        /* Newsletter */
+        .newsletter-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;margin-bottom:16px;box-shadow:0 2px 8px var(--shadow);}
+        .newsletter-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border);}
+        .newsletter-avatar{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:white;flex-shrink:0;}
+        .newsletter-name{font-size:16px;font-weight:700;}
+        .newsletter-subject{font-size:13px;color:var(--text-secondary);margin-top:2px;}
+        .nl-section{margin-bottom:16px;}
+        .nl-section-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;color:var(--indigo);}
+        .newsletter-item{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:8px;padding-left:20px;position:relative;}
+        .newsletter-item::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--indigo);}
+        .newsletter-quote{font-style:italic;border-left:3px solid var(--purple);padding:12px 16px;background:rgba(139,92,246,0.06);border-radius:0 8px 8px 0;color:var(--text-secondary);font-size:14px;margin-top:12px;}
 
-        .market-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            color: var(--text-light-muted);
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
+        /* Competitive */
+        .comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+        .comp-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:0 2px 8px var(--shadow);}
+        .comp-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+        .comp-logo{font-size:24px;}
+        .comp-name{font-size:16px;font-weight:700;}
+        .comp-status{font-size:10px;font-weight:700;text-transform:uppercase;padding:3px 8px;border-radius:6px;letter-spacing:0.5px;}
+        .comp-body{font-size:14px;color:var(--text-secondary);line-height:1.7;}
+        @media(max-width:900px){.comp-grid{grid-template-columns:1fr 1fr;}}
+        @media(max-width:600px){.comp-grid{grid-template-columns:1fr;}}
 
-        .market-price {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-light);
-            margin-bottom: 6px;
-        }
-
-        .market-change {
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .market-change.positive {
-            color: var(--emerald);
-        }
-
-        .market-change.negative {
-            color: var(--red);
-        }
-
-        /* Newsletter Cards */
-        .newsletter-card {
-            background: var(--bg-light-secondary);
-            border: 1px solid var(--border-light);
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 16px;
-            opacity: 0;
-            transform: translateY(16px);
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        .newsletter-source {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--blue);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .newsletter-date {
-            font-size: 12px;
-            color: var(--text-light-muted);
-            margin-bottom: 12px;
-        }
-
-        .newsletter-content {
-            font-size: 14px;
-            line-height: 1.8;
-            color: var(--text-light-muted);
-            margin-bottom: 12px;
-        }
-
-        .newsletter-link {
-            display: inline-block;
-            margin-top: 12px;
-            padding: 8px 14px;
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            border-radius: 6px;
-            color: var(--blue);
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 600;
-            transition: all 0.2s;
-        }
-
-        .newsletter-link:hover {
-            background: rgba(59, 130, 246, 0.2);
-        }
-
-        /* Focus Section */
-        .focus-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .focus-item {
-            background: var(--bg-light-secondary);
-            border-left: 4px solid var(--blue);
-            border-radius: 12px;
-            padding: 20px;
-            opacity: 0;
-            transform: translateY(16px);
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        .focus-item h3 {
-            font-size: 15px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--text-light);
-        }
-
-        .focus-item p {
-            font-size: 13px;
-            color: var(--text-light-muted);
-            line-height: 1.6;
-        }
+        /* Tool Guide */
+        .tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+        .tool-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-left:4px solid var(--indigo);border-radius:16px;padding:24px;box-shadow:0 2px 8px var(--shadow);}
+        .tool-label{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--indigo);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+        .tool-title{font-size:16px;font-weight:700;margin-bottom:8px;}
+        .tool-body{font-size:14px;color:var(--text-secondary);line-height:1.7;}
+        @media(max-width:768px){.tool-grid{grid-template-columns:1fr;}}
 
         /* Footer */
-        footer {
-            margin-top: 48px;
-            padding: 24px;
-            text-align: center;
-            border-top: 1px solid var(--border-light);
-            color: var(--text-light-muted);
-            font-size: 12px;
-        }
+        .footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);margin-top:40px;}
+        .footer-text{font-size:12px;color:var(--text-secondary);}
+        .footer-brand{font-size:14px;font-weight:700;margin-bottom:8px;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 
-        footer a {
-            color: var(--blue);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(16px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .kpi-strip {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .infographic-block {
-                flex: 0 0 calc(50% - 6px);
-                font-size: 12px;
-                padding: 16px;
-            }
-
-            section h2 {
-                font-size: 22px;
-            }
-
-            .topbar {
-                padding: 0 16px;
-            }
-
-            .container {
-                padding: 80px 16px 32px;
-            }
-        }
-
-        /* Stagger animations */
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.15s; }
-        .card:nth-child(3) { animation-delay: 0.2s; }
-        .card:nth-child(4) { animation-delay: 0.25s; }
-        .card:nth-child(5) { animation-delay: 0.3s; }
-        .card:nth-child(6) { animation-delay: 0.35s; }
-        .card:nth-child(7) { animation-delay: 0.4s; }
-        .card:nth-child(8) { animation-delay: 0.45s; }
-        .card:nth-child(9) { animation-delay: 0.5s; }
-        .card:nth-child(10) { animation-delay: 0.55s; }
-
-        .market-item:nth-child(1) { animation-delay: 0.1s; }
-        .market-item:nth-child(2) { animation-delay: 0.15s; }
-        .market-item:nth-child(3) { animation-delay: 0.2s; }
-        .market-item:nth-child(4) { animation-delay: 0.25s; }
-        .market-item:nth-child(5) { animation-delay: 0.3s; }
-
-        .newsletter-card:nth-child(1) { animation-delay: 0.1s; }
-        .newsletter-card:nth-child(2) { animation-delay: 0.15s; }
-        .newsletter-card:nth-child(3) { animation-delay: 0.2s; }
-        .newsletter-card:nth-child(4) { animation-delay: 0.25s; }
-        .newsletter-card:nth-child(5) { animation-delay: 0.3s; }
-
-        .focus-item:nth-child(1) { animation-delay: 0.1s; }
-        .focus-item:nth-child(2) { animation-delay: 0.15s; }
-        .focus-item:nth-child(3) { animation-delay: 0.2s; }
+        /* Fade-in */
+        .fade-in{opacity:0;transform:translateY(16px);transition:opacity 0.45s ease,transform 0.45s ease;}
     </style>
 </head>
-<body>
-    <!-- Topbar -->
-    <div class="topbar">
-        <a href="./index.html" class="topbar-brand">Koda Digest</a>
-        <div class="topbar-controls">
-            <a href="./index.html" class="home-btn">← Home</a>
-            <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+<body data-digest-date="2026-03-24">
+
+<!-- TOPBAR -->
+<div class="topbar">
+    <div class="topbar-inner">
+        <div style="display:flex;align-items:center;gap:14px;">
+            <a href="./index.html" class="home-btn">&#8592; Home</a>
+            <a href="./index.html" class="brand" style="text-decoration:none;color:var(--text);">
+                <div class="brand-icon">K</div>
+                <div><div class="brand-name">Koda Digest</div><div class="brand-sub">Daily AI Intelligence</div></div>
+            </a>
+        </div>
+        <div class="day-nav">
+            <a id="nav-prev" class="day-nav-btn disabled" href="#">&#8592; <span id="nav-prev-label">&mdash;</span></a>
+            <span class="day-nav-current" id="nav-current">Mar 24</span>
+            <a id="nav-next" class="day-nav-btn disabled" href="#"><span id="nav-next-label">&mdash;</span> &#8594;</a>
+        </div>
+        <div class="topbar-right">
+            <button class="dark-toggle" onclick="toggleDark()" id="darkBtn">&#127769; Dark</button>
         </div>
     </div>
+</div>
 
-    <!-- Main Container -->
-    <div class="container">
-        <!-- Hero Section -->
-        <div class="hero">
-            <h1>Koda Intelligence Briefing</h1>
-            <div class="date">Tuesday, March 24, 2026</div>
+<!-- HERO -->
+<div class="hero container">
+    <div class="hero-date">Tuesday, March 24, 2026</div>
+    <h1 class="hero-title">Koda Intelligence Briefing</h1>
+    <p class="hero-sub">AI breakthroughs, geopolitical shifts, market moves, and the tools reshaping how you work. Curated daily.</p>
+</div>
 
-            <!-- KPI Strip -->
-            <div class="kpi-strip">
-                <div class="kpi-card">
-                    <div class="kpi-label">AI Stories</div>
-                    <div class="kpi-value">8</div>
-                </div>
-                <div class="kpi-card">
-                    <div class="kpi-label">World Events</div>
-                    <div class="kpi-value">5</div>
-                </div>
-                <div class="kpi-card">
-                    <div class="kpi-label">Market Mood</div>
-                    <div class="kpi-value">Cautious Rally</div>
-                </div>
-                <div class="kpi-card">
-                    <div class="kpi-label">Tools Featured</div>
-                    <div class="kpi-value">10</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Daily Infographic Section -->
-        <section id="daily-summary">
-            <h2>Daily Intelligence Map</h2>
-            <div class="infographic-card">
-                <div class="infographic-container">
-                    <div class="infographic-row">
-                        <div class="infographic-block blue">Claude Computer Use</div>
-                        <div class="infographic-arrow">→</div>
-                        <div class="infographic-block purple">OpenAI Researcher</div>
-                    </div>
-                    <div class="infographic-row">
-                        <div class="infographic-block indigo">Cursor Composer 2</div>
-                        <div class="infographic-arrow">→</div>
-                        <div class="infographic-block emerald">Jensen: AGI Here</div>
-                    </div>
-                    <div class="infographic-row">
-                        <div class="infographic-block amber">Iran Week 4</div>
-                        <div class="infographic-arrow">→</div>
-                        <div class="infographic-block red">Oil $110</div>
-                    </div>
-                    <div class="infographic-row">
-                        <div class="infographic-block emerald">Markets Rally</div>
-                        <div class="infographic-arrow">↔</div>
-                        <div class="infographic-block blue">AI at 41% VC $</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Podcast Card -->
-        <div class="podcast-card">
-            <div class="podcast-title">Claude Takes the Wheel: Computer Use, AI Researchers & the $110 Oil Crisis</div>
-            <div class="podcast-metadata">March 24, 2026 · Generated by NotebookLM</div>
-            <audio controls>
-                <source src="./podcast-2026-03-24.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
-
-        <!-- Today's Focus -->
-        <section id="todays-focus">
-            <h2>Today's Focus</h2>
-            <div class="focus-items">
-                <div class="focus-item">
-                    <h3>Claude Ships Computer Use</h3>
-                    <p>Anthropic's desktop control feature goes live for Pro/Max users on macOS. Desktop automation via Dispatch mobile remote.</p>
-                </div>
-                <div class="focus-item">
-                    <h3>OpenAI's Researcher Moonshot</h3>
-                    <p>Fully automated AI intern by September. Full system deployment by 2028. Doubling workforce to 8,000 engineers.</p>
-                </div>
-                <div class="focus-item">
-                    <h3>Iran War Week 4</h3>
-                    <p>Strait of Hormuz blockade. Oil spiking to $110/barrel. Pentagon requests $200B. 7,000+ targets struck. Saudi diplomacy escalates.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- AI Developments -->
-        <section id="ai-developments">
-            <h2>AI Developments</h2>
-
-            <div class="card">
-                <h3>Claude Ships Computer Use</h3>
-                <p>Anthropic released desktop control feature for Pro and Max users on macOS. Dispatch mobile remote enables hands-free control. Company acquired Vercept startup to strengthen vision capabilities. Desktop automation marks major milestone in AI capability expansion.</p>
-                <div class="source-badge">CNET</div>
-                <div class="source-badge">The Rundown AI</div>
-            </div>
-
-            <div class="card">
-                <h3>OpenAI Building Fully Automated Researcher</h3>
-                <p>North Star goal: AI intern capable of independent research by September 2026. Full system deployment targeted for 2028. Company doubling headcount to 8,000 engineers to support moonshot initiative. Positioning AI agents as core workforce multiplier.</p>
-                <div class="source-badge">MIT Technology Review</div>
-            </div>
-
-            <div class="card">
-                <h3>Cursor Launches Composer 2</h3>
-                <p>Code-only model achieves 61.7% on Terminal-Bench. Pricing: $0.50 per million tokens. Built on Kimi 2.5 foundation. Represents 3x improvement in agentic coding performance. Open-weight model available for enterprise deployment.</p>
-                <div class="source-badge">VentureBeat</div>
-                <div class="source-badge">TechCrunch</div>
-            </div>
-
-            <div class="card">
-                <h3>Luma AI Releases Uni-1 Model</h3>
-                <p>Unified text-to-image model that "thinks as it generates." Achieves lower latency than diffusion competitors. Pricing: $0.09 per image. Multimodal reasoning with real-time generation capability.</p>
-                <div class="source-badge">Luma Labs</div>
-            </div>
-
-            <div class="card">
-                <h3>Jensen Huang: "We've Achieved AGI"</h3>
-                <p>Nvidia CEO declares on Lex Fridman Podcast that AGI has been achieved. Positions Nvidia as industry's most powerful financier. Statement sparks debate on AGI definitions and milestone clarity in AI research community.</p>
-                <div class="source-badge">Lex Fridman Podcast</div>
-            </div>
-
-            <div class="card">
-                <h3>Musk's $20B Terafab Joint Venture</h3>
-                <p>Tesla, SpaceX, and xAI partnering on world's largest chip manufacturing facility. $20 billion investment in advanced semiconductor production. Expected to accelerate AI hardware capacity globally.</p>
-                <div class="source-badge">Engadget</div>
-            </div>
-
-            <div class="card">
-                <h3>Apple WWDC 2026 Announcement</h3>
-                <p>Developer conference scheduled June 8–12, 2026. Major AI advancements and reimagined Siri integration expected. Annual showcase for Apple's AI-first product roadmap.</p>
-                <div class="source-badge">MacRumors</div>
-            </div>
-
-            <div class="card">
-                <h3>Claude Code Auto-Dream + Cloud Tasks</h3>
-                <p>Memory consolidation sub-agent for persistent learning. Scheduled recurring task execution without manual intervention. New features expand autonomous agent capabilities for developers.</p>
-                <div class="source-badge">TLDR</div>
-            </div>
-        </section>
-
-        <!-- World News -->
-        <section id="world-news">
-            <h2>World News</h2>
-
-            <div class="card">
-                <div class="category-badge conflict">CONFLICT</div>
-                <h3>Iran War Day 24: Escalation & Diplomacy</h3>
-                <p>Israeli Defense Forces strike Tehran IRGC headquarters. Trump administration mulls "winding down" conflict. Pentagon requests $200 billion emergency appropriation. 7,000+ targets struck since war start. Saudi Arabia expels Iranian diplomats in response to regional tensions.</p>
-                <div class="source-badge">Al Jazeera</div>
-                <div class="source-badge">CNN</div>
-                <div class="source-badge">NPR</div>
-            </div>
-
-            <div class="card">
-                <div class="category-badge economy">ECONOMY</div>
-                <h3>Global Energy Crisis: Oil Spikes to $110</h3>
-                <p>Crude oil prices up 45% since war began. Strait of Hormuz blockade restricts supply. Trump administration lifts some Iran oil sanctions until April 19. Global energy markets face sustained volatility and inflation pressure.</p>
-                <div class="source-badge">Bloomberg</div>
-                <div class="source-badge">CBS News</div>
-            </div>
-
-            <div class="card">
-                <div class="category-badge society">SOCIETY</div>
-                <h3>Cuba Faces Third Power Grid Collapse</h3>
-                <p>Third major blackout in March due to decaying infrastructure and fuel shortages. US oil blockade exacerbates energy crisis. Island faces widespread disruption to services and economy.</p>
-                <div class="source-badge">Democracy Now</div>
-            </div>
-
-            <div class="card">
-                <div class="category-badge politics">POLITICS</div>
-                <h3>Chile Environmental Protests Escalate</h3>
-                <p>Thousands protest President Kast's environmental rollbacks. World Water Day march draws major participation. Civil society mobilizes against policy reversals on climate and water protection.</p>
-                <div class="source-badge">Democracy Now</div>
-            </div>
-
-            <div class="card">
-                <div class="category-badge science">SCIENCE</div>
-                <h3>Wing Drone Delivery Expands to Bay Area</h3>
-                <p>Alphabet subsidiary launches expanded autonomous delivery network in San Francisco Bay Area. 750,000+ deliveries completed to date. Drone logistics becoming mainstream commercial service.</p>
-                <div class="source-badge">Sherwood News</div>
-            </div>
-        </section>
-
-        <!-- Market Snapshot -->
-        <section id="market-snapshot">
-            <h2>Market Snapshot</h2>
-
-            <div class="market-grid">
-                <div class="market-item">
-                    <div class="market-label">S&P 500</div>
-                    <div class="market-price">6,581.00</div>
-                    <div class="market-change positive">↑ +1.15%</div>
-                </div>
-                <div class="market-item">
-                    <div class="market-label">NASDAQ</div>
-                    <div class="market-price">21,946.76</div>
-                    <div class="market-change positive">↑ +1.38%</div>
-                </div>
-                <div class="market-item">
-                    <div class="market-label">Bitcoin</div>
-                    <div class="market-price">$71,000</div>
-                    <div class="market-change positive">↑ +3.79%</div>
-                </div>
-                <div class="market-item">
-                    <div class="market-label">Ethereum</div>
-                    <div class="market-price">$2,134</div>
-                    <div class="market-change positive">↑ +5.16%</div>
-                </div>
-                <div class="market-item">
-                    <div class="market-label">Crude Oil (WTI)</div>
-                    <div class="market-price">$110/bbl</div>
-                    <div class="market-change negative">↑ +45% (war)</div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Market Intelligence</h3>
-                <p><strong>OpenAI PE Offering:</strong> Providing 17.5% guaranteed returns to institutional investors. Signal of confidence in revenue trajectory.</p>
-                <p><strong>Kalshi Raises $1B:</strong> Prediction market platform valued at $22 billion. Regulatory arbitrage in futures markets accelerating.</p>
-                <p><strong>AI Venture Concentration:</strong> AI companies now capture 41% of all venture capital dollars. Highest concentration in tech sector history. Market reallocation away from traditional software toward AI-first infrastructure.</p>
-            </div>
-        </section>
-
-        <!-- Newsletter Intelligence -->
-        <section id="newsletter-intelligence">
-            <h2>Newsletter Intelligence</h2>
-
-            <div class="newsletter-card">
-                <div class="newsletter-source">TLDR (Mar 24)</div>
-                <div class="newsletter-date">March 24, 2026</div>
-                <div class="newsletter-content">Claude computer use ships to Pro/Max macOS users. OpenAI offering 17.5% guaranteed returns to PE firms. Wing drone delivery expands to Bay Area with 750K+ completed deliveries. Ramp launched self-maintaining agentic software that requires zero human intervention. Key insight: "There are only two paths left for software — high growth or high margins. Everything between is no-man's land."</div>
-                <a href="https://a.tldrnewsletter.com/web-version" target="_blank" class="newsletter-link">Read Full Newsletter →</a>
-            </div>
-
-            <div class="newsletter-card">
-                <div class="newsletter-source">The Rundown AI (Mar 24)</div>
-                <div class="newsletter-date">March 24, 2026</div>
-                <div class="newsletter-content">Anthropic ships remote computer use with Dispatch mobile integration. Luma AI's Uni-1 model generates images while thinking in real-time. Mark Zuckerberg building personal CEO agent for executive assistance. OpenAI guaranteeing 17.5% PE returns to anchor institutions. Jensen Huang declares AGI achieved on Lex Fridman Podcast.</div>
-                <a href="https://www.therundown.ai" target="_blank" class="newsletter-link">Read Full Newsletter →</a>
-            </div>
-
-            <div class="newsletter-card">
-                <div class="newsletter-source">The Hustle (Mar 24)</div>
-                <div class="newsletter-date">March 24, 2026</div>
-                <div class="newsletter-content">Sleep apnea innovation wave: ZeusOSA nerve stimulator, aura6000 implant, AD109 oral pill (called the "holy grail" by researchers). Uber investing $1.25 billion in Rivian to support 50K robotaxi rollout. OpenAI doubling workforce to 8,000. Autonomous ocean-cleaning boats begin commercial trials.</div>
-                <a href="https://thehustle.co" target="_blank" class="newsletter-link">Read Full Newsletter →</a>
-            </div>
-
-            <div class="newsletter-card">
-                <div class="newsletter-source">TLDR AI (Mar 23)</div>
-                <div class="newsletter-date">March 23, 2026</div>
-                <div class="newsletter-content">OpenAI building fully automated researcher as "North Star" goal — AI intern by September, full system 2028. Cursor Composer 2 built on Kimi 2.5 foundation with 61.7% Terminal-Bench score. Musk's $20 billion Terafab joint venture (Tesla, SpaceX, xAI). MiniMax M2.7 achieves 90% of Claude Opus quality at 7% the cost. "Tokenmaxxing" emerges as status game in AI engineering.</div>
-                <a href="https://tldr.tech/ai" target="_blank" class="newsletter-link">Read Full Newsletter →</a>
-            </div>
-
-            <div class="newsletter-card">
-                <div class="newsletter-source">TLDR Founders (Mar 23)</div>
-                <div class="newsletter-date">March 23, 2026</div>
-                <div class="newsletter-content">Y Combinator's Winter 2026 batch shows 85% of companies are AI-first. 56 of 198 companies (28%) building fully autonomous agents as permanent AI employees. Shift reflects market consensus: AI agents are the new organizational unit.</div>
-                <a href="https://tldr.tech/founders" target="_blank" class="newsletter-link">Read Full Newsletter →</a>
-            </div>
-        </section>
-
-        <!-- Competitive Landscape -->
-        <section id="competitive-landscape">
-            <h2>Competitive Landscape</h2>
-
-            <div class="card">
-                <h3>OpenAI: Advanced Capabilities & Market Positioning</h3>
-                <p>GPT-5.4 reaches 1M context window with 75% OSWorld-V task completion. Automated researcher moonshot targets September 2026 launch. Revenue approaching $25B. Doubling headcount to 8,000 staff. Offering 17.5% guaranteed returns to PE investors. Recently hired Meta VP to lead advertising division.</p>
-                <div class="source-badge">MIT Technology Review</div>
-                <div class="source-badge">Reuters</div>
-            </div>
-
-            <div class="card">
-                <h3>Google DeepMind: Gemini 3.1 Pro & Math Breakthroughs</h3>
-                <p>Gemini 3.1 Pro achieves 1M context, 77.1% ARC-AGI-2. AlphaEvolve discovering novel mathematical structures autonomously. Recovered 0.7% of Google's total compute capacity for AI workloads. Competing directly on capability benchmarks.</p>
-                <div class="source-badge">Crescendo.ai</div>
-            </div>
-
-            <div class="card">
-                <h3>Meta AI: Superintelligence Labs & Internal Tools</h3>
-                <p>Hired Dreamer researcher for Meta Superintelligence Labs. Zuckerberg building personal CEO agent for executive support. "My Claw" and "Second Brain" internal agent tools in testing. Manus acquisition strengthens embodied AI research. Direct competition for OpenAI on researcher capabilities.</p>
-                <div class="source-badge">WSJ</div>
-                <div class="source-badge">The Rundown AI</div>
-            </div>
-
-            <div class="card">
-                <h3>Mistral: Open-Weight Multimodal Push</h3>
-                <p>Mistral 3 suite launches with flagship LLM and edge model for smartphones and drones. Claims "world's best open-weight multimodal model." Positioning as accessible alternative to closed APIs. European AI independence play gaining momentum.</p>
-                <div class="source-badge">TechBuzz</div>
-            </div>
-
-            <div class="card">
-                <h3>Anthropic: Computer Use & Memory Features</h3>
-                <p>Claude ships desktop computer use with Dispatch mobile remote. Memory features now available for all Claude users. Opus 4.6 and Sonnet 4.6 reach 1M context in beta. Vercept acquisition strengthens vision capabilities. Focused on safe, user-controlled AI systems.</p>
-                <div class="source-badge">CNET</div>
-                <div class="source-badge">The Rundown AI</div>
-            </div>
-        </section>
-
-        <!-- AI Tool Guide -->
-        <section id="ai-tool-guide">
-            <h2>AI Tool Guide</h2>
-
-            <div class="card">
-                <h3>CQ by Mozilla — "Stack Overflow for Agents"</h3>
-                <p>Knowledge-sharing platform where AI agents contribute solutions and learn from community. Accelerates agent capability through collective intelligence.</p>
-                <div class="source-badge">Mozilla AI Blog</div>
-            </div>
-
-            <div class="card">
-                <h3>Ramp Self-Maintaining Sheets</h3>
-                <p>Agentic system monitors spreadsheets, triages errors, and fixes issues automatically without human intervention. Zero-touch data quality for financial workflows.</p>
-                <div class="source-badge">Ramp Engineering</div>
-            </div>
-
-            <div class="card">
-                <h3>Perplexity Computer Market Research</h3>
-                <p>Agentic multi-model system for autonomous competitive analysis. Combines internet search, data synthesis, and report generation.</p>
-                <div class="source-badge">TestingCatalog</div>
-            </div>
-
-            <div class="card">
-                <h3>OpenHarness — Agent Building Blocks</h3>
-                <p>Framework providing composable primitives for general-purpose agents. AGENTS.md specification. Full MCP support for tool integration.</p>
-                <div class="source-badge">GitHub</div>
-            </div>
-
-            <div class="card">
-                <h3>ArrowJS — Type-Safe UI Framework</h3>
-                <p>Fast, lightweight UI framework optimized for agentic era. Zero runtime dependencies. Designed for agent interfaces and automation dashboards.</p>
-                <div class="source-badge">arrow-js.com</div>
-            </div>
-
-            <div class="card">
-                <h3>Google Stitch — "Vibe Design" UI Tool</h3>
-                <p>Novel UI creation tool using generative design. Create interfaces by describing vibes and intentions rather than pixel-level specs.</p>
-                <div class="source-badge">The Rundown AI</div>
-            </div>
-
-            <div class="card">
-                <h3>Nvidia NemoClaw — Open-Source Agent Security</h3>
-                <p>Security layer for OpenClaw agentic systems. Prevents unauthorized actions and sandboxes agent execution. Enterprise-grade safety guardrails.</p>
-                <div class="source-badge">The Rundown AI</div>
-            </div>
-
-            <div class="card">
-                <h3>MiniMax Skills — AI Coding Agent Framework</h3>
-                <p>Development skills for Claude Code, Cursor, and Codex. Ready-made agent capabilities for code-first applications.</p>
-                <div class="source-badge">GitHub</div>
-            </div>
-
-            <div class="card">
-                <h3>Flash-MoE — Edge Model Scaling</h3>
-                <p>Run 397B parameter Mixture-of-Experts model on MacBook Pro 48GB RAM at 4.4+ tokens/sec. Brings large models to consumer hardware.</p>
-                <div class="source-badge">GitHub</div>
-            </div>
-
-            <div class="card">
-                <h3>Uni-1 by Luma — Unified Multimodal Model</h3>
-                <p>Unified text-to-image generation with thinking capability. $0.09 per image. Real-time generation with reasoning steps.</p>
-                <div class="source-badge">Luma Labs</div>
-            </div>
-        </section>
+<!-- KPI STRIP -->
+<div class="container">
+    <div class="kpi-strip">
+        <div class="kpi-card fade-in"><div class="kpi-value" style="color:var(--blue);">12</div><div class="kpi-label">AI Stories</div></div>
+        <div class="kpi-card fade-in"><div class="kpi-value" style="color:var(--red);">8</div><div class="kpi-label">World Events</div></div>
+        <div class="kpi-card fade-in"><div class="kpi-value" style="color:var(--emerald);">Rally</div><div class="kpi-label">Market Mood</div></div>
+        <div class="kpi-card fade-in"><div class="kpi-value" style="color:var(--purple);">6</div><div class="kpi-label">Tools Featured</div></div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>Generated Tuesday, March 24, 2026 at <span id="timestamp"></span></p>
-        <p>Koda Intelligence · Sources: Web Search, Newsletter feeds, NotebookLM</p>
-        <p style="margin-top: 12px;">
-            <a href="./index.html">← Back to Home</a> ·
-            <a href="#daily-summary">Daily Summary</a> ·
-            <a href="#ai-developments">AI Developments</a> ·
-            <a href="#world-news">World News</a>
-        </p>
-    </footer>
+    <!-- MEDIA STRIP -->
+    <div class="media-strip fade-in">
+        <div class="media-banner">
+            <div class="media-banner-icon">&#127911;</div>
+            <div class="media-banner-title">Daily Podcast</div>
+            <div class="media-banner-sub">"AI Autonomy and the Energy Crisis" &mdash; ~21 min</div>
+            <button class="media-banner-btn podcast-btn" onclick="var p=document.getElementById('podPlayer');p.classList.toggle('active');if(p.classList.contains('active'))p.querySelector('audio').play();">&#9654; Listen Now</button>
+            <div class="podcast-player-wrap" id="podPlayer">
+                <audio controls style="width:100%;border-radius:10px;accent-color:#6366F1;">
+                    <source src="./podcast-2026-03-24.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+        <div class="media-banner">
+            <div class="media-banner-icon">&#127909;</div>
+            <div class="media-banner-title">Video Briefing</div>
+            <div class="media-banner-sub">"Tehran Burns, AI Writes Code" &mdash; visual explainer</div>
+            <a class="media-banner-btn video-btn" href="https://www.youtube.com/watch?v=KAzT_IeZrX0" target="_blank">&#9654; Watch on YouTube</a>
+            <button class="media-banner-btn expand-btn" onclick="document.getElementById('video-overlay').classList.add('active')">&#x26F6; Expand Inline</button>
+        </div>
+    </div>
+    <div id="video-overlay" class="video-overlay" onclick="if(event.target===this)this.classList.remove('active')">
+        <div class="video-overlay-inner">
+            <button class="video-overlay-close" onclick="document.getElementById('video-overlay').classList.remove('active')">&times;</button>
+            <iframe src="https://www.youtube.com/embed/KAzT_IeZrX0" title="Tehran Burns, AI Writes Code, Markets Shrug | Koda Intel" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
 
-    <script>
-        // Set timestamp
-        const now = new Date();
-        const timestamp = now.toLocaleString('en-US', {
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: true,
-            timeZone: 'UTC'
-        });
-        document.getElementById('timestamp').textContent = timestamp + ' UTC';
+<!-- DAILY SUMMARY -->
+<div class="container">
+    <section class="section fade-in" id="daily-summary">
+        <h2 class="section-title"><span class="section-icon">&#9889;</span> Daily Summary</h2>
+        <div class="summary-card">
+            <div class="summary-hook">Israel hit Tehran. Bitcoin rallied. Claude writes better code than most developers. That is your world on March 24, 2026.</div>
+            <div class="summary-briefs">
+                <div class="summary-brief">
+                    <div class="summary-brief-header">
+                        <span class="summary-brief-icon" style="background:rgba(59,130,246,0.15);color:var(--blue);">&#9889;</span>
+                        <span class="summary-brief-label" style="color:var(--blue);">AI</span>
+                    </div>
+                    <div class="summary-brief-text">Claude Opus 4.6 now scores 80.8% on SWE-Bench Verified, pulling ahead of GPT-5.4. OpenAI launched GPT-5.4 with a 1.05 million token context window. China's MiniMax M2.5 matches Claude quality at a fraction of the cost. The AI coding war is real, and your IDE is the battlefield.</div>
+                </div>
+                <div class="summary-brief">
+                    <div class="summary-brief-header">
+                        <span class="summary-brief-icon" style="background:rgba(239,68,68,0.15);color:var(--red);">&#127758;</span>
+                        <span class="summary-brief-label" style="color:var(--red);">World</span>
+                    </div>
+                    <div class="summary-brief-text">Israel struck IRGC headquarters in Tehran in a wide-scale wave of attacks. Iran says there are no talks with Washington despite Trump claiming 15 points of agreement. Saudi Arabia expelled Iranian diplomats. The Strait of Hormuz remains the world's pressure point.</div>
+                </div>
+                <div class="summary-brief">
+                    <div class="summary-brief-header">
+                        <span class="summary-brief-icon" style="background:rgba(16,185,129,0.15);color:var(--emerald);">&#128200;</span>
+                        <span class="summary-brief-label" style="color:var(--emerald);">Markets</span>
+                    </div>
+                    <div class="summary-brief-text">S&P 500 up 1.15%. NASDAQ up 1.38%. Bitcoin reclaimed $71K on a relief rally despite extreme fear at 11. Ethereum outperformed at +5.16%. The market is pricing in a short war. If that bet is wrong, expect fireworks.</div>
+                </div>
+                <div class="summary-brief">
+                    <div class="summary-brief-header">
+                        <span class="summary-brief-icon" style="background:rgba(139,92,246,0.15);color:var(--purple);">&#128161;</span>
+                        <span class="summary-brief-label" style="color:var(--purple);">Wild Card</span>
+                    </div>
+                    <div class="summary-brief-text">Mistral is quietly sprinting to $1B ARR while everyone watches the OpenAI, Google, and Anthropic race. Enterprise customers do not want the biggest model. They want the cheapest one that works. China knows this. Mistral knows this. Does Silicon Valley?</div>
+                </div>
+            </div>
+            <div class="summary-cta">Full breakdown below. Start with the infographic.</div>
+        </div>
+    </section>
+</div>
 
-        // Dark mode toggle
-        const darkToggle = document.getElementById('darkToggle');
-        const html = document.documentElement;
+<!-- INFOGRAPHIC -->
+<div class="container">
+    <section class="section fade-in" id="daily-infographic">
+        <h2 class="section-title"><span class="section-icon">&#128202;</span> Daily Infographic</h2>
+        <div class="infographic">
+            <img src="./infographic-2026-03-24.jpg" alt="Koda Intelligence: State of the World — 2026-03-24" style="width:100%;height:auto;display:block;border-radius:20px;">
+        </div>
+    </section>
+</div>
 
-        // Check localStorage for theme preference
-        const savedTheme = localStorage.getItem('koda-theme');
-        if (savedTheme === 'dark') {
-            html.classList.add('dark-mode');
-            darkToggle.textContent = '☀️';
-        } else if (savedTheme !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            html.classList.add('dark-mode');
-            darkToggle.textContent = '☀️';
+<!-- TODAY'S FOCUS -->
+<div class="container">
+    <section class="section fade-in" id="todays-focus">
+        <h2 class="section-title"><span class="section-icon">&#127919;</span> Today's Focus</h2>
+        <div class="focus-grid">
+            <div class="focus-item">
+                <div class="focus-num">1</div>
+                <div class="focus-content">
+                    <div class="focus-content-title">Middle East Escalation Intensifies</div>
+                    <div class="focus-content-body">Israel launched wide-scale strikes on IRGC headquarters in Tehran. Saudi Arabia expelled Iranian military staff. Trump claims 15 points of agreement, but Iran denies any dialogue. Five-day pause on energy site strikes, but Hormuz shipping lanes remain under threat.</div>
+                </div>
+            </div>
+            <div class="focus-item">
+                <div class="focus-num">2</div>
+                <div class="focus-content">
+                    <div class="focus-content-title">AI Coding Wars Heat Up</div>
+                    <div class="focus-content-body">Claude Opus 4.6 leads SWE-Bench Verified at 80.8%, ahead of GPT-5.4's 77.2%. OpenAI's GPT-5.4 ships with 1.05M token context. Chinese models from MiniMax and Xiaomi match Western quality at dramatically lower cost. The race is no longer about who is smartest. It is about who is cheapest.</div>
+                </div>
+            </div>
+            <div class="focus-item">
+                <div class="focus-num">3</div>
+                <div class="focus-content">
+                    <div class="focus-content-title">Crypto Relief Rally Amid Extreme Fear</div>
+                    <div class="focus-content-body">Bitcoin reclaimed $71K with a 3.79% surge. Ethereum outperformed at +5.16%. The Fear and Greed Index sits at 11, the deepest extreme fear reading this year. Equities rallied too. The market is betting on containment. If that changes, crypto goes first.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- AI DEVELOPMENTS -->
+<div class="container">
+    <section class="section fade-in" id="ai-developments">
+        <h2 class="section-title"><span class="section-icon">&#129302;</span> AI Developments</h2>
+        <div class="card-grid">
+            <div class="card">
+                <span class="card-badge" style="background:rgba(59,130,246,0.1);color:var(--blue);">model release</span>
+                <div class="card-title">GPT-5.4 Launches with 1.05M Token Context</div>
+                <div class="card-body">OpenAI released GPT-5.4 on March 5, designed for professional multi-step tasks. The context window is the largest OpenAI has ever offered commercially. Factual accuracy improved 33% on individual claims. Ties with Gemini 3.1 Pro at 57 on the Artificial Analysis Intelligence Index.</div>
+                <a class="card-source" href="https://renovateqr.com/blog/ai-model-releases-2026" target="_blank">&#8599; Renovate QR</a>
+            </div>
+            <div class="card">
+                <span class="card-badge" style="background:rgba(139,92,246,0.1);color:var(--purple);">benchmark</span>
+                <div class="card-title">Claude Opus 4.6 Leads SWE-Bench at 80.8%</div>
+                <div class="card-body">Anthropic's Claude Opus 4.6 scores 80.8% on SWE-Bench Verified, ahead of GPT-5.4's 77.2%. The 1M token context window is now in beta across both Opus and Sonnet tiers, allowing entire codebases in a single conversation. Depth over breadth continues to be Anthropic's strategy.</div>
+                <a class="card-source" href="https://llm-stats.com/llm-updates" target="_blank">&#8599; LLM Stats</a>
+            </div>
+            <div class="card">
+                <span class="card-badge" style="background:rgba(16,185,129,0.1);color:var(--emerald);">model release</span>
+                <div class="card-title">Gemini 3.1 Pro Hits 77.1% on ARC-AGI-2</div>
+                <div class="card-body">Google DeepMind's Gemini 3.1 Pro features a 1M token context window with multimodal reasoning across text, images, audio, video, and code. It leads the Artificial Analysis Intelligence Index at 57 points, tied with GPT-5.4 Pro. The most capable Pro-tier model as of February 2026.</div>
+                <a class="card-source" href="https://llm-stats.com/ai-news" target="_blank">&#8599; LLM Stats</a>
+            </div>
+            <div class="card">
+                <span class="card-badge" style="background:rgba(239,68,68,0.1);color:var(--red);">china</span>
+                <div class="card-title">Chinese AI Models Match Western Quality</div>
+                <div class="card-body">Five new models dropped from Tencent, Alibaba, Baidu, ByteDance, and MiniMax this month. MiniMax's M2.5 rivals Claude Opus 4.6 at significantly lower cost. Xiaomi's MiMo-V2-Pro, led by a former DeepSeek researcher, is turning heads. China is winning the cost efficiency race.</div>
+                <a class="card-source" href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank">&#8599; MEAN CEO</a>
+            </div>
+            <div class="card">
+                <span class="card-badge" style="background:rgba(245,158,11,0.1);color:var(--amber);">agents</span>
+                <div class="card-title">Kimi K2.5 Optimized for Agentic Tasks</div>
+                <div class="card-body">Moonshot AI's Kimi K2.5 is now available in Cloudflare Workers AI with 256K token context. Built specifically for multi-step agentic tasks, tool calling, and visual understanding. The model is optimized for workflows where AI agents plan, act, and iterate without human intervention.</div>
+                <a class="card-source" href="https://llm-stats.com/llm-updates" target="_blank">&#8599; LLM Stats</a>
+            </div>
+            <div class="card">
+                <span class="card-badge" style="background:rgba(6,182,212,0.1);color:var(--cyan);">hardware</span>
+                <div class="card-title">NVIDIA Nemotron 3 Super: 120B for Multi-Agent</div>
+                <div class="card-body">NVIDIA released Nemotron 3 Super, a 120 billion parameter model designed specifically for multi-agent applications. Purpose-built for orchestrating multiple AI agents working together on complex tasks. Signals that the hardware giant is moving deeper into the model layer.</div>
+                <a class="card-source" href="https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases" target="_blank">&#8599; BuildFast</a>
+            </div>
+            <div class="card">
+                <span class="card-badge" style="background:rgba(236,72,153,0.1);color:var(--pink);">biotech</span>
+                <div class="card-title">MIT Protein-Based Drug Design Model</div>
+                <div class="card-body">MIT researchers released a model that predicts how synthetic proteins fold and interact. This could reduce pharmaceutical R&D costs by billions and accelerate treatment for cancer, autoimmune diseases, and rare genetic disorders. Medical AI is moving from diagnosis to drug design.</div>
+                <a class="card-source" href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">&#8599; Crescendo</a>
+            </div>
+            <div class="card">
+                <span class="card-badge" style="background:rgba(99,102,241,0.1);color:var(--indigo);">enterprise</span>
+                <div class="card-title">Mistral Forge: Build-Your-Own Enterprise AI</div>
+                <div class="card-body">Mistral launched Forge at NVIDIA GTC, a platform letting enterprises build custom AI models without sharing proprietary data. The company is on track to surpass $1B ARR this year. Their laser focus on enterprise is working while competitors chase consumer market share.</div>
+                <a class="card-source" href="https://techcrunch.com/2026/03/17/mistral-forge-nvidia-gtc-build-your-own-ai-enterprise/" target="_blank">&#8599; TechCrunch</a>
+            </div>
+            <div class="card">
+                <span class="card-badge" style="background:rgba(59,130,246,0.1);color:var(--blue);">design</span>
+                <div class="card-title">Google Stitch Disrupts Design Tools</div>
+                <div class="card-body">Google launched Stitch, a free AI design tool that builds high-fidelity reports from plain language. It caused Figma's stock to drop 12% on launch day. The tool represents the next wave: AI that does not assist designers but replaces the design step entirely for standard outputs.</div>
+                <a class="card-source" href="https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases" target="_blank">&#8599; BuildFast</a>
+            </div>
+            <div class="card">
+                <span class="card-badge" style="background:rgba(16,185,129,0.1);color:var(--emerald);">policy</span>
+                <div class="card-title">Pentagon Labels Anthropic a Supply-Chain Risk</div>
+                <div class="card-body">The DoD labeled Anthropic a supply-chain risk after the company refused to allow its technology for mass surveillance or autonomous weapons. Over 30 OpenAI and Google DeepMind employees filed statements in Anthropic's defense. The White House released a six-part AI legislative blueprint.</div>
+                <a class="card-source" href="https://techcrunch.com/2026/03/09/openai-and-google-employees-rush-to-anthropics-defense-in-dod-lawsuit/" target="_blank">&#8599; TechCrunch</a>
+            </div>
+            <div class="card">
+                <span class="card-badge" style="background:rgba(245,158,11,0.1);color:var(--amber);">trend</span>
+                <div class="card-title">Agentic Workflows Become Dominant Productivity Trend</div>
+                <div class="card-body">Gartner predicts over 40% of enterprise apps will embed role-specific AI agents by end of 2026. No-code platforms like Gumloop, n8n, and Zapier Central let anyone build agent workflows. Tech leader Andrej Karpathy notes software engineering is now 80% delegation to AI agents.</div>
+                <a class="card-source" href="https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/agentic-ai-strategy.html" target="_blank">&#8599; Deloitte</a>
+            </div>
+            <div class="card">
+                <span class="card-badge" style="background:rgba(139,92,246,0.1);color:var(--purple);">consolidation</span>
+                <div class="card-title">OpenAI Superapp Consolidation</div>
+                <div class="card-body">OpenAI consolidated ChatGPT, Codex, and Atlas into a single desktop Superapp, the largest UX consolidation in AI history. Complete with a 1.05M token context window. The strategy: one app to rule them all. Mirrors the WeChat playbook: everything in one place, no switching.</div>
+                <a class="card-source" href="https://renovateqr.com/blog/ai-model-releases-2026" target="_blank">&#8599; Renovate QR</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- WORLD NEWS -->
+<div class="container">
+    <section class="section fade-in" id="world-news">
+        <h2 class="section-title"><span class="section-icon">&#127758;</span> World News</h2>
+        <div class="card-grid">
+            <div class="card">
+                <span class="card-badge" style="background:rgba(239,68,68,0.1);color:var(--red);">conflict</span>
+                <div class="card-title">Israel Strikes IRGC Headquarters in Tehran</div>
+                <div class="card-body">The Israeli Air Force carried out a wide-scale wave of strikes on Iranian regime infrastructure, hitting one of the IRGC's main headquarters and several military buildings in Tehran. The strikes represent a significant escalation in the direct confrontation between Israel and Iran.</div>
+                <a class="card-source" href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-23-26" target="_blank">&#8599; CNN</a>
+            </div>
+            <div class="card">
+                <span class="card-badge" style="background:rgba(245,158,11,0.1);color:var(--amber);">diplomacy</span>
+                <div class="card-title">Trump Claims 15 Points of Agreement with Iran</div>
+                <div class="card-body">President Trump announced 15 points of agreement with Iran and stated he will hold off strikes against Iranian energy sites for five days. However, Iran's foreign ministry denied any dialogue between Tehran and Washington. The gap between American claims and Iranian statements grows wider.</div>
+                <a class="card-source" href="https://www.golocalprov.com/news/5-big-news-stories-overnight-tuesday-march-24-2026" target="_blank">&#8599; GoLocal</a>
+            </div>
+            <div class="card">
+                <span class="card-badge" style="background:rgba(239,68,68,0.1);color:var(--red);">conflict</span>
+                <div class="card-title">Israel Destroys All Crossings Over Litani River</div>
+                <div class="card-body">In Lebanon, Israel struck the main bridge linking the south to the rest of the country. The Israeli military ordered its troops to destroy all crossings over the Litani River and step up demolition of homes near the southern border. Southern Lebanon is being systematically isolated.</div>
+                <a class="card-source" href="https://www.democracynow.org/2026/3/23/headlines" target="_blank">&#8599; Democracy Now</a>
+            </div>
+            <div class="card">
+                <span class="card-badge" style="background:rgba(245,158,11,0.1);color:var(--amber);">diplomacy</span>
+                <div class="card-title">Saudi Arabia Expels Iranian Diplomats</div>
+                <div class="card-body">Saudi Arabia ordered Iran's military attache and four embassy staff to leave the kingdom within 24 hours. The Saudi Foreign Ministry cited repeated Iranian attacks on Saudi territory. This reverses the China-brokered rapprochement of 2023 and signals a deeper regional fracture.</div>
+                <a class="card-source" href="https://www.democracynow.org/2026/3/23/headlines" target="_blank">&#8599; Democracy Now</a>
+            </div>
+            <div class="card">
+                <span class="card-badge" style="background:rgba(239,68,68,0.1);color:var(--red);">humanitarian</span>
+                <div class="card-title">64 Killed in Sudan Hospital Strike</div>
+                <div class="card-body">At least 64 people were killed in a strike on a hospital in East Darfur, with 89 injured according to the WHO. Sudan's civil war continues with devastating humanitarian consequences. Medical facilities remain targets despite international law protections.</div>
+                <a class="card-source" href="https://www.democracynow.org/2026/3/23/headlines" target="_blank">&#8599; Democracy Now</a>
+            </div>
+            <div class="card">
+                <span class="card-badge" style="background:rgba(6,182,212,0.1);color:var(--cyan);">infrastructure</span>
+                <div class="card-title">Cuba Partially Restores Power After Grid Collapse</div>
+                <div class="card-body">Cuban authorities partially restored electricity after more than 10 million people lost power following another collapse of the national power grid. This is the latest in a series of grid failures hitting the island. The aging infrastructure cannot keep up with demand.</div>
+                <a class="card-source" href="https://www.democracynow.org/2026/3/23/headlines" target="_blank">&#8599; Democracy Now</a>
+            </div>
+            <div class="card">
+                <span class="card-badge" style="background:rgba(99,102,241,0.1);color:var(--indigo);">policy</span>
+                <div class="card-title">White House Releases AI Legislative Blueprint</div>
+                <div class="card-body">The White House released a six-part AI legislative blueprint addressing safety, competition, and national security. Palantir's Maven AI was designated as a formal program of record with long-term Pentagon funding. The US government is moving from AI strategy to AI implementation.</div>
+                <a class="card-source" href="https://www.riskinfo.ai/post/ai-insights-key-global-developments-in-march-2026" target="_blank">&#8599; RiskInfo</a>
+            </div>
+            <div class="card">
+                <span class="card-badge" style="background:rgba(16,185,129,0.1);color:var(--emerald);">economy</span>
+                <div class="card-title">Hormuz Strait Tensions Keep Oil Elevated</div>
+                <div class="card-body">Oil prices remain elevated as Strait of Hormuz shipping lanes face continued threat from the Iran-Israel conflict. Any disruption to the strait, through which 20% of global oil flows, would send energy prices spiking. Markets watch every naval movement in the region.</div>
+                <a class="card-source" href="https://www.euronews.com/video/2026/03/24/latest-news-bulletin-march-24th-2026-morning" target="_blank">&#8599; Euronews</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- MARKET SNAPSHOT -->
+<div class="container">
+    <section class="section fade-in" id="market-snapshot">
+        <h2 class="section-title"><span class="section-icon">&#128200;</span> Market Snapshot</h2>
+        <div class="market-grid">
+            <div class="market-card">
+                <div class="market-ticker">S&P 500</div>
+                <div class="market-price" style="color:var(--emerald);">6,581</div>
+                <div class="market-change" style="color:var(--emerald);">+1.15%</div>
+                <div class="market-bar" style="background:linear-gradient(90deg,var(--emerald) 65%,transparent 65%);"></div>
+            </div>
+            <div class="market-card">
+                <div class="market-ticker">NASDAQ</div>
+                <div class="market-price" style="color:var(--emerald);">21,947</div>
+                <div class="market-change" style="color:var(--emerald);">+1.38%</div>
+                <div class="market-bar" style="background:linear-gradient(90deg,var(--emerald) 70%,transparent 70%);"></div>
+            </div>
+            <div class="market-card">
+                <div class="market-ticker">BTC</div>
+                <div class="market-price" style="color:var(--emerald);">$71,000</div>
+                <div class="market-change" style="color:var(--emerald);">+3.79%</div>
+                <div class="market-bar" style="background:linear-gradient(90deg,var(--emerald) 75%,transparent 75%);"></div>
+            </div>
+            <div class="market-card">
+                <div class="market-ticker">ETH</div>
+                <div class="market-price" style="color:var(--emerald);">$2,134</div>
+                <div class="market-change" style="color:var(--emerald);">+5.16%</div>
+                <div class="market-bar" style="background:linear-gradient(90deg,var(--emerald) 80%,transparent 80%);"></div>
+            </div>
+            <div class="market-card">
+                <div class="market-ticker">Oil (Brent)</div>
+                <div class="market-price" style="color:var(--amber);">$110+</div>
+                <div class="market-change" style="color:var(--amber);">Elevated</div>
+                <div class="market-bar" style="background:linear-gradient(90deg,var(--amber) 85%,transparent 85%);"></div>
+            </div>
+            <div class="market-card">
+                <div class="market-ticker">Sentiment</div>
+                <div class="market-price" style="color:var(--red);">11</div>
+                <div class="market-change" style="color:var(--red);">Extreme Fear</div>
+                <div class="market-bar" style="background:linear-gradient(90deg,var(--red) 11%,transparent 11%);"></div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- NEWSLETTER INTELLIGENCE -->
+<div class="container">
+    <section class="section fade-in" id="newsletter-intelligence">
+        <h2 class="section-title"><span class="section-icon">&#128231;</span> Newsletter Intelligence</h2>
+
+        <div class="newsletter-card">
+            <div class="newsletter-header">
+                <div class="newsletter-avatar" style="background:linear-gradient(135deg,var(--blue),var(--indigo));">B</div>
+                <div>
+                    <div class="newsletter-name">BuildFast with AI</div>
+                    <div class="newsletter-subject">12+ AI Models in March 2026: The Week That Changed AI</div>
+                </div>
+            </div>
+            <div class="nl-section">
+                <div class="nl-section-title">&#128640; Headlines &amp; Launches</div>
+                <div class="newsletter-item"><strong>GPT-5.4 Pro:</strong> OpenAI's new flagship ties with Gemini 3.1 Pro at 57 on the Artificial Analysis Intelligence Index. The 1.05M token context window is the largest commercially available. Designed for complex multi-step professional tasks.</div>
+                <div class="newsletter-item"><strong>Claude Opus 4.6:</strong> Anthropic's depth-first strategy pays off with 80.8% on SWE-Bench Verified. The 1M context beta means entire codebases fit in one conversation. This is the model professional developers are switching to.</div>
+                <div class="newsletter-item"><strong>MiniMax M2.5:</strong> The standout Chinese model that rivals Claude at dramatically lower cost. This is the price disruption that Western labs feared. Enterprise buyers are paying attention.</div>
+            </div>
+            <div class="nl-section">
+                <div class="nl-section-title">&#128269; Deep Dives</div>
+                <div class="newsletter-item"><strong>OpenAI Superapp consolidation:</strong> ChatGPT, Codex, and Atlas merged into one desktop app. This is the biggest UX change in AI history. One interface for chat, code, and research. The WeChat playbook comes to AI.</div>
+                <div class="newsletter-item"><strong>NVIDIA Nemotron 3 Super:</strong> A 120B parameter model built for multi-agent orchestration. NVIDIA is not just selling GPUs anymore. They are building the software layer that makes those GPUs useful for agent swarms.</div>
+            </div>
+            <div class="nl-section">
+                <div class="nl-section-title">&#9889; Quick Hits</div>
+                <div class="newsletter-item">Kimi K2.5 from Moonshot AI now in Cloudflare Workers with 256K context for agentic tasks</div>
+                <div class="newsletter-item">Xiaomi's MiMo-V2-Pro built by former DeepSeek researcher Luo Fuli</div>
+                <div class="newsletter-item">WordPress adds AI integrations letting agents draft posts and manage content</div>
+            </div>
+            <div class="newsletter-quote">"The differences between GPT-5.4, Gemini 3.1 Pro, and Claude 4.6 on most practical tasks are increasingly marginal. The real battle is cost, speed, and ecosystem lock-in."</div>
+            <a class="card-source" href="https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases" target="_blank">&#8599; Read Full Newsletter</a>
+        </div>
+
+        <div class="newsletter-card">
+            <div class="newsletter-header">
+                <div class="newsletter-avatar" style="background:linear-gradient(135deg,var(--emerald),var(--cyan));">D</div>
+                <div>
+                    <div class="newsletter-name">Deloitte Insights</div>
+                    <div class="newsletter-subject">Agentic AI Strategy: From Hype to Enterprise Reality</div>
+                </div>
+            </div>
+            <div class="nl-section">
+                <div class="nl-section-title">&#128640; Headlines &amp; Launches</div>
+                <div class="newsletter-item"><strong>40% of enterprise apps will embed AI agents by end of 2026</strong> according to Gartner predictions. The shift from chatbots to autonomous agents is accelerating faster than anyone expected.</div>
+                <div class="newsletter-item"><strong>Four architecture patterns dominate:</strong> single agent, hierarchical multi-agent, sequential pipeline, and decentralized swarm. The key is matching architecture to use case, not chasing maximum autonomy.</div>
+            </div>
+            <div class="nl-section">
+                <div class="nl-section-title">&#128269; Deep Dives</div>
+                <div class="newsletter-item"><strong>Why agentic implementations fail:</strong> Most organizations try to automate existing processes instead of reimagining operations. Leading companies manage AI agents as workers with clear roles, KPIs, and escalation paths. The winners treat agents like new hires, not software.</div>
+                <div class="newsletter-item"><strong>No-code agent builders:</strong> Gumloop, n8n, Zapier Central, and Make.com now offer visual agent builders. For simple to intermediate workflows, you do not need coding skills. The barrier to building your first autonomous workflow has never been lower.</div>
+            </div>
+            <div class="nl-section">
+                <div class="nl-section-title">&#128736; Trending Tools</div>
+                <div class="newsletter-item"><strong>Gumloop:</strong> Visual agent builder for non-technical teams</div>
+                <div class="newsletter-item"><strong>n8n:</strong> Open-source workflow automation with AI agent nodes</div>
+                <div class="newsletter-item"><strong>Claude Code:</strong> CLI-based agentic coding with 1M context</div>
+            </div>
+            <div class="newsletter-quote">"Agentic AI is no longer a research concept. They are the most transformative productivity tool since the spreadsheet."</div>
+            <a class="card-source" href="https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/agentic-ai-strategy.html" target="_blank">&#8599; Read Full Report</a>
+        </div>
+
+        <div class="newsletter-card">
+            <div class="newsletter-header">
+                <div class="newsletter-avatar" style="background:linear-gradient(135deg,var(--red),var(--amber));">R</div>
+                <div>
+                    <div class="newsletter-name">RiskInfo AI</div>
+                    <div class="newsletter-subject">AI Insights: Key Global Developments in March 2026</div>
+                </div>
+            </div>
+            <div class="nl-section">
+                <div class="nl-section-title">&#128640; Headlines &amp; Launches</div>
+                <div class="newsletter-item"><strong>Pentagon designates Palantir's Maven AI</strong> as a formal program of record with long-term funding. AI integration in government is accelerating from strategy documents to operational deployment.</div>
+                <div class="newsletter-item"><strong>MIT protein drug design:</strong> A new model predicts synthetic protein folding, potentially cutting pharma R&D costs by billions. Cancer, autoimmune, and rare disease treatments could arrive years faster.</div>
+            </div>
+            <div class="nl-section">
+                <div class="nl-section-title">&#128269; Deep Dives</div>
+                <div class="newsletter-item"><strong>AI moving from theory to practice:</strong> The bigger story of March 2026 is not new model releases. It is how AI is being embedded into real-world systems, government programs, military operations, and medical research. The gap between AI capability and AI deployment is closing rapidly.</div>
+            </div>
+            <div class="newsletter-quote">"The period from late February into mid-March saw AI moving from theory into practice. New model releases grab headlines but the bigger story is how AI is embedded into real-world systems."</div>
+            <a class="card-source" href="https://www.riskinfo.ai/post/ai-insights-key-global-developments-in-march-2026" target="_blank">&#8599; Read Full Analysis</a>
+        </div>
+    </section>
+</div>
+
+<!-- COMPETITIVE LANDSCAPE -->
+<div class="container">
+    <section class="section fade-in" id="competitive-landscape">
+        <h2 class="section-title"><span class="section-icon">&#9878;</span> Competitive Landscape</h2>
+        <div class="comp-grid">
+            <div class="comp-card">
+                <div class="comp-header">
+                    <span class="comp-logo">&#128994;</span>
+                    <span class="comp-name">OpenAI</span>
+                    <span class="comp-status" style="background:rgba(59,130,246,0.1);color:var(--blue);">Shipping</span>
+                </div>
+                <div class="comp-body">GPT-5.4 launched with 1.05M context. Superapp consolidation merges ChatGPT, Codex, and Atlas into one desktop app. Ties with Gemini at 57 on the Intelligence Index. 33% fewer factual errors. Going all-in on the single-app strategy.</div>
+                <a class="card-source" href="https://renovateqr.com/blog/ai-model-releases-2026" target="_blank">&#8599; Source</a>
+            </div>
+            <div class="comp-card">
+                <div class="comp-header">
+                    <span class="comp-logo">&#128308;</span>
+                    <span class="comp-name">Google DeepMind</span>
+                    <span class="comp-status" style="background:rgba(16,185,129,0.1);color:var(--emerald);">Leading</span>
+                </div>
+                <div class="comp-body">Gemini 3.1 Pro leads the Intelligence Index. 77.1% on ARC-AGI-2 with full multimodal reasoning. Google Stitch launched as a free AI design tool, causing Figma to drop 12%. DeepMind is attacking the creative tools market while the model race tightens.</div>
+                <a class="card-source" href="https://llm-stats.com/ai-news" target="_blank">&#8599; Source</a>
+            </div>
+            <div class="comp-card">
+                <div class="comp-header">
+                    <span class="comp-logo">&#128992;</span>
+                    <span class="comp-name">Anthropic</span>
+                    <span class="comp-status" style="background:rgba(139,92,246,0.1);color:var(--purple);">Defending</span>
+                </div>
+                <div class="comp-body">Claude Opus 4.6 leads SWE-Bench at 80.8%. 1M context in beta. Over 30 OpenAI and Google employees filed statements defending Anthropic after the Pentagon labeled it a supply-chain risk for refusing to enable mass surveillance. Integrity as a differentiator.</div>
+                <a class="card-source" href="https://techcrunch.com/2026/03/09/openai-and-google-employees-rush-to-anthropics-defense-in-dod-lawsuit/" target="_blank">&#8599; Source</a>
+            </div>
+            <div class="comp-card">
+                <div class="comp-header">
+                    <span class="comp-logo">&#128310;</span>
+                    <span class="comp-name">Meta AI</span>
+                    <span class="comp-status" style="background:rgba(245,158,11,0.1);color:var(--amber);">Building</span>
+                </div>
+                <div class="comp-body">Meta continues investing heavily in open-source AI models. Llama family remains the go-to for self-hosted enterprise deployments. The open-source vs closed-source battle intensifies as Chinese models prove you can match top performance at fraction of the cost.</div>
+                <a class="card-source" href="https://llm-stats.com/llm-updates" target="_blank">&#8599; Source</a>
+            </div>
+            <div class="comp-card">
+                <div class="comp-header">
+                    <span class="comp-logo">&#127383;</span>
+                    <span class="comp-name">Mistral</span>
+                    <span class="comp-status" style="background:rgba(16,185,129,0.1);color:var(--emerald);">Surging</span>
+                </div>
+                <div class="comp-body">Launched Forge at NVIDIA GTC for enterprise custom model building. On track to surpass $1B ARR this year. Laser focus on enterprise is working. While big labs chase benchmarks, Mistral quietly captures the customers who pay. The European dark horse is galloping.</div>
+                <a class="card-source" href="https://techcrunch.com/2026/03/17/mistral-forge-nvidia-gtc-build-your-own-ai-enterprise/" target="_blank">&#8599; Source</a>
+            </div>
+            <div class="comp-card">
+                <div class="comp-header">
+                    <span class="comp-logo">&#127464;&#127475;</span>
+                    <span class="comp-name">China Challengers</span>
+                    <span class="comp-status" style="background:rgba(239,68,68,0.1);color:var(--red);">Disrupting</span>
+                </div>
+                <div class="comp-body">Five models from Tencent, Alibaba, Baidu, ByteDance, and MiniMax in one month. MiniMax M2.5 matches Claude at lower cost. Xiaomi's MiMo-V2-Pro led by ex-DeepSeek talent. The cost efficiency race is theirs to lose. Western labs need a pricing response.</div>
+                <a class="card-source" href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank">&#8599; Source</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- AI TOOL GUIDE -->
+<div class="container">
+    <section class="section fade-in" id="ai-tool-guide">
+        <h2 class="section-title"><span class="section-icon">&#128736;</span> AI Tool Guide</h2>
+        <div class="tool-grid">
+            <div class="tool-card">
+                <div class="tool-label">TIP 01</div>
+                <div class="tool-title">Avoid the AI Exoskeleton Effect</div>
+                <div class="tool-body">If you let AI do all the thinking, you lose the ability to think. Use AI as a force multiplier, not a replacement for your judgment. Review every output. Question the reasoning. The moment you stop checking is the moment you become dependent on a system you do not understand.</div>
+                <a class="card-source" href="https://www.ibm.com/think/ai-agents" target="_blank">&#8599; IBM Think</a>
+            </div>
+            <div class="tool-card">
+                <div class="tool-label">TIP 02</div>
+                <div class="tool-title">Build Agentic Workflows Without Code</div>
+                <div class="tool-body">Gumloop, n8n, and Zapier Central now let you build autonomous AI workflows with drag-and-drop interfaces. Connect an AI agent to your email, CRM, and calendar. Let it triage, draft, and schedule. Start with one simple workflow and expand from there. No engineering team required.</div>
+                <a class="card-source" href="https://www.gumloop.com/blog/how-to-build-agentic-ai-workflows" target="_blank">&#8599; Gumloop</a>
+            </div>
+            <div class="tool-card">
+                <div class="tool-label">TIP 03</div>
+                <div class="tool-title">NVIDIA Nemotron for Multi-Agent Projects</div>
+                <div class="tool-body">If you are building systems where multiple AI agents need to coordinate, NVIDIA's Nemotron 3 Super (120B) is purpose-built for this. It handles agent orchestration natively. Useful for teams building customer service, research, or operations automation with multiple specialized agents.</div>
+                <a class="card-source" href="https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases" target="_blank">&#8599; BuildFast</a>
+            </div>
+            <div class="tool-card">
+                <div class="tool-label">TIP 04</div>
+                <div class="tool-title">Google Stitch for Instant Design</div>
+                <div class="tool-body">Google's new Stitch tool generates high-fidelity UI designs from plain language descriptions. It is free and it caused Figma to drop 12% on launch day. If you need mockups, reports, or interface designs and do not have a designer, this is your shortcut. Skip the learning curve entirely.</div>
+                <a class="card-source" href="https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases" target="_blank">&#8599; BuildFast</a>
+            </div>
+            <div class="tool-card">
+                <div class="tool-label">TIP 05</div>
+                <div class="tool-title">Daily AI Habit: Use, Review, Learn</div>
+                <div class="tool-body">HubSpot's Dharmesh Shah recommends a three-part strategy for keeping up: use AI daily in your actual work, schedule quarterly reviews of new tools, and try one new tool per week with a specific problem in mind. Consistency beats intensity. Small daily experiments compound.</div>
+                <a class="card-source" href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">&#8599; Crescendo</a>
+            </div>
+            <div class="tool-card">
+                <div class="tool-label">TIP 06</div>
+                <div class="tool-title">Best Coding Model Right Now: Claude Opus 4.6</div>
+                <div class="tool-body">For coding tasks specifically, Claude Opus 4.6 with its 1M context window and 80.8% SWE-Bench score is the current leader. Use Claude Code for CLI-based agentic coding. Pair it with Cursor IDE for an integrated experience. The model that understands your entire codebase wins.</div>
+                <a class="card-source" href="https://llm-stats.com/llm-updates" target="_blank">&#8599; LLM Stats</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <div class="footer-brand">Koda Intelligence</div>
+    <div class="footer-text">Generated <span id="gen-time"></span> &middot; Data: WebSearch, Newsletter feeds, NotebookLM</div>
+    <div class="footer-text" style="margin-top:4px;">&copy; 2026 Koda Community &middot; <a href="https://www.koda.community" target="_blank" style="color:var(--blue);text-decoration:none;">koda.community</a></div>
+</div>
+
+<script>
+// Dark mode
+function toggleDark(){
+    document.documentElement.classList.toggle('dark-mode');
+    var isDark=document.documentElement.classList.contains('dark-mode');
+    localStorage.setItem('koda-theme',isDark?'dark':'light');
+    document.getElementById('darkBtn').textContent=isDark?'\u2600\uFE0F Light':'\uD83C\uDF19 Dark';
+}
+(function(){
+    if(localStorage.getItem('koda-theme')==='dark'){
+        document.documentElement.classList.add('dark-mode');
+        document.getElementById('darkBtn').textContent='\u2600\uFE0F Light';
+    }
+})();
+
+// Generation timestamp
+document.getElementById('gen-time').textContent=new Date().toLocaleTimeString();
+
+// Day nav
+(function initDayNav(){
+    var dateStr=document.body.getAttribute('data-digest-date');
+    if(!dateStr)return;
+    var p=dateStr.split('-').map(Number);
+    var curr=new Date(p[0],p[1]-1,p[2]);
+    var mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var fmt=function(dt){return mo[dt.getMonth()]+' '+dt.getDate();};
+    var iso=function(dt){return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');};
+    var fn=function(dt){return 'morning-briefing-koda-'+iso(dt)+'.html';};
+    var prev=new Date(curr);prev.setDate(prev.getDate()-1);
+    var next=new Date(curr);next.setDate(next.getDate()+1);
+    document.getElementById('nav-current').textContent=fmt(curr);
+    document.getElementById('nav-prev-label').textContent=fmt(prev);
+    document.getElementById('nav-next-label').textContent=fmt(next);
+    ['nav-prev','nav-next'].forEach(function(id,i){
+        var dt=i===0?prev:next;
+        fetch(fn(dt),{method:'HEAD'}).then(function(r){
+            if(r.ok){var b=document.getElementById(id);b.href=fn(dt);b.classList.remove('disabled');}
+        }).catch(function(){});
+    });
+})();
+
+// Hash deep-link scroll
+(function(){if(!window.location.hash)return;var id=window.location.hash.substring(1);function go(){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}if(document.readyState==='complete')setTimeout(go,300);else window.addEventListener('load',function(){setTimeout(go,300);});})();
+
+// Scroll animations
+var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+        if(e.isIntersecting){
+            e.target.style.opacity='1';
+            e.target.style.transform='translateY(0)';
+            obs.unobserve(e.target);
         }
-
-        darkToggle.addEventListener('click', () => {
-            html.classList.toggle('dark-mode');
-            const isDark = html.classList.contains('dark-mode');
-            darkToggle.textContent = isDark ? '☀️' : '🌙';
-            localStorage.setItem('koda-theme', isDark ? 'dark' : 'light');
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.card, .market-item, .newsletter-card, .focus-item, .infographic-card, .podcast-card').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Hash navigation and scroll
-        window.addEventListener('load', () => {
-            if (location.hash) {
-                const target = document.querySelector(location.hash);
-                if (target) {
-                    setTimeout(() => {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 100);
-                }
-            }
-        });
-
-        // Day navigation
-        const today = new Date(2026, 2, 24); // March 24, 2026
-        const tomorrow = new Date(today);
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        const yesterday = new Date(today);
-        yesterday.setDate(yesterday.getDate() - 1);
-
-        function formatDate(date) {
-            const year = date.getFullYear();
-            const month = String(date.getMonth() + 1).padStart(2, '0');
-            const day = String(date.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        }
-
-        const tomorrowFile = `./morning-briefing-koda-${formatDate(tomorrow)}.html`;
-        const yesterdayFile = `./morning-briefing-koda-${formatDate(yesterday)}.html`;
-
-        // Check for adjacent files (optional enhancement)
-        // fetch(tomorrowFile, { method: 'HEAD' }).then(r => {
-        //     if (r.ok) {
-        //         // Add navigation UI if file exists
-        //     }
-        // }).catch(() => {});
-    </script>
+    });
+},{threshold:0.06});
+document.querySelectorAll('.card,.newsletter-card,.market-card,.comp-card,.tool-card,.focus-item,.infographic,.summary-card,.kpi-card,.media-banner').forEach(function(el){
+    el.style.cssText+='opacity:0;transform:translateY(16px);transition:opacity 0.45s ease,transform 0.45s ease;';
+    obs.observe(el);
+});
+</script>
 </body>
 </html>

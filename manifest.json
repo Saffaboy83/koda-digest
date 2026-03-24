@@ -1,20 +1,33 @@
 {
-  "generated": "2026-03-24T11:07:55Z",
+  "generated": "2026-03-24T11:53:46Z",
   "digests": [
     {
       "date": "2026-03-24",
       "dayOfWeek": "Tuesday",
-      "focusTopics": [],
+      "focusTopics": [
+        {
+          "title": "Middle East Escalation Intensifies",
+          "desc": "Israel launched wide-scale strikes on IRGC headquarters in Tehran. Saudi Arabia expelled Iranian military staff. Trump claims 15 points of agreement, but Iran denies any dialogue. Five-day pause on energy site strikes, but Hormuz shipping lanes remain under threat."
+        },
+        {
+          "title": "AI Coding Wars Heat Up",
+          "desc": "Claude Opus 4.6 leads SWE-Bench Verified at 80.8%, ahead of GPT-5.4's 77.2%. OpenAI's GPT-5.4 ships with 1.05M token context. Chinese models from MiniMax and Xiaomi match Western quality at dramatically lower cost. The race is no longer about who is smartest. It is about who is cheapest."
+        },
+        {
+          "title": "Crypto Relief Rally Amid Extreme Fear",
+          "desc": "Bitcoin reclaimed $71K with a 3.79% surge. Ethereum outperformed at +5.16%. The Fear and Greed Index sits at 11, the deepest extreme fear reading this year. Equities rallied too. The market is betting on containment. If that changes, crypto goes first."
+        }
+      ],
       "kpis": {
-        "aiStories": "",
-        "worldEvents": "",
-        "marketMood": "",
-        "toolsFeatured": ""
+        "aiStories": "12",
+        "worldEvents": "8",
+        "marketMood": "Rally",
+        "toolsFeatured": "6"
       },
-      "hasPodcast": false,
-      "hasInfographic": false,
-      "hasVideo": false,
-      "youtubeId": "",
+      "hasPodcast": true,
+      "hasInfographic": true,
+      "hasVideo": true,
+      "youtubeId": "KAzT_IeZrX0",
       "file": "morning-briefing-koda-2026-03-24.html"
     },
     {
