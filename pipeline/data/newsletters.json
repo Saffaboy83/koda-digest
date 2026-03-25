@@ -1,0 +1,42 @@
+{
+  "date": "2025-03-25",
+  "gathered_at": "2026-03-25T11:00:00",
+  "source": "gmail_mcp",
+  "newsletters": [
+    {
+      "sender": "TLDR",
+      "subject": "Inside Siri's reboot, OpenAI cancels Sora, Claude Code auto mode",
+      "date": "25 Mar 2026",
+      "source_link": "https://tldr.tech",
+      "content": "Apple plans AI reboot with standalone Siri app, new look, and 'Ask Siri' button in iOS 27. Apple testing a standalone app for Siri transforming it from traditional voice assistant to systemwide AI agent with deep integration across platforms. Updated Siri will have conversational format through text and voice, slated for WWDC June 8. OpenAI scraps Sora video platform months after launch, redirecting computing resources toward productivity tools and consolidating into one superapp ahead of potential IPO. Auto mode for Claude Code allows autonomous permission decisions with classifier model reviewing conversations before each action. Meta decides to shut down Metaverse project after reportedly spending $80 billion. Amazon acquires Fauna Robotics building 'approachable' humanoid robots. Arm releases first in-house chip with Meta as debut customer. Orbital data centers economically unviable - replicating single large terrestrial data center would require hundreds of satellites."
+    },
+    {
+      "sender": "The Rundown AI",
+      "subject": "OpenAI's Sora gets the axe",
+      "date": "25 Mar 2026",
+      "source_link": "https://www.therundown.ai",
+      "content": "OpenAI axed Sora AI video generator to free up compute for Spud, next major model ready in weeks. Employees called Sora a 'drag' on resources. Spud model Altman says 'can really accelerate the economy'. Sora head Bill Peebles pursuing 'world simulation' for robotics to automate physical economy. OpenAI's $1B Disney partnership on ice. Altman moving safety under Mark Chen, Simo's division renamed 'AGI Deployment'. Brett Adcock launched Hark with $100M - new AI startup creating 'new interface to AGI' via personalized AI with dedicated hardware, 45-person team from Apple/Google/Meta/Tesla, signed deal for thousands of NVIDIA B200 GPUs. Apple testing standalone Siri app with 'Ask Siri' chatbot for iOS 27. Figma opened design canvas to coding agents. Cloudflare launched Dynamic Workers for AI agents at 100x speed. OpenAI Foundation committed $1B for disease, job displacement, AI safety. Microsoft AI poached three top Allen Institute researchers. Roche launched AI factory with 3,500+ Nvidia Blackwell GPUs."
+    },
+    {
+      "sender": "TLDR AI",
+      "subject": "OpenAI PE deal terms, ChatGPT Library, building an AI chip",
+      "date": "24 Mar 2026",
+      "source_link": "https://tldr.tech/ai",
+      "content": "OpenAI courting buyout firms, offering PE firms guaranteed 17.5% minimum return and early model access. TPG and Advent potential investors. Claude Code and Cowork can now use your computer - open files, browsers, dev tools on macOS. ChatGPT Library stores personal files on OpenAI cloud. Professor supervised Claude through theoretical physics research - rigorous paper in two weeks instead of usual year. Cursor published fast regex search indexing for agent tools - qualitative difference for agentic workflows. NVIDIA released Nemotron-Cascade 2 open-sourcing post-training recipe. Walmart ChatGPT checkout converted 3x worse than website. OpenAI hired former Meta ad exec Dave Dugan as VP global ad solutions. OpenAI calls out Microsoft reliance as risk ahead of IPO."
+    },
+    {
+      "sender": "TLDR IT",
+      "subject": "Gemini hunts the dark web, AI reshapes IT strategy, RSAC is all about AI",
+      "date": "24 Mar 2026",
+      "source_link": "https://tldr.tech/it",
+      "content": "Google putting Gemini agents into threat-intel workflow to sift through 8-10 million dark-web events per day. RSAC 2026 opened in San Francisco with ~45,000 security leaders - security embedded across IT operations, SaaS, infrastructure. Oracle emergency patch for critical 9.8-rated vulnerability CVE-2026-21992 allowing unauthenticated remote code execution. Cloud Security Alliance launched CSAI for AI security and 'agentic control plane'. Enterprise IT dealing with overlapping shifts: AI, digital labor, operating model change. Palo Alto Prisma AIRS 3.0 unified security for agents, AI apps, identity. Cisco Duo Agentic Identity extends access control to AI agents. Endpoint security tools fail ~20% of time, devices exposed ~76 days annually. NVIDIA open-sourcing Nemotron-Cascade 2 post-training recipe."
+    },
+    {
+      "sender": "TLDR Design",
+      "subject": "Microsoft Image Gen, Nvidia Adobe Partnership, iPhone 18 Camera Upgrade",
+      "date": "24 Mar 2026",
+      "source_link": "https://tldr.tech/design",
+      "content": "Microsoft superintelligence team released MAI-Image-2 text-to-image generator ranking third on Arena.ai behind OpenAI and Google. Excels at photorealistic images with natural lighting and reliable text rendering, rolling out to Copilot and Bing Image Creator. Nvidia and Adobe strategic partnership at GTC 2026 for AI-powered content creation with cloud-native 3D digital twin solution reducing campaign production from 28-30 days to minutes. Apple explored acquiring Lux Optics (Halide) for iPhone 18 Pro camera improvements. Adobe prioritizing content creators with accessible mobile apps and Firefly AI tools."
+    }
+  ]
+}
