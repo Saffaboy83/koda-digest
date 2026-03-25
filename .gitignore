@@ -5,3 +5,6 @@ podcast-raw.*
 video-raw.*
 client_secret.json
 .youtube_token.json
+.env
+media-status.json
+*-test.*
