@@ -113,8 +113,12 @@ def parse_with_regex(filepath):
         if title:
             result["focusTopics"].append({"title": title, "desc": desc})
 
-    # Extract YouTube video ID
-    yt_match = re.search(r"youtube\.com/embed/([a-zA-Z0-9_-]+)", html)
+    # Extract YouTube video ID (try data attribute first, then embed URL)
+    yt_match = re.search(r'data-youtube-id="([a-zA-Z0-9_-]+)"', html)
+    if not yt_match:
+        yt_match = re.search(r"youtube\.com/embed/([a-zA-Z0-9_-]+)", html)
+    if not yt_match:
+        yt_match = re.search(r"youtube\.com/watch\?v=([a-zA-Z0-9_-]+)", html)
     if yt_match:
         result["youtubeId"] = yt_match.group(1)
 
