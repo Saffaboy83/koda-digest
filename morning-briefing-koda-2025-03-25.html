@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koda Intelligence Briefing — 25 March 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue: #3B82F6;
+      --purple: #8B5CF6;
+      --red: #EF4444;
+      --amber: #F59E0B;
+      --emerald: #10B981;
+      --indigo: #6366F1;
+      --pink: #EC4899;
+      --cyan: #06B6D4;
+      --light-bg: #F8FAFC;
+      --light-card: #FFFFFF;
+      --light-border: #E2E8F0;
+      --light-text: #1E293B;
+      --light-text-secondary: #64748B;
+      --dark-bg: #0F172A;
+      --dark-card: #1E293B;
+      --dark-border: #334155;
+      --dark-text: #F1F5F9;
+      --dark-text-secondary: #CBD5E1;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light-bg);
+      color: var(--light-text);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      line-height: 1.6;
+    }
+
+    body.dark-mode {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    /* Top Bar */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--light-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      z-index: 1000;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    body.dark-mode .topbar {
+      background: rgba(15, 23, 42, 0.8);
+      border-bottom-color: var(--dark-border);
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .home-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--blue), #60A5FA);
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+
+    .home-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .brand:hover {
+      opacity: 0.8;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-arrow {
+      background: none;
+      border: none;
+      color: var(--light-text);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s;
+      padding: 8px 12px;
+    }
+
+    body.dark-mode .nav-arrow {
+      color: var(--dark-text);
+    }
+
+    .nav-arrow:hover {
+      color: var(--blue);
+    }
+
+    .nav-arrow:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--light-text);
+      transition: background-color 0.2s, color 0.2s;
+      font-size: 18px;
+    }
+
+    body.dark-mode .theme-toggle {
+      color: var(--dark-text);
+    }
+
+    .theme-toggle:hover {
+      background: var(--light-border);
+    }
+
+    body.dark-mode .theme-toggle:hover {
+      background: var(--dark-border);
+    }
+
+    /* Main Content */
+    main {
+      margin-top: 80px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 48px 24px;
+    }
+
+    section {
+      margin-bottom: 64px;
+      scroll-margin-top: 80px;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .subtitle {
+      font-size: 18px;
+      color: var(--light-text-secondary);
+      margin-bottom: 32px;
+    }
+
+    body.dark-mode .hero .subtitle {
+      color: var(--dark-text-secondary);
+    }
+
+    /* KPI Strip */
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .kpi-card {
+      background: var(--light-card);
+      border: 1px solid var(--light-border);
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    body.dark-mode .kpi-card {
+      background: var(--dark-card);
+      border-color: var(--dark-border);
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark-mode .kpi-card:hover {
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .kpi-card.blue { border-top: 3px solid var(--blue); }
+    .kpi-card.red { border-top: 3px solid var(--red); }
+    .kpi-card.amber { border-top: 3px solid var(--amber); }
+    .kpi-card.purple { border-top: 3px solid var(--purple); }
+
+    .kpi-value {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .kpi-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--light-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    body.dark-mode .kpi-label {
+      color: var(--dark-text-secondary);
+    }
+
+    /* Infographic Section */
+    .infographic-container {
+      background: var(--light-card);
+      border: 1px solid var(--light-border);
+      border-radius: 20px;
+      padding: 48px;
+      margin-bottom: 48px;
+      backdrop-filter: blur(12px);
+      overflow: hidden;
+    }
+
+    body.dark-mode .infographic-container {
+      background: var(--dark-card);
+      border-color: var(--dark-border);
+    }
+
+    .infographic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .infographic-item {
+      position: relative;
+      padding: 24px;
+      border-radius: 16px;
+      color: white;
+      font-weight: 600;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .infographic-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.1;
+      pointer-events: none;
+      background: linear-gradient(45deg, transparent 30%, white 50%, transparent 70%);
+    }
+
+    .infographic-item > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .item-title {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-top: 8px;
+    }
+
+    .item-value {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .item-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .gradient-blue { background: linear-gradient(135deg, var(--blue), #60A5FA); }
+    .gradient-purple { background: linear-gradient(135deg, var(--purple), #A78BFA); }
+    .gradient-red { background: linear-gradient(135deg, var(--red), #FCA5A5); }
+    .gradient-amber { background: linear-gradient(135deg, var(--amber), #FCD34D); }
+    .gradient-emerald { background: linear-gradient(135deg, var(--emerald), #6EE7B7); }
+    .gradient-cyan { background: linear-gradient(135deg, var(--cyan), #22D3EE); }
+
+    .infographic-title {
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 24px;
+      color: var(--light-text);
+    }
+
+    body.dark-mode .infographic-title {
+      color: var(--dark-text);
+    }
+
+    /* Podcast Card */
+    .podcast-card {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px;
+      color: white;
+      margin-bottom: 48px;
+      backdrop-filter: blur(12px);
+    }
+
+    .podcast-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .podcast-meta {
+      font-size: 13px;
+      opacity: 0.7;
+      margin-bottom: 24px;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 16px;
+    }
+
+    /* Card Grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .card {
+      background: var(--light-card);
+      border: 1px solid var(--light-border);
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+
+    body.dark-mode .card {
+      background: var(--dark-card);
+      border-color: var(--dark-border);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--blue);
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.15);
+    }
+
+    body.dark-mode .card:hover {
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.25);
+    }
+
+    .card-category {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      background: var(--light-border);
+      color: var(--light-text);
+    }
+
+    body.dark-mode .card-category {
+      background: var(--dark-border);
+      color: var(--dark-text);
+    }
+
+    .card-category.blue { background: rgba(59, 130, 246, 0.2); color: var(--blue); }
+    .card-category.purple { background: rgba(139, 92, 246, 0.2); color: var(--purple); }
+    .card-category.red { background: rgba(239, 68, 68, 0.2); color: var(--red); }
+    .card-category.amber { background: rgba(245, 158, 11, 0.2); color: var(--amber); }
+    .card-category.emerald { background: rgba(16, 185, 129, 0.2); color: var(--emerald); }
+    .card-category.pink { background: rgba(236, 72, 153, 0.2); color: var(--pink); }
+    .card-category.cyan { background: rgba(6, 182, 212, 0.2); color: var(--cyan); }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .card-text {
+      font-size: 14px;
+      color: var(--light-text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    body.dark-mode .card-text {
+      color: var(--dark-text-secondary);
+    }
+
+    .card-link {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .card-link:hover {
+      opacity: 0.7;
+    }
+
+    /* Market Grid */
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .market-item {
+      background: var(--light-card);
+      border: 1px solid var(--light-border);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+    }
+
+    body.dark-mode .market-item {
+      background: var(--dark-card);
+      border-color: var(--dark-border);
+    }
+
+    .market-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--light-text-secondary);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    body.dark-mode .market-name {
+      color: var(--dark-text-secondary);
+    }
+
+    .market-value {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .market-change {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .market-change.green { color: var(--emerald); }
+    .market-change.red { color: var(--red); }
+    .market-change.neutral { color: var(--light-text-secondary); }
+
+    /* Newsletter Card */
+    .newsletter-card {
+      background: var(--light-card);
+      border: 1px solid var(--light-border);
+      border-radius: 16px;
+      padding: 28px;
+      backdrop-filter: blur(12px);
+      margin-bottom: 24px;
+      border-left: 4px solid var(--blue);
+    }
+
+    body.dark-mode .newsletter-card {
+      background: var(--dark-card);
+      border-color: var(--dark-border);
+    }
+
+    .newsletter-card.purple { border-left-color: var(--purple); }
+    .newsletter-card.amber { border-left-color: var(--amber); }
+    .newsletter-card.emerald { border-left-color: var(--emerald); }
+
+    .newsletter-source {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--light-text-secondary);
+      margin-bottom: 8px;
+    }
+
+    body.dark-mode .newsletter-source {
+      color: var(--dark-text-secondary);
+    }
+
+    .newsletter-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .newsletter-content {
+      font-size: 14px;
+      color: var(--light-text-secondary);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    body.dark-mode .newsletter-content {
+      color: var(--dark-text-secondary);
+    }
+
+    /* Status Card */
+    .status-card {
+      background: var(--light-card);
+      border: 1px solid var(--light-border);
+      border-left: 4px solid var(--blue);
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      margin-bottom: 24px;
+    }
+
+    body.dark-mode .status-card {
+      background: var(--dark-card);
+      border-color: var(--dark-border);
+    }
+
+    .status-card.purple { border-left-color: var(--purple); }
+    .status-card.emerald { border-left-color: var(--emerald); }
+    .status-card.pink { border-left-color: var(--pink); }
+    .status-card.cyan { border-left-color: var(--cyan); }
+
+    .status-company {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--light-text);
+      margin-bottom: 12px;
+    }
+
+    body.dark-mode .status-company {
+      color: var(--dark-text);
+    }
+
+    .status-content {
+      font-size: 14px;
+      color: var(--light-text-secondary);
+      line-height: 1.6;
+    }
+
+    body.dark-mode .status-content {
+      color: var(--dark-text-secondary);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 48px 24px;
+      border-top: 1px solid var(--light-border);
+      color: var(--light-text-secondary);
+      font-size: 13px;
+    }
+
+    body.dark-mode footer {
+      border-top-color: var(--dark-border);
+      color: var(--dark-text-secondary);
+    }
+
+    footer p {
+      margin: 4px 0;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--light-border);
+    }
+
+    body.dark-mode .section-title {
+      border-bottom-color: var(--dark-border);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .topbar {
+        padding: 0 16px;
+        height: 70px;
+      }
+
+      main {
+        padding: 24px 16px;
+        margin-top: 70px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .kpi-strip {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .infographic-container {
+        padding: 24px;
+      }
+
+      .podcast-card {
+        padding: 24px;
+      }
+
+      .market-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      section {
+        scroll-margin-top: 70px;
+      }
+    }
+  </style>
+</head>
+<body data-digest-date="2025-03-25" data-youtube-id="cADAQZwNgx0">
+
+<!-- Topbar -->
+<div class="topbar">
+    <div class="topbar-inner">
+        <a href="./index.html" class="brand">
+            <div class="brand-icon">K</div>
+            <div><div class="brand-name">Koda Digest</div><div class="brand-sub">Intelligence Briefing</div></div>
+        </a>
+        <div class="day-nav">
+            <a id="prevBtn" class="day-nav-btn disabled" href="#">← Yesterday</a>
+            <span class="day-nav-current">2025-03-25</span>
+            <a id="nextBtn" class="day-nav-btn disabled" href="#">Tomorrow →</a>
+        </div>
+        <div class="topbar-right">
+            <button class="dark-toggle" id="darkBtn" onclick="toggleDark()">🌙 Dark</button>
+            <a href="./index.html" class="home-btn">← Home</a>
+        </div>
+    </div>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+    <div class="container">
+        <div class="hero-date">25 March 2025</div>
+        <h1 class="hero-title">Koda Intelligence Briefing</h1>
+        <p class="hero-sub">AI developments, world news, markets, and tools — synthesized daily.</p>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="container">
+    <div class="kpi-strip"><div class="kpi-card">
+            <div class="kpi-value" style="color:var(--blue)">8</div>
+            <div class="kpi-label">AI Stories</div>
+        </div>
+<div class="kpi-card">
+            <div class="kpi-value" style="color:var(--red)">8</div>
+            <div class="kpi-label">World Events</div>
+        </div>
+<div class="kpi-card">
+            <div class="kpi-value" style="color:var(--emerald)">Risk-off / Cautious</div>
+            <div class="kpi-label">Market Mood</div>
+        </div>
+<div class="kpi-card">
+            <div class="kpi-value" style="color:var(--purple)">6</div>
+            <div class="kpi-label">Tools Featured</div>
+        </div>
+</div>
+<div class="media-strip"><div class="media-banner">
+            <div class="media-banner-icon">🎧</div>
+            <div class="media-banner-title">Daily Podcast</div>
+            <div class="media-banner-sub">AI-generated deep-dive briefing</div>
+            <button class="media-banner-btn podcast-btn" onclick="togglePodcast()">▶ Listen Now</button>
+            <div class="podcast-player-wrap" id="podcastPlayer">
+                <audio controls style="width:100%;margin-top:10px" preload="none">
+                    <source src="./podcast-2025-03-25.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div><div class="media-banner">
+                    <div class="media-banner-icon">🎬</div>
+                    <div class="media-banner-title">Video Briefing</div>
+                    <div class="media-banner-sub">AI-generated cinematic explainer</div>
+                    <a href="https://www.youtube.com/watch?v=cADAQZwNgx0" target="_blank" class="media-banner-btn video-btn">▶ Watch on YouTube</a>
+                    <button class="media-banner-btn expand-btn" onclick="toggleVideo()">▶ Watch Inline</button>
+                    <div class="video-overlay" id="videoOverlay" onclick="if(event.target===this)toggleVideo()">
+                        <div class="video-overlay-inner">
+                            <iframe id="videoFrame" width="100%" style="aspect-ratio:16/9;border:none;border-radius:12px" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div></div>
+<div class="section" id="daily-summary">
+        <div class="section-title"><span class="section-icon">📋</span> Executive Summary</div>
+        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);">
+            <div class="summary-hook" style="font-size:20px;font-weight:800;margin-bottom:18px;line-height:1.4">AI labs race to smarter models while geopolitical flashpoints keep markets firmly defensive.</div>
+            <div class="summary-brief" style="border-left:3px solid var(--blue);padding:10px 16px;margin:10px 0;background:var(--bg-card);border-radius:0 12px 12px 0;">
+            <div style="font-size:13px;font-weight:700;color:var(--blue);margin-bottom:4px">🤖 AI</div>
+            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">Google's Gemini 2.5 Pro has claimed top positions on math and science reasoning benchmarks, intensifying its head-to-head rivalry with OpenAI and Anthropic.</div>
+        </div>
+<div class="summary-brief" style="border-left:3px solid var(--red);padding:10px 16px;margin:10px 0;background:var(--bg-card);border-radius:0 12px 12px 0;">
+            <div style="font-size:13px;font-weight:700;color:var(--red);margin-bottom:4px">🌍 World</div>
+            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">Israel resumed strikes on Gaza, killing at least 23 Palestinians, as ceasefire negotiations between Russia and Ukraine produced a limited Black Sea shipping agreement.</div>
+        </div>
+<div class="summary-brief" style="border-left:3px solid var(--emerald);padding:10px 16px;margin:10px 0;background:var(--bg-card);border-radius:0 12px 12px 0;">
+            <div style="font-size:13px;font-weight:700;color:var(--emerald);margin-bottom:4px">📊 Markets</div>
+            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">Sentiment is firmly risk-off and cautious, with multiple active conflict zones, mass civil unrest in Turkey, and natural disaster headlines in South Korea weighing on investor appetite.</div>
+        </div>
+<div class="summary-brief" style="border-left:3px solid var(--amber);padding:10px 16px;margin:10px 0;background:var(--bg-card);border-radius:0 12px 12px 0;">
+            <div style="font-size:13px;font-weight:700;color:var(--amber);margin-bottom:4px">⚡ Wild Card</div>
+            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">Google DeepMind's Gemini Robotics launch signals that the benchmark wars are moving off the screen and into the physical world — a convergence that could redefine industrial automation timelines.</div>
+        </div>
+
+        </div>
+    </div>
+<div class="section" id="infographic">
+        <div class="section-title"><span class="section-icon">📊</span> Daily Infographic</div>
+        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:16px;box-shadow:0 4px 16px var(--shadow);text-align:center">
+            <img src="./infographic-2025-03-25.jpg" alt="Koda Daily Infographic — 2025-03-25" style="max-width:100%;border-radius:12px">
+        </div>
+    </div>
+<div class="section" id="todays-focus">
+        <div class="section-title"><span class="section-icon">🎯</span> Today's Focus</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;"><div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="font-size:32px;font-weight:800;color:var(--blue);font-family:'JetBrains Mono',monospace;margin-bottom:8px">1</div>
+            <div class="focus-content-title" style="font-size:16px;font-weight:700;margin-bottom:8px">Gemini 2.5 Pro Dominance</div>
+            <div class="focus-content-body" style="font-size:14px;color:var(--text-secondary);line-height:1.6">Google's Gemini 2.5 Pro is setting new records across math, science, and general reasoning benchmarks, putting pressure on OpenAI and Anthropic to accelerate their own release cycles. The simultaneous launch of Gemini Robotics models suggests Google is executing a coordinated push across both software and physical AI. If benchmark leads translate to enterprise adoption, Google could meaningfully close the gap with OpenAI's commercial dominance.</div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="font-size:32px;font-weight:800;color:var(--purple);font-family:'JetBrains Mono',monospace;margin-bottom:8px">2</div>
+            <div class="focus-content-title" style="font-size:16px;font-weight:700;margin-bottom:8px">Hallucination Reduction Milestone</div>
+            <div class="focus-content-body" style="font-size:14px;color:var(--text-secondary);line-height:1.6">OpenAI's GPT-4.5 reportedly cuts hallucination rates by nearly half compared to its predecessor, a development with significant implications for high-stakes deployments in legal, medical, and financial sectors. Reduced hallucination has been a persistent barrier to enterprise trust, and measurable progress here could accelerate procurement decisions. Anthropic's Claude 3.7 Sonnet, with its emphasis on structured reasoning, appears to be targeting the same reliability-focused market segment.</div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="font-size:32px;font-weight:800;color:var(--emerald);font-family:'JetBrains Mono',monospace;margin-bottom:8px">3</div>
+            <div class="focus-content-title" style="font-size:16px;font-weight:700;margin-bottom:8px">Geopolitical Risk Cluster</div>
+            <div class="focus-content-body" style="font-size:14px;color:var(--text-secondary);line-height:1.6">Three simultaneous crises — renewed Gaza strikes, the Turkey crackdown on over 1,400 protesters, and South Korea's deadly wildfires — are compressing global risk appetite into a single cautious posture. The Russia-Ukraine Black Sea deal offers a rare de-escalation signal, but its scope is narrow and unlikely to shift the broader defensive market mood. For AI and tech sectors, geopolitical instability historically delays enterprise spending cycles, adding a macro headwind to an otherwise bullish innovation week.</div>
+        </div>
+</div>
+    </div>
+<div class="section" id="ai-developments">
+        <div class="section-title"><span class="section-icon">🤖</span> AI Developments</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;"><div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Model Release</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Google Gemini 2.5 Pro Sets New Benchmark Records</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Released in March 2025, Google's Gemini 2.5 Pro claimed the top spot on LMArena with a score of 1,443, surpassing Grok 3 and GPT-4.5. It also achieved 18.8% on Humanity's Last Exam without tools, alongside leading scores on GPQA and AIME 2025. Google described it as its most intelligent model to date, available to Gemini Advanced users and via Google AI Studio. <a href="https://sdtimes.com/ai/march-2025-all-ai-updates-from-the-past-month/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Benchmark</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Gemini 2.5 Pro Tops Math and Science Reasoning Charts</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Google's Gemini 2.5 Pro posted leading results on GPQA and AIME 2025, establishing a new high-water mark for AI scientific and mathematical reasoning. The model's 18.8% score on Humanity's Last Exam without tool assistance underscores its raw reasoning capability. Analysts noted it sets a new competitive standard in a rapidly accelerating model race. <a href="https://huggingface.co/spaces/2025-ai-timeline/2025-ai-timeline" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Model Release</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">OpenAI GPT-4.5 Cuts Hallucination Rate Nearly in Half</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">OpenAI's GPT-4.5, released in March 2025, reduced hallucination rates from 61.8% in GPT-4o down to 37.1%, a significant reliability improvement. The model scored 85.1% on multilingual MMMLU and 74.4% on multimodal MMMU, reflecting strong cross-language and multimodal performance. GPT-4.5 was also designed with a focus on emotional intelligence and more natural conversational interactions. <a href="https://www.octaria.com/blog/5-new-or-growing-ai-and-llm-technologies-in-march-2025" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Model Release</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Anthropic Claude 3.7 Sonnet Prioritizes Structured Reasoning</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Anthropic released Claude 3.7 Sonnet in March 2025 as a reasoning-first model, optimized for structured thinking and coding tasks. The release signals Anthropic's strategic emphasis on deliberate, step-by-step problem solving over raw generative speed. Claude 3.7 Sonnet joins a crowded field of reasoning-focused models competing for developer adoption. <a href="https://aitoast.beehiiv.com/p/2025-ai-overview-month-by-month" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--indigo);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Agents</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Google DeepMind Launches Gemini Robotics Models</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Google DeepMind unveiled Gemini Robotics in March 2025, a suite of models that integrate language, vision, and action capabilities for physical robot understanding and interaction. The release marks a significant step toward embodied AI, bridging large language model reasoning with real-world robotic control. Gemini Robotics represents one of the most prominent multimodal-to-physical AI deployments announced this year. <a href="https://www.neudesic.com/blog/top-5-ai-trends-march-2025/" target="_blank" style="color:var(--indigo);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">China</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Baidu ERNIE 4.5 Demonstrates High Emotional Intelligence</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Baidu's ERNIE 4.5, released in March 2025, showcased advanced multimodal understanding including humor comprehension — such as interpreting memes — alongside high emotional intelligence scores. The model also features advanced language generation, logic, and memory capabilities. ERNIE 4.5 positions Baidu as a competitive force in the global race for emotionally aware and culturally nuanced AI. <a href="https://www.maayu.ai/ai-updates-march/" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--emerald);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Open Source</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Google Gemma 3 Expands Open AI Accessibility</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Google released Gemma 3 in March 2025, emphasizing robust capabilities, broad accessibility, and developer compatibility. The model is designed to lower barriers for AI integration across a range of development environments. Gemma 3 continues Google's strategy of maintaining an open-weight presence alongside its flagship proprietary models. <a href="https://www.maayu.ai/ai-updates-march/" target="_blank" style="color:var(--emerald);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Trend</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">March 2025 Marks Surge in Reasoning-First AI Models</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">March 2025 saw multiple major labs — Google, OpenAI, and Anthropic — simultaneously release models with explicit emphasis on reasoning, multimodality, and reduced error rates. The convergence signals an industry-wide shift away from raw generative fluency toward verifiable, structured intelligence. Analysts noted the pace of competitive releases is accelerating, with each lab targeting distinct capability gaps. <a href="https://www.timesofai.com/industry-insights/roundup-of-ai-model-releases-in-2025/" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+</div>
+    </div>
+<div class="section" id="world-news">
+        <div class="section-title"><span class="section-icon">🌍</span> World News</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;"><div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Conflict</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Israel Resumes Gaza Strikes, Killing 23 Palestinians</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Israel launched renewed military operations in Gaza, killing at least 23 Palestinians in early strikes marking the second week of intensified assaults. The escalation prompted Houthi threats from Yemen, triggering U.S. airstrikes on Sana'a that killed 2 and wounded over a dozen civilians, including children. The widening regional fallout underscores the conflict's destabilizing reach across the Middle East. <a href="https://www.democracynow.org/2025/3/25/headlines" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Diplomacy</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Russia-Ukraine Ceasefire Talks Yield Black Sea Deal</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">U.S.-Russia negotiations in Saudi Arabia produced a tentative agreement to halt Black Sea military attacks and revive the 2022 grain export deal in exchange for eased sanctions, though Russia is still seeking formal U.S. guarantees. On the ground, Russian missiles wounded more than 80 people in Sumy, damaging a school and hospital, while Ukraine reported killing 6 in Russian-occupied Luhansk, including 3 journalists. The diplomatic progress remains fragile against a backdrop of continued battlefield violence. <a href="https://www.democracynow.org/2025/3/25/headlines" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Policy</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Turkey Arrests 1,400-Plus Amid Anti-Government Protests</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Turkish authorities detained more than 1,400 people, including journalists, as widespread anti-government demonstrations swept the country. The mass arrests signal a sharp crackdown on dissent and raise serious concerns about press freedom and civil liberties under President Erdogan's government. International observers are closely monitoring the situation for further escalation. <a href="https://en.wikipedia.org/wiki/Portal:Current_events/2025_March_25" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--emerald);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Climate</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">South Korea Wildfires Kill 16, Force Mass Evacuations</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">An uncontrolled wildfire in Uiseong County, South Korea, killed at least 16 people and forced tens of thousands of residents to evacuate as the blaze spread northward and eastward. Firefighting efforts have been hampered by the fire's rapid progression across the region. The disaster represents one of South Korea's most severe wildfire events in recent memory. <a href="https://en.wikipedia.org/wiki/Portal:Current_events/2025_March_25" target="_blank" style="color:var(--emerald);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--amber);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Humanitarian</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Thousands in Gaza Rally Against Hamas Rule</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Thousands of Palestinians in the northern Gaza Strip took to the streets in the largest anti-Hamas protests since the conflict began, chanting for an end to the war. The demonstrations reflect growing civilian frustration with Hamas governance amid the ongoing humanitarian catastrophe. The protests mark a significant and rare public expression of dissent within the territory. <a href="https://en.wikipedia.org/wiki/Portal:Current_events/2025_March_25" target="_blank" style="color:var(--amber);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Policy</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Japan Orders Unification Church Dissolution</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Tokyo District Court revoked the Unification Church's legal religious status on March 25, marking the first such dissolution order in modern Japanese history. The ruling follows years of public criticism and government scrutiny of the organization's practices. The decision sets a significant legal precedent for the regulation of religious groups in Japan. <a href="https://en.wikipedia.org/wiki/Portal:Current_events/2025_March_25" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Diplomacy</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Venezuela Resumes U.S. Deportation Flights</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Venezuela agreed to resume accepting deportation flights from the United States amid the Trump administration's controversial expulsions of migrants to El Salvador's high-security mega-prison, a process critics say bypassed due process. In a parallel development, the U.S. extended Chevron's license to operate in Venezuela through late May, signaling a transactional dimension to the bilateral arrangement. The deal highlights the complex interplay between immigration enforcement and energy policy in U.S.-Latin America relations. <a href="https://www.democracynow.org/2025/3/25/headlines" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--cyan);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Infrastructure</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">New Zealand 6.7 Earthquake Triggers Tsunami Warning</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">A magnitude 6.7 earthquake struck New Zealand on March 25, prompting authorities to issue a tsunami warning after a tsunami was observed in the Fiordland region. Emergency services mobilized rapidly as coastal communities were placed on alert. No major casualties were immediately reported, though assessments of structural damage were ongoing. <a href="https://en.wikipedia.org/wiki/Portal:Current_events/2025_March_25" target="_blank" style="color:var(--cyan);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+</div>
+    </div>
+<div class="section" id="market-snapshot">
+        <div class="section-title"><span class="section-icon">📊</span> Market Snapshot</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;"><div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
+            <div style="font-size:20px;margin-bottom:4px">📈</div>
+            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">S&P 500</div>
+            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">N/A</div>
+            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--amber);margin-top:4px">N/A</div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
+            <div style="font-size:20px;margin-bottom:4px">📊</div>
+            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">NASDAQ</div>
+            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">N/A</div>
+            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--amber);margin-top:4px">N/A</div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
+            <div style="font-size:20px;margin-bottom:4px">₿</div>
+            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">BTC</div>
+            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">$70,000</div>
+            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--red);margin-top:4px">-5%</div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
+            <div style="font-size:20px;margin-bottom:4px">◆</div>
+            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">ETH</div>
+            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">$2,155.68</div>
+            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--emerald);margin-top:4px">+0.19%</div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
+            <div style="font-size:20px;margin-bottom:4px">🛢</div>
+            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Oil Brent</div>
+            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">$116</div>
+            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--amber);margin-top:4px">N/A</div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
+            <div style="font-size:20px;margin-bottom:4px">🧠</div>
+            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Sentiment</div>
+            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">N/A</div>
+            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--red);margin-top:4px">Risk-off / Cautious</div>
+        </div>
+</div>
+    </div>
+<div class="section" id="newsletter-intelligence">
+        <div class="section-title"><span class="section-icon">📬</span> Newsletter Intelligence</div>
+        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);margin-bottom:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+                <div class="newsletter-name" style="font-size:16px;font-weight:700">TLDR</div>
+                <div style="font-size:11px;font-weight:600;color:var(--blue);background:rgba(59,130,246,0.1);padding:3px 10px;border-radius:6px">25 Mar 2026</div>
+            </div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Headlines</div><ul style="list-style:none;padding:0"><li style="margin:4px 0;font-size:13px">Apple transforms Siri into systemwide AI agent with standalone app launching at WWDC</li><li style="margin:4px 0;font-size:13px">OpenAI discontinues Sora video platform, consolidates resources into productivity superapp</li><li style="margin:4px 0;font-size:13px">Claude Code gains autonomous decision-making capability through auto mode classifier</li></ul></div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Deep Dives</div><div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">Apple is executing a fundamental repositioning of Siri from voice assistant to conversational AI agent with deep platform integration, arriving in iOS 27 with a new interface and dedicated app. OpenAI's decision to shutter Sora months after launch signals a strategic pivot toward consolidation and monetization ahead of potential IPO, reallocating computational resources to productivity tools. Claude Code's auto mode introduces autonomous permission handling via classifier model review, advancing toward less-supervised AI agent operation.</div></div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Quick Hits</div><ul style="list-style:none;padding:0"><li style="margin:4px 0;font-size:13px">Meta terminates Metaverse project after $80 billion investment</li><li style="margin:4px 0;font-size:13px">Amazon acquires Fauna Robotics to develop humanoid robots</li><li style="margin:4px 0;font-size:13px">Arm releases first in-house chip with Meta as launch customer</li><li style="margin:4px 0;font-size:13px">Orbital data centers deemed economically unviable—single terrestrial facility would require hundreds of satellites to replicate</li></ul></div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Trending Tools</div><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Siri</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Claude Code</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Sora</span></div>
+            
+            <a href="https://tldr.tech" target="_blank" style="font-size:11px;color:var(--blue);text-decoration:none">View original →</a>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);margin-bottom:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+                <div class="newsletter-name" style="font-size:16px;font-weight:700">The Rundown AI</div>
+                <div style="font-size:11px;font-weight:600;color:var(--blue);background:rgba(59,130,246,0.1);padding:3px 10px;border-radius:6px">25 Mar 2026</div>
+            </div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Headlines</div><ul style="list-style:none;padding:0"><li style="margin:4px 0;font-size:13px">OpenAI Discontinues Sora to Redirect Compute Resources Toward Spud Model Launch</li><li style="margin:4px 0;font-size:13px">Brett Adcock's Hark Raises $100M to Build Personalized AGI Interface with Custom Hardware</li><li style="margin:4px 0;font-size:13px">Major Tech Companies Accelerate AI Infrastructure Buildout Across Robotics, Design, and Healthcare</li></ul></div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Deep Dives</div><div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">OpenAI has shut down its Sora video generation platform to free computational resources for Spud, a next-generation model expected within weeks that CEO Sam Altman claims will 'accelerate the economy.' Concurrently, Sora's head Bill Peebles is pursuing world simulation capabilities for robotics applications. The move signals OpenAI's strategic pivot toward foundational model development over consumer-facing applications, with organizational changes including safety oversight consolidation under Mark Chen and the renaming of Simo's division to 'AGI Deployment.'</div></div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Quick Hits</div><ul style="list-style:none;padding:0"><li style="margin:4px 0;font-size:13px">Brett Adcock's Hark startup assembled 45-person team from Apple, Google, Meta, and Tesla; secured thousands of NVIDIA B200 GPUs for personalized AI interface with dedicated hardware</li><li style="margin:4px 0;font-size:13px">Apple testing standalone Siri app with 'Ask Siri' chatbot functionality for iOS 27</li><li style="margin:4px 0;font-size:13px">Figma opened design canvas to coding agents; Cloudflare launched Dynamic Workers enabling 100x speed improvements for AI agents</li><li style="margin:4px 0;font-size:13px">OpenAI Foundation committed $1B toward disease research, job displacement mitigation, and AI safety initiatives</li><li style="margin:4px 0;font-size:13px">Microsoft AI recruited three top researchers from Allen Institute</li><li style="margin:4px 0;font-size:13px">Roche launched AI factory equipped with 3,500+ NVIDIA Blackwell GPUs</li><li style="margin:4px 0;font-size:13px">OpenAI's $1B Disney partnership placed on hold</li></ul></div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Trending Tools</div><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Sora (discontinued)</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Spud</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">NVIDIA B200 GPUs</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Figma coding agents</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Cloudflare Dynamic Workers</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Apple Siri standalone app</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">NVIDIA Blackwell GPUs</span></div>
+            <blockquote class="newsletter-quote" style="border-left:3px solid var(--purple);padding:10px 16px;margin:12px 0;font-style:italic;color:var(--text-secondary);font-size:13px">"can really accelerate the economy"</blockquote>
+            <a href="https://www.therundown.ai" target="_blank" style="font-size:11px;color:var(--blue);text-decoration:none">View original →</a>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);margin-bottom:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+                <div class="newsletter-name" style="font-size:16px;font-weight:700">TLDR AI</div>
+                <div style="font-size:11px;font-weight:600;color:var(--blue);background:rgba(59,130,246,0.1);padding:3px 10px;border-radius:6px">24 Mar 2026</div>
+            </div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Headlines</div><ul style="list-style:none;padding:0"><li style="margin:4px 0;font-size:13px">OpenAI Pursues Private Equity Funding with 17.5% Guaranteed Returns</li><li style="margin:4px 0;font-size:13px">Anthropic's Claude Expands Computer Control Capabilities Across macOS</li><li style="margin:4px 0;font-size:13px">OpenAI Names Former Meta Ad Executive as VP of Global Ad Solutions</li></ul></div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Deep Dives</div><div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">OpenAI is actively courting PE firms including TPG and Advent with structured terms offering minimum 17.5% returns and early model access, signaling preparation for eventual exit or capital raise ahead of potential IPO. The company simultaneously flagged Microsoft reliance as a material risk factor. Anthropic advanced Claude's capabilities by enabling direct computer control—file access, browser navigation, and developer tools—while OpenAI launched ChatGPT Library for cloud-based personal file storage.</div></div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Quick Hits</div><ul style="list-style:none;padding:0"><li style="margin:4px 0;font-size:13px">Claude supervised theoretical physics research, producing rigorous paper in two weeks versus typical one-year timeline</li><li style="margin:4px 0;font-size:13px">Walmart's ChatGPT-powered checkout converted 3x worse than traditional website checkout</li><li style="margin:4px 0;font-size:13px">NVIDIA open-sourced Nemotron-Cascade 2 post-training recipe for model development</li></ul></div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Trending Tools</div><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Claude Code and Cowork (computer control for macOS)</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">ChatGPT Library (cloud file storage)</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Cursor regex search indexing (agentic workflow optimization)</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Nemotron-Cascade 2 (NVIDIA post-training framework)</span></div>
+            
+            <a href="https://tldr.tech/ai" target="_blank" style="font-size:11px;color:var(--blue);text-decoration:none">View original →</a>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);margin-bottom:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+                <div class="newsletter-name" style="font-size:16px;font-weight:700">TLDR IT</div>
+                <div style="font-size:11px;font-weight:600;color:var(--blue);background:rgba(59,130,246,0.1);padding:3px 10px;border-radius:6px">24 Mar 2026</div>
+            </div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Headlines</div><ul style="list-style:none;padding:0"><li style="margin:4px 0;font-size:13px">Google Deploys Gemini Agents to Monitor 8-10M Dark Web Events Daily</li><li style="margin:4px 0;font-size:13px">RSAC 2026: Security Embedded Across IT Operations as AI Reshapes Enterprise Strategy</li><li style="margin:4px 0;font-size:13px">Oracle Patches Critical RCE Vulnerability CVE-2026-21992 Rated 9.8</li></ul></div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Deep Dives</div><div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">Enterprise IT is navigating simultaneous transformation across three fronts: AI integration, digital labor automation, and operating model restructuring. Security leaders at RSAC 2026 are responding by embedding security across SaaS, infrastructure, and IT operations. New agentic AI systems are forcing a rethink of identity and access control, with vendors like Palo Alto, Cisco, and the Cloud Security Alliance introducing specialized tools for AI agent governance.</div></div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Quick Hits</div><ul style="list-style:none;padding:0"><li style="margin:4px 0;font-size:13px">Endpoint security tools fail approximately 20% of the time, leaving devices exposed an average of 76 days annually</li><li style="margin:4px 0;font-size:13px">Cloud Security Alliance launched CSAI framework for AI security and agentic control plane governance</li><li style="margin:4px 0;font-size:13px">NVIDIA open-sourced Nemotron-Cascade 2 post-training recipe for model optimization</li></ul></div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Trending Tools</div><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Google Gemini (threat intelligence)</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Palo Alto Prisma AIRS 3.0</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Cisco Duo Agentic Identity</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">NVIDIA Nemotron-Cascade 2</span></div>
+            
+            <a href="https://tldr.tech/it" target="_blank" style="font-size:11px;color:var(--blue);text-decoration:none">View original →</a>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);margin-bottom:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+                <div class="newsletter-name" style="font-size:16px;font-weight:700">TLDR Design</div>
+                <div style="font-size:11px;font-weight:600;color:var(--blue);background:rgba(59,130,246,0.1);padding:3px 10px;border-radius:6px">24 Mar 2026</div>
+            </div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Headlines</div><ul style="list-style:none;padding:0"><li style="margin:4px 0;font-size:13px">Microsoft's MAI-Image-2 Ranks Third in Text-to-Image Generation</li><li style="margin:4px 0;font-size:13px">Nvidia and Adobe Partner on AI-Powered 3D Content Creation</li><li style="margin:4px 0;font-size:13px">Apple Explores Camera Acquisition for iPhone 18 Pro</li></ul></div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Deep Dives</div><div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">Microsoft's superintelligence team launched MAI-Image-2, a text-to-image generator now ranking third on Arena.ai behind OpenAI and Google, with particular strength in photorealistic rendering and text accuracy. The model is rolling out to Copilot and Bing Image Creator. Meanwhile, Nvidia and Adobe announced a strategic partnership at GTC 2026 focused on cloud-native 3D digital twin solutions that compress content creation timelines from 28-30 days to minutes, targeting enterprise campaign production workflows.</div></div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Quick Hits</div><ul style="list-style:none;padding:0"><li style="margin:4px 0;font-size:13px">MAI-Image-2 excels at natural lighting and reliable text rendering in generated images</li><li style="margin:4px 0;font-size:13px">Nvidia-Adobe partnership delivers 3D digital twin technology for accelerated content workflows</li><li style="margin:4px 0;font-size:13px">Apple exploring acquisition of Lux Optics (Halide) to enhance iPhone 18 Pro camera capabilities</li></ul></div>
+            <div style='margin-bottom:12px'><div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Trending Tools</div><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">MAI-Image-2</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Copilot</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Bing Image Creator</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Firefly AI</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Nvidia 3D digital twin solution</span></div>
+            
+            <a href="https://tldr.tech/design" target="_blank" style="font-size:11px;color:var(--blue);text-decoration:none">View original →</a>
+        </div>
+
+    </div>
+<div class="section" id="competitive-landscape">
+        <div class="section-title"><span class="section-icon">🏢</span> Competitive Landscape</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;"><div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">OpenAI</div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">Accelerating enterprise features and expanding model access in March 2025.</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">On March 18, 2025, OpenAI rolled out a significant ChatGPT for Work update, bundling Canvas, app integrations, deep research capabilities, and o1 pro mode into its business offering. The company also broadened GPT-4.5 Preview access to all Plus subscribers, signaling a push to deepen its consumer and enterprise footprint simultaneously. These moves suggest OpenAI is prioritizing platform stickiness and workflow integration as competitive pressure from rivals intensifies. <a href="https://openai.com/business/new-in-chatgpt-for-work-march-updates-2025/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">Google DeepMind</div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">No confirmed March 2025 announcements; Gemini 3 emerges as a major competitive force by December 2025.</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Available sources contain no specific Google DeepMind announcements for March 2025, indicating either a quiet period or a gap in coverage. Looking ahead, Gemini 3's December 2025 release reportedly outperformed rivals on MathArena Apex and programming benchmarks, significant enough to trigger a reported internal 'Code Red' response at OpenAI. This trajectory suggests DeepMind was likely in a deep development phase during Q1 2025, building toward a high-impact year-end launch. <a href="https://siliconangle.com/2025/12/02/openai-ceo-sam-altman-reportedly-declares-code-red-rivals-launch-new-llms/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">Anthropic</div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">Claude remains a benchmark reference point in third-party AI safety and accuracy evaluations.</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Anthropic had no major product announcements confirmed for March 2025 in available sources, but Claude was included in NewsGuard's comparative testing of leading AI services alongside OpenAI, xAI, Google, and Microsoft. Inclusion in such evaluations reflects Claude's standing as an industry reference model, particularly in trust and accuracy contexts. Anthropic's quieter public cadence may reflect a deliberate focus on model refinement over marketing volume. <a href="https://community.openai.com/t/ai-pulse-news-roundup-march-2025-edition/1132414" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">Meta AI</div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">Planning a standalone AI app with a paid subscription tier for Q2 2025 launch.</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Meta AI was reported in March 2025 to be preparing a dedicated standalone application, targeting a Q2 2025 release with potential paid subscription options that would mirror OpenAI's monetization model. This marks a strategic shift for Meta, which has historically distributed AI features across its existing social platforms rather than building a standalone AI product. If executed, the move would position Meta as a direct consumer AI competitor rather than an embedded feature provider. <a href="https://community.openai.com/t/ai-pulse-news-roundup-march-2025-edition/1132414" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">Mistral</div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">No reported activity or announcements in March 2025.</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Available sources contain no confirmed Mistral announcements, partnerships, or product releases for March 2025. The absence of coverage during a period of high activity across the broader AI sector may indicate the company was in a development or fundraising phase not yet reflected in public reporting. Mistral's competitive positioning relative to OpenAI and open-source Chinese models remains a key variable to watch in subsequent quarters.</div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">China Challengers</div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">Tencent open-sources HunyuanVideo-I2V; DeepSeek continues narrowing the reasoning model gap.</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">In March 2025, Tencent open-sourced HunyuanVideo-I2V, an image-to-video model featuring custom effects, audio synchronization, and lip-sync capabilities, targeting creative production workflows. The open-source release is consistent with a broader Chinese AI strategy of building developer ecosystems and global adoption through accessibility. Separately, DeepSeek was noted for closing the reasoning model performance gap with OpenAI, underscoring that Chinese AI labs are competing on frontier model quality, not just cost or openness. <a href="https://community.openai.com/t/ai-pulse-news-roundup-march-2025-edition/1132414" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+</div>
+    </div>
+<div class="section" id="ai-tool-guide">
+        <div class="section-title"><span class="section-icon">🧰</span> AI Tool Guide</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;"><div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">⚡ TIP 01</div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Use AI Meeting Assistants to Reclaim Focus Time</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Tools like Jamie AI automatically transcribe, summarize, and extract action items from meetings without requiring a bot to join the call. Connect it to your calendar and review structured summaries instead of rewatching recordings. This alone can cut post-meeting admin time by 30–50% per week. <a href="https://www.meetjamie.ai/blog/ai-productivity-tools" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">⚡ TIP 02</div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Automate Repetitive Workflows with Zapier AI</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Zapier's AI-powered automation lets you describe a workflow in plain English and generates the multi-step Zap for you. Start by identifying one task you repeat more than three times a week — email sorting, data entry, or Slack notifications — and let the AI build the logic. No coding required, and most workflows go live in under 10 minutes. <a href="https://zapier.com/blog/best-ai-productivity-tools/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">💻 TIP 03</div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Pair AI Voice Dictation with Your IDE Using Wispr Flow</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Wispr Flow enables hands-free, context-aware voice dictation across any application, including code editors and terminals. Dictate comments, documentation, or even pseudocode outlines while keeping your hands on the keyboard for syntax. This is especially effective for drafting README files, commit messages, and inline code explanations at speed. <a href="https://wisprflow.ai/post/top-10-ai-productivity-tools" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">🔨 TIP 04</div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Integrate AI Summarization Into Team Communication Stacks</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Platforms like Webex and Dialpad now embed AI summarization directly into calls and chat threads, surfacing key decisions without manual note-taking. If your team runs on one of these platforms, enable the AI assistant features in settings and establish a shared convention for reviewing AI-generated summaries before closing a meeting. This creates a searchable institutional memory over time. <a href="https://blog.webex.com/innovation-ai/the-ai-productivity-tools-shaping-2025/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">🧠 TIP 05</div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Audit Your Tool Stack Before Adding New AI Apps</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">The most common productivity mistake in 2025–2026 is tool sprawl — subscribing to five AI apps that overlap in function. Before adopting any new tool, map your current stack against three categories: creation, communication, and organization. Only add a new AI tool if it eliminates a category gap or replaces two existing tools with one. <a href="https://plusai.com/blog/best-ai-productivity-tools" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">🎨 TIP 06</div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Use AI Presentation Tools to Compress Slide Deck Creation</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Plus AI and similar tools generate full slide decks from a text brief or document, handling layout, structure, and visual hierarchy automatically. Feed it a one-paragraph project summary and iterate on the output rather than building from a blank slide. Reserve your creative energy for narrative refinement and data accuracy, not formatting decisions. <a href="https://plusai.com/blog/best-ai-productivity-tools" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
+        </div>
+</div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer style="text-align:center;padding:40px 24px;border-top:1px solid var(--border);margin-top:40px">
+    <div style="font-size:14px;font-weight:700;margin-bottom:4px">Koda Intelligence</div>
+    <div style="font-size:12px;color:var(--text-secondary)">Generated 2026-03-25 06:14 | Sources: Web Search, Newsletter feeds, NotebookLM</div>
+    <div style="font-size:11px;color:var(--text-secondary);margin-top:8px">© 2026 Koda Community</div>
+</footer>
+
+<script>
+    // Dark mode
+    (function(){
+        const saved = localStorage.getItem('koda-theme');
+        if(saved==='dark') document.documentElement.classList.add('dark-mode');
+    })();
+    function toggleDark(){
+        document.documentElement.classList.toggle('dark-mode');
+        localStorage.setItem('koda-theme',
+            document.documentElement.classList.contains('dark-mode')?'dark':'light');
+        document.getElementById('darkBtn').textContent =
+            document.documentElement.classList.contains('dark-mode')?'☀ Light':'🌙 Dark';
+    }
+
+    // Podcast player
+    function togglePodcast(){
+        const w=document.getElementById('podcastPlayer');
+        if(w){w.classList.toggle('active');}
+    }
+
+    // Video overlay
+    function toggleVideo(){
+        const o=document.getElementById('videoOverlay');
+        const f=document.getElementById('videoFrame');
+        if(!o)return;
+        if(o.classList.contains('active')){
+            o.classList.remove('active');
+            if(f)f.src='';
+        }else{
+            o.classList.add('active');
+            const ytId=document.body.getAttribute('data-youtube-id');
+            if(f&&ytId)f.src='https://www.youtube.com/embed/'+ytId+'?autoplay=1';
+        }
+    }
+
+    // Day navigation
+    (function(){
+        const d=document.body.getAttribute('data-digest-date');
+        if(!d)return;
+        const dt=new Date(d+'T12:00:00');
+        const prev=new Date(dt);prev.setDate(prev.getDate()-1);
+        const next=new Date(dt);next.setDate(next.getDate()+1);
+        const fmt=d2=>`${d2.getFullYear()}-${String(d2.getMonth()+1).padStart(2,'0')}-${String(d2.getDate()).padStart(2,'0')}`;
+        const pf='morning-briefing-koda-'+fmt(prev)+'.html';
+        const nf='morning-briefing-koda-'+fmt(next)+'.html';
+        const pb=document.getElementById('prevBtn'),nb=document.getElementById('nextBtn');
+        fetch(pf,{method:'HEAD'}).then(r=>{if(r.ok&&pb){pb.href=pf;pb.classList.remove('disabled');}}).catch(()=>{});
+        fetch(nf,{method:'HEAD'}).then(r=>{if(r.ok&&nb){nb.href=nf;nb.classList.remove('disabled');}}).catch(()=>{});
+    })();
+
+    // Scroll animations
+    const obs=new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';obs.unobserve(e.target);}});
+    },{threshold:0.08});
+    document.querySelectorAll('.section').forEach(s=>{s.style.opacity='0';s.style.transform='translateY(16px)';s.style.transition='opacity 0.45s ease,transform 0.45s ease';obs.observe(s);});
+
+    // Hash scrolling
+    if(window.location.hash){
+        const el=document.querySelector(window.location.hash);
+        if(el)setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),300);
+    }
+    </script>
+</body>
+</html>
