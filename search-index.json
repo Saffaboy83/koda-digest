@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-25T02:15:19Z",
+  "generated": "2026-03-25T02:46:30Z",
   "days": [
     {
       "date": "2026-03-24",
@@ -8,16 +8,16 @@
           "title": "Today's Focus",
           "items": [
             {
-              "headline": "Trillion-Parameter AI Threshold",
-              "text": "DeepSeek V4's 1 trillion-parameter architecture and OpenAI's GPT-5.4 with a 1M-token context window signal that frontier labs have crossed a new scale threshold in a single news cycle. Gemini 3.1 Pro's 77.1% score on ARC-AGI-2 adds a benchmark dimension, suggesting capability gains are now matching raw size increases. The convergence of scale, context, and reasoning benchmarks in one day is unprecedented and will pressure every major lab to accelerate roadmaps."
+              "headline": "AI Model Arms Race",
+              "text": "OpenAI shipped two major model families within 72 hours — GPT-5.3 and GPT-5.4 — while DeepSeek V4's 1 trillion parameters and Gemini 3.1 Pro's 77.1% ARC-AGI-2 score signal that frontier competition has entered a near-continuous release cycle. The pace raises serious questions about safety evaluation timelines and whether benchmarks can keep up with deployment speed."
             },
             {
-              "headline": "Middle East War Spillover",
-              "text": "Iran's strikes on Tel Aviv and Gulf State targets represent a significant escalation beyond the Israel-Gaza theater, drawing Gulf energy infrastructure into the conflict zone. Combined with Israel's planned Lebanon security zone expansion, the region faces a multi-front war scenario that could disrupt oil supply chains and trigger broader NATO-adjacent responses. Fragile US-Iran diplomatic back-channels appear increasingly insufficient to contain the kinetic momentum."
+              "headline": "US Geopolitical Overextension",
+              "text": "Washington is simultaneously managing an escalating conflict with Iran, a fuel blockade contributing to Cuba's potential collapse, and a domestic government shutdown that has grounded TSA personnel and been linked to two pilot fatalities. The convergence of foreign and domestic crises suggests US institutional bandwidth is under acute strain."
             },
             {
-              "headline": "US Domestic Crisis Compounding",
-              "text": "A US government shutdown has already produced fatal consequences at the airport level, pointing to cascading infrastructure failures when federal operations are suspended. Cuba's collapse under a US fuel blockade adds a Western Hemisphere humanitarian dimension that Washington must manage simultaneously with Middle East escalation. The dual domestic and foreign crises create a policy bandwidth problem that markets are only partially pricing in."
+              "headline": "Australia-EU Trade Milestone",
+              "text": "Australia and the European Union signed a historic trade deal, representing a significant realignment of Western economic partnerships amid global instability. The agreement could serve as a template for democratic nations seeking to reduce dependence on volatile supply chains and deepen multilateral ties outside US-centric frameworks."
             }
           ]
         },
@@ -26,7 +26,7 @@
           "items": [
             {
               "headline": "Summary",
-              "text": "AI hits trillion-parameter scale as Middle East conflict threatens global stability."
+              "text": "AI models race past trillion parameters as geopolitical flashpoints multiply worldwide."
             }
           ]
         },
@@ -35,47 +35,47 @@
           "items": [
             {
               "headline": "OpenAI GPT-5.4 Launches With 1M-Token Context",
-              "text": "OpenAI released GPT-5.4, codenamed 'Thinking,' on March 5, featuring a 1-million-token context window, native computer control, and enhanced step-by-step reasoning. The model targets coding, cost efficiency, and reduced hallucinations, and is available via both ChatGPT and the API. It represents OpenAI's latest reasoning-optimized frontier model amid what insiders describe as a crisis-mode release cadence. Source →"
+              "text": "OpenAI released GPT-5.4, codenamed 'Thinking,' on March 5, featuring a 1-million-token context window, native computer control, and enhanced step-by-step reasoning. The model is positioned as a reasoning-optimized frontier system with reduced hallucinations and improved cost efficiency. It is available via both ChatGPT and the OpenAI API. Source →"
             },
             {
               "headline": "DeepSeek V4 Arrives With 1 Trillion Parameters",
-              "text": "DeepSeek V4 launched around March 3 with 1 trillion total parameters and 32 billion active parameters, alongside native multimodal capabilities and a 1M+ token context window. Released as an open-weight model, it positions itself as directly competitive with leading proprietary systems from OpenAI and Google. The release continues China's pattern of rapid, open-weight model development at scale. Source →"
+              "text": "DeepSeek V4 launched around March 3 with 1 trillion total parameters and 32 billion active parameters, alongside native multimodal capabilities and a 1M+ token context window. The model is released as open-weight, positioning it as a direct competitor to proprietary frontier models from OpenAI and Google. Its mixture-of-experts architecture keeps inference costs low despite its massive scale. Source →"
             },
             {
               "headline": "Gemini 3.1 Pro Scores 77.1% on ARC-AGI-2",
-              "text": "Google DeepMind's Gemini 3.1 Pro, released February 19, posted 77.1% on ARC-AGI-2 and 94.3% on GPQA Diamond, alongside a reported 2x reasoning improvement over its predecessor. The multimodal model set a high benchmark bar entering March and is influencing competitive positioning across the industry. Its scores on ARC-AGI-2 in particular signal meaningful progress toward general reasoning capabilities. Source →"
+              "text": "Google DeepMind's Gemini 3.1 Pro, released February 19, posted 77.1% on ARC-AGI-2 and 94.3% on GPQA Diamond, representing a 2x reasoning improvement over its predecessor. The multimodal model set a new public benchmark ceiling on both evaluations at the time of release. Its performance is continuing to shape competitive dynamics heading into March 2026. Source →"
             },
             {
-              "headline": "GPT-5.3 'Garlic' Targets GPT-6-Level Efficiency",
-              "text": "OpenAI's GPT-5.3 'Garlic' is targeting full API availability in mid-March following a January preview, promising GPT-6-level reasoning in a smaller, faster architecture. The model prioritizes efficiency over raw scale and is slated for free-tier integration after its API rollout. It was part of a rapid 72-hour family release alongside GPT-5.3 Instant and GPT-5.4. Source →"
+              "headline": "OpenAI Ships GPT-5.3 Family in 72 Hours",
+              "text": "OpenAI executed a rapid 72-hour rollout of the GPT-5.3 family in early March, releasing GPT-5.3 Instant on March 3–5 alongside GPT-5.4. GPT-5.3 Instant focuses on reduced hallucinations, improved conversational flow, and fewer refusals compared to prior versions. The compressed release cadence reflects what observers are calling OpenAI's 'crisis-mode' strategy to maintain competitive footing in agentic AI. Source →"
             },
             {
-              "headline": "OpenAI Executes 72-Hour Multi-Model Sprint",
-              "text": "OpenAI released GPT-5.3 Instant, GPT-5.3 'Garlic,' and GPT-5.4 within a 72-hour window in early March, reflecting what analysts describe as a crisis-mode competitive posture in agentic AI. GPT-5.3 Instant specifically targets reduced hallucinations, improved conversational flow, and fewer refusals. The rapid cadence mirrors February's pace of 12 major releases across the industry. Source →"
+              "headline": "GPT-5.3 'Garlic' Targets GPT-6-Level Reasoning",
+              "text": "OpenAI's GPT-5.3 'Garlic' is targeting full API availability in mid-March following a January preview, promising GPT-6-level reasoning in a smaller, faster architecture optimized for efficiency. Free-tier integration is planned to follow the API launch. The model represents OpenAI's push to deliver frontier reasoning capabilities at lower computational cost. Source →"
             },
             {
-              "headline": "Industry Shifts Focus From Scale to Efficiency",
-              "text": "March 2026 marks a notable pivot across major AI labs toward efficiency, agentic reasoning, and deliberative 'thinking' modes rather than raw parameter scaling. Bi-weekly model iterations from OpenAI, Anthropic, Google, and xAI are now the norm, with multimodal support becoming a baseline expectation. Benchmark competition is increasingly centered on reasoning tasks like ARC-AGI-2 and GPQA Diamond rather than perplexity or scale metrics. Source →"
+              "headline": "Industry Hits 12 Major Releases Per Month",
+              "text": "March 2026 is on pace to match February's count of 12 major model releases, with leading labs now operating on bi-weekly iteration cycles. The trend signals a structural shift in AI development toward rapid, incremental deployment rather than infrequent landmark launches. Efficiency, agentic reasoning, and multimodal support have replaced raw parameter scale as the primary axes of competition. Source →"
             },
             {
-              "headline": "Anthropic Ships Two Claude Models in February",
-              "text": "Anthropic released Claude Opus 4.6 on February 4 and Claude Sonnet 4.6 on February 17, maintaining a rapid iteration schedule heading into March. Both models are part of Anthropic's ongoing effort to compete with OpenAI and Google across frontier reasoning and safety benchmarks. Claude ranks among the top LLMs for March 2026 by benchmark performance and pricing according to AlphaCorp AI analysis. Source →"
+              "headline": "Anthropic Ships Two Claude 4.x Models in February",
+              "text": "Anthropic released Claude Opus 4.6 on February 4 and Claude Sonnet 4.6 on February 17, continuing its cadence of paired frontier and mid-tier model updates. Both releases are influencing March benchmarking comparisons, with Claude ranking among the top LLMs alongside GPT-5.4, Gemini, and DeepSeek. Further variants, including Opus 4.7 and Sonnet 4.7, are anticipated before the end of March. Source →"
             },
             {
               "headline": "xAI's Grok 4.20 Exits Beta in February",
-              "text": "xAI's Grok 4.20 launched on February 17 and exited beta, joining a crowded field of frontier model releases in the first quarter of 2026. The model's full capabilities and benchmark results are being tracked alongside GPT-5.4, Gemini 3.1 Pro, and Claude Opus 4.6 in March rankings. Prediction markets had flagged Grok 4.20's beta exit as a key March milestone. Source →"
+              "text": "xAI's Grok 4.20 moved out of beta on February 17, joining a crowded field of frontier model releases in the first quarter of 2026. The model is included in March prediction markets alongside GPT-5.4-Pro, Kimi K3, and DeepSeek V4 as key competitive releases to watch. Grok 4.20's full capabilities and benchmark results have not yet been independently verified at scale. Source →"
             },
             {
               "headline": "Alibaba's Qwen 3.5 Joins Open-Weight Race",
-              "text": "Alibaba released Qwen 3.5 in February 2026 as an open-weight model, adding to a growing roster of competitive open alternatives to proprietary systems. Alongside DeepSeek V4, Qwen 3.5 reflects continued momentum from Chinese AI labs in the open-source ecosystem. The model is being evaluated against Western counterparts on reasoning and multimodal benchmarks. Source →"
+              "text": "Alibaba released Qwen 3.5 in February 2026 as an open-weight model, adding another competitive entry to a field already including DeepSeek V4. The release underscores China's continued investment in publicly accessible frontier models as a strategic counterweight to proprietary Western systems. Qwen 3.5's specific benchmark figures have not yet been widely reported. Source →"
             },
             {
-              "headline": "March Pipeline Includes Kimi K3 and Opus 4.7",
-              "text": "Prediction markets and analyst forecasts identify several additional March 2026 releases in the pipeline, including Kimi K3, Claude Opus 4.7, Claude Sonnet 4.7, and a GPT-5.4-Pro variant. The volume of anticipated releases underscores the accelerating cadence of frontier model development across both Eastern and Western labs. Manifold Markets is tracking resolution of these predictions in real time. Source →"
+              "headline": "Deliberative 'Thinking' Modes Displace Scale Focus",
+              "text": "Across March 2026 releases, labs are prioritizing deliberative reasoning modes — step-by-step 'thinking' architectures — over increases in raw model scale. OpenAI's GPT-5.4 and GPT-5.3 Garlic both exemplify this shift, delivering improved reasoning at lower cost rather than simply expanding parameter counts. Analysts at AlphaCorp rank Claude, GPT-5.4, Gemini, and DeepSeek as the top LLMs under this new efficiency-first paradigm. Source →"
             },
             {
-              "headline": "GPT-5.4 Adds Native Computer Control Feature",
-              "text": "Among GPT-5.4's headline capabilities is native computer control, enabling the model to interact directly with operating system interfaces without external tooling. This positions GPT-5.4 as a more capable agentic system, aligning with the industry's broader shift toward autonomous task execution. The feature is available through both the ChatGPT interface and the OpenAI API as of the March 5 launch. Source →"
+              "headline": "OpenAI GPT-5.3 Codex Released February 5",
+              "text": "OpenAI released GPT-5.3 Codex on February 5, ahead of the broader GPT-5.3 family rollout in early March. The coding-focused variant was confirmed as a resolved 'yes' in March prediction markets tracking model releases. Its launch preceded the rapid multi-model deployment strategy OpenAI executed in the first week of March. Source →"
             }
           ]
         },
@@ -83,36 +83,36 @@
           "title": "World News",
           "items": [
             {
-              "headline": "US-Iran War Escalates Amid Fragile Diplomacy",
-              "text": "The United States and Israel have conducted sustained airstrikes across Iran since February 28, with Iranian authorities reporting over 1,500 civilian deaths. President Trump threatened to destroy Iranian power plants if the Strait of Hormuz was not reopened within 48 hours, before postponing the strikes and claiming talks are progressing 'perfectly.' Iran has denied initiating diplomatic contact, leaving the conflict's trajectory deeply uncertain. Source →"
+              "headline": "US-Iran War Escalates Amid Diplomatic Backchannels",
+              "text": "The United States and Israel have conducted sustained air strikes on Iran since February 28, with Tehran reporting over 1,500 civilian deaths. President Trump threatened to destroy Iranian power plants if the Strait of Hormuz was not reopened within 48 hours, before postponing the strikes and claiming talks are progressing 'perfectly.' Iran has denied initiating diplomatic contact, while its missiles and drones have struck residential areas in Tel Aviv and targeted Saudi Arabia, Bahrain, Kuwait, and the UAE. Source →"
             },
             {
-              "headline": "Iran Strikes Tel Aviv, Gulf States Amid War",
-              "text": "Iranian missiles and drones have struck residential areas in Tel Aviv, injuring civilians and damaging buildings and vehicles. Attacks have also targeted Saudi Arabia, Bahrain, Kuwait, and the United Arab Emirates, broadening the regional footprint of the conflict. The strikes mark a significant escalation in Iran's retaliatory posture against US and Israeli military operations. Source →"
+              "headline": "Cuba Faces Collapse Amid US Fuel Blockade",
+              "text": "Cuba is experiencing a severe humanitarian crisis driven by a US fuel blockade, with an estimated 11,000 children awaiting surgery as hospitals near collapse. Countrywide power outages and supply shortages have compounded the emergency. Cuban military officials have signaled preparations for a possible US military strike. Source →"
             },
             {
-              "headline": "Cuba Faces Collapse Under US Fuel Blockade",
-              "text": "Cuba is experiencing countrywide power outages and critical supply shortages as a US fuel blockade tightens its grip. An estimated 11,000 children are awaiting surgery as hospitals approach collapse. Cuban military officials have signaled preparations for a possible US military attack, raising fears of further regional destabilization. Source →"
-            },
-            {
-              "headline": "US Shutdown Triggers Fatal Airport Crisis",
-              "text": "A partial US government shutdown continues with no bipartisan deal in sight, causing severe disruptions at airports nationwide as TSA officers work without pay and call out sick en masse. Two pilots were killed and dozens injured at LaGuardia Airport in New York City amid the chaos. The White House announced ICE agents would be deployed to airports to manage the growing crisis. Source →"
+              "headline": "US Shutdown Grounds TSA, Kills Two Pilots",
+              "text": "A partial US government shutdown continues with no bipartisan deal in sight, forcing TSA officers to work without pay and triggering widespread sick-outs at airports nationwide. Two pilots were killed and dozens injured at LaGuardia Airport in New York City amid the resulting chaos. The White House announced ICE agents would be deployed to major hubs to manage the crisis. Source →"
             },
             {
               "headline": "Israel Plans Lebanon Security Zone Expansion",
-              "text": "Israeli Defense Minister Israel Katz announced plans to establish a security zone in Lebanon, signaling a significant expansion of military operations beyond current engagements. The International Court of Justice has called for investigations into Israeli officials, with arrest warrants potentially being issued for alleged violations. The move raises further concerns about regional stability amid the broader Iran conflict. Source →"
+              "text": "Israeli Defense Minister Israel Katz announced plans to establish a formal security zone in Lebanon, signaling a significant expansion of military operations beyond current engagements. The International Court of Justice has called for investigations into Israeli officials and may issue arrest warrants for alleged violations of international law. Source →"
             },
             {
               "headline": "Australia and EU Sign Historic Trade Deal",
-              "text": "Australia and the European Union signed a landmark free trade agreement on March 24, concluding eight years of negotiations. The deal is expected to significantly expand market access for goods and services between the two economies. It represents one of the most consequential bilateral trade agreements for both parties in recent years. Source →"
+              "text": "Australia and the European Union signed a landmark free trade agreement on March 24, concluding eight years of negotiations. The deal represents a major economic milestone for both parties, opening markets across goods, services, and investment. No immediate financial figures were disclosed. Source →"
             },
             {
               "headline": "Denmark Holds Snap Election Amid Greenland Crisis",
-              "text": "Danish voters, along with Faroe Islanders and Greenlanders, went to the polls on March 24 to elect all 179 seats of the Folketing. Incumbent Prime Minister Mette Frederiksen sought a third term in an election called in the wake of the Greenland sovereignty crisis. The outcome is expected to shape Denmark's foreign and Arctic policy at a critical geopolitical moment. Source →"
+              "text": "Danish voters, along with residents of the Faroe Islands and Greenland, went to the polls on March 24 to fill all 179 seats of the Folketing. Incumbent Prime Minister Mette Frederiksen sought a third term in an election called in the wake of the ongoing Greenland sovereignty crisis. Source →"
             },
             {
-              "headline": "Record Heat Scorches Western US for Third Day",
-              "text": "Phoenix, Arizona recorded 105°F for a third consecutive day on March 24, breaking heat records across the western United States. Hawaii simultaneously faced devastating floods requiring large-scale cleanup operations. The back-to-back extreme weather events have strained emergency services across multiple states. Source →"
+              "headline": "Iran War Spillover Kills Seven in Iraq",
+              "text": "Seven fighters from Iraq's Popular Mobilization Forces were killed and 13 others wounded in a strike on a military base in Al Anbar Governorate. The attack is linked to the broader regional conflict stemming from the 2026 Iran war. The incident underscores the growing risk of the conflict destabilizing neighboring states. Source →"
+            },
+            {
+              "headline": "Record Heat Scorches US West, Hawaii Floods",
+              "text": "Phoenix recorded 105°F for a third consecutive day on March 24, breaking heat records across the western United States. Separately, Hawaii is managing the aftermath of devastating floods requiring large-scale cleanup operations. Both events highlight the intensifying frequency of extreme weather across the country. Source →"
             }
           ]
         },
@@ -150,27 +150,27 @@
           "items": [
             {
               "headline": "OpenAI",
-              "text": "On March 23, 2026, OpenAI announced plans to grow its headcount from 4,500 to 8,000 by year-end, with hiring concentrated in engineering, research, sales, and enterprise-facing 'technical ambassadorship' roles. The company is simultaneously consolidating ChatGPT, Codex, and its Atlas browser into a unified desktop SuperApp while pursuing a private equity joint venture to embed its tools across portfolio companies. These moves follow a December 2025 'code red' triggered by Google's Gemini 3 launch, suggesting OpenAI is responding to competitive pressure with both product integration and distribution scale."
+              "text": "On March 23, 2026, OpenAI announced plans to grow from 4,500 to 8,000 employees, targeting product, engineering, research, sales, and enterprise-facing 'technical ambassadorship' roles. The hiring push accompanies a product consolidation strategy — merging ChatGPT, Codex, and the Atlas browser into a unified desktop SuperApp — and a private equity joint venture initiative to embed its tools across portfolio companies. These moves follow a December 2025 'code red' response to Google's Gemini 3 launch, signaling that competitive pressure is directly accelerating OpenAI's operational tempo. Source →"
             },
             {
               "headline": "Google DeepMind",
-              "text": "Google DeepMind's Gemini 3 release in December 2025 was significant enough to trigger a strategic 'code red' at OpenAI, underscoring its continued relevance as a top-tier competitor. However, no specific Google DeepMind announcements from March 2026 are present in the current data set. Monitoring remains warranted given the company's demonstrated ability to shift competitive dynamics with major model releases."
+              "text": "Despite Google DeepMind's Gemini 3 reportedly triggering a 'code red' at OpenAI in December 2025, no specific March 2026 strategic moves or product announcements from the company appear in current sourced data. The competitive impact of Gemini 3 is being felt across the industry, but DeepMind's own forward posture for Q1 2026 remains unconfirmed from available sources. Monitoring recommended for imminent product or partnership disclosures."
             },
             {
               "headline": "Anthropic",
-              "text": "As of March 23, 2026, Anthropic is actively bidding against OpenAI to secure partnerships with private equity firms, aiming to embed its AI tools across their portfolio companies. OpenAI is reported to be winning this bidding war by offering more attractive deal terms, putting Anthropic at a potential disadvantage in a distribution channel that could prove strategically critical. The outcome of this competition may significantly shape enterprise AI adoption patterns across major asset classes."
+              "text": "As of March 23, 2026, Anthropic is actively bidding against OpenAI to secure partnerships with private equity firms, seeking to embed its AI tools across portfolio companies at scale. OpenAI is reportedly offering more favorable commercial terms, putting Anthropic at a disadvantage in this emerging enterprise distribution channel. The contest highlights a broader industry shift toward PE firms as high-leverage deployment vectors, with Anthropic needing to differentiate on product capability or trust rather than pricing alone. Source →"
             },
             {
               "headline": "Meta AI",
-              "text": "No specific Meta AI announcements or strategic moves from March 2026 are captured in the current data set. Meta has historically pursued an open-weight model strategy through its Llama series, which continues to shape the broader competitive landscape even in the absence of immediate news. Coverage gaps should be addressed before drawing conclusions about Meta's current trajectory."
+              "text": "No specific strategic moves, product launches, or partnership announcements from Meta AI appear in the sourced data for March 2026. Meta remains a major player in open-weight model development following the Llama series, but its current competitive positioning relative to the OpenAI-Anthropic PE bidding war and Google's Gemini 3 impact is not captured in available sources. Further monitoring of Meta's enterprise and open-source strategy is warranted."
             },
             {
               "headline": "Mistral",
-              "text": "Mistral does not appear in the current data set with any March 2026 announcements or strategic updates. The French AI company has previously positioned itself as a European open-model alternative to US hyperscalers, but its competitive standing relative to the rapid moves by OpenAI and Anthropic cannot be assessed from available intelligence. Further sourcing is needed."
+              "text": "Mistral AI does not appear in the sourced data for March 2026, leaving its current product roadmap and competitive positioning unconfirmed for this period. As a key European open-weight model provider, Mistral's strategic response to the accelerating U.S. enterprise AI race — particularly OpenAI's SuperApp consolidation and PE partnership push — remains an open question. Developments from the company should be tracked closely given the rapidly shifting competitive landscape."
             },
             {
               "headline": "China Challengers",
-              "text": "The current data set contains no reported developments from Chinese AI companies for March 2026, including players such as Baidu, Alibaba DAMO Academy, Zhipu AI, or DeepSeek. Given the pace of Chinese AI investment and the geopolitical stakes around frontier model development, this gap likely reflects sourcing limitations rather than inactivity. Dedicated monitoring of Chinese-language and regional outlets is recommended to fill this blind spot."
+              "text": "Chinese AI companies, including DeepSeek, Baidu, and others, do not appear in the sourced data for March 2026, leaving their latest competitive moves uncharacterized for this briefing cycle. Given the significant disruption Chinese models caused in early 2025, their absence from current sources may reflect intelligence gaps rather than inactivity. Geopolitical dynamics and export control developments continue to shape the context in which these players operate globally."
             }
           ]
         },
@@ -179,27 +179,27 @@
           "items": [
             {
               "headline": "Automate Meeting Notes with Bluedot",
-              "text": "Bluedot captures and transcribes meetings across Zoom, Google Meet, and Teams at 98%+ accuracy — without dropping a bot into the call. After each session, it auto-generates summaries and pushes tasks directly to HubSpot, Salesforce, or Slack. Sales and recruiting teams should connect their CRM on day one to eliminate manual note-taking entirely. Try it →"
+              "text": "Bluedot captures and transcribes Zoom, Google Meet, and Teams calls with 98%+ accuracy — no bot required to join the call. After each meeting, it auto-generates summaries, creates tasks, and syncs directly to HubSpot, Salesforce, or Slack. Sales and recruiting teams can eliminate manual note-taking entirely and focus on the conversation. Try it →"
             },
             {
               "headline": "Orchestrate Agentic Workflows with Zapier AI",
-              "text": "Zapier's AI Copilot lets you describe a workflow in plain English and builds it across 8,000+ apps — no code required. Use it to chain reactive automations like pulling inbound leads, summarizing them with an LLM, and posting structured output to a Slack channel. Start with one high-frequency repetitive task and expand from there as you validate the logic. Try it →"
+              "text": "Zapier AI connects over 8,000 apps and lets you build multi-step automation pipelines using plain-language instructions via its Copilot feature. Use it to create reactive AI systems — for example, automatically summarizing inbound leads and posting structured briefs to a Slack channel. No code required, making it accessible for ops and growth teams building agentic workflows. Try it →"
             },
             {
-              "headline": "Ditch the Keyboard for Wispr Flow",
-              "text": "Wispr Flow converts voice to polished, context-aware text inside any app — emails, Slack messages, or AI prompts — handling natural corrections like time and location changes on the fly. It removes typing friction for high-volume communicators who draft dozens of messages daily. Activate it for your longest recurring writing tasks first to measure time saved immediately. Try it →"
+              "headline": "Dictate Faster with Wispr Flow",
+              "text": "Wispr Flow is a context-aware voice-to-text tool that works across emails, Slack messages, and AI prompts — producing clean, formatted output without filler words. It handles nuanced revisions naturally, such as updating a time or location mid-sentence, making it ideal for high-volume communicators. Replace typing friction with dictation to cut drafting time significantly throughout the day. Try it →"
             },
             {
               "headline": "Cut Research Time with Perplexity Comet",
-              "text": "Comet is Perplexity's AI-native browser designed to handle browsing, summarization, and research automation on your behalf — reducing tab sprawl for developers and analysts. Feed it a research question or competitive analysis task and let it aggregate findings rather than manually scanning sources. It functions best as a dedicated research layer alongside your primary browser workflow. Try it →"
+              "text": "Comet is Perplexity's AI-native browser designed to handle browsing, summarization, and research tasks autonomously on your behalf. Developers and analysts can delegate multi-tab research sessions — Comet navigates, reads, and synthesizes findings without manual tab management. Use it as a research co-pilot to accelerate technical discovery and competitive analysis workflows. Try it →"
             },
             {
-              "headline": "Let Motion Manage Your Calendar Dynamically",
-              "text": "Motion uses AI to schedule tasks, prioritize deadlines, and rebalance team workloads in real time as priorities shift throughout the day. Unlike static calendar tools, it recalculates your schedule automatically when meetings run long or new tasks land. Teams managing complex, deadline-driven projects should sync all active tasks on setup to give the AI full scheduling context. Try it →"
+              "headline": "Optimize Schedules Dynamically with Motion",
+              "text": "Motion uses AI to build and continuously rebalance your calendar based on task deadlines, priorities, and team availability in real time. When a meeting shifts or a deadline moves, Motion automatically reschedules dependent tasks rather than leaving conflicts unresolved. Teams managing complex, deadline-driven projects can use it to reduce scheduling overhead and protect deep work time. Try it →"
             },
             {
               "headline": "Centralize Analytics with Supaboard AI",
-              "text": "Supaboard connects disparate data sources into a single layer, then automates reporting and dashboard generation for business teams making data-driven decisions. Its agentic workflow tools allow teams to query data and surface insights without relying on a dedicated analyst for every report. Start by integrating your highest-traffic data source to benchmark how much manual reporting time it displaces in the first week. Try it →"
+              "text": "Supaboard AI unifies data sources into a single platform and automates dashboard creation and reporting workflows for business teams. Instead of manually pulling data from disparate tools, teams can query unified datasets and generate visual reports through an agentic interface. Use it to accelerate decision-making cycles and reduce the time analysts spend on routine reporting tasks. Try it →"
             }
           ]
         }
