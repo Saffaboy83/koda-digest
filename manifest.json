@@ -1,21 +1,21 @@
 {
-  "generated": "2026-03-25T02:15:19Z",
+  "generated": "2026-03-25T02:46:30Z",
   "digests": [
     {
       "date": "2026-03-24",
       "dayOfWeek": "Tuesday",
       "focusTopics": [
         {
-          "title": "Trillion-Parameter AI Threshold",
-          "desc": "DeepSeek V4's 1 trillion-parameter architecture and OpenAI's GPT-5.4 with a 1M-token context window signal that frontier labs have crossed a new scale threshold in a single news cycle. Gemini 3.1 Pro's 77.1% score on ARC-AGI-2 adds a benchmark dimension, suggesting capability gains are now matching raw size increases. The convergence of scale, context, and reasoning benchmarks in one day is unprecedented and will pressure every major lab to accelerate roadmaps."
+          "title": "AI Model Arms Race",
+          "desc": "OpenAI shipped two major model families within 72 hours — GPT-5.3 and GPT-5.4 — while DeepSeek V4's 1 trillion parameters and Gemini 3.1 Pro's 77.1% ARC-AGI-2 score signal that frontier competition has entered a near-continuous release cycle. The pace raises serious questions about safety evaluation timelines and whether benchmarks can keep up with deployment speed."
         },
         {
-          "title": "Middle East War Spillover",
-          "desc": "Iran's strikes on Tel Aviv and Gulf State targets represent a significant escalation beyond the Israel-Gaza theater, drawing Gulf energy infrastructure into the conflict zone. Combined with Israel's planned Lebanon security zone expansion, the region faces a multi-front war scenario that could disrupt oil supply chains and trigger broader NATO-adjacent responses. Fragile US-Iran diplomatic back-channels appear increasingly insufficient to contain the kinetic momentum."
+          "title": "US Geopolitical Overextension",
+          "desc": "Washington is simultaneously managing an escalating conflict with Iran, a fuel blockade contributing to Cuba's potential collapse, and a domestic government shutdown that has grounded TSA personnel and been linked to two pilot fatalities. The convergence of foreign and domestic crises suggests US institutional bandwidth is under acute strain."
         },
         {
-          "title": "US Domestic Crisis Compounding",
-          "desc": "A US government shutdown has already produced fatal consequences at the airport level, pointing to cascading infrastructure failures when federal operations are suspended. Cuba's collapse under a US fuel blockade adds a Western Hemisphere humanitarian dimension that Washington must manage simultaneously with Middle East escalation. The dual domestic and foreign crises create a policy bandwidth problem that markets are only partially pricing in."
+          "title": "Australia-EU Trade Milestone",
+          "desc": "Australia and the European Union signed a historic trade deal, representing a significant realignment of Western economic partnerships amid global instability. The agreement could serve as a template for democratic nations seeking to reduce dependence on volatile supply chains and deepen multilateral ties outside US-centric frameworks."
         }
       ],
       "kpis": {
