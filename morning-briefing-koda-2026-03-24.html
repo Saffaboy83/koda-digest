@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koda Intelligence Briefing — March 24, 2026</title>
+    <title>Koda Intelligence Briefing — 24 March 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -164,596 +164,394 @@
         /* Fade-in — initial state set by JS only, not CSS */
     </style>
 </head>
-<body data-digest-date="2026-03-24">
+<body data-digest-date="2026-03-24" data-youtube-id="KAzT_IeZrX0">
 
-<!-- TOPBAR -->
+<!-- Topbar -->
 <div class="topbar">
     <div class="topbar-inner">
-        <div style="display:flex;align-items:center;gap:14px;">
-            <a href="./index.html" class="home-btn">&#8592; Home</a>
-            <a href="./index.html" class="brand" style="text-decoration:none;color:var(--text);">
-                <div class="brand-icon">K</div>
-                <div><div class="brand-name">Koda Digest</div><div class="brand-sub">Daily AI Intelligence</div></div>
-            </a>
-        </div>
+        <a href="./index.html" class="brand">
+            <div class="brand-icon">K</div>
+            <div><div class="brand-name">Koda Digest</div><div class="brand-sub">Intelligence Briefing</div></div>
+        </a>
         <div class="day-nav">
-            <a id="nav-prev" class="day-nav-btn disabled" href="#">&#8592; <span id="nav-prev-label">&mdash;</span></a>
-            <span class="day-nav-current" id="nav-current">Mar 24</span>
-            <a id="nav-next" class="day-nav-btn disabled" href="#"><span id="nav-next-label">&mdash;</span> &#8594;</a>
+            <a id="prevBtn" class="day-nav-btn disabled" href="#">← Yesterday</a>
+            <span class="day-nav-current">2026-03-24</span>
+            <a id="nextBtn" class="day-nav-btn disabled" href="#">Tomorrow →</a>
         </div>
         <div class="topbar-right">
-            <button class="dark-toggle" onclick="toggleDark()" id="darkBtn">&#127769; Dark</button>
+            <button class="dark-toggle" id="darkBtn" onclick="toggleDark()">🌙 Dark</button>
+            <a href="./index.html" class="home-btn">← Home</a>
         </div>
     </div>
 </div>
 
-<!-- HERO -->
-<div class="hero container">
-    <div class="hero-date">Tuesday, March 24, 2026</div>
-    <h1 class="hero-title">Koda Intelligence Briefing</h1>
-    <p class="hero-sub">AI breakthroughs, geopolitical shifts, market moves, and the tools reshaping how you work. Curated daily.</p>
+<!-- Hero -->
+<div class="hero">
+    <div class="container">
+        <div class="hero-date">24 March 2026</div>
+        <h1 class="hero-title">Koda Intelligence Briefing</h1>
+        <p class="hero-sub">AI developments, world news, markets, and tools — synthesized daily.</p>
+    </div>
 </div>
 
-<!-- KPI STRIP -->
+<!-- Content -->
 <div class="container">
-    <div class="kpi-strip">
-        <div class="kpi-card fade-in"><div class="kpi-value" style="color:var(--blue);">12</div><div class="kpi-label">AI Stories</div></div>
-        <div class="kpi-card fade-in"><div class="kpi-value" style="color:var(--red);">8</div><div class="kpi-label">World Events</div></div>
-        <div class="kpi-card fade-in"><div class="kpi-value" style="color:var(--emerald);">Rally</div><div class="kpi-label">Market Mood</div></div>
-        <div class="kpi-card fade-in"><div class="kpi-value" style="color:var(--purple);">6</div><div class="kpi-label">Tools Featured</div></div>
-    </div>
-
-    <!-- MEDIA STRIP -->
-    <div class="media-strip fade-in">
-        <div class="media-banner">
-            <div class="media-banner-icon">&#127911;</div>
+    <div class="kpi-strip"><div class="kpi-card">
+            <div class="kpi-value" style="color:var(--blue)">11</div>
+            <div class="kpi-label">AI Stories</div>
+        </div>
+<div class="kpi-card">
+            <div class="kpi-value" style="color:var(--red)">8</div>
+            <div class="kpi-label">World Events</div>
+        </div>
+<div class="kpi-card">
+            <div class="kpi-value" style="color:var(--emerald)">Mixed</div>
+            <div class="kpi-label">Market Mood</div>
+        </div>
+<div class="kpi-card">
+            <div class="kpi-value" style="color:var(--purple)">6</div>
+            <div class="kpi-label">Tools Featured</div>
+        </div>
+</div>
+<div class="media-strip"><div class="media-banner">
+            <div class="media-banner-icon">🎧</div>
             <div class="media-banner-title">Daily Podcast</div>
-            <div class="media-banner-sub">"AI Autonomy and the Energy Crisis" &mdash; ~21 min</div>
-            <button class="media-banner-btn podcast-btn" onclick="var p=document.getElementById('podPlayer');p.classList.toggle('active');if(p.classList.contains('active'))p.querySelector('audio').play();">&#9654; Listen Now</button>
-            <div class="podcast-player-wrap" id="podPlayer">
-                <audio controls style="width:100%;border-radius:10px;accent-color:#6366F1;">
-                    <source src="./podcast-2026-03-24.mp3" type="audio/mpeg">
-                </audio>
-            </div>
+            <div class="media-banner-sub">Not available for today</div>
+        </div><div class="media-banner">
+                    <div class="media-banner-icon">🎬</div>
+                    <div class="media-banner-title">Video Briefing</div>
+                    <div class="media-banner-sub">AI-generated cinematic explainer</div>
+                    <a href="https://www.youtube.com/watch?v=KAzT_IeZrX0" target="_blank" class="media-banner-btn video-btn">▶ Watch on YouTube</a>
+                    <button class="media-banner-btn expand-btn" onclick="toggleVideo()">▶ Watch Inline</button>
+                    <div class="video-overlay" id="videoOverlay" onclick="if(event.target===this)toggleVideo()">
+                        <div class="video-overlay-inner">
+                            <iframe id="videoFrame" width="100%" style="aspect-ratio:16/9;border:none;border-radius:12px" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div></div>
+<div class="section" id="daily-summary">
+        <div class="section-title"><span class="section-icon">📋</span> Executive Summary</div>
+        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);">
+            <div class="summary-hook" style="font-size:20px;font-weight:800;margin-bottom:18px;line-height:1.4">AI hits trillion-parameter scale as Middle East conflict threatens global stability.</div>
+            <div class="summary-brief" style="border-left:3px solid var(--blue);padding:10px 16px;margin:10px 0;background:var(--bg-card);border-radius:0 12px 12px 0;">
+            <div style="font-size:13px;font-weight:700;color:var(--blue);margin-bottom:4px">🤖 AI</div>
+            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">OpenAI launched GPT-5.4 with a 1 million-token context window while DeepSeek unveiled a 1 trillion-parameter V4 model, marking a single-day leap in frontier AI scale.</div>
         </div>
-        <div class="media-banner">
-            <div class="media-banner-icon">&#127909;</div>
-            <div class="media-banner-title">Video Briefing</div>
-            <div class="media-banner-sub">"Tehran Burns, AI Writes Code" &mdash; visual explainer</div>
-            <a class="media-banner-btn video-btn" href="https://www.youtube.com/watch?v=KAzT_IeZrX0" target="_blank">&#9654; Watch on YouTube</a>
-            <button class="media-banner-btn expand-btn" onclick="document.getElementById('video-overlay').classList.add('active')">&#x26F6; Expand Inline</button>
+<div class="summary-brief" style="border-left:3px solid var(--red);padding:10px 16px;margin:10px 0;background:var(--bg-card);border-radius:0 12px 12px 0;">
+            <div style="font-size:13px;font-weight:700;color:var(--red);margin-bottom:4px">🌍 World</div>
+            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">Iran struck Tel Aviv and Gulf State targets as US-Iran war escalation collides with fragile diplomatic channels, raising fears of a broader regional conflagration.</div>
+        </div>
+<div class="summary-brief" style="border-left:3px solid var(--emerald);padding:10px 16px;margin:10px 0;background:var(--bg-card);border-radius:0 12px 12px 0;">
+            <div style="font-size:13px;font-weight:700;color:var(--emerald);margin-bottom:4px">📊 Markets</div>
+            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">Markets are trading mixed as AI-sector optimism from a wave of model launches is offset by geopolitical risk premiums tied to Middle East hostilities and a US government shutdown.</div>
+        </div>
+<div class="summary-brief" style="border-left:3px solid var(--amber);padding:10px 16px;margin:10px 0;background:var(--bg-card);border-radius:0 12px 12px 0;">
+            <div style="font-size:13px;font-weight:700;color:var(--amber);margin-bottom:4px">⚡ Wild Card</div>
+            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">OpenAI's 72-hour multi-model sprint — releasing GPT-5.4, advancing GPT-5.3 'Garlic' toward GPT-6-level efficiency, and racing DeepSeek simultaneously — suggests the AI arms race has shifted from quarterly cycles to near-continuous deployment warfare.</div>
+        </div>
+
         </div>
     </div>
-    <div id="video-overlay" class="video-overlay" onclick="if(event.target===this)this.classList.remove('active')">
-        <div class="video-overlay-inner">
-            <button class="video-overlay-close" onclick="document.getElementById('video-overlay').classList.remove('active')">&times;</button>
-            <iframe src="https://www.youtube.com/embed/KAzT_IeZrX0" title="Tehran Burns, AI Writes Code, Markets Shrug | Koda Intel" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="section" id="todays-focus">
+        <div class="section-title"><span class="section-icon">🎯</span> Today's Focus</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;"><div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="font-size:32px;font-weight:800;color:var(--blue);font-family:'JetBrains Mono',monospace;margin-bottom:8px">1</div>
+            <div class="focus-content-title" style="font-size:16px;font-weight:700;margin-bottom:8px">Trillion-Parameter AI Threshold</div>
+            <div class="focus-content-body" style="font-size:14px;color:var(--text-secondary);line-height:1.6">DeepSeek V4's 1 trillion-parameter architecture and OpenAI's GPT-5.4 with a 1M-token context window signal that frontier labs have crossed a new scale threshold in a single news cycle. Gemini 3.1 Pro's 77.1% score on ARC-AGI-2 adds a benchmark dimension, suggesting capability gains are now matching raw size increases. The convergence of scale, context, and reasoning benchmarks in one day is unprecedented and will pressure every major lab to accelerate roadmaps.</div>
         </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="font-size:32px;font-weight:800;color:var(--purple);font-family:'JetBrains Mono',monospace;margin-bottom:8px">2</div>
+            <div class="focus-content-title" style="font-size:16px;font-weight:700;margin-bottom:8px">Middle East War Spillover</div>
+            <div class="focus-content-body" style="font-size:14px;color:var(--text-secondary);line-height:1.6">Iran's strikes on Tel Aviv and Gulf State targets represent a significant escalation beyond the Israel-Gaza theater, drawing Gulf energy infrastructure into the conflict zone. Combined with Israel's planned Lebanon security zone expansion, the region faces a multi-front war scenario that could disrupt oil supply chains and trigger broader NATO-adjacent responses. Fragile US-Iran diplomatic back-channels appear increasingly insufficient to contain the kinetic momentum.</div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="font-size:32px;font-weight:800;color:var(--emerald);font-family:'JetBrains Mono',monospace;margin-bottom:8px">3</div>
+            <div class="focus-content-title" style="font-size:16px;font-weight:700;margin-bottom:8px">US Domestic Crisis Compounding</div>
+            <div class="focus-content-body" style="font-size:14px;color:var(--text-secondary);line-height:1.6">A US government shutdown has already produced fatal consequences at the airport level, pointing to cascading infrastructure failures when federal operations are suspended. Cuba's collapse under a US fuel blockade adds a Western Hemisphere humanitarian dimension that Washington must manage simultaneously with Middle East escalation. The dual domestic and foreign crises create a policy bandwidth problem that markets are only partially pricing in.</div>
+        </div>
+</div>
+    </div>
+<div class="section" id="ai-developments">
+        <div class="section-title"><span class="section-icon">🤖</span> AI Developments</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;"><div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Model Release</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">OpenAI GPT-5.4 Launches With 1M-Token Context</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">OpenAI released GPT-5.4, codenamed 'Thinking,' on March 5, featuring a 1-million-token context window, native computer control, and enhanced step-by-step reasoning. The model targets coding, cost efficiency, and reduced hallucinations, and is available via both ChatGPT and the API. It represents OpenAI's latest reasoning-optimized frontier model amid what insiders describe as a crisis-mode release cadence. <a href="https://champaignmagazine.com/2026/03/08/ai-by-ai-weekly-top-5-march-2-8-2026/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">China</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">DeepSeek V4 Arrives With 1 Trillion Parameters</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">DeepSeek V4 launched around March 3 with 1 trillion total parameters and 32 billion active parameters, alongside native multimodal capabilities and a 1M+ token context window. Released as an open-weight model, it positions itself as directly competitive with leading proprietary systems from OpenAI and Google. The release continues China's pattern of rapid, open-weight model development at scale. <a href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Benchmark</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Gemini 3.1 Pro Scores 77.1% on ARC-AGI-2</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Google DeepMind's Gemini 3.1 Pro, released February 19, posted 77.1% on ARC-AGI-2 and 94.3% on GPQA Diamond, alongside a reported 2x reasoning improvement over its predecessor. The multimodal model set a high benchmark bar entering March and is influencing competitive positioning across the industry. Its scores on ARC-AGI-2 in particular signal meaningful progress toward general reasoning capabilities. <a href="https://aiflashreport.com/model-releases.html" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Model Release</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">GPT-5.3 'Garlic' Targets GPT-6-Level Efficiency</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">OpenAI's GPT-5.3 'Garlic' is targeting full API availability in mid-March following a January preview, promising GPT-6-level reasoning in a smaller, faster architecture. The model prioritizes efficiency over raw scale and is slated for free-tier integration after its API rollout. It was part of a rapid 72-hour family release alongside GPT-5.3 Instant and GPT-5.4. <a href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Trend</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">OpenAI Executes 72-Hour Multi-Model Sprint</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">OpenAI released GPT-5.3 Instant, GPT-5.3 'Garlic,' and GPT-5.4 within a 72-hour window in early March, reflecting what analysts describe as a crisis-mode competitive posture in agentic AI. GPT-5.3 Instant specifically targets reduced hallucinations, improved conversational flow, and fewer refusals. The rapid cadence mirrors February's pace of 12 major releases across the industry. <a href="https://champaignmagazine.com/2026/03/08/ai-by-ai-weekly-top-5-march-2-8-2026/" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Trend</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Industry Shifts Focus From Scale to Efficiency</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">March 2026 marks a notable pivot across major AI labs toward efficiency, agentic reasoning, and deliberative 'thinking' modes rather than raw parameter scaling. Bi-weekly model iterations from OpenAI, Anthropic, Google, and xAI are now the norm, with multimodal support becoming a baseline expectation. Benchmark competition is increasingly centered on reasoning tasks like ARC-AGI-2 and GPQA Diamond rather than perplexity or scale metrics. <a href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Model Release</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Anthropic Ships Two Claude Models in February</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Anthropic released Claude Opus 4.6 on February 4 and Claude Sonnet 4.6 on February 17, maintaining a rapid iteration schedule heading into March. Both models are part of Anthropic's ongoing effort to compete with OpenAI and Google across frontier reasoning and safety benchmarks. Claude ranks among the top LLMs for March 2026 by benchmark performance and pricing according to AlphaCorp AI analysis. <a href="https://designforonline.com/the-best-ai-models-so-far-in-2026/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Model Release</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">xAI's Grok 4.20 Exits Beta in February</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">xAI's Grok 4.20 launched on February 17 and exited beta, joining a crowded field of frontier model releases in the first quarter of 2026. The model's full capabilities and benchmark results are being tracked alongside GPT-5.4, Gemini 3.1 Pro, and Claude Opus 4.6 in March rankings. Prediction markets had flagged Grok 4.20's beta exit as a key March milestone. <a href="https://manifold.markets/prismatic/march-2026-ai-model-releases" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--emerald);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Open Source</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Alibaba's Qwen 3.5 Joins Open-Weight Race</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Alibaba released Qwen 3.5 in February 2026 as an open-weight model, adding to a growing roster of competitive open alternatives to proprietary systems. Alongside DeepSeek V4, Qwen 3.5 reflects continued momentum from Chinese AI labs in the open-source ecosystem. The model is being evaluated against Western counterparts on reasoning and multimodal benchmarks. <a href="https://aiflashreport.com/model-releases.html" target="_blank" style="color:var(--emerald);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Trend</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">March Pipeline Includes Kimi K3 and Opus 4.7</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Prediction markets and analyst forecasts identify several additional March 2026 releases in the pipeline, including Kimi K3, Claude Opus 4.7, Claude Sonnet 4.7, and a GPT-5.4-Pro variant. The volume of anticipated releases underscores the accelerating cadence of frontier model development across both Eastern and Western labs. Manifold Markets is tracking resolution of these predictions in real time. <a href="https://manifold.markets/prismatic/march-2026-ai-model-releases" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--indigo);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Agents</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">GPT-5.4 Adds Native Computer Control Feature</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Among GPT-5.4's headline capabilities is native computer control, enabling the model to interact directly with operating system interfaces without external tooling. This positions GPT-5.4 as a more capable agentic system, aligning with the industry's broader shift toward autonomous task execution. The feature is available through both the ChatGPT interface and the OpenAI API as of the March 5 launch. <a href="https://champaignmagazine.com/2026/03/08/ai-by-ai-weekly-top-5-march-2-8-2026/" target="_blank" style="color:var(--indigo);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+</div>
+    </div>
+<div class="section" id="world-news">
+        <div class="section-title"><span class="section-icon">🌍</span> World News</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;"><div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Conflict</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">US-Iran War Escalates Amid Fragile Diplomacy</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">The United States and Israel have conducted sustained airstrikes across Iran since February 28, with Iranian authorities reporting over 1,500 civilian deaths. President Trump threatened to destroy Iranian power plants if the Strait of Hormuz was not reopened within 48 hours, before postponing the strikes and claiming talks are progressing 'perfectly.' Iran has denied initiating diplomatic contact, leaving the conflict's trajectory deeply uncertain. <a href="https://en.wikipedia.org/wiki/Portal:Current_events/2026_March_24" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Conflict</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Iran Strikes Tel Aviv, Gulf States Amid War</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Iranian missiles and drones have struck residential areas in Tel Aviv, injuring civilians and damaging buildings and vehicles. Attacks have also targeted Saudi Arabia, Bahrain, Kuwait, and the United Arab Emirates, broadening the regional footprint of the conflict. The strikes mark a significant escalation in Iran's retaliatory posture against US and Israeli military operations. <a href="https://www.youtube.com/watch?v=vGw6fy3bBYY" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--amber);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Humanitarian</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Cuba Faces Collapse Under US Fuel Blockade</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Cuba is experiencing countrywide power outages and critical supply shortages as a US fuel blockade tightens its grip. An estimated 11,000 children are awaiting surgery as hospitals approach collapse. Cuban military officials have signaled preparations for a possible US military attack, raising fears of further regional destabilization. <a href="https://en.wikipedia.org/wiki/Portal:Current_events/2026_March_24" target="_blank" style="color:var(--amber);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Policy</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">US Shutdown Triggers Fatal Airport Crisis</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">A partial US government shutdown continues with no bipartisan deal in sight, causing severe disruptions at airports nationwide as TSA officers work without pay and call out sick en masse. Two pilots were killed and dozens injured at LaGuardia Airport in New York City amid the chaos. The White House announced ICE agents would be deployed to airports to manage the growing crisis. <a href="https://www.youtube.com/watch?v=7daoSA15N14" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Conflict</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Israel Plans Lebanon Security Zone Expansion</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Israeli Defense Minister Israel Katz announced plans to establish a security zone in Lebanon, signaling a significant expansion of military operations beyond current engagements. The International Court of Justice has called for investigations into Israeli officials, with arrest warrants potentially being issued for alleged violations. The move raises further concerns about regional stability amid the broader Iran conflict. <a href="https://en.wikipedia.org/wiki/Portal:Current_events/2026_March_24" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--emerald);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Economy</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Australia and EU Sign Historic Trade Deal</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Australia and the European Union signed a landmark free trade agreement on March 24, concluding eight years of negotiations. The deal is expected to significantly expand market access for goods and services between the two economies. It represents one of the most consequential bilateral trade agreements for both parties in recent years. <a href="https://en.wikipedia.org/wiki/Portal:Current_events/2026_March_24" target="_blank" style="color:var(--emerald);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Policy</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Denmark Holds Snap Election Amid Greenland Crisis</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Danish voters, along with Faroe Islanders and Greenlanders, went to the polls on March 24 to elect all 179 seats of the Folketing. Incumbent Prime Minister Mette Frederiksen sought a third term in an election called in the wake of the Greenland sovereignty crisis. The outcome is expected to shape Denmark's foreign and Arctic policy at a critical geopolitical moment. <a href="https://en.wikipedia.org/wiki/Portal:Current_events/2026_March_24" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--emerald);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Climate</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Record Heat Scorches Western US for Third Day</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Phoenix, Arizona recorded 105°F for a third consecutive day on March 24, breaking heat records across the western United States. Hawaii simultaneously faced devastating floods requiring large-scale cleanup operations. The back-to-back extreme weather events have strained emergency services across multiple states. <a href="https://www.youtube.com/watch?v=yg992IJPm0s" target="_blank" style="color:var(--emerald);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+</div>
+    </div>
+<div class="section" id="market-snapshot">
+        <div class="section-title"><span class="section-icon">📊</span> Market Snapshot</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;"><div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
+            <div style="font-size:20px;margin-bottom:4px">📈</div>
+            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">S&P 500</div>
+            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">6506.48</div>
+            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--red);margin-top:4px">-1%</div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
+            <div style="font-size:20px;margin-bottom:4px">📊</div>
+            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">NASDAQ</div>
+            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">N/A</div>
+            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--red);margin-top:4px">-1%</div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
+            <div style="font-size:20px;margin-bottom:4px">₿</div>
+            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">BTC</div>
+            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">$70267</div>
+            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--red);margin-top:4px">-5%</div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
+            <div style="font-size:20px;margin-bottom:4px">◆</div>
+            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">ETH</div>
+            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">$2300</div>
+            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--emerald);margin-top:4px">+20%</div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
+            <div style="font-size:20px;margin-bottom:4px">🛢</div>
+            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Oil Brent</div>
+            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">N/A</div>
+            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--amber);margin-top:4px"></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
+            <div style="font-size:20px;margin-bottom:4px">🧠</div>
+            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Sentiment</div>
+            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">N/A</div>
+            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--amber);margin-top:4px"></div>
+        </div>
+</div>
+    </div>
+<div class="section" id="competitive-landscape">
+        <div class="section-title"><span class="section-icon">🏢</span> Competitive Landscape</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;"><div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">OpenAI</div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">Aggressive expansion underway: near-doubling of workforce and platform consolidation signal a push for enterprise dominance in 2026.</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">On March 23, 2026, OpenAI announced plans to grow its headcount from 4,500 to 8,000 by year-end, with hiring concentrated in engineering, research, sales, and enterprise-facing 'technical ambassadorship' roles. The company is simultaneously consolidating ChatGPT, Codex, and its Atlas browser into a unified desktop SuperApp while pursuing a private equity joint venture to embed its tools across portfolio companies. These moves follow a December 2025 'code red' triggered by Google's Gemini 3 launch, suggesting OpenAI is responding to competitive pressure with both product integration and distribution scale.</div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">Google DeepMind</div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">No new March 2026 announcements captured in available sources, but Gemini 3 remains a key competitive catalyst.</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Google DeepMind's Gemini 3 release in December 2025 was significant enough to trigger a strategic 'code red' at OpenAI, underscoring its continued relevance as a top-tier competitor. However, no specific Google DeepMind announcements from March 2026 are present in the current data set. Monitoring remains warranted given the company's demonstrated ability to shift competitive dynamics with major model releases.</div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">Anthropic</div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">Competing directly with OpenAI for private equity distribution deals, but reportedly offering less favorable terms.</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">As of March 23, 2026, Anthropic is actively bidding against OpenAI to secure partnerships with private equity firms, aiming to embed its AI tools across their portfolio companies. OpenAI is reported to be winning this bidding war by offering more attractive deal terms, putting Anthropic at a potential disadvantage in a distribution channel that could prove strategically critical. The outcome of this competition may significantly shape enterprise AI adoption patterns across major asset classes.</div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">Meta AI</div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">No March 2026 developments reported in available sources.</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">No specific Meta AI announcements or strategic moves from March 2026 are captured in the current data set. Meta has historically pursued an open-weight model strategy through its Llama series, which continues to shape the broader competitive landscape even in the absence of immediate news. Coverage gaps should be addressed before drawing conclusions about Meta's current trajectory.</div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">Mistral</div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">No March 2026 developments reported in available sources.</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Mistral does not appear in the current data set with any March 2026 announcements or strategic updates. The French AI company has previously positioned itself as a European open-model alternative to US hyperscalers, but its competitive standing relative to the rapid moves by OpenAI and Anthropic cannot be assessed from available intelligence. Further sourcing is needed.</div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">China Challengers</div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">No March 2026 developments from Chinese AI firms reported in available sources.</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">The current data set contains no reported developments from Chinese AI companies for March 2026, including players such as Baidu, Alibaba DAMO Academy, Zhipu AI, or DeepSeek. Given the pace of Chinese AI investment and the geopolitical stakes around frontier model development, this gap likely reflects sourcing limitations rather than inactivity. Dedicated monitoring of Chinese-language and regional outlets is recommended to fill this blind spot.</div>
+        </div>
+</div>
+    </div>
+<div class="section" id="ai-tool-guide">
+        <div class="section-title"><span class="section-icon">🧰</span> AI Tool Guide</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;"><div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">⚡ TIP 01</div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Automate Meeting Notes with Bluedot</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Bluedot captures and transcribes meetings across Zoom, Google Meet, and Teams at 98%+ accuracy — without dropping a bot into the call. After each session, it auto-generates summaries and pushes tasks directly to HubSpot, Salesforce, or Slack. Sales and recruiting teams should connect their CRM on day one to eliminate manual note-taking entirely. <a href="https://bluedot.ai" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">🔨 TIP 02</div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Orchestrate Agentic Workflows with Zapier AI</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Zapier's AI Copilot lets you describe a workflow in plain English and builds it across 8,000+ apps — no code required. Use it to chain reactive automations like pulling inbound leads, summarizing them with an LLM, and posting structured output to a Slack channel. Start with one high-frequency repetitive task and expand from there as you validate the logic. <a href="https://zapier.com" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">⚡ TIP 03</div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Ditch the Keyboard for Wispr Flow</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Wispr Flow converts voice to polished, context-aware text inside any app — emails, Slack messages, or AI prompts — handling natural corrections like time and location changes on the fly. It removes typing friction for high-volume communicators who draft dozens of messages daily. Activate it for your longest recurring writing tasks first to measure time saved immediately. <a href="https://wisprflow.ai" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">💻 TIP 04</div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Cut Research Time with Perplexity Comet</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Comet is Perplexity's AI-native browser designed to handle browsing, summarization, and research automation on your behalf — reducing tab sprawl for developers and analysts. Feed it a research question or competitive analysis task and let it aggregate findings rather than manually scanning sources. It functions best as a dedicated research layer alongside your primary browser workflow. <a href="https://comet.perplexity.ai" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">⚡ TIP 05</div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Let Motion Manage Your Calendar Dynamically</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Motion uses AI to schedule tasks, prioritize deadlines, and rebalance team workloads in real time as priorities shift throughout the day. Unlike static calendar tools, it recalculates your schedule automatically when meetings run long or new tasks land. Teams managing complex, deadline-driven projects should sync all active tasks on setup to give the AI full scheduling context. <a href="https://www.usemotion.com" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
+        </div>
+<div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">🔨 TIP 06</div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Centralize Analytics with Supaboard AI</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Supaboard connects disparate data sources into a single layer, then automates reporting and dashboard generation for business teams making data-driven decisions. Its agentic workflow tools allow teams to query data and surface insights without relying on a dedicated analyst for every report. Start by integrating your highest-traffic data source to benchmark how much manual reporting time it displaces in the first week. <a href="https://supaboard.ai" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
+        </div>
+</div>
     </div>
 </div>
 
-<!-- DAILY SUMMARY -->
-<div class="container">
-    <section class="section fade-in" id="daily-summary">
-        <h2 class="section-title"><span class="section-icon">&#9889;</span> Daily Summary</h2>
-        <div class="summary-card">
-            <div class="summary-hook">Israel hit Tehran. Bitcoin rallied. Claude writes better code than most developers. That is your world on March 24, 2026.</div>
-            <div class="summary-briefs">
-                <div class="summary-brief">
-                    <div class="summary-brief-header">
-                        <span class="summary-brief-icon" style="background:rgba(59,130,246,0.15);color:var(--blue);">&#9889;</span>
-                        <span class="summary-brief-label" style="color:var(--blue);">AI</span>
-                    </div>
-                    <div class="summary-brief-text">Claude Opus 4.6 now scores 80.8% on SWE-Bench Verified, pulling ahead of GPT-5.4. OpenAI launched GPT-5.4 with a 1.05 million token context window. China's MiniMax M2.5 matches Claude quality at a fraction of the cost. The AI coding war is real, and your IDE is the battlefield.</div>
-                </div>
-                <div class="summary-brief">
-                    <div class="summary-brief-header">
-                        <span class="summary-brief-icon" style="background:rgba(239,68,68,0.15);color:var(--red);">&#127758;</span>
-                        <span class="summary-brief-label" style="color:var(--red);">World</span>
-                    </div>
-                    <div class="summary-brief-text">Israel struck IRGC headquarters in Tehran in a wide-scale wave of attacks. Iran says there are no talks with Washington despite Trump claiming 15 points of agreement. Saudi Arabia expelled Iranian diplomats. The Strait of Hormuz remains the world's pressure point.</div>
-                </div>
-                <div class="summary-brief">
-                    <div class="summary-brief-header">
-                        <span class="summary-brief-icon" style="background:rgba(16,185,129,0.15);color:var(--emerald);">&#128200;</span>
-                        <span class="summary-brief-label" style="color:var(--emerald);">Markets</span>
-                    </div>
-                    <div class="summary-brief-text">S&P 500 up 1.15%. NASDAQ up 1.38%. Bitcoin reclaimed $71K on a relief rally despite extreme fear at 11. Ethereum outperformed at +5.16%. The market is pricing in a short war. If that bet is wrong, expect fireworks.</div>
-                </div>
-                <div class="summary-brief">
-                    <div class="summary-brief-header">
-                        <span class="summary-brief-icon" style="background:rgba(139,92,246,0.15);color:var(--purple);">&#128161;</span>
-                        <span class="summary-brief-label" style="color:var(--purple);">Wild Card</span>
-                    </div>
-                    <div class="summary-brief-text">Mistral is quietly sprinting to $1B ARR while everyone watches the OpenAI, Google, and Anthropic race. Enterprise customers do not want the biggest model. They want the cheapest one that works. China knows this. Mistral knows this. Does Silicon Valley?</div>
-                </div>
-            </div>
-            <div class="summary-cta">Full breakdown below. Start with the infographic.</div>
-        </div>
-    </section>
-</div>
-
-<!-- INFOGRAPHIC -->
-<div class="container">
-    <section class="section fade-in" id="daily-infographic">
-        <h2 class="section-title"><span class="section-icon">&#128202;</span> Daily Infographic</h2>
-        <div class="infographic">
-            <img src="./infographic-2026-03-24.jpg" alt="Koda Intelligence: State of the World — 2026-03-24" style="width:100%;height:auto;display:block;border-radius:20px;">
-        </div>
-    </section>
-</div>
-
-<!-- TODAY'S FOCUS -->
-<div class="container">
-    <section class="section fade-in" id="todays-focus">
-        <h2 class="section-title"><span class="section-icon">&#127919;</span> Today's Focus</h2>
-        <div class="focus-grid">
-            <div class="focus-item">
-                <div class="focus-num">1</div>
-                <div class="focus-content">
-                    <div class="focus-content-title">Middle East Escalation Intensifies</div>
-                    <div class="focus-content-body">Israel launched wide-scale strikes on IRGC headquarters in Tehran. Saudi Arabia expelled Iranian military staff. Trump claims 15 points of agreement, but Iran denies any dialogue. Five-day pause on energy site strikes, but Hormuz shipping lanes remain under threat.</div>
-                </div>
-            </div>
-            <div class="focus-item">
-                <div class="focus-num">2</div>
-                <div class="focus-content">
-                    <div class="focus-content-title">AI Coding Wars Heat Up</div>
-                    <div class="focus-content-body">Claude Opus 4.6 leads SWE-Bench Verified at 80.8%, ahead of GPT-5.4's 77.2%. OpenAI's GPT-5.4 ships with 1.05M token context. Chinese models from MiniMax and Xiaomi match Western quality at dramatically lower cost. The race is no longer about who is smartest. It is about who is cheapest.</div>
-                </div>
-            </div>
-            <div class="focus-item">
-                <div class="focus-num">3</div>
-                <div class="focus-content">
-                    <div class="focus-content-title">Crypto Relief Rally Amid Extreme Fear</div>
-                    <div class="focus-content-body">Bitcoin reclaimed $71K with a 3.79% surge. Ethereum outperformed at +5.16%. The Fear and Greed Index sits at 11, the deepest extreme fear reading this year. Equities rallied too. The market is betting on containment. If that changes, crypto goes first.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
-<!-- AI DEVELOPMENTS -->
-<div class="container">
-    <section class="section fade-in" id="ai-developments">
-        <h2 class="section-title"><span class="section-icon">&#129302;</span> AI Developments</h2>
-        <div class="card-grid">
-            <div class="card">
-                <span class="card-badge" style="background:rgba(59,130,246,0.1);color:var(--blue);">model release</span>
-                <div class="card-title">GPT-5.4 Launches with 1.05M Token Context</div>
-                <div class="card-body">OpenAI released GPT-5.4 on March 5, designed for professional multi-step tasks. The context window is the largest OpenAI has ever offered commercially. Factual accuracy improved 33% on individual claims. Ties with Gemini 3.1 Pro at 57 on the Artificial Analysis Intelligence Index.</div>
-                <a class="card-source" href="https://renovateqr.com/blog/ai-model-releases-2026" target="_blank">&#8599; Renovate QR</a>
-            </div>
-            <div class="card">
-                <span class="card-badge" style="background:rgba(139,92,246,0.1);color:var(--purple);">benchmark</span>
-                <div class="card-title">Claude Opus 4.6 Leads SWE-Bench at 80.8%</div>
-                <div class="card-body">Anthropic's Claude Opus 4.6 scores 80.8% on SWE-Bench Verified, ahead of GPT-5.4's 77.2%. The 1M token context window is now in beta across both Opus and Sonnet tiers, allowing entire codebases in a single conversation. Depth over breadth continues to be Anthropic's strategy.</div>
-                <a class="card-source" href="https://llm-stats.com/llm-updates" target="_blank">&#8599; LLM Stats</a>
-            </div>
-            <div class="card">
-                <span class="card-badge" style="background:rgba(16,185,129,0.1);color:var(--emerald);">model release</span>
-                <div class="card-title">Gemini 3.1 Pro Hits 77.1% on ARC-AGI-2</div>
-                <div class="card-body">Google DeepMind's Gemini 3.1 Pro features a 1M token context window with multimodal reasoning across text, images, audio, video, and code. It leads the Artificial Analysis Intelligence Index at 57 points, tied with GPT-5.4 Pro. The most capable Pro-tier model as of February 2026.</div>
-                <a class="card-source" href="https://llm-stats.com/ai-news" target="_blank">&#8599; LLM Stats</a>
-            </div>
-            <div class="card">
-                <span class="card-badge" style="background:rgba(239,68,68,0.1);color:var(--red);">china</span>
-                <div class="card-title">Chinese AI Models Match Western Quality</div>
-                <div class="card-body">Five new models dropped from Tencent, Alibaba, Baidu, ByteDance, and MiniMax this month. MiniMax's M2.5 rivals Claude Opus 4.6 at significantly lower cost. Xiaomi's MiMo-V2-Pro, led by a former DeepSeek researcher, is turning heads. China is winning the cost efficiency race.</div>
-                <a class="card-source" href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank">&#8599; MEAN CEO</a>
-            </div>
-            <div class="card">
-                <span class="card-badge" style="background:rgba(245,158,11,0.1);color:var(--amber);">agents</span>
-                <div class="card-title">Kimi K2.5 Optimized for Agentic Tasks</div>
-                <div class="card-body">Moonshot AI's Kimi K2.5 is now available in Cloudflare Workers AI with 256K token context. Built specifically for multi-step agentic tasks, tool calling, and visual understanding. The model is optimized for workflows where AI agents plan, act, and iterate without human intervention.</div>
-                <a class="card-source" href="https://llm-stats.com/llm-updates" target="_blank">&#8599; LLM Stats</a>
-            </div>
-            <div class="card">
-                <span class="card-badge" style="background:rgba(6,182,212,0.1);color:var(--cyan);">hardware</span>
-                <div class="card-title">NVIDIA Nemotron 3 Super: 120B for Multi-Agent</div>
-                <div class="card-body">NVIDIA released Nemotron 3 Super, a 120 billion parameter model designed specifically for multi-agent applications. Purpose-built for orchestrating multiple AI agents working together on complex tasks. Signals that the hardware giant is moving deeper into the model layer.</div>
-                <a class="card-source" href="https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases" target="_blank">&#8599; BuildFast</a>
-            </div>
-            <div class="card">
-                <span class="card-badge" style="background:rgba(236,72,153,0.1);color:var(--pink);">biotech</span>
-                <div class="card-title">MIT Protein-Based Drug Design Model</div>
-                <div class="card-body">MIT researchers released a model that predicts how synthetic proteins fold and interact. This could reduce pharmaceutical R&D costs by billions and accelerate treatment for cancer, autoimmune diseases, and rare genetic disorders. Medical AI is moving from diagnosis to drug design.</div>
-                <a class="card-source" href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">&#8599; Crescendo</a>
-            </div>
-            <div class="card">
-                <span class="card-badge" style="background:rgba(99,102,241,0.1);color:var(--indigo);">enterprise</span>
-                <div class="card-title">Mistral Forge: Build-Your-Own Enterprise AI</div>
-                <div class="card-body">Mistral launched Forge at NVIDIA GTC, a platform letting enterprises build custom AI models without sharing proprietary data. The company is on track to surpass $1B ARR this year. Their laser focus on enterprise is working while competitors chase consumer market share.</div>
-                <a class="card-source" href="https://techcrunch.com/2026/03/17/mistral-forge-nvidia-gtc-build-your-own-ai-enterprise/" target="_blank">&#8599; TechCrunch</a>
-            </div>
-            <div class="card">
-                <span class="card-badge" style="background:rgba(59,130,246,0.1);color:var(--blue);">design</span>
-                <div class="card-title">Google Stitch Disrupts Design Tools</div>
-                <div class="card-body">Google launched Stitch, a free AI design tool that builds high-fidelity reports from plain language. It caused Figma's stock to drop 12% on launch day. The tool represents the next wave: AI that does not assist designers but replaces the design step entirely for standard outputs.</div>
-                <a class="card-source" href="https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases" target="_blank">&#8599; BuildFast</a>
-            </div>
-            <div class="card">
-                <span class="card-badge" style="background:rgba(16,185,129,0.1);color:var(--emerald);">policy</span>
-                <div class="card-title">Pentagon Labels Anthropic a Supply-Chain Risk</div>
-                <div class="card-body">The DoD labeled Anthropic a supply-chain risk after the company refused to allow its technology for mass surveillance or autonomous weapons. Over 30 OpenAI and Google DeepMind employees filed statements in Anthropic's defense. The White House released a six-part AI legislative blueprint.</div>
-                <a class="card-source" href="https://techcrunch.com/2026/03/09/openai-and-google-employees-rush-to-anthropics-defense-in-dod-lawsuit/" target="_blank">&#8599; TechCrunch</a>
-            </div>
-            <div class="card">
-                <span class="card-badge" style="background:rgba(245,158,11,0.1);color:var(--amber);">trend</span>
-                <div class="card-title">Agentic Workflows Become Dominant Productivity Trend</div>
-                <div class="card-body">Gartner predicts over 40% of enterprise apps will embed role-specific AI agents by end of 2026. No-code platforms like Gumloop, n8n, and Zapier Central let anyone build agent workflows. Tech leader Andrej Karpathy notes software engineering is now 80% delegation to AI agents.</div>
-                <a class="card-source" href="https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/agentic-ai-strategy.html" target="_blank">&#8599; Deloitte</a>
-            </div>
-            <div class="card">
-                <span class="card-badge" style="background:rgba(139,92,246,0.1);color:var(--purple);">consolidation</span>
-                <div class="card-title">OpenAI Superapp Consolidation</div>
-                <div class="card-body">OpenAI consolidated ChatGPT, Codex, and Atlas into a single desktop Superapp, the largest UX consolidation in AI history. Complete with a 1.05M token context window. The strategy: one app to rule them all. Mirrors the WeChat playbook: everything in one place, no switching.</div>
-                <a class="card-source" href="https://renovateqr.com/blog/ai-model-releases-2026" target="_blank">&#8599; Renovate QR</a>
-            </div>
-        </div>
-    </section>
-</div>
-
-<!-- WORLD NEWS -->
-<div class="container">
-    <section class="section fade-in" id="world-news">
-        <h2 class="section-title"><span class="section-icon">&#127758;</span> World News</h2>
-        <div class="card-grid">
-            <div class="card">
-                <span class="card-badge" style="background:rgba(239,68,68,0.1);color:var(--red);">conflict</span>
-                <div class="card-title">Israel Strikes IRGC Headquarters in Tehran</div>
-                <div class="card-body">The Israeli Air Force carried out a wide-scale wave of strikes on Iranian regime infrastructure, hitting one of the IRGC's main headquarters and several military buildings in Tehran. The strikes represent a significant escalation in the direct confrontation between Israel and Iran.</div>
-                <a class="card-source" href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-23-26" target="_blank">&#8599; CNN</a>
-            </div>
-            <div class="card">
-                <span class="card-badge" style="background:rgba(245,158,11,0.1);color:var(--amber);">diplomacy</span>
-                <div class="card-title">Trump Claims 15 Points of Agreement with Iran</div>
-                <div class="card-body">President Trump announced 15 points of agreement with Iran and stated he will hold off strikes against Iranian energy sites for five days. However, Iran's foreign ministry denied any dialogue between Tehran and Washington. The gap between American claims and Iranian statements grows wider.</div>
-                <a class="card-source" href="https://www.golocalprov.com/news/5-big-news-stories-overnight-tuesday-march-24-2026" target="_blank">&#8599; GoLocal</a>
-            </div>
-            <div class="card">
-                <span class="card-badge" style="background:rgba(239,68,68,0.1);color:var(--red);">conflict</span>
-                <div class="card-title">Israel Destroys All Crossings Over Litani River</div>
-                <div class="card-body">In Lebanon, Israel struck the main bridge linking the south to the rest of the country. The Israeli military ordered its troops to destroy all crossings over the Litani River and step up demolition of homes near the southern border. Southern Lebanon is being systematically isolated.</div>
-                <a class="card-source" href="https://www.democracynow.org/2026/3/23/headlines" target="_blank">&#8599; Democracy Now</a>
-            </div>
-            <div class="card">
-                <span class="card-badge" style="background:rgba(245,158,11,0.1);color:var(--amber);">diplomacy</span>
-                <div class="card-title">Saudi Arabia Expels Iranian Diplomats</div>
-                <div class="card-body">Saudi Arabia ordered Iran's military attache and four embassy staff to leave the kingdom within 24 hours. The Saudi Foreign Ministry cited repeated Iranian attacks on Saudi territory. This reverses the China-brokered rapprochement of 2023 and signals a deeper regional fracture.</div>
-                <a class="card-source" href="https://www.democracynow.org/2026/3/23/headlines" target="_blank">&#8599; Democracy Now</a>
-            </div>
-            <div class="card">
-                <span class="card-badge" style="background:rgba(239,68,68,0.1);color:var(--red);">humanitarian</span>
-                <div class="card-title">64 Killed in Sudan Hospital Strike</div>
-                <div class="card-body">At least 64 people were killed in a strike on a hospital in East Darfur, with 89 injured according to the WHO. Sudan's civil war continues with devastating humanitarian consequences. Medical facilities remain targets despite international law protections.</div>
-                <a class="card-source" href="https://www.democracynow.org/2026/3/23/headlines" target="_blank">&#8599; Democracy Now</a>
-            </div>
-            <div class="card">
-                <span class="card-badge" style="background:rgba(6,182,212,0.1);color:var(--cyan);">infrastructure</span>
-                <div class="card-title">Cuba Partially Restores Power After Grid Collapse</div>
-                <div class="card-body">Cuban authorities partially restored electricity after more than 10 million people lost power following another collapse of the national power grid. This is the latest in a series of grid failures hitting the island. The aging infrastructure cannot keep up with demand.</div>
-                <a class="card-source" href="https://www.democracynow.org/2026/3/23/headlines" target="_blank">&#8599; Democracy Now</a>
-            </div>
-            <div class="card">
-                <span class="card-badge" style="background:rgba(99,102,241,0.1);color:var(--indigo);">policy</span>
-                <div class="card-title">White House Releases AI Legislative Blueprint</div>
-                <div class="card-body">The White House released a six-part AI legislative blueprint addressing safety, competition, and national security. Palantir's Maven AI was designated as a formal program of record with long-term Pentagon funding. The US government is moving from AI strategy to AI implementation.</div>
-                <a class="card-source" href="https://www.riskinfo.ai/post/ai-insights-key-global-developments-in-march-2026" target="_blank">&#8599; RiskInfo</a>
-            </div>
-            <div class="card">
-                <span class="card-badge" style="background:rgba(16,185,129,0.1);color:var(--emerald);">economy</span>
-                <div class="card-title">Hormuz Strait Tensions Keep Oil Elevated</div>
-                <div class="card-body">Oil prices remain elevated as Strait of Hormuz shipping lanes face continued threat from the Iran-Israel conflict. Any disruption to the strait, through which 20% of global oil flows, would send energy prices spiking. Markets watch every naval movement in the region.</div>
-                <a class="card-source" href="https://www.euronews.com/video/2026/03/24/latest-news-bulletin-march-24th-2026-morning" target="_blank">&#8599; Euronews</a>
-            </div>
-        </div>
-    </section>
-</div>
-
-<!-- MARKET SNAPSHOT -->
-<div class="container">
-    <section class="section fade-in" id="market-snapshot">
-        <h2 class="section-title"><span class="section-icon">&#128200;</span> Market Snapshot</h2>
-        <div class="market-grid">
-            <div class="market-card">
-                <div class="market-ticker">S&P 500</div>
-                <div class="market-price" style="color:var(--emerald);">6,581</div>
-                <div class="market-change" style="color:var(--emerald);">+1.15%</div>
-                <div class="market-bar" style="background:linear-gradient(90deg,var(--emerald) 65%,transparent 65%);"></div>
-            </div>
-            <div class="market-card">
-                <div class="market-ticker">NASDAQ</div>
-                <div class="market-price" style="color:var(--emerald);">21,947</div>
-                <div class="market-change" style="color:var(--emerald);">+1.38%</div>
-                <div class="market-bar" style="background:linear-gradient(90deg,var(--emerald) 70%,transparent 70%);"></div>
-            </div>
-            <div class="market-card">
-                <div class="market-ticker">BTC</div>
-                <div class="market-price" style="color:var(--emerald);">$71,000</div>
-                <div class="market-change" style="color:var(--emerald);">+3.79%</div>
-                <div class="market-bar" style="background:linear-gradient(90deg,var(--emerald) 75%,transparent 75%);"></div>
-            </div>
-            <div class="market-card">
-                <div class="market-ticker">ETH</div>
-                <div class="market-price" style="color:var(--emerald);">$2,134</div>
-                <div class="market-change" style="color:var(--emerald);">+5.16%</div>
-                <div class="market-bar" style="background:linear-gradient(90deg,var(--emerald) 80%,transparent 80%);"></div>
-            </div>
-            <div class="market-card">
-                <div class="market-ticker">Oil (Brent)</div>
-                <div class="market-price" style="color:var(--amber);">$110+</div>
-                <div class="market-change" style="color:var(--amber);">Elevated</div>
-                <div class="market-bar" style="background:linear-gradient(90deg,var(--amber) 85%,transparent 85%);"></div>
-            </div>
-            <div class="market-card">
-                <div class="market-ticker">Sentiment</div>
-                <div class="market-price" style="color:var(--red);">11</div>
-                <div class="market-change" style="color:var(--red);">Extreme Fear</div>
-                <div class="market-bar" style="background:linear-gradient(90deg,var(--red) 11%,transparent 11%);"></div>
-            </div>
-        </div>
-    </section>
-</div>
-
-<!-- NEWSLETTER INTELLIGENCE -->
-<div class="container">
-    <section class="section fade-in" id="newsletter-intelligence">
-        <h2 class="section-title"><span class="section-icon">&#128231;</span> Newsletter Intelligence</h2>
-
-        <div class="newsletter-card">
-            <div class="newsletter-header">
-                <div class="newsletter-avatar" style="background:linear-gradient(135deg,var(--blue),var(--indigo));">B</div>
-                <div>
-                    <div class="newsletter-name">BuildFast with AI</div>
-                    <div class="newsletter-subject">12+ AI Models in March 2026: The Week That Changed AI</div>
-                </div>
-            </div>
-            <div class="nl-section">
-                <div class="nl-section-title">&#128640; Headlines &amp; Launches</div>
-                <div class="newsletter-item"><strong>GPT-5.4 Pro:</strong> OpenAI's new flagship ties with Gemini 3.1 Pro at 57 on the Artificial Analysis Intelligence Index. The 1.05M token context window is the largest commercially available. Designed for complex multi-step professional tasks.</div>
-                <div class="newsletter-item"><strong>Claude Opus 4.6:</strong> Anthropic's depth-first strategy pays off with 80.8% on SWE-Bench Verified. The 1M context beta means entire codebases fit in one conversation. This is the model professional developers are switching to.</div>
-                <div class="newsletter-item"><strong>MiniMax M2.5:</strong> The standout Chinese model that rivals Claude at dramatically lower cost. This is the price disruption that Western labs feared. Enterprise buyers are paying attention.</div>
-            </div>
-            <div class="nl-section">
-                <div class="nl-section-title">&#128269; Deep Dives</div>
-                <div class="newsletter-item"><strong>OpenAI Superapp consolidation:</strong> ChatGPT, Codex, and Atlas merged into one desktop app. This is the biggest UX change in AI history. One interface for chat, code, and research. The WeChat playbook comes to AI.</div>
-                <div class="newsletter-item"><strong>NVIDIA Nemotron 3 Super:</strong> A 120B parameter model built for multi-agent orchestration. NVIDIA is not just selling GPUs anymore. They are building the software layer that makes those GPUs useful for agent swarms.</div>
-            </div>
-            <div class="nl-section">
-                <div class="nl-section-title">&#9889; Quick Hits</div>
-                <div class="newsletter-item">Kimi K2.5 from Moonshot AI now in Cloudflare Workers with 256K context for agentic tasks</div>
-                <div class="newsletter-item">Xiaomi's MiMo-V2-Pro built by former DeepSeek researcher Luo Fuli</div>
-                <div class="newsletter-item">WordPress adds AI integrations letting agents draft posts and manage content</div>
-            </div>
-            <div class="newsletter-quote">"The differences between GPT-5.4, Gemini 3.1 Pro, and Claude 4.6 on most practical tasks are increasingly marginal. The real battle is cost, speed, and ecosystem lock-in."</div>
-            <a class="card-source" href="https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases" target="_blank">&#8599; Read Full Newsletter</a>
-        </div>
-
-        <div class="newsletter-card">
-            <div class="newsletter-header">
-                <div class="newsletter-avatar" style="background:linear-gradient(135deg,var(--emerald),var(--cyan));">D</div>
-                <div>
-                    <div class="newsletter-name">Deloitte Insights</div>
-                    <div class="newsletter-subject">Agentic AI Strategy: From Hype to Enterprise Reality</div>
-                </div>
-            </div>
-            <div class="nl-section">
-                <div class="nl-section-title">&#128640; Headlines &amp; Launches</div>
-                <div class="newsletter-item"><strong>40% of enterprise apps will embed AI agents by end of 2026</strong> according to Gartner predictions. The shift from chatbots to autonomous agents is accelerating faster than anyone expected.</div>
-                <div class="newsletter-item"><strong>Four architecture patterns dominate:</strong> single agent, hierarchical multi-agent, sequential pipeline, and decentralized swarm. The key is matching architecture to use case, not chasing maximum autonomy.</div>
-            </div>
-            <div class="nl-section">
-                <div class="nl-section-title">&#128269; Deep Dives</div>
-                <div class="newsletter-item"><strong>Why agentic implementations fail:</strong> Most organizations try to automate existing processes instead of reimagining operations. Leading companies manage AI agents as workers with clear roles, KPIs, and escalation paths. The winners treat agents like new hires, not software.</div>
-                <div class="newsletter-item"><strong>No-code agent builders:</strong> Gumloop, n8n, Zapier Central, and Make.com now offer visual agent builders. For simple to intermediate workflows, you do not need coding skills. The barrier to building your first autonomous workflow has never been lower.</div>
-            </div>
-            <div class="nl-section">
-                <div class="nl-section-title">&#128736; Trending Tools</div>
-                <div class="newsletter-item"><strong>Gumloop:</strong> Visual agent builder for non-technical teams</div>
-                <div class="newsletter-item"><strong>n8n:</strong> Open-source workflow automation with AI agent nodes</div>
-                <div class="newsletter-item"><strong>Claude Code:</strong> CLI-based agentic coding with 1M context</div>
-            </div>
-            <div class="newsletter-quote">"Agentic AI is no longer a research concept. They are the most transformative productivity tool since the spreadsheet."</div>
-            <a class="card-source" href="https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/agentic-ai-strategy.html" target="_blank">&#8599; Read Full Report</a>
-        </div>
-
-        <div class="newsletter-card">
-            <div class="newsletter-header">
-                <div class="newsletter-avatar" style="background:linear-gradient(135deg,var(--red),var(--amber));">R</div>
-                <div>
-                    <div class="newsletter-name">RiskInfo AI</div>
-                    <div class="newsletter-subject">AI Insights: Key Global Developments in March 2026</div>
-                </div>
-            </div>
-            <div class="nl-section">
-                <div class="nl-section-title">&#128640; Headlines &amp; Launches</div>
-                <div class="newsletter-item"><strong>Pentagon designates Palantir's Maven AI</strong> as a formal program of record with long-term funding. AI integration in government is accelerating from strategy documents to operational deployment.</div>
-                <div class="newsletter-item"><strong>MIT protein drug design:</strong> A new model predicts synthetic protein folding, potentially cutting pharma R&D costs by billions. Cancer, autoimmune, and rare disease treatments could arrive years faster.</div>
-            </div>
-            <div class="nl-section">
-                <div class="nl-section-title">&#128269; Deep Dives</div>
-                <div class="newsletter-item"><strong>AI moving from theory to practice:</strong> The bigger story of March 2026 is not new model releases. It is how AI is being embedded into real-world systems, government programs, military operations, and medical research. The gap between AI capability and AI deployment is closing rapidly.</div>
-            </div>
-            <div class="newsletter-quote">"The period from late February into mid-March saw AI moving from theory into practice. New model releases grab headlines but the bigger story is how AI is embedded into real-world systems."</div>
-            <a class="card-source" href="https://www.riskinfo.ai/post/ai-insights-key-global-developments-in-march-2026" target="_blank">&#8599; Read Full Analysis</a>
-        </div>
-    </section>
-</div>
-
-<!-- COMPETITIVE LANDSCAPE -->
-<div class="container">
-    <section class="section fade-in" id="competitive-landscape">
-        <h2 class="section-title"><span class="section-icon">&#9878;</span> Competitive Landscape</h2>
-        <div class="comp-grid">
-            <div class="comp-card">
-                <div class="comp-header">
-                    <span class="comp-logo">&#128994;</span>
-                    <span class="comp-name">OpenAI</span>
-                    <span class="comp-status" style="background:rgba(59,130,246,0.1);color:var(--blue);">Shipping</span>
-                </div>
-                <div class="comp-body">GPT-5.4 launched with 1.05M context. Superapp consolidation merges ChatGPT, Codex, and Atlas into one desktop app. Ties with Gemini at 57 on the Intelligence Index. 33% fewer factual errors. Going all-in on the single-app strategy.</div>
-                <a class="card-source" href="https://renovateqr.com/blog/ai-model-releases-2026" target="_blank">&#8599; Source</a>
-            </div>
-            <div class="comp-card">
-                <div class="comp-header">
-                    <span class="comp-logo">&#128308;</span>
-                    <span class="comp-name">Google DeepMind</span>
-                    <span class="comp-status" style="background:rgba(16,185,129,0.1);color:var(--emerald);">Leading</span>
-                </div>
-                <div class="comp-body">Gemini 3.1 Pro leads the Intelligence Index. 77.1% on ARC-AGI-2 with full multimodal reasoning. Google Stitch launched as a free AI design tool, causing Figma to drop 12%. DeepMind is attacking the creative tools market while the model race tightens.</div>
-                <a class="card-source" href="https://llm-stats.com/ai-news" target="_blank">&#8599; Source</a>
-            </div>
-            <div class="comp-card">
-                <div class="comp-header">
-                    <span class="comp-logo">&#128992;</span>
-                    <span class="comp-name">Anthropic</span>
-                    <span class="comp-status" style="background:rgba(139,92,246,0.1);color:var(--purple);">Defending</span>
-                </div>
-                <div class="comp-body">Claude Opus 4.6 leads SWE-Bench at 80.8%. 1M context in beta. Over 30 OpenAI and Google employees filed statements defending Anthropic after the Pentagon labeled it a supply-chain risk for refusing to enable mass surveillance. Integrity as a differentiator.</div>
-                <a class="card-source" href="https://techcrunch.com/2026/03/09/openai-and-google-employees-rush-to-anthropics-defense-in-dod-lawsuit/" target="_blank">&#8599; Source</a>
-            </div>
-            <div class="comp-card">
-                <div class="comp-header">
-                    <span class="comp-logo">&#128310;</span>
-                    <span class="comp-name">Meta AI</span>
-                    <span class="comp-status" style="background:rgba(245,158,11,0.1);color:var(--amber);">Building</span>
-                </div>
-                <div class="comp-body">Meta continues investing heavily in open-source AI models. Llama family remains the go-to for self-hosted enterprise deployments. The open-source vs closed-source battle intensifies as Chinese models prove you can match top performance at fraction of the cost.</div>
-                <a class="card-source" href="https://llm-stats.com/llm-updates" target="_blank">&#8599; Source</a>
-            </div>
-            <div class="comp-card">
-                <div class="comp-header">
-                    <span class="comp-logo">&#127383;</span>
-                    <span class="comp-name">Mistral</span>
-                    <span class="comp-status" style="background:rgba(16,185,129,0.1);color:var(--emerald);">Surging</span>
-                </div>
-                <div class="comp-body">Launched Forge at NVIDIA GTC for enterprise custom model building. On track to surpass $1B ARR this year. Laser focus on enterprise is working. While big labs chase benchmarks, Mistral quietly captures the customers who pay. The European dark horse is galloping.</div>
-                <a class="card-source" href="https://techcrunch.com/2026/03/17/mistral-forge-nvidia-gtc-build-your-own-ai-enterprise/" target="_blank">&#8599; Source</a>
-            </div>
-            <div class="comp-card">
-                <div class="comp-header">
-                    <span class="comp-logo">&#127464;&#127475;</span>
-                    <span class="comp-name">China Challengers</span>
-                    <span class="comp-status" style="background:rgba(239,68,68,0.1);color:var(--red);">Disrupting</span>
-                </div>
-                <div class="comp-body">Five models from Tencent, Alibaba, Baidu, ByteDance, and MiniMax in one month. MiniMax M2.5 matches Claude at lower cost. Xiaomi's MiMo-V2-Pro led by ex-DeepSeek talent. The cost efficiency race is theirs to lose. Western labs need a pricing response.</div>
-                <a class="card-source" href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank">&#8599; Source</a>
-            </div>
-        </div>
-    </section>
-</div>
-
-<!-- AI TOOL GUIDE -->
-<div class="container">
-    <section class="section fade-in" id="ai-tool-guide">
-        <h2 class="section-title"><span class="section-icon">&#128736;</span> AI Tool Guide</h2>
-        <div class="tool-grid">
-            <div class="tool-card">
-                <div class="tool-label">TIP 01</div>
-                <div class="tool-title">Avoid the AI Exoskeleton Effect</div>
-                <div class="tool-body">If you let AI do all the thinking, you lose the ability to think. Use AI as a force multiplier, not a replacement for your judgment. Review every output. Question the reasoning. The moment you stop checking is the moment you become dependent on a system you do not understand.</div>
-                <a class="card-source" href="https://www.ibm.com/think/ai-agents" target="_blank">&#8599; IBM Think</a>
-            </div>
-            <div class="tool-card">
-                <div class="tool-label">TIP 02</div>
-                <div class="tool-title">Build Agentic Workflows Without Code</div>
-                <div class="tool-body">Gumloop, n8n, and Zapier Central now let you build autonomous AI workflows with drag-and-drop interfaces. Connect an AI agent to your email, CRM, and calendar. Let it triage, draft, and schedule. Start with one simple workflow and expand from there. No engineering team required.</div>
-                <a class="card-source" href="https://www.gumloop.com/blog/how-to-build-agentic-ai-workflows" target="_blank">&#8599; Gumloop</a>
-            </div>
-            <div class="tool-card">
-                <div class="tool-label">TIP 03</div>
-                <div class="tool-title">NVIDIA Nemotron for Multi-Agent Projects</div>
-                <div class="tool-body">If you are building systems where multiple AI agents need to coordinate, NVIDIA's Nemotron 3 Super (120B) is purpose-built for this. It handles agent orchestration natively. Useful for teams building customer service, research, or operations automation with multiple specialized agents.</div>
-                <a class="card-source" href="https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases" target="_blank">&#8599; BuildFast</a>
-            </div>
-            <div class="tool-card">
-                <div class="tool-label">TIP 04</div>
-                <div class="tool-title">Google Stitch for Instant Design</div>
-                <div class="tool-body">Google's new Stitch tool generates high-fidelity UI designs from plain language descriptions. It is free and it caused Figma to drop 12% on launch day. If you need mockups, reports, or interface designs and do not have a designer, this is your shortcut. Skip the learning curve entirely.</div>
-                <a class="card-source" href="https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases" target="_blank">&#8599; BuildFast</a>
-            </div>
-            <div class="tool-card">
-                <div class="tool-label">TIP 05</div>
-                <div class="tool-title">Daily AI Habit: Use, Review, Learn</div>
-                <div class="tool-body">HubSpot's Dharmesh Shah recommends a three-part strategy for keeping up: use AI daily in your actual work, schedule quarterly reviews of new tools, and try one new tool per week with a specific problem in mind. Consistency beats intensity. Small daily experiments compound.</div>
-                <a class="card-source" href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">&#8599; Crescendo</a>
-            </div>
-            <div class="tool-card">
-                <div class="tool-label">TIP 06</div>
-                <div class="tool-title">Best Coding Model Right Now: Claude Opus 4.6</div>
-                <div class="tool-body">For coding tasks specifically, Claude Opus 4.6 with its 1M context window and 80.8% SWE-Bench score is the current leader. Use Claude Code for CLI-based agentic coding. Pair it with Cursor IDE for an integrated experience. The model that understands your entire codebase wins.</div>
-                <a class="card-source" href="https://llm-stats.com/llm-updates" target="_blank">&#8599; LLM Stats</a>
-            </div>
-        </div>
-    </section>
-</div>
-
-<!-- FOOTER -->
-<div class="footer">
-    <div class="footer-brand">Koda Intelligence</div>
-    <div class="footer-text">Generated <span id="gen-time"></span> &middot; Data: WebSearch, Newsletter feeds, NotebookLM</div>
-    <div class="footer-text" style="margin-top:4px;">&copy; 2026 Koda Community &middot; <a href="https://www.koda.community" target="_blank" style="color:var(--blue);text-decoration:none;">koda.community</a></div>
-</div>
+<!-- Footer -->
+<footer style="text-align:center;padding:40px 24px;border-top:1px solid var(--border);margin-top:40px">
+    <div style="font-size:14px;font-weight:700;margin-bottom:4px">Koda Intelligence</div>
+    <div style="font-size:12px;color:var(--text-secondary)">Generated 2026-03-24 21:15 | Sources: Web Search, Newsletter feeds, NotebookLM</div>
+    <div style="font-size:11px;color:var(--text-secondary);margin-top:8px">© 2026 Koda Community</div>
+</footer>
 
 <script>
-// Dark mode
-function toggleDark(){
-    document.documentElement.classList.toggle('dark-mode');
-    var isDark=document.documentElement.classList.contains('dark-mode');
-    localStorage.setItem('koda-theme',isDark?'dark':'light');
-    document.getElementById('darkBtn').textContent=isDark?'\u2600\uFE0F Light':'\uD83C\uDF19 Dark';
-}
-(function(){
-    if(localStorage.getItem('koda-theme')==='dark'){
-        document.documentElement.classList.add('dark-mode');
-        document.getElementById('darkBtn').textContent='\u2600\uFE0F Light';
+    // Dark mode
+    (function(){
+        const saved = localStorage.getItem('koda-theme');
+        if(saved==='dark') document.documentElement.classList.add('dark-mode');
+    })();
+    function toggleDark(){
+        document.documentElement.classList.toggle('dark-mode');
+        localStorage.setItem('koda-theme',
+            document.documentElement.classList.contains('dark-mode')?'dark':'light');
+        document.getElementById('darkBtn').textContent =
+            document.documentElement.classList.contains('dark-mode')?'☀ Light':'🌙 Dark';
     }
-})();
 
-// Generation timestamp
-document.getElementById('gen-time').textContent=new Date().toLocaleTimeString();
+    // Podcast player
+    function togglePodcast(){
+        const w=document.getElementById('podcastPlayer');
+        if(w){w.classList.toggle('active');}
+    }
 
-// Day nav
-(function initDayNav(){
-    var dateStr=document.body.getAttribute('data-digest-date');
-    if(!dateStr)return;
-    var p=dateStr.split('-').map(Number);
-    var curr=new Date(p[0],p[1]-1,p[2]);
-    var mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    var fmt=function(dt){return mo[dt.getMonth()]+' '+dt.getDate();};
-    var iso=function(dt){return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');};
-    var fn=function(dt){return 'morning-briefing-koda-'+iso(dt)+'.html';};
-    var prev=new Date(curr);prev.setDate(prev.getDate()-1);
-    var next=new Date(curr);next.setDate(next.getDate()+1);
-    document.getElementById('nav-current').textContent=fmt(curr);
-    document.getElementById('nav-prev-label').textContent=fmt(prev);
-    document.getElementById('nav-next-label').textContent=fmt(next);
-    ['nav-prev','nav-next'].forEach(function(id,i){
-        var dt=i===0?prev:next;
-        fetch(fn(dt),{method:'HEAD'}).then(function(r){
-            if(r.ok){var b=document.getElementById(id);b.href=fn(dt);b.classList.remove('disabled');}
-        }).catch(function(){});
-    });
-})();
-
-// Hash deep-link scroll
-(function(){if(!window.location.hash)return;var id=window.location.hash.substring(1);function go(){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}if(document.readyState==='complete')setTimeout(go,300);else window.addEventListener('load',function(){setTimeout(go,300);});})();
-
-// Scroll animations
-var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-        if(e.isIntersecting){
-            e.target.style.opacity='1';
-            e.target.style.transform='translateY(0)';
-            obs.unobserve(e.target);
+    // Video overlay
+    function toggleVideo(){
+        const o=document.getElementById('videoOverlay');
+        const f=document.getElementById('videoFrame');
+        if(!o)return;
+        if(o.classList.contains('active')){
+            o.classList.remove('active');
+            if(f)f.src='';
+        }else{
+            o.classList.add('active');
+            const ytId=document.body.getAttribute('data-youtube-id');
+            if(f&&ytId)f.src='https://www.youtube.com/embed/'+ytId+'?autoplay=1';
         }
-    });
-},{threshold:0.06});
-document.querySelectorAll('.card,.newsletter-card,.market-card,.comp-card,.tool-card,.focus-item,.infographic,.summary-card').forEach(function(el){
-    el.style.opacity='0';el.style.transform='translateY(16px)';el.style.transition='opacity 0.45s ease,transform 0.45s ease';
-    obs.observe(el);
-});
-</script>
+    }
+
+    // Day navigation
+    (function(){
+        const d=document.body.getAttribute('data-digest-date');
+        if(!d)return;
+        const dt=new Date(d+'T12:00:00');
+        const prev=new Date(dt);prev.setDate(prev.getDate()-1);
+        const next=new Date(dt);next.setDate(next.getDate()+1);
+        const fmt=d2=>`${d2.getFullYear()}-${String(d2.getMonth()+1).padStart(2,'0')}-${String(d2.getDate()).padStart(2,'0')}`;
+        const pf='morning-briefing-koda-'+fmt(prev)+'.html';
+        const nf='morning-briefing-koda-'+fmt(next)+'.html';
+        const pb=document.getElementById('prevBtn'),nb=document.getElementById('nextBtn');
+        fetch(pf,{method:'HEAD'}).then(r=>{if(r.ok&&pb){pb.href=pf;pb.classList.remove('disabled');}}).catch(()=>{});
+        fetch(nf,{method:'HEAD'}).then(r=>{if(r.ok&&nb){nb.href=nf;nb.classList.remove('disabled');}}).catch(()=>{});
+    })();
+
+    // Scroll animations
+    const obs=new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';obs.unobserve(e.target);}});
+    },{threshold:0.08});
+    document.querySelectorAll('.section').forEach(s=>{s.style.opacity='0';s.style.transform='translateY(16px)';s.style.transition='opacity 0.45s ease,transform 0.45s ease';obs.observe(s);});
+
+    // Hash scrolling
+    if(window.location.hash){
+        const el=document.querySelector(window.location.hash);
+        if(el)setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),300);
+    }
+    </script>
 </body>
 </html>

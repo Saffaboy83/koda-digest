@@ -1,33 +1,33 @@
 {
-  "generated": "2026-03-24T12:13:57Z",
+  "generated": "2026-03-25T02:15:19Z",
   "digests": [
     {
       "date": "2026-03-24",
       "dayOfWeek": "Tuesday",
       "focusTopics": [
         {
-          "title": "Middle East Escalation Intensifies",
-          "desc": "Israel launched wide-scale strikes on IRGC headquarters in Tehran. Saudi Arabia expelled Iranian military staff. Trump claims 15 points of agreement, but Iran denies any dialogue. Five-day pause on energy site strikes, but Hormuz shipping lanes remain under threat."
+          "title": "Trillion-Parameter AI Threshold",
+          "desc": "DeepSeek V4's 1 trillion-parameter architecture and OpenAI's GPT-5.4 with a 1M-token context window signal that frontier labs have crossed a new scale threshold in a single news cycle. Gemini 3.1 Pro's 77.1% score on ARC-AGI-2 adds a benchmark dimension, suggesting capability gains are now matching raw size increases. The convergence of scale, context, and reasoning benchmarks in one day is unprecedented and will pressure every major lab to accelerate roadmaps."
         },
         {
-          "title": "AI Coding Wars Heat Up",
-          "desc": "Claude Opus 4.6 leads SWE-Bench Verified at 80.8%, ahead of GPT-5.4's 77.2%. OpenAI's GPT-5.4 ships with 1.05M token context. Chinese models from MiniMax and Xiaomi match Western quality at dramatically lower cost. The race is no longer about who is smartest. It is about who is cheapest."
+          "title": "Middle East War Spillover",
+          "desc": "Iran's strikes on Tel Aviv and Gulf State targets represent a significant escalation beyond the Israel-Gaza theater, drawing Gulf energy infrastructure into the conflict zone. Combined with Israel's planned Lebanon security zone expansion, the region faces a multi-front war scenario that could disrupt oil supply chains and trigger broader NATO-adjacent responses. Fragile US-Iran diplomatic back-channels appear increasingly insufficient to contain the kinetic momentum."
         },
         {
-          "title": "Crypto Relief Rally Amid Extreme Fear",
-          "desc": "Bitcoin reclaimed $71K with a 3.79% surge. Ethereum outperformed at +5.16%. The Fear and Greed Index sits at 11, the deepest extreme fear reading this year. Equities rallied too. The market is betting on containment. If that changes, crypto goes first."
+          "title": "US Domestic Crisis Compounding",
+          "desc": "A US government shutdown has already produced fatal consequences at the airport level, pointing to cascading infrastructure failures when federal operations are suspended. Cuba's collapse under a US fuel blockade adds a Western Hemisphere humanitarian dimension that Washington must manage simultaneously with Middle East escalation. The dual domestic and foreign crises create a policy bandwidth problem that markets are only partially pricing in."
         }
       ],
       "kpis": {
-        "aiStories": "12",
+        "aiStories": "11",
         "worldEvents": "8",
-        "marketMood": "Rally",
+        "marketMood": "Mixed",
         "toolsFeatured": "6"
       },
       "hasPodcast": true,
       "hasInfographic": true,
-      "hasVideo": true,
-      "youtubeId": "KAzT_IeZrX0",
+      "hasVideo": false,
+      "youtubeId": "",
       "file": "morning-briefing-koda-2026-03-24.html"
     },
     {
