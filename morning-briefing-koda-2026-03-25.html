@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koda Intelligence Briefing - March 25, 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue: #3B82F6;
+      --purple: #8B5CF6;
+      --red: #EF4444;
+      --amber: #F59E0B;
+      --emerald: #10B981;
+      --indigo: #6366F1;
+      --pink: #EC4899;
+      --cyan: #06B6D4;
+      --light-bg: #F8FAFC;
+      --light-card: #FFFFFF;
+      --light-border: #E2E8F0;
+      --light-text: #1E293B;
+      --light-text-secondary: #64748B;
+      --dark-bg: #0F172A;
+      --dark-card: #1E293B;
+      --dark-border: #334155;
+      --dark-text: #F1F5F9;
+      --dark-text-secondary: #CBD5E1;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light-bg);
+      color: var(--light-text);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      line-height: 1.6;
+    }
+
+    body.dark-mode {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    /* Top Bar */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--light-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      z-index: 1000;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    body.dark-mode .topbar {
+      background: rgba(15, 23, 42, 0.8);
+      border-bottom-color: var(--dark-border);
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .home-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--blue), #60A5FA);
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+
+    .home-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .brand:hover {
+      opacity: 0.8;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-arrow {
+      background: none;
+      border: none;
+      color: var(--light-text);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s;
+      padding: 8px 12px;
+    }
+
+    body.dark-mode .nav-arrow {
+      color: var(--dark-text);
+    }
+
+    .nav-arrow:hover {
+      color: var(--blue);
+    }
+
+    .nav-arrow:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--light-text);
+      transition: background-color 0.2s, color 0.2s;
+      font-size: 18px;
+    }
+
+    body.dark-mode .theme-toggle {
+      color: var(--dark-text);
+    }
+
+    .theme-toggle:hover {
+      background: var(--light-border);
+    }
+
+    body.dark-mode .theme-toggle:hover {
+      background: var(--dark-border);
+    }
+
+    /* Main Content */
+    main {
+      margin-top: 80px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 48px 24px;
+    }
+
+    section {
+      margin-bottom: 64px;
+      scroll-margin-top: 80px;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .subtitle {
+      font-size: 18px;
+      color: var(--light-text-secondary);
+      margin-bottom: 32px;
+    }
+
+    body.dark-mode .hero .subtitle {
+      color: var(--dark-text-secondary);
+    }
+
+    /* KPI Strip */
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .kpi-card {
+      background: var(--light-card);
+      border: 1px solid var(--light-border);
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    body.dark-mode .kpi-card {
+      background: var(--dark-card);
+      border-color: var(--dark-border);
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark-mode .kpi-card:hover {
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .kpi-card.blue { border-top: 3px solid var(--blue); }
+    .kpi-card.red { border-top: 3px solid var(--red); }
+    .kpi-card.amber { border-top: 3px solid var(--amber); }
+    .kpi-card.purple { border-top: 3px solid var(--purple); }
+
+    .kpi-value {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .kpi-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--light-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    body.dark-mode .kpi-label {
+      color: var(--dark-text-secondary);
+    }
+
+    /* Infographic Section */
+    .infographic-container {
+      background: var(--light-card);
+      border: 1px solid var(--light-border);
+      border-radius: 20px;
+      padding: 48px;
+      margin-bottom: 48px;
+      backdrop-filter: blur(12px);
+      overflow: hidden;
+    }
+
+    body.dark-mode .infographic-container {
+      background: var(--dark-card);
+      border-color: var(--dark-border);
+    }
+
+    .infographic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .infographic-item {
+      position: relative;
+      padding: 24px;
+      border-radius: 16px;
+      color: white;
+      font-weight: 600;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .infographic-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.1;
+      pointer-events: none;
+      background: linear-gradient(45deg, transparent 30%, white 50%, transparent 70%);
+    }
+
+    .infographic-item > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .item-title {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-top: 8px;
+    }
+
+    .item-value {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .item-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .gradient-blue { background: linear-gradient(135deg, var(--blue), #60A5FA); }
+    .gradient-purple { background: linear-gradient(135deg, var(--purple), #A78BFA); }
+    .gradient-red { background: linear-gradient(135deg, var(--red), #FCA5A5); }
+    .gradient-amber { background: linear-gradient(135deg, var(--amber), #FCD34D); }
+    .gradient-emerald { background: linear-gradient(135deg, var(--emerald), #6EE7B7); }
+    .gradient-cyan { background: linear-gradient(135deg, var(--cyan), #22D3EE); }
+
+    .infographic-title {
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 24px;
+      color: var(--light-text);
+    }
+
+    body.dark-mode .infographic-title {
+      color: var(--dark-text);
+    }
+
+    /* Podcast Card */
+    .podcast-card {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px;
+      color: white;
+      margin-bottom: 48px;
+      backdrop-filter: blur(12px);
+    }
+
+    .podcast-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .podcast-meta {
+      font-size: 13px;
+      opacity: 0.7;
+      margin-bottom: 24px;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 16px;
+    }
+
+    /* Card Grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .card {
+      background: var(--light-card);
+      border: 1px solid var(--light-border);
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+
+    body.dark-mode .card {
+      background: var(--dark-card);
+      border-color: var(--dark-border);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--blue);
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.15);
+    }
+
+    body.dark-mode .card:hover {
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.25);
+    }
+
+    .card-category {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      background: var(--light-border);
+      color: var(--light-text);
+    }
+
+    body.dark-mode .card-category {
+      background: var(--dark-border);
+      color: var(--dark-text);
+    }
+
+    .card-category.blue { background: rgba(59, 130, 246, 0.2); color: var(--blue); }
+    .card-category.purple { background: rgba(139, 92, 246, 0.2); color: var(--purple); }
+    .card-category.red { background: rgba(239, 68, 68, 0.2); color: var(--red); }
+    .card-category.amber { background: rgba(245, 158, 11, 0.2); color: var(--amber); }
+    .card-category.emerald { background: rgba(16, 185, 129, 0.2); color: var(--emerald); }
+    .card-category.pink { background: rgba(236, 72, 153, 0.2); color: var(--pink); }
+    .card-category.cyan { background: rgba(6, 182, 212, 0.2); color: var(--cyan); }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .card-text {
+      font-size: 14px;
+      color: var(--light-text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    body.dark-mode .card-text {
+      color: var(--dark-text-secondary);
+    }
+
+    .card-link {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .card-link:hover {
+      opacity: 0.7;
+    }
+
+    /* Market Grid */
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .market-item {
+      background: var(--light-card);
+      border: 1px solid var(--light-border);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+    }
+
+    body.dark-mode .market-item {
+      background: var(--dark-card);
+      border-color: var(--dark-border);
+    }
+
+    .market-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--light-text-secondary);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    body.dark-mode .market-name {
+      color: var(--dark-text-secondary);
+    }
+
+    .market-value {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .market-change {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .market-change.green { color: var(--emerald); }
+    .market-change.red { color: var(--red); }
+    .market-change.neutral { color: var(--light-text-secondary); }
+
+    /* Newsletter Card */
+    .newsletter-card {
+      background: var(--light-card);
+      border: 1px solid var(--light-border);
+      border-radius: 16px;
+      padding: 28px;
+      backdrop-filter: blur(12px);
+      margin-bottom: 24px;
+      border-left: 4px solid var(--blue);
+    }
+
+    body.dark-mode .newsletter-card {
+      background: var(--dark-card);
+      border-color: var(--dark-border);
+    }
+
+    .newsletter-card.purple { border-left-color: var(--purple); }
+    .newsletter-card.amber { border-left-color: var(--amber); }
+    .newsletter-card.emerald { border-left-color: var(--emerald); }
+
+    .newsletter-source {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--light-text-secondary);
+      margin-bottom: 8px;
+    }
+
+    body.dark-mode .newsletter-source {
+      color: var(--dark-text-secondary);
+    }
+
+    .newsletter-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .newsletter-content {
+      font-size: 14px;
+      color: var(--light-text-secondary);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    body.dark-mode .newsletter-content {
+      color: var(--dark-text-secondary);
+    }
+
+    /* Status Card */
+    .status-card {
+      background: var(--light-card);
+      border: 1px solid var(--light-border);
+      border-left: 4px solid var(--blue);
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      margin-bottom: 24px;
+    }
+
+    body.dark-mode .status-card {
+      background: var(--dark-card);
+      border-color: var(--dark-border);
+    }
+
+    .status-card.purple { border-left-color: var(--purple); }
+    .status-card.emerald { border-left-color: var(--emerald); }
+    .status-card.pink { border-left-color: var(--pink); }
+    .status-card.cyan { border-left-color: var(--cyan); }
+
+    .status-company {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--light-text);
+      margin-bottom: 12px;
+    }
+
+    body.dark-mode .status-company {
+      color: var(--dark-text);
+    }
+
+    .status-content {
+      font-size: 14px;
+      color: var(--light-text-secondary);
+      line-height: 1.6;
+    }
+
+    body.dark-mode .status-content {
+      color: var(--dark-text-secondary);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 48px 24px;
+      border-top: 1px solid var(--light-border);
+      color: var(--light-text-secondary);
+      font-size: 13px;
+    }
+
+    body.dark-mode footer {
+      border-top-color: var(--dark-border);
+      color: var(--dark-text-secondary);
+    }
+
+    footer p {
+      margin: 4px 0;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--light-border);
+    }
+
+    body.dark-mode .section-title {
+      border-bottom-color: var(--dark-border);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .topbar {
+        padding: 0 16px;
+        height: 70px;
+      }
+
+      main {
+        padding: 24px 16px;
+        margin-top: 70px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .kpi-strip {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .infographic-container {
+        padding: 24px;
+      }
+
+      .podcast-card {
+        padding: 24px;
+      }
+
+      .market-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      section {
+        scroll-margin-top: 70px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Bar -->
+  <nav class="topbar">
+    <div class="topbar-left">
+      <a href="./index.html" class="home-btn">←</a>
+      <a href="./index.html" class="brand">Koda Digest</a>
+    </div>
+    <div class="topbar-right">
+      <button id="prev-day" class="nav-arrow">← Previous</button>
+      <button id="next-day" class="nav-arrow">Next →</button>
+      <button class="theme-toggle" id="theme-toggle">☀️</button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="daily-summary" class="hero">
+      <h1>Koda Intelligence Briefing</h1>
+      <p class="subtitle">Wednesday, March 25, 2026</p>
+
+      <div class="kpi-strip">
+        <div class="kpi-card blue">
+          <div class="kpi-value">8</div>
+          <div class="kpi-label">AI Stories</div>
+        </div>
+        <div class="kpi-card red">
+          <div class="kpi-value">7</div>
+          <div class="kpi-label">World Events</div>
+        </div>
+        <div class="kpi-card amber">
+          <div class="kpi-value">Extreme</div>
+          <div class="kpi-label">Market Mood</div>
+        </div>
+        <div class="kpi-card purple">
+          <div class="kpi-value">6</div>
+          <div class="kpi-label">Tools Featured</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daily Infographic -->
+    <section class="infographic-container fade-in">
+      <div class="infographic-title">Today's Intelligence Snapshot</div>
+      <div class="infographic-grid">
+        <div class="infographic-item gradient-blue">
+          <div class="item-icon">🛡️</div>
+          <div class="item-value">Pentagon</div>
+          <div class="item-title">Supply Chain Risk</div>
+        </div>
+        <div class="infographic-item gradient-purple">
+          <div class="item-icon">🚀</div>
+          <div class="item-value">GPT-5.4</div>
+          <div class="item-title">1M Token Context</div>
+        </div>
+        <div class="infographic-item gradient-emerald">
+          <div class="item-icon">🖱️</div>
+          <div class="item-value">30M+</div>
+          <div class="item-title">Claude Computer Use Views</div>
+        </div>
+        <div class="infographic-item gradient-red">
+          <div class="item-icon">🚁</div>
+          <div class="item-value">400</div>
+          <div class="item-title">Drones on Ukraine</div>
+        </div>
+        <div class="infographic-item gradient-pink">
+          <div class="item-icon">⚖️</div>
+          <div class="item-value">$375M</div>
+          <div class="item-title">Meta Child Safety Fine</div>
+        </div>
+        <div class="infographic-item gradient-cyan">
+          <div class="item-icon">📊</div>
+          <div class="item-value">$25B+</div>
+          <div class="item-title">OpenAI Annualized Revenue</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Podcast Card -->
+    <section class="podcast-card fade-in">
+      <div class="podcast-title">Pentagon vs AI Labs, GPT-5.4 Goes Live, Claude Takes Control</div>
+      <div class="podcast-meta">March 25, 2026 · Generated by NotebookLM</div>
+      <audio controls>
+        <source src="./podcast-2026-03-25.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </section>
+
+    <!-- Today's Focus -->
+    <section id="todays-focus" class="fade-in">
+      <h2 class="section-title">Today's Focus</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-category blue">Priority 1</div>
+          <h3 class="card-title">Anthropic's Pentagon Standoff Reshapes the AI Industry</h3>
+          <p class="card-text">The #QuitGPT movement and supply-chain risk designation mark a turning point in AI ethics and commercial dynamics. This shift has major implications for enterprise adoption and regulatory positioning.</p>
+        </div>
+        <div class="card">
+          <div class="card-category purple">Priority 2</div>
+          <h3 class="card-title">OpenAI's GPT-5.4 and IPO Path</h3>
+          <p class="card-text">1M token context, $25B annualized revenue, and PE deals signal OpenAI's push toward public markets. Enterprise adoption accelerates as enterprise features mature.</p>
+        </div>
+        <div class="card">
+          <div class="card-category emerald">Priority 3</div>
+          <h3 class="card-title">Claude Computer Use Arrives</h3>
+          <p class="card-text">30M+ views in 24 hours as AI agents move from chat to direct computer control. This capability unlocks new automation use cases across enterprises.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Developments -->
+    <section id="ai-developments" class="fade-in">
+      <h2 class="section-title">AI Developments</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-category blue">Model Release</div>
+          <h3 class="card-title">Anthropic Labeled Supply-Chain Risk by Pentagon</h3>
+          <p class="card-text">Anthropic officially designated as a critical supply-chain risk by the U.S. Department of Defense, escalating tensions between AI safety and national security interests.</p>
+          <a href="https://techcrunch.com/2026/03/09/openai-and-google-employees-rush-to-anthropics-defense-in-dod-lawsuit/" target="_blank" class="card-link">TechCrunch & Fortune →</a>
+        </div>
+        <div class="card">
+          <div class="card-category purple">Model Release</div>
+          <h3 class="card-title">OpenAI GPT-5.4: 1M Token Context + Autonomous Workflows</h3>
+          <p class="card-text">GPT-5.4 launches with extended 1M token context window and new autonomous task execution capabilities, matching Anthropic's Claude while adding real-time reasoning.</p>
+          <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank" class="card-link">Crescendo AI →</a>
+        </div>
+        <div class="card">
+          <div class="card-category emerald">Model Release</div>
+          <h3 class="card-title">Claude Computer Use Launches</h3>
+          <p class="card-text">Anthropic's Claude now controls mouse, keyboard, and browser directly. Hits 30M+ views in under 24 hours. Available for Pro/Max subscribers on macOS.</p>
+          <a href="https://www.engadget.com/ai/claude-code-and-cowork-can-now-use-your-computer-210000126.html" target="_blank" class="card-link">Engadget →</a>
+        </div>
+        <div class="card">
+          <div class="card-category pink">Model Release</div>
+          <h3 class="card-title">Luma Labs Uni 1: Reasoning-First Image Generation</h3>
+          <p class="card-text">Uni 1 uses a reasoning-first approach, thinking through spatial and logical constraints before rendering. 30% cheaper than competitors via API.</p>
+          <a href="https://lumalabs.ai/uni-1" target="_blank" class="card-link">Luma Labs →</a>
+        </div>
+        <div class="card">
+          <div class="card-category cyan">Infrastructure</div>
+          <h3 class="card-title">Google AlphaEvolve: Evolutionary AI Coding Agent</h3>
+          <p class="card-text">DeepMind's evolutionary AI agent saves 0.7% of global compute across Google infrastructure while writing bug-free code at scale.</p>
+          <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank" class="card-link">TLDR AI →</a>
+        </div>
+        <div class="card">
+          <div class="card-category indigo">Model Release</div>
+          <h3 class="card-title">Gemini 3.1 Flash-Lite: 2.5x Faster at $0.25/M Tokens</h3>
+          <p class="card-text">Google's efficient Gemini variant delivers 2.5x speed improvement while slashing latency. Enterprise adoption accelerates for edge deployment.</p>
+          <a href="https://llm-stats.com/llm-updates" target="_blank" class="card-link">LLM Stats →</a>
+        </div>
+        <div class="card">
+          <div class="card-category red">Infrastructure</div>
+          <h3 class="card-title">NVIDIA Nemotron-Cascade 2 Open-Sources Post-Training</h3>
+          <p class="card-text">NVIDIA releases post-training methodologies for its Nemotron-Cascade 2 model, enabling enterprises to fine-tune at massive scale with minimal cost.</p>
+          <a href="https://venturebeat.com/orchestration/nvidias-nemotron-cascade-2-wins-math-and-coding-gold-medals-with-3b-active" target="_blank" class="card-link">VentureBeat →</a>
+        </div>
+        <div class="card">
+          <div class="card-category purple">Research</div>
+          <h3 class="card-title">Vibe Physics: Claude Writes Theoretical Physics Paper in 2 Weeks</h3>
+          <p class="card-text">Claude co-authors a groundbreaking theoretical physics paper in just 14 days, demonstrating AI's expanding role in academic research and discovery.</p>
+          <a href="https://www.anthropic.com/research/vibe-physics" target="_blank" class="card-link">Anthropic Research →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- World News -->
+    <section id="world-news" class="fade-in">
+      <h2 class="section-title">World News</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-category red">Conflict</div>
+          <h3 class="card-title">Russia Fires 400 Drones at Ukraine, NATO Scrambles Jets</h3>
+          <p class="card-text">Russia launches a massive drone assault on Ukrainian infrastructure as NATO scrambles fighter jets in response. Military analysts warn of escalating spring offensive.</p>
+          <a href="https://www.foxnews.com/world/nato-scrambles-jets-russia-fires-nearly-400-drones-toward-ukraine-signaling-new-spring-offensive" target="_blank" class="card-link">Fox News →</a>
+        </div>
+        <div class="card">
+          <div class="card-category red">Conflict</div>
+          <h3 class="card-title">Israel to Seize Parts of Southern Lebanon</h3>
+          <p class="card-text">Israeli PM Netanyahu vows further military strikes as tensions escalate in the region. Regional stability deteriorates amid escalating cross-border incidents.</p>
+          <a href="https://www.theguardian.com/world/2026/mar/24/netanyahu-vows-further-strikes-iran-lebanon-missile-hits-tel-aviv-middle-east-crisis" target="_blank" class="card-link">The Guardian →</a>
+        </div>
+        <div class="card">
+          <div class="card-category purple">Tech & Law</div>
+          <h3 class="card-title">Meta Ordered to Pay $375M in Child Exploitation Case</h3>
+          <p class="card-text">New Mexico jury orders Meta to pay $375M in penalties related to child safety failures. Major regulatory pressure mounts on social platforms.</p>
+          <a href="https://www.theguardian.com/technology/2026/mar/24/meta-new-mexico-jury" target="_blank" class="card-link">The Guardian →</a>
+        </div>
+        <div class="card">
+          <div class="card-category blue">Politics</div>
+          <h3 class="card-title">Democrat Emily Gregory Wins Florida Special Election</h3>
+          <p class="card-text">Democratic candidate Emily Gregory secures victory in closely watched Florida special election, signaling shifting political dynamics in a key swing state.</p>
+          <a href="https://www.nytimes.com/2026/03/24/us/politics/florida-special-election-emily-gregory.html" target="_blank" class="card-link">New York Times →</a>
+        </div>
+        <div class="card">
+          <div class="card-category amber">Safety</div>
+          <h3 class="card-title">LaGuardia Pilots Raised Safety Alarms Before Deadly Crash</h3>
+          <p class="card-text">Investigation reveals LaGuardia pilots had previously reported safety concerns about the aircraft model involved in the crash. Aviation safety standards under review.</p>
+          <a href="https://www.theguardian.com/us-news/2026/mar/24/laguardia-airplane-pilots-safety-concerns-crash" target="_blank" class="card-link">The Guardian →</a>
+        </div>
+        <div class="card">
+          <div class="card-category blue">Politics</div>
+          <h3 class="card-title">SCOTUS Signals Curbing Late Mail Ballots</h3>
+          <p class="card-text">Supreme Court conservatives signal readiness to restrict mail ballot deadlines, sparking debate over voting access and election integrity ahead of 2026 elections.</p>
+          <a href="https://www.foxnews.com/politics/scotus-conservatives-signal-readiness-curb-late-arriving-mail-ballots" target="_blank" class="card-link">Fox News →</a>
+        </div>
+        <div class="card">
+          <div class="card-category emerald">Sports</div>
+          <h3 class="card-title">Mohamed Salah to Leave Liverpool</h3>
+          <p class="card-text">Liverpool star Mohamed Salah set to depart after nine years with the club. Transfer market speculation intensifies as clubs compete for the elite forward.</p>
+          <a href="https://www.bbc.com/sport/football/articles/c0e7ww12w2qo" target="_blank" class="card-link">BBC Sport →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Market Snapshot -->
+    <section id="market-snapshot" class="fade-in">
+      <h2 class="section-title">Market Snapshot</h2>
+      <div class="market-grid">
+        <div class="market-item">
+          <div class="market-name">S&P 500</div>
+          <div class="market-value">6,585.07</div>
+          <div class="market-change green">↑ +0.06%</div>
+        </div>
+        <div class="market-item">
+          <div class="market-name">NASDAQ</div>
+          <div class="market-value">21,860.64</div>
+          <div class="market-change red">↓ -0.39%</div>
+        </div>
+        <div class="market-item">
+          <div class="market-name">Bitcoin</div>
+          <div class="market-value">$69,893</div>
+          <div class="market-change red">↓ -0.87%</div>
+        </div>
+        <div class="market-item">
+          <div class="market-name">Ethereum</div>
+          <div class="market-value">$2,159</div>
+          <div class="market-change red">↓ -0.02%</div>
+        </div>
+        <div class="market-item">
+          <div class="market-name">Fear & Greed</div>
+          <div class="market-value">Extreme Fear</div>
+          <div class="market-change neutral">📉</div>
+        </div>
+        <div class="market-item">
+          <div class="market-name">DeFi TVL</div>
+          <div class="market-value">$68.4B</div>
+          <div class="market-change neutral">→ Stable</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Intelligence -->
+    <section id="newsletter-intelligence" class="fade-in">
+      <h2 class="section-title">Newsletter Intelligence</h2>
+
+      <div class="newsletter-card">
+        <div class="newsletter-source">TLDR AI · March 24</div>
+        <h3 class="newsletter-title">OpenAI PE Deal Terms, ChatGPT Library, Building an AI Chip</h3>
+        <p class="newsletter-content"><strong>Key Takeaways:</strong> OpenAI is offering private equity firms a guaranteed 17.5% minimum return to raise capital for enterprise AI expansion. ChatGPT's new Library feature stores personal files on cloud infrastructure (not available in EU/UK due to regulations). A comprehensive new book on designing AI chip hardware explores the future of AI CPUs with systolic arrays and custom silicon. GPT-5.4 Pro solved a Ramsey-style math problem that would take an expert 1-3 months to work through. Walmart reports ChatGPT checkout converts 3x worse than their standard website — agentic commerce adoption lags expectations.</p>
+        <p class="newsletter-content"><strong>Action Items:</strong> Monitor OpenAI IPO developments; test ChatGPT Library if available in your region; explore AI chip design patterns for infrastructure planning.</p>
+        <a href="https://a.tldrnewsletter.com/web-version?ep=1&lc=26a1c726-1042-11f1-bb1f-b188c22e0f31&p=b87b70c2-2774-11f1-bb0b-cb77ba1443bf&pt=campaign&t=1774358480" target="_blank" class="card-link">Read Full Newsletter →</a>
+      </div>
+
+      <div class="newsletter-card purple">
+        <div class="newsletter-source">TLDR IT · March 24</div>
+        <h3 class="newsletter-title">Gemini Hunts the Dark Web, AI Reshapes IT Strategy, RSAC is All About AI</h3>
+        <p class="newsletter-content"><strong>Key Takeaways:</strong> Google is deploying Gemini agents to sift through 8-10 million dark-web events daily for threat intelligence and security monitoring. RSAC 2026 opened with 45,000 attendees — security is now positioned as an operating layer, not a separate departmental function. Oracle released an emergency patch for a critical 9.8-rated identity vulnerability affecting legacy systems. Cloud Security Alliance launched CSAI nonprofit for agentic AI security governance and standardization. Endpoint security tools fail approximately 20% of the time, leaving devices exposed for an average of 76 days per year.</p>
+        <p class="newsletter-content"><strong>Action Items:</strong> Patch Oracle Identity Manager immediately if deployed; review agentic AI security posture within your organization; plan dark-web monitoring infrastructure.</p>
+        <a href="https://a.tldrnewsletter.com/web-version?ep=1&lc=3706df3e-1042-11f1-a08d-7d05ced38ea3&p=a4c8bd90-2734-11f1-a87c-75383a72e341&pt=campaign&t=1774355703" target="_blank" class="card-link">Read Full Newsletter →</a>
+      </div>
+
+      <div class="newsletter-card amber">
+        <div class="newsletter-source">Superhuman by Zain Kahn · March 24</div>
+        <h3 class="newsletter-title">Uni 1 Rethinks AI Image Generation</h3>
+        <p class="newsletter-content"><strong>Key Takeaways:</strong> Claude computer use hit 30M+ views in under 24 hours, signaling massive market appetite for agentic capabilities. Luma Labs Uni 1 uses a reasoning-first approach, thinking through spatial and logical constraints before rendering images. OpenAI hired Meta's former ad chief Dave Dugan with a $200K minimum ad spend commitment. The "Top 50 Claude Skills" list achieved 6.4M views on X in a single week. Career advice emerging: AI automates documentable tasks — true value lies in distribution, judgment, and building tools for agents rather than humans.</p>
+        <p class="newsletter-content"><strong>Action Items:</strong> Try Claude computer use on macOS; explore Luma Labs Uni 1 API for image generation; position yourself in AI distribution and agent-focused workflows.</p>
+        <a href="https://www.superhuman.ai/p/claude-gets-remote-control-powers" target="_blank" class="card-link">Read Full Newsletter →</a>
+      </div>
+
+      <div class="newsletter-card emerald">
+        <div class="newsletter-source">TLDR Crypto · March 24</div>
+        <h3 class="newsletter-title">Aave DAO V4 Deployment Close, Pagga AI Back Office, Privy Launch Treasury</h3>
+        <p class="newsletter-content"><strong>Key Takeaways:</strong> Aave DAO unanimously passed V4 deployment proposal after 345 days of audits and a $1.5M security contest. Strategy's STRC preferred stock offers approximately 11.5% variable dividend but carries governance risk for token holders. Hyperspace is a new Layer 1 blockchain with Proof-of-Intelligence consensus mechanism. An agentic commerce stack is emerging with 6 layers spanning revenue, payment, and identity. OpenAI+Stripe ACP competes with Shopify-backed UCP as the new standards battle for commerce infrastructure.</p>
+        <p class="newsletter-content"><strong>Action Items:</strong> Watch Aave V4 binding vote closely; monitor agentic commerce standards development; evaluate preferred stock opportunities vs governance risk.</p>
+        <a href="https://a.tldrnewsletter.com/web-version?ep=1&lc=36e224aa-1042-11f1-bba5-e5cdb5a2020b&p=8d44fc8e-273d-11f1-aaac-ff8a26de2327&pt=campaign&t=1774354031" target="_blank" class="card-link">Read Full Newsletter →</a>
+      </div>
+    </section>
+
+    <!-- Competitive Landscape -->
+    <section id="competitive-landscape" class="fade-in">
+      <h2 class="section-title">Competitive Landscape</h2>
+
+      <div class="status-card purple">
+        <div class="status-company">ANTHROPIC</div>
+        <div class="status-content">Pentagon supply-chain risk designation escalates geopolitical tensions. #QuitGPT movement drives Claude to #1 App Store position. Computer use launches with 30M+ views in 24 hours. Opus 4.6 and Sonnet 4.6 now support 1M token context. Strategic focus: alignment and enterprise safety.</div>
+      </div>
+
+      <div class="status-card emerald">
+        <div class="status-company">OPENAI</div>
+        <div class="status-content">GPT-5.4 with 1M context window launches. Annualized revenue exceeds $25B. PE deal at 17.5% guaranteed return for capital raise. Hired Meta ad chief Dave Dugan. ChatGPT Library feature rolls out. #QuitGPT movement creates near-term headwind. Strategic focus: IPO path and enterprise scale.</div>
+      </div>
+
+      <div class="status-card blue">
+        <div class="status-company">GOOGLE DEEPMIND</div>
+        <div class="status-content">Gemini 3.1 Flash-Lite achieves 2.5x speed improvement at $0.25/M tokens. AlphaEvolve saves 0.7% global compute. Deploying Gemini agents for dark-web threat intelligence (8-10M daily events). Nano Banana 2 image generation. Strategic focus: efficiency and infrastructure.</div>
+      </div>
+
+      <div class="status-card pink">
+        <div class="status-company">META</div>
+        <div class="status-content">Ordered to pay $375M in child exploitation settlement. Lost ad chief Dave Dugan to OpenAI. Faces mounting regulatory pressure. Under investigation for safety failures. Strategic position: weakening on child safety and talent retention.</div>
+      </div>
+
+      <div class="status-card cyan">
+        <div class="status-company">NVIDIA</div>
+        <div class="status-content">Nemotron-Cascade 2 open-sources post-training methodologies. Focuses on enterprise infrastructure enablement. Providing chipsets for all major AI providers. Strategic focus: hardware moat and enterprise scale.</div>
+      </div>
+    </section>
+
+    <!-- AI Tool Guide -->
+    <section id="ai-tool-guide" class="fade-in">
+      <h2 class="section-title">AI Tool Guide</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-category blue">Productivity</div>
+          <h3 class="card-title">Claude Cowork Computer Use</h3>
+          <p class="card-text">Control mouse, keyboard, and browser directly. Automate desktop workflows. macOS only. Pro/Max subscribers.</p>
+          <a href="https://claude.com/product/cowork" target="_blank" class="card-link">Learn More →</a>
+        </div>
+        <div class="card">
+          <div class="card-category purple">Creative</div>
+          <h3 class="card-title">Luma Labs Uni 1</h3>
+          <p class="card-text">Reasoning-first image generation with spatial reasoning. 30% cheaper than competitors. API available.</p>
+          <a href="https://lumalabs.ai/uni-1" target="_blank" class="card-link">Get Started →</a>
+        </div>
+        <div class="card">
+          <div class="card-category emerald">Design</div>
+          <h3 class="card-title">Gemini Infographic Creator</h3>
+          <p class="card-text">Generate professional social media infographics in seconds using Thinking model. Free tier available.</p>
+          <a href="https://gemini.google.com/" target="_blank" class="card-link">Try Now →</a>
+        </div>
+        <div class="card">
+          <div class="card-category pink">Audio & Video</div>
+          <h3 class="card-title">ElevenCreative</h3>
+          <p class="card-text">Generate, edit, localize premium audio and video. Supports 32 languages. Enterprise API.</p>
+          <a href="https://elevenlabs.io/creative" target="_blank" class="card-link">Explore →</a>
+        </div>
+        <div class="card">
+          <div class="card-category cyan">Automation</div>
+          <h3 class="card-title">Needle</h3>
+          <p class="card-text">Vibe-automate workflows with natural language. No-code automation for enterprises.</p>
+          <a href="https://needle.app/" target="_blank" class="card-link">Discover →</a>
+        </div>
+        <div class="card">
+          <div class="card-category amber">Marketing</div>
+          <h3 class="card-title">Gauge AI Marketing Agent</h3>
+          <p class="card-text">Manage organic, paid, and AI search campaigns from a single dashboard. Real-time optimization.</p>
+          <a href="https://www.withgauge.com/features/ask-gauge" target="_blank" class="card-link">Explore Features →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p id="generation-time">Generated on March 25, 2026</p>
+    <p>Sources: Web Search, Newsletter feeds, NotebookLM</p>
+    <p>Koda Intelligence · <a href="https://koda.community" target="_blank" style="color: inherit; text-decoration: none;">koda.community</a></p>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    const storedTheme = localStorage.getItem('koda-theme') || 'light';
+
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        html.classList.add('dark-mode');
+        themeToggle.textContent = '🌙';
+        localStorage.setItem('koda-theme', 'dark');
+      } else {
+        html.classList.remove('dark-mode');
+        themeToggle.textContent = '☀️';
+        localStorage.setItem('koda-theme', 'light');
+      }
+    }
+
+    setTheme(storedTheme);
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = localStorage.getItem('koda-theme') || 'light';
+      setTheme(currentTheme === 'light' ? 'dark' : 'light');
+    });
+
+    // Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach((el) => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+
+    // Day Navigation
+    const prevBtn = document.getElementById('prev-day');
+    const nextBtn = document.getElementById('next-day');
+
+    function checkAdjacentDates() {
+      // Current date is 2026-03-25
+      const prevDate = '2026-03-24';
+      const nextDate = '2026-03-26';
+
+      Promise.all([
+        fetch(`./morning-briefing-koda-${prevDate}.html`, { method: 'HEAD' }).then(() => true).catch(() => false),
+        fetch(`./morning-briefing-koda-${nextDate}.html`, { method: 'HEAD' }).then(() => true).catch(() => false)
+      ]).then(([prevExists, nextExists]) => {
+        if (!prevExists) {
+          prevBtn.disabled = true;
+        } else {
+          prevBtn.onclick = () => window.location.href = `./morning-briefing-koda-${prevDate}.html`;
+        }
+
+        if (!nextExists) {
+          nextBtn.disabled = true;
+        } else {
+          nextBtn.onclick = () => window.location.href = `./morning-briefing-koda-${nextDate}.html`;
+        }
+      });
+    }
+
+    checkAdjacentDates();
+
+    // Deep Linking
+    function handleDeepLink() {
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+        const target = document.getElementById(hash);
+        if (target) {
+          setTimeout(() => {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        }
+      }
+    }
+
+    window.addEventListener('load', handleDeepLink);
+    window.addEventListener('hashchange', handleDeepLink);
+
+    // Update generation time
+    const now = new Date();
+    const timeStr = now.toUTCString().split(' ').slice(0, 4).join(' ');
+    document.getElementById('generation-time').textContent = `Generated on March 25, 2026 at ${now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' })} UTC`;
+  </script>
+</body>
+</html>
