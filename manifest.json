@@ -1,27 +1,27 @@
 {
-  "generated": "2026-03-26T02:36:00Z",
+  "generated": "2026-03-26T02:39:28Z",
   "digests": [
     {
       "date": "2026-03-25",
       "dayOfWeek": "Wednesday",
       "focusTopics": [
         {
-          "title": "Open-Weight AI Escalates",
-          "desc": "DeepSeek V4's release at 1 trillion parameters as an open-weight model marks a significant inflection point, effectively democratizing frontier-scale AI and pressuring closed providers like OpenAI and Google to justify premium pricing. Alibaba's simultaneous release of Qwen3.5 across eight model sizes reinforces a trend toward modular, accessible AI stacks. Together, these moves compress the competitive moat of proprietary model vendors."
+          "title": "Open-Source AI Surge",
+          "desc": "Seven of nine March model releases are open-source, signaling a structural shift in how frontier capabilities are distributed. Alibaba's Qwen 3.5 series — spanning eight variants — is the most expansive single-week open release in recent memory, intensifying competition with closed labs. The pace raises urgent questions about safety evaluation timelines when models ship faster than red-team cycles."
         },
         {
-          "title": "Hormuz Crisis Deepens",
-          "desc": "Disruption to the Strait of Hormuz, through which roughly 20% of global energy transits, represents one of the most acute supply-side shocks in years, with cascading effects on oil prices, shipping insurance, and energy-dependent economies. Iran's flat rejection of Trump's ceasefire framework removes the nearest diplomatic off-ramp, while Russia's simultaneous strikes on Lviv and drone breaches of Baltic airspace suggest coordinated pressure on Western attention and resources. The Philippines' declaration of a national energy emergency illustrates how quickly regional economies absorb global supply disruptions."
+          "title": "Middle East Escalation Risk",
+          "desc": "Iran's cluster bomb strike on Israel following its rejection of Trump's 15-point ceasefire proposal marks a significant escalation threshold. Gulf state deliberations over joining U.S. strikes could rapidly expand the conflict's geographic and economic footprint. The ECB's explicit warning about an Iran-linked energy shock suggests European policymakers are already pricing in a prolonged disruption scenario."
         },
         {
-          "title": "Inference Speed War",
-          "desc": "NVIDIA's Vera Rubin platform reveal at GTC 2026 and the AWS-Cerebras partnership delivering 5x inference throughput signal that the AI hardware race has shifted decisively toward speed and efficiency at scale. These announcements arrive as model sizes balloon — DeepSeek V4 at 1T parameters demands exactly the kind of throughput gains Cerebras and NVIDIA are promising. Enterprises evaluating AI deployment costs will find today's hardware news directly relevant to their total cost of ownership calculations."
+          "title": "Agentic AI Goes Mainstream",
+          "desc": "Grok 4.20's exit from beta with a parallel agent architecture is the clearest signal yet that multi-agent orchestration is moving from research demo to production deployment. Combined with GPT-5.4 and Gemini 3.1 Pro trading blows at the top of leaderboards, enterprise buyers now face a genuinely contested market with no obvious default choice. Procurement and integration strategies built around a single-vendor assumption are increasingly obsolete."
         }
       ],
       "kpis": {
         "aiStories": "11",
         "worldEvents": "8",
-        "marketMood": "N/A",
+        "marketMood": "Extreme Fear",
         "toolsFeatured": "6"
       },
       "hasPodcast": true,
