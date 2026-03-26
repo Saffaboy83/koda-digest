@@ -1,27 +1,27 @@
 {
-  "generated": "2026-03-26T02:25:58Z",
+  "generated": "2026-03-26T02:36:00Z",
   "digests": [
     {
       "date": "2026-03-25",
       "dayOfWeek": "Wednesday",
       "focusTopics": [
         {
-          "title": "Open Source Frontier Surge",
-          "desc": "March 2026 is shaping up as a watershed month for open-source AI, with Alibaba releasing Qwen3.5 in eight variants and DeepSeek V4 directly challenging proprietary frontier models. The volume and quality of open releases is compressing the competitive moat that labs like OpenAI have historically relied on. Enterprises now face a genuine build-vs-buy inflection point."
+          "title": "Open-Weight AI Escalates",
+          "desc": "DeepSeek V4's release at 1 trillion parameters as an open-weight model marks a significant inflection point, effectively democratizing frontier-scale AI and pressuring closed providers like OpenAI and Google to justify premium pricing. Alibaba's simultaneous release of Qwen3.5 across eight model sizes reinforces a trend toward modular, accessible AI stacks. Together, these moves compress the competitive moat of proprietary model vendors."
         },
         {
-          "title": "Hormuz Oil Shock",
-          "desc": "Iran's blockade of the Strait of Hormuz has removed roughly 20% of global seaborne oil supply from the market in a single move, a supply disruption comparable in scale to the 1973 embargo. Trump's deployment of 1,500 paratroopers signals military escalation, but reopening the strait could take weeks even under best-case scenarios. Energy markets, already stressed, face prolonged volatility."
+          "title": "Hormuz Crisis Deepens",
+          "desc": "Disruption to the Strait of Hormuz, through which roughly 20% of global energy transits, represents one of the most acute supply-side shocks in years, with cascading effects on oil prices, shipping insurance, and energy-dependent economies. Iran's flat rejection of Trump's ceasefire framework removes the nearest diplomatic off-ramp, while Russia's simultaneous strikes on Lviv and drone breaches of Baltic airspace suggest coordinated pressure on Western attention and resources. The Philippines' declaration of a national energy emergency illustrates how quickly regional economies absorb global supply disruptions."
         },
         {
-          "title": "Inference Speed Breakthrough",
-          "desc": "AWS and Cerebras announced a 5x inference throughput improvement, a development that could dramatically lower the cost and latency of deploying large models at scale. Combined with GPT-5.4's million-token context, this shifts the bottleneck from model capability to application design. Developers building on long-context pipelines should reassess architecture assumptions immediately."
+          "title": "Inference Speed War",
+          "desc": "NVIDIA's Vera Rubin platform reveal at GTC 2026 and the AWS-Cerebras partnership delivering 5x inference throughput signal that the AI hardware race has shifted decisively toward speed and efficiency at scale. These announcements arrive as model sizes balloon — DeepSeek V4 at 1T parameters demands exactly the kind of throughput gains Cerebras and NVIDIA are promising. Enterprises evaluating AI deployment costs will find today's hardware news directly relevant to their total cost of ownership calculations."
         }
       ],
       "kpis": {
-        "aiStories": "12",
-        "worldEvents": "7",
-        "marketMood": "Risk-off / Bearish",
+        "aiStories": "11",
+        "worldEvents": "8",
+        "marketMood": "N/A",
         "toolsFeatured": "6"
       },
       "hasPodcast": true,
