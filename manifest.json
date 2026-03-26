@@ -1,6 +1,35 @@
 {
-  "generated": "2026-03-26T02:44:10Z",
+  "generated": "2026-03-26T11:30:14Z",
   "digests": [
+    {
+      "date": "2026-03-26",
+      "dayOfWeek": "Thursday",
+      "focusTopics": [
+        {
+          "title": "Context Wars Heat Up",
+          "desc": "GPT-5.4's 1-million-token context window and Alibaba's Qwen3.5 closing the gap with proprietary models signal that the frontier is now being contested on memory and efficiency, not just raw benchmark scores. Open and semi-open models are compressing what was once a 12-month proprietary lead into weeks. Enterprises evaluating long-document workflows should reassess vendor lock-in assumptions immediately."
+        },
+        {
+          "title": "Middle East Escalation Deepens",
+          "desc": "With the Natanz strike confirmed and Iran vowing a prolonged conflict, the 26-day U.S.-Israel campaign has moved from tactical strikes to strategic infrastructure targeting. Simultaneous operations in Gaza, Syria, and Yemen suggest a multi-front posture that the UN Security Council has so far failed to restrain. Energy markets and global shipping lanes through the Strait of Hormuz remain the primary systemic risk vectors to watch."
+        },
+        {
+          "title": "Agentic AI Infrastructure Matures",
+          "desc": "NVIDIA's Nemotron 3 Super targeting agentic AI workloads and Cerebras bringing CS-3 compute to AWS Bedrock represent two sides of the same shift: the stack for autonomous AI agents is being industrialized. Ai2's Olmo Hybrid achieving 2x data efficiency adds an open-source dimension, suggesting agentic capabilities will not remain exclusive to well-capitalized labs. The convergence of specialized hardware, efficient training, and cloud distribution could accelerate autonomous deployment timelines significantly."
+        }
+      ],
+      "kpis": {
+        "aiStories": "11",
+        "worldEvents": "8",
+        "marketMood": "Extreme Fear",
+        "toolsFeatured": "6"
+      },
+      "hasPodcast": true,
+      "hasInfographic": true,
+      "hasVideo": true,
+      "youtubeId": "hxDd8XG1wPw",
+      "file": "morning-briefing-koda-2026-03-26.html"
+    },
     {
       "date": "2026-03-25",
       "dayOfWeek": "Wednesday",
