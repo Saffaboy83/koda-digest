@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koda Intelligence Briefing — {{ date_label }}</title>
+    <title>Koda Intelligence Briefing | {{ date_label }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -35,7 +35,7 @@
     <div class="container">
         <div class="hero-date">{{ date_label }}</div>
         <h1 class="hero-title">Koda Intelligence Briefing</h1>
-        <p class="hero-sub">AI developments, world news, markets, and tools — synthesized daily.</p>
+        <p class="hero-sub">AI developments, world news, markets, and tools, synthesized daily.</p>
     </div>
 </div>
 
@@ -110,13 +110,13 @@
 <div class="section" id="daily-summary">
     <div class="section-title"><span class="section-icon">📋</span> Executive Summary</div>
     <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);">
-        <div class="summary-hook" style="font-size:20px;font-weight:800;margin-bottom:18px;line-height:1.4">{{ summary.hook or "" }}</div>
+        <div class="summary-hook" style="font-size:20px;font-weight:800;margin-bottom:18px;line-height:1.4">{{ (summary.hook or "") | no_em_dash }}</div>
         {% for brief in summary.briefs or [] %}
         {% set icon = brief_icons.get(brief.icon, "📌") %}
         {% set color = brief_colors.get(brief.icon, "var(--blue)") %}
         <div class="summary-brief" style="border-left:3px solid {{ color }};padding:10px 16px;margin:10px 0;background:var(--bg-card);border-radius:0 12px 12px 0;">
             <div style="font-size:13px;font-weight:700;color:{{ color }};margin-bottom:4px">{{ icon }} {{ brief.label or "" }}</div>
-            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">{{ brief.text or "" }}</div>
+            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">{{ (brief.text or "") | no_em_dash }}</div>
         </div>
         {% endfor %}
     </div>
@@ -127,7 +127,7 @@
 <div class="section" id="infographic">
     <div class="section-title"><span class="section-icon">📊</span> Daily Infographic</div>
     <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:16px;box-shadow:0 4px 16px var(--shadow);text-align:center">
-        <img src="./infographic-{{ date }}.jpg" alt="Koda Daily Infographic — {{ date }}" style="max-width:100%;border-radius:12px">
+        <img src="./infographic-{{ date }}.jpg" alt="Koda Daily Infographic {{ date }}" style="max-width:100%;border-radius:12px">
     </div>
 </div>
 {% endif %}
@@ -143,8 +143,8 @@
         <article class="focus-item">
             <div class="focus-num" style="background:linear-gradient(135deg,{{ focus_colors[loop.index0 % 3] }},var(--purple))">{{ topic.number or loop.index }}</div>
             <div class="focus-content">
-                <div class="focus-content-title">{{ topic.title or "" }}</div>
-                <div class="focus-content-body">{{ topic.description or "" }}</div>
+                <div class="focus-content-title">{{ (topic.title or "") | no_em_dash }}</div>
+                <div class="focus-content-body">{{ (topic.description or "") | no_em_dash }}</div>
             </div>
         </article>
         {% endfor %}
@@ -168,8 +168,8 @@
         {% set color = ai_cat_colors.get(cat, "var(--blue)") %}
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:{{ color }};background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">{{ cat }}</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">{{ story.title or "" }}</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">{{ story.body or "" }}{% if story.source_url %} <a href="{{ story.source_url | safe_url }}" target="_blank" style="color:{{ color }};font-size:11px;text-decoration:none;">Source →</a>{% endif %}</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">{{ (story.title or "") | no_em_dash }}</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">{{ (story.body or "") | no_em_dash }}{% if story.source_url %} <a href="{{ story.source_url | safe_url }}" target="_blank" style="color:{{ color }};font-size:11px;text-decoration:none;">Source →</a>{% endif %}</div>
         </div>
         {% endfor %}
     </div>
@@ -191,8 +191,8 @@
         {% set color = world_cat_colors.get(cat, "var(--blue)") %}
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:{{ color }};background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">{{ cat }}</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">{{ story.title or "" }}</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">{{ story.body or "" }}{% if story.source_url %} <a href="{{ story.source_url | safe_url }}" target="_blank" style="color:{{ color }};font-size:11px;text-decoration:none;">Source →</a>{% endif %}</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">{{ (story.title or "") | no_em_dash }}</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">{{ (story.body or "") | no_em_dash }}{% if story.source_url %} <a href="{{ story.source_url | safe_url }}" target="_blank" style="color:{{ color }};font-size:11px;text-decoration:none;">Source →</a>{% endif %}</div>
         </div>
         {% endfor %}
     </div>
@@ -224,6 +224,7 @@
             <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">{{ label }}</div>
             <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">{{ price }}</div>
             <div class="market-change" style="font-size:13px;font-weight:700;color:{{ mkt_color }};margin-top:4px">{{ change }}</div>
+            {% if data.sparkline %}{{ data.sparkline | sparkline(mkt_color) | safe }}{% endif %}
         </div>
         {% endif %}
         {% endfor %}
@@ -245,32 +246,32 @@
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Headlines</div>
             <ul style="list-style:none;padding:0">
-                {% for h in nl.headlines %}<li style="margin:4px 0;font-size:13px">{{ h }}</li>{% endfor %}
+                {% for h in nl.headlines %}<li style="margin:4px 0;font-size:13px">{{ h | no_em_dash }}</li>{% endfor %}
             </ul>
         </div>
         {% endif %}
         {% if nl.deep_dives %}
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Deep Dives</div>
-            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">{{ nl.deep_dives }}</div>
+            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">{{ nl.deep_dives | no_em_dash }}</div>
         </div>
         {% endif %}
         {% if nl.quick_hits %}
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Quick Hits</div>
             <ul style="list-style:none;padding:0">
-                {% for q in nl.quick_hits %}<li style="margin:4px 0;font-size:13px">{{ q }}</li>{% endfor %}
+                {% for q in nl.quick_hits %}<li style="margin:4px 0;font-size:13px">{{ q | no_em_dash }}</li>{% endfor %}
             </ul>
         </div>
         {% endif %}
         {% if nl.tools %}
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Trending Tools</div>
-            {% for t in nl.tools %}{% if t %}<span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">{{ t }}</span>{% endif %}{% endfor %}
+            {% for t in nl.tools %}{% if t %}<span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">{{ t | no_em_dash }}</span>{% endif %}{% endfor %}
         </div>
         {% endif %}
         {% if nl.quote %}
-        <blockquote class="newsletter-quote" style="border-left:3px solid var(--purple);padding:10px 16px;margin:12px 0;font-style:italic;color:var(--text-secondary);font-size:13px">"{{ nl.quote }}"</blockquote>
+        <blockquote class="newsletter-quote" style="border-left:3px solid var(--purple);padding:10px 16px;margin:12px 0;font-style:italic;color:var(--text-secondary);font-size:13px">"{{ nl.quote | no_em_dash }}"</blockquote>
         {% endif %}
         {% if nl.source_link %}
         <a href="{{ nl.source_link | safe_url }}" target="_blank" style="font-size:11px;color:var(--blue);text-decoration:none">View original →</a>
@@ -288,8 +289,8 @@
         {% for comp in competitive %}
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">{{ comp.name or "" }}</div>
-            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">{{ comp.status or "" }}</div>
-            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">{{ comp.body or "" }}{% if comp.source_url %} <a href="{{ comp.source_url | safe_url }}" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a>{% endif %}</div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">{{ (comp.status or "") | no_em_dash }}</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">{{ (comp.body or "") | no_em_dash }}{% if comp.source_url %} <a href="{{ comp.source_url | safe_url }}" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a>{% endif %}</div>
         </div>
         {% endfor %}
     </div>
@@ -306,8 +307,8 @@
         {% set tool_icon = tool_icons.get(tool.category, "🔧") %}
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">{{ tool_icon }} TIP {{ "%02d"|format(loop.index) }}</div>
-            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">{{ tool.title or "" }}</div>
-            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">{{ tool.body or "" }}{% if tool.url %} <a href="{{ tool.url | safe_url }}" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a>{% endif %}</div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">{{ (tool.title or "") | no_em_dash }}</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">{{ (tool.body or "") | no_em_dash }}{% if tool.url %} <a href="{{ tool.url | safe_url }}" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a>{% endif %}</div>
         </div>
         {% endfor %}
     </div>

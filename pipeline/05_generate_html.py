@@ -80,6 +80,36 @@ def safe_url(value):
     return "#"
 
 
+def strip_em_dash(value):
+    """Replace em dashes with commas for cleaner copy."""
+    if isinstance(value, str):
+        return value.replace("\u2014", ",").replace("\u2013", ",")
+    return value
+
+
+def sparkline_svg(points, color="var(--emerald)", width=80, height=24):
+    """Generate an inline SVG sparkline from a list of numeric values."""
+    if not points or len(points) < 2:
+        return ""
+    lo, hi = min(points), max(points)
+    span = hi - lo if hi != lo else 1
+    pad = 2
+    usable_h = height - pad * 2
+    coords = []
+    for i, v in enumerate(points):
+        x = round(i / (len(points) - 1) * width, 1)
+        y = round(pad + usable_h - ((v - lo) / span) * usable_h, 1)
+        coords.append(f"{x},{y}")
+    poly = " ".join(coords)
+    return (
+        f'<svg width="{width}" height="{height}" viewBox="0 0 {width} {height}" '
+        f'style="display:block;margin:8px auto 0" aria-hidden="true">'
+        f'<polyline points="{poly}" fill="none" stroke="{color}" '
+        f'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>'
+        f'</svg>'
+    )
+
+
 def generate_html(digest, media_status, date):
     """Render the Jinja2 template with digest data."""
     env = Environment(
@@ -87,6 +117,8 @@ def generate_html(digest, media_status, date):
         autoescape=select_autoescape(["html"]),
     )
     env.filters["safe_url"] = safe_url
+    env.filters["no_em_dash"] = strip_em_dash
+    env.filters["sparkline"] = sparkline_svg
     template = env.get_template("briefing.html")
 
     has_podcast, has_infographic = check_media(date, media_status)
