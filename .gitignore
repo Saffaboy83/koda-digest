@@ -5,6 +5,12 @@ podcast-raw.*
 video-raw.*
 client_secret.json
 .youtube_token.json
+.gmail_token.json
 .env
 media-status.json
 *-test.*
+__pycache__/
+pipeline/__pycache__/
+pipeline/data/
+.claude/launch.json
+test_write/

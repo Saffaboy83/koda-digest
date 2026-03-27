@@ -105,12 +105,26 @@ This digest is PUBLIC-FACING. Do NOT include any personal data:
 - Old audio/infographic/video artifacts are NEVER deleted (archive value)
 - Avoids hitting NotebookLM's notebook count limit
 
-### Audio Download: Chrome Browser MCP
-- NotebookLM audio URLs (`lh3.googleusercontent.com`) require authentication
-- Cannot use curl/wget — Google CDN rejects unauthenticated requests
-- **Solution**: Use Chrome MCP (which has Google session cookies) to click the Download button
-- The three-dot menu on each audio artifact has a "Download" option
-- Downloaded as .m4a to ~/Downloads, then moved to Digest folder
+### Media Generation: notebooklm-py API (Primary)
+- **Primary method**: `notebooklm_media.py` uses the unofficial `notebooklm-py` Python wrapper
+- Handles source management, audio/infographic/video generation, and download — all via API
+- No Chrome browser needed for normal operation
+- Auth via Google cookies stored at `~/.notebooklm/storage_state.json`
+- Cookies last days-to-weeks; when expired, re-run `python notebooklm_login.py`
+- Usage: `PYTHONUTF8=1 python notebooklm_media.py --text-file news.txt --date YYYY-MM-DD`
+- Outputs: `podcast-YYYY-MM-DD.mp3`, `infographic-YYYY-MM-DD.jpg`, `video-YYYY-MM-DD.mp4`
+- Status written to `media-status.json` after each run
+
+### Media Generation: Chrome MCP (Fallback)
+- If `notebooklm-py` auth expires mid-run or API breaks, fall back to Chrome MCP
+- The script prints clear instructions for which steps need Chrome-based manual generation
+- Chrome MCP uses Google session cookies to click Download buttons in NotebookLM UI
+- This is the legacy approach — only use when the API fails
+
+### Cookie Re-authentication
+- Run `python notebooklm_login.py` — opens Edge, captures Google cookies automatically
+- No interactive terminal needed (unlike `notebooklm login` CLI)
+- Verify with: `PYTHONUTF8=1 notebooklm auth check --test`
 
 ### Video Serving: YouTube (not Vercel)
 - Videos are typically 20-50MB — too large to commit to git daily
@@ -163,6 +177,9 @@ C:\Users\arno_\Digest\
   podcast-YYYY-MM-DD.mp3              # Committed to git, served by Vercel
   infographic-YYYY-MM-DD.jpg          # Committed to git, served by Vercel
   video-YYYY-MM-DD.mp4                # TEMPORARY — uploaded to YouTube then deleted
+  notebooklm_media.py                 # NotebookLM API media generator (primary)
+  notebooklm_login.py                 # Cookie capture for notebooklm-py auth
+  extract_cookies.py                  # Alt cookie extraction from Edge (requires admin)
   youtube_upload.py                   # YouTube Data API upload script (automated)
   client_secret.json                  # OAuth client secret (gitignored)
   .youtube_token.json                 # OAuth refresh token (gitignored)
@@ -204,7 +221,18 @@ and repackage the .skill file.
 - Verify the MP3 is committed to git and deployed to Vercel
 - Test: `curl -I https://www.koda.community/podcast-YYYY-MM-DD.mp3` should return `Content-Type: audio/mpeg`
 
-### Chrome download fails
+### notebooklm-py auth expired
+- Symptom: `notebooklm_media.py` exits with code 2 and prints "AUTH EXPIRED"
+- Fix: Run `python notebooklm_login.py` (opens Edge, captures cookies automatically)
+- Verify: `PYTHONUTF8=1 notebooklm auth check --test`
+- Cookies typically last days to weeks before needing refresh
+
+### notebooklm-py API breaks (method IDs changed)
+- Symptom: `RPCError` or `UnknownRPCMethodError` during generation
+- Fix: Update the library: `pip install --upgrade notebooklm-py`
+- If still broken: fall back to Chrome MCP (the script prints instructions)
+
+### Chrome download fails (legacy fallback)
 - The skill has graceful degradation — if download fails, HTML shows a "Listen in NotebookLM" link button instead
 - Common cause: NotebookLM page hasn't finished loading. Increase wait time in Step 2B.
 
