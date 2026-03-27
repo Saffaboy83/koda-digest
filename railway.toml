@@ -1,0 +1,8 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+# No persistent web server needed; this is a cron job
+numReplicas = 0
+cronSchedule = "0 5 * * *"
