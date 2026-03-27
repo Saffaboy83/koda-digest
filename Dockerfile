@@ -18,8 +18,7 @@ RUN playwright install chromium && playwright install-deps chromium
 # Copy project
 COPY . .
 
-# Ensure data directory exists
-RUN mkdir -p /app/pipeline/data
+# Ensure data directory and entrypoint are ready
+RUN mkdir -p /app/pipeline/data && chmod +x /app/entrypoint.sh
 
-# Default: run full pipeline for today
-CMD ["python", "-m", "pipeline.run_all"]
+ENTRYPOINT ["/app/entrypoint.sh"]
