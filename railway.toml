@@ -4,4 +4,4 @@ dockerfilePath = "Dockerfile"
 
 [deploy]
 numReplicas = 1
-cronSchedule = "0 5 * * *"
+cronSchedule = "0 10 * * *"
