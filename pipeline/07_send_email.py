@@ -22,7 +22,10 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from pipeline.config import EMAIL_RECIPIENTS, DIGEST_DIR, today_str, write_json, read_json
 
 GMAIL_TOKEN_PATH = DIGEST_DIR / ".gmail_token.json"
-GMAIL_SCOPES = ["https://www.googleapis.com/auth/gmail.send"]
+GMAIL_SCOPES = [
+    "https://www.googleapis.com/auth/gmail.send",
+    "https://www.googleapis.com/auth/gmail.readonly",
+]
 
 
 def build_email_subject(digest):

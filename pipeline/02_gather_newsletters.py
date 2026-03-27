@@ -22,7 +22,10 @@ from pipeline.config import DIGEST_DIR, today_str, write_json, read_json
 # ── Gmail Config ─────────────────────────────────────────────────────────────
 
 GMAIL_TOKEN_PATH = DIGEST_DIR / ".gmail_token.json"
-GMAIL_SCOPES = ["https://www.googleapis.com/auth/gmail.readonly"]
+GMAIL_SCOPES = [
+    "https://www.googleapis.com/auth/gmail.send",
+    "https://www.googleapis.com/auth/gmail.readonly",
+]
 
 SEARCH_QUERY = (
     "in:inbox ("
