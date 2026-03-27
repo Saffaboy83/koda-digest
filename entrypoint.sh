@@ -2,19 +2,20 @@
 set -e
 
 # Decode credential files from base64 environment variables
+# Use tr to strip any whitespace/CRLF from the base64 string
 if [ -n "$GMAIL_TOKEN_B64" ]; then
-    echo "$GMAIL_TOKEN_B64" | base64 -d > /app/.gmail_token.json
+    echo "$GMAIL_TOKEN_B64" | tr -d '[:space:]' | base64 -d > /app/.gmail_token.json
     echo "[entrypoint] Gmail token decoded"
 fi
 
 if [ -n "$YOUTUBE_TOKEN_B64" ]; then
-    echo "$YOUTUBE_TOKEN_B64" | base64 -d > /app/.youtube_token.json
+    echo "$YOUTUBE_TOKEN_B64" | tr -d '[:space:]' | base64 -d > /app/.youtube_token.json
     echo "[entrypoint] YouTube token decoded"
 fi
 
 if [ -n "$NOTEBOOKLM_COOKIES_B64" ]; then
     mkdir -p /root/.notebooklm
-    echo "$NOTEBOOKLM_COOKIES_B64" | base64 -d > /root/.notebooklm/storage_state.json
+    echo "$NOTEBOOKLM_COOKIES_B64" | tr -d '[:space:]' | base64 -d > /root/.notebooklm/storage_state.json
     echo "[entrypoint] NotebookLM cookies decoded"
 fi
 
