@@ -1,41 +1,31 @@
 #!/bin/bash
-
 echo "[entrypoint] Starting Koda Digest pipeline"
 
-# Decode credential files from base64 environment variables
-if [ -n "$GMAIL_TOKEN_B64" ]; then
-    if echo "$GMAIL_TOKEN_B64" | tr -d '[:space:]' | base64 -d > /app/.gmail_token.json 2>/dev/null; then
-        echo "[entrypoint] Gmail token decoded ($(wc -c < /app/.gmail_token.json) bytes)"
-    else
-        echo "[entrypoint] WARNING: Gmail token base64 decode failed"
-        rm -f /app/.gmail_token.json
-    fi
-else
-    echo "[entrypoint] GMAIL_TOKEN_B64 not set"
-fi
+# Use Python to decode base64 tokens (more reliable than bash base64)
+python3 -c "
+import os, base64, pathlib
 
-if [ -n "$YOUTUBE_TOKEN_B64" ]; then
-    if echo "$YOUTUBE_TOKEN_B64" | tr -d '[:space:]' | base64 -d > /app/.youtube_token.json 2>/dev/null; then
-        echo "[entrypoint] YouTube token decoded ($(wc -c < /app/.youtube_token.json) bytes)"
-    else
-        echo "[entrypoint] WARNING: YouTube token base64 decode failed"
-        rm -f /app/.youtube_token.json
-    fi
-else
-    echo "[entrypoint] YOUTUBE_TOKEN_B64 not set"
-fi
+tokens = {
+    'GMAIL_TOKEN_B64': '/app/.gmail_token.json',
+    'YOUTUBE_TOKEN_B64': '/app/.youtube_token.json',
+    'NOTEBOOKLM_COOKIES_B64': '/root/.notebooklm/storage_state.json',
+}
 
-if [ -n "$NOTEBOOKLM_COOKIES_B64" ]; then
-    mkdir -p /root/.notebooklm
-    if echo "$NOTEBOOKLM_COOKIES_B64" | tr -d '[:space:]' | base64 -d > /root/.notebooklm/storage_state.json 2>/dev/null; then
-        echo "[entrypoint] NotebookLM cookies decoded ($(wc -c < /root/.notebooklm/storage_state.json) bytes)"
-    else
-        echo "[entrypoint] WARNING: NotebookLM cookies base64 decode failed"
-        rm -f /root/.notebooklm/storage_state.json
-    fi
-else
-    echo "[entrypoint] NOTEBOOKLM_COOKIES_B64 not set"
-fi
+for env_var, dest in tokens.items():
+    raw = os.environ.get(env_var, '')
+    if not raw:
+        print(f'[entrypoint] {env_var} not set')
+        continue
+    try:
+        cleaned = raw.strip().replace('\n', '').replace('\r', '').replace(' ', '')
+        data = base64.b64decode(cleaned)
+        pathlib.Path(dest).parent.mkdir(parents=True, exist_ok=True)
+        pathlib.Path(dest).write_bytes(data)
+        print(f'[entrypoint] {env_var} decoded ({len(data)} bytes) -> {dest}')
+    except Exception as e:
+        print(f'[entrypoint] WARNING: {env_var} decode failed: {e}')
+        print(f'[entrypoint]   raw length: {len(raw)}, first 20 chars: {repr(raw[:20])}')
+"
 
 # Configure git for deploy step
 if [ -n "$GIT_TOKEN" ]; then
@@ -44,8 +34,6 @@ if [ -n "$GIT_TOKEN" ]; then
     git config --global user.email "digest@koda.community"
     git config --global user.name "Koda Digest Bot"
     echo "[entrypoint] Git credentials configured"
-else
-    echo "[entrypoint] GIT_TOKEN not set"
 fi
 
 echo "[entrypoint] Launching pipeline..."
