@@ -122,16 +122,26 @@ def fetch_live_markets():
                 else:
                     price_fmt = f"{price:,.2f}"
 
+                # Fetch 7-day history for sparkline
+                sparkline = []
+                try:
+                    hist = t.history(period="7d")
+                    if not hist.empty:
+                        sparkline = [round(float(c), 2) for c in hist["Close"].tolist()]
+                except Exception:
+                    pass
+
                 markets[key] = {
                     "price": price_fmt,
                     "change": f"{sign}{change_pct:.2f}%",
                     "direction": direction,
+                    "sparkline": sparkline,
                 }
             else:
-                markets[key] = {"price": "N/A", "change": "N/A", "direction": "neutral"}
+                markets[key] = {"price": "N/A", "change": "N/A", "direction": "neutral", "sparkline": []}
         except Exception as e:
             print(f"  WARNING: Could not fetch {symbol}: {e}")
-            markets[key] = {"price": "N/A", "change": "N/A", "direction": "neutral"}
+            markets[key] = {"price": "N/A", "change": "N/A", "direction": "neutral", "sparkline": []}
 
     # Fear & Greed sentiment (try CNN first, then alternative.me crypto index)
     sentiment_fetched = False

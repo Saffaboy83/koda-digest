@@ -72,7 +72,8 @@ def llm_json(prompt, system="", model=SONNET_MODEL, max_tokens=4000):
 
 SYSTEM_PROMPT = """You are the editor of Koda Intelligence Briefing, a daily AI-focused news digest.
 Your job is to synthesize raw search results into structured, editorial-quality content.
-Write in a direct, analytical voice. Be specific — use names, numbers, and dates.
+Write in a direct, analytical voice. Be specific: use names, numbers, and dates.
+Never use em dashes. Use commas, colons, semicolons, or separate sentences instead.
 This is a public-facing briefing, not a personal newsletter. No personal data."""
 
 
