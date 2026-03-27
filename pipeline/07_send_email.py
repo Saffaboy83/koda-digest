@@ -35,7 +35,7 @@ def build_email_subject(digest):
         hook = hook[:37] + "..."
 
     date_label = digest.get("date_label", digest["date"])
-    return f"Koda Daily Digest — {hook} — {date_label}"
+    return f"Koda Daily Digest | {hook} | {date_label}"
 
 
 def build_email_html(digest, media_status):
@@ -262,7 +262,7 @@ def main():
     print(f"  Saved draft to {path}")
 
     if args.dry_run:
-        print("  DRY RUN — email not sent")
+        print("  DRY RUN | email not sent")
         preview_path = os.path.join(os.path.dirname(str(path)), "email-preview.html")
         with open(preview_path, "w", encoding="utf-8") as f:
             f.write(html_body)
@@ -273,7 +273,7 @@ def main():
     print("  Sending via Gmail API...")
     sent = send_email_gmail_api(subject, html_body, EMAIL_RECIPIENTS)
     if not sent:
-        print("  Gmail API send failed — draft saved to email-draft.json")
+        print("  Gmail API send failed | draft saved to email-draft.json")
         print("  To authorize Gmail send, run: python pipeline/07_send_email.py --date <date>")
         print("  (A browser window will open for one-time OAuth authorization)")
 

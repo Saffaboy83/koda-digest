@@ -2,6 +2,7 @@
 
 import os
 import json
+import shutil
 from datetime import datetime
 from pathlib import Path
 
@@ -36,15 +37,18 @@ SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
 
 # ── Constants ────────────────────────────────────────────────────────────────
 
-NOTEBOOK_ID = "f928d89b-2520-4180-a71a-d93a75a5487c"
+NOTEBOOK_ID = os.environ.get(
+    "NOTEBOOK_ID", "f928d89b-2520-4180-a71a-d93a75a5487c"
+)
 
-FFMPEG_PATH = os.path.expanduser(
+# FFmpeg: use env var, then system PATH, then Windows fallback
+FFMPEG_PATH = os.environ.get("FFMPEG_PATH", "") or shutil.which("ffmpeg") or os.path.expanduser(
     "~/AppData/Local/Microsoft/WinGet/Packages/"
     "Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/"
     "ffmpeg-8.1-full_build/bin/ffmpeg.exe"
 )
 
-EMAIL_RECIPIENTS = [
+EMAIL_RECIPIENTS = os.environ.get("EMAIL_RECIPIENTS", "").split(",") if os.environ.get("EMAIL_RECIPIENTS") else [
     "cazmarincowitz@outlook.com",
     "markmarincowitz9@gmail.com",
     "charlene@vanillasky.co.za",
