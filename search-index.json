@@ -1,6 +1,214 @@
 {
-  "generated": "2026-03-27T12:02:31Z",
+  "generated": "2026-03-28T02:56:55Z",
   "days": [
+    {
+      "date": "2026-03-28",
+      "sections": [
+        {
+          "title": "Today's Focus",
+          "items": [
+            {
+              "headline": "Open-Weight AI Dominates March",
+              "text": "Seven of nine text models released this month carry open-weight licenses, a structural shift that redistributes frontier AI capability away from closed commercial providers. DeepSeek V4 and Alibaba's Qwen3.5 family are the most prominent entrants, directly targeting performance benchmarks held by GPT-5.4. This concentration of open releases in a single month suggests a coordinated competitive response to OpenAI's continued commercial momentum."
+            },
+            {
+              "headline": "Hormuz Crisis Reshapes Energy Markets",
+              "text": "Iran's closure of the Strait of Hormuz, through which roughly 20 percent of global oil supply transits, has triggered an immediate price shock and currency pressure across import-dependent economies, with India's rupee hitting a record low. The IAEA's warning of nuclear fallout risk at the Bushehr reactor adds a catastrophic tail risk that markets have not yet fully priced. G7 ministers convening in France face a narrow window to de-escalate before supply disruptions compound into a broader economic crisis."
+            },
+            {
+              "headline": "Xiaomi's Trillion-Parameter Surprise",
+              "text": "The surfacing of Xiaomi's stealth trillion-parameter model is the week's most underreported AI development, signaling that consumer hardware companies are now competing at the absolute frontier of model scale. Xiaomi's existing distribution across hundreds of millions of devices gives it a deployment surface that pure-play AI labs cannot match. If the model's capabilities prove competitive, it reframes the frontier AI race as a hardware-distribution contest as much as a research one."
+            }
+          ]
+        },
+        {
+          "title": "Executive Summary",
+          "items": [
+            {
+              "headline": "Summary",
+              "text": "AI model releases accelerate as geopolitical crisis sends markets into extreme fear."
+            }
+          ]
+        },
+        {
+          "title": "AI Developments",
+          "items": [
+            {
+              "headline": "OpenAI Launches GPT-5.4 Family on March 5",
+              "text": "OpenAI released GPT-5.4 and GPT-5.4 Pro on March 5, featuring a 1 million-token context window, enhanced reasoning, native computer-use capabilities, and agentic workflow support. GPT-5.4 Mini followed on March 18 for free ChatGPT users, with paid tiers reorganized into three reasoning levels: Instant, Thinking, and Pro. The flagship model tied for first place on the LMArena leaderboard, competing directly with Claude and Gemini variants. Source →"
+            },
+            {
+              "headline": "DeepSeek V4 Targets Frontier Models Open-Weight",
+              "text": "DeepSeek V4, expected around March 3, arrives with 1 trillion total parameters and 32 billion active parameters, native multimodal support, and a 1 million-plus token context window, all released as open-weight. The architecture positions it directly against proprietary frontier models from OpenAI and Anthropic while remaining freely accessible to developers. Its scale and openness make it one of the most significant releases of the quarter. Source →"
+            },
+            {
+              "headline": "Alibaba Releases Qwen3.5 in Eight Variants",
+              "text": "Alibaba shipped the Qwen3.5 series in March, offering eight open-weight variants ranging from 0.8 billion to 397 billion parameters. The breadth of the lineup allows developers to deploy models across a wide range of hardware configurations, from edge devices to data center clusters. Qwen3.5 ranks among the highest-performing open-weight text models released in Q1 2026. Source →"
+            },
+            {
+              "headline": "Seven of Nine March Text Models Are Open Source",
+              "text": "Of the nine major text models shipped in March 2026, seven were released under open-source or open-weight licenses, including contributions from Mistral AI, MiniMax, NVIDIA, Xiaomi, and DeepSeek. Mistral Small 4 carries an Apache 2.0 license, and NVIDIA released both Nemotron 3 Super and VoiceChat as open-source. This ratio accelerates developer access and multi-model testing at a pace that proprietary labs are struggling to match. Source →"
+            },
+            {
+              "headline": "Xiaomi's Stealth Trillion-Parameter Model Surfaces",
+              "text": "A previously unattributed trillion-parameter model, later identified as Xiaomi's Hunter Alpha, appeared on OpenRouter between March 11 and 19 without an official announcement. The stealth release drew attention from developers who benchmarked it before its origin was confirmed. Hunter Alpha represents Xiaomi's most ambitious AI effort to date, following the earlier open-source release of MiMo-V2-Pro. Source →"
+            },
+            {
+              "headline": "March Releases Prioritize Reasoning Efficiency Over Scale",
+              "text": "Across March 2026 releases, leading labs shifted emphasis toward reasoning efficiency rather than raw parameter counts, with top models excelling on GPQA graduate-level question-answering and real-world coding and agentic tasks. GPT-5.4, Claude 4.5 and 4.6 Sonnet, and Gemini variants all clustered near the top of benchmark leaderboards using this approach. The trend suggests that compute-efficient reasoning architectures are becoming the primary competitive axis for frontier labs. Source →"
+            },
+            {
+              "headline": "Q1 2026 Tracks Over 255 Total AI Releases",
+              "text": "Q1 2026 logged between 255 and 271 tracked AI model releases, with March matching February's pace of 12 major drops. Rapid bi-weekly iteration cycles from OpenAI, Anthropic, Google, xAI, and Alibaba are breaking benchmarks across reasoning, multimodal, and long-context categories. The velocity is pushing startups toward multi-model testing strategies rather than single-vendor commitments. Source →"
+            },
+            {
+              "headline": "NVIDIA Ships Nemotron 3 Super and VoiceChat",
+              "text": "NVIDIA released two open-source models in March: Nemotron 3 Super, a text model, and VoiceChat, targeting conversational audio applications. Both releases extend NVIDIA's strategy of building an open model ecosystem alongside its dominant hardware business. Nemotron 3 Super joins a crowded field of open-weight text models but benefits from NVIDIA's optimization for its own GPU infrastructure. Source →"
+            },
+            {
+              "headline": "xAI's Grok 4.20 Beta Exits Testing Phase",
+              "text": "xAI's Grok 4.20 Beta, a text model, moved out of beta during March 2026, marking a maturation of xAI's model release cadence. The model competes in the same tier as GPT-5.4 and Gemini variants on reasoning benchmarks. xAI has maintained a rapid iteration schedule since Grok's initial launch, with 4.20 representing the latest in a series of incremental capability upgrades. Source →"
+            },
+            {
+              "headline": "Mistral Small 4 Released Under Apache 2.0",
+              "text": "Mistral AI released Mistral Small 4 in March 2026 under the permissive Apache 2.0 license, allowing unrestricted commercial use and modification. The release continues Mistral's positioning as a European open-source alternative to American and Chinese frontier labs. Apache 2.0 licensing distinguishes it from some competitors that use more restrictive open-weight terms. Source →"
+            },
+            {
+              "headline": "Google DeepMind Previews Gemini 3.1 Flash-Lite",
+              "text": "Google DeepMind released a preview of Gemini 3.1 Flash-Lite in March 2026, a proprietary model targeting lightweight and cost-efficient deployment scenarios. Flash-Lite sits below the full Gemini 3.1 lineup in capability but is designed for high-throughput applications where latency and cost matter more than peak performance. It competes directly with GPT-5.4 Mini and similar efficiency-focused releases from other labs. Source →"
+            },
+            {
+              "headline": "MiniMax-M2.7 Joins Open-Source Model Field",
+              "text": "MiniMax released MiniMax-M2.7 as an open-source text model in March 2026, adding another entry to an increasingly crowded open-weight landscape. The release reflects growing participation from Chinese AI startups in the global open-source model ecosystem, alongside Alibaba and DeepSeek. MiniMax-M2.7 targets developers seeking capable open alternatives without the scale requirements of 100-billion-plus parameter models. Source →"
+            }
+          ]
+        },
+        {
+          "title": "World News",
+          "items": [
+            {
+              "headline": "Iran Closes Strait of Hormuz, Disrupting Global Shipping",
+              "text": "Iran blocked the Strait of Hormuz on or around March 28, halting oil and fertilizer exports through one of the world's most critical maritime chokepoints. US Secretary of State Marco Rubio convened G7 foreign ministers in France, urging allies to secure the strait and warning that Iran may impose tolls on passing vessels. The closure sent shockwaves through global commodity markets and prompted emergency diplomatic coordination. Source →"
+            },
+            {
+              "headline": "Israel and Iran Exchange Strikes, Escalation Deepens",
+              "text": "Israel launched fresh airstrikes on Iran on March 28, three weeks after initial US-Israel attacks on February 28, while Iran responded with a large-scale missile barrage targeting Israeli territory. No diplomatic progress has been reported, and President Trump extended the deadline for potential US strikes on Iranian energy infrastructure into April. The conflict has now entered a sustained exchange phase with no clear off-ramp. Source →"
+            },
+            {
+              "headline": "IAEA Warns of Nuclear Fallout Risk at Bushehr",
+              "text": "The International Atomic Energy Agency issued a warning that strikes on Iran's Bushehr nuclear plant could trigger a radiological accident with regional consequences. The alert came as Israeli and US military operations continued to expand in scope, raising fears that nuclear infrastructure could become a direct target. A radiological incident at Bushehr would affect neighboring Gulf states, Iraq, and potentially South Asia. Source →"
+            },
+            {
+              "headline": "Oil Prices Surge, India's Rupee Hits Record Low",
+              "text": "Global oil and gas prices reached unprecedented levels on March 28 as Middle East conflict and the Hormuz closure compounded supply fears. India's rupee fell to a record low of 94.24 against the US dollar, reflecting acute pressure on oil-importing economies. New Zealand activated phase one of a four-phase national fuel contingency plan in response to the supply disruption. Source →"
+            },
+            {
+              "headline": "G7 Ministers Convene in France Over Hormuz Crisis",
+              "text": "G7 foreign ministers held an emergency summit in France on March 28 to coordinate a response to Iran's closure of the Strait of Hormuz and the broader Middle East escalation. Secretary of State Rubio led calls for allied action to restore freedom of navigation in the Gulf. The meeting underscored the extent to which the conflict has shifted from a regional crisis to a global economic and security emergency. Source →"
+            },
+            {
+              "headline": "FAO Warns War Threatens Global Food Security",
+              "text": "The UN Food and Agriculture Organization issued an alert on March 28 warning that the Middle East conflict is endangering global food security by disrupting energy and fertilizer supply chains during critical harvest seasons. The Hormuz closure has halted fertilizer exports from Gulf producers, threatening agricultural output across South Asia and Africa. The FAO called for immediate humanitarian corridors to protect food supply logistics. Source →"
+            },
+            {
+              "headline": "India Receives Fourth S-400 Squadron From Russia",
+              "text": "India took delivery of its fourth squadron of Russian-made S-400 Triumf air defense systems on March 28, a significant boost to its long-range air defense capabilities amid heightened global tensions. The acquisition continues India's strategic defense diversification despite ongoing US pressure over purchases from Russia. The timing signals New Delhi's intent to reinforce its defensive posture as regional instability intensifies. Source →"
+            },
+            {
+              "headline": "Rapper Balen Shah Sworn In as Nepal's PM",
+              "text": "Balen Shah, a rapper and civil engineer who rose to prominence as mayor of Kathmandu, was sworn in as Nepal's 47th Prime Minister on March 28. His ascent marks a generational shift in Nepali politics, breaking from the country's entrenched party establishment. Shah's administration will face immediate pressure to address economic stagnation and the downstream effects of global fuel price surges. Source →"
+            }
+          ]
+        },
+        {
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,368.85 (-1.67%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "20,948.36 (-2.15%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$65,998.47 (+0.10%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$1,985.40 (+0.20%)"
+            },
+            {
+              "headline": "Oil Brent",
+              "text": "$106.84 (+5.92%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "12 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "Competitive Landscape",
+          "items": [
+            {
+              "headline": "OpenAI",
+              "text": "OpenAI shut down its standalone Sora video generation app on March 25, 2026, after monthly active users slid from 6 million in December 2025 to 5 million by March and annual operating costs exceeded $5 billion. The company is redirecting the underlying video technology toward robotics and world simulation, with potential integration into ChatGPT. Despite the retreat, OpenAI secured a record $110 billion funding round led by Amazon, Nvidia, and SoftBank, now serves 900 million weekly users, and is targeting a Q4 2026 IPO while nearly doubling its workforce to 8,000 employees. Source →"
+            },
+            {
+              "headline": "Google DeepMind",
+              "text": "The available intelligence data for this briefing period contains no confirmed announcements or strategic moves from Google DeepMind as of March 2026. Analysis will be updated as sourced reporting becomes available. Readers should treat any unverified claims about this company with caution."
+            },
+            {
+              "headline": "Anthropic",
+              "text": "The available intelligence data for this briefing period contains no confirmed announcements or strategic moves from Anthropic as of March 2026. Notably, OpenAI cited competition with Anthropic as a driver of its planned workforce expansion to 8,000 employees, signaling that rivalry between the two remains a key industry dynamic. Analysis will be updated as sourced reporting becomes available."
+            },
+            {
+              "headline": "Meta AI",
+              "text": "The available intelligence data for this briefing period contains no confirmed announcements or strategic moves from Meta AI as of March 2026. A TechCrunch video headline references Meta being \"shut out in court\" alongside the Sora story, but no substantive detail was available to analyze responsibly. Analysis will be updated as sourced reporting becomes available. Source →"
+            },
+            {
+              "headline": "Mistral",
+              "text": "The available intelligence data for this briefing period contains no confirmed announcements or strategic moves from Mistral as of March 2026. Analysis will be updated as sourced reporting becomes available. Readers should treat any unverified claims about this company with caution."
+            },
+            {
+              "headline": "China Challengers",
+              "text": "The available intelligence data for this briefing period contains no confirmed announcements or strategic moves from Chinese AI companies, including DeepSeek, Baidu, or Alibaba, as of March 2026. Analysis will be updated as sourced reporting becomes available. Readers should treat any unverified claims about this group with caution."
+            }
+          ]
+        },
+        {
+          "title": "AI Tool Guide",
+          "items": [
+            {
+              "headline": "Automate Complex Research with Manus",
+              "text": "Manus operates as a fully autonomous AI agent that handles multi-step tasks from start to finish, including research, data gathering, and workflow execution, without requiring constant input. Set it a goal, such as compiling a competitive analysis or summarizing industry reports, and it works through the process independently. At $20 per month, it is a practical investment for teams that spend significant time on repetitive research cycles. Try it →"
+            },
+            {
+              "headline": "Accelerate Development Cycles with Cursor",
+              "text": "Cursor integrates AI-driven code generation and real-time editing directly into your development environment, reducing the time spent on boilerplate, debugging, and refactoring. Use it to describe a function in plain language and receive working code instantly, or highlight a bug and ask for a fix with context-aware suggestions. At $20 per month, it is one of the most cost-effective ways to measurably increase engineering output. Try it →"
+            },
+            {
+              "headline": "Draft Faster with Wisprflow Voice-to-Text",
+              "text": "Wisprflow.ai converts spoken words into polished, context-aware text across emails, Slack messages, and notes, going beyond basic transcription by understanding the tone and intent of your communication. Activate it whenever you need to produce written content quickly, especially during back-to-back meetings or while multitasking. This tool is particularly effective for professionals who write dozens of messages daily and want to reclaim time without sacrificing quality. Try it →"
+            },
+            {
+              "headline": "Delegate Web Tasks to Comet, Perplexity's AI Browser",
+              "text": "Comet is an AI-powered browser from Perplexity that executes web-based tasks on your behalf, including research, data extraction, and routine browsing workflows, through a conversational interface. Instead of manually navigating multiple sites, instruct Comet to gather pricing data, summarize articles, or fill out forms and retrieve results. It is best suited for knowledge workers who spend a large portion of their day sourcing information from the web. Try it →"
+            },
+            {
+              "headline": "Ship Full-Stack Apps Without Code Using Lovable",
+              "text": "Lovable enables non-technical founders, designers, and product managers to build and deploy full-stack web applications by describing features in plain language, a practice often called vibe-coding. Use it to rapidly prototype ideas, validate concepts with real users, or build internal tools without waiting on engineering resources. It is especially valuable in early-stage product development where speed of iteration matters more than architectural perfection. Try it →"
+            },
+            {
+              "headline": "Orchestrate AI Agents Across 8,000 Apps with Zapier Agents",
+              "text": "Zapier Agents allows you to build and deploy AI-powered automation agents using natural language, connecting them to over 8,000 applications including Gmail, Slack, Salesforce, and Notion. Define a trigger and a goal in plain English, and the agent handles the logic, data routing, and execution across your entire tool stack. This is the fastest path to eliminating repetitive cross-platform workflows without writing a single line of code. Try it →"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-03-27",
       "sections": [

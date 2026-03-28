@@ -1,6 +1,35 @@
 {
-  "generated": "2026-03-27T12:02:31Z",
+  "generated": "2026-03-28T02:56:55Z",
   "digests": [
+    {
+      "date": "2026-03-28",
+      "dayOfWeek": "Saturday",
+      "focusTopics": [
+        {
+          "title": "Open-Weight AI Dominates March",
+          "desc": "Seven of nine text models released this month carry open-weight licenses, a structural shift that redistributes frontier AI capability away from closed commercial providers. DeepSeek V4 and Alibaba's Qwen3.5 family are the most prominent entrants, directly targeting performance benchmarks held by GPT-5.4. This concentration of open releases in a single month suggests a coordinated competitive response to OpenAI's continued commercial momentum."
+        },
+        {
+          "title": "Hormuz Crisis Reshapes Energy Markets",
+          "desc": "Iran's closure of the Strait of Hormuz, through which roughly 20 percent of global oil supply transits, has triggered an immediate price shock and currency pressure across import-dependent economies, with India's rupee hitting a record low. The IAEA's warning of nuclear fallout risk at the Bushehr reactor adds a catastrophic tail risk that markets have not yet fully priced. G7 ministers convening in France face a narrow window to de-escalate before supply disruptions compound into a broader economic crisis."
+        },
+        {
+          "title": "Xiaomi's Trillion-Parameter Surprise",
+          "desc": "The surfacing of Xiaomi's stealth trillion-parameter model is the week's most underreported AI development, signaling that consumer hardware companies are now competing at the absolute frontier of model scale. Xiaomi's existing distribution across hundreds of millions of devices gives it a deployment surface that pure-play AI labs cannot match. If the model's capabilities prove competitive, it reframes the frontier AI race as a hardware-distribution contest as much as a research one."
+        }
+      ],
+      "kpis": {
+        "aiStories": "12",
+        "worldEvents": "8",
+        "marketMood": "Extreme Fear",
+        "toolsFeatured": "6"
+      },
+      "hasPodcast": false,
+      "hasInfographic": false,
+      "hasVideo": true,
+      "youtubeId": "hxDd8XG1wPw",
+      "file": "morning-briefing-koda-2026-03-28.html"
+    },
     {
       "date": "2026-03-27",
       "dayOfWeek": "Friday",
