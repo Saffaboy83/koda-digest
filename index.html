@@ -124,16 +124,19 @@
         .archive-badge.video { background: rgba(255,113,108,0.08); color: #ff716c; }
         .archive-badge.infographic { background: rgba(255,183,134,0.08); color: #ffb786; }
 
-        /* Market ticker */
-        .ticker-item { display: flex; align-items: center; gap: 8px; white-space: nowrap; padding: 8px 16px; border-radius: 8px; background: rgba(23,31,51,0.4); border: 1px solid rgba(173,198,255,0.06); }
-        .ticker-name { font-size: 11px; font-weight: 700; color: #c2c6d6; text-transform: uppercase; letter-spacing: 0.5px; }
-        .ticker-price { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; color: #dae2fd; }
-        .ticker-change { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; }
-        .ticker-up { color: #10B981; }
-        .ticker-down { color: #EF4444; }
-        .ticker-neutral { color: #F59E0B; }
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        /* Market grid */
+        .market-card { background: rgba(23,31,51,0.5); backdrop-filter: blur(12px); border: 1px solid rgba(173,198,255,0.06); border-radius: 12px; padding: 16px; text-align: center; transition: border-color 0.3s, transform 0.3s; }
+        .market-card:hover { transform: translateY(-2px); }
+        .market-card.up { border-left: 3px solid #10B981; }
+        .market-card.down { border-left: 3px solid #EF4444; }
+        .market-card.neutral { border-left: 3px solid #F59E0B; }
+        .market-icon { font-size: 18px; margin-bottom: 4px; }
+        .market-label { font-size: 10px; font-weight: 700; color: #8c909f; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+        .market-price { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 800; color: #dae2fd; }
+        .market-change { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; margin-top: 4px; }
+        .mkt-up { color: #10B981; }
+        .mkt-down { color: #EF4444; }
+        .mkt-neutral { color: #F59E0B; }
 
         /* Reduced motion */
         @media (prefers-reduced-motion: reduce) {
@@ -212,10 +215,14 @@
         </div>
     </header>
 
-    <!-- MARKET TICKER -->
-    <section class="mb-20 animate-in" id="marketTicker">
-        <div class="flex items-center gap-6 overflow-x-auto pb-2 scrollbar-hide" id="tickerStrip">
-            <div class="text-xs text-on-surface-variant/40 uppercase tracking-widest font-bold whitespace-nowrap">Markets</div>
+    <!-- MARKET PULSE -->
+    <section class="mb-24 animate-in" id="marketTicker">
+        <div class="flex items-center gap-4 mb-6">
+            <h2 class="text-xs uppercase tracking-[0.15em] font-bold text-on-surface-variant/50">Market Pulse</h2>
+            <div class="h-px flex-grow bg-outline-variant/10"></div>
+            <span class="text-[10px] font-mono text-on-surface-variant/30" id="marketDate"></span>
+        </div>
+        <div class="grid grid-cols-3 md:grid-cols-6 gap-3" id="tickerStrip">
         </div>
     </section>
 
@@ -246,15 +253,41 @@
 
     <!-- NEWSLETTER SOURCES -->
     <section class="mb-32 animate-in">
-        <div class="text-center">
-            <p class="text-xs uppercase tracking-[0.2em] font-bold text-on-surface-variant/40 mb-8">Synthesizing the best AI newsletters into one daily briefing</p>
-            <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-4">
-                <span class="text-sm font-semibold text-on-surface-variant/50 hover:text-[#3B82F6] transition-colors">TLDR</span>
-                <span class="text-sm font-semibold text-on-surface-variant/50 hover:text-[#8B5CF6] transition-colors">Superhuman</span>
-                <span class="text-sm font-semibold text-on-surface-variant/50 hover:text-[#EC4899] transition-colors">The Rundown</span>
-                <span class="text-sm font-semibold text-on-surface-variant/50 hover:text-[#3B82F6] transition-colors">Ben's Bites</span>
-                <span class="text-sm font-semibold text-on-surface-variant/50 hover:text-[#8B5CF6] transition-colors">Build Fast with AI</span>
-                <span class="text-sm font-semibold text-on-surface-variant/50 hover:text-[#EC4899] transition-colors">Morning Brew</span>
+        <div class="glass-card rounded-2xl p-8 md:p-10 text-center relative overflow-hidden">
+            <!-- Subtle gradient accent -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899] rounded-b-full"></div>
+
+            <div class="flex items-center justify-center gap-2 mb-3">
+                <span class="material-symbols-outlined text-[#8B5CF6] text-xl">mail</span>
+                <p class="text-xs uppercase tracking-[0.15em] font-bold text-on-surface-variant/60">Intelligence Sources</p>
+            </div>
+            <p class="text-base text-on-surface mb-8 max-w-lg mx-auto">We synthesize 6+ top AI newsletters so you don't have to read them all.</p>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="group py-3 px-4 rounded-lg bg-surface-container/50 hover:bg-[#3B82F6]/10 transition-all">
+                    <span class="block text-sm font-bold text-on-surface-variant group-hover:text-[#3B82F6] transition-colors">TLDR</span>
+                    <span class="text-[9px] text-on-surface-variant/40">5M+ readers</span>
+                </div>
+                <div class="group py-3 px-4 rounded-lg bg-surface-container/50 hover:bg-[#8B5CF6]/10 transition-all">
+                    <span class="block text-sm font-bold text-on-surface-variant group-hover:text-[#8B5CF6] transition-colors">Superhuman</span>
+                    <span class="text-[9px] text-on-surface-variant/40">1.5M+ readers</span>
+                </div>
+                <div class="group py-3 px-4 rounded-lg bg-surface-container/50 hover:bg-[#EC4899]/10 transition-all">
+                    <span class="block text-sm font-bold text-on-surface-variant group-hover:text-[#EC4899] transition-colors">The Rundown</span>
+                    <span class="text-[9px] text-on-surface-variant/40">2M+ readers</span>
+                </div>
+                <div class="group py-3 px-4 rounded-lg bg-surface-container/50 hover:bg-[#3B82F6]/10 transition-all">
+                    <span class="block text-sm font-bold text-on-surface-variant group-hover:text-[#3B82F6] transition-colors">Ben's Bites</span>
+                    <span class="text-[9px] text-on-surface-variant/40">500K+ readers</span>
+                </div>
+                <div class="group py-3 px-4 rounded-lg bg-surface-container/50 hover:bg-[#8B5CF6]/10 transition-all">
+                    <span class="block text-sm font-bold text-on-surface-variant group-hover:text-[#8B5CF6] transition-colors">Build Fast</span>
+                    <span class="text-[9px] text-on-surface-variant/40">AI builders</span>
+                </div>
+                <div class="group py-3 px-4 rounded-lg bg-surface-container/50 hover:bg-[#EC4899]/10 transition-all">
+                    <span class="block text-sm font-bold text-on-surface-variant group-hover:text-[#EC4899] transition-colors">Morning Brew</span>
+                    <span class="text-[9px] text-on-surface-variant/40">4M+ readers</span>
+                </div>
             </div>
         </div>
     </section>
@@ -386,14 +419,51 @@
         });
 
     // ---- RENDER SNAPSHOT (Today's Focus) ----
-    // Curated AI/tech images for visual impact
-    var focusImages = [
+    // Keyword-mapped image pools - picks based on topic title for daily variety
+    var imagePool = {
+        ai: [
+            'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80&auto=format',
+            'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80&auto=format',
+            'https://images.unsplash.com/photo-1707343843437-caacff5cfa74?w=800&q=80&auto=format',
+            'https://images.unsplash.com/photo-1655720828018-edd2daec9349?w=800&q=80&auto=format',
+            'https://images.unsplash.com/photo-1696258686454-60082b2c33e2?w=800&q=80&auto=format',
+        ],
+        geo: [
+            'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80&auto=format',
+            'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80&auto=format',
+            'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&q=80&auto=format',
+            'https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?w=800&q=80&auto=format',
+        ],
+        market: [
+            'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80&auto=format',
+            'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800&q=80&auto=format',
+            'https://images.unsplash.com/photo-1639322537228-f710d846310a?w=800&q=80&auto=format',
+        ],
+        tech: [
+            'https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&q=80&auto=format',
+            'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80&auto=format',
+            'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80&auto=format',
+            'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80&auto=format',
+        ],
+    };
+    var defaultImages = [
         'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80&auto=format',
-        'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80&auto=format',
-        'https://images.unsplash.com/photo-1639322537228-f710d846310a?w=800&q=80&auto=format',
-        'https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&q=80&auto=format',
         'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80&auto=format',
+        'https://images.unsplash.com/photo-1639322537228-f710d846310a?w=800&q=80&auto=format',
     ];
+
+    function pickImage(title) {
+        var t = (title || '').toLowerCase();
+        var pool = defaultImages;
+        if (t.match(/\b(ai|model|gpt|llm|frontier|open.?weight|anthropic|openai|gemini|claude)\b/)) pool = imagePool.ai;
+        else if (t.match(/\b(war|conflict|iran|china|geopolit|crisis|military|sanctions|nato|hormuz)\b/)) pool = imagePool.geo;
+        else if (t.match(/\b(market|stock|crypto|bitcoin|nasdaq|trade|economy|recession|inflation|freefall)\b/)) pool = imagePool.market;
+        else if (t.match(/\b(chip|hardware|robot|quantum|compute|data.?center|nvidia|semiconductor)\b/)) pool = imagePool.tech;
+        // Use title hash for consistent daily selection (same title = same image)
+        var hash = 0;
+        for (var i = 0; i < t.length; i++) hash = ((hash << 5) - hash) + t.charCodeAt(i);
+        return pool[Math.abs(hash) % pool.length];
+    }
 
     function renderSnapshot(latest) {
         if (!latest) return;
@@ -408,9 +478,8 @@
             return;
         }
 
-        // Pick a random image for the featured card
-        var imgIdx = Math.floor(Math.random() * focusImages.length);
-        var imgUrl = focusImages[imgIdx];
+        // Pick image based on topic content for daily variety
+        var imgUrl = pickImage(t0.title || '');
 
         // Topic 1: Large featured card with image (left, 7 cols)
         var t0 = typeof topics[0] === 'string' ? { title: topics[0], desc: '' } : topics[0];
@@ -626,21 +695,24 @@
         return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
-    // ---- MARKET TICKER ----
+    // ---- MARKET PULSE ----
     fetch('./latest-markets.json')
         .then(function(r) { return r.json(); })
         .then(function(data) {
             var markets = data.markets || {};
             var strip = document.getElementById('tickerStrip');
+            var dateEl = document.getElementById('marketDate');
+            if (dateEl && data.date) dateEl.textContent = formatDate(data.date);
+
             var tickers = [
-                { key: 'sp500', label: 'S&P 500', icon: '' },
-                { key: 'nasdaq', label: 'NASDAQ', icon: '' },
-                { key: 'btc', label: 'BTC', icon: '' },
-                { key: 'eth', label: 'ETH', icon: '' },
-                { key: 'oil', label: 'Oil', icon: '' },
-                { key: 'sentiment', label: 'Sentiment', icon: '' },
+                { key: 'sp500', label: 'S&P 500', icon: 'trending_up' },
+                { key: 'nasdaq', label: 'NASDAQ', icon: 'bar_chart' },
+                { key: 'btc', label: 'Bitcoin', icon: 'currency_bitcoin' },
+                { key: 'eth', label: 'Ethereum', icon: 'diamond' },
+                { key: 'oil', label: 'Oil Brent', icon: 'oil_barrel' },
+                { key: 'sentiment', label: 'Sentiment', icon: 'psychology' },
             ];
-            var html = '<div class="text-[10px] text-on-surface-variant/40 uppercase tracking-widest font-bold whitespace-nowrap mr-2">Markets</div>';
+            var html = '';
             for (var i = 0; i < tickers.length; i++) {
                 var t = tickers[i];
                 var d = markets[t.key];
@@ -648,11 +720,14 @@
                 var price = d.price || d.value || '';
                 var change = d.change || d.label || '';
                 var dir = d.direction || 'neutral';
-                var colorClass = dir === 'up' ? 'ticker-up' : dir === 'down' ? 'ticker-down' : 'ticker-neutral';
-                html += '<div class="ticker-item">' +
-                    '<span class="ticker-name">' + t.label + '</span>' +
-                    '<span class="ticker-price">' + escapeHtml(String(price)) + '</span>' +
-                    '<span class="ticker-change ' + colorClass + '">' + escapeHtml(String(change)) + '</span>' +
+                var dirClass = dir === 'up' ? 'up' : dir === 'down' ? 'down' : 'neutral';
+                var colorClass = dir === 'up' ? 'mkt-up' : dir === 'down' ? 'mkt-down' : 'mkt-neutral';
+                var arrow = dir === 'up' ? '&#9650; ' : dir === 'down' ? '&#9660; ' : '';
+                html += '<div class="market-card ' + dirClass + '">' +
+                    '<div class="market-icon"><span class="material-symbols-outlined text-on-surface-variant/40" style="font-size:20px">' + t.icon + '</span></div>' +
+                    '<div class="market-label">' + t.label + '</div>' +
+                    '<div class="market-price">' + escapeHtml(String(price)) + '</div>' +
+                    '<div class="market-change ' + colorClass + '">' + arrow + escapeHtml(String(change)) + '</div>' +
                     '</div>';
             }
             strip.innerHTML = html;
