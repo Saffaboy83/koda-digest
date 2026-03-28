@@ -26,10 +26,9 @@ if [ -n "$GIT_TOKEN" ]; then
 fi
 
 # Hard timeout: 45 minutes max to prevent zombie containers
-# Media is skipped until NotebookLM auth is proven to work on Railway
 TIMEOUT=2700
-echo "[entrypoint] Launching pipeline (timeout: ${TIMEOUT}s, media: skipped)..."
-timeout $TIMEOUT python -m pipeline.run_all --skip-media "$@"
+echo "[entrypoint] Launching pipeline (timeout: ${TIMEOUT}s)..."
+timeout $TIMEOUT python -m pipeline.run_all "$@"
 EXIT_CODE=$?
 
 if [ $EXIT_CODE -eq 124 ]; then
