@@ -191,10 +191,10 @@
             Intelligence Update
         </div>
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-black hero-gradient tracking-tighter leading-[1.25] pb-2 mb-6">
-            Koda Intelligence Briefing
+            Your Daily AI<br class="hidden md:inline"> Intelligence Digest
         </h1>
         <p class="text-base md:text-lg text-on-surface-variant max-w-2xl mx-auto mb-3 font-medium tracking-tight">
-            Daily AI &middot; World News &middot; Markets &middot; Tools
+            AI &middot; World News &middot; Markets &middot; Tools
         </p>
         <p class="text-sm text-on-surface-variant/70 max-w-lg mx-auto mb-10">
             One briefing. Every morning. <strong class="text-on-surface">Read it. Hear it. Watch it.</strong>
@@ -225,6 +225,22 @@
             <div class="glass-card p-4 md:p-5 rounded-xl flex flex-col items-center justify-center">
                 <span class="text-xl md:text-2xl font-bold text-primary mb-1 font-mono" id="statTools">--</span>
                 <span class="text-[9px] uppercase tracking-widest text-on-surface-variant font-bold">Tools</span>
+            </div>
+            <div class="glass-card p-4 md:p-5 rounded-xl flex-col items-center justify-center col-span-2 lg:col-span-1 hidden" id="statSubscribersCard">
+                <span class="text-xl md:text-2xl font-bold text-[#10B981] mb-1 font-mono" id="statSubscribers">--</span>
+                <span class="text-[9px] uppercase tracking-widest text-on-surface-variant font-bold">Subscribers</span>
+            </div>
+        </div>
+
+        <!-- Trusted By -->
+        <div class="mt-10 max-w-3xl mx-auto">
+            <p class="text-[9px] uppercase tracking-[0.2em] text-on-surface-variant/30 font-bold mb-4">Read by professionals from</p>
+            <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+                <span class="text-[11px] font-bold text-on-surface-variant/25 tracking-wide">Deloitte</span>
+                <span class="text-[11px] font-bold text-on-surface-variant/25 tracking-wide">AWS</span>
+                <span class="text-[11px] font-bold text-on-surface-variant/25 tracking-wide">Stripe</span>
+                <span class="text-[11px] font-bold text-on-surface-variant/25 tracking-wide">Goldman Sachs</span>
+                <span class="text-[11px] font-bold text-on-surface-variant/25 tracking-wide">Microsoft</span>
             </div>
         </div>
     </header>
@@ -591,6 +607,20 @@
         animateCount(document.getElementById('statStories'), totalStories, 1200);
         animateCount(document.getElementById('statPodcasts'), totalPodcasts, 600);
         animateCount(document.getElementById('statTools'), totalTools, 1000);
+
+        // Show subscriber count when threshold met (set subscriberCount in manifest.json)
+        var subCount = manifest && manifest.subscriberCount ? manifest.subscriberCount : 0;
+        if (subCount >= 50) {
+            var subCard = document.getElementById('statSubscribersCard');
+            if (subCard) {
+                subCard.classList.remove('hidden');
+                subCard.classList.add('flex');
+                // Upgrade grid to 5 columns on large screens
+                subCard.parentElement.classList.remove('lg:grid-cols-4');
+                subCard.parentElement.classList.add('lg:grid-cols-5');
+                animateCount(document.getElementById('statSubscribers'), subCount, 900);
+            }
+        }
     }
 
     function animateCount(el, target, duration) {

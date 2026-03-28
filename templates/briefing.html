@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koda Intelligence Briefing | {{ date_label }}</title>
+    <title>Koda Intelligence | {{ date_label }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%236366F1'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='system-ui' font-weight='800'>K</text></svg>">
     <meta property="og:title" content="Koda Intelligence Briefing | {{ date_label }}">
     <meta property="og:description" content="{{ (summary.hook or 'Daily AI intelligence briefing') | no_em_dash }}">
     <meta property="og:type" content="article">
@@ -22,336 +25,514 @@
         "headline": "Koda Intelligence Briefing | {{ date_label }}",
         "datePublished": "{{ date }}",
         "description": "{{ (summary.hook or 'Daily AI intelligence briefing') | no_em_dash }}",
-        "publisher": {
-            "@type": "Organization",
-            "name": "Koda Intelligence",
-            "url": "https://www.koda.community"
-        },
+        "publisher": {"@type": "Organization", "name": "Koda Intelligence", "url": "https://www.koda.community"},
         "mainEntityOfPage": "https://www.koda.community/morning-briefing-koda-{{ date }}.html"
+    }
+    </script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    sans: ['Inter', 'system-ui', 'sans-serif'],
+                    mono: ['JetBrains Mono', 'monospace'],
+                }
+            }
+        }
     }
     </script>
     <style>{{ css | safe }}</style>
 </head>
-<body data-digest-date="{{ date }}" data-youtube-id="{{ youtube_id }}">
+<body class="bg-[#0b1326] text-[#dae2fd] font-sans antialiased min-h-screen flex flex-col" data-digest-date="{{ date }}" data-youtube-id="{{ youtube_id }}">
 
-{# ── Scroll Progress Bar ────────────────────────────────────────────────── #}
+{# ── Scroll Progress ─────────────────────────────────────────────────────── #}
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-
-{# ── Back to Top Button ─────────────────────────────────────────────────── #}
 <button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
 
-{# ── Topbar ──────────────────────────────────────────────────────────────── #}
-<nav class="topbar" aria-label="Site navigation">
-    <div class="topbar-inner">
-        <a href="./index.html" class="brand" aria-label="Koda Digest home">
-            <div class="brand-icon" aria-hidden="true">K</div>
-            <div><div class="brand-name">Koda Digest</div><div class="brand-sub">Intelligence Briefing</div></div>
+{# ── Fixed Header ────────────────────────────────────────────────────────── #}
+<header class="fixed top-0 w-full z-50 bg-[#0b1326]/80 backdrop-blur-xl border-b border-white/[0.06]">
+    <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+        <a href="./index.html" class="flex items-center gap-3 no-underline text-inherit">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] flex items-center justify-center text-white font-black text-sm">K</div>
+            <div>
+                <div class="text-sm font-bold text-[#3B82F6]">Koda Intelligence</div>
+                <div class="text-[10px] text-[#8c909f] hidden sm:block">Daily Briefing</div>
+            </div>
         </a>
-        <div class="day-nav" role="navigation" aria-label="Day navigation">
-            <a id="prevBtn" class="day-nav-btn disabled" href="#" aria-label="Previous day">← Yesterday</a>
-            <span class="day-nav-current" aria-current="page">{{ date }}</span>
-            <a id="nextBtn" class="day-nav-btn disabled" href="#" aria-label="Next day">Tomorrow →</a>
+        <div class="hidden md:flex items-center gap-2" id="dayNav">
+            <a id="prevBtn" class="day-nav-btn disabled" href="#" aria-label="Previous day">&larr; Yesterday</a>
+            <span class="font-mono text-[11px] font-bold text-[#3B82F6] px-2 py-1 bg-[#3B82F6]/10 rounded">{{ date }}</span>
+            <a id="nextBtn" class="day-nav-btn disabled" href="#" aria-label="Next day">Tomorrow &rarr;</a>
         </div>
-        <div class="topbar-right">
-            <button class="dark-toggle" id="darkBtn" onclick="toggleDark()" aria-label="Toggle dark mode">🌙 Dark</button>
-            <a href="./index.html" class="home-btn">← Home</a>
+        <div class="flex items-center gap-2">
+            <button onclick="shareDigest('x')" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-[#3B82F6]/20 flex items-center justify-center text-[#8c909f] hover:text-[#3B82F6] transition-all" title="Share on X">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </button>
+            <button onclick="shareDigest('linkedin')" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-[#3B82F6]/20 flex items-center justify-center text-[#8c909f] hover:text-[#3B82F6] transition-all" title="Share on LinkedIn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </button>
+            <button onclick="shareDigest('copy')" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-[#3B82F6]/20 flex items-center justify-center text-[#8c909f] hover:text-[#3B82F6] transition-all" title="Copy link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            </button>
+            <a href="./index.html" class="text-[11px] font-mono font-bold px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#6366F1] text-white no-underline hover:shadow-lg hover:shadow-[#3B82F6]/20 transition-all ml-1">&larr; Home</a>
         </div>
     </div>
-</nav>
+</header>
 
 {# ── Hero ────────────────────────────────────────────────────────────────── #}
-<div class="hero">
-    <div class="container">
-        <div class="hero-date">{{ date_label }}</div>
-        <h1 class="hero-title">Koda Intelligence Briefing</h1>
-        <p class="hero-sub">AI developments, world news, markets, and tools, synthesized daily.</p>
+<section class="relative w-full pt-14 overflow-hidden">
+    {% if has_hero_image %}
+    <div class="absolute inset-0 z-0">
+        <img src="./hero-{{ date }}.jpg" class="w-full h-full object-cover object-center opacity-50 scale-105" alt="" aria-hidden="true">
     </div>
-</div>
+    {% elif has_infographic %}
+    <div class="absolute inset-0 z-0">
+        <img src="./infographic-{{ date }}.jpg" class="w-full h-full object-cover object-center opacity-40 blur-[3px] scale-110" alt="" aria-hidden="true">
+    </div>
+    {% endif %}
+    <div class="hero-gradient absolute inset-0 z-[1]"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-12 md:pt-24 md:pb-20 flex flex-col md:flex-row items-end justify-between gap-8">
+        <div class="max-w-3xl">
+            <p class="font-mono text-xs text-[#3B82F6] mb-3 tracking-[0.2em] uppercase">{{ date_label }}</p>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[1.05] mb-4 gradient-text pb-1">
+                The Daily Briefing
+            </h1>
+            {% if summary.hook %}
+            <p class="text-base md:text-lg text-[#c2c6d6] font-light tracking-tight leading-relaxed max-w-2xl">{{ summary.hook | no_em_dash }}</p>
+            {% else %}
+            <p class="text-base md:text-lg text-[#c2c6d6] font-light tracking-tight">AI. <span class="text-[#3B82F6]">Markets.</span> Geopolitics.</p>
+            {% endif %}
+        </div>
+        {% set kpis = summary.kpis or {} %}
+    </div>
+</section>
 
-{# ── Content ─────────────────────────────────────────────────────────────── #}
-<div class="container">
+{# ── Two-Column Layout ──────────────────────────────────────────────────── #}
+<div class="max-w-7xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-12">
 
-{# ── KPI Strip ───────────────────────────────────────────────────────────── #}
-{% set kpis = summary.kpis or {} %}
-<div class="kpi-strip">
-    {% set kpi_items = [
-        ("var(--blue)", "AI Stories", kpis.ai_stories or "0"),
-        ("var(--red)", "World Events", kpis.world_events or "0"),
-        ("var(--emerald)", "Market Mood", kpis.market_mood or "Mixed"),
-        ("var(--purple)", "Tools Featured", kpis.tools_featured or "0"),
+{# ── Left Column: Primary Content ────────────────────────────────────────── #}
+<div class="{% if markets %}lg:w-[65%]{% endif %} space-y-16">
+
+    {# ── The Briefing ────────────────────────────────────────────────────── #}
+    {% if summary.briefs %}
+    <section class="section" id="daily-summary">
+        <div class="section-title flex items-center gap-4 mb-8">
+            <h3 class="text-2xl font-black tracking-tight uppercase">The Briefing</h3>
+            <div class="h-px flex-grow bg-white/[0.1]"></div>
+        </div>
+        <div class="space-y-3">
+            {% set brief_icons = {"ai": "smart_toy", "world": "public", "markets": "trending_up", "wildcard": "bolt"} %}
+            {% set brief_colors = {"ai": "#3B82F6", "world": "#EF4444", "markets": "#10B981", "wildcard": "#F59E0B"} %}
+            {% for brief in summary.briefs %}
+            {% set icon = brief_icons.get(brief.icon, "fiber_manual_record") %}
+            {% set color = brief_colors.get(brief.icon, "#3B82F6") %}
+            <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors duration-300 group">
+                <div class="flex justify-between items-start mb-1.5">
+                    <span class="text-[11px] uppercase tracking-[0.1em] font-bold" style="color: {{ color }}">{{ brief.label or "" }}</span>
+                    <span class="material-symbols-outlined text-[#8c909f] text-lg transition-colors">{{ icon }}</span>
+                </div>
+                <p class="text-sm text-[#c2c6d6] leading-relaxed">{{ (brief.text or "") | no_em_dash }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    {# ── Mobile Market Snapshot (visible only on mobile, before stories) ── #}
+    {% if markets %}
+    {% set mticker = [
+        ("sp500", "S&P 500"), ("nasdaq", "NASDAQ"), ("btc", "BTC"),
+        ("eth", "ETH"), ("oil", "Oil"), ("sentiment", "Sentiment"),
     ] %}
-    {% for color, label, value in kpi_items %}
-    <div class="kpi-card">
-        <div class="kpi-value" style="color:{{ color }}">{{ value }}</div>
-        <div class="kpi-label">{{ label }}</div>
-    </div>
-    {% endfor %}
-</div>
-
-{# ── Media Strip ─────────────────────────────────────────────────────────── #}
-<div class="media-strip">
-    {% if has_podcast %}
-    <div class="media-banner">
-        <div class="media-banner-icon" aria-hidden="true">🎧</div>
-        <div class="media-banner-title">Daily Podcast</div>
-        <div class="media-banner-sub">AI-generated deep-dive briefing</div>
-        <button class="media-banner-btn podcast-btn" onclick="togglePodcast()" aria-expanded="false" aria-controls="podcastPlayer">▶ Listen Now</button>
-        <div class="podcast-player-wrap" id="podcastPlayer">
-            <audio controls style="width:100%;margin-top:10px" preload="none" aria-label="Daily podcast audio">
-                <source src="./podcast-{{ date }}.mp3" type="audio/mpeg">
-            </audio>
+    <section class="section lg:hidden">
+        <div class="section-title flex items-center gap-4 mb-6">
+            <h3 class="text-lg font-black tracking-tight uppercase">Markets</h3>
+            <div class="h-px flex-grow bg-white/[0.1]"></div>
         </div>
-    </div>
-    {% else %}
-    <div class="media-banner">
-        <div class="media-banner-icon" aria-hidden="true">🎧</div>
-        <div class="media-banner-title">Daily Podcast</div>
-        <div class="media-banner-sub">Not available for today</div>
-    </div>
+        <div class="grid grid-cols-3 gap-2">
+            {% for key, label in mticker %}
+            {% set data = markets.get(key, {}) %}
+            {% if data is mapping %}
+            {% set price = data.price or data.value or "N/A" %}
+            {% set change = data.change or data.label or "" %}
+            {% set direction = data.direction or "neutral" %}
+            {% if direction == "up" %}{% set mcolor = "#10B981" %}{% elif direction == "down" %}{% set mcolor = "#EF4444" %}{% else %}{% set mcolor = "#F59E0B" %}{% endif %}
+            <div class="bg-[#131b2e] p-3 text-center">
+                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">{{ label }}</div>
+                <div class="market-price text-[13px] font-mono font-bold">{{ price }}</div>
+                <div class="market-change text-[10px] font-mono" style="color: {{ mcolor }}">{{ change }}</div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
     {% endif %}
 
-    {% if youtube_id %}
-    <div class="media-banner">
-        <div class="media-banner-icon" aria-hidden="true">🎬</div>
-        <div class="media-banner-title">Video Briefing</div>
-        <div class="media-banner-sub">AI-generated cinematic explainer</div>
-        <a href="https://www.youtube.com/watch?v={{ youtube_id }}" target="_blank" rel="noopener" class="media-banner-btn video-btn">▶ Watch on YouTube</a>
-        <button class="media-banner-btn expand-btn" onclick="toggleVideo()" aria-label="Watch video inline">▶ Watch Inline</button>
-        <div class="video-overlay" id="videoOverlay" role="dialog" aria-modal="true" aria-label="Video player" onclick="if(event.target===this)toggleVideo()">
-            <div class="video-overlay-inner">
-                <button class="video-overlay-close" onclick="toggleVideo()" aria-label="Close video">&times;</button>
-                <iframe id="videoFrame" width="100%" style="aspect-ratio:16/9;border:none;border-radius:12px" allowfullscreen title="Video briefing"></iframe>
+    {# ── Media Strip ─────────────────────────────────────────────────────── #}
+    <section class="section grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {% if has_podcast %}
+        <div class="p-5 bg-gradient-to-br from-[#0f1629] to-[#162040] border border-[#6366F1]/20 rounded-xl text-center flex flex-col items-center gap-1.5">
+            <span class="material-symbols-outlined text-[#6366F1] text-2xl">headphones</span>
+            <div class="text-sm font-bold">Daily Podcast</div>
+            <div class="text-[11px] text-white/40 mb-2">AI-generated deep-dive briefing</div>
+            <button class="podcast-btn media-btn" onclick="togglePodcast()" aria-expanded="false" aria-controls="podcastPlayer">&#9654; Listen Now</button>
+            <div class="podcast-player-wrap w-full md:max-w-[300px] mt-3" id="podcastPlayer">
+                <audio controls style="width:100%" preload="none" aria-label="Daily podcast"><source src="./podcast-{{ date }}.mp3" type="audio/mpeg"></audio>
             </div>
         </div>
-    </div>
-    {% else %}
-    <div class="media-banner">
-        <div class="media-banner-icon" aria-hidden="true">🎬</div>
-        <div class="media-banner-title">Video Briefing</div>
-        <div class="media-banner-sub">Not available for today</div>
+        {% else %}
+        <div class="p-5 bg-gradient-to-br from-[#0f1629] to-[#162040] border border-white/[0.06] rounded-xl text-center flex flex-col items-center gap-1.5 opacity-50">
+            <span class="material-symbols-outlined text-[#8c909f] text-2xl">headphones</span>
+            <div class="text-sm font-bold">Daily Podcast</div>
+            <div class="text-[11px] text-white/40">Not available today</div>
+        </div>
+        {% endif %}
+
+        {% if youtube_id %}
+        <div class="p-5 bg-gradient-to-br from-[#0f1629] to-[#162040] border border-[#EC4899]/20 rounded-xl text-center flex flex-col items-center gap-1.5">
+            <span class="material-symbols-outlined text-[#EC4899] text-2xl">smart_display</span>
+            <div class="text-sm font-bold">Video Briefing</div>
+            <div class="text-[11px] text-white/40 mb-2">AI-generated cinematic explainer</div>
+            <a href="https://www.youtube.com/watch?v={{ youtube_id }}" target="_blank" rel="noopener" class="media-btn video-btn no-underline inline-block">&#9654; Watch on YouTube</a>
+            <button class="media-btn expand-btn" onclick="toggleVideo()">&#9654; Watch Inline</button>
+            <div class="video-overlay" id="videoOverlay" role="dialog" aria-modal="true" aria-label="Video player" onclick="if(event.target===this)toggleVideo()">
+                <div class="video-overlay-inner">
+                    <button class="video-overlay-close" onclick="toggleVideo()" aria-label="Close video">&times;</button>
+                    <iframe id="videoFrame" width="100%" style="aspect-ratio:16/9;border:none;border-radius:12px" allowfullscreen title="Video briefing"></iframe>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="p-5 bg-gradient-to-br from-[#0f1629] to-[#162040] border border-white/[0.06] rounded-xl text-center flex flex-col items-center gap-1.5 opacity-50">
+            <span class="material-symbols-outlined text-[#8c909f] text-2xl">smart_display</span>
+            <div class="text-sm font-bold">Video Briefing</div>
+            <div class="text-[11px] text-white/40">Not available today</div>
+        </div>
+        {% endif %}
+    </section>
+
+    {# ── Infographic ─────────────────────────────────────────────────────── #}
+    {% if has_infographic %}
+    <section class="section" id="infographic">
+        <div class="section-title flex items-center gap-4 mb-8">
+            <h3 class="text-2xl font-black tracking-tight uppercase">Daily Infographic</h3>
+            <div class="h-px flex-grow bg-white/[0.1]"></div>
+        </div>
+        <div class="bg-[#131b2e] border border-white/[0.06] rounded-xl p-4 text-center cursor-zoom-in" onclick="openInfographic('./infographic-{{ date }}.jpg')">
+            <img src="./infographic-{{ date }}.jpg" alt="Koda Daily Infographic {{ date }}" class="max-w-full rounded-lg">
+            <p class="text-[10px] text-[#8c909f] mt-2">Click to expand</p>
+        </div>
+    </section>
+    {# Infographic fullscreen overlay #}
+    <div class="infographic-overlay" id="infographicOverlay" onclick="if(event.target===this)closeInfographic()">
+        <button class="infographic-overlay-close" onclick="closeInfographic()" aria-label="Close infographic">&times;</button>
+        <img id="infographicFull" src="" alt="Koda Daily Infographic {{ date }}" />
     </div>
     {% endif %}
-</div>
 
-{# ── Market Snapshot ─────────────────────────────────────────────────────── #}
+    {# ── Today's Focus ───────────────────────────────────────────────────── #}
+    {% set focus_topics = summary.focus_topics or [] %}
+    {% if focus_topics %}
+    <section class="section" id="todays-focus">
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
+            <div class="flex items-center gap-4 flex-grow min-w-0">
+                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">Today's Focus</h3>
+                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
+            </div>
+            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
+        </button>
+        <div class="expandable-content hidden mt-4 lg:mt-0">
+        <div class="space-y-3">
+            {% set focus_colors = ["#3B82F6", "#8B5CF6", "#10B981"] %}
+            {% for topic in focus_topics %}
+            <div class="flex gap-4 items-start p-5 bg-[#131b2e]">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm text-white flex-shrink-0" style="background: linear-gradient(135deg, {{ focus_colors[loop.index0 % 3] }}, #8B5CF6)">{{ topic.number or loop.index }}</div>
+                <div>
+                    <div class="focus-content-title text-sm font-bold mb-1">{{ (topic.title or "") | no_em_dash }}</div>
+                    <div class="focus-content-body text-[13px] text-[#c2c6d6] leading-relaxed">{{ (topic.description or "") | no_em_dash }}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        </div>{# /expandable-content #}
+    </section>
+    {% endif %}
+
+    {# ── AI Developments ─────────────────────────────────────────────────── #}
+    {% if ai_news %}
+    {% set ai_cat_colors = {
+        "Model Release": "#3B82F6", "Benchmark": "#8B5CF6", "Agents": "#6366F1",
+        "Hardware": "#F59E0B", "Enterprise": "#10B981", "Policy": "#EF4444",
+        "Biotech": "#EC4899", "Design": "#06B6D4", "Trend": "#8B5CF6",
+        "China": "#EF4444", "Consolidation": "#F59E0B", "Open Source": "#10B981",
+    } %}
+    <section class="section" id="ai-developments">
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
+            <div class="flex items-center gap-4 flex-grow min-w-0">
+                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">AI Developments</h3>
+                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
+            </div>
+            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
+        </button>
+        <div class="expandable-content hidden mt-4 lg:mt-0">
+        <div class="grid md:grid-cols-2 gap-4">
+            {% for story in ai_news %}
+            {% set cat = story.category or "Trend" %}
+            {% set color = ai_cat_colors.get(cat, "#3B82F6") %}
+            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
+                <div class="flex gap-2 mb-2">
+                    <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: {{ color }}; background: {{ color }}15">{{ cat }}</span>
+                </div>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">{{ (story.title or "") | no_em_dash }}</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">{{ (story.body or "") | no_em_dash }}{% if story.source_url %} <a href="{{ story.source_url | safe_url }}" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: {{ color }}">Source &rarr;</a>{% endif %}</p>
+            </article>
+            {% endfor %}
+        </div>
+        </div>{# /expandable-content #}
+    </section>
+    {% endif %}
+
+    {# ── World News ──────────────────────────────────────────────────────── #}
+    {% if world_news %}
+    {% set world_cat_colors = {
+        "Conflict": "#EF4444", "Diplomacy": "#3B82F6", "Economy": "#10B981",
+        "Policy": "#8B5CF6", "Humanitarian": "#F59E0B", "Infrastructure": "#06B6D4",
+        "Climate": "#10B981", "Technology": "#6366F1",
+    } %}
+    <section class="section" id="world-news">
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
+            <div class="flex items-center gap-4 flex-grow min-w-0">
+                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">World News</h3>
+                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
+            </div>
+            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
+        </button>
+        <div class="expandable-content hidden mt-4 lg:mt-0">
+        <div class="grid md:grid-cols-2 gap-4">
+            {% for story in world_news %}
+            {% set cat = story.category or "World" %}
+            {% set color = world_cat_colors.get(cat, "#3B82F6") %}
+            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
+                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: {{ color }}; background: {{ color }}15">{{ cat }}</span>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">{{ (story.title or "") | no_em_dash }}</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">{{ (story.body or "") | no_em_dash }}{% if story.source_url %} <a href="{{ story.source_url | safe_url }}" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: {{ color }}">Source &rarr;</a>{% endif %}</p>
+            </article>
+            {% endfor %}
+        </div>
+        </div>{# /expandable-content #}
+    </section>
+    {% endif %}
+
+    {# ── Newsletter Intelligence ─────────────────────────────────────────── #}
+    {% if newsletters %}
+    <section class="section" id="newsletter-intelligence">
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
+            <div class="flex items-center gap-4 flex-grow min-w-0">
+                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">Featured Newsletters</h3>
+                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
+            </div>
+            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
+        </button>
+        <div class="expandable-content hidden mt-4 lg:mt-0">
+        <p class="text-[13px] text-[#c2c6d6] mb-4 leading-relaxed">We read and recommend these newsletters. Here is what they are covering today. Subscribe to them directly for the full experience.</p>
+        {% for nl in newsletters %}
+        <div class="newsletter-card bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
+            <div class="newsletter-name text-[15px] font-bold mb-3">{{ nl.name or "Newsletter" }}</div>
+            {% if nl.headlines %}
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Headlines</div>
+                <ul class="list-none p-0 m-0">
+                    {% for h in nl.headlines %}<li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">{{ h | no_em_dash }}</li>{% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            {% if nl.deep_dives %}
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Deep Dives</div>
+                <div class="newsletter-item text-[13px] text-[#c2c6d6]">{{ nl.deep_dives | no_em_dash }}</div>
+            </div>
+            {% endif %}
+            {% if nl.quick_hits %}
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Quick Hits</div>
+                <ul class="list-none p-0 m-0">
+                    {% for q in nl.quick_hits %}<li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">{{ q | no_em_dash }}</li>{% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            {% if nl.tools %}
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Trending Tools</div>
+                <div class="flex flex-wrap gap-1.5">
+                    {% for t in nl.tools %}{% if t %}<span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">{{ t | no_em_dash }}</span>{% endif %}{% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% if nl.quote %}
+            <blockquote class="newsletter-quote border-l-[3px] border-[#8B5CF6] pl-4 py-2 my-3 italic text-[13px] text-[#c2c6d6]">"{{ nl.quote | no_em_dash }}"</blockquote>
+            {% endif %}
+            {% if nl.source_link %}
+            <a href="{{ nl.source_link | safe_url }}" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline">Read the full newsletter &rarr;</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+        </div>{# /expandable-content #}
+    </section>
+    {% endif %}
+
+    {# ── Competitive Landscape ───────────────────────────────────────────── #}
+    {% if competitive %}
+    <section class="section" id="competitive-landscape">
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
+            <div class="flex items-center gap-4 flex-grow min-w-0">
+                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">Competitive Landscape</h3>
+                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
+            </div>
+            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
+        </button>
+        <div class="expandable-content hidden mt-4">
+            <div class="grid md:grid-cols-2 gap-4">
+                {% for comp in competitive %}
+                {% if comp.source_url %}
+                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
+                    <span class="comp-name text-[15px] font-bold block mb-1">{{ comp.name or "" }}</span>
+                    <span class="text-[10px] text-[#3B82F6] font-semibold uppercase tracking-wider block mb-2 line-clamp-1">{{ (comp.status or "") | no_em_dash }}</span>
+                    <p class="comp-body text-[13px] text-[#c2c6d6] leading-relaxed">{{ (comp.body or "") | no_em_dash }}</p>
+                    <a href="{{ comp.source_url | safe_url }}" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline block mt-2">Source &rarr;</a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ── AI Tool Guide ───────────────────────────────────────────────────── #}
+    {% if tools %}
+    <section class="section" id="ai-tool-guide">
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
+            <div class="flex items-center gap-4 flex-grow min-w-0">
+                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">AI Tool Guide</h3>
+                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
+            </div>
+            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
+        </button>
+        <div class="expandable-content hidden mt-4">
+            <div class="grid md:grid-cols-2 gap-4">
+                {% for tool in tools %}
+                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
+                    <strong class="tool-title block text-[14px] font-bold mb-1.5">{{ (tool.title or "") | no_em_dash }}</strong>
+                    <span class="tool-body text-[13px] text-[#c2c6d6] leading-relaxed">{{ (tool.body or "") | no_em_dash }}{% if tool.url %} <a href="{{ tool.url | safe_url }}" target="_blank" class="text-[#3B82F6] no-underline text-[11px] hover:underline">Try it &rarr;</a>{% endif %}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+</div>{# /left column #}
+
+{# ── Right Sidebar ───────────────────────────────────────────────────────── #}
 {% if markets %}
-{% set ticker_config = [
-    ("sp500", "S&P 500", "📈"),
-    ("nasdaq", "NASDAQ", "📊"),
-    ("btc", "BTC", "₿"),
-    ("eth", "ETH", "◆"),
-    ("oil", "Oil Brent", "🛢"),
-    ("sentiment", "Sentiment", "🧠"),
-] %}
-<div class="section" id="market-snapshot">
-    <div class="section-title"><span class="section-icon">📊</span> Market Snapshot</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;">
-        {% for key, label, icon in ticker_config %}
-        {% set data = markets.get(key, {}) %}
-        {% if data is mapping %}
-        {% set price = data.price or data.value or "N/A" %}
-        {% set change = data.change or data.label or "" %}
-        {% set direction = data.direction or "neutral" %}
-        {% if direction == "up" %}{% set mkt_color = "var(--emerald)" %}{% elif direction == "down" %}{% set mkt_color = "var(--red)" %}{% else %}{% set mkt_color = "var(--amber)" %}{% endif %}
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
-            <div style="font-size:20px;margin-bottom:4px">{{ icon }}</div>
-            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">{{ label }}</div>
-            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">{{ price }}</div>
-            <div class="market-change" style="font-size:13px;font-weight:700;color:{{ mkt_color }};margin-top:4px">{{ change }}</div>
-            {% if data.sparkline %}{{ data.sparkline | sparkline(mkt_color) | safe }}{% endif %}
-        </div>
-        {% endif %}
-        {% endfor %}
-    </div>
-</div>
-{% endif %}
+<aside class="hidden lg:block lg:w-[35%]">
+    <div class="lg:sticky lg:top-20 sidebar-scroll space-y-8">
 
-{# ── The Briefing ───────────────────────────────────────────────────────── #}
-{% set brief_icons = {"ai": "🤖", "world": "🌍", "markets": "📊", "wildcard": "⚡"} %}
-{% set brief_colors = {"ai": "var(--blue)", "world": "var(--red)", "markets": "var(--emerald)", "wildcard": "var(--amber)"} %}
-<div class="section" id="daily-summary">
-    <div class="section-title"><span class="section-icon">📋</span> The Briefing</div>
-    <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);">
-        <div class="summary-hook" style="font-size:20px;font-weight:800;margin-bottom:18px;line-height:1.4">{{ (summary.hook or "") | no_em_dash }}</div>
-        {% for brief in summary.briefs or [] %}
-        {% set icon = brief_icons.get(brief.icon, "📌") %}
-        {% set color = brief_colors.get(brief.icon, "var(--blue)") %}
-        <div class="summary-brief" style="border-left:3px solid {{ color }};padding:10px 16px;margin:10px 0;background:var(--bg-card);border-radius:0 12px 12px 0;">
-            <div style="font-size:13px;font-weight:700;color:{{ color }};margin-bottom:4px">{{ icon }} {{ brief.label or "" }}</div>
-            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">{{ (brief.text or "") | no_em_dash }}</div>
-        </div>
-        {% endfor %}
-    </div>
-</div>
-
-{# ── Infographic ─────────────────────────────────────────────────────────── #}
-{% if has_infographic %}
-<div class="section" id="infographic">
-    <div class="section-title"><span class="section-icon">📊</span> Daily Infographic</div>
-    <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:16px;box-shadow:0 4px 16px var(--shadow);text-align:center">
-        <img src="./infographic-{{ date }}.jpg" alt="Koda Daily Infographic {{ date }}" style="max-width:100%;border-radius:12px">
-    </div>
-</div>
-{% endif %}
-
-{# ── Today's Focus ───────────────────────────────────────────────────────── #}
-{% set focus_topics = summary.focus_topics or [] %}
-{% if focus_topics %}
-{% set focus_colors = ["var(--blue)", "var(--purple)", "var(--emerald)"] %}
-<div class="section" id="todays-focus">
-    <div class="section-title"><span class="section-icon">🎯</span> Today's Focus</div>
-    <div class="focus-grid">
-        {% for topic in focus_topics %}
-        <article class="focus-item">
-            <div class="focus-num" style="background:linear-gradient(135deg,{{ focus_colors[loop.index0 % 3] }},var(--purple))">{{ topic.number or loop.index }}</div>
-            <div class="focus-content">
-                <div class="focus-content-title">{{ (topic.title or "") | no_em_dash }}</div>
-                <div class="focus-content-body">{{ (topic.description or "") | no_em_dash }}</div>
+        {# ── Today's Pulse KPIs ──────────────────────────────────────────── #}
+        {% set kpis = summary.kpis or {} %}
+        <section class="section">
+            <div class="flex items-center gap-1.5 mb-4">
+                <span class="material-symbols-outlined text-sm text-[#8c909f]">pulse_alert</span>
+                <span class="text-xs font-black tracking-[0.15em] uppercase text-[#8c909f]">Today's Pulse</span>
             </div>
-        </article>
-        {% endfor %}
+            <div class="grid grid-cols-2 gap-3">
+                <div class="bg-[#131b2e] p-4 border-l-2 border-[#3B82F6]">
+                    <span class="kpi-label block text-[9px] text-[#8c909f] uppercase tracking-widest mb-1">AI Stories</span>
+                    <span class="kpi-value text-2xl font-black font-mono text-[#3B82F6]">{{ kpis.ai_stories or "0" }}</span>
+                </div>
+                <div class="bg-[#131b2e] p-4 border-l-2 border-[#EF4444]">
+                    <span class="kpi-label block text-[9px] text-[#8c909f] uppercase tracking-widest mb-1">World Events</span>
+                    <span class="kpi-value text-2xl font-black font-mono text-[#EF4444]">{{ kpis.world_events or "0" }}</span>
+                </div>
+                <div class="bg-[#131b2e] p-4 border-l-2 border-[#F59E0B]">
+                    <span class="kpi-label block text-[9px] text-[#8c909f] uppercase tracking-widest mb-1">Market Mood</span>
+                    <span class="kpi-value text-lg font-black text-[#F59E0B]">{{ kpis.market_mood or "Mixed" }}</span>
+                </div>
+                <div class="bg-[#131b2e] p-4 border-l-2 border-[#8B5CF6]">
+                    <span class="kpi-label block text-[9px] text-[#8c909f] uppercase tracking-widest mb-1">Tools Featured</span>
+                    <span class="kpi-value text-2xl font-black font-mono text-[#8B5CF6]">{{ kpis.tools_featured or "0" }}</span>
+                </div>
+            </div>
+        </section>
+
+        {# ── Market Snapshot ─────────────────────────────────────────────── #}
+        <section class="section" id="market-snapshot">
+            <div class="flex items-center gap-1.5 mb-5">
+                <span class="material-symbols-outlined text-sm text-[#8c909f]">monitoring</span>
+                <span class="section-title text-xs font-black tracking-[0.15em] uppercase text-[#8c909f]">Market Snapshot</span>
+            </div>
+            {% set ticker_config = [
+                ("sp500", "S&P 500", "INDEXSP"),
+                ("nasdaq", "NASDAQ", "INDEXNASDAQ"),
+                ("btc", "Bitcoin", "BTC/USD"),
+                ("eth", "Ethereum", "ETH/USD"),
+                ("oil", "Oil Brent", "CRUDE"),
+                ("sentiment", "Sentiment", "F&G Index"),
+            ] %}
+            <div class="space-y-1">
+                {% for key, label, sub in ticker_config %}
+                {% set data = markets.get(key, {}) %}
+                {% if data is mapping %}
+                {% set price = data.price or data.value or "N/A" %}
+                {% set change = data.change or data.label or "" %}
+                {% set direction = data.direction or "neutral" %}
+                {% if direction == "up" %}{% set change_color = "#10B981" %}{% elif direction == "down" %}{% set change_color = "#EF4444" %}{% else %}{% set change_color = "#F59E0B" %}{% endif %}
+                <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
+                    <div>
+                        <span class="market-ticker block text-xs font-bold">{{ label }}</span>
+                        <span class="text-[10px] text-[#8c909f]">{{ sub }}</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="market-price block text-sm font-mono font-bold">{{ price }}</span>
+                        <span class="market-change text-[10px] font-mono" style="color: {{ change_color }}">{{ change }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </section>
     </div>
-</div>
+</aside>
 {% endif %}
 
-{# ── AI Developments ─────────────────────────────────────────────────────── #}
-{% if ai_news %}
-{% set ai_cat_colors = {
-    "Model Release": "var(--blue)", "Benchmark": "var(--purple)", "Agents": "var(--indigo)",
-    "Hardware": "var(--amber)", "Enterprise": "var(--emerald)", "Policy": "var(--red)",
-    "Biotech": "var(--pink)", "Design": "var(--cyan)", "Trend": "var(--purple)",
-    "China": "var(--red)", "Consolidation": "var(--amber)", "Open Source": "var(--emerald)",
-} %}
-<div class="section" id="ai-developments">
-    <div class="section-title"><span class="section-icon">🤖</span> AI Developments</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;">
-        {% for story in ai_news %}
-        {% set cat = story.category or "Trend" %}
-        {% set color = ai_cat_colors.get(cat, "var(--blue)") %}
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:{{ color }};background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">{{ cat }}</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">{{ (story.title or "") | no_em_dash }}</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">{{ (story.body or "") | no_em_dash }}{% if story.source_url %} <a href="{{ story.source_url | safe_url }}" target="_blank" style="color:{{ color }};font-size:11px;text-decoration:none;">Source →</a>{% endif %}</div>
-        </div>
-        {% endfor %}
-    </div>
-</div>
-{% endif %}
+</div>{# /two-column layout #}
 
-{# ── World News ──────────────────────────────────────────────────────────── #}
-{% if world_news %}
-{% set world_cat_colors = {
-    "Conflict": "var(--red)", "Diplomacy": "var(--blue)", "Economy": "var(--emerald)",
-    "Policy": "var(--purple)", "Humanitarian": "var(--amber)", "Infrastructure": "var(--cyan)",
-    "Climate": "var(--emerald)", "Technology": "var(--indigo)",
-} %}
-<div class="section" id="world-news">
-    <div class="section-title"><span class="section-icon">🌍</span> World News</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;">
-        {% for story in world_news %}
-        {% set cat = story.category or "World" %}
-        {% set color = world_cat_colors.get(cat, "var(--blue)") %}
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:{{ color }};background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">{{ cat }}</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">{{ (story.title or "") | no_em_dash }}</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">{{ (story.body or "") | no_em_dash }}{% if story.source_url %} <a href="{{ story.source_url | safe_url }}" target="_blank" style="color:{{ color }};font-size:11px;text-decoration:none;">Source →</a>{% endif %}</div>
-        </div>
-        {% endfor %}
+{# ── Email Signup CTA ────────────────────────────────────────────────────── #}
+<section class="max-w-3xl mx-auto px-6 py-16 text-center">
+    <div class="bg-[#0b1326]/60 backdrop-blur-xl border border-white/[0.06] rounded-2xl p-8 md:p-10 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899] rounded-b-full"></div>
+        <h3 class="text-xl font-bold text-white mb-2">Want this every morning?</h3>
+        <p class="text-[#c2c6d6] text-sm mb-6">AI, world news, markets, and tools. One briefing, delivered free.</p>
+        <form action="https://buttondown.com/api/emails/embed-subscribe/arno" method="post" class="flex gap-2 max-w-md mx-auto p-1.5 rounded-full bg-[#171f33] border border-white/[0.06]" onsubmit="this.querySelector('button').textContent='Subscribed!'">
+            <input type="hidden" value="1" name="embed">
+            <input type="email" name="email" required class="bg-transparent border-none focus:ring-0 text-white px-5 w-full text-sm placeholder:text-[#8c909f]" placeholder="your@email.com">
+            <button type="submit" class="bg-gradient-to-r from-[#3B82F6] to-[#6366F1] text-white px-6 py-3 rounded-full font-bold text-sm whitespace-nowrap hover:shadow-lg hover:shadow-[#3B82F6]/20 transition-all">Subscribe</button>
+        </form>
+        <p class="text-[10px] text-[#8c909f] mt-3">One email per day. No spam. Unsubscribe anytime.</p>
     </div>
-</div>
-{% endif %}
-
-{# ── Newsletter Intelligence ─────────────────────────────────────────────── #}
-{% if newsletters %}
-<div class="section" id="newsletter-intelligence">
-    <div class="section-title"><span class="section-icon">📬</span> Newsletter Intelligence</div>
-    {% for nl in newsletters %}
-    <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);margin-bottom:16px;">
-        <div style="margin-bottom:16px">
-            <div class="newsletter-name" style="font-size:16px;font-weight:700">{{ nl.name or "Newsletter" }}</div>
-        </div>
-        {% if nl.headlines %}
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Headlines</div>
-            <ul style="list-style:none;padding:0">
-                {% for h in nl.headlines %}<li style="margin:4px 0;font-size:13px">{{ h | no_em_dash }}</li>{% endfor %}
-            </ul>
-        </div>
-        {% endif %}
-        {% if nl.deep_dives %}
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Deep Dives</div>
-            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">{{ nl.deep_dives | no_em_dash }}</div>
-        </div>
-        {% endif %}
-        {% if nl.quick_hits %}
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Quick Hits</div>
-            <ul style="list-style:none;padding:0">
-                {% for q in nl.quick_hits %}<li style="margin:4px 0;font-size:13px">{{ q | no_em_dash }}</li>{% endfor %}
-            </ul>
-        </div>
-        {% endif %}
-        {% if nl.tools %}
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Trending Tools</div>
-            {% for t in nl.tools %}{% if t %}<span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">{{ t | no_em_dash }}</span>{% endif %}{% endfor %}
-        </div>
-        {% endif %}
-        {% if nl.quote %}
-        <blockquote class="newsletter-quote" style="border-left:3px solid var(--purple);padding:10px 16px;margin:12px 0;font-style:italic;color:var(--text-secondary);font-size:13px">"{{ nl.quote | no_em_dash }}"</blockquote>
-        {% endif %}
-        {% if nl.source_link %}
-        <a href="{{ nl.source_link | safe_url }}" target="_blank" style="font-size:11px;color:var(--blue);text-decoration:none">View original →</a>
-        {% endif %}
-    </div>
-    {% endfor %}
-</div>
-{% endif %}
-
-{# ── Competitive Landscape ───────────────────────────────────────────────── #}
-{% if competitive %}
-<div class="section" id="competitive-landscape">
-    <div class="section-title"><span class="section-icon">🏢</span> Competitive Landscape</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;">
-        {% for comp in competitive %}
-        {% if comp.source_url %}
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">{{ comp.name or "" }}</div>
-            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">{{ (comp.status or "") | no_em_dash }}</div>
-            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">{{ (comp.body or "") | no_em_dash }} <a href="{{ comp.source_url | safe_url }}" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        {% endif %}
-        {% endfor %}
-    </div>
-</div>
-{% endif %}
-
-{# ── AI Tool Guide ───────────────────────────────────────────────────────── #}
-{% if tools %}
-{% set tool_icons = {"Mindset": "🧠", "Build": "🔨", "Hardware": "💻", "Creativity": "🎨", "Productivity": "⚡", "Coding": "💻"} %}
-<div class="section" id="ai-tool-guide">
-    <div class="section-title"><span class="section-icon">🧰</span> AI Tool Guide</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;">
-        {% for tool in tools %}
-        {% set tool_icon = tool_icons.get(tool.category, "🔧") %}
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">{{ tool_icon }} TIP {{ "%02d"|format(loop.index) }}</div>
-            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">{{ (tool.title or "") | no_em_dash }}</div>
-            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">{{ (tool.body or "") | no_em_dash }}{% if tool.url %} <a href="{{ tool.url | safe_url }}" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a>{% endif %}</div>
-        </div>
-        {% endfor %}
-    </div>
-</div>
-{% endif %}
-
-</div>{# /container #}
+</section>
 
 {# ── Footer ──────────────────────────────────────────────────────────────── #}
-<footer style="text-align:center;padding:40px 24px;border-top:1px solid var(--border);margin-top:40px">
-    <div style="font-size:14px;font-weight:700;margin-bottom:4px">Koda Intelligence</div>
-    <div style="font-size:12px;color:var(--text-secondary)">Generated {{ generated_at }} | Sources: Web Search, Newsletter feeds, NotebookLM</div>
-    <div style="font-size:11px;color:var(--text-secondary);margin-top:8px">© {{ year }} Koda Community</div>
+<footer class="bg-[#060e20] border-t border-white/[0.06] mt-auto">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-6 py-10 gap-4">
+        <div>
+            <span class="text-sm font-bold text-[#3B82F6]">Koda Intelligence</span>
+            <p class="text-[11px] text-[#c2c6d6] mt-1">Generated {{ generated_at }}</p>
+        </div>
+        <div class="flex gap-6 text-[11px] uppercase tracking-wide">
+            <a href="./index.html" class="text-[#c2c6d6] hover:text-white transition-colors no-underline">Archive</a>
+            <span class="text-[#c2c6d6]">&copy; {{ year }} Koda Intelligence</span>
+        </div>
+    </div>
 </footer>
 
 <script>{{ js | safe }}</script>

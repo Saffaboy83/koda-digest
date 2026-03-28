@@ -1,81 +1,130 @@
-// Dark mode
-(function(){
-    const saved = localStorage.getItem('koda-theme');
-    if(saved==='dark') document.documentElement.classList.add('dark-mode');
-})();
-function toggleDark(){
-    document.documentElement.classList.toggle('dark-mode');
-    const isDark = document.documentElement.classList.contains('dark-mode');
-    localStorage.setItem('koda-theme', isDark ? 'dark' : 'light');
-    document.getElementById('darkBtn').textContent = isDark ? '☀ Light' : '🌙 Dark';
-}
-
-// Podcast player
-function togglePodcast(){
-    const w = document.getElementById('podcastPlayer');
-    const btn = document.querySelector('.podcast-btn');
-    if(!w) return;
-    w.classList.toggle('active');
-    if(btn) btn.setAttribute('aria-expanded', w.classList.contains('active'));
-}
-
-// Video overlay
-function toggleVideo(){
-    const o = document.getElementById('videoOverlay');
-    const f = document.getElementById('videoFrame');
-    if(!o) return;
-    if(o.classList.contains('active')){
-        o.classList.remove('active');
-        document.body.style.overflow = '';
-        if(f) f.src = '';
-    } else {
-        o.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        const ytId = document.body.getAttribute('data-youtube-id');
-        if(f && ytId && /^[A-Za-z0-9_-]{11}$/.test(ytId)){
-            f.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1';
-        }
-        // Focus close button for keyboard users
-        const closeBtn = o.querySelector('.video-overlay-close');
-        if(closeBtn) closeBtn.focus();
+// Share buttons
+function shareDigest(platform) {
+    var url = window.location.href;
+    var title = document.title;
+    var text = document.querySelector('meta[name="description"]');
+    text = text ? text.content : 'Daily AI intelligence briefing';
+    if (platform === 'x') {
+        window.open('https://x.com/intent/tweet?text=' + encodeURIComponent(title + ' - ' + text) + '&url=' + encodeURIComponent(url), '_blank');
+    } else if (platform === 'linkedin') {
+        window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url), '_blank');
+    } else if (platform === 'copy') {
+        navigator.clipboard.writeText(url).then(function() {
+            var btn = document.querySelector('[title="Copy link"]');
+            if (btn) { btn.style.color = '#10B981'; setTimeout(function() { btn.style.color = ''; }, 1500); }
+        });
     }
 }
 
-// Escape key closes video overlay
-document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape'){
-        const o = document.getElementById('videoOverlay');
-        if(o && o.classList.contains('active')) toggleVideo();
+// Expandable sections (works on both mobile and desktop)
+function toggleExpand(btn) {
+    var content = btn.nextElementSibling;
+    var chevron = btn.querySelector('.expand-chevron');
+    if (!content) return;
+    // Check if currently hidden (class or inline style)
+    var isHidden = content.classList.contains('hidden') || content.style.display === 'none';
+    if (isHidden) {
+        content.classList.remove('hidden');
+        content.style.display = '';
+        btn.setAttribute('aria-expanded', 'true');
+        if (chevron) chevron.style.transform = 'rotate(180deg)';
+    } else {
+        // Use inline style so it overrides lg:block on desktop
+        content.style.display = 'none';
+        btn.setAttribute('aria-expanded', 'false');
+        if (chevron) chevron.style.transform = '';
+    }
+}
+
+// All sections start collapsed - no auto-expand needed
+
+// Infographic lightbox
+function openInfographic(src) {
+    var overlay = document.getElementById('infographicOverlay');
+    var img = document.getElementById('infographicFull');
+    if (!overlay || !img) return;
+    img.src = src;
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    var closeBtn = overlay.querySelector('.infographic-overlay-close');
+    if (closeBtn) closeBtn.focus();
+}
+function closeInfographic() {
+    var overlay = document.getElementById('infographicOverlay');
+    if (!overlay) return;
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Podcast player toggle
+function togglePodcast() {
+    var w = document.getElementById('podcastPlayer');
+    var btn = document.querySelector('.podcast-btn');
+    if (!w) return;
+    w.classList.toggle('active');
+    if (btn) btn.setAttribute('aria-expanded', w.classList.contains('active'));
+}
+
+// Video overlay toggle
+function toggleVideo() {
+    var o = document.getElementById('videoOverlay');
+    var f = document.getElementById('videoFrame');
+    if (!o) return;
+    if (o.classList.contains('active')) {
+        o.classList.remove('active');
+        document.body.style.overflow = '';
+        if (f) f.src = '';
+    } else {
+        o.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        var ytId = document.body.getAttribute('data-youtube-id');
+        if (f && ytId && /^[A-Za-z0-9_-]{11}$/.test(ytId)) {
+            f.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1';
+        }
+        var closeBtn = o.querySelector('.video-overlay-close');
+        if (closeBtn) closeBtn.focus();
+    }
+}
+
+// Escape key closes overlays
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        var vid = document.getElementById('videoOverlay');
+        if (vid && vid.classList.contains('active')) { toggleVideo(); return; }
+        var info = document.getElementById('infographicOverlay');
+        if (info && info.classList.contains('active')) { closeInfographic(); return; }
     }
 });
 
 // Day navigation
-(function(){
-    const d = document.body.getAttribute('data-digest-date');
-    if(!d) return;
-    const dt = new Date(d + 'T12:00:00');
-    const prev = new Date(dt); prev.setDate(prev.getDate() - 1);
-    const next = new Date(dt); next.setDate(next.getDate() + 1);
-    const fmt = d2 => `${d2.getFullYear()}-${String(d2.getMonth()+1).padStart(2,'0')}-${String(d2.getDate()).padStart(2,'0')}`;
-    const pf = 'morning-briefing-koda-' + fmt(prev) + '.html';
-    const nf = 'morning-briefing-koda-' + fmt(next) + '.html';
-    const pb = document.getElementById('prevBtn'), nb = document.getElementById('nextBtn');
-    fetch(pf, {method:'HEAD'}).then(r => { if(r.ok && pb){ pb.href = pf; pb.classList.remove('disabled'); pb.removeAttribute('aria-disabled'); }}).catch(() => {});
-    fetch(nf, {method:'HEAD'}).then(r => { if(r.ok && nb){ nb.href = nf; nb.classList.remove('disabled'); nb.removeAttribute('aria-disabled'); }}).catch(() => {});
+(function() {
+    var d = document.body.getAttribute('data-digest-date');
+    if (!d) return;
+    var dt = new Date(d + 'T12:00:00');
+    var prev = new Date(dt); prev.setDate(prev.getDate() - 1);
+    var next = new Date(dt); next.setDate(next.getDate() + 1);
+    var fmt = function(d2) {
+        return d2.getFullYear() + '-' + String(d2.getMonth() + 1).padStart(2, '0') + '-' + String(d2.getDate()).padStart(2, '0');
+    };
+    var pf = 'morning-briefing-koda-' + fmt(prev) + '.html';
+    var nf = 'morning-briefing-koda-' + fmt(next) + '.html';
+    var pb = document.getElementById('prevBtn'), nb = document.getElementById('nextBtn');
+    fetch(pf, {method: 'HEAD'}).then(function(r) { if (r.ok && pb) { pb.href = pf; pb.classList.remove('disabled'); } }).catch(function() {});
+    fetch(nf, {method: 'HEAD'}).then(function(r) { if (r.ok && nb) { nb.href = nf; nb.classList.remove('disabled'); } }).catch(function() {});
 })();
 
-// Scroll animations (respects reduced motion)
-if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if(e.isIntersecting){
+// Scroll-in animations (respects reduced motion)
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) {
                 e.target.style.opacity = '1';
                 e.target.style.transform = 'translateY(0)';
                 obs.unobserve(e.target);
             }
         });
     }, {threshold: 0.08});
-    document.querySelectorAll('.section').forEach(s => {
+    document.querySelectorAll('.section').forEach(function(s) {
         s.style.opacity = '0';
         s.style.transform = 'translateY(16px)';
         s.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
@@ -84,27 +133,27 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
 }
 
 // Hash scrolling
-if(window.location.hash){
-    const el = document.querySelector(window.location.hash);
-    if(el) setTimeout(() => el.scrollIntoView({behavior: 'smooth'}), 300);
+if (window.location.hash) {
+    var el = document.querySelector(window.location.hash);
+    if (el) setTimeout(function() { el.scrollIntoView({behavior: 'smooth'}); }, 300);
 }
 
 // Scroll progress bar + back-to-top
-(function(){
-    const bar = document.getElementById('scrollProgress');
-    const btn = document.getElementById('backToTop');
-    if(!bar) return;
-    let ticking = false;
-    window.addEventListener('scroll', function(){
-        if(!ticking){
-            requestAnimationFrame(function(){
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                if(docHeight > 0){
+(function() {
+    var bar = document.getElementById('scrollProgress');
+    var btn = document.getElementById('backToTop');
+    if (!bar) return;
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(function() {
+                var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                if (docHeight > 0) {
                     bar.style.width = Math.min((scrollTop / docHeight) * 100, 100) + '%';
                 }
-                if(btn){
-                    if(scrollTop > 600) btn.classList.add('visible');
+                if (btn) {
+                    if (scrollTop > 600) btn.classList.add('visible');
                     else btn.classList.remove('visible');
                 }
                 ticking = false;
