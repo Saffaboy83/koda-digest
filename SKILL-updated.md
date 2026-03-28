@@ -329,12 +329,16 @@ elements don't follow. Serving from Vercel directly is the only reliable cross-d
 
 ### 2D — Download video from NotebookLM
 
-Video generation was kicked off in Step 2A (step 6). Now poll and download.
+Cinematic video generation was kicked off in Step 2A (steps 6-7). Now poll and download.
+**IMPORTANT:** Cinematic (Veo 3) videos take 30-45 minutes to render. Do NOT use the
+8-minute timeout from the old explainer flow.
 
 17. **Poll video:** `studio_status` on the permanent notebook. Look for the newest video artifact
-    with `status: "completed"`. If not complete, poll every 30 seconds up to 8 minutes.
-    If video generation fails or times out after 8 minutes, set `VIDEO_AVAILABLE = false`
-    and continue to Step 3 (graceful degradation — no video section in HTML).
+    with `status: "completed"`. If not complete, poll every 60 seconds up to 50 minutes.
+    If video generation fails or times out after 50 minutes, set `VIDEO_AVAILABLE = false`
+    and continue to Step 3 (graceful degradation -- no video section in HTML).
+    Note: The status may show "unknown" instead of "completed" for cinematic videos due to
+    a library URL validation bug -- if a `video_url` is present, treat it as completed.
 
 18. **Download via Chrome:** Same three-dot menu approach as audio and infographic.
 
