@@ -38,7 +38,9 @@ if sys.platform == "win32":
 
 # ── Constants ────────────────────────────────────────────────────────────────
 
-NOTEBOOK_ID = "f928d89b-2520-4180-a71a-d93a75a5487c"
+NOTEBOOK_ID = os.environ.get(
+    "NOTEBOOK_ID", "f928d89b-2520-4180-a71a-d93a75a5487c"
+)
 
 FFMPEG_PATH = os.path.expanduser(
     "~/AppData/Local/Microsoft/WinGet/Packages/"
