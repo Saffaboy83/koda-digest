@@ -39,10 +39,18 @@ html.dark-mode{
     --shadow-lg:0 8px 24px rgba(0,0,0,0.3);
 }
 
+/* ── Scroll Progress Bar ───────────────────────────────────────────────── */
+.scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--blue),var(--purple));z-index:1001;transition:width 0.1s linear;pointer-events:none;}
+
+/* ── Back to Top ──────────────────────────────────────────────────────── */
+.back-to-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);color:var(--text);font-size:18px;cursor:pointer;z-index:999;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(12px);transition:opacity 0.3s,transform 0.3s,background 0.2s;box-shadow:var(--shadow-md);pointer-events:none;}
+.back-to-top.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
+.back-to-top:hover{background:var(--indigo);color:white;border-color:var(--indigo);}
+
 /* ── Base ───────────────────────────────────────────────────────────────── */
 body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-height:var(--leading-normal);transition:background 0.3s,color 0.3s;-webkit-font-smoothing:antialiased;}
 .container{max-width:1200px;margin:0 auto;padding:0 var(--sp-md);}
-.section{scroll-margin-top:80px;margin-bottom:var(--sp-2xl);}
+.section{scroll-margin-top:80px;margin-bottom:var(--sp-3xl);}
 .section-title{font-size:20px;font-weight:800;margin-bottom:var(--sp-md);display:flex;align-items:center;gap:var(--sp-sm);}
 .section-icon{font-size:22px;}
 
@@ -178,6 +186,23 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
 .tool-label{font-family:var(--font-mono);font-size:10px;font-weight:700;color:var(--indigo);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
 .tool-title{font-size:15px;font-weight:700;margin-bottom:var(--sp-sm);}
 .tool-body{font-size:13px;color:var(--text-secondary);line-height:var(--leading-relaxed);}
+
+/* ── Inline card hover (for template cards using inline styles) ────────── */
+#ai-developments div[style*="background:var(--bg-card)"],
+#world-news div[style*="background:var(--bg-card)"],
+#competitive-landscape div[style*="background:var(--bg-card)"],
+#ai-tool-guide div[style*="background:var(--bg-card)"],
+#newsletter-intelligence div[style*="background:var(--bg-card)"] {
+    transition: box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+#ai-developments div[style*="background:var(--bg-card)"]:hover,
+#world-news div[style*="background:var(--bg-card)"]:hover,
+#competitive-landscape div[style*="background:var(--bg-card)"]:hover,
+#ai-tool-guide div[style*="background:var(--bg-card)"]:hover,
+#newsletter-intelligence div[style*="background:var(--bg-card)"]:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
 
 /* ── Footer ────────────────────────────────────────────────────────────── */
 .footer{text-align:center;padding:var(--sp-xl) var(--sp-lg);border-top:1px solid var(--border);margin-top:var(--sp-2xl);}

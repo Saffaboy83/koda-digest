@@ -88,3 +88,28 @@ if(window.location.hash){
     const el = document.querySelector(window.location.hash);
     if(el) setTimeout(() => el.scrollIntoView({behavior: 'smooth'}), 300);
 }
+
+// Scroll progress bar + back-to-top
+(function(){
+    const bar = document.getElementById('scrollProgress');
+    const btn = document.getElementById('backToTop');
+    if(!bar) return;
+    let ticking = false;
+    window.addEventListener('scroll', function(){
+        if(!ticking){
+            requestAnimationFrame(function(){
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                if(docHeight > 0){
+                    bar.style.width = Math.min((scrollTop / docHeight) * 100, 100) + '%';
+                }
+                if(btn){
+                    if(scrollTop > 600) btn.classList.add('visible');
+                    else btn.classList.remove('visible');
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+})();

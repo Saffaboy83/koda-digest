@@ -7,9 +7,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta property="og:title" content="Koda Intelligence Briefing | {{ date_label }}">
+    <meta property="og:description" content="{{ (summary.hook or 'Daily AI intelligence briefing') | no_em_dash }}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.koda.community/morning-briefing-koda-{{ date }}.html">
+    <meta property="og:site_name" content="Koda Digest">
+    <meta property="og:image" content="https://www.koda.community/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="{{ (summary.hook or 'Daily AI intelligence briefing') | no_em_dash }}">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Koda Intelligence Briefing | {{ date_label }}",
+        "datePublished": "{{ date }}",
+        "description": "{{ (summary.hook or 'Daily AI intelligence briefing') | no_em_dash }}",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Koda Intelligence",
+            "url": "https://www.koda.community"
+        },
+        "mainEntityOfPage": "https://www.koda.community/morning-briefing-koda-{{ date }}.html"
+    }
+    </script>
     <style>{{ css | safe }}</style>
 </head>
 <body data-digest-date="{{ date }}" data-youtube-id="{{ youtube_id }}">
+
+{# ── Scroll Progress Bar ────────────────────────────────────────────────── #}
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+{# ── Back to Top Button ─────────────────────────────────────────────────── #}
+<button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
 
 {# ── Topbar ──────────────────────────────────────────────────────────────── #}
 <nav class="topbar" aria-label="Site navigation">
@@ -104,11 +133,44 @@
     {% endif %}
 </div>
 
-{# ── Executive Summary ───────────────────────────────────────────────────── #}
+{# ── Market Snapshot ─────────────────────────────────────────────────────── #}
+{% if markets %}
+{% set ticker_config = [
+    ("sp500", "S&P 500", "📈"),
+    ("nasdaq", "NASDAQ", "📊"),
+    ("btc", "BTC", "₿"),
+    ("eth", "ETH", "◆"),
+    ("oil", "Oil Brent", "🛢"),
+    ("sentiment", "Sentiment", "🧠"),
+] %}
+<div class="section" id="market-snapshot">
+    <div class="section-title"><span class="section-icon">📊</span> Market Snapshot</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;">
+        {% for key, label, icon in ticker_config %}
+        {% set data = markets.get(key, {}) %}
+        {% if data is mapping %}
+        {% set price = data.price or data.value or "N/A" %}
+        {% set change = data.change or data.label or "" %}
+        {% set direction = data.direction or "neutral" %}
+        {% if direction == "up" %}{% set mkt_color = "var(--emerald)" %}{% elif direction == "down" %}{% set mkt_color = "var(--red)" %}{% else %}{% set mkt_color = "var(--amber)" %}{% endif %}
+        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
+            <div style="font-size:20px;margin-bottom:4px">{{ icon }}</div>
+            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">{{ label }}</div>
+            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">{{ price }}</div>
+            <div class="market-change" style="font-size:13px;font-weight:700;color:{{ mkt_color }};margin-top:4px">{{ change }}</div>
+            {% if data.sparkline %}{{ data.sparkline | sparkline(mkt_color) | safe }}{% endif %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{# ── The Briefing ───────────────────────────────────────────────────────── #}
 {% set brief_icons = {"ai": "🤖", "world": "🌍", "markets": "📊", "wildcard": "⚡"} %}
 {% set brief_colors = {"ai": "var(--blue)", "world": "var(--red)", "markets": "var(--emerald)", "wildcard": "var(--amber)"} %}
 <div class="section" id="daily-summary">
-    <div class="section-title"><span class="section-icon">📋</span> Executive Summary</div>
+    <div class="section-title"><span class="section-icon">📋</span> The Briefing</div>
     <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);">
         <div class="summary-hook" style="font-size:20px;font-weight:800;margin-bottom:18px;line-height:1.4">{{ (summary.hook or "") | no_em_dash }}</div>
         {% for brief in summary.briefs or [] %}
@@ -194,39 +256,6 @@
             <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">{{ (story.title or "") | no_em_dash }}</div>
             <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">{{ (story.body or "") | no_em_dash }}{% if story.source_url %} <a href="{{ story.source_url | safe_url }}" target="_blank" style="color:{{ color }};font-size:11px;text-decoration:none;">Source →</a>{% endif %}</div>
         </div>
-        {% endfor %}
-    </div>
-</div>
-{% endif %}
-
-{# ── Market Snapshot ─────────────────────────────────────────────────────── #}
-{% if markets %}
-{% set ticker_config = [
-    ("sp500", "S&P 500", "📈"),
-    ("nasdaq", "NASDAQ", "📊"),
-    ("btc", "BTC", "₿"),
-    ("eth", "ETH", "◆"),
-    ("oil", "Oil Brent", "🛢"),
-    ("sentiment", "Sentiment", "🧠"),
-] %}
-<div class="section" id="market-snapshot">
-    <div class="section-title"><span class="section-icon">📊</span> Market Snapshot</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;">
-        {% for key, label, icon in ticker_config %}
-        {% set data = markets.get(key, {}) %}
-        {% if data is mapping %}
-        {% set price = data.price or data.value or "N/A" %}
-        {% set change = data.change or data.label or "" %}
-        {% set direction = data.direction or "neutral" %}
-        {% if direction == "up" %}{% set mkt_color = "var(--emerald)" %}{% elif direction == "down" %}{% set mkt_color = "var(--red)" %}{% else %}{% set mkt_color = "var(--amber)" %}{% endif %}
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
-            <div style="font-size:20px;margin-bottom:4px">{{ icon }}</div>
-            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">{{ label }}</div>
-            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">{{ price }}</div>
-            <div class="market-change" style="font-size:13px;font-weight:700;color:{{ mkt_color }};margin-top:4px">{{ change }}</div>
-            {% if data.sparkline %}{{ data.sparkline | sparkline(mkt_color) | safe }}{% endif %}
-        </div>
-        {% endif %}
         {% endfor %}
     </div>
 </div>
