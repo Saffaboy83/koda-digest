@@ -681,20 +681,50 @@
                 var items = section.items || [];
                 for (var k = 0; k < items.length; k++) {
                     var item = items[k];
-                    var fullText = ((item.headline || '') + ' ' + (item.text || '')).toLowerCase();
-                    var allMatch = true;
+                    var headline = (item.headline || '').toLowerCase();
+                    var bodyText = (item.text || '').toLowerCase();
+                    var fullText = headline + ' ' + bodyText;
+
+                    // Score: count matching terms + bonus for headline matches + partial matches
+                    var score = 0;
+                    var matchedTerms = 0;
                     for (var t = 0; t < terms.length; t++) {
-                        if (fullText.indexOf(terms[t]) === -1) { allMatch = false; break; }
+                        var term = terms[t];
+                        if (fullText.indexOf(term) !== -1) {
+                            matchedTerms++;
+                            score += 10;
+                            // Bonus for headline match
+                            if (headline.indexOf(term) !== -1) score += 15;
+                        } else {
+                            // Partial match: check if any word in text starts with the term (prefix match)
+                            var words = fullText.split(/[\s,.\-\/]+/);
+                            for (var w = 0; w < words.length; w++) {
+                                if (words[w].indexOf(term) === 0 && term.length >= 3) {
+                                    matchedTerms++;
+                                    score += 5;
+                                    if (headline.indexOf(words[w]) !== -1) score += 8;
+                                    break;
+                                }
+                            }
+                        }
                     }
-                    if (allMatch) {
-                        results.push({ date: day.date, section: section.title, headline: item.headline, text: item.text, file: findFileForDate(day.date) });
+
+                    // Require at least one term to match
+                    if (matchedTerms > 0) {
+                        // Bonus for matching ALL terms
+                        if (matchedTerms === terms.length) score += 20;
+                        // Recency bonus (newer = higher)
+                        var dayAge = i; // index 0 = newest
+                        score -= dayAge * 2;
+                        results.push({ date: day.date, section: section.title, headline: item.headline, text: item.text, file: findFileForDate(day.date), score: score });
                     }
                 }
             }
         }
 
-        results.sort(function(a, b) { return b.date.localeCompare(a.date); });
-        results = results.slice(0, 15);
+        // Sort by relevance score (highest first)
+        results.sort(function(a, b) { return b.score - a.score; });
+        results = results.slice(0, 20);
 
         if (results.length === 0) {
             searchResults.innerHTML = '<div class="search-no-results">No results for "' + escapeHtml(query) + '"</div>';
@@ -811,6 +841,11 @@
         document.querySelectorAll('.animate-in').forEach(function(el) { observer.observe(el); });
     } else {
         document.querySelectorAll('.animate-in').forEach(function(el) { el.classList.add('visible'); });
+    }
+
+    // ---- AUTO-FOCUS SEARCH ON #archive ----
+    if (window.location.hash === '#archive' && searchInput) {
+        setTimeout(function() { searchInput.focus(); }, 500);
     }
 
     // ---- STICKY MOBILE CTA ----
