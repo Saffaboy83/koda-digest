@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-28T21:20:41Z",
+  "generated": "2026-03-28T21:30:03Z",
   "days": [
     {
       "date": "2026-03-28",
@@ -141,7 +141,7 @@
           ]
         },
         {
-          "title": "Newsletter Intelligence",
+          "title": "Featured Newsletters",
           "items": [
             {
               "headline": "TLDR Marketing",
@@ -162,35 +162,6 @@
             {
               "headline": "TLDR AI",
               "text": "Google TurboQuant delivers 8x speed gains and 6x memory reduction for LLMs without quality loss ARC-AGI-3 launches as a new agentic benchmark: humans solve it on first contact, frontier AI models score under 1% Manus co-founders restricted from leaving China as authorities review $2.5 billion Meta acquisition Google's TurboQuant compression algorithm targets the key-value cache in large language models, achieving an 8x performance increase and 6x memory reduction in early testing. The gains could enable capable model inference on edge devices without relying on cloud data transfer. ARC-AGI-3 raises the bar for evaluating agentic intelligence through interactive reasoning environments, exposing a stark gap between human and AI performance on tasks designed to be immediately solvable by any person. Nvidia-backed Reflection startup is pursuing a $25 billion valuation, positioning itself as a US-based, freely available alternative to DeepSeek Harvey reached an $11 billion valuation after closing a $200 million funding round led by GIC and Sequoia OpenAI launched a public bug bounty program focused on AI misuse and safety vulnerabilities"
-            }
-          ]
-        },
-        {
-          "title": "Market Snapshot",
-          "items": [
-            {
-              "headline": "S&P 500",
-              "text": "6,368.85 (-1.67%)"
-            },
-            {
-              "headline": "NASDAQ",
-              "text": "20,948.36 (-2.15%)"
-            },
-            {
-              "headline": "Bitcoin",
-              "text": "$66,874.83 (+0.79%)"
-            },
-            {
-              "headline": "Ethereum",
-              "text": "$2,021.83 (+1.51%)"
-            },
-            {
-              "headline": "Oil Brent",
-              "text": "$112.57 (+11.60%)"
-            },
-            {
-              "headline": "Sentiment",
-              "text": "12 (Extreme Fear)"
             }
           ]
         },
@@ -241,6 +212,35 @@
             {
               "headline": "Prototype Websites and UI Instantly with Replit Design",
               "text": "Replit Design uses AI to generate functional websites and UI layouts from natural language descriptions, compressing the gap between idea and working prototype. Developers can describe a component or full page and receive editable code immediately, skipping the blank-canvas phase. Use it to rapidly validate design directions with stakeholders before committing to a full build."
+            }
+          ]
+        },
+        {
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,368.85 (-1.67%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "20,948.36 (-2.15%)"
+            },
+            {
+              "headline": "Bitcoin",
+              "text": "$66,874.83 (+0.79%)"
+            },
+            {
+              "headline": "Ethereum",
+              "text": "$2,021.83 (+1.51%)"
+            },
+            {
+              "headline": "Oil Brent",
+              "text": "$112.57 (+11.60%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "12 (Extreme Fear)"
             }
           ]
         }
