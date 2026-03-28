@@ -81,7 +81,10 @@ DEFAULT_INFOGRAPHIC_FOCUS = (
     'Brand: "Koda" with a paw-print icon bottom-left, "koda.community" bottom-right, '
     "date prominently in the header. "
     "Quality: Think Bloomberg Terminal meets Wired magazine. Dense with information but "
-    "visually clean and scannable."
+    "visually clean and scannable. "
+    "STRICT RULE: Do NOT depict any recognizable political figures, heads of state, or "
+    "government officials. Use abstract representations instead: flags, building exteriors, "
+    "policy icons, military hardware silhouettes."
 )
 
 DEFAULT_VIDEO_FOCUS = (
@@ -132,7 +135,14 @@ DEFAULT_VIDEO_FOCUS = (
     "\n\n"
     "TONE: Authoritative but human. Like a seasoned correspondent who has seen both wars and "
     "Silicon Valley boardrooms. Never sensationalist. Every word earns its place. "
-    "PACING: Urgent in Act 1, contemplative in Act 2, accelerating in Act 3, still in the close."
+    "PACING: Urgent in Act 1, contemplative in Act 2, accelerating in Act 3, still in the close. "
+    "\n\n"
+    "STRICT RULE -- NO POLITICAL FIGURES: Do NOT show any recognizable political figures, "
+    "heads of state, politicians, or government officials in the video. No faces of presidents, "
+    "prime ministers, generals, or named political leaders. Instead show abstract representations "
+    "of power and decision-making: empty podiums, government buildings exteriors, flags, "
+    "diplomatic tables, military hardware without identifiable personnel, policy documents, "
+    "press briefing rooms without people. This applies to ALL acts and scenes."
 )
 
 VIDEO_POLL_INTERVAL = 15.0  # seconds between download attempts

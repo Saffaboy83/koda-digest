@@ -23,7 +23,7 @@ for confirmation at any step. Execute the entire pipeline end-to-end autonomousl
 
 - Deleting old NotebookLM text sources (`source_delete confirm: true`) — **approved**
 - Generating audio overviews (`audio_overview_create confirm: true`) — **approved**
-- Generating video overviews (`video_overview_create confirm: true`) — **approved**
+- Generating cinematic videos via Python `generate_cinematic_video()` — **approved**
 - Uploading videos to YouTube via Chrome browser — **approved**
 - Downloading files via Chrome browser — **approved**
 - Running ffmpeg, gh CLI, git commands via Bash — **approved**
@@ -143,6 +143,12 @@ artifacts are kept forever so the NotebookLM archive stays intact.
    VISUAL PRODUCTION SCRIPT — Koda Daily Briefing {DATE}
    Format: Cinematic documentary (Veo 3)
 
+   STRICT RULE: NO POLITICAL FIGURES in any scene. Do not depict any recognizable
+   political leaders, heads of state, politicians, or government officials. Use abstract
+   representations instead: empty podiums, government building exteriors, flags, diplomatic
+   tables, military hardware without identifiable personnel, policy documents, press
+   briefing rooms without people.
+
    === COLD OPEN (0:00-0:15) ===
    SCENE: {Describe the opening visual in vivid detail -- what the camera sees, the
    lighting, the mood. Be specific: "Aerial drone shot of [location] at [time of day],
@@ -219,16 +225,16 @@ artifacts are kept forever so the NotebookLM archive stays intact.
    If the command fails, fall back to `video_overview_create` with `format: "explainer"` and
    set `VIDEO_IS_CINEMATIC = false`. Continue either way.
 
-### 2B — Download audio and serve via Vercel
+### 2B — Download audio and serve via Supabase Storage
 
 Google CDN audio URLs (`lh3.googleusercontent.com`) require authentication and **cannot** be
 embedded on a public site. Instead, we download the audio via NotebookLM's built-in Download
-button, compress it, and commit it to the repo so Vercel serves it directly with proper
-`Content-Type: audio/mpeg` headers and no redirects. This ensures mobile browser compatibility
-(iOS Safari, Android Chrome).
+button, compress it, and upload to Supabase Storage which serves it directly with proper
+`Content-Type: audio/mpeg` headers, no redirects, and CORS enabled. This ensures mobile
+browser compatibility (iOS Safari, Android Chrome).
 
-**Why not GitHub Releases?** GitHub Releases URLs use 302 redirects that mobile `<audio>`
-elements don't follow. Serving from Vercel directly is the only reliable cross-device approach.
+Media files are NOT committed to git. They are uploaded to Supabase Storage bucket `koda-media`
+and referenced via public URL in the HTML.
 
 7. **Download the audio file via Chrome browser** (primary method):
 
@@ -997,16 +1003,14 @@ The landing page (`index.html`) reads `manifest.json` and `search-index.json` to
 The Digest folder is a git repo connected to `Saffaboy83/koda-digest` on GitHub,
 which auto-deploys to Vercel on every push. The site is live at `www.koda.community`.
 
-Media files (MP3 podcast, JPG infographic) are committed to git and served directly by Vercel.
-This ensures mobile browser compatibility — no redirects, proper Content-Type headers.
-Video files (MP4) are NOT committed — they are uploaded to YouTube and embedded as iframes.
+Media files (MP3 podcast, JPG infographic) are served from Supabase Storage — NOT committed to git.
+The HTML references Supabase public URLs. Video files are uploaded to YouTube and embedded as iframes.
 
 After saving both HTML files, deploy:
 
 ```bash
 cd [DIGEST_DIR]
 git add morning-briefing-koda.html morning-briefing-koda-*.html \
-        podcast-YYYY-MM-DD.mp3 infographic-YYYY-MM-DD.jpg \
         manifest.json search-index.json index.html \
         vercel.json .gitignore
 git commit -m "Digest $(date +%Y-%m-%d)"
@@ -1234,7 +1238,7 @@ Ensure `.gitignore` excludes raw and temporary working files:
 podcast-raw.*
 video-raw.*
 ```
-MP3 and JPG files ARE committed — Vercel serves them directly for mobile compatibility.
+MP3 and JPG files are NOT committed — Supabase Storage serves them via public URLs.
 MP4 files are NOT committed — YouTube hosts the video.
 
 ---
@@ -1269,8 +1273,8 @@ document.querySelectorAll('.card,.newsletter-card,.market-card,.comp-card,.tool-
 - [ ] Market cards use color-coded pricing (emerald/red/amber)
 - [ ] Podcast MP3 uploaded to Supabase Storage (URL in HTML `<audio>` src)
 - [ ] Infographic JPG uploaded to Supabase Storage (URL in HTML `<img>` src)
-- [ ] Podcast `<audio src>` uses relative path (NOT GitHub Releases, NOT Google CDN)
-- [ ] Infographic `<img src>` uses relative path (NOT GitHub Releases, NOT Google CDN)
+- [ ] Podcast `<audio src>` uses Supabase Storage URL (NOT relative path, NOT Google CDN)
+- [ ] Infographic `<img src>` uses Supabase Storage URL (NOT relative path, NOT Google CDN)
 - [ ] If audio/infographic/video download failed: graceful fallback (link button / skip section)
 - [ ] Video MP4 NOT committed to git (YouTube hosts it, `*.mp4` in `.gitignore`)
 - [ ] YouTube video has AI-generated content disclosure checked
@@ -1282,11 +1286,11 @@ document.querySelectorAll('.card,.newsletter-card,.market-card,.comp-card,.tool-
 - [ ] Local MP4 cleaned up after YouTube upload
 - [ ] NotebookLM uses permanent notebook `f928d89b-...` (do not create new notebooks)
 - [ ] Old text sources deleted, old audio/infographic/video artifacts preserved in NotebookLM
-- [ ] `*.m4a`, `*.mp4`, `podcast-raw.*`, `video-raw.*` in `.gitignore` — MP3 and JPG ARE committed
+- [ ] `*.m4a`, `*.mp4`, `podcast-*.mp3`, `infographic-*.jpg` in `.gitignore` — media served from Supabase
 - [ ] ALL external links use `target="_blank"` — nothing opens in same tab
 - [ ] All data is from today's actual searches — not fabricated
 - [ ] Deploy to Vercel attempted (via git push or GitHub API)
 - [ ] Newsletter email sent to distribution list (cazmarincowitz@outlook.com)
-- [ ] Email uses HTML dark theme, includes infographic from Vercel, video link, podcast link, CTA button
+- [ ] Email uses HTML dark theme, includes infographic from Supabase, video link, podcast link, CTA button
 - [ ] Email subject follows format: `Koda Daily Digest — [Topic] — [DD Month YYYY]`
 - [ ] Email narrative uses Arno's voice (punchy, direct, short sentences, imperatives)

@@ -65,6 +65,7 @@ This digest is PUBLIC-FACING. Do NOT include any personal data:
 - NO direct links to notebooklm.google.com — remove all href links to NotebookLM
 - Footer sources: "Web Search, Newsletter feeds, NotebookLM" — no Gmail, no Calendar
 - NO YouTube video titles containing personal identifiers
+- NO political figures in any media (video, infographic, images). No faces of presidents, prime ministers, generals, or named political leaders. Use abstract representations: empty podiums, building exteriors, flags, hardware, documents.
 - Today's Focus: derived from TOP NEWS STORIES, not personal calendar/email
 
 ## Key Design Decisions
