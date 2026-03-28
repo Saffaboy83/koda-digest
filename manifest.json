@@ -1,25 +1,25 @@
 {
-  "generated": "2026-03-28T04:34:24Z",
+  "generated": "2026-03-28T10:15:45Z",
   "digests": [
     {
       "date": "2026-03-28",
       "dayOfWeek": "Saturday",
       "focusTopics": [
         {
-          "title": "Frontier Model Arms Race",
-          "desc": "OpenAI, Alibaba, xAI, DeepSeek, and Google all released or updated major models within the same window, signaling that the cadence of frontier AI development has accelerated dramatically. DeepSeek V4's 1 trillion parameter architecture and xAI Grok 4.20's four-agent design represent distinct strategic bets on scale versus agentic capability. Enterprises and policymakers face mounting pressure to keep pace with evaluation frameworks that are already lagging behind deployment."
+          "title": "Hormuz Crisis Hits Markets",
+          "desc": "Iran's closure of the Strait of Hormuz, through which roughly 20 percent of global oil supply transits, has sent crude prices sharply higher and triggered Wall Street's steepest selloff since 2020. Iranian missile strikes on Kuwaiti port facilities compounded supply fears, removing a key Gulf export alternative. The conflict has now produced confirmed US military casualties, raising the probability of direct American escalation."
         },
         {
-          "title": "Hormuz Crisis Deepens",
-          "desc": "The US-Iran standoff over the Strait of Hormuz has moved from diplomatic tension to active military posturing, with the IDF projecting a weeks-long campaign to degrade Iranian military assets. Trump's pause on strikes targeting Iranian energy infrastructure signals tactical restraint, but the underlying escalation trajectory remains intact. The G7 Foreign Ministers convening amid these tensions suggests allied coordination is being stress-tested in real time."
+          "title": "Open-Weight Scale War",
+          "desc": "DeepSeek V4 at one trillion parameters and Alibaba's Qwen3.5 in eight open variants represent a dramatic acceleration in the open-weight model race, challenging the assumption that frontier scale requires proprietary access. These releases pressure OpenAI and Google to justify closed-model pricing as comparable capability becomes freely downloadable. Enterprises evaluating AI infrastructure now face a credible open-source path to frontier performance."
         },
         {
-          "title": "Energy Shock and Markets",
-          "desc": "Record-high global oil and gas prices, triggered by Hormuz uncertainty, have pushed market sentiment to Extreme Fear, a level historically associated with sharp equity drawdowns and risk-off capital flows. Prolonged disruption to the strait, through which roughly 20 percent of global oil transits, would compound inflationary pressures already straining major economies. AI infrastructure investment, which is energy-intensive and capital-heavy, faces indirect headwinds if energy costs remain elevated."
+          "title": "AI Infrastructure Expands",
+          "desc": "Cerebras CS-3 systems arriving on AWS Bedrock give cloud customers direct access to wafer-scale inference hardware without on-premise deployment, a significant step in democratizing high-throughput AI compute. Combined with OpenAI GPT-5.4's one-million-token context window, the infrastructure layer is rapidly catching up to the ambitions of the model layer. Organizations that deferred AI scaling decisions may find the cost-performance calculus has shifted materially this week."
         }
       ],
       "kpis": {
-        "aiStories": "11",
+        "aiStories": "12",
         "worldEvents": "8",
         "marketMood": "Extreme Fear",
         "toolsFeatured": "6"
@@ -27,7 +27,7 @@
       "hasPodcast": true,
       "hasInfographic": true,
       "hasVideo": true,
-      "youtubeId": "hxDd8XG1wPw",
+      "youtubeId": "2_ERgrS1kZQ",
       "file": "morning-briefing-koda-2026-03-28.html"
     },
     {

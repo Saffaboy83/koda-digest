@@ -1,4 +1,25 @@
 {
+  "2026-03-28": {
+    "hook": "War shuts the Strait of Hormuz as AI labs ship trillion-parameter models.",
+    "top_themes": [
+      "Hormuz Crisis Hits Markets",
+      "Open-Weight Scale War",
+      "AI Infrastructure Expands"
+    ],
+    "top_stories": [
+      "OpenAI GPT-5.4 Launches With 1M-Token Context",
+      "DeepSeek V4 Hits 1 Trillion Parameters Open-Weight",
+      "Alibaba Ships Qwen3.5 in Eight Open Variants",
+      "Iran Closes Strait of Hormuz, Oil Surges",
+      "US Reports 303 Wounded, 13 Killed in Iran War"
+    ],
+    "story_angles": [
+      "DeepSeek V4 reaches one trillion parameters as an open-weight release, setting a",
+      "Iran closed the Strait of Hormuz following Israeli strikes that killed the Irani",
+      "Oil's surge on Hormuz closure sent Wall Street to its worst single-day decline s",
+      "Meta's TRIBE v2 can predict human brain activity zero-shot, a capability that la"
+    ]
+  },
   "2026-03-27": {
     "hook": "AI races ahead while the Middle East burns and markets brace for the worst.",
     "top_themes": [
