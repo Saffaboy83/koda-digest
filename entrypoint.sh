@@ -1,8 +1,10 @@
 #!/bin/bash
+
 echo "[entrypoint] Starting Koda Digest pipeline"
+echo "[entrypoint] Date: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
 
 # Decode tokens using Python
-python3 /app/decode_tokens.py
+python3 /app/decode_tokens.py || { echo "[entrypoint] Token decode failed"; exit 1; }
 
 # Configure git for deploy step
 if [ -n "$GIT_TOKEN" ]; then
@@ -13,5 +15,16 @@ if [ -n "$GIT_TOKEN" ]; then
     echo "[entrypoint] Git credentials configured"
 fi
 
-echo "[entrypoint] Launching pipeline..."
-exec python -m pipeline.run_all "$@"
+# Hard timeout: 45 minutes max to prevent zombie containers
+# Media is skipped until NotebookLM auth is proven to work on Railway
+TIMEOUT=2700
+echo "[entrypoint] Launching pipeline (timeout: ${TIMEOUT}s, media: skipped)..."
+timeout $TIMEOUT python -m pipeline.run_all --skip-media "$@"
+EXIT_CODE=$?
+
+if [ $EXIT_CODE -eq 124 ]; then
+    echo "[entrypoint] TIMEOUT: Pipeline exceeded ${TIMEOUT}s limit"
+fi
+
+echo "[entrypoint] Pipeline exited with code $EXIT_CODE at $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+exit $EXIT_CODE
