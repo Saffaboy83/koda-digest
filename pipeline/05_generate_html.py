@@ -25,6 +25,15 @@ from pipeline.config import DIGEST_DIR, today_str, read_json
 TEMPLATE_DIR = DIGEST_DIR / "templates"
 
 
+def format_date_label(date_str):
+    """Convert YYYY-MM-DD to '28 March 2026' format, always using the --date arg."""
+    try:
+        dt = datetime.strptime(date_str, "%Y-%m-%d")
+        return dt.strftime("%-d %B %Y") if os.name != "nt" else dt.strftime("%#d %B %Y")
+    except ValueError:
+        return date_str
+
+
 def load_css():
     """Load CSS from templates/briefing.css."""
     css_path = TEMPLATE_DIR / "briefing.css"
@@ -126,7 +135,7 @@ def generate_html(digest, media_status, date):
     context = {
         # Metadata
         "date": date,
-        "date_label": digest.get("date_label", date),
+        "date_label": format_date_label(date),
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "year": datetime.now().year,
         "youtube_id": get_youtube_id(),
