@@ -84,7 +84,26 @@ artifacts are kept forever so the NotebookLM archive stays intact.
 
 ### 2A — Generate the audio in NotebookLM
 
-1. **Compile** all gathered news into a single text block (600–1200 words covering AI, world, markets, tools).
+1. **Compile** all gathered news into a single structured text block (600-1200 words).
+   Use clear section headers and lead each story with a bold headline + key stat:
+   ```
+   ## AI DEVELOPMENTS
+   **[Headline]** — [Key stat/number]
+   [2-3 sentence summary]
+
+   ## WORLD NEWS
+   **[Headline]** — [Key stat/number]
+   [2-3 sentence summary]
+
+   ## MARKETS & FUNDING
+   **[Headline]** — [Key stat/number]
+   [2-3 sentence summary]
+
+   ## AI TOOLS & PRODUCTS
+   **[Headline]** — [Key stat/number]
+   [2-3 sentence summary]
+   ```
+   This structured format improves both the podcast narration and infographic visual quality.
 2. **Clean previous sources:** Call `notebook_get` on the permanent notebook
    (`f928d89b-2520-4180-a71a-d93a75a5487c`). Delete any existing text sources via `source_delete`
    (confirm: true) to keep the notebook clean. Do NOT delete audio artifacts.
@@ -164,9 +183,38 @@ elements don't follow. Serving from Vercel directly is the only reliable cross-d
 
 ### 2C — Generate and download infographic from NotebookLM
 
-12. **Generate infographic:** `infographic_create` on the permanent notebook with:
+12. **Build a dynamic infographic prompt** from the day's top stories. Pick the 4 most
+    visually compelling stories from Step 1 (one per category: AI, world, funding/markets,
+    tools/products). For each, extract a one-line headline and a key stat or data point.
+    Then construct the `focus_prompt` using this template:
+
+    ```
+    Create a professional, magazine-quality infographic for "Koda Daily AI Digest — {DATE}".
+
+    Layout: Structured 2x2 grid with 4 featured story quadrants. Each quadrant has a bold
+    headline, a rich AI-generated illustration, and 2-3 key data points or statistics.
+
+    Visual style: Dark premium theme with deep navy/indigo background. Neon accent colors
+    (electric blue, vivid purple, bright emerald). Modern tech aesthetic with subtle glow
+    effects and clean sans-serif typography with clear hierarchy.
+
+    Featured stories:
+    1. {TOP_AI_HEADLINE} — {KEY_STAT}
+    2. {TOP_WORLD_HEADLINE} — {KEY_STAT}
+    3. {TOP_FUNDING_OR_MARKET_HEADLINE} — {KEY_STAT}
+    4. {TOP_TOOL_OR_PRODUCT_HEADLINE} — {KEY_STAT}
+
+    Include: data visualizations (mini charts, progress bars, trend arrows), tech-themed
+    icons and illustrations for each story.
+    Brand: "Koda" with paw-print icon bottom-left, "koda.community" bottom-right,
+    date header top-center.
+    Quality: Bloomberg Terminal meets Wired magazine — dense with information but visually
+    clean and scannable.
+    ```
+
+    **Generate infographic:** `infographic_create` on the permanent notebook with:
     - `orientation: "landscape"`, `detail_level: "detailed"`, `language: "en"`, `confirm: true`
-    - `focus_prompt:` a summary prompt covering AI breakthroughs, world events, and market data
+    - `focus_prompt:` the dynamic prompt built above (NOT a generic summary)
 13. **Poll:** `studio_status` until the infographic artifact has `status: "completed"`.
 14. **Download via Chrome:** Same approach as audio — navigate to NotebookLM, find the
     three-dot menu on the newest infographic, click "Download". The file saves as a `.jpg`

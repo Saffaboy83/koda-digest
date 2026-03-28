@@ -160,6 +160,15 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
 /* ── Infographic ───────────────────────────────────────────────────────── */
 .infographic{background:#0a0f1e;border:1px solid rgba(59,130,246,0.25);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg);padding:0;}
 .infographic img{width:100%;height:auto;display:block;border-radius:var(--radius-xl);}
+.infographic-clickable{cursor:zoom-in;position:relative;}
+.infographic-clickable::after{content:'🔍 Click to expand';position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,0.7);color:white;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;opacity:0;transition:opacity 0.2s;pointer-events:none;}
+.infographic-clickable:hover::after{opacity:1;}
+.infographic-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.95);align-items:center;justify-content:center;padding:var(--sp-md);cursor:zoom-out;}
+.infographic-overlay.active{display:flex;}
+.infographic-overlay-inner{width:100%;max-width:1400px;max-height:90vh;position:relative;display:flex;align-items:center;justify-content:center;}
+.infographic-overlay-inner img{max-width:100%;max-height:85vh;object-fit:contain;border-radius:var(--radius-lg);}
+.infographic-overlay-close{position:absolute;top:-44px;right:0;background:none;border:none;color:white;font-size:32px;cursor:pointer;padding:var(--sp-sm);opacity:0.7;transition:opacity 0.2s;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;z-index:10000;}
+.infographic-overlay-close:hover{opacity:1;}
 
 /* ── Focus ─────────────────────────────────────────────────────────────── */
 .focus-grid{display:flex;flex-direction:column;gap:var(--sp-md);}
@@ -280,7 +289,7 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
 
 /* ── Print ─────────────────────────────────────────────────────────────── */
 @media print{
-    .topbar,.media-strip,.dark-toggle,.home-btn,.day-nav,.video-overlay{display:none!important;}
+    .topbar,.media-strip,.dark-toggle,.home-btn,.day-nav,.video-overlay,.infographic-overlay{display:none!important;}
     .hero{padding-top:0;}
     .section{break-inside:avoid;}
     body{background:white;color:black;}
@@ -530,8 +539,14 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
 
 <div class="section" id="infographic">
     <div class="section-title"><span class="section-icon">📊</span> Daily Infographic</div>
-    <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:16px;box-shadow:0 4px 16px var(--shadow);text-align:center">
+    <div class="infographic-clickable" style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:16px;box-shadow:0 4px 16px var(--shadow);text-align:center" onclick="toggleInfographic()">
         <img src="./infographic-2026-03-28.jpg" alt="Koda Daily Infographic 2026-03-28" style="max-width:100%;border-radius:12px">
+    </div>
+    <div class="infographic-overlay" id="infographicOverlay" role="dialog" aria-modal="true" aria-label="Infographic expanded view" onclick="if(event.target===this)toggleInfographic()">
+        <div class="infographic-overlay-inner">
+            <button class="infographic-overlay-close" onclick="toggleInfographic()" aria-label="Close infographic">&times;</button>
+            <img src="./infographic-2026-03-28.jpg" alt="Koda Daily Infographic 2026-03-28 — Expanded">
+        </div>
     </div>
 </div>
 
@@ -1099,11 +1114,28 @@ function toggleVideo(){
     }
 }
 
-// Escape key closes video overlay
+// Infographic lightbox
+function toggleInfographic(){
+    const o = document.getElementById('infographicOverlay');
+    if(!o) return;
+    if(o.classList.contains('active')){
+        o.classList.remove('active');
+        document.body.style.overflow = '';
+    } else {
+        o.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        const closeBtn = o.querySelector('.infographic-overlay-close');
+        if(closeBtn) closeBtn.focus();
+    }
+}
+
+// Escape key closes overlays
 document.addEventListener('keydown', function(e){
     if(e.key === 'Escape'){
-        const o = document.getElementById('videoOverlay');
-        if(o && o.classList.contains('active')) toggleVideo();
+        const v = document.getElementById('videoOverlay');
+        if(v && v.classList.contains('active')) toggleVideo();
+        const ig = document.getElementById('infographicOverlay');
+        if(ig && ig.classList.contains('active')) toggleInfographic();
     }
 });
 

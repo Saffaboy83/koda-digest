@@ -53,6 +53,22 @@ DEFAULT_AUDIO_FOCUS = (
     "market impact, and practical AI tools people can use today."
 )
 
+DEFAULT_INFOGRAPHIC_FOCUS = (
+    'Create a professional, magazine-quality infographic for "Koda Daily AI Digest". '
+    "Layout: Use a structured 2x2 grid with 4 featured story quadrants. Each quadrant "
+    "should have a bold headline, a rich AI-generated illustration, and 2-3 key data points "
+    "or statistics. "
+    "Visual style: Dark premium theme with deep navy/indigo background. Use neon accent "
+    "colors (electric blue, vivid purple, bright emerald). Modern tech aesthetic with subtle "
+    "glow effects and clean sans-serif typography with clear hierarchy. "
+    "Include: data visualizations (mini charts, progress bars, trend arrows), tech-themed "
+    "icons and illustrations for each story, and brand elements. "
+    'Brand: "Koda" with a paw-print icon bottom-left, "koda.community" bottom-right, '
+    "date prominently in the header. "
+    "Quality: Think Bloomberg Terminal meets Wired magazine. Dense with information but "
+    "visually clean and scannable."
+)
+
 VIDEO_POLL_INTERVAL = 15.0  # seconds between download attempts
 VIDEO_POLL_TIMEOUT = 1800.0  # max wait for video (30 min)
 
@@ -102,12 +118,13 @@ def convert_png_to_jpg(png_path, jpg_path):
 
 
 async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
-                       diff_text=None, audio_focus=None):
+                       diff_text=None, audio_focus=None, infographic_focus=None):
     """Run the full NotebookLM media generation pipeline."""
 
     results = []
     media_paths = {}
     focus = audio_focus or DEFAULT_AUDIO_FOCUS
+    ig_focus = infographic_focus or DEFAULT_INFOGRAPHIC_FOCUS
 
     # ── Import and connect ───────────────────────────────────────────────
     try:
@@ -209,6 +226,7 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
         async def start_infographic():
             s = await client.artifacts.generate_infographic(
                 NOTEBOOK_ID,
+                instructions=ig_focus,
                 orientation=InfographicOrientation.LANDSCAPE,
                 detail_level=InfographicDetail.DETAILED,
             )
@@ -437,6 +455,8 @@ def main():
                         help="Path to differentiation context text file")
     parser.add_argument("--focus",
                         help="Dynamic audio/video focus instructions (overrides default)")
+    parser.add_argument("--infographic-focus",
+                        help="Custom infographic visual direction prompt (overrides default)")
     parser.add_argument("--json", action="store_true",
                         help="Output results as JSON to stdout")
 
@@ -467,13 +487,15 @@ def main():
     print(f"Text: {len(text_content)} characters")
     print(f"Differentiation: {'yes' if diff_text else 'no'}")
     print(f"Focus: {'custom' if args.focus else 'default'}")
+    print(f"Infographic: {'custom prompt' if args.infographic_focus else 'default prompt'}")
     print(f"Video: {'skip' if args.skip_video else 'generate'}")
     print()
 
     # Run the async pipeline
     results, media_paths, exit_code = asyncio.run(
         run_pipeline(text_content, args.date, args.output_dir, args.skip_video,
-                     diff_text=diff_text, audio_focus=args.focus)
+                     diff_text=diff_text, audio_focus=args.focus,
+                     infographic_focus=args.infographic_focus)
     )
 
     # Write status file

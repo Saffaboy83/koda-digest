@@ -112,6 +112,8 @@ This digest is PUBLIC-FACING. Do NOT include any personal data:
 - Auth via Google cookies stored at `~/.notebooklm/storage_state.json`
 - Cookies last days-to-weeks; when expired, re-run `python notebooklm_login.py`
 - Usage: `PYTHONUTF8=1 python notebooklm_media.py --text-file news.txt --date YYYY-MM-DD`
+- Infographic quality: pass `--infographic-focus "..."` with a dynamic prompt built from the day's top 4 stories (see SKILL for template). The default prompt requests a dark premium 2x2 grid with Koda branding. Custom prompts override the default.
+- Source text should be structured with `## SECTION` headers and `**Headline** -- key stat` format for best infographic output
 - Outputs: `podcast-YYYY-MM-DD.mp3`, `infographic-YYYY-MM-DD.jpg`, `video-YYYY-MM-DD.mp4`
 - Status written to `media-status.json` after each run
 
