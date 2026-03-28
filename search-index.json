@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-28T18:02:25Z",
+  "generated": "2026-03-28T18:24:17Z",
   "days": [
     {
       "date": "2026-03-28",
@@ -206,7 +206,36 @@
           ]
         },
         {
-          "title": "Executive Summary",
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,477.16 (-1.74%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "21,408.08 (-2.38%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$66,468.47 (-3.35%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$1,992.43 (-3.24%)"
+            },
+            {
+              "headline": "Oil Brent",
+              "text": "$104.52 (+3.62%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "13 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "The Briefing",
           "items": [
             {
               "headline": "Summary",
@@ -301,35 +330,6 @@
           ]
         },
         {
-          "title": "Market Snapshot",
-          "items": [
-            {
-              "headline": "S&P 500",
-              "text": "6,477.16 (-1.74%)"
-            },
-            {
-              "headline": "NASDAQ",
-              "text": "21,408.08 (-2.38%)"
-            },
-            {
-              "headline": "BTC",
-              "text": "$66,468.47 (-3.35%)"
-            },
-            {
-              "headline": "ETH",
-              "text": "$1,992.43 (-3.24%)"
-            },
-            {
-              "headline": "Oil Brent",
-              "text": "$104.52 (+3.62%)"
-            },
-            {
-              "headline": "Sentiment",
-              "text": "13 (Extreme Fear)"
-            }
-          ]
-        },
-        {
           "title": "Competitive Landscape",
           "items": [
             {
@@ -410,7 +410,36 @@
           ]
         },
         {
-          "title": "Executive Summary",
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,591.90 (+0.54%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "21,929.83 (+0.77%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$69,589.20 (-2.42%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$2,079.49 (-4.10%)"
+            },
+            {
+              "headline": "Oil Brent",
+              "text": "$99.98 (+1.55%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "10 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "The Briefing",
           "items": [
             {
               "headline": "Summary",
@@ -505,35 +534,6 @@
           ]
         },
         {
-          "title": "Market Snapshot",
-          "items": [
-            {
-              "headline": "S&P 500",
-              "text": "6,591.90 (+0.54%)"
-            },
-            {
-              "headline": "NASDAQ",
-              "text": "21,929.83 (+0.77%)"
-            },
-            {
-              "headline": "BTC",
-              "text": "$69,589.20 (-2.42%)"
-            },
-            {
-              "headline": "ETH",
-              "text": "$2,079.49 (-4.10%)"
-            },
-            {
-              "headline": "Oil Brent",
-              "text": "$99.98 (+1.55%)"
-            },
-            {
-              "headline": "Sentiment",
-              "text": "10 (Extreme Fear)"
-            }
-          ]
-        },
-        {
           "title": "Competitive Landscape",
           "items": [
             {
@@ -614,7 +614,36 @@
           ]
         },
         {
-          "title": "Executive Summary",
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,591.90 (+0.54%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "21,929.83 (+0.77%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$70,717.87 (-0.69%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$2,146.52 (-1.01%)"
+            },
+            {
+              "headline": "Oil Brent",
+              "text": "$98.12 (-1.67%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "10 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "The Briefing",
           "items": [
             {
               "headline": "Summary",
@@ -709,35 +738,6 @@
           ]
         },
         {
-          "title": "Market Snapshot",
-          "items": [
-            {
-              "headline": "S&P 500",
-              "text": "6,591.90 (+0.54%)"
-            },
-            {
-              "headline": "NASDAQ",
-              "text": "21,929.83 (+0.77%)"
-            },
-            {
-              "headline": "BTC",
-              "text": "$70,717.87 (-0.69%)"
-            },
-            {
-              "headline": "ETH",
-              "text": "$2,146.52 (-1.01%)"
-            },
-            {
-              "headline": "Oil Brent",
-              "text": "$98.12 (-1.67%)"
-            },
-            {
-              "headline": "Sentiment",
-              "text": "10 (Extreme Fear)"
-            }
-          ]
-        },
-        {
           "title": "Competitive Landscape",
           "items": [
             {
@@ -818,7 +818,36 @@
           ]
         },
         {
-          "title": "Executive Summary",
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6506.48 (-1%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "N/A (-1%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$70267 (-5%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$2300 (+20%)"
+            },
+            {
+              "headline": "Oil Brent",
+              "text": "N/A ()"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "N/A ()"
+            }
+          ]
+        },
+        {
+          "title": "The Briefing",
           "items": [
             {
               "headline": "Summary",
@@ -909,35 +938,6 @@
             {
               "headline": "Record Heat Scorches US West, Hawaii Floods",
               "text": "Phoenix recorded 105°F for a third consecutive day on March 24, breaking heat records across the western United States. Separately, Hawaii is managing the aftermath of devastating floods requiring large-scale cleanup operations. Both events highlight the intensifying frequency of extreme weather across the country. Source →"
-            }
-          ]
-        },
-        {
-          "title": "Market Snapshot",
-          "items": [
-            {
-              "headline": "S&P 500",
-              "text": "6506.48 (-1%)"
-            },
-            {
-              "headline": "NASDAQ",
-              "text": "N/A (-1%)"
-            },
-            {
-              "headline": "BTC",
-              "text": "$70267 (-5%)"
-            },
-            {
-              "headline": "ETH",
-              "text": "$2300 (+20%)"
-            },
-            {
-              "headline": "Oil Brent",
-              "text": "N/A ()"
-            },
-            {
-              "headline": "Sentiment",
-              "text": "N/A ()"
             }
           ]
         },

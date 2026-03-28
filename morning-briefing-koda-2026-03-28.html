@@ -7,6 +7,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta property="og:title" content="Koda Intelligence Briefing | 27 March 2026">
+    <meta property="og:description" content="AI races ahead while the Middle East burns and markets brace for the worst.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.koda.community/morning-briefing-koda-2026-03-28.html">
+    <meta property="og:site_name" content="Koda Digest">
+    <meta property="og:image" content="https://www.koda.community/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="AI races ahead while the Middle East burns and markets brace for the worst.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Koda Intelligence Briefing | 27 March 2026",
+        "datePublished": "2026-03-28",
+        "description": "AI races ahead while the Middle East burns and markets brace for the worst.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Koda Intelligence",
+            "url": "https://www.koda.community"
+        },
+        "mainEntityOfPage": "https://www.koda.community/morning-briefing-koda-2026-03-28.html"
+    }
+    </script>
     <style>/* ── Reset & Design Tokens ──────────────────────────────────────────────── */
 *{margin:0;padding:0;box-sizing:border-box;}
 
@@ -48,10 +71,18 @@ html.dark-mode{
     --shadow-lg:0 8px 24px rgba(0,0,0,0.3);
 }
 
+/* ── Scroll Progress Bar ───────────────────────────────────────────────── */
+.scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,var(--blue),var(--purple));z-index:1001;transition:width 0.1s linear;pointer-events:none;}
+
+/* ── Back to Top ──────────────────────────────────────────────────────── */
+.back-to-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);color:var(--text);font-size:18px;cursor:pointer;z-index:999;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(12px);transition:opacity 0.3s,transform 0.3s,background 0.2s;box-shadow:var(--shadow-md);pointer-events:none;}
+.back-to-top.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
+.back-to-top:hover{background:var(--indigo);color:white;border-color:var(--indigo);}
+
 /* ── Base ───────────────────────────────────────────────────────────────── */
 body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-height:var(--leading-normal);transition:background 0.3s,color 0.3s;-webkit-font-smoothing:antialiased;}
 .container{max-width:1200px;margin:0 auto;padding:0 var(--sp-md);}
-.section{scroll-margin-top:80px;margin-bottom:var(--sp-2xl);}
+.section{scroll-margin-top:80px;margin-bottom:var(--sp-3xl);}
 .section-title{font-size:20px;font-weight:800;margin-bottom:var(--sp-md);display:flex;align-items:center;gap:var(--sp-sm);}
 .section-icon{font-size:22px;}
 
@@ -188,6 +219,23 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
 .tool-title{font-size:15px;font-weight:700;margin-bottom:var(--sp-sm);}
 .tool-body{font-size:13px;color:var(--text-secondary);line-height:var(--leading-relaxed);}
 
+/* ── Inline card hover (for template cards using inline styles) ────────── */
+#ai-developments div[style*="background:var(--bg-card)"],
+#world-news div[style*="background:var(--bg-card)"],
+#competitive-landscape div[style*="background:var(--bg-card)"],
+#ai-tool-guide div[style*="background:var(--bg-card)"],
+#newsletter-intelligence div[style*="background:var(--bg-card)"] {
+    transition: box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+#ai-developments div[style*="background:var(--bg-card)"]:hover,
+#world-news div[style*="background:var(--bg-card)"]:hover,
+#competitive-landscape div[style*="background:var(--bg-card)"]:hover,
+#ai-tool-guide div[style*="background:var(--bg-card)"]:hover,
+#newsletter-intelligence div[style*="background:var(--bg-card)"]:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
 /* ── Footer ────────────────────────────────────────────────────────────── */
 .footer{text-align:center;padding:var(--sp-xl) var(--sp-lg);border-top:1px solid var(--border);margin-top:var(--sp-2xl);}
 .footer-text{font-size:12px;color:var(--text-secondary);}
@@ -240,6 +288,12 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
 </style>
 </head>
 <body data-digest-date="2026-03-28" data-youtube-id="2_ERgrS1kZQ">
+
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
 
 
 <nav class="topbar" aria-label="Site navigation">
@@ -331,13 +385,6 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
     </div>
     
 </div>
-
-
-
-
-
-</div>
-
 
 
 
@@ -437,6 +484,11 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
         
         
     </div>
+</div>
+
+
+
+
 
 <div class="section" id="daily-summary">
     <div class="section-title"><span class="section-icon">📋</span> The Briefing</div>
@@ -978,7 +1030,7 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
 
 <footer style="text-align:center;padding:40px 24px;border-top:1px solid var(--border);margin-top:40px">
     <div style="font-size:14px;font-weight:700;margin-bottom:4px">Koda Intelligence</div>
-    <div style="font-size:12px;color:var(--text-secondary)">Generated 2026-03-28 13:02 | Sources: Web Search, Newsletter feeds, NotebookLM</div>
+    <div style="font-size:12px;color:var(--text-secondary)">Generated 2026-03-28 13:24 | Sources: Web Search, Newsletter feeds, NotebookLM</div>
     <div style="font-size:11px;color:var(--text-secondary);margin-top:8px">© 2026 Koda Community</div>
 </footer>
 
@@ -1072,6 +1124,31 @@ if(window.location.hash){
     const el = document.querySelector(window.location.hash);
     if(el) setTimeout(() => el.scrollIntoView({behavior: 'smooth'}), 300);
 }
+
+// Scroll progress bar + back-to-top
+(function(){
+    const bar = document.getElementById('scrollProgress');
+    const btn = document.getElementById('backToTop');
+    if(!bar) return;
+    let ticking = false;
+    window.addEventListener('scroll', function(){
+        if(!ticking){
+            requestAnimationFrame(function(){
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                if(docHeight > 0){
+                    bar.style.width = Math.min((scrollTop / docHeight) * 100, 100) + '%';
+                }
+                if(btn){
+                    if(scrollTop > 600) btn.classList.add('visible');
+                    else btn.classList.remove('visible');
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+})();
 </script>
 </body>
 </html>

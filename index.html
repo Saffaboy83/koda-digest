@@ -13,6 +13,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.koda.community">
     <meta property="og:site_name" content="Koda Digest">
+    <meta property="og:image" content="https://www.koda.community/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Koda - Daily AI Intelligence Digest">
+    <meta name="twitter:description" content="AI + World News + Markets + Tools in one daily briefing. Read, listen, or watch.">
+    <meta name="twitter:image" content="https://www.koda.community/og-image.png">
 
     <!-- Schema Markup -->
     <script type="application/ld+json">
@@ -580,6 +587,51 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 600;
+        }
+
+        /* ---- WHY KODA ---- */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .why-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease;
+        }
+
+        .why-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px var(--shadow);
+        }
+
+        .why-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .why-title {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .why-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
         }
 
         /* ---- SECTIONS ---- */
@@ -1226,6 +1278,10 @@
             .social-proof {
                 padding: 48px 0;
             }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (min-width: 769px) and (max-width: 1024px) {
@@ -1273,13 +1329,6 @@
             <p class="hero-tagline hero-stagger">Daily AI &middot; World News &middot; Markets &middot; Tools</p>
             <p class="hero-value hero-stagger">One briefing. Every morning. AI, world news, markets, and tools distilled into 10 minutes. <strong>Read it. Hear it. Watch it.</strong></p>
 
-            <div class="search-container hero-stagger">
-                <label for="searchInput" class="sr-only">Search all digests</label>
-                <span class="search-icon">&#128269;</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="Search all digests..." autocomplete="off">
-                <div class="search-results" id="searchResults"></div>
-            </div>
-
             <div class="hero-actions hero-stagger">
                 <form
                     action="https://buttondown.com/api/emails/embed-subscribe/arno"
@@ -1289,12 +1338,10 @@
                 >
                     <input type="hidden" value="1" name="embed" />
                     <input type="email" name="email" placeholder="your@email.com" required />
-                    <button type="submit">Get it free</button>
+                    <button type="submit">Subscribe free</button>
                 </form>
                 <p class="hero-signup-note">Delivered to your inbox every morning. No spam.</p>
-                <div class="signup-divider">or read now</div>
-                <a href="./morning-briefing-koda.html" class="cta-primary">Get Today's Brief &#8594;</a>
-                <a href="#archive" class="cta-secondary">Explore the Archive</a>
+                <a href="./morning-briefing-koda.html" class="cta-secondary" style="margin-top:8px">Read Today's Briefing &#8594;</a>
             </div>
 
             <div class="hero-stats hero-stagger">
@@ -1326,6 +1373,31 @@
             </div>
             <div class="media-strip stagger-children" id="mediaStrip">
                 <div class="media-empty">Loading media...</div>
+            </div>
+        </section>
+
+        <!-- WHY KODA -->
+        <section class="page-section animate-in" id="why-koda">
+            <div class="section-header">
+                <h2 class="section-title">One briefing, three ways</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="why-grid stagger-children">
+                <div class="why-card animate-child">
+                    <div class="why-icon" style="background:linear-gradient(135deg,var(--blue),var(--indigo))">&#128196;</div>
+                    <h3 class="why-title">Read</h3>
+                    <p class="why-desc">Sourced intelligence on AI, world news, markets, competitive landscape, and tools. Every story linked to its source.</p>
+                </div>
+                <div class="why-card animate-child">
+                    <div class="why-icon" style="background:linear-gradient(135deg,var(--purple),var(--pink))">&#127911;</div>
+                    <h3 class="why-title">Listen</h3>
+                    <p class="why-desc">AI-generated podcast that turns the day's briefing into a conversational deep-dive you can play on any commute.</p>
+                </div>
+                <div class="why-card animate-child">
+                    <div class="why-icon" style="background:linear-gradient(135deg,var(--red),var(--amber))">&#9654;&#65039;</div>
+                    <h3 class="why-title">Watch</h3>
+                    <p class="why-desc">Video briefing published to YouTube daily. Visual summaries with infographics and market data you can share.</p>
+                </div>
             </div>
         </section>
 
@@ -1384,6 +1456,12 @@
             <div class="section-header">
                 <h2 class="section-title">&#128218; Archive</h2>
                 <div class="section-line"></div>
+            </div>
+            <div class="search-container" style="margin-bottom:24px;max-width:100%;">
+                <label for="searchInput" class="sr-only">Search all digests</label>
+                <span class="search-icon">&#128269;</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search all digests..." autocomplete="off" style="background:var(--bg-card);border-color:var(--border);color:var(--text);">
+                <div class="search-results" id="searchResults"></div>
             </div>
             <div class="archive-grid stagger-children" id="archiveGrid">
                 <div class="archive-empty">Loading archive...</div>
@@ -1569,6 +1647,13 @@
             proofTargets.digests = digests.length;
             proofTargets.stories = totalStories;
             proofTargets.podcasts = totalPodcasts;
+
+            // Re-trigger count-up if proof section is already visible (race condition fix)
+            var proofEl = document.getElementById('proof');
+            if (proofEl && proofEl.classList.contains('visible')) {
+                countUpDone = false;
+                triggerCountUp();
+            }
         }
 
         // ---- COUNT-UP ANIMATION ----
