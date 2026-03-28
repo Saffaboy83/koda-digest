@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-28T23:04:33Z",
+  "generated": "2026-03-28T23:26:34Z",
   "digests": [
     {
       "date": "2026-03-28",
@@ -85,7 +85,7 @@
       "hasPodcast": true,
       "hasInfographic": true,
       "hasVideo": true,
-      "youtubeId": "hxDd8XG1wPw",
+      "youtubeId": "2_ERgrS1kZQ",
       "file": "morning-briefing-koda-2026-03-26.html"
     },
     {
@@ -94,7 +94,7 @@
       "focusTopics": [
         {
           "title": "Open-Source AI Surge",
-          "desc": "Seven of nine March model releases are open-source, signaling a structural shift in how frontier capabilities are distributed. Alibaba's Qwen 3.5 series — spanning eight variants — is the most expansive single-week open release in recent memory, intensifying competition with closed labs. The pace raises urgent questions about safety evaluation timelines when models ship faster than red-team cycles."
+          "desc": "Seven of nine March model releases are open-source, signaling a structural shift in how frontier capabilities are distributed. Alibaba's Qwen 3.5 series , spanning eight variants , is the most expansive single-week open release in recent memory, intensifying competition with closed labs. The pace raises urgent questions about safety evaluation timelines when models ship faster than red-team cycles."
         },
         {
           "title": "Middle East Escalation Risk",
@@ -114,7 +114,7 @@
       "hasPodcast": true,
       "hasInfographic": true,
       "hasVideo": true,
-      "youtubeId": "RjI3_22dGTU",
+      "youtubeId": "2_ERgrS1kZQ",
       "file": "morning-briefing-koda-2026-03-25.html"
     },
     {
