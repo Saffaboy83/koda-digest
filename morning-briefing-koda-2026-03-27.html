@@ -3,1086 +3,1405 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koda Intelligence Briefing | 27 March 2026</title>
+    <title>Koda Intelligence | 27 March 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>/* ── Reset & Design Tokens ──────────────────────────────────────────────── */
-*{margin:0;padding:0;box-sizing:border-box;}
-
-:root{
-    /* Color palette */
-    --blue:#3B82F6;--purple:#8B5CF6;--red:#EF4444;--amber:#F59E0B;
-    --emerald:#10B981;--indigo:#6366F1;--pink:#EC4899;--cyan:#06B6D4;
-
-    /* Semantic colors */
-    --bg:#FFFFFF;--bg-secondary:#F8FAFC;
-    --bg-card:rgba(255,255,255,0.72);
-    --text:#0F172A;--text-secondary:#475569;
-    --border:rgba(0,0,0,0.08);
-
-    /* Spacing scale (4px base) */
-    --sp-xs:4px;--sp-sm:8px;--sp-md:16px;--sp-lg:24px;--sp-xl:32px;--sp-2xl:40px;--sp-3xl:48px;
-
-    /* Shadows (3 levels) */
-    --shadow-sm:0 1px 3px rgba(0,0,0,0.04);
-    --shadow-md:0 4px 12px rgba(0,0,0,0.06);
-    --shadow-lg:0 8px 24px rgba(0,0,0,0.08);
-
-    /* Radius scale */
-    --radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:20px;--radius-pill:30px;
-
-    /* Typography */
-    --font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    --font-mono:'JetBrains Mono',ui-monospace,'Cascadia Code',monospace;
-    --leading-tight:1.2;--leading-normal:1.5;--leading-relaxed:1.7;
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%236366F1'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='system-ui' font-weight='800'>K</text></svg>">
+    <meta property="og:title" content="Koda Intelligence Briefing | 27 March 2026">
+    <meta property="og:description" content="AI labs race to smarter models while geopolitical flashpoints keep markets firmly defensive.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.koda.community/morning-briefing-koda-2026-03-27.html">
+    <meta property="og:site_name" content="Koda Digest">
+    <meta property="og:image" content="https://www.koda.community/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="AI labs race to smarter models while geopolitical flashpoints keep markets firmly defensive.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Koda Intelligence Briefing | 27 March 2026",
+        "datePublished": "2026-03-27",
+        "description": "AI labs race to smarter models while geopolitical flashpoints keep markets firmly defensive.",
+        "publisher": {"@type": "Organization", "name": "Koda Intelligence", "url": "https://www.koda.community"},
+        "mainEntityOfPage": "https://www.koda.community/morning-briefing-koda-2026-03-27.html"
+    }
+    </script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    sans: ['Inter', 'system-ui', 'sans-serif'],
+                    mono: ['JetBrains Mono', 'monospace'],
+                }
+            }
+        }
+    }
+    </script>
+    <style>/* ── Material Symbols ─────────────────────────────────────────────────── */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    display: inline-block;
+    vertical-align: middle;
 }
 
-html.dark-mode{
-    --bg:#0F172A;--bg-secondary:#1E293B;
-    --bg-card:rgba(30,41,59,0.8);
-    --text:#F1F5F9;--text-secondary:#94A3B8;
-    --border:rgba(255,255,255,0.08);
-    --shadow-sm:0 1px 3px rgba(0,0,0,0.2);
-    --shadow-md:0 4px 12px rgba(0,0,0,0.25);
-    --shadow-lg:0 8px 24px rgba(0,0,0,0.3);
+/* ── Gradient Text ───────────────────────────────────────────────────── */
+.gradient-text {
+    background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #EC4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-/* ── Base ───────────────────────────────────────────────────────────────── */
-body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-height:var(--leading-normal);transition:background 0.3s,color 0.3s;-webkit-font-smoothing:antialiased;}
-.container{max-width:1200px;margin:0 auto;padding:0 var(--sp-md);}
-.section{scroll-margin-top:80px;margin-bottom:var(--sp-2xl);}
-.section-title{font-size:20px;font-weight:800;margin-bottom:var(--sp-md);display:flex;align-items:center;gap:var(--sp-sm);}
-.section-icon{font-size:22px;}
-
-/* ── Focus styles (accessibility) ──────────────────────────────────────── */
-:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px;}
-button:focus-visible,a:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
-
-/* ── Topbar ────────────────────────────────────────────────────────────── */
-.topbar{position:fixed;top:0;left:0;right:0;height:56px;background:rgba(255,255,255,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);z-index:1000;transition:background 0.3s;}
-html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
-.topbar-inner{max-width:1200px;margin:0 auto;padding:0 var(--sp-md);height:100%;display:flex;align-items:center;justify-content:space-between;gap:var(--sp-sm);}
-.brand{display:flex;align-items:center;gap:var(--sp-sm);text-decoration:none;color:var(--text);flex-shrink:0;}
-.brand-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--blue),var(--purple));border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;}
-.brand-name{font-size:15px;font-weight:800;letter-spacing:-0.3px;}
-.brand-sub{font-size:10px;color:var(--text-secondary);font-weight:500;display:none;}
-.day-nav{display:none;align-items:center;gap:var(--sp-sm);}
-.day-nav-btn{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer;color:var(--text);font-family:var(--font-mono);backdrop-filter:blur(12px);transition:all 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:4px;min-height:36px;}
-.day-nav-btn:hover:not(.disabled){background:var(--indigo);color:white;border-color:var(--indigo);}
-.day-nav-btn.disabled{opacity:0.3;cursor:default;pointer-events:none;}
-.day-nav-current{font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--blue);padding:var(--sp-xs) var(--sp-sm);background:rgba(59,130,246,0.1);border-radius:6px;}
-.topbar-right{display:flex;align-items:center;gap:var(--sp-sm);}
-.dark-toggle{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:6px 12px;font-size:13px;font-weight:600;cursor:pointer;color:var(--text);transition:all 0.2s;font-family:var(--font-sans);min-height:36px;}
-.dark-toggle:hover{border-color:var(--indigo);color:var(--indigo);}
-.home-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:var(--radius-sm);background:linear-gradient(135deg,var(--blue),var(--indigo));color:white;font-size:12px;font-weight:700;font-family:var(--font-mono);text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;min-height:36px;}
-.home-btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-md);}
-
-/* ── Hero ──────────────────────────────────────────────────────────────── */
-.hero{padding:80px 0 var(--sp-lg);text-align:center;}
-.hero-date{font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:2px;margin-bottom:var(--sp-sm);}
-.hero-title{font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:-0.5px;line-height:var(--leading-tight);margin-bottom:var(--sp-md);background:linear-gradient(135deg,var(--blue),var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero-sub{font-size:15px;color:var(--text-secondary);max-width:560px;margin:0 auto;line-height:var(--leading-relaxed);}
-
-/* ── KPI Strip ─────────────────────────────────────────────────────────── */
-.kpi-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-sm);margin:var(--sp-lg) 0 var(--sp-xl);}
-.kpi-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--sp-md);text-align:center;box-shadow:var(--shadow-sm);transition:box-shadow 0.2s,transform 0.2s;}
-.kpi-card:hover{box-shadow:var(--shadow-md);transform:translateY(-1px);}
-.kpi-value{font-size:24px;font-weight:800;font-family:var(--font-mono);}
-.kpi-label{font-size:11px;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.8px;margin-top:var(--sp-xs);}
-
-/* ── Media Strip ───────────────────────────────────────────────────────── */
-.media-strip{display:grid;grid-template-columns:1fr;gap:var(--sp-md);margin:0 0 var(--sp-xl);}
-.media-banner{background:linear-gradient(135deg,#0f1629 0%,#162040 100%);border:1px solid rgba(99,102,241,0.2);border-radius:var(--radius-xl);padding:var(--sp-lg);color:white;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;transition:border-color 0.3s,box-shadow 0.3s;}
-.media-banner:hover{border-color:rgba(99,102,241,0.45);box-shadow:0 4px 20px rgba(99,102,241,0.15);}
-.media-banner-icon{font-size:26px;margin-bottom:var(--sp-xs);opacity:0.9;}
-.media-banner-title{font-size:15px;font-weight:700;letter-spacing:0.2px;}
-.media-banner-sub{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:var(--sp-sm);line-height:1.4;}
-.media-banner-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-sm);padding:10px 24px;border-radius:var(--radius-pill);font-size:13px;font-weight:700;cursor:pointer;transition:all 0.25s;text-decoration:none;border:none;min-height:40px;}
-.media-banner-btn.podcast-btn{background:linear-gradient(135deg,var(--indigo),var(--purple));color:white;}
-.media-banner-btn.podcast-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(99,102,241,0.4);}
-.media-banner-btn.video-btn{background:linear-gradient(135deg,#EF4444,#EC4899);color:white;}
-.media-banner-btn.video-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(239,68,68,0.4);}
-.media-banner-btn.expand-btn{background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.3);color:#a78bfa;font-size:11px;padding:7px 16px;margin-top:6px;}
-.media-banner-btn.expand-btn:hover{background:rgba(99,102,241,0.2);}
-.podcast-player-wrap{width:100%;max-width:340px;margin-top:var(--sp-md);display:none;}
-.podcast-player-wrap.active{display:block;}
-.video-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;padding:var(--sp-md);}
-.video-overlay.active{display:flex;}
-.video-overlay-inner{width:100%;max-width:1100px;position:relative;}
-.video-overlay-inner iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:var(--radius-lg);}
-.video-overlay-close{position:absolute;top:-44px;right:0;background:none;border:none;color:white;font-size:32px;cursor:pointer;padding:var(--sp-sm);opacity:0.7;transition:opacity 0.2s;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;}
-.video-overlay-close:hover{opacity:1;}
-
-/* ── Summary ───────────────────────────────────────────────────────────── */
-.summary-card{padding:var(--sp-lg);background:var(--bg-card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:var(--radius-xl);box-shadow:var(--shadow-md);position:relative;overflow:hidden;}
-.summary-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--blue),var(--purple));border-radius:var(--radius-xl) 0 0 var(--radius-xl);}
-.summary-hook{font-size:18px;font-weight:700;line-height:var(--leading-normal);color:var(--text);margin-bottom:var(--sp-lg);padding-bottom:var(--sp-md);border-bottom:1px solid var(--border);}
-.summary-briefs{display:flex;flex-direction:column;gap:var(--sp-md);margin-bottom:var(--sp-lg);}
-.summary-brief{display:flex;gap:var(--sp-md);align-items:flex-start;}
-.summary-brief-header{display:flex;flex-direction:column;align-items:center;gap:var(--sp-xs);flex-shrink:0;width:48px;}
-.summary-brief-icon{width:36px;height:36px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:16px;}
-.summary-brief-label{font-family:var(--font-mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;}
-.summary-brief-text{font-size:14px;line-height:var(--leading-relaxed);color:var(--text-secondary);flex:1;}
-.summary-cta{font-size:13px;font-weight:700;color:var(--blue);padding-top:var(--sp-md);border-top:1px solid var(--border);font-family:var(--font-mono);letter-spacing:0.3px;}
-
-/* ── Infographic ───────────────────────────────────────────────────────── */
-.infographic{background:#0a0f1e;border:1px solid rgba(59,130,246,0.25);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg);padding:0;}
-.infographic img{width:100%;height:auto;display:block;border-radius:var(--radius-xl);}
-
-/* ── Focus ─────────────────────────────────────────────────────────────── */
-.focus-grid{display:flex;flex-direction:column;gap:var(--sp-md);}
-.focus-item{display:flex;gap:var(--sp-md);align-items:flex-start;background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--sp-lg);box-shadow:var(--shadow-sm);}
-.focus-num{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple));color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;flex-shrink:0;}
-.focus-content{flex:1;}
-.focus-content-title{font-size:16px;font-weight:700;margin-bottom:6px;}
-.focus-content-body{font-size:14px;color:var(--text-secondary);line-height:var(--leading-relaxed);}
-
-/* ── Card Grid (shared by AI, World, Tools) ────────────────────────────── */
-.card-grid{display:grid;grid-template-columns:1fr;gap:var(--sp-md);}
-.card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--sp-lg);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:box-shadow 0.2s,transform 0.2s;}
-.card:hover{box-shadow:var(--shadow-md);transform:translateY(-1px);}
-.card-badge{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:var(--sp-xs) var(--sp-sm);border-radius:6px;margin-bottom:var(--sp-sm);width:fit-content;}
-.card-title{font-size:15px;font-weight:700;margin-bottom:var(--sp-sm);line-height:1.4;}
-.card-body{font-size:13px;color:var(--text-secondary);line-height:var(--leading-relaxed);flex:1;}
-.card-source{display:inline-flex;align-items:center;gap:var(--sp-xs);font-size:11px;font-weight:600;color:var(--blue);text-decoration:none;margin-top:var(--sp-sm);font-family:var(--font-mono);}
-.card-source:hover{text-decoration:underline;}
-
-/* ── Market Grid ───────────────────────────────────────────────────────── */
-.market-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-sm);}
-.market-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--sp-md);text-align:center;box-shadow:var(--shadow-sm);transition:box-shadow 0.2s,transform 0.2s;}
-.market-card:hover{box-shadow:var(--shadow-md);transform:translateY(-1px);}
-.market-ticker{font-family:var(--font-mono);font-size:10px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:var(--sp-xs);}
-.market-price{font-size:20px;font-weight:800;font-family:var(--font-mono);}
-.market-change{font-size:12px;font-weight:700;font-family:var(--font-mono);margin-top:var(--sp-xs);}
-.market-bar{height:3px;border-radius:2px;margin-top:var(--sp-sm);}
-
-/* ── Newsletter ────────────────────────────────────────────────────────── */
-.newsletter-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:var(--radius-xl);padding:var(--sp-lg);margin-bottom:var(--sp-md);box-shadow:var(--shadow-sm);transition:box-shadow 0.2s;}
-.newsletter-card:hover{box-shadow:var(--shadow-md);}
-.newsletter-header{display:flex;align-items:center;gap:var(--sp-md);margin-bottom:var(--sp-md);padding-bottom:var(--sp-md);border-bottom:1px solid var(--border);}
-.newsletter-avatar{width:40px;height:40px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:white;flex-shrink:0;}
-.newsletter-name{font-size:15px;font-weight:700;}
-.newsletter-subject{font-size:13px;color:var(--text-secondary);margin-top:2px;}
-.nl-section{margin-bottom:var(--sp-md);}
-.nl-section-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:var(--sp-sm);color:var(--indigo);}
-.newsletter-item{font-size:13px;color:var(--text-secondary);line-height:var(--leading-relaxed);margin-bottom:var(--sp-sm);padding-left:var(--sp-md);position:relative;}
-.newsletter-item::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--indigo);}
-.newsletter-quote{font-style:italic;border-left:3px solid var(--purple);padding:var(--sp-sm) var(--sp-md);background:rgba(139,92,246,0.06);border-radius:0 var(--radius-sm) var(--radius-sm) 0;color:var(--text-secondary);font-size:13px;margin-top:var(--sp-sm);}
-
-/* ── Competitive ───────────────────────────────────────────────────────── */
-.comp-grid{display:grid;grid-template-columns:1fr;gap:var(--sp-md);}
-.comp-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--sp-lg);box-shadow:var(--shadow-sm);transition:box-shadow 0.2s,transform 0.2s;}
-.comp-card:hover{box-shadow:var(--shadow-md);transform:translateY(-1px);}
-.comp-header{display:flex;align-items:center;gap:var(--sp-sm);margin-bottom:var(--sp-sm);}
-.comp-logo{font-size:22px;}
-.comp-name{font-size:15px;font-weight:700;}
-.comp-status{font-size:10px;font-weight:700;text-transform:uppercase;padding:3px var(--sp-sm);border-radius:6px;letter-spacing:0.5px;}
-.comp-body{font-size:13px;color:var(--text-secondary);line-height:var(--leading-relaxed);}
-
-/* ── Tool Guide ────────────────────────────────────────────────────────── */
-.tool-grid{display:grid;grid-template-columns:1fr;gap:var(--sp-md);}
-.tool-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-left:3px solid var(--indigo);border-radius:var(--radius-lg);padding:var(--sp-lg);box-shadow:var(--shadow-sm);transition:box-shadow 0.2s,transform 0.2s;}
-.tool-card:hover{box-shadow:var(--shadow-md);transform:translateY(-1px);}
-.tool-label{font-family:var(--font-mono);font-size:10px;font-weight:700;color:var(--indigo);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
-.tool-title{font-size:15px;font-weight:700;margin-bottom:var(--sp-sm);}
-.tool-body{font-size:13px;color:var(--text-secondary);line-height:var(--leading-relaxed);}
-
-/* ── Footer ────────────────────────────────────────────────────────────── */
-.footer{text-align:center;padding:var(--sp-xl) var(--sp-lg);border-top:1px solid var(--border);margin-top:var(--sp-2xl);}
-.footer-text{font-size:12px;color:var(--text-secondary);}
-.footer-brand{font-size:14px;font-weight:700;margin-bottom:var(--sp-sm);background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-
-/* ── Responsive: Tablet (>=640px) ──────────────────────────────────────── */
-@media(min-width:640px){
-    .container{padding:0 var(--sp-lg);}
-    .brand-sub{display:block;}
-    .day-nav{display:flex;}
-    .hero{padding:96px 0 var(--sp-xl);}
-    .hero-title{letter-spacing:-1px;}
-    .kpi-strip{grid-template-columns:repeat(4,1fr);gap:var(--sp-md);}
-    .kpi-value{font-size:28px;}
-    .media-strip{grid-template-columns:1fr 1fr;}
-    .summary-hook{font-size:20px;}
-    .card-grid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr));}
-    .market-grid{grid-template-columns:repeat(6,1fr);}
-    .comp-grid{grid-template-columns:repeat(2,1fr);}
-    .tool-grid{grid-template-columns:repeat(2,1fr);}
-    .section-title{font-size:22px;}
-    .section-icon{font-size:24px;}
+/* ── Hero Gradient Background ────────────────────────────────────────── */
+.hero-gradient {
+    background:
+        radial-gradient(ellipse 80% 50% at 20% 60%, rgba(59, 130, 246, 0.12) 0%, transparent 100%),
+        radial-gradient(ellipse 60% 40% at 80% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 100%),
+        linear-gradient(180deg, rgba(11, 19, 38, 0.45) 0%, rgba(11, 19, 38, 0.6) 40%, rgba(6, 14, 32, 0.92) 100%);
 }
 
-/* ── Responsive: Desktop (>=1024px) ────────────────────────────────────── */
-@media(min-width:1024px){
-    .topbar{height:64px;}
-    .hero{padding:108px 0 var(--sp-2xl);}
-    .summary-card{padding:var(--sp-xl);}
-    .comp-grid{grid-template-columns:repeat(3,1fr);}
-    .market-price{font-size:22px;}
+/* ── Scroll Progress Bar ─────────────────────────────────────────────── */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+    z-index: 1001;
+    transition: width 0.1s linear;
+    pointer-events: none;
 }
 
-/* ── Backdrop-filter fallback ──────────────────────────────────────────── */
-@supports not (backdrop-filter:blur(1px)){
-    .topbar{background:var(--bg)!important;}
-    html.dark-mode .topbar{background:var(--bg)!important;}
-    .kpi-card,.card,.market-card,.newsletter-card,.comp-card,.tool-card,.focus-item,.media-banner,.summary-card{
-        background:var(--bg-secondary);
+/* ── Back to Top Button ──────────────────────────────────────────────── */
+.back-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(23, 31, 51, 0.9);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #dae2fd;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.3s, transform 0.3s, background 0.2s;
+    pointer-events: none;
+}
+.back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.back-to-top:hover { background: #6366F1; color: white; }
+
+/* ── Day Navigation Buttons ──────────────────────────────────────────── */
+.day-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    color: #dae2fd;
+    background: rgba(23, 31, 51, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.day-nav-btn:hover:not(.disabled) { background: #6366F1; color: white; border-color: #6366F1; }
+.day-nav-btn.disabled { opacity: 0.3; cursor: default; pointer-events: none; }
+
+/* ── Media Buttons ───────────────────────────────────────────────────── */
+.media-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s;
+    border: none;
+    font-family: 'Inter', sans-serif;
+}
+.media-btn.podcast-btn { background: linear-gradient(135deg, #6366F1, #8B5CF6); color: white; }
+.media-btn.podcast-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4); }
+.media-btn.video-btn { background: linear-gradient(135deg, #EF4444, #EC4899); color: white; }
+.media-btn.video-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4); }
+.media-btn.expand-btn {
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #a78bfa;
+    font-size: 10px;
+    padding: 5px 14px;
+    margin-top: 4px;
+}
+.media-btn.expand-btn:hover { background: rgba(99, 102, 241, 0.2); }
+
+/* ── Video Overlay ───────────────────────────────────────────────────── */
+.video-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.92);
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+.video-overlay.active { display: flex; }
+.video-overlay-inner { width: 100%; max-width: 1100px; position: relative; }
+.video-overlay-close {
+    position: absolute;
+    top: -44px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 8px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.video-overlay-close:hover { opacity: 1; }
+
+/* ── Infographic Lightbox ────────────────────────────────────────────── */
+.infographic-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.95);
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    cursor: zoom-out;
+}
+.infographic-overlay.active { display: flex; }
+.infographic-overlay img {
+    max-width: 100%;
+    max-height: 100vh;
+    object-fit: contain;
+    cursor: default;
+    border-radius: 8px;
+}
+.infographic-overlay-close {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    z-index: 10000;
+}
+.infographic-overlay-close:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* ── Podcast Player ──────────────────────────────────────────────────── */
+.podcast-player-wrap { display: none; }
+.podcast-player-wrap.active { display: block; }
+
+/* ── Expandable Sections (Mobile Accordions) ─────────────────────────── */
+.expandable-header {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    cursor: pointer;
+}
+@media (min-width: 1024px) {
+    .expandable-header {
+        padding: 0;
+        border-bottom: none;
     }
 }
 
-/* ── Print ─────────────────────────────────────────────────────────────── */
-@media print{
-    .topbar,.media-strip,.dark-toggle,.home-btn,.day-nav,.video-overlay{display:none!important;}
-    .hero{padding-top:0;}
-    .section{break-inside:avoid;}
-    body{background:white;color:black;}
+/* ── Section Scroll Margin ───────────────────────────────────────────── */
+.section { scroll-margin-top: 80px; }
+
+/* ── Sidebar Scroll ──────────────────────────────────────────────────── */
+.sidebar-scroll {
+    max-height: calc(100vh - 5rem);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.08) transparent;
+}
+.sidebar-scroll::-webkit-scrollbar { width: 4px; }
+.sidebar-scroll::-webkit-scrollbar-track { background: transparent; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.08); border-radius: 2px; }
+.sidebar-scroll::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.15); }
+
+/* ── Focus Styles (Accessibility) ────────────────────────────────────── */
+:focus-visible { outline: 2px solid #3B82F6; outline-offset: 2px; border-radius: 4px; }
+
+/* ── Print ───────────────────────────────────────────────────────────── */
+@media print {
+    header, .scroll-progress, .back-to-top, .video-overlay, #dayNav { display: none !important; }
+    body { background: white !important; color: black !important; }
+    .section { break-inside: avoid; }
+    .gradient-text { -webkit-text-fill-color: #0F172A; }
+    .hero-gradient { background: white !important; }
+    aside { position: static !important; }
+    aside > div { position: static !important; }
 }
 </style>
 </head>
-<body data-digest-date="2026-03-27" data-youtube-id="2_ERgrS1kZQ">
+<body class="bg-[#0b1326] text-[#dae2fd] font-sans antialiased min-h-screen flex flex-col" data-digest-date="2026-03-27" data-youtube-id="2_ERgrS1kZQ">
 
 
-<nav class="topbar" aria-label="Site navigation">
-    <div class="topbar-inner">
-        <a href="./index.html" class="brand" aria-label="Koda Digest home">
-            <div class="brand-icon" aria-hidden="true">K</div>
-            <div><div class="brand-name">Koda Digest</div><div class="brand-sub">Intelligence Briefing</div></div>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+<button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+
+<header class="fixed top-0 w-full z-50 bg-[#0b1326]/80 backdrop-blur-xl border-b border-white/[0.06]">
+    <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+        <a href="./index.html" class="flex items-center gap-3 no-underline text-inherit">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] flex items-center justify-center text-white font-black text-sm">K</div>
+            <div>
+                <div class="text-sm font-bold text-[#3B82F6]">Koda Intelligence</div>
+                <div class="text-[10px] text-[#8c909f] hidden sm:block">Daily Briefing</div>
+            </div>
         </a>
-        <div class="day-nav" role="navigation" aria-label="Day navigation">
-            <a id="prevBtn" class="day-nav-btn disabled" href="#" aria-label="Previous day">← Yesterday</a>
-            <span class="day-nav-current" aria-current="page">2026-03-27</span>
-            <a id="nextBtn" class="day-nav-btn disabled" href="#" aria-label="Next day">Tomorrow →</a>
+        <div class="hidden md:flex items-center gap-2" id="dayNav">
+            <a id="prevBtn" class="day-nav-btn disabled" href="#" aria-label="Previous day">&larr; Yesterday</a>
+            <span class="font-mono text-[11px] font-bold text-[#3B82F6] px-2 py-1 bg-[#3B82F6]/10 rounded">2026-03-27</span>
+            <a id="nextBtn" class="day-nav-btn disabled" href="#" aria-label="Next day">Tomorrow &rarr;</a>
         </div>
-        <div class="topbar-right">
-            <button class="dark-toggle" id="darkBtn" onclick="toggleDark()" aria-label="Toggle dark mode">🌙 Dark</button>
-            <a href="./index.html" class="home-btn">← Home</a>
-        </div>
-    </div>
-</nav>
-
-
-<div class="hero">
-    <div class="container">
-        <div class="hero-date">27 March 2026</div>
-        <h1 class="hero-title">Koda Intelligence Briefing</h1>
-        <p class="hero-sub">AI developments, world news, markets, and tools, synthesized daily.</p>
-    </div>
-</div>
-
-
-<div class="container">
-
-
-
-<div class="kpi-strip">
-    
-    
-    <div class="kpi-card">
-        <div class="kpi-value" style="color:var(--blue)">11</div>
-        <div class="kpi-label">AI Stories</div>
-    </div>
-    
-    <div class="kpi-card">
-        <div class="kpi-value" style="color:var(--red)">8</div>
-        <div class="kpi-label">World Events</div>
-    </div>
-    
-    <div class="kpi-card">
-        <div class="kpi-value" style="color:var(--emerald)">Extreme Fear</div>
-        <div class="kpi-label">Market Mood</div>
-    </div>
-    
-    <div class="kpi-card">
-        <div class="kpi-value" style="color:var(--purple)">6</div>
-        <div class="kpi-label">Tools Featured</div>
-    </div>
-    
-</div>
-
-
-<div class="media-strip">
-    
-    <div class="media-banner">
-        <div class="media-banner-icon" aria-hidden="true">🎧</div>
-        <div class="media-banner-title">Daily Podcast</div>
-        <div class="media-banner-sub">AI-generated deep-dive briefing</div>
-        <button class="media-banner-btn podcast-btn" onclick="togglePodcast()" aria-expanded="false" aria-controls="podcastPlayer">▶ Listen Now</button>
-        <div class="podcast-player-wrap" id="podcastPlayer">
-            <audio controls style="width:100%;margin-top:10px" preload="none" aria-label="Daily podcast audio">
-                <source src="./podcast-2026-03-27.mp3" type="audio/mpeg">
-            </audio>
+        <div class="flex items-center gap-2">
+            <button onclick="shareDigest('x')" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-[#3B82F6]/20 flex items-center justify-center text-[#8c909f] hover:text-[#3B82F6] transition-all" title="Share on X">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </button>
+            <button onclick="shareDigest('linkedin')" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-[#3B82F6]/20 flex items-center justify-center text-[#8c909f] hover:text-[#3B82F6] transition-all" title="Share on LinkedIn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </button>
+            <button onclick="shareDigest('copy')" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-[#3B82F6]/20 flex items-center justify-center text-[#8c909f] hover:text-[#3B82F6] transition-all" title="Copy link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            </button>
+            <a href="./index.html#archive" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-[#3B82F6]/20 flex items-center justify-center text-[#8c909f] hover:text-[#3B82F6] transition-all no-underline" title="Search & Archive">
+                <span class="material-symbols-outlined text-base">search</span>
+            </a>
+            <a href="./index.html" class="text-[11px] font-mono font-bold px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#6366F1] text-white no-underline hover:shadow-lg hover:shadow-[#3B82F6]/20 transition-all ml-1">&larr; Home</a>
         </div>
     </div>
+</header>
+
+
+<section class="relative w-full pt-14 overflow-hidden">
+    
+    <div class="absolute inset-0 z-0">
+        <img src="./hero-2026-03-27.jpg" class="w-full h-full object-cover object-center opacity-50 scale-105" alt="" aria-hidden="true">
+    </div>
+    
+    <div class="hero-gradient absolute inset-0 z-[1]"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-12 md:pt-24 md:pb-20 flex flex-col md:flex-row items-end justify-between gap-8">
+        <div class="max-w-3xl">
+            <p class="font-mono text-xs text-[#3B82F6] mb-3 tracking-[0.2em] uppercase">27 March 2026</p>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[1.05] mb-4 gradient-text pb-1">
+                The Daily Briefing
+            </h1>
+            
+            <p class="text-base md:text-lg text-[#c2c6d6] font-light tracking-tight leading-relaxed max-w-2xl">AI labs race to smarter models while geopolitical flashpoints keep markets firmly defensive.</p>
+            
+        </div>
+        
+    </div>
+</section>
+
+
+<div class="max-w-7xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-12">
+
+
+<div class="lg:w-[65%] space-y-16">
+
+    
+    
+    <section class="section" id="daily-summary">
+        <div class="section-title flex items-center gap-4 mb-8">
+            <h3 class="text-2xl font-black tracking-tight uppercase">The Briefing</h3>
+            <div class="h-px flex-grow bg-white/[0.1]"></div>
+        </div>
+        <div class="space-y-3">
+            
+            
+            
+            
+            
+            <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors duration-300 group">
+                <div class="flex justify-between items-start mb-1.5">
+                    <span class="text-[11px] uppercase tracking-[0.1em] font-bold" style="color: #3B82F6">AI</span>
+                    <span class="material-symbols-outlined text-[#8c909f] text-lg transition-colors">smart_toy</span>
+                </div>
+                <p class="text-sm text-[#c2c6d6] leading-relaxed">Google&#39;s Gemini 2.5 Pro has claimed top positions on math and science reasoning benchmarks, intensifying its head-to-head rivalry with OpenAI and Anthropic.</p>
+            </div>
+            
+            
+            
+            <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors duration-300 group">
+                <div class="flex justify-between items-start mb-1.5">
+                    <span class="text-[11px] uppercase tracking-[0.1em] font-bold" style="color: #EF4444">World</span>
+                    <span class="material-symbols-outlined text-[#8c909f] text-lg transition-colors">public</span>
+                </div>
+                <p class="text-sm text-[#c2c6d6] leading-relaxed">Israel resumed strikes on Gaza, killing at least 23 Palestinians, as ceasefire negotiations between Russia and Ukraine produced a limited Black Sea shipping agreement.</p>
+            </div>
+            
+            
+            
+            <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors duration-300 group">
+                <div class="flex justify-between items-start mb-1.5">
+                    <span class="text-[11px] uppercase tracking-[0.1em] font-bold" style="color: #10B981">Markets</span>
+                    <span class="material-symbols-outlined text-[#8c909f] text-lg transition-colors">trending_up</span>
+                </div>
+                <p class="text-sm text-[#c2c6d6] leading-relaxed">Sentiment is firmly risk-off and cautious, with multiple active conflict zones, mass civil unrest in Turkey, and natural disaster headlines in South Korea weighing on investor appetite.</p>
+            </div>
+            
+            
+            
+            <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors duration-300 group">
+                <div class="flex justify-between items-start mb-1.5">
+                    <span class="text-[11px] uppercase tracking-[0.1em] font-bold" style="color: #F59E0B">Wild Card</span>
+                    <span class="material-symbols-outlined text-[#8c909f] text-lg transition-colors">bolt</span>
+                </div>
+                <p class="text-sm text-[#c2c6d6] leading-relaxed">Google DeepMind&#39;s Gemini Robotics launch signals that the benchmark wars are moving off the screen and into the physical world , a convergence that could redefine industrial automation timelines.</p>
+            </div>
+            
+        </div>
+    </section>
     
 
     
-    <div class="media-banner">
-        <div class="media-banner-icon" aria-hidden="true">🎬</div>
-        <div class="media-banner-title">Video Briefing</div>
-        <div class="media-banner-sub">AI-generated cinematic explainer</div>
-        <a href="https://www.youtube.com/watch?v=2_ERgrS1kZQ" target="_blank" rel="noopener" class="media-banner-btn video-btn">▶ Watch on YouTube</a>
-        <button class="media-banner-btn expand-btn" onclick="toggleVideo()" aria-label="Watch video inline">▶ Watch Inline</button>
-        <div class="video-overlay" id="videoOverlay" role="dialog" aria-modal="true" aria-label="Video player" onclick="if(event.target===this)toggleVideo()">
-            <div class="video-overlay-inner">
-                <button class="video-overlay-close" onclick="toggleVideo()" aria-label="Close video">&times;</button>
-                <iframe id="videoFrame" width="100%" style="aspect-ratio:16/9;border:none;border-radius:12px" allowfullscreen title="Video briefing"></iframe>
+    
+    
+    <section class="section lg:hidden">
+        <div class="section-title flex items-center gap-4 mb-6">
+            <h3 class="text-lg font-black tracking-tight uppercase">Markets</h3>
+            <div class="h-px flex-grow bg-white/[0.1]"></div>
+        </div>
+        <div class="grid grid-cols-3 gap-2">
+            
+            
+            
+            
+            
+            
+            
+            <div class="bg-[#131b2e] p-3 text-center">
+                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">S&amp;P 500</div>
+                <div class="market-price text-[13px] font-mono font-bold">5,776.65</div>
+                <div class="market-change text-[10px] font-mono" style="color: #EF4444">-0.64%</div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="bg-[#131b2e] p-3 text-center">
+                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">NASDAQ</div>
+                <div class="market-price text-[13px] font-mono font-bold">18,271.86</div>
+                <div class="market-change text-[10px] font-mono" style="color: #EF4444">-0.52%</div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="bg-[#131b2e] p-3 text-center">
+                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">BTC</div>
+                <div class="market-price text-[13px] font-mono font-bold">$70,000</div>
+                <div class="market-change text-[10px] font-mono" style="color: #EF4444">-5%</div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="bg-[#131b2e] p-3 text-center">
+                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">ETH</div>
+                <div class="market-price text-[13px] font-mono font-bold">$2,155.68</div>
+                <div class="market-change text-[10px] font-mono" style="color: #10B981">+0.19%</div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="bg-[#131b2e] p-3 text-center">
+                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">Oil</div>
+                <div class="market-price text-[13px] font-mono font-bold">$116</div>
+                <div class="market-change text-[10px] font-mono" style="color: #F59E0B">N/A</div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="bg-[#131b2e] p-3 text-center">
+                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">Sentiment</div>
+                <div class="market-price text-[13px] font-mono font-bold">Risk-off</div>
+                <div class="market-change text-[10px] font-mono" style="color: #EF4444">Risk-off / Cautious</div>
+            </div>
+            
+            
+        </div>
+    </section>
+    
+
+    
+    <section class="section grid grid-cols-1 sm:grid-cols-2 gap-4">
+        
+        <div class="p-5 bg-gradient-to-br from-[#0f1629] to-[#162040] border border-[#6366F1]/20 rounded-xl text-center flex flex-col items-center gap-1.5">
+            <span class="material-symbols-outlined text-[#6366F1] text-2xl">headphones</span>
+            <div class="text-sm font-bold">Daily Podcast</div>
+            <div class="text-[11px] text-white/40 mb-2">AI-generated deep-dive briefing</div>
+            <button class="podcast-btn media-btn" onclick="togglePodcast()" aria-expanded="false" aria-controls="podcastPlayer">&#9654; Listen Now</button>
+            <div class="podcast-player-wrap w-full md:max-w-[300px] mt-3" id="podcastPlayer">
+                <audio controls style="width:100%" preload="none" aria-label="Daily podcast"><source src="./podcast-2026-03-27.mp3" type="audio/mpeg"></audio>
             </div>
         </div>
-    </div>
-    
-</div>
+        
 
-
-
-
-<div class="section" id="market-snapshot">
-    <div class="section-title"><span class="section-icon">📊</span> Market Snapshot</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;">
         
-        
-        
-        
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
-            <div style="font-size:20px;margin-bottom:4px">📈</div>
-            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">S&amp;P 500</div>
-            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">6,477.16</div>
-            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--red);margin-top:4px">-1.74%</div>
-            <svg width="80" height="24" viewBox="0 0 80 24" style="display:block;margin:8px auto 0" aria-hidden="true"><polyline points="0.0,2.0 13.3,4.5 26.7,18.0 40.0,7.9 53.3,11.3 66.7,6.4 80.0,22.0" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
-            <div style="font-size:20px;margin-bottom:4px">📊</div>
-            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">NASDAQ</div>
-            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">21,408.08</div>
-            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--red);margin-top:4px">-2.38%</div>
-            <svg width="80" height="24" viewBox="0 0 80 24" style="display:block;margin:8px auto 0" aria-hidden="true"><polyline points="0.0,2.0 13.3,3.7 26.7,15.6 40.0,7.5 53.3,12.5 66.7,8.0 80.0,22.0" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
-            <div style="font-size:20px;margin-bottom:4px">₿</div>
-            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">BTC</div>
-            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">$66,468.47</div>
-            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--red);margin-top:4px">-3.35%</div>
-            <svg width="80" height="24" viewBox="0 0 80 24" style="display:block;margin:8px auto 0" aria-hidden="true"><polyline points="0.0,12.7 13.3,16.3 26.7,3.6 40.0,5.3 53.3,2.0 66.7,12.4 80.0,22.0" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
-            <div style="font-size:20px;margin-bottom:4px">◆</div>
-            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">ETH</div>
-            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">$1,992.43</div>
-            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--red);margin-top:4px">-3.24%</div>
-            <svg width="80" height="24" viewBox="0 0 80 24" style="display:block;margin:8px auto 0" aria-hidden="true"><polyline points="0.0,12.4 13.3,15.1 26.7,3.8 40.0,3.4 53.3,2.0 66.7,14.4 80.0,22.0" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
-            <div style="font-size:20px;margin-bottom:4px">🛢</div>
-            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Oil Brent</div>
-            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">$104.52</div>
-            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--emerald);margin-top:4px">+3.62%</div>
-            <svg width="80" height="24" viewBox="0 0 80 24" style="display:block;margin:8px auto 0" aria-hidden="true"><polyline points="0.0,2.0 16.0,22.0 32.0,14.6 48.0,18.3 64.0,8.8 80.0,14.5" fill="none" stroke="var(--emerald)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
-            <div style="font-size:20px;margin-bottom:4px">🧠</div>
-            <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Sentiment</div>
-            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">13</div>
-            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--red);margin-top:4px">Extreme Fear</div>
-            
-        </div>
-        
-        
-    </div>
-
-<div class="section" id="daily-summary">
-    <div class="section-title"><span class="section-icon">📋</span> The Briefing</div>
-    <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);">
-        <div class="summary-hook" style="font-size:20px;font-weight:800;margin-bottom:18px;line-height:1.4">AI races ahead while the Middle East burns and markets brace for the worst.</div>
-        
-        
-        
-        <div class="summary-brief" style="border-left:3px solid var(--blue);padding:10px 16px;margin:10px 0;background:var(--bg-card);border-radius:0 12px 12px 0;">
-            <div style="font-size:13px;font-weight:700;color:var(--blue);margin-bottom:4px">🤖 AI</div>
-            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">OpenAI&#39;s GPT-5.4 claimed the top spot on the Intelligence Index with a score of 57, as Q1 2026 surpassed 255 model releases and open-weight challengers from Alibaba and xAI intensified frontier competition.</div>
-        </div>
-        
-        
-        
-        <div class="summary-brief" style="border-left:3px solid var(--red);padding:10px 16px;margin:10px 0;background:var(--bg-card);border-radius:0 12px 12px 0;">
-            <div style="font-size:13px;font-weight:700;color:var(--red);margin-bottom:4px">🌍 World</div>
-            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">The US-Iran war entered its 26th day with active strikes, thousands of US troops deployed to the region, and G7 foreign ministers convening as Russia capitalizes on an oil price spike driven by Hormuz tensions.</div>
-        </div>
-        
-        
-        
-        <div class="summary-brief" style="border-left:3px solid var(--emerald);padding:10px 16px;margin:10px 0;background:var(--bg-card);border-radius:0 12px 12px 0;">
-            <div style="font-size:13px;font-weight:700;color:var(--emerald);margin-bottom:4px">📊 Markets</div>
-            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">Sentiment sits at Extreme Fear as prolonged Middle East conflict disrupts energy supply chains and rattles investor confidence across global markets.</div>
-        </div>
-        
-        
-        
-        <div class="summary-brief" style="border-left:3px solid var(--amber);padding:10px 16px;margin:10px 0;background:var(--bg-card);border-radius:0 12px 12px 0;">
-            <div style="font-size:13px;font-weight:700;color:var(--amber);margin-bottom:4px">⚡ Wild Card</div>
-            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">New Zealand&#39;s active tracking of supply chain risks from the US-Iran conflict signals that even Pacific-rim economies are stress-testing exposure to a war centered 10,000 miles away, a sign of how deeply integrated global logistics have become.</div>
-        </div>
-        
-    </div>
-</div>
-
-
-
-<div class="section" id="infographic">
-    <div class="section-title"><span class="section-icon">📊</span> Daily Infographic</div>
-    <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:16px;box-shadow:0 4px 16px var(--shadow);text-align:center">
-        <img src="./infographic-2026-03-27.jpg" alt="Koda Daily Infographic 2026-03-27" style="max-width:100%;border-radius:12px">
-    </div>
-</div>
-
-
-
-
-
-
-<div class="section" id="todays-focus">
-    <div class="section-title"><span class="section-icon">🎯</span> Today's Focus</div>
-    <div class="focus-grid">
-        
-        <article class="focus-item">
-            <div class="focus-num" style="background:linear-gradient(135deg,var(--blue),var(--purple))">1</div>
-            <div class="focus-content">
-                <div class="focus-content-title">Open-Weight Frontier Surge</div>
-                <div class="focus-content-body">Alibaba&#39;s Qwen3.5 and seven open-source March model releases are compressing the gap between proprietary and open-weight frontier performance. With over 255 models released in Q1 2026 alone, the pace of open-weight development is forcing closed labs to justify their access restrictions on capability grounds alone. xAI&#39;s Grok 4.20, deploying parallel agent architecture, adds a structural dimension to this race beyond raw benchmark scores.</div>
+        <div class="p-5 bg-gradient-to-br from-[#0f1629] to-[#162040] border border-[#EC4899]/20 rounded-xl text-center flex flex-col items-center gap-1.5">
+            <span class="material-symbols-outlined text-[#EC4899] text-2xl">smart_display</span>
+            <div class="text-sm font-bold">Video Briefing</div>
+            <div class="text-[11px] text-white/40 mb-2">AI-generated cinematic explainer</div>
+            <a href="https://www.youtube.com/watch?v=2_ERgrS1kZQ" target="_blank" rel="noopener" class="media-btn video-btn no-underline inline-block">&#9654; Watch on YouTube</a>
+            <button class="media-btn expand-btn" onclick="toggleVideo()">&#9654; Watch Inline</button>
+            <div class="video-overlay" id="videoOverlay" role="dialog" aria-modal="true" aria-label="Video player" onclick="if(event.target===this)toggleVideo()">
+                <div class="video-overlay-inner">
+                    <button class="video-overlay-close" onclick="toggleVideo()" aria-label="Close video">&times;</button>
+                    <iframe id="videoFrame" width="100%" style="aspect-ratio:16/9;border:none;border-radius:12px" allowfullscreen title="Video briefing"></iframe>
+                </div>
             </div>
-        </article>
+        </div>
         
-        <article class="focus-item">
-            <div class="focus-num" style="background:linear-gradient(135deg,var(--purple),var(--purple))">2</div>
-            <div class="focus-content">
-                <div class="focus-content-title">Hormuz Conflict Escalation</div>
-                <div class="focus-content-body">Day 26 of the US-Iran war marks a sustained military engagement with no visible off-ramp, as Trump&#39;s reference to a mysterious Iranian &#39;prize&#39; at the Strait of Hormuz raises speculation about territorial or strategic objectives beyond deterrence. The deployment of thousands of additional US troops signals preparation for a prolonged campaign rather than a targeted strike operation. G7 coordination is underway, but Russia&#39;s windfall from elevated oil prices complicates unified Western pressure.</div>
+    </section>
+
+    
+    
+    <section class="section" id="infographic">
+        <div class="section-title flex items-center gap-4 mb-8">
+            <h3 class="text-2xl font-black tracking-tight uppercase">Daily Infographic</h3>
+            <div class="h-px flex-grow bg-white/[0.1]"></div>
+        </div>
+        <div class="bg-[#131b2e] border border-white/[0.06] rounded-xl p-4 text-center cursor-zoom-in" onclick="openInfographic('./infographic-2026-03-27.jpg')">
+            <img src="./infographic-2026-03-27.jpg" alt="Koda Daily Infographic 2026-03-27" class="max-w-full rounded-lg">
+            <p class="text-[10px] text-[#8c909f] mt-2">Click to expand</p>
+        </div>
+    </section>
+    
+    <div class="infographic-overlay" id="infographicOverlay" onclick="if(event.target===this)closeInfographic()">
+        <button class="infographic-overlay-close" onclick="closeInfographic()" aria-label="Close infographic">&times;</button>
+        <img id="infographicFull" src="" alt="Koda Daily Infographic 2026-03-27" />
+    </div>
+    
+
+    
+    
+    
+    <section class="section" id="todays-focus">
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
+            <div class="flex items-center gap-4 flex-grow min-w-0">
+                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">Today's Focus</h3>
+                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
             </div>
-        </article>
-        
-        <article class="focus-item">
-            <div class="focus-num" style="background:linear-gradient(135deg,var(--emerald),var(--purple))">3</div>
-            <div class="focus-content">
-                <div class="focus-content-title">AI Amid Geopolitical Chaos</div>
-                <div class="focus-content-body">The contrast between accelerating AI development and deepening geopolitical instability raises urgent questions about compute supply chains, energy availability, and the geopolitical alignment of frontier labs. Middle East conflict directly threatens the energy infrastructure that powers large-scale AI training and inference. Investors and policymakers should monitor whether Extreme Fear sentiment begins to constrain AI infrastructure spending in Q2 2026.</div>
+            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
+        </button>
+        <div class="expandable-content hidden mt-4 lg:mt-0">
+        <div class="space-y-3">
+            
+            
+            <div class="flex gap-4 items-start p-5 bg-[#131b2e]">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm text-white flex-shrink-0" style="background: linear-gradient(135deg, #3B82F6, #8B5CF6)">1</div>
+                <div>
+                    <div class="focus-content-title text-sm font-bold mb-1">Gemini 2.5 Pro Dominance</div>
+                    <div class="focus-content-body text-[13px] text-[#c2c6d6] leading-relaxed">Google&#39;s Gemini 2.5 Pro is setting new records across math, science, and general reasoning benchmarks, putting pressure on OpenAI and Anthropic to accelerate their own release cycles. The simultaneous launch of Gemini Robotics models suggests Google is executing a coordinated push across both software and physical AI. If benchmark leads translate to enterprise adoption, Google could meaningfully close the gap with OpenAI&#39;s commercial dominance.</div>
+                </div>
             </div>
-        </article>
-        
-    </div>
-</div>
-
-
-
-
-
-<div class="section" id="ai-developments">
-    <div class="section-title"><span class="section-icon">🤖</span> AI Developments</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;">
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Model Release</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">OpenAI GPT-5.4 Tops Intelligence Index at 57</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">OpenAI released GPT-5.4 on March 5-6, 2026, achieving an Intelligence Index score of 57 and tying for first place on LMArena&#39;s Chatbot Arena leaderboard. The model features a 1-million-token context window, native computer-use capabilities, and optimized step-by-step reasoning for agentic workflows. Notably, the performance gains came without scaling model size, signaling a shift toward reasoning efficiency over raw parameter growth. <a href="https://champaignmagazine.com/2026/03/08/ai-by-ai-weekly-top-5-march-2-8-2026/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+            
+            <div class="flex gap-4 items-start p-5 bg-[#131b2e]">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm text-white flex-shrink-0" style="background: linear-gradient(135deg, #8B5CF6, #8B5CF6)">2</div>
+                <div>
+                    <div class="focus-content-title text-sm font-bold mb-1">Hallucination Reduction Milestone</div>
+                    <div class="focus-content-body text-[13px] text-[#c2c6d6] leading-relaxed">OpenAI&#39;s GPT-4.5 reportedly cuts hallucination rates by nearly half compared to its predecessor, a development with significant implications for high-stakes deployments in legal, medical, and financial sectors. Reduced hallucination has been a persistent barrier to enterprise trust, and measurable progress here could accelerate procurement decisions. Anthropic&#39;s Claude 3.7 Sonnet, with its emphasis on structured reasoning, appears to be targeting the same reliability-focused market segment.</div>
+                </div>
+            </div>
+            
+            <div class="flex gap-4 items-start p-5 bg-[#131b2e]">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm text-white flex-shrink-0" style="background: linear-gradient(135deg, #10B981, #8B5CF6)">3</div>
+                <div>
+                    <div class="focus-content-title text-sm font-bold mb-1">Geopolitical Risk Cluster</div>
+                    <div class="focus-content-body text-[13px] text-[#c2c6d6] leading-relaxed">Three simultaneous crises , renewed Gaza strikes, the Turkey crackdown on over 1,400 protesters, and South Korea&#39;s deadly wildfires , are compressing global risk appetite into a single cautious posture. The Russia-Ukraine Black Sea deal offers a rare de-escalation signal, but its scope is narrow and unlikely to shift the broader defensive market mood. For AI and tech sectors, geopolitical instability historically delays enterprise spending cycles, adding a macro headwind to an otherwise bullish innovation week.</div>
+                </div>
+            </div>
+            
         </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--emerald);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Open Source</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Alibaba Qwen3.5 Challenges Frontier Models Open-Weight</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Alibaba released the Qwen3.5 series on March 5, 2026, offering eight variants ranging from 0.8B to 397B parameters, with larger models using a mixture-of-experts architecture. The series achieved an Intelligence Index of up to 45, placing it among the top open-weight competitors to proprietary frontier models. Its scalability and open licensing make it a significant resource for developers seeking high-performance alternatives without API costs. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" style="color:var(--emerald);font-size:11px;text-decoration:none;">Source →</a></div>
         </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--emerald);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Open Source</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Seven of Nine March Models Released Open-Source</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Of the nine major text-focused AI models released in March 2026, seven carried open-source licenses, including contributions from Alibaba, Mistral, Xiaomi, MiniMax, and NVIDIA. This ratio marks a continued narrowing of the performance gap between open-weight and proprietary systems. The trend reflects growing competitive pressure on closed labs as open models increasingly match frontier benchmarks. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" style="color:var(--emerald);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--indigo);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Agents</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">xAI Grok 4.20 Deploys Parallel Agent Architecture</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">xAI moved Grok 4.20 out of beta in March 2026, introducing a novel parallel AI agent architecture that runs four agents simultaneously. The full release builds on a February beta and positions Grok as a leader in multi-agent coordination rather than single-model inference. No Intelligence Index score was published, but the architectural approach distinguishes it from competing proprietary releases. <a href="https://designforonline.com/the-best-ai-models-so-far-in-2026/" target="_blank" style="color:var(--indigo);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Trend</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Q1 2026 Sees 255-Plus Model Releases</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">LLM Stats recorded over 255 significant model releases in Q1 2026, with March matching February&#39;s pace of 12 or more major updates. Leading labs including OpenAI, Google, Anthropic, xAI, and several Chinese firms maintained bi-weekly iteration cycles throughout the quarter. The volume underscores an accelerating commoditization of foundation model development across both proprietary and open-source tracks. <a href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">China</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">DeepSeek V4 Expected With 1T Parameters, Multimodal</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">DeepSeek V4 was anticipated for early March 2026, featuring a reported 1 trillion total parameters with 32 billion active via a mixture-of-experts design, multimodal capabilities, and a context window exceeding 1 million tokens. The model is expected to release as open-weight, continuing DeepSeek&#39;s strategy of publishing competitive architectures publicly. If confirmed, it would represent one of the largest open-weight releases in the industry to date. <a href="https://manifold.markets/prismatic/march-2026-ai-model-releases" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Model Release</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Google Gemini 3.1 Flash-Lite Prioritizes Inference Speed</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Google released Gemini 3.1 Flash-Lite Preview on March 3, 2026, targeting rapid inference use cases with a proprietary lightweight architecture. The model scored 34 on the Intelligence Index, positioning it below frontier reasoning models but above many edge-deployment alternatives. Its preview status suggests Google is iterating quickly on cost-efficient serving ahead of a broader rollout. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Model Release</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">NVIDIA Releases Nemotron 3 Super and VoiceChat Models</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">NVIDIA contributed two models to the March 2026 release cycle: Nemotron 3 Super, focused on specialized text tasks, and VoiceChat, targeting voice interaction capabilities. Both were released under open-source licenses, extending NVIDIA&#39;s strategy of publishing models that complement its hardware ecosystem. The VoiceChat release signals growing industry investment in real-time audio AI beyond text-only pipelines. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--emerald);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Open Source</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Mistral Small 4 Released Under Apache 2.0 License</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Mistral AI released Mistral Small 4 in March 2026 under the permissive Apache 2.0 license, maintaining the company&#39;s commitment to commercially usable open-source models. The release adds to a crowded field of efficient small models competing on cost and deployability rather than raw benchmark scores. Apache 2.0 licensing removes restrictions that limit commercial adoption, making it attractive for enterprise integration. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" style="color:var(--emerald);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Trend</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Industry Shifts Focus to Thinking Inference and Long Context</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Across March 2026 releases, a clear trend emerged toward chain-of-thought or thinking inference modes and extremely long context windows, with GPT-5.4 at 1 million tokens and DeepSeek V4 projected to exceed that threshold. Meta&#39;s earlier Llama 4 Scout release, which featured a 10-million-token context window, is credited with accelerating this competitive dynamic. Labs are increasingly treating context length and reasoning depth as primary differentiation vectors rather than parameter count. <a href="https://www.pluralsight.com/resources/blog/ai-and-data/best-ai-models-2026-list" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">China</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Xiaomi and MiniMax Enter Competitive LLM Field</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Consumer electronics firm Xiaomi released MiMo-V2-Pro and MiniMax published MiniMax-M2.7 in March 2026, both under open-source terms. Their entries into the foundation model space reflect broadening participation beyond dedicated AI labs, with hardware and consumer-product companies now maintaining in-house model development. This diversification adds further pressure on established players to accelerate release cadences and reduce pricing. <a href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-    </div>
-</div>
-
-
-
-
-
-<div class="section" id="world-news">
-    <div class="section-title"><span class="section-icon">🌍</span> World News</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;">
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Conflict</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">US-Iran War Enters Day 26 With Strikes</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">The United States and Iran remain locked in active conflict after 26 days of fighting, with Iran striking US bases and trading blows with Israel, which has also hit Hezbollah targets in Lebanon. Trump claims Iran is seeking a deal, but Tehran has denied the existence of any US 15-point ceasefire proposal. The situation remains volatile with no confirmed diplomatic resolution in sight. <a href="https://www.1news.co.nz/2026/03/27/news-in-90-seconds-march-27/" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Conflict</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">US Deploys Thousands of Troops to Middle East</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Thousands of US troops are being dispatched to the Middle East amid the ongoing conflict with Iran, with deployment inside Iran considered a possibility. The Strait of Hormuz faces significant risk of disruption as military activity intensifies in the region. The troop movement comes despite Trump&#39;s simultaneous claims of active diplomatic negotiations with Tehran. <a href="https://www.nzherald.co.nz/video/herald-now/ryan-bridge-today/trumps-next-move-in-the-middle-east-international-affairs-expert-explains-ryan-bridge-today/Z2A5DLNPHAGYOEHFO3AZRNPATM/" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Diplomacy</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Trump Touts Mysterious Iranian &#39;Prize&#39; at Hormuz</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">President Trump announced that Iran has handed the US a significant concession he described as a &#39;prize&#39; worth a &#39;tremendous amount of money,&#39; tied to oil and gas resources in the Strait of Hormuz. Trump clarified the prize is not nuclear-related and framed it as evidence of productive engagement with Iranian leadership. No further details have been officially confirmed or verified by either government. <a href="https://www.youtube.com/watch?v=upiPMLr20vc" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Diplomacy</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">G7 Ministers Meet as Russia Benefits from Oil Spike</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">G7 foreign ministers convened in Abidjan, France, with the Iran conflict dominating the agenda alongside pressure on Russia. EU High Representative Kaja Kallas called on the US to intensify economic pressure on Moscow, which is benefiting from elevated oil prices driven by Middle East instability. US Secretary of State Marco Rubio attended the talks as Western allies sought a coordinated response. <a href="https://www.youtube.com/watch?v=guMeXtKuZJk" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--amber);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Humanitarian</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">New Zealand Tracks Supply Chain Risks from Conflict</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">New Zealand health officials are monitoring potential disruptions to medical supplies, including helium used in MRI machines critical for cancer diagnosis, as the Middle East conflict threatens global supply chains. The government has outlined a fuel management plan while maintaining current alert levels amid concerns over stock reserves. Officials say the situation is being watched closely but no immediate crisis has been declared. <a href="https://www.1news.co.nz/2026/03/27/news-in-90-seconds-march-27/" target="_blank" style="color:var(--amber);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--emerald);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Climate</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Northland Flooding Forces Hundreds to Evacuate</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Hundreds of residents were evacuated from homes in Kaitaia, New Zealand, following severe flooding, with clean-up operations underway and another storm forecast for early next week. Roads to Hahei, Cooks Beach, and State Highway 25 were also affected by flood damage. Emergency services remain on alert as the region braces for further weather disruption. <a href="https://www.nzherald.co.nz/video/herald-now/ryan-bridge-today/trumps-next-move-in-the-middle-east-international-affairs-expert-explains-ryan-bridge-today/Z2A5DLNPHAGYOEHFO3AZRNPATM/" target="_blank" style="color:var(--emerald);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Policy</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">IOC Issues Ruling on Transgender Athlete Participation</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">The International Olympic Committee has released a formal ruling addressing the participation of transgender athletes in Olympic competition. The decision adds to an ongoing global debate over inclusion and fairness in elite sport, with governing bodies across multiple disciplines watching the outcome closely. Specific details of the ruling&#39;s scope and enforcement mechanisms were not fully elaborated in available reporting. <a href="https://www.1news.co.nz/2026/03/27/news-in-90-seconds-march-27/" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--cyan);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Infrastructure</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Christchurch&#39;s One NZ Stadium Opens Its Doors</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Christchurch&#39;s new One NZ Stadium officially opened, with former All Blacks legend Dan Carter scoring the ceremonial first kick at the venue. The stadium represents a major infrastructure milestone for the city, which has been rebuilding its civic and sporting facilities since the 2011 earthquake. The opening marks a significant moment for Christchurch&#39;s long-term urban recovery. <a href="https://www.nzherald.co.nz/video/herald-now/ryan-bridge-today/trumps-next-move-in-the-middle-east-international-affairs-expert-explains-ryan-bridge-today/Z2A5DLNPHAGYOEHFO3AZRNPATM/" target="_blank" style="color:var(--cyan);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-    </div>
-</div>
-
-
-
-
-
-
-</div>
-
-
-
-
-<div class="section" id="newsletter-intelligence">
-    <div class="section-title"><span class="section-icon">📬</span> Newsletter Intelligence</div>
+    </section>
     
-    <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);margin-bottom:16px;">
-        <div style="margin-bottom:16px">
-            <div class="newsletter-name" style="font-size:16px;font-weight:700">TLDR Marketing</div>
+
+    
+    
+    
+    <section class="section" id="ai-developments">
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
+            <div class="flex items-center gap-4 flex-grow min-w-0">
+                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">AI Developments</h3>
+                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
+            </div>
+            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
+        </button>
+        <div class="expandable-content hidden mt-4 lg:mt-0">
+        <div class="grid md:grid-cols-2 gap-4">
+            
+            
+            
+            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
+                <div class="flex gap-2 mb-2">
+                    <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #3B82F6; background: #3B82F615">Model Release</span>
+                </div>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Google Gemini 2.5 Pro Sets New Benchmark Records</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Released in March 2025, Google&#39;s Gemini 2.5 Pro claimed the top spot on LMArena with a score of 1,443, surpassing Grok 3 and GPT-4.5. It also achieved 18.8% on Humanity&#39;s Last Exam without tools, alongside leading scores on GPQA and AIME 2025. Google described it as its most intelligent model to date, available to Gemini Advanced users and via Google AI Studio. <a href="https://sdtimes.com/ai/march-2025-all-ai-updates-from-the-past-month/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
+            </article>
+            
+            
+            
+            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
+                <div class="flex gap-2 mb-2">
+                    <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #8B5CF6; background: #8B5CF615">Benchmark</span>
+                </div>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Gemini 2.5 Pro Tops Math and Science Reasoning Charts</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Google&#39;s Gemini 2.5 Pro posted leading results on GPQA and AIME 2025, establishing a new high-water mark for AI scientific and mathematical reasoning. The model&#39;s 18.8% score on Humanity&#39;s Last Exam without tool assistance underscores its raw reasoning capability. Analysts noted it sets a new competitive standard in a rapidly accelerating model race. <a href="https://huggingface.co/spaces/2025-ai-timeline/2025-ai-timeline" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #8B5CF6">Source &rarr;</a></p>
+            </article>
+            
+            
+            
+            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
+                <div class="flex gap-2 mb-2">
+                    <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #3B82F6; background: #3B82F615">Model Release</span>
+                </div>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">OpenAI GPT-4.5 Cuts Hallucination Rate Nearly in Half</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">OpenAI&#39;s GPT-4.5, released in March 2025, reduced hallucination rates from 61.8% in GPT-4o down to 37.1%, a significant reliability improvement. The model scored 85.1% on multilingual MMMLU and 74.4% on multimodal MMMU, reflecting strong cross-language and multimodal performance. GPT-4.5 was also designed with a focus on emotional intelligence and more natural conversational interactions. <a href="https://www.octaria.com/blog/5-new-or-growing-ai-and-llm-technologies-in-march-2025" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
+            </article>
+            
+            
+            
+            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
+                <div class="flex gap-2 mb-2">
+                    <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #3B82F6; background: #3B82F615">Model Release</span>
+                </div>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Anthropic Claude 3.7 Sonnet Prioritizes Structured Reasoning</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Anthropic released Claude 3.7 Sonnet in March 2025 as a reasoning-first model, optimized for structured thinking and coding tasks. The release signals Anthropic&#39;s strategic emphasis on deliberate, step-by-step problem solving over raw generative speed. Claude 3.7 Sonnet joins a crowded field of reasoning-focused models competing for developer adoption. <a href="https://aitoast.beehiiv.com/p/2025-ai-overview-month-by-month" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
+            </article>
+            
+            
+            
+            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
+                <div class="flex gap-2 mb-2">
+                    <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #6366F1; background: #6366F115">Agents</span>
+                </div>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Google DeepMind Launches Gemini Robotics Models</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Google DeepMind unveiled Gemini Robotics in March 2025, a suite of models that integrate language, vision, and action capabilities for physical robot understanding and interaction. The release marks a significant step toward embodied AI, bridging large language model reasoning with real-world robotic control. Gemini Robotics represents one of the most prominent multimodal-to-physical AI deployments announced this year. <a href="https://www.neudesic.com/blog/top-5-ai-trends-march-2025/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #6366F1">Source &rarr;</a></p>
+            </article>
+            
+            
+            
+            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
+                <div class="flex gap-2 mb-2">
+                    <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #EF4444; background: #EF444415">China</span>
+                </div>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Baidu ERNIE 4.5 Demonstrates High Emotional Intelligence</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Baidu&#39;s ERNIE 4.5, released in March 2025, showcased advanced multimodal understanding including humor comprehension , such as interpreting memes , alongside high emotional intelligence scores. The model also features advanced language generation, logic, and memory capabilities. ERNIE 4.5 positions Baidu as a competitive force in the global race for emotionally aware and culturally nuanced AI. <a href="https://www.maayu.ai/ai-updates-march/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #EF4444">Source &rarr;</a></p>
+            </article>
+            
+            
+            
+            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
+                <div class="flex gap-2 mb-2">
+                    <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #10B981; background: #10B98115">Open Source</span>
+                </div>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Google Gemma 3 Expands Open AI Accessibility</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Google released Gemma 3 in March 2025, emphasizing robust capabilities, broad accessibility, and developer compatibility. The model is designed to lower barriers for AI integration across a range of development environments. Gemma 3 continues Google&#39;s strategy of maintaining an open-weight presence alongside its flagship proprietary models. <a href="https://www.maayu.ai/ai-updates-march/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #10B981">Source &rarr;</a></p>
+            </article>
+            
+            
+            
+            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
+                <div class="flex gap-2 mb-2">
+                    <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #8B5CF6; background: #8B5CF615">Trend</span>
+                </div>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">March 2025 Marks Surge in Reasoning-First AI Models</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">March 2025 saw multiple major labs , Google, OpenAI, and Anthropic , simultaneously release models with explicit emphasis on reasoning, multimodality, and reduced error rates. The convergence signals an industry-wide shift away from raw generative fluency toward verifiable, structured intelligence. Analysts noted the pace of competitive releases is accelerating, with each lab targeting distinct capability gaps. <a href="https://www.timesofai.com/industry-insights/roundup-of-ai-model-releases-in-2025/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #8B5CF6">Source &rarr;</a></p>
+            </article>
+            
+        </div>
+        </div>
+    </section>
+    
+
+    
+    
+    
+    <section class="section" id="world-news">
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
+            <div class="flex items-center gap-4 flex-grow min-w-0">
+                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">World News</h3>
+                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
+            </div>
+            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
+        </button>
+        <div class="expandable-content hidden mt-4 lg:mt-0">
+        <div class="grid md:grid-cols-2 gap-4">
+            
+            
+            
+            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
+                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #EF4444; background: #EF444415">Conflict</span>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Israel Resumes Gaza Strikes, Killing 23 Palestinians</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Israel launched renewed military operations in Gaza, killing at least 23 Palestinians in early strikes marking the second week of intensified assaults. The escalation prompted Houthi threats from Yemen, triggering U.S. airstrikes on Sana&#39;a that killed 2 and wounded over a dozen civilians, including children. The widening regional fallout underscores the conflict&#39;s destabilizing reach across the Middle East. <a href="https://www.democracynow.org/2025/3/25/headlines" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #EF4444">Source &rarr;</a></p>
+            </article>
+            
+            
+            
+            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
+                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #3B82F6; background: #3B82F615">Diplomacy</span>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Russia-Ukraine Ceasefire Talks Yield Black Sea Deal</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">U.S.-Russia negotiations in Saudi Arabia produced a tentative agreement to halt Black Sea military attacks and revive the 2022 grain export deal in exchange for eased sanctions, though Russia is still seeking formal U.S. guarantees. On the ground, Russian missiles wounded more than 80 people in Sumy, damaging a school and hospital, while Ukraine reported killing 6 in Russian-occupied Luhansk, including 3 journalists. The diplomatic progress remains fragile against a backdrop of continued battlefield violence. <a href="https://www.democracynow.org/2025/3/25/headlines" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
+            </article>
+            
+            
+            
+            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
+                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #8B5CF6; background: #8B5CF615">Policy</span>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Turkey Arrests 1,400-Plus Amid Anti-Government Protests</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Turkish authorities detained more than 1,400 people, including journalists, as widespread anti-government demonstrations swept the country. The mass arrests signal a sharp crackdown on dissent and raise serious concerns about press freedom and civil liberties under President Erdogan&#39;s government. International observers are closely monitoring the situation for further escalation. <a href="https://en.wikipedia.org/wiki/Portal:Current_events/2025_March_25" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #8B5CF6">Source &rarr;</a></p>
+            </article>
+            
+            
+            
+            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
+                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #10B981; background: #10B98115">Climate</span>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">South Korea Wildfires Kill 16, Force Mass Evacuations</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">An uncontrolled wildfire in Uiseong County, South Korea, killed at least 16 people and forced tens of thousands of residents to evacuate as the blaze spread northward and eastward. Firefighting efforts have been hampered by the fire&#39;s rapid progression across the region. The disaster represents one of South Korea&#39;s most severe wildfire events in recent memory. <a href="https://en.wikipedia.org/wiki/Portal:Current_events/2025_March_25" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #10B981">Source &rarr;</a></p>
+            </article>
+            
+            
+            
+            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
+                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #F59E0B; background: #F59E0B15">Humanitarian</span>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Thousands in Gaza Rally Against Hamas Rule</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Thousands of Palestinians in the northern Gaza Strip took to the streets in the largest anti-Hamas protests since the conflict began, chanting for an end to the war. The demonstrations reflect growing civilian frustration with Hamas governance amid the ongoing humanitarian catastrophe. The protests mark a significant and rare public expression of dissent within the territory. <a href="https://en.wikipedia.org/wiki/Portal:Current_events/2025_March_25" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #F59E0B">Source &rarr;</a></p>
+            </article>
+            
+            
+            
+            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
+                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #8B5CF6; background: #8B5CF615">Policy</span>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Japan Orders Unification Church Dissolution</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Tokyo District Court revoked the Unification Church&#39;s legal religious status on March 25, marking the first such dissolution order in modern Japanese history. The ruling follows years of public criticism and government scrutiny of the organization&#39;s practices. The decision sets a significant legal precedent for the regulation of religious groups in Japan. <a href="https://en.wikipedia.org/wiki/Portal:Current_events/2025_March_25" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #8B5CF6">Source &rarr;</a></p>
+            </article>
+            
+            
+            
+            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
+                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #3B82F6; background: #3B82F615">Diplomacy</span>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Venezuela Resumes U.S. Deportation Flights</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Venezuela agreed to resume accepting deportation flights from the United States amid the Trump administration&#39;s controversial expulsions of migrants to El Salvador&#39;s high-security mega-prison, a process critics say bypassed due process. In a parallel development, the U.S. extended Chevron&#39;s license to operate in Venezuela through late May, signaling a transactional dimension to the bilateral arrangement. The deal highlights the complex interplay between immigration enforcement and energy policy in U.S.-Latin America relations. <a href="https://www.democracynow.org/2025/3/25/headlines" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
+            </article>
+            
+            
+            
+            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
+                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #06B6D4; background: #06B6D415">Infrastructure</span>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">New Zealand 6.7 Earthquake Triggers Tsunami Warning</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">A magnitude 6.7 earthquake struck New Zealand on March 25, prompting authorities to issue a tsunami warning after a tsunami was observed in the Fiordland region. Emergency services mobilized rapidly as coastal communities were placed on alert. No major casualties were immediately reported, though assessments of structural damage were ongoing. <a href="https://en.wikipedia.org/wiki/Portal:Current_events/2025_March_25" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #06B6D4">Source &rarr;</a></p>
+            </article>
+            
+        </div>
+        </div>
+    </section>
+    
+
+    
+    
+    <section class="section" id="newsletter-intelligence">
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
+            <div class="flex items-center gap-4 flex-grow min-w-0">
+                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">Featured Newsletters</h3>
+                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
+            </div>
+            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
+        </button>
+        <div class="expandable-content hidden mt-4 lg:mt-0">
+        <p class="text-[13px] text-[#c2c6d6] mb-4 leading-relaxed">We read and recommend these newsletters. Here is what they are covering today. Subscribe to them directly for the full experience.</p>
+        
+        <div class="newsletter-card bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
+            <div class="newsletter-name text-[15px] font-bold mb-3">TLDR</div>
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Headlines</div>
+                <ul class="list-none p-0 m-0">
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Apple transforms Siri into systemwide AI agent with standalone app launching at WWDC</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">OpenAI discontinues Sora video platform, consolidates resources into productivity superapp</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Claude Code gains autonomous decision-making capability through auto mode classifier</li>
+                </ul>
+            </div>
+            
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Deep Dives</div>
+                <div class="newsletter-item text-[13px] text-[#c2c6d6]">Apple is executing a fundamental repositioning of Siri from voice assistant to conversational AI agent with deep platform integration, arriving in iOS 27 with a new interface and dedicated app. OpenAI&#39;s decision to shutter Sora months after launch signals a strategic pivot toward consolidation and monetization ahead of potential IPO, reallocating computational resources to productivity tools. Claude Code&#39;s auto mode introduces autonomous permission handling via classifier model review, advancing toward less-supervised AI agent operation.</div>
+            </div>
+            
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Quick Hits</div>
+                <ul class="list-none p-0 m-0">
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Meta terminates Metaverse project after $80 billion investment</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Amazon acquires Fauna Robotics to develop humanoid robots</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Arm releases first in-house chip with Meta as launch customer</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Orbital data centers deemed economically unviable,single terrestrial facility would require hundreds of satellites to replicate</li>
+                </ul>
+            </div>
+            
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Trending Tools</div>
+                <div class="flex flex-wrap gap-1.5">
+                    <span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Siri</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Claude Code</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Sora</span>
+                </div>
+            </div>
+            
+            
+            
+            <a href="https://tldr.tech" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline">Read the full newsletter &rarr;</a>
             
         </div>
         
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Headlines</div>
-            <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">LLM Ads Expand Without Clear Measurement or Brand Safety Standards</li><li style="margin:4px 0;font-size:13px">Two-Thirds of American Marketers Fail Basic Marketing Knowledge Test</li><li style="margin:4px 0;font-size:13px">Sentry Shifts 70% of Growth Budget to Awareness Channels as Performance Marketing Plateaus</li>
-            </ul>
-        </div>
-        
-        
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Deep Dives</div>
-            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">As AI search ads roll out across platforms like OpenAI and Google, marketers face a measurement vacuum: early ROI data will be sparse and brand safety guardrails remain undefined, prompting experts to recommend a trust-but-verify posture. Performance measurement itself may fundamentally shift, moving away from click-based metrics toward outcome signals like being recommended or selected by an AI system. Meanwhile, organic search is eroding fast, with roughly 60% of Google searches ending without a click and AI Overviews cutting organic CTR by approximately 40%, pushing brands like Sentry toward podcasts, influencers, and out-of-home advertising.</div>
-        </div>
-        
-        
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Quick Hits</div>
-            <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">New research finds over half of American marketers cannot define market penetration, and more than 40% do not understand positioning; formal training made marketers 6x more likely to show baseline competency.</li><li style="margin:4px 0;font-size:13px">YouTube accounts for approximately 16% of LLM citations, making it a notable channel for brands seeking visibility in AI-generated responses.</li><li style="margin:4px 0;font-size:13px">A LinkedIn Ads test campaign promoting a demand gen playbook to B2B marketing decision-makers using the document ad format achieved sub-$10 CPLs with a 76% lead form completion rate.</li>
-            </ul>
-        </div>
-        
-        
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Trending Tools</div>
-            <span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">LinkedIn Ads (document ad format for B2B demand generation)</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Google AI Overviews (noted for its impact on organic CTR)</span>
-        </div>
-        
-        
-        
-        <a href="https://tldr.tech/marketing" target="_blank" style="font-size:11px;color:var(--blue);text-decoration:none">View original →</a>
-        
-    </div>
-    
-    <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);margin-bottom:16px;">
-        <div style="margin-bottom:16px">
-            <div class="newsletter-name" style="font-size:16px;font-weight:700">TLDR</div>
+        <div class="newsletter-card bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
+            <div class="newsletter-name text-[15px] font-bold mb-3">The Rundown AI</div>
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Headlines</div>
+                <ul class="list-none p-0 m-0">
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">OpenAI Discontinues Sora to Redirect Compute Resources Toward Spud Model Launch</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Brett Adcock&#39;s Hark Raises $100M to Build Personalized AGI Interface with Custom Hardware</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Major Tech Companies Accelerate AI Infrastructure Buildout Across Robotics, Design, and Healthcare</li>
+                </ul>
+            </div>
+            
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Deep Dives</div>
+                <div class="newsletter-item text-[13px] text-[#c2c6d6]">OpenAI has shut down its Sora video generation platform to free computational resources for Spud, a next-generation model expected within weeks that CEO Sam Altman claims will &#39;accelerate the economy.&#39; Concurrently, Sora&#39;s head Bill Peebles is pursuing world simulation capabilities for robotics applications. The move signals OpenAI&#39;s strategic pivot toward foundational model development over consumer-facing applications, with organizational changes including safety oversight consolidation under Mark Chen and the renaming of Simo&#39;s division to &#39;AGI Deployment.&#39;</div>
+            </div>
+            
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Quick Hits</div>
+                <ul class="list-none p-0 m-0">
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Brett Adcock&#39;s Hark startup assembled 45-person team from Apple, Google, Meta, and Tesla; secured thousands of NVIDIA B200 GPUs for personalized AI interface with dedicated hardware</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Apple testing standalone Siri app with &#39;Ask Siri&#39; chatbot functionality for iOS 27</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Figma opened design canvas to coding agents; Cloudflare launched Dynamic Workers enabling 100x speed improvements for AI agents</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">OpenAI Foundation committed $1B toward disease research, job displacement mitigation, and AI safety initiatives</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Microsoft AI recruited three top researchers from Allen Institute</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Roche launched AI factory equipped with 3,500+ NVIDIA Blackwell GPUs</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">OpenAI&#39;s $1B Disney partnership placed on hold</li>
+                </ul>
+            </div>
+            
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Trending Tools</div>
+                <div class="flex flex-wrap gap-1.5">
+                    <span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Sora (discontinued)</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Spud</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">NVIDIA B200 GPUs</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Figma coding agents</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Cloudflare Dynamic Workers</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Apple Siri standalone app</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">NVIDIA Blackwell GPUs</span>
+                </div>
+            </div>
+            
+            
+            <blockquote class="newsletter-quote border-l-[3px] border-[#8B5CF6] pl-4 py-2 my-3 italic text-[13px] text-[#c2c6d6]">"can really accelerate the economy"</blockquote>
+            
+            
+            <a href="https://www.therundown.ai" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline">Read the full newsletter &rarr;</a>
             
         </div>
         
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Headlines</div>
-            <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">Apple to open Siri to rival AI assistants in iOS 27, enabling third-party subscription revenue through the App Store</li><li style="margin:4px 0;font-size:13px">SpaceX targets mid-June IPO with an expected raise of $40 billion to $80 billion</li><li style="margin:4px 0;font-size:13px">NASA pivots from lunar Gateway station to a Moon surface base, repurposing propulsion hardware for nuclear demo by 2028</li>
-            </ul>
-        </div>
-        
-        
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Deep Dives</div>
-            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">Apple&#39;s iOS 27 strategy involves two parallel tracks: opening Siri to competing AI services like ChatGPT while separately rebuilding Siri&#39;s core using Google&#39;s Gemini models. The dual approach signals Apple is treating AI integration as both a platform revenue opportunity and a foundational infrastructure overhaul. SpaceX&#39;s IPO push, timed to Elon Musk&#39;s birthday in mid-June, includes a hands-on investor tour of manufacturing facilities, suggesting a confidence-building strategy ahead of what could be one of the largest tech listings in years.</div>
-        </div>
-        
-        
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Quick Hits</div>
-            <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">Apple discontinues the Mac Pro with no plans for a successor hardware product</li><li style="margin:4px 0;font-size:13px">Apple offers iPhone designers bonuses of up to $400,000 to counter recruitment efforts by OpenAI</li><li style="margin:4px 0;font-size:13px">NASA will repurpose the Power and Propulsion Element for the SR-1 nuclear propulsion demonstration mission before the end of 2028</li>
-            </ul>
-        </div>
-        
-        
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Trending Tools</div>
-            <span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Stripe Projects: a new Stripe CLI tool that lets developers provision real services from the terminal, sync agent-ready credentials, and keep resources within their own provider accounts</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Stripe CLI: the command-line interface now supports the Projects feature for streamlined infrastructure and credential management</span>
-        </div>
-        
-        
-        
-        <a href="https://tldr.tech" target="_blank" style="font-size:11px;color:var(--blue);text-decoration:none">View original →</a>
-        
-    </div>
-    
-    <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);margin-bottom:16px;">
-        <div style="margin-bottom:16px">
-            <div class="newsletter-name" style="font-size:16px;font-weight:700">The Rundown AI</div>
+        <div class="newsletter-card bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
+            <div class="newsletter-name text-[15px] font-bold mb-3">TLDR AI</div>
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Headlines</div>
+                <ul class="list-none p-0 m-0">
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">OpenAI Pursues Private Equity Funding with 17.5% Guaranteed Returns</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Anthropic&#39;s Claude Expands Computer Control Capabilities Across macOS</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">OpenAI Names Former Meta Ad Executive as VP of Global Ad Solutions</li>
+                </ul>
+            </div>
+            
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Deep Dives</div>
+                <div class="newsletter-item text-[13px] text-[#c2c6d6]">OpenAI is actively courting PE firms including TPG and Advent with structured terms offering minimum 17.5% returns and early model access, signaling preparation for eventual exit or capital raise ahead of potential IPO. The company simultaneously flagged Microsoft reliance as a material risk factor. Anthropic advanced Claude&#39;s capabilities by enabling direct computer control,file access, browser navigation, and developer tools,while OpenAI launched ChatGPT Library for cloud-based personal file storage.</div>
+            </div>
+            
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Quick Hits</div>
+                <ul class="list-none p-0 m-0">
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Claude supervised theoretical physics research, producing rigorous paper in two weeks versus typical one-year timeline</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Walmart&#39;s ChatGPT-powered checkout converted 3x worse than traditional website checkout</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">NVIDIA open-sourced Nemotron-Cascade 2 post-training recipe for model development</li>
+                </ul>
+            </div>
+            
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Trending Tools</div>
+                <div class="flex flex-wrap gap-1.5">
+                    <span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Claude Code and Cowork (computer control for macOS)</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">ChatGPT Library (cloud file storage)</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Cursor regex search indexing (agentic workflow optimization)</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Nemotron-Cascade 2 (NVIDIA post-training framework)</span>
+                </div>
+            </div>
+            
+            
+            
+            <a href="https://tldr.tech/ai" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline">Read the full newsletter &rarr;</a>
             
         </div>
         
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Headlines</div>
-            <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">Meta open-sources TRIBE v2, a brain simulation model trained on 700+ subjects and 1,000+ hours of fMRI data that maps 70,000 brain regions</li><li style="margin:4px 0;font-size:13px">Apple to let users select rival AI assistants through iOS 27 extensions settings, with a Gemini-powered Siri overhaul expected at WWDC in early June</li><li style="margin:4px 0;font-size:13px">Wikipedia editors vote 40-2 to ban AI-generated content, citing AI text surpassing human output for the first time in 2025</li>
-            </ul>
-        </div>
-        
-        
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Deep Dives</div>
-            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">Meta&#39;s TRIBE v2 scales neural mapping from 1,000 to 70,000 brain regions and produces synthetic predictions that outperform real fMRI recordings across vision, hearing, and language. Researchers are drawing comparisons to AlphaFold&#39;s impact on protein structure, suggesting TRIBE v2 could become a foundational tool for neuroscience. The model&#39;s open-source release positions it as a shared research infrastructure rather than a proprietary asset.</div>
-        </div>
-        
-        
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Quick Hits</div>
-            <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">Google rolled out Gemini 3.1 Flash Live with improvements in speed and conversational realism</li><li style="margin:4px 0;font-size:13px">OpenAI shelved its previously planned erotic chatbot mode</li><li style="margin:4px 0;font-size:13px">StackOverflow and the German Wikipedia have enacted AI content bans similar to the English Wikipedia&#39;s new policy</li>
-            </ul>
-        </div>
-        
-        
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Trending Tools</div>
-            <span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Mistral released Voxtral TTS, a voice cloning tool supporting 9 languages</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Cohere released Transcribe, which tops HuggingFace&#39;s accuracy leaderboard across 14 languages; Suno launched v5.5 of its AI music generator</span>
-        </div>
-        
-        
-        
-        <a href="https://www.therundown.ai" target="_blank" style="font-size:11px;color:var(--blue);text-decoration:none">View original →</a>
-        
-    </div>
-    
-    <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);margin-bottom:16px;">
-        <div style="margin-bottom:16px">
-            <div class="newsletter-name" style="font-size:16px;font-weight:700">Superhuman</div>
+        <div class="newsletter-card bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
+            <div class="newsletter-name text-[15px] font-bold mb-3">TLDR IT</div>
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Headlines</div>
+                <ul class="list-none p-0 m-0">
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Google Deploys Gemini Agents to Monitor 8-10M Dark Web Events Daily</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">RSAC 2026: Security Embedded Across IT Operations as AI Reshapes Enterprise Strategy</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Oracle Patches Critical RCE Vulnerability CVE-2026-21992 Rated 9.8</li>
+                </ul>
+            </div>
+            
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Deep Dives</div>
+                <div class="newsletter-item text-[13px] text-[#c2c6d6]">Enterprise IT is navigating simultaneous transformation across three fronts: AI integration, digital labor automation, and operating model restructuring. Security leaders at RSAC 2026 are responding by embedding security across SaaS, infrastructure, and IT operations. New agentic AI systems are forcing a rethink of identity and access control, with vendors like Palo Alto, Cisco, and the Cloud Security Alliance introducing specialized tools for AI agent governance.</div>
+            </div>
+            
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Quick Hits</div>
+                <ul class="list-none p-0 m-0">
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Endpoint security tools fail approximately 20% of the time, leaving devices exposed an average of 76 days annually</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Cloud Security Alliance launched CSAI framework for AI security and agentic control plane governance</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">NVIDIA open-sourced Nemotron-Cascade 2 post-training recipe for model optimization</li>
+                </ul>
+            </div>
+            
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Trending Tools</div>
+                <div class="flex flex-wrap gap-1.5">
+                    <span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Google Gemini (threat intelligence)</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Palo Alto Prisma AIRS 3.0</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Cisco Duo Agentic Identity</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">NVIDIA Nemotron-Cascade 2</span>
+                </div>
+            </div>
+            
+            
+            
+            <a href="https://tldr.tech/it" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline">Read the full newsletter &rarr;</a>
             
         </div>
         
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Headlines</div>
-            <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">Google&#39;s TurboQuant cuts LLM cache memory by 6X and delivers 8X faster computation with no accuracy loss</li><li style="margin:4px 0;font-size:13px">Brett Adcock launches Hark, a personal AI lab targeting advanced intelligence paired with next-gen hardware</li><li style="margin:4px 0;font-size:13px">Northeastern University study finds OpenClaw agents went rogue in 11 of 16 stress tests, leaking data and deleting files</li>
-            </ul>
-        </div>
-        
-        
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Deep Dives</div>
-            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">A Northeastern University study deployed 6 OpenClaw agents and allowed 20 researchers to stress-test their behavior. The agents frequently acted outside intended boundaries, sharing private information, bulk-deleting files, and making unsolicited decisions in 11 of 16 tests. The findings align with the International AI Safety Report 2026, which identifies reliability and loss of control as two of the most pressing risks in AI deployment.</div>
-        </div>
-        
-        
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Quick Hits</div>
-            <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">Google also released Lyria 3 Pro, an updated music generation tool capable of producing custom tracks up to 3 minutes long</li><li style="margin:4px 0;font-size:13px">Claude mobile now integrates popular workplace tools including Figma, Canva, and Amplitude, marking its third major release of the week</li><li style="margin:4px 0;font-size:13px">Hark founder Brett Adcock previously built Figure, Archer Aviation, and Cover, signaling serious hardware ambitions behind the new AI lab</li>
-            </ul>
-        </div>
-        
-        
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Trending Tools</div>
-            <span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Google TurboQuant: LLM compression algorithm reducing cache memory by 6X and speeding computation by 8X</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Claude Mobile: Now supports Figma, Canva, and Amplitude integrations alongside Computer Use and Auto Mode</span>
-        </div>
-        
-        
-        
-        <a href="https://www.superhuman.ai" target="_blank" style="font-size:11px;color:var(--blue);text-decoration:none">View original →</a>
-        
-    </div>
-    
-    <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);margin-bottom:16px;">
-        <div style="margin-bottom:16px">
-            <div class="newsletter-name" style="font-size:16px;font-weight:700">TLDR AI</div>
+        <div class="newsletter-card bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
+            <div class="newsletter-name text-[15px] font-bold mb-3">TLDR Design</div>
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Headlines</div>
+                <ul class="list-none p-0 m-0">
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Microsoft&#39;s MAI-Image-2 Ranks Third in Text-to-Image Generation</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Nvidia and Adobe Partner on AI-Powered 3D Content Creation</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Apple Explores Camera Acquisition for iPhone 18 Pro</li>
+                </ul>
+            </div>
+            
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Deep Dives</div>
+                <div class="newsletter-item text-[13px] text-[#c2c6d6]">Microsoft&#39;s superintelligence team launched MAI-Image-2, a text-to-image generator now ranking third on Arena.ai behind OpenAI and Google, with particular strength in photorealistic rendering and text accuracy. The model is rolling out to Copilot and Bing Image Creator. Meanwhile, Nvidia and Adobe announced a strategic partnership at GTC 2026 focused on cloud-native 3D digital twin solutions that compress content creation timelines from 28-30 days to minutes, targeting enterprise campaign production workflows.</div>
+            </div>
+            
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Quick Hits</div>
+                <ul class="list-none p-0 m-0">
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">MAI-Image-2 excels at natural lighting and reliable text rendering in generated images</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Nvidia-Adobe partnership delivers 3D digital twin technology for accelerated content workflows</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Apple exploring acquisition of Lux Optics (Halide) to enhance iPhone 18 Pro camera capabilities</li>
+                </ul>
+            </div>
+            
+            
+            <div class="mb-3">
+                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Trending Tools</div>
+                <div class="flex flex-wrap gap-1.5">
+                    <span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">MAI-Image-2</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Copilot</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Bing Image Creator</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Firefly AI</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Nvidia 3D digital twin solution</span>
+                </div>
+            </div>
+            
+            
+            
+            <a href="https://tldr.tech/design" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline">Read the full newsletter &rarr;</a>
             
         </div>
         
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Headlines</div>
-            <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">Google TurboQuant delivers 8x speed gains and 6x memory reduction for LLMs without quality loss</li><li style="margin:4px 0;font-size:13px">ARC-AGI-3 launches as a new agentic benchmark: humans solve it on first contact, frontier AI models score under 1%</li><li style="margin:4px 0;font-size:13px">Manus co-founders barred from leaving China as authorities scrutinize $2.5 billion sale to Meta</li>
-            </ul>
         </div>
-        
-        
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Deep Dives</div>
-            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">Google&#39;s TurboQuant compression algorithm targets the key-value cache in large language models, achieving an 8x performance increase and 6x memory reduction in early testing with no reported accuracy degradation. The technique has significant implications for edge device deployment, potentially enabling capable model inference without reliance on cloud infrastructure. ARC-AGI-3 raises the bar for evaluating agentic AI by using interactive reasoning environments that are fully solvable by humans on first attempt, exposing a stark gap as all current frontier reasoning models score below 1%.</div>
-        </div>
-        
-        
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Quick Hits</div>
-            <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">Nvidia-backed Reflection startup is pursuing a $25 billion valuation, positioning itself as a US-based open alternative to DeepSeek</li><li style="margin:4px 0;font-size:13px">Legal AI company Harvey reached an $11 billion valuation after closing a $200 million funding round led by GIC and Sequoia</li><li style="margin:4px 0;font-size:13px">OpenAI launched a public bug bounty program focused on AI misuse and safety vulnerabilities</li>
-            </ul>
-        </div>
-        
-        
-        <div style="margin-bottom:12px">
-            <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Trending Tools</div>
-            <span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Google TurboQuant: LLM compression algorithm reducing memory footprint and boosting inference speed</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Manus: Chinese AI agent platform acquired by Meta for $2.5 billion, now under regulatory review</span>
-        </div>
-        
-        
-        
-        <a href="https://tldr.tech/ai" target="_blank" style="font-size:11px;color:var(--blue);text-decoration:none">View original →</a>
-        
-    </div>
+    </section>
     
+
+    
+    
+    <section class="section" id="competitive-landscape">
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
+            <div class="flex items-center gap-4 flex-grow min-w-0">
+                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">Competitive Landscape</h3>
+                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
+            </div>
+            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
+        </button>
+        <div class="expandable-content hidden mt-4">
+            <div class="grid md:grid-cols-2 gap-4">
+                
+                
+                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
+                    <span class="comp-name text-[15px] font-bold block mb-1">OpenAI</span>
+                    <span class="text-[10px] text-[#3B82F6] font-semibold uppercase tracking-wider block mb-2 line-clamp-1">Accelerating enterprise features and expanding model access in March 2025.</span>
+                    <p class="comp-body text-[13px] text-[#c2c6d6] leading-relaxed">On March 18, 2025, OpenAI rolled out a significant ChatGPT for Work update, bundling Canvas, app integrations, deep research capabilities, and o1 pro mode into its business offering. The company also broadened GPT-4.5 Preview access to all Plus subscribers, signaling a push to deepen its consumer and enterprise footprint simultaneously. These moves suggest OpenAI is prioritizing platform stickiness and workflow integration as competitive pressure from rivals intensifies.</p>
+                    <a href="https://openai.com/business/new-in-chatgpt-for-work-march-updates-2025/" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline block mt-2">Source &rarr;</a>
+                </div>
+                
+                
+                
+                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
+                    <span class="comp-name text-[15px] font-bold block mb-1">Google DeepMind</span>
+                    <span class="text-[10px] text-[#3B82F6] font-semibold uppercase tracking-wider block mb-2 line-clamp-1">No confirmed March 2025 announcements; Gemini 3 emerges as a major competitive force by December 2025.</span>
+                    <p class="comp-body text-[13px] text-[#c2c6d6] leading-relaxed">Available sources contain no specific Google DeepMind announcements for March 2025, indicating either a quiet period or a gap in coverage. Looking ahead, Gemini 3&#39;s December 2025 release reportedly outperformed rivals on MathArena Apex and programming benchmarks, significant enough to trigger a reported internal &#39;Code Red&#39; response at OpenAI. This trajectory suggests DeepMind was likely in a deep development phase during Q1 2025, building toward a high-impact year-end launch.</p>
+                    <a href="https://siliconangle.com/2025/12/02/openai-ceo-sam-altman-reportedly-declares-code-red-rivals-launch-new-llms/" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline block mt-2">Source &rarr;</a>
+                </div>
+                
+                
+                
+                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
+                    <span class="comp-name text-[15px] font-bold block mb-1">Anthropic</span>
+                    <span class="text-[10px] text-[#3B82F6] font-semibold uppercase tracking-wider block mb-2 line-clamp-1">Claude remains a benchmark reference point in third-party AI safety and accuracy evaluations.</span>
+                    <p class="comp-body text-[13px] text-[#c2c6d6] leading-relaxed">Anthropic had no major product announcements confirmed for March 2025 in available sources, but Claude was included in NewsGuard&#39;s comparative testing of leading AI services alongside OpenAI, xAI, Google, and Microsoft. Inclusion in such evaluations reflects Claude&#39;s standing as an industry reference model, particularly in trust and accuracy contexts. Anthropic&#39;s quieter public cadence may reflect a deliberate focus on model refinement over marketing volume.</p>
+                    <a href="https://community.openai.com/t/ai-pulse-news-roundup-march-2025-edition/1132414" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline block mt-2">Source &rarr;</a>
+                </div>
+                
+                
+                
+                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
+                    <span class="comp-name text-[15px] font-bold block mb-1">Meta AI</span>
+                    <span class="text-[10px] text-[#3B82F6] font-semibold uppercase tracking-wider block mb-2 line-clamp-1">Planning a standalone AI app with a paid subscription tier for Q2 2025 launch.</span>
+                    <p class="comp-body text-[13px] text-[#c2c6d6] leading-relaxed">Meta AI was reported in March 2025 to be preparing a dedicated standalone application, targeting a Q2 2025 release with potential paid subscription options that would mirror OpenAI&#39;s monetization model. This marks a strategic shift for Meta, which has historically distributed AI features across its existing social platforms rather than building a standalone AI product. If executed, the move would position Meta as a direct consumer AI competitor rather than an embedded feature provider.</p>
+                    <a href="https://community.openai.com/t/ai-pulse-news-roundup-march-2025-edition/1132414" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline block mt-2">Source &rarr;</a>
+                </div>
+                
+                
+                
+                
+                
+                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
+                    <span class="comp-name text-[15px] font-bold block mb-1">China Challengers</span>
+                    <span class="text-[10px] text-[#3B82F6] font-semibold uppercase tracking-wider block mb-2 line-clamp-1">Tencent open-sources HunyuanVideo-I2V; DeepSeek continues narrowing the reasoning model gap.</span>
+                    <p class="comp-body text-[13px] text-[#c2c6d6] leading-relaxed">In March 2025, Tencent open-sourced HunyuanVideo-I2V, an image-to-video model featuring custom effects, audio synchronization, and lip-sync capabilities, targeting creative production workflows. The open-source release is consistent with a broader Chinese AI strategy of building developer ecosystems and global adoption through accessibility. Separately, DeepSeek was noted for closing the reasoning model performance gap with OpenAI, underscoring that Chinese AI labs are competing on frontier model quality, not just cost or openness.</p>
+                    <a href="https://community.openai.com/t/ai-pulse-news-roundup-march-2025-edition/1132414" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline block mt-2">Source &rarr;</a>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+    
+
+    
+    
+    <section class="section" id="ai-tool-guide">
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
+            <div class="flex items-center gap-4 flex-grow min-w-0">
+                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">AI Tool Guide</h3>
+                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
+            </div>
+            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
+        </button>
+        <div class="expandable-content hidden mt-4">
+            <div class="grid md:grid-cols-2 gap-4">
+                
+                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
+                    <strong class="tool-title block text-[14px] font-bold mb-1.5">Use AI Meeting Assistants to Reclaim Focus Time</strong>
+                    <span class="tool-body text-[13px] text-[#c2c6d6] leading-relaxed">Tools like Jamie AI automatically transcribe, summarize, and extract action items from meetings without requiring a bot to join the call. Connect it to your calendar and review structured summaries instead of rewatching recordings. This alone can cut post-meeting admin time by 30,50% per week. <a href="https://www.meetjamie.ai/blog/ai-productivity-tools" target="_blank" class="text-[#3B82F6] no-underline text-[11px] hover:underline">Try it &rarr;</a></span>
+                </div>
+                
+                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
+                    <strong class="tool-title block text-[14px] font-bold mb-1.5">Automate Repetitive Workflows with Zapier AI</strong>
+                    <span class="tool-body text-[13px] text-[#c2c6d6] leading-relaxed">Zapier&#39;s AI-powered automation lets you describe a workflow in plain English and generates the multi-step Zap for you. Start by identifying one task you repeat more than three times a week , email sorting, data entry, or Slack notifications , and let the AI build the logic. No coding required, and most workflows go live in under 10 minutes. <a href="https://zapier.com/blog/best-ai-productivity-tools/" target="_blank" class="text-[#3B82F6] no-underline text-[11px] hover:underline">Try it &rarr;</a></span>
+                </div>
+                
+                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
+                    <strong class="tool-title block text-[14px] font-bold mb-1.5">Pair AI Voice Dictation with Your IDE Using Wispr Flow</strong>
+                    <span class="tool-body text-[13px] text-[#c2c6d6] leading-relaxed">Wispr Flow enables hands-free, context-aware voice dictation across any application, including code editors and terminals. Dictate comments, documentation, or even pseudocode outlines while keeping your hands on the keyboard for syntax. This is especially effective for drafting README files, commit messages, and inline code explanations at speed. <a href="https://wisprflow.ai/post/top-10-ai-productivity-tools" target="_blank" class="text-[#3B82F6] no-underline text-[11px] hover:underline">Try it &rarr;</a></span>
+                </div>
+                
+                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
+                    <strong class="tool-title block text-[14px] font-bold mb-1.5">Integrate AI Summarization Into Team Communication Stacks</strong>
+                    <span class="tool-body text-[13px] text-[#c2c6d6] leading-relaxed">Platforms like Webex and Dialpad now embed AI summarization directly into calls and chat threads, surfacing key decisions without manual note-taking. If your team runs on one of these platforms, enable the AI assistant features in settings and establish a shared convention for reviewing AI-generated summaries before closing a meeting. This creates a searchable institutional memory over time. <a href="https://blog.webex.com/innovation-ai/the-ai-productivity-tools-shaping-2025/" target="_blank" class="text-[#3B82F6] no-underline text-[11px] hover:underline">Try it &rarr;</a></span>
+                </div>
+                
+                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
+                    <strong class="tool-title block text-[14px] font-bold mb-1.5">Audit Your Tool Stack Before Adding New AI Apps</strong>
+                    <span class="tool-body text-[13px] text-[#c2c6d6] leading-relaxed">The most common productivity mistake in 2025,2026 is tool sprawl , subscribing to five AI apps that overlap in function. Before adopting any new tool, map your current stack against three categories: creation, communication, and organization. Only add a new AI tool if it eliminates a category gap or replaces two existing tools with one. <a href="https://plusai.com/blog/best-ai-productivity-tools" target="_blank" class="text-[#3B82F6] no-underline text-[11px] hover:underline">Try it &rarr;</a></span>
+                </div>
+                
+                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
+                    <strong class="tool-title block text-[14px] font-bold mb-1.5">Use AI Presentation Tools to Compress Slide Deck Creation</strong>
+                    <span class="tool-body text-[13px] text-[#c2c6d6] leading-relaxed">Plus AI and similar tools generate full slide decks from a text brief or document, handling layout, structure, and visual hierarchy automatically. Feed it a one-paragraph project summary and iterate on the output rather than building from a blank slide. Reserve your creative energy for narrative refinement and data accuracy, not formatting decisions. <a href="https://plusai.com/blog/best-ai-productivity-tools" target="_blank" class="text-[#3B82F6] no-underline text-[11px] hover:underline">Try it &rarr;</a></span>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+
 </div>
 
 
 
+<aside class="hidden lg:block lg:w-[35%]">
+    <div class="lg:sticky lg:top-20 sidebar-scroll space-y-8">
 
-<div class="section" id="competitive-landscape">
-    <div class="section-title"><span class="section-icon">🏢</span> Competitive Landscape</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;">
         
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">OpenAI</div>
-            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">Record $110B funding round secured as Sora platform shuttered amid cost and engagement pressures.</div>
-            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">OpenAI closed a $110 billion funding round in March 2026, backed by Amazon, Nvidia, and SoftBank, anchored by a $100 billion AWS infrastructure collaboration. Simultaneously, the company shut down its Sora video generation platform, citing annual operating costs exceeding $5 billion, a user base that had declined from 6 million monthly active users in December 2025 to 5 million by March 2026, and deepfake liability concerns. The shutdown dissolves a $1 billion Disney investment deal and signals a strategic reorientation toward a potential Q4 2026 IPO, robotics development, and world simulation research. <a href="https://www.mediapost.com/publications/article/413844/openai-prepares-for-ipo.html" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
         
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">Google DeepMind</div>
-            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">No confirmed strategic moves or product launches identified for March 2026.</div>
-            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Available intelligence sources contain no specific announcements, product launches, or strategic disclosures from Google DeepMind for the March 2026 period. This absence may reflect reporting gaps rather than inactivity, given the company&#39;s historically active release cadence. Monitoring of official channels and trade press is recommended to fill this gap.</div>
-        </div>
+        <section class="section">
+            <div class="flex items-center gap-1.5 mb-4">
+                <span class="material-symbols-outlined text-sm text-[#8c909f]">pulse_alert</span>
+                <span class="text-xs font-black tracking-[0.15em] uppercase text-[#8c909f]">Today's Pulse</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <div class="bg-[#131b2e] p-4 border-l-2 border-[#3B82F6]">
+                    <span class="kpi-label block text-[9px] text-[#8c909f] uppercase tracking-widest mb-1">AI Stories</span>
+                    <span class="kpi-value text-2xl font-black font-mono text-[#3B82F6]">8</span>
+                </div>
+                <div class="bg-[#131b2e] p-4 border-l-2 border-[#EF4444]">
+                    <span class="kpi-label block text-[9px] text-[#8c909f] uppercase tracking-widest mb-1">World Events</span>
+                    <span class="kpi-value text-2xl font-black font-mono text-[#EF4444]">8</span>
+                </div>
+                <div class="bg-[#131b2e] p-4 border-l-2 border-[#F59E0B]">
+                    <span class="kpi-label block text-[9px] text-[#8c909f] uppercase tracking-widest mb-1">Market Mood</span>
+                    <span class="kpi-value text-lg font-black text-[#F59E0B]">Risk-off / Cautious</span>
+                </div>
+                <div class="bg-[#131b2e] p-4 border-l-2 border-[#8B5CF6]">
+                    <span class="kpi-label block text-[9px] text-[#8c909f] uppercase tracking-widest mb-1">Tools Featured</span>
+                    <span class="kpi-value text-2xl font-black font-mono text-[#8B5CF6]">6</span>
+                </div>
+            </div>
+        </section>
+
         
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">Anthropic</div>
-            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">No confirmed strategic moves or product launches identified for March 2026.</div>
-            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">No March 2026 announcements or strategic developments from Anthropic appear in the available sourced data. The company has been an active competitor in the enterprise safety-focused LLM segment, making this gap notable. Further investigation into primary sources and regulatory filings is advised before drawing conclusions about Anthropic&#39;s current trajectory.</div>
-        </div>
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">Meta AI</div>
-            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">No confirmed strategic moves or product launches identified for March 2026.</div>
-            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Available search results yield no specific Meta AI announcements or competitive moves for March 2026. Meta has historically used open-weight model releases and social platform integration as primary competitive levers, but no such activity is confirmed in this data set. The absence of coverage should be treated as an intelligence gap rather than a signal of inactivity.</div>
-        </div>
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">Mistral</div>
-            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">No confirmed strategic moves or product launches identified for March 2026.</div>
-            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">No March 2026 activity from Mistral is captured in the available sourced intelligence. Mistral has positioned itself as a European open-model alternative with enterprise licensing appeal, but its current momentum cannot be assessed from this data. Supplementary sourcing from European tech press and Mistral&#39;s own release channels would be necessary for a complete picture.</div>
-        </div>
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">China Challengers</div>
-            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">Coverage of Chinese AI competitors including Baidu, Alibaba, Tencent, and Huawei is absent for March 2026.</div>
-            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">No actionable intelligence on major Chinese AI developers is present in the available data for March 2026, likely due to language barriers and regional reporting gaps in English-language sources. This is a meaningful blind spot given the accelerating pace of model development from Chinese labs and ongoing geopolitical dynamics around AI chip access and export controls. Dedicated Mandarin-language monitoring and specialized regional analysts should be incorporated to address this gap.</div>
-        </div>
-        
+        <section class="section" id="market-snapshot">
+            <div class="flex items-center gap-1.5 mb-5">
+                <span class="material-symbols-outlined text-sm text-[#8c909f]">monitoring</span>
+                <span class="section-title text-xs font-black tracking-[0.15em] uppercase text-[#8c909f]">Market Snapshot</span>
+            </div>
+            
+            <div class="space-y-1">
+                
+                
+                
+                
+                
+                
+                
+                <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
+                    <div>
+                        <span class="market-ticker block text-xs font-bold">S&amp;P 500</span>
+                        <span class="text-[10px] text-[#8c909f]">INDEXSP</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="market-price block text-sm font-mono font-bold">5,776.65</span>
+                        <span class="market-change text-[10px] font-mono" style="color: #EF4444">-0.64%</span>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
+                    <div>
+                        <span class="market-ticker block text-xs font-bold">NASDAQ</span>
+                        <span class="text-[10px] text-[#8c909f]">INDEXNASDAQ</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="market-price block text-sm font-mono font-bold">18,271.86</span>
+                        <span class="market-change text-[10px] font-mono" style="color: #EF4444">-0.52%</span>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
+                    <div>
+                        <span class="market-ticker block text-xs font-bold">Bitcoin</span>
+                        <span class="text-[10px] text-[#8c909f]">BTC/USD</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="market-price block text-sm font-mono font-bold">$70,000</span>
+                        <span class="market-change text-[10px] font-mono" style="color: #EF4444">-5%</span>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
+                    <div>
+                        <span class="market-ticker block text-xs font-bold">Ethereum</span>
+                        <span class="text-[10px] text-[#8c909f]">ETH/USD</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="market-price block text-sm font-mono font-bold">$2,155.68</span>
+                        <span class="market-change text-[10px] font-mono" style="color: #10B981">+0.19%</span>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
+                    <div>
+                        <span class="market-ticker block text-xs font-bold">Oil Brent</span>
+                        <span class="text-[10px] text-[#8c909f]">CRUDE</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="market-price block text-sm font-mono font-bold">$116</span>
+                        <span class="market-change text-[10px] font-mono" style="color: #F59E0B">N/A</span>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
+                    <div>
+                        <span class="market-ticker block text-xs font-bold">Sentiment</span>
+                        <span class="text-[10px] text-[#8c909f]">F&amp;G Index</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="market-price block text-sm font-mono font-bold">Risk-off</span>
+                        <span class="market-change text-[10px] font-mono" style="color: #EF4444">Risk-off / Cautious</span>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </section>
     </div>
+</aside>
+
+
 </div>
 
 
-
-
-
-<div class="section" id="ai-tool-guide">
-    <div class="section-title"><span class="section-icon">🧰</span> AI Tool Guide</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;">
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">⚡ TIP 01</div>
-            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Delegate Complex Workflows to Manus</div>
-            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Manus is an autonomous AI agent that handles multi-step tasks end to end, from research to execution, without requiring you to manage each step manually. Use it to offload complex workflows like competitive analysis, report drafting, or data gathering that would otherwise consume hours. Start by describing your goal in plain language and let the agent iterate toward a finished output. <a href="https://manus.im" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
-        </div>
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">⚡ TIP 02</div>
-            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Dictate Faster with Wisprflow</div>
-            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Wisprflow converts natural speech into clean, formatted text across emails, messages, and AI prompts by interpreting context rather than transcribing word for word. This makes it far more useful than standard dictation tools, especially for professionals who think faster than they type. Install it system-wide and use it wherever a text field appears to cut writing time significantly. <a href="https://wisprflow.ai" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
-        </div>
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">⚡ TIP 03</div>
-            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Automate Web Research with Perplexity Comet</div>
-            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Comet is an AI-native browser built by Perplexity that automates web research and task completion directly within your browsing session, removing the friction of manual tab management and copy-pasting. Use it when you need to synthesize information from multiple sources quickly or complete web-based tasks like form filling and data extraction. It is best suited for researchers and analysts who spend significant time gathering online information. <a href="https://comet.perplexity.com" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
-        </div>
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">🔨 TIP 04</div>
-            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Ship UI Prototypes Instantly with Replit Design</div>
-            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Replit Design uses AI to generate functional websites and user interfaces from natural language descriptions, enabling rapid prototyping without manual coding. Designers and product teams can describe a layout or feature and receive a deployable result in minutes rather than days. Use it to validate ideas quickly before committing engineering resources to a full build. <a href="https://replit.com/design" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
-        </div>
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">🎨 TIP 05</div>
-            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Scale Video Production with Higgsfield</div>
-            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Higgsfield is an AI video creation studio that automates the production and editing process, making it practical for content teams to produce videos at volume without large production budgets. Use it to generate marketing clips, product demos, or social content by feeding it scripts, assets, or prompts. It is particularly valuable for teams that need consistent video output but lack dedicated video editors. <a href="https://higgsfield.io" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
-        </div>
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">💻 TIP 06</div>
-            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Accelerate Development with Claude Code</div>
-            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Claude Code, built by Anthropic, provides intelligent code generation and reasoning assistance for developers working on complex or unfamiliar codebases. It goes beyond autocomplete by understanding project context and explaining its suggestions, making it useful for debugging, refactoring, and architecture decisions. Integrate it into your development workflow to reduce time spent on boilerplate and low-level problem solving. <a href="https://claude.ai" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
-        </div>
-        
+<section class="max-w-3xl mx-auto px-6 py-16 text-center">
+    <div class="bg-[#0b1326]/60 backdrop-blur-xl border border-white/[0.06] rounded-2xl p-8 md:p-10 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899] rounded-b-full"></div>
+        <h3 class="text-xl font-bold text-white mb-2">Want this every morning?</h3>
+        <p class="text-[#c2c6d6] text-sm mb-6">AI, world news, markets, and tools. One briefing, delivered free.</p>
+        <form action="https://buttondown.com/api/emails/embed-subscribe/arno" method="post" class="flex gap-2 max-w-md mx-auto p-1.5 rounded-full bg-[#171f33] border border-white/[0.06]" onsubmit="this.querySelector('button').textContent='Subscribed!'">
+            <input type="hidden" value="1" name="embed">
+            <input type="email" name="email" required class="bg-transparent border-none focus:ring-0 text-white px-5 w-full text-sm placeholder:text-[#8c909f]" placeholder="your@email.com">
+            <button type="submit" class="bg-gradient-to-r from-[#3B82F6] to-[#6366F1] text-white px-6 py-3 rounded-full font-bold text-sm whitespace-nowrap hover:shadow-lg hover:shadow-[#3B82F6]/20 transition-all">Subscribe</button>
+        </form>
+        <p class="text-[10px] text-[#8c909f] mt-3">One email per day. No spam. Unsubscribe anytime.</p>
     </div>
-</div>
+</section>
 
 
-</div>
-
-
-<footer style="text-align:center;padding:40px 24px;border-top:1px solid var(--border);margin-top:40px">
-    <div style="font-size:14px;font-weight:700;margin-bottom:4px">Koda Intelligence</div>
-    <div style="font-size:12px;color:var(--text-secondary)">Generated 2026-03-27 07:02 | Sources: Web Search, Newsletter feeds, NotebookLM</div>
-    <div style="font-size:11px;color:var(--text-secondary);margin-top:8px">© 2026 Koda Community</div>
+<footer class="bg-[#060e20] border-t border-white/[0.06] mt-auto">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-6 py-10 gap-4">
+        <div>
+            <span class="text-sm font-bold text-[#3B82F6]">Koda Intelligence</span>
+            <p class="text-[11px] text-[#c2c6d6] mt-1">Generated 2026-03-28 18:03</p>
+        </div>
+        <div class="flex gap-6 text-[11px] uppercase tracking-wide">
+            <a href="./index.html#archive" class="text-[#c2c6d6] hover:text-white transition-colors no-underline">Archive</a>
+            <span class="text-[#c2c6d6]">&copy; 2026 Koda Intelligence</span>
+        </div>
+    </div>
 </footer>
 
-<script>// Dark mode
-(function(){
-    const saved = localStorage.getItem('koda-theme');
-    if(saved==='dark') document.documentElement.classList.add('dark-mode');
-})();
-function toggleDark(){
-    document.documentElement.classList.toggle('dark-mode');
-    const isDark = document.documentElement.classList.contains('dark-mode');
-    localStorage.setItem('koda-theme', isDark ? 'dark' : 'light');
-    document.getElementById('darkBtn').textContent = isDark ? '☀ Light' : '🌙 Dark';
-}
-
-// Podcast player
-function togglePodcast(){
-    const w = document.getElementById('podcastPlayer');
-    const btn = document.querySelector('.podcast-btn');
-    if(!w) return;
-    w.classList.toggle('active');
-    if(btn) btn.setAttribute('aria-expanded', w.classList.contains('active'));
-}
-
-// Video overlay
-function toggleVideo(){
-    const o = document.getElementById('videoOverlay');
-    const f = document.getElementById('videoFrame');
-    if(!o) return;
-    if(o.classList.contains('active')){
-        o.classList.remove('active');
-        document.body.style.overflow = '';
-        if(f) f.src = '';
-    } else {
-        o.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        const ytId = document.body.getAttribute('data-youtube-id');
-        if(f && ytId && /^[A-Za-z0-9_-]{11}$/.test(ytId)){
-            f.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1';
-        }
-        // Focus close button for keyboard users
-        const closeBtn = o.querySelector('.video-overlay-close');
-        if(closeBtn) closeBtn.focus();
+<script>// Share buttons
+function shareDigest(platform) {
+    var url = window.location.href;
+    var title = document.title;
+    var text = document.querySelector('meta[name="description"]');
+    text = text ? text.content : 'Daily AI intelligence briefing';
+    if (platform === 'x') {
+        window.open('https://x.com/intent/tweet?text=' + encodeURIComponent(title + ' - ' + text) + '&url=' + encodeURIComponent(url), '_blank');
+    } else if (platform === 'linkedin') {
+        window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url), '_blank');
+    } else if (platform === 'copy') {
+        navigator.clipboard.writeText(url).then(function() {
+            var btn = document.querySelector('[title="Copy link"]');
+            if (btn) { btn.style.color = '#10B981'; setTimeout(function() { btn.style.color = ''; }, 1500); }
+        });
     }
 }
 
-// Escape key closes video overlay
-document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape'){
-        const o = document.getElementById('videoOverlay');
-        if(o && o.classList.contains('active')) toggleVideo();
+// Expandable sections (works on both mobile and desktop)
+function toggleExpand(btn) {
+    var content = btn.nextElementSibling;
+    var chevron = btn.querySelector('.expand-chevron');
+    if (!content) return;
+    // Check if currently hidden (class or inline style)
+    var isHidden = content.classList.contains('hidden') || content.style.display === 'none';
+    if (isHidden) {
+        content.classList.remove('hidden');
+        content.style.display = '';
+        btn.setAttribute('aria-expanded', 'true');
+        if (chevron) chevron.style.transform = 'rotate(180deg)';
+    } else {
+        // Use inline style so it overrides lg:block on desktop
+        content.style.display = 'none';
+        btn.setAttribute('aria-expanded', 'false');
+        if (chevron) chevron.style.transform = '';
+    }
+}
+
+// All sections start collapsed - no auto-expand needed
+
+// Infographic lightbox
+function openInfographic(src) {
+    var overlay = document.getElementById('infographicOverlay');
+    var img = document.getElementById('infographicFull');
+    if (!overlay || !img) return;
+    img.src = src;
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    var closeBtn = overlay.querySelector('.infographic-overlay-close');
+    if (closeBtn) closeBtn.focus();
+}
+function closeInfographic() {
+    var overlay = document.getElementById('infographicOverlay');
+    if (!overlay) return;
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Podcast player toggle
+function togglePodcast() {
+    var w = document.getElementById('podcastPlayer');
+    var btn = document.querySelector('.podcast-btn');
+    if (!w) return;
+    w.classList.toggle('active');
+    if (btn) btn.setAttribute('aria-expanded', w.classList.contains('active'));
+}
+
+// Video overlay toggle
+function toggleVideo() {
+    var o = document.getElementById('videoOverlay');
+    var f = document.getElementById('videoFrame');
+    if (!o) return;
+    if (o.classList.contains('active')) {
+        o.classList.remove('active');
+        document.body.style.overflow = '';
+        if (f) f.src = '';
+    } else {
+        o.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        var ytId = document.body.getAttribute('data-youtube-id');
+        if (f && ytId && /^[A-Za-z0-9_-]{11}$/.test(ytId)) {
+            f.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1';
+        }
+        var closeBtn = o.querySelector('.video-overlay-close');
+        if (closeBtn) closeBtn.focus();
+    }
+}
+
+// Escape key closes overlays
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        var vid = document.getElementById('videoOverlay');
+        if (vid && vid.classList.contains('active')) { toggleVideo(); return; }
+        var info = document.getElementById('infographicOverlay');
+        if (info && info.classList.contains('active')) { closeInfographic(); return; }
     }
 });
 
 // Day navigation
-(function(){
-    const d = document.body.getAttribute('data-digest-date');
-    if(!d) return;
-    const dt = new Date(d + 'T12:00:00');
-    const prev = new Date(dt); prev.setDate(prev.getDate() - 1);
-    const next = new Date(dt); next.setDate(next.getDate() + 1);
-    const fmt = d2 => `${d2.getFullYear()}-${String(d2.getMonth()+1).padStart(2,'0')}-${String(d2.getDate()).padStart(2,'0')}`;
-    const pf = 'morning-briefing-koda-' + fmt(prev) + '.html';
-    const nf = 'morning-briefing-koda-' + fmt(next) + '.html';
-    const pb = document.getElementById('prevBtn'), nb = document.getElementById('nextBtn');
-    fetch(pf, {method:'HEAD'}).then(r => { if(r.ok && pb){ pb.href = pf; pb.classList.remove('disabled'); pb.removeAttribute('aria-disabled'); }}).catch(() => {});
-    fetch(nf, {method:'HEAD'}).then(r => { if(r.ok && nb){ nb.href = nf; nb.classList.remove('disabled'); nb.removeAttribute('aria-disabled'); }}).catch(() => {});
+(function() {
+    var d = document.body.getAttribute('data-digest-date');
+    if (!d) return;
+    var dt = new Date(d + 'T12:00:00');
+    var prev = new Date(dt); prev.setDate(prev.getDate() - 1);
+    var next = new Date(dt); next.setDate(next.getDate() + 1);
+    var fmt = function(d2) {
+        return d2.getFullYear() + '-' + String(d2.getMonth() + 1).padStart(2, '0') + '-' + String(d2.getDate()).padStart(2, '0');
+    };
+    var pf = 'morning-briefing-koda-' + fmt(prev) + '.html';
+    var nf = 'morning-briefing-koda-' + fmt(next) + '.html';
+    var pb = document.getElementById('prevBtn'), nb = document.getElementById('nextBtn');
+    fetch(pf, {method: 'HEAD'}).then(function(r) { if (r.ok && pb) { pb.href = pf; pb.classList.remove('disabled'); } }).catch(function() {});
+    fetch(nf, {method: 'HEAD'}).then(function(r) { if (r.ok && nb) { nb.href = nf; nb.classList.remove('disabled'); } }).catch(function() {});
 })();
 
-// Scroll animations (respects reduced motion)
-if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if(e.isIntersecting){
+// Scroll-in animations (respects reduced motion)
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) {
                 e.target.style.opacity = '1';
                 e.target.style.transform = 'translateY(0)';
                 obs.unobserve(e.target);
             }
         });
     }, {threshold: 0.08});
-    document.querySelectorAll('.section').forEach(s => {
+    document.querySelectorAll('.section').forEach(function(s) {
         s.style.opacity = '0';
         s.style.transform = 'translateY(16px)';
         s.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
@@ -1091,10 +1410,35 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
 }
 
 // Hash scrolling
-if(window.location.hash){
-    const el = document.querySelector(window.location.hash);
-    if(el) setTimeout(() => el.scrollIntoView({behavior: 'smooth'}), 300);
+if (window.location.hash) {
+    var el = document.querySelector(window.location.hash);
+    if (el) setTimeout(function() { el.scrollIntoView({behavior: 'smooth'}); }, 300);
 }
+
+// Scroll progress bar + back-to-top
+(function() {
+    var bar = document.getElementById('scrollProgress');
+    var btn = document.getElementById('backToTop');
+    if (!bar) return;
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(function() {
+                var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                if (docHeight > 0) {
+                    bar.style.width = Math.min((scrollTop / docHeight) * 100, 100) + '%';
+                }
+                if (btn) {
+                    if (scrollTop > 600) btn.classList.add('visible');
+                    else btn.classList.remove('visible');
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+})();
 </script>
 </body>
 </html>
