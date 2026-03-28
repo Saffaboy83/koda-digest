@@ -13,6 +13,16 @@ if [ -n "$GIT_TOKEN" ]; then
     git config --global user.email "digest@koda.community"
     git config --global user.name "Koda Digest Bot"
     echo "[entrypoint] Git credentials configured"
+
+    # Initialize git repo (Docker COPY doesn't include .git)
+    if [ ! -d "/app/.git" ]; then
+        cd /app
+        git init
+        git remote add origin "https://x-access-token:${GIT_TOKEN}@github.com/Saffaboy83/koda-digest.git"
+        git fetch origin main
+        git reset origin/main
+        echo "[entrypoint] Git repo initialized and synced with remote"
+    fi
 fi
 
 # Hard timeout: 45 minutes max to prevent zombie containers
