@@ -273,7 +273,7 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
             s = await client.artifacts.generate_video(
                 NOTEBOOK_ID,
                 instructions=vid_focus,
-                video_format=VideoFormat.CINEMATIC,
+                video_format=VideoFormat.EXPLAINER,
                 video_style=VideoStyle.AUTO_SELECT,
             )
             print(f"  Video generation started (task: {s.task_id})")
