@@ -86,25 +86,57 @@ DEFAULT_INFOGRAPHIC_FOCUS = (
 
 DEFAULT_VIDEO_FOCUS = (
     "Create a cinematic intelligence briefing in the style of a high-production documentary "
-    "or HBO news special. Open with a dramatic cold-open hook that captures the single most "
-    "consequential story of the day. "
-    "Structure: Act 1 -- the headline crisis or breakthrough that demands attention. "
-    "Act 2 -- the AI developments reshaping the technology landscape, with emphasis on scale, "
-    "competition, and what it means for practitioners. "
-    "Act 3 -- the collision between geopolitics, markets, and technology, tying the threads "
-    "together into a cohesive narrative. "
-    "Close with a forward-looking statement about what to watch next. "
-    "Tone: Authoritative but accessible, like a seasoned analyst briefing senior leadership. "
-    "Avoid listicle energy. Every segment should feel like it matters. "
-    "Pacing: Vary between urgency (breaking developments) and depth (analysis segments). "
-    "Use dramatic pauses and transitions between acts. "
-    "Visual direction: Rich cinematic imagery -- sweeping establishing shots, dramatic lighting, "
-    "data visualizations that feel alive, close-ups on technology and conflict zones. "
-    "Think Vice News meets Bloomberg Quicktake."
+    "or HBO news special. This is a Veo 3 cinematic video -- push the visual quality to its "
+    "maximum. Every frame should feel like it belongs in a Netflix documentary or a Bloomberg "
+    "Originals film. "
+    "\n\n"
+    "STRUCTURE & NARRATIVE: "
+    "Cold open (0:00-0:15): Start mid-action. No titles, no introductions. Drop the viewer "
+    "into the most dramatic visual of the day -- the moment of crisis or breakthrough. "
+    "Narration begins over the imagery. "
+    "Act 1 -- The Crisis (0:15-1:30): The headline story that affects everyone. Build tension "
+    "with escalating visuals. Use a mix of wide establishing shots and tight close-ups. "
+    "Show scale and consequence. "
+    "Act 2 -- The Technology (1:30-3:00): The AI developments. Shift the visual palette from "
+    "warm/urgent to cool/precise. Show the contrast between physical world chaos and digital "
+    "world precision. Use data visualizations that feel alive -- not static charts but flowing, "
+    "animated representations. "
+    "Act 3 -- The Collision (3:00-4:00): Where these forces meet. Use visual juxtaposition -- "
+    "intercut between the physical and digital worlds. Build to a thesis statement. "
+    "Close (4:00-4:30): End on a single powerful image that encapsulates the day's theme. "
+    "Hold the frame. Let it breathe. "
+    "\n\n"
+    "VISUAL DIRECTION PER SCENE: "
+    "Crisis scenes: Aerial drone shots of strategic chokepoints, naval vessels in formation, "
+    "smoke plumes on horizons, trading floors with cascading red tickers, close-ups of "
+    "commodity price screens. Warm amber-red color grading. Handheld camera feel for urgency. "
+    "Technology scenes: Vast data center interiors stretching to vanishing point, racks of "
+    "GPUs with blinking status lights, holographic neural network visualizations floating in "
+    "dark space, code scrolling on screens reflected in glass. Cool blue-cyan color grading. "
+    "Smooth dolly and crane movements for precision. "
+    "Collision scenes: Split-screen or morphing transitions -- a cargo ship hull dissolves into "
+    "a server rack, a missile trajectory transforms into a neural network edge, oil flowing "
+    "through a pipeline cross-fades to data flowing through fiber optics. "
+    "Closing shot: Pull back to a global satellite view showing both conflicts and data centers "
+    "lit up simultaneously. "
+    "\n\n"
+    "CINEMATOGRAPHY: "
+    "Lighting: Golden hour for geopolitical scenes, cool fluorescent for tech interiors, "
+    "dramatic chiaroscuro for the collision act. "
+    "Camera movement: Slow dolly pushes for tension, smooth crane shots for scale reveals, "
+    "subtle handheld for breaking-news urgency. "
+    "Depth of field: Shallow focus for emotional close-ups, deep focus for establishing shots. "
+    "Transitions: Dissolves and morphs between acts (never hard cuts between worlds). "
+    "Color palette: Each act has its own grade -- warm amber (crisis), cool blue (tech), "
+    "mixed warm-cool (collision), muted desaturated (closing). "
+    "\n\n"
+    "TONE: Authoritative but human. Like a seasoned correspondent who has seen both wars and "
+    "Silicon Valley boardrooms. Never sensationalist. Every word earns its place. "
+    "PACING: Urgent in Act 1, contemplative in Act 2, accelerating in Act 3, still in the close."
 )
 
 VIDEO_POLL_INTERVAL = 15.0  # seconds between download attempts
-VIDEO_POLL_TIMEOUT = 1800.0  # max wait for video (30 min)
+VIDEO_POLL_TIMEOUT = 3600.0  # max wait for cinematic video (60 min -- Veo 3 can take 45+)
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -153,7 +185,7 @@ def convert_png_to_jpg(png_path, jpg_path):
 
 async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
                        diff_text=None, audio_focus=None, infographic_focus=None,
-                       video_focus=None):
+                       video_focus=None, visual_script=None):
     """Run the full NotebookLM media generation pipeline."""
 
     results = []
@@ -240,6 +272,24 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
             except Exception as e:
                 results.append(make_status("add_diff", False, str(e)))
                 print(f"  Warning: Could not add differentiation source: {e}")
+
+        # ── Step 2c: Add visual script (if provided) ────────────────
+        if visual_script:
+            print("[2c/6] Adding visual script source...")
+            try:
+                await client.sources.add_text(
+                    NOTEBOOK_ID,
+                    f"Visual Production Script -- {date_str}",
+                    visual_script,
+                    wait=True,
+                )
+                results.append(make_status("add_visual_script", True,
+                                           f"Added {len(visual_script)} chars visual script"))
+                print(f"  Added {len(visual_script)} chars visual script.")
+                await asyncio.sleep(2)
+            except Exception as e:
+                results.append(make_status("add_visual_script", False, str(e)))
+                print(f"  Warning: Could not add visual script source: {e}")
 
         # ── Step 3: PARALLEL generation (audio + infographic + video) ────
         print("[3/5] Triggering all media generation in PARALLEL...")
@@ -493,6 +543,8 @@ def main():
                         help="Custom infographic visual direction prompt (overrides default)")
     parser.add_argument("--video-focus",
                         help="Custom cinematic video direction prompt (overrides default)")
+    parser.add_argument("--visual-script-file",
+                        help="Path to visual production script for cinematic video (added as notebook source)")
     parser.add_argument("--json", action="store_true",
                         help="Output results as JSON to stdout")
 
@@ -515,6 +567,12 @@ def main():
         with open(args.diff_file, "r", encoding="utf-8") as f:
             diff_text = f.read().strip()
 
+    # Read optional visual script
+    visual_script = None
+    if args.visual_script_file:
+        with open(args.visual_script_file, "r", encoding="utf-8") as f:
+            visual_script = f.read().strip()
+
     os.makedirs(args.output_dir, exist_ok=True)
 
     print(f"Koda Digest Media Generator")
@@ -522,6 +580,7 @@ def main():
     print(f"Output: {os.path.abspath(args.output_dir)}")
     print(f"Text: {len(text_content)} characters")
     print(f"Differentiation: {'yes' if diff_text else 'no'}")
+    print(f"Visual script: {'yes' if visual_script else 'no'}")
     print(f"Focus: {'custom' if args.focus else 'default'}")
     print(f"Infographic: {'custom prompt' if args.infographic_focus else 'default prompt'}")
     print(f"Video: {'skip' if args.skip_video else 'cinematic'}")
@@ -533,7 +592,8 @@ def main():
         run_pipeline(text_content, args.date, args.output_dir, args.skip_video,
                      diff_text=diff_text, audio_focus=args.focus,
                      infographic_focus=args.infographic_focus,
-                     video_focus=args.video_focus)
+                     video_focus=args.video_focus,
+                     visual_script=visual_script)
     )
 
     # Write status file

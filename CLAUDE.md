@@ -262,8 +262,11 @@ and repackage the .skill file.
 
 ## Video Briefing
 
-- Generated daily via `video_overview_create` (format: explainer, visual_style: auto_select)
-- Kicked off in Step 2A alongside audio, cooks in background during Steps 2B-2C
+- Generated daily as **cinematic** (Veo 3) via `generate_cinematic_video()` in notebooklm-py
+- IMPORTANT: Must use `generate_cinematic_video()` method, NOT `generate_video()` with `VideoFormat.CINEMATIC` -- different parameter structure (no style arg). The MCP `video_overview_create` tool does NOT support cinematic -- must use Python.
+- Two sources drive video quality: (1) the news text, (2) a dedicated **Visual Production Script** source added to the notebook with scene-by-scene descriptions, camera directions, color grades, and transitions
+- Cinematic videos take **30-45 minutes** to render via Veo 3 (vs ~8 min for explainers). Railway timeout must accommodate this.
+- Falls back to explainer format via MCP tool if cinematic generation fails
 - Downloaded from NotebookLM via Chrome (three-dot menu, same as audio/infographic)
 - Uploaded to YouTube via `youtube_upload.py` (Data API v3, fully headless)
 - YouTube titles are hook-based and theme-driven from the day's news (not generic)

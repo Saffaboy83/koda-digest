@@ -135,35 +135,62 @@ artifacts are kept forever so the NotebookLM archive stays intact.
    - `focus_prompt:` the dynamic audio prompt built above (NOT a generic summary)
 5. **Poll:** `studio_status` until the newest audio artifact has `status: "completed"`.
    Save the artifact title and `audio_url`.
-6. **Build a dynamic cinematic video prompt** from the day's news. Identify the single most
-   dramatic story for the cold open, then structure an Act 1/2/3 narrative arc. Use this template:
+6. **Build a visual production script** as a second notebook source. This is NOT the same as
+   the news text -- it is a dedicated scene-by-scene script written for Veo 3's visual engine.
+   Based on the day's top stories, write a ~400-600 word visual script using this template:
 
    ```
-   Create a cinematic intelligence briefing in the style of a high-production documentary.
+   VISUAL PRODUCTION SCRIPT — Koda Daily Briefing {DATE}
+   Format: Cinematic documentary (Veo 3)
 
-   Cold open: {MOST_DRAMATIC_STORY_HEADLINE} — {ONE_LINE_HOOK}
+   === COLD OPEN (0:00-0:15) ===
+   SCENE: {Describe the opening visual in vivid detail -- what the camera sees, the
+   lighting, the mood. Be specific: "Aerial drone shot of [location] at [time of day],
+   [specific visual elements], [color/lighting]. Camera [movement type]." }
+   NARRATION HOOK: "{One-line hook that starts mid-action}"
 
-   Act 1 — The Lead: {HEADLINE_CRISIS_OR_BREAKTHROUGH}. Set the stakes with key numbers
-   and context. Why this matters right now.
+   === ACT 1: {CRISIS/BREAKTHROUGH TITLE} (0:15-1:30) ===
+   SCENE 1A: {Wide establishing shot -- what, where, lighting, mood}
+   SCENE 1B: {Close-up or detail shot -- human element, data, consequence}
+   SCENE 1C: {Scale reveal -- pull back to show magnitude}
+   KEY VISUALS: {List 3-4 specific visual elements Veo 3 should render}
+   COLOR GRADE: {Warm amber-red / cool blue / etc.}
+   CAMERA FEEL: {Handheld urgency / steady dolly / crane pullback}
 
-   Act 2 — The AI Landscape: {TOP_2_AI_STORIES}. Emphasize scale, competition, and what
-   it means for practitioners. Connect developments to the broader trend.
+   === ACT 2: {AI STORY TITLE} (1:30-3:00) ===
+   SCENE 2A: {Contrast transition from Act 1 -- shift environment and palette}
+   SCENE 2B: {Technology visualization -- data centers, networks, code, scale}
+   SCENE 2C: {Human element of technology -- who builds it, who uses it}
+   KEY VISUALS: {List 3-4 specific visual elements}
+   COLOR GRADE: {Cool blue-cyan / clean white / etc.}
+   CAMERA FEEL: {Smooth precision / slow dolly / symmetrical framing}
 
-   Act 3 — Collision: Tie geopolitics, markets ({KEY_MARKET_STAT}), and technology together.
-   What does the convergence of these forces mean?
+   === ACT 3: COLLISION (3:00-4:00) ===
+   SCENE 3A: {Visual juxtaposition -- intercut or morph between Act 1 and Act 2 worlds}
+   SCENE 3B: {Convergence visual -- both forces shown operating simultaneously}
+   TRANSITION: {How Act 1 imagery transforms into Act 2 imagery -- dissolve, morph, split-screen}
 
-   Close: Forward-looking — what to watch in the next 24-48 hours.
-
-   Tone: Authoritative but accessible, like a seasoned analyst briefing senior leadership.
-   Pacing: Vary between urgency and depth. Dramatic pauses between acts.
-   Visual direction: Rich cinematic imagery — sweeping shots, dramatic lighting, data
-   visualizations that feel alive. Think Vice News meets Bloomberg Quicktake.
+   === CLOSE (4:00-4:30) ===
+   FINAL FRAME: {Single powerful image that encapsulates the day. Hold the shot. Let it breathe.}
    ```
 
-   **Kick off cinematic video generation (do NOT wait — it cooks in background):**
-   Immediately after the audio poll completes, generate the cinematic video via Python (the MCP
-   tool does not support cinematic format). Save the dynamic prompt to a temp variable `$VID_PROMPT`,
-   then run:
+   **Add the visual script as a notebook source:**
+   Call `notebook_add_text` with the visual script as a new source titled
+   "Visual Production Script -- {DATE}". This gives Veo 3 explicit scene direction alongside
+   the factual news content.
+
+7. **Kick off cinematic video generation (do NOT wait -- it cooks in background):**
+   Immediately after adding the visual script, generate the cinematic video via Python (the MCP
+   tool does not support cinematic format). Save the dynamic instructions to `$VID_PROMPT`:
+
+   ```
+   Create a cinematic intelligence briefing using the Visual Production Script source as
+   your scene-by-scene guide. Follow the shot descriptions, color grades, and camera
+   movements specified in the script. Every frame should feel like a Netflix documentary
+   or Bloomberg Originals film. Push Veo 3 visual quality to maximum.
+   ```
+
+   Then run:
 
    ```bash
    PYTHONUTF8=1 python -c "
@@ -186,9 +213,9 @@ artifacts are kept forever so the NotebookLM archive stays intact.
    "
    ```
 
-   This uses `generate_cinematic_video()` (dedicated method with Veo 3 rendering).
-   Do NOT poll `studio_status` yet — continue to Step 2B. The cinematic video takes ~30-40 min
-   to render and will be polled later in Step 2D.
+   This uses `generate_cinematic_video()` (dedicated Veo 3 method -- different from `generate_video()`).
+   Do NOT poll `studio_status` yet -- continue to Step 2B. Cinematic videos take ~30-45 min
+   to render via Veo 3 and will be polled later in Step 2D.
    If the command fails, fall back to `video_overview_create` with `format: "explainer"` and
    set `VIDEO_IS_CINEMATIC = false`. Continue either way.
 
