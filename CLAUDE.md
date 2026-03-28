@@ -93,11 +93,16 @@ This digest is PUBLIC-FACING. Do NOT include any personal data:
 - The topbar brand ("Koda Digest") is also a clickable link to `./index.html`
 - All internal navigation (landing page ↔ briefings) stays in the same tab (no target="_blank")
 
-### Media Serving: Vercel-direct (not GitHub Releases)
-- GitHub Releases URLs use 302 redirects
-- Mobile browsers (iOS Safari, Android Chrome) silently fail on `<audio>` with 302 redirects
-- **Solution**: Commit MP3 + JPG to git, Vercel serves directly with proper Content-Type
-- Trade-off: ~12MB/day added to repo. Acceptable for now. Consider Vercel Blob Storage long-term.
+### Media Serving: Supabase Storage
+- Podcast MP3s and infographic JPGs served from Supabase Storage bucket `koda-media`
+- Public URL pattern: `https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/{filename}`
+- Direct URLs, no redirects, proper Content-Type headers (audio/mpeg, image/jpeg)
+- Mobile browsers (iOS Safari, Android Chrome) work correctly
+- Upload via `supabase_upload.py` using service_role key
+- Env vars required: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`
+- MP3/JPG files are gitignored -- no longer committed to the repo
+- Older digests (pre-2026-03-28) still use relative paths served by Vercel (files remain in git history)
+- Migration path to Cloudflare R2 if needed: swap URL prefix (same S3-compatible API)
 
 ### NotebookLM: Single Permanent Notebook
 - Notebook ID: `f928d89b-2520-4180-a71a-d93a75a5487c`

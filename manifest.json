@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-28T21:57:40Z",
+  "generated": "2026-03-28T21:59:51Z",
   "digests": [
     {
       "date": "2026-03-28",
@@ -227,8 +227,8 @@
         "marketMood": "Bearish",
         "toolsFeatured": "6"
       },
-      "hasPodcast": false,
-      "hasInfographic": false,
+      "hasPodcast": true,
+      "hasInfographic": true,
       "hasVideo": false,
       "youtubeId": "",
       "file": "morning-briefing-koda-2026-03-21.html"

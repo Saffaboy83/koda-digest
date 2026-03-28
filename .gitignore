@@ -8,6 +8,8 @@ client_secret.json
 .gmail_token.json
 .env
 media-status.json
+podcast-*.mp3
+infographic-*.jpg
 *-test.*
 __pycache__/
 pipeline/__pycache__/

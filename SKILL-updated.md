@@ -265,17 +265,22 @@ elements don't follow. Serving from Vercel directly is the only reliable cross-d
    ```
    This shrinks ~42 MB m4a down to ~10 MB mp3 (22 min podcast).
 
-9. **Keep the MP3 in the Digest folder** — it will be committed to git and served by Vercel.
-   The HTML `<audio>` element uses a relative path: `./podcast-YYYY-MM-DD.mp3`
-   which Vercel serves at `https://www.koda.community/podcast-YYYY-MM-DD.mp3`.
+9. **Upload MP3 to Supabase Storage:**
+   ```bash
+   SUPABASE_URL="https://lfwymyfaeihoglmlvbaj.supabase.co" \
+   SUPABASE_SERVICE_ROLE_KEY="$SUPABASE_SERVICE_ROLE_KEY" \
+   python supabase_upload.py --file "[DIGEST_DIR]/podcast-YYYY-MM-DD.mp3"
+   ```
+   This returns the public URL. Save it as `PODCAST_URL` for use in Step 3:
+   `https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/podcast-YYYY-MM-DD.mp3`
 
-   Save the relative path `./podcast-YYYY-MM-DD.mp3` as `PODCAST_URL` for use in Step 3.
+   The HTML `<audio>` element uses this Supabase URL (NOT a relative path).
+   Do NOT commit the MP3 to git -- it is gitignored.
 
-10. **Clean up raw files only:**
+10. **Clean up raw files:**
     ```bash
     rm -f "[DIGEST_DIR]/podcast-raw.m4a"
     ```
-    Keep the MP3 — it gets committed and deployed via Vercel.
 
 11. **Do NOT delete old audio artifacts** in NotebookLM — only delete old text sources each day.
 
@@ -317,15 +322,21 @@ elements don't follow. Serving from Vercel directly is the only reliable cross-d
 14. **Download via Chrome:** Same approach as audio — navigate to NotebookLM, find the
     three-dot menu on the newest infographic, click "Download". The file saves as a `.jpg`
     in the Downloads folder.
-15. **Move to Digest folder and keep for Vercel serving:**
+15. **Move to Digest folder:**
     ```bash
     mv ~/Downloads/unnamed*.jpg [DIGEST_DIR]/infographic-YYYY-MM-DD.jpg
     ```
-    The HTML `<img>` element uses a relative path: `./infographic-YYYY-MM-DD.jpg`
-    which Vercel serves at `https://www.koda.community/infographic-YYYY-MM-DD.jpg`.
+16. **Upload JPG to Supabase Storage:**
+    ```bash
+    SUPABASE_URL="https://lfwymyfaeihoglmlvbaj.supabase.co" \
+    SUPABASE_SERVICE_ROLE_KEY="$SUPABASE_SERVICE_ROLE_KEY" \
+    python supabase_upload.py --file "[DIGEST_DIR]/infographic-YYYY-MM-DD.jpg"
+    ```
+    Save the public URL as `INFOGRAPHIC_URL` for use in Step 3:
+    `https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/infographic-YYYY-MM-DD.jpg`
 
-    Save the relative path `./infographic-YYYY-MM-DD.jpg` as `INFOGRAPHIC_URL` for use in Step 3.
-16. **Keep the JPG** — it gets committed and deployed via Vercel alongside the HTML.
+    The HTML `<img>` element uses this Supabase URL (NOT a relative path).
+    Do NOT commit the JPG to git -- it is gitignored.
 
 ### 2D — Download video from NotebookLM
 
@@ -1256,8 +1267,8 @@ document.querySelectorAll('.card,.newsletter-card,.market-card,.comp-card,.tool-
 - [ ] Newsletter Intelligence has multi-section summaries (not one-liners)
 - [ ] Both dated archive AND `morning-briefing-koda.html` saved
 - [ ] Market cards use color-coded pricing (emerald/red/amber)
-- [ ] Podcast MP3 committed to git and served by Vercel (relative path `./podcast-YYYY-MM-DD.mp3`)
-- [ ] Infographic JPG committed to git and served by Vercel (relative path `./infographic-YYYY-MM-DD.jpg`)
+- [ ] Podcast MP3 uploaded to Supabase Storage (URL in HTML `<audio>` src)
+- [ ] Infographic JPG uploaded to Supabase Storage (URL in HTML `<img>` src)
 - [ ] Podcast `<audio src>` uses relative path (NOT GitHub Releases, NOT Google CDN)
 - [ ] Infographic `<img src>` uses relative path (NOT GitHub Releases, NOT Google CDN)
 - [ ] If audio/infographic/video download failed: graceful fallback (link button / skip section)

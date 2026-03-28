@@ -63,21 +63,24 @@ def parse_with_regex(filepath):
         except ValueError:
             pass
 
-    # Extract KPIs: kpi-value + kpi-label pairs
-    kpi_pattern = re.compile(
-        r'class="kpi-value"[^>]*>(.*?)</div>\s*<div\s+class="kpi-label"[^>]*>(.*?)</div>',
-        re.DOTALL,
-    )
-    for value_html, label_html in kpi_pattern.findall(html):
-        value = strip_html(value_html)
-        label = strip_html(label_html)
+    # Extract KPIs: collect kpi-value and kpi-label elements independently
+    # Handles both old (div, value-first) and new (span, label-first) formats
+    kpi_values = []
+    for m in re.finditer(r'class="[^"]*\bkpi-value\b[^"]*"[^>]*>(.*?)</(?:div|span)>', html, re.DOTALL):
+        kpi_values.append(strip_html(m.group(1)))
+    kpi_labels = []
+    for m in re.finditer(r'class="[^"]*\bkpi-label\b[^"]*"[^>]*>(.*?)</(?:div|span)>', html, re.DOTALL):
+        kpi_labels.append(strip_html(m.group(1)))
+
+    for i, label in enumerate(kpi_labels):
+        value = kpi_values[i] if i < len(kpi_values) else ""
         label_lower = label.lower()
         if "ai" in label_lower and "stor" in label_lower:
             result["kpis"]["aiStories"] = value
         elif "world" in label_lower:
             result["kpis"]["worldEvents"] = value
         elif "market" in label_lower or "mood" in label_lower:
-            mood_match = re.search(r"(Bearish|Bullish|Neutral|Cautious\w*)", label, re.IGNORECASE)
+            mood_match = re.search(r"(Bearish|Bullish|Neutral|Cautious\w*|Extreme\s*\w*|Mixed)", value, re.IGNORECASE)
             result["kpis"]["marketMood"] = mood_match.group(1) if mood_match else value
         elif "tool" in label_lower:
             result["kpis"]["toolsFeatured"] = value
@@ -87,17 +90,17 @@ def parse_with_regex(filepath):
     # v2: focus-title + focus-desc (March 22)
     # v1: focus-content > h3 + p (March 21)
     focus_pattern_v3 = re.compile(
-        r'class="focus-content-title"[^>]*>(.*?)</div>\s*'
-        r'.*?class="focus-content-body"[^>]*>(.*?)</div>',
+        r'class="[^"]*\bfocus-content-title\b[^"]*"[^>]*>(.*?)</div>\s*'
+        r'.*?class="[^"]*\bfocus-content-body\b[^"]*"[^>]*>(.*?)</div>',
         re.DOTALL,
     )
     focus_pattern_v2 = re.compile(
-        r'class="focus-title"[^>]*>(.*?)</div>\s*'
-        r'.*?class="focus-desc"[^>]*>(.*?)</div>',
+        r'class="[^"]*\bfocus-title\b[^"]*"[^>]*>(.*?)</div>\s*'
+        r'.*?class="[^"]*\bfocus-desc\b[^"]*"[^>]*>(.*?)</div>',
         re.DOTALL,
     )
     focus_pattern_v1 = re.compile(
-        r'class="focus-content"[^>]*>\s*<h3>(.*?)</h3>\s*<p>(.*?)</p>',
+        r'class="[^"]*\bfocus-content\b[^"]*"[^>]*>\s*<h3>(.*?)</h3>\s*<p>(.*?)</p>',
         re.DOTALL,
     )
 
@@ -125,7 +128,7 @@ def parse_with_regex(filepath):
     # Extract sections with their cards
     # Find all section-title markers first
     section_title_pattern = re.compile(
-        r'class="section-title"[^>]*>(.*?)</(?:h2|div)>',
+        r'class="[^"]*\bsection-title\b[^"]*"[^>]*>(.*?)</(?:h[1-6]|div|span)>',
         re.DOTALL,
     )
 
@@ -160,7 +163,7 @@ def parse_with_regex(filepath):
 
         # Pattern 1: card-title + card-text/card-body (AI Developments, World News)
         for m in re.finditer(
-            r'class="card-title"[^>]*>(.*?)</div>.*?class="card-(?:text|body)"[^>]*>(.*?)</div>',
+            r'class="[^"]*\bcard-title\b[^"]*"[^>]*>(.*?)</(?:div|h[1-6])>.*?class="[^"]*\bcard-body\b[^"]*"[^>]*>(.*?)</(?:div|p)>',
             section_html, re.DOTALL,
         ):
             items.append({"headline": strip_html(m.group(1)), "text": strip_html(m.group(2))})
@@ -174,23 +177,23 @@ def parse_with_regex(filepath):
 
         # Pattern 3: comp-name + comp-text/comp-body (Competitive Landscape)
         for m in re.finditer(
-            r'class="comp-name"[^>]*>(.*?)</(?:span|div)>.*?class="comp-(?:text|body)"[^>]*>(.*?)</div>',
+            r'class="[^"]*\bcomp-name\b[^"]*"[^>]*>(.*?)</(?:span|div)>.*?class="[^"]*\bcomp-body\b[^"]*"[^>]*>(.*?)</(?:div|p)>',
             section_html, re.DOTALL,
         ):
             items.append({"headline": strip_html(m.group(1)), "text": strip_html(m.group(2))})
 
         # Pattern 4: tip-title/tool-title + tip-text/tool-body (AI Tool Guide)
         for m in re.finditer(
-            r'class="(?:tip-title|tool-title)"[^>]*>(.*?)</div>.*?class="(?:tip-text|tool-body)"[^>]*>(.*?)</div>',
+            r'class="[^"]*\b(?:tip-title|tool-title)\b[^"]*"[^>]*>(.*?)</(?:div|strong)>.*?class="[^"]*\b(?:tip-text|tool-body)\b[^"]*"[^>]*>(.*?)</(?:div|span)>',
             section_html, re.DOTALL,
         ):
             items.append({"headline": strip_html(m.group(1)), "text": strip_html(m.group(2))})
 
         # Pattern 5: market-ticker + market-price + market-change (Market Snapshot)
         for m in re.finditer(
-            r'class="market-ticker"[^>]*>(.*?)</div>\s*'
-            r'.*?class="market-price[^"]*"[^>]*>(.*?)</div>\s*'
-            r'.*?class="market-change[^"]*"[^>]*>(.*?)</div>',
+            r'class="[^"]*\bmarket-ticker\b[^"]*"[^>]*>(.*?)</(?:div|span)>\s*'
+            r'.*?class="[^"]*\bmarket-price\b[^"]*"[^>]*>(.*?)</(?:div|span)>\s*'
+            r'.*?class="[^"]*\bmarket-change\b[^"]*"[^>]*>(.*?)</(?:div|span)>',
             section_html, re.DOTALL,
         ):
             ticker = strip_html(m.group(1))
@@ -199,22 +202,22 @@ def parse_with_regex(filepath):
             items.append({"headline": ticker, "text": f"{price} ({change})"})
 
         # Pattern 6: newsletter-card — split by card boundaries, extract name + content
-        card_splits = re.split(r'<div\s+class="newsletter-card"', section_html)
+        card_splits = re.split(r'<div\s+class="[^"]*\bnewsletter-card\b', section_html)
         for card_chunk in card_splits[1:]:  # skip first chunk (before first card)
             # Try multiple name patterns: h4, newsletter-name div
             name_m = re.search(r"<h4[^>]*>(.*?)</h4>", card_chunk, re.DOTALL)
             if not name_m:
-                name_m = re.search(r'class="newsletter-name"[^>]*>(.*?)</div>', card_chunk, re.DOTALL)
+                name_m = re.search(r'class="[^"]*\bnewsletter-name\b[^"]*"[^>]*>(.*?)</div>', card_chunk, re.DOTALL)
             name = strip_html(name_m.group(1)).split("\n")[0].strip() if name_m else ""
             # Remove date badge from name
             name = re.sub(r"\s*Mar \d+\s*$", "", name).strip()
             # Try multiple subject patterns
-            subj_m = re.search(r'class="(?:nl-subject|newsletter-subject)"[^>]*>(.*?)</div>', card_chunk, re.DOTALL)
+            subj_m = re.search(r'class="[^"]*\b(?:nl-subject|newsletter-subject)\b[^"]*"[^>]*>(.*?)</(?:div|span)>', card_chunk, re.DOTALL)
             subject = strip_html(subj_m.group(1)) if subj_m else ""
-            # Try multiple content patterns
+            # Try multiple content patterns (div, li, span)
             texts = [strip_html(t.group(1)) for t in re.finditer(
-                r'class="(?:nl-section-text|newsletter-item)"[^>]*>(.*?)</div>', card_chunk, re.DOTALL)]
-            for q in re.finditer(r'class="(?:nl-quote|newsletter-quote)"[^>]*>(.*?)</div>', card_chunk, re.DOTALL):
+                r'class="[^"]*\b(?:nl-section-text|newsletter-item)\b[^"]*"[^>]*>(.*?)</(?:div|li|span)>', card_chunk, re.DOTALL)]
+            for q in re.finditer(r'class="[^"]*\b(?:nl-quote|newsletter-quote)\b[^"]*"[^>]*>(.*?)</(?:div|blockquote)>', card_chunk, re.DOTALL):
                 texts.append(strip_html(q.group(1)))
             full_text = (subject + " | " if subject else "") + " ".join(texts)
             if name and full_text.strip():
@@ -259,8 +262,17 @@ def parse_html_file(filepath):
 
     date_str = data["date"]
     base_dir = os.path.dirname(filepath) or "."
-    has_podcast = os.path.exists(os.path.join(base_dir, f"podcast-{date_str}.mp3"))
-    has_infographic = os.path.exists(os.path.join(base_dir, f"infographic-{date_str}.jpg"))
+    # Check local file OR Supabase URL in HTML
+    with open(filepath, "r", encoding="utf-8") as f:
+        html_content = f.read()
+    has_podcast = (
+        os.path.exists(os.path.join(base_dir, f"podcast-{date_str}.mp3"))
+        or f"podcast-{date_str}.mp3" in html_content
+    )
+    has_infographic = (
+        os.path.exists(os.path.join(base_dir, f"infographic-{date_str}.jpg"))
+        or f"infographic-{date_str}.jpg" in html_content
+    )
 
     manifest_entry = {
         "date": data["date"],
