@@ -1,25 +1,25 @@
 {
-  "generated": "2026-03-28T10:15:45Z",
+  "generated": "2026-03-28T17:57:30Z",
   "digests": [
     {
       "date": "2026-03-28",
       "dayOfWeek": "Saturday",
       "focusTopics": [
         {
-          "title": "Hormuz Crisis Hits Markets",
-          "desc": "Iran's closure of the Strait of Hormuz, through which roughly 20 percent of global oil supply transits, has sent crude prices sharply higher and triggered Wall Street's steepest selloff since 2020. Iranian missile strikes on Kuwaiti port facilities compounded supply fears, removing a key Gulf export alternative. The conflict has now produced confirmed US military casualties, raising the probability of direct American escalation."
+          "title": "Open-Weight Frontier Surge",
+          "desc": "Alibaba's Qwen3.5 and seven open-source March model releases are compressing the gap between proprietary and open-weight frontier performance. With over 255 models released in Q1 2026 alone, the pace of open-weight development is forcing closed labs to justify their access restrictions on capability grounds alone. xAI's Grok 4.20, deploying parallel agent architecture, adds a structural dimension to this race beyond raw benchmark scores."
         },
         {
-          "title": "Open-Weight Scale War",
-          "desc": "DeepSeek V4 at one trillion parameters and Alibaba's Qwen3.5 in eight open variants represent a dramatic acceleration in the open-weight model race, challenging the assumption that frontier scale requires proprietary access. These releases pressure OpenAI and Google to justify closed-model pricing as comparable capability becomes freely downloadable. Enterprises evaluating AI infrastructure now face a credible open-source path to frontier performance."
+          "title": "Hormuz Conflict Escalation",
+          "desc": "Day 26 of the US-Iran war marks a sustained military engagement with no visible off-ramp, as Trump's reference to a mysterious Iranian 'prize' at the Strait of Hormuz raises speculation about territorial or strategic objectives beyond deterrence. The deployment of thousands of additional US troops signals preparation for a prolonged campaign rather than a targeted strike operation. G7 coordination is underway, but Russia's windfall from elevated oil prices complicates unified Western pressure."
         },
         {
-          "title": "AI Infrastructure Expands",
-          "desc": "Cerebras CS-3 systems arriving on AWS Bedrock give cloud customers direct access to wafer-scale inference hardware without on-premise deployment, a significant step in democratizing high-throughput AI compute. Combined with OpenAI GPT-5.4's one-million-token context window, the infrastructure layer is rapidly catching up to the ambitions of the model layer. Organizations that deferred AI scaling decisions may find the cost-performance calculus has shifted materially this week."
+          "title": "AI Amid Geopolitical Chaos",
+          "desc": "The contrast between accelerating AI development and deepening geopolitical instability raises urgent questions about compute supply chains, energy availability, and the geopolitical alignment of frontier labs. Middle East conflict directly threatens the energy infrastructure that powers large-scale AI training and inference. Investors and policymakers should monitor whether Extreme Fear sentiment begins to constrain AI infrastructure spending in Q2 2026."
         }
       ],
       "kpis": {
-        "aiStories": "12",
+        "aiStories": "11",
         "worldEvents": "8",
         "marketMood": "Extreme Fear",
         "toolsFeatured": "6"
