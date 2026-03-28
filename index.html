@@ -3,9 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koda — Daily AI Intelligence Digest</title>
-    <meta name="description" content="Daily AI developments, world news, markets and tools — delivered every morning at koda.community">
+    <title>Koda - Daily AI Intelligence Digest</title>
+    <meta name="description" content="Daily AI intelligence digest. AI developments, world news, markets and tools synthesized every morning. Read, listen, or watch.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Koda - Daily AI Intelligence Digest">
+    <meta property="og:description" content="AI + World News + Markets + Tools in one daily briefing. Read, listen, or watch.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.koda.community">
+    <meta property="og:site_name" content="Koda Digest">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Koda Digest",
+        "alternateName": "Koda Intelligence Briefing",
+        "url": "https://www.koda.community",
+        "description": "Daily AI intelligence digest covering AI developments, world news, markets and tools.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.koda.community/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%236366F1'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='system-ui' font-weight='800'>K</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -28,6 +55,8 @@
             --hero-bg: #0F172A;
             --hero-text: #F1F5F9;
             --hero-text-secondary: #94A3B8;
+
+            --section-gap: 80px;
         }
 
         body.dark-mode {
@@ -54,6 +83,47 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        /* ---- SKIP LINK & SR-ONLY ---- */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 16px;
+            background: var(--blue);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            z-index: 10000;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: top 0.2s;
+        }
+        .skip-link:focus {
+            top: 8px;
+        }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* ---- REDUCED MOTION ---- */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .animate-in { opacity: 1 !important; transform: none !important; }
         }
 
         /* ---- TOPBAR ---- */
@@ -152,7 +222,7 @@
         /* ---- HERO ---- */
         .hero {
             position: relative;
-            min-height: 85vh;
+            min-height: 100vh;
             background: var(--hero-bg);
             display: flex;
             align-items: center;
@@ -172,6 +242,7 @@
             border-radius: 50%;
             filter: blur(80px);
             opacity: 0.25;
+            will-change: transform;
         }
 
         .orb-1 {
@@ -236,7 +307,26 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 24px;
+            gap: 20px;
+        }
+
+        /* Staggered hero entrance */
+        .hero-stagger {
+            opacity: 0;
+            transform: translateY(24px);
+            animation: heroFadeIn 0.7s ease forwards;
+        }
+        .hero-stagger:nth-child(1) { animation-delay: 0.1s; }
+        .hero-stagger:nth-child(2) { animation-delay: 0.2s; }
+        .hero-stagger:nth-child(3) { animation-delay: 0.3s; }
+        .hero-stagger:nth-child(4) { animation-delay: 0.4s; }
+        .hero-stagger:nth-child(5) { animation-delay: 0.5s; }
+        .hero-stagger:nth-child(6) { animation-delay: 0.6s; }
+        .hero-stagger:nth-child(7) { animation-delay: 0.7s; }
+        .hero-stagger:nth-child(8) { animation-delay: 0.8s; }
+
+        @keyframes heroFadeIn {
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero-brand-icon {
@@ -270,6 +360,19 @@
             color: var(--hero-text-secondary);
             text-transform: uppercase;
             letter-spacing: 2px;
+        }
+
+        .hero-value {
+            font-size: 17px;
+            font-weight: 400;
+            color: var(--hero-text-secondary);
+            line-height: 1.6;
+            max-width: 540px;
+        }
+
+        .hero-value strong {
+            color: var(--hero-text);
+            font-weight: 600;
         }
 
         /* ---- SEARCH ---- */
@@ -328,9 +431,7 @@
             z-index: 100;
         }
 
-        .search-results.active {
-            display: block;
-        }
+        .search-results.active { display: block; }
 
         .search-result-item {
             padding: 14px 18px;
@@ -342,13 +443,8 @@
             color: inherit;
         }
 
-        .search-result-item:hover {
-            background: rgba(99,102,241,0.1);
-        }
-
-        .search-result-item:last-child {
-            border-bottom: none;
-        }
+        .search-result-item:hover { background: rgba(99,102,241,0.1); }
+        .search-result-item:last-child { border-bottom: none; }
 
         .search-result-meta {
             display: flex;
@@ -406,6 +502,7 @@
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .cta-primary {
@@ -424,7 +521,7 @@
         }
 
         .cta-primary:hover {
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.02);
             box-shadow: 0 8px 24px rgba(59,130,246,0.3);
         }
 
@@ -479,10 +576,9 @@
             font-weight: 600;
         }
 
-
         /* ---- SECTIONS ---- */
         .page-section {
-            padding: 60px 0;
+            padding: var(--section-gap) 0;
         }
 
         .section-header {
@@ -498,12 +594,157 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: var(--text-secondary);
+            white-space: nowrap;
+            margin: 0;
         }
 
         .section-line {
             flex: 1;
             height: 1px;
             background: var(--border);
+        }
+
+        /* ---- ANIMATE ON SCROLL ---- */
+        .animate-in {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .animate-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered children */
+        .animate-in .animate-child {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .animate-in.visible .animate-child {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-in.visible .animate-child:nth-child(1) { transition-delay: 0.05s; }
+        .animate-in.visible .animate-child:nth-child(2) { transition-delay: 0.1s; }
+        .animate-in.visible .animate-child:nth-child(3) { transition-delay: 0.15s; }
+        .animate-in.visible .animate-child:nth-child(4) { transition-delay: 0.2s; }
+        .animate-in.visible .animate-child:nth-child(5) { transition-delay: 0.25s; }
+        .animate-in.visible .animate-child:nth-child(6) { transition-delay: 0.3s; }
+        .animate-in.visible .animate-child:nth-child(7) { transition-delay: 0.35s; }
+        .animate-in.visible .animate-child:nth-child(8) { transition-delay: 0.4s; }
+
+        /* ---- MEDIA STRIP ---- */
+        .media-strip {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .media-tile {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+        }
+
+        .media-tile:hover {
+            border-color: var(--blue);
+            box-shadow: 0 4px 16px var(--shadow);
+            transform: translateY(-2px);
+        }
+
+        .media-tile-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .media-tile-icon.podcast {
+            background: rgba(236,72,153,0.1);
+        }
+
+        .media-tile-icon.video {
+            background: rgba(239,68,68,0.1);
+        }
+
+        .media-tile-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .media-tile-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .media-tile-label.podcast { color: var(--pink); }
+        .media-tile-label.video { color: var(--red); }
+
+        .media-tile-title {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .media-tile-meta {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .media-tile-play {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: transform 0.2s;
+        }
+
+        .media-tile:hover .media-tile-play {
+            transform: scale(1.1);
+        }
+
+        .media-tile-play svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
+            margin-left: 2px;
+        }
+
+        .media-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 32px 20px;
+            color: var(--text-secondary);
+            font-size: 14px;
         }
 
         /* ---- TODAY'S SNAPSHOT ---- */
@@ -520,6 +761,9 @@
             border-radius: 16px;
             padding: 24px;
             transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .snapshot-card:hover {
@@ -569,20 +813,105 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 24px;
-            border-radius: 10px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            color: var(--text);
+            padding: 12px 28px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--blue), var(--indigo));
+            color: white;
             font-weight: 600;
             font-size: 14px;
             text-decoration: none;
-            transition: all 0.2s;
+            transition: all 0.3s;
         }
 
         .snapshot-cta a:hover {
-            border-color: var(--blue);
-            color: var(--blue);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(59,130,246,0.25);
+        }
+
+        /* ---- SOCIAL PROOF ---- */
+        .social-proof {
+            text-align: center;
+            padding: var(--section-gap) 0;
+        }
+
+        .proof-headline {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .proof-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .proof-stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .proof-stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .proof-stat-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .proof-formats {
+            margin-top: 32px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .proof-format {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .proof-format-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .proof-format-icon.read { background: rgba(59,130,246,0.1); }
+        .proof-format-icon.listen { background: rgba(236,72,153,0.1); }
+        .proof-format-icon.watch { background: rgba(239,68,68,0.1); }
+
+        .proof-divider {
+            width: 48px;
+            height: 2px;
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            border-radius: 1px;
+            margin: 0 auto 24px;
         }
 
         /* ---- ARCHIVE GRID ---- */
@@ -669,7 +998,7 @@
         /* ---- FOOTER ---- */
         .footer {
             border-top: 1px solid var(--border);
-            padding: 40px 0;
+            padding: 48px 0;
             text-align: center;
             color: var(--text-secondary);
         }
@@ -691,19 +1020,7 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* ---- ANIMATIONS ---- */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ---- LOADING ---- */
+        /* ---- LOADING SKELETON ---- */
         .skeleton {
             background: linear-gradient(90deg, var(--border) 25%, rgba(255,255,255,0.1) 50%, var(--border) 75%);
             background-size: 200% 100%;
@@ -721,11 +1038,16 @@
         @media (max-width: 768px) {
             .hero {
                 min-height: auto;
-                padding: 100px 20px 40px;
+                padding: 100px 20px 48px;
             }
 
             .hero-title {
                 font-size: 32px;
+                letter-spacing: -1px;
+            }
+
+            .hero-value {
+                font-size: 15px;
             }
 
             .hero-stats {
@@ -740,6 +1062,10 @@
                 max-width: 100%;
             }
 
+            .media-strip {
+                grid-template-columns: 1fr;
+            }
+
             .snapshot-grid {
                 grid-template-columns: 1fr;
             }
@@ -750,6 +1076,22 @@
 
             .topbar-link {
                 display: none;
+            }
+
+            .proof-stats {
+                gap: 24px;
+            }
+
+            .proof-stat-value {
+                font-size: 24px;
+            }
+
+            .page-section {
+                padding: 48px 0;
+            }
+
+            .social-proof {
+                padding: 48px 0;
             }
         }
 
@@ -765,6 +1107,8 @@
     </style>
 </head>
 <body>
+
+    <a href="#main-content" class="skip-link">Skip to content</a>
 
     <!-- TOPBAR -->
     <nav class="topbar">
@@ -791,66 +1135,116 @@
             <div class="orb orb-4"></div>
         </div>
         <div class="hero-content">
-                <div class="hero-brand-icon">K</div>
-                <h1 class="hero-title">Koda Intelligence Briefing</h1>
-                <p class="hero-tagline">Daily AI &middot; World News &middot; Markets &middot; Tools</p>
+            <div class="hero-brand-icon hero-stagger">K</div>
+            <h1 class="hero-title hero-stagger">Koda Intelligence Briefing</h1>
+            <p class="hero-tagline hero-stagger">Daily AI &middot; World News &middot; Markets &middot; Tools</p>
+            <p class="hero-value hero-stagger">Your daily intelligence briefing, synthesized from web search, newsletters, and AI analysis. <strong>Read, listen, or watch.</strong></p>
 
-                <div class="search-container">
-                    <span class="search-icon">&#128269;</span>
-                    <input type="text" class="search-input" id="searchInput" placeholder="Search all digests..." autocomplete="off">
-                    <div class="search-results" id="searchResults"></div>
-                </div>
+            <div class="search-container hero-stagger">
+                <label for="searchInput" class="sr-only">Search all digests</label>
+                <span class="search-icon">&#128269;</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search all digests..." autocomplete="off">
+                <div class="search-results" id="searchResults"></div>
+            </div>
 
-                <div class="hero-actions">
-                    <a href="./morning-briefing-koda.html" class="cta-primary">Read Today's Briefing &#8594;</a>
-                    <a href="#archive" class="cta-secondary">Browse Archive</a>
-                </div>
+            <div class="hero-actions hero-stagger">
+                <a href="./morning-briefing-koda.html" class="cta-primary">Read Today's Briefing &#8594;</a>
+                <a href="#archive" class="cta-secondary">Browse Archive</a>
+            </div>
 
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-value" id="statDigests">--</span>
-                        <span class="stat-label">Total Digests</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value" id="statStories">--</span>
-                        <span class="stat-label">AI Stories Covered</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value" id="statPodcasts">--</span>
-                        <span class="stat-label">Podcasts</span>
-                    </div>
+            <div class="hero-stats hero-stagger">
+                <div class="stat-item">
+                    <span class="stat-value" id="statDigests">--</span>
+                    <span class="stat-label">Digests Published</span>
                 </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="statStories">--</span>
+                    <span class="stat-label">AI Stories Analyzed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="statPodcasts">--</span>
+                    <span class="stat-label">Podcasts Produced</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="statTools">--</span>
+                    <span class="stat-label">Tools Featured</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- TODAY'S SNAPSHOT -->
-    <div class="container">
-        <section class="page-section fade-in" id="snapshot">
+    <main id="main-content" class="container">
+        <section class="page-section animate-in" id="media">
             <div class="section-header">
-                <span class="section-title">&#127919; Today's Focus</span>
+                <h2 class="section-title">&#127911; Today's Media</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="snapshot-grid" id="snapshotGrid">
+            <div class="media-strip stagger-children" id="mediaStrip">
+                <div class="media-empty">Loading media...</div>
+            </div>
+        </section>
+
+        <!-- TODAY'S FOCUS -->
+        <section class="page-section animate-in" id="snapshot">
+            <div class="section-header">
+                <h2 class="section-title">&#127919; Today's Focus</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="snapshot-grid stagger-children" id="snapshotGrid">
                 <div class="snapshot-card"><div class="skeleton" style="width:60%;margin-bottom:12px;"></div><div class="skeleton" style="width:100%;height:40px;"></div></div>
                 <div class="snapshot-card"><div class="skeleton" style="width:60%;margin-bottom:12px;"></div><div class="skeleton" style="width:100%;height:40px;"></div></div>
                 <div class="snapshot-card"><div class="skeleton" style="width:60%;margin-bottom:12px;"></div><div class="skeleton" style="width:100%;height:40px;"></div></div>
             </div>
-            <div class="snapshot-cta">
+            <div class="snapshot-cta animate-in">
                 <a href="./morning-briefing-koda.html">Read Full Briefing &#8594;</a>
             </div>
         </section>
 
+        <!-- SOCIAL PROOF -->
+        <section class="social-proof animate-in" id="proof">
+            <div class="proof-divider"></div>
+            <p class="proof-headline">Covering AI, world news, and markets daily since March 2026</p>
+            <div class="proof-stats">
+                <div class="proof-stat">
+                    <span class="proof-stat-value" data-count="true" id="proofDigests">0</span>
+                    <span class="proof-stat-label">Digests Published</span>
+                </div>
+                <div class="proof-stat">
+                    <span class="proof-stat-value" data-count="true" id="proofStories">0</span>
+                    <span class="proof-stat-label">Stories Analyzed</span>
+                </div>
+                <div class="proof-stat">
+                    <span class="proof-stat-value" data-count="true" id="proofPodcasts">0</span>
+                    <span class="proof-stat-label">Podcasts Produced</span>
+                </div>
+            </div>
+            <div class="proof-formats">
+                <div class="proof-format">
+                    <div class="proof-format-icon read">&#128196;</div>
+                    Read
+                </div>
+                <div class="proof-format">
+                    <div class="proof-format-icon listen">&#127911;</div>
+                    Listen
+                </div>
+                <div class="proof-format">
+                    <div class="proof-format-icon watch">&#9654;&#65039;</div>
+                    Watch
+                </div>
+            </div>
+        </section>
+
         <!-- ARCHIVE -->
-        <section class="page-section fade-in" id="archive">
+        <section class="page-section animate-in" id="archive">
             <div class="section-header">
-                <span class="section-title">&#128218; Archive</span>
+                <h2 class="section-title">&#128218; Archive</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="archive-grid" id="archiveGrid">
+            <div class="archive-grid stagger-children" id="archiveGrid">
                 <div class="archive-empty">Loading archive...</div>
             </div>
         </section>
-    </div>
+    </main>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -866,33 +1260,79 @@
         'use strict';
 
         // ---- DARK MODE ----
-        const themeToggle = document.getElementById('themeToggle');
-        const savedTheme = localStorage.getItem('koda-theme');
+        var themeToggle = document.getElementById('themeToggle');
+        var savedTheme = localStorage.getItem('koda-theme');
         if (savedTheme === 'dark') {
             document.body.classList.add('dark-mode');
             themeToggle.textContent = '\uD83C\uDF19';
         }
         themeToggle.addEventListener('click', function() {
-            const isDark = document.body.classList.toggle('dark-mode');
+            var isDark = document.body.classList.toggle('dark-mode');
             localStorage.setItem('koda-theme', isDark ? 'dark' : 'light');
             themeToggle.textContent = isDark ? '\uD83C\uDF19' : '\u2600\uFE0F';
         });
 
         // ---- LOAD MANIFEST ----
-        let manifest = null;
+        var manifest = null;
 
         fetch('./manifest.json')
             .then(function(r) { return r.json(); })
             .then(function(data) {
                 manifest = data;
                 renderSnapshot(data.digests[0]);
+                renderMedia(data.digests[0]);
                 renderArchive(data.digests);
                 renderStats(data.digests);
             })
             .catch(function() {
                 document.getElementById('snapshotGrid').innerHTML = '<div class="archive-empty">Could not load digest data.</div>';
                 document.getElementById('archiveGrid').innerHTML = '<div class="archive-empty">Could not load archive.</div>';
+                document.getElementById('mediaStrip').innerHTML = '<div class="media-empty">Could not load media.</div>';
             });
+
+        // ---- RENDER MEDIA STRIP ----
+        function renderMedia(latest) {
+            var strip = document.getElementById('mediaStrip');
+            if (!latest) {
+                strip.innerHTML = '<div class="media-empty">No media available yet.</div>';
+                return;
+            }
+
+            var html = '';
+            var digestFile = latest.file || 'morning-briefing-koda.html';
+            var dateStr = latest.date || '';
+            var playSvg = '<svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>';
+
+            if (latest.hasPodcast) {
+                html += '<a href="./' + digestFile + '#media" class="media-tile animate-child">' +
+                    '<div class="media-tile-icon podcast">&#127911;</div>' +
+                    '<div class="media-tile-content">' +
+                        '<div class="media-tile-label podcast">Podcast</div>' +
+                        '<div class="media-tile-title">Daily Intelligence Briefing</div>' +
+                        '<div class="media-tile-meta">' + formatDate(dateStr) + '</div>' +
+                    '</div>' +
+                    '<div class="media-tile-play">' + playSvg + '</div>' +
+                '</a>';
+            }
+
+            if (latest.hasVideo) {
+                html += '<a href="./' + digestFile + '#media" class="media-tile animate-child">' +
+                    '<div class="media-tile-icon video">&#9654;&#65039;</div>' +
+                    '<div class="media-tile-content">' +
+                        '<div class="media-tile-label video">Video</div>' +
+                        '<div class="media-tile-title">Watch Today\'s Briefing</div>' +
+                        '<div class="media-tile-meta">' + formatDate(dateStr) + '</div>' +
+                    '</div>' +
+                    '<div class="media-tile-play">' + playSvg + '</div>' +
+                '</a>';
+            }
+
+            if (!html) {
+                strip.innerHTML = '<div class="media-empty">No media available for today\'s briefing.</div>';
+            } else {
+                strip.innerHTML = html;
+            }
+        }
 
         // ---- RENDER SNAPSHOT ----
         function renderSnapshot(latest) {
@@ -902,12 +1342,10 @@
             var topics = latest.focusTopics || [];
             var digestFile = latest.file || 'morning-briefing-koda.html';
             for (var i = 0; i < topics.length && i < 3; i++) {
-                // Support both old string format and new {title, desc} format
                 var title = typeof topics[i] === 'string' ? topics[i] : (topics[i].title || '');
                 var desc = typeof topics[i] === 'object' ? (topics[i].desc || '') : '';
-                // Truncate desc to ~120 chars for the card
                 if (desc.length > 140) desc = desc.substring(0, 137) + '...';
-                html += '<a href="./' + digestFile + '#todays-focus" style="text-decoration:none;color:inherit;" class="snapshot-card">' +
+                html += '<a href="./' + digestFile + '#todays-focus" style="text-decoration:none;color:inherit;" class="snapshot-card animate-child">' +
                     '<div class="snapshot-number">' + (i + 1) + '</div>' +
                     '<div class="snapshot-title">' + escapeHtml(title) + '</div>' +
                     (desc ? '<div class="snapshot-desc">' + escapeHtml(desc) + '</div>' : '') +
@@ -939,7 +1377,7 @@
                 if (d.hasVideo) badges += '<span class="archive-badge video">Video</span>';
                 if (d.hasInfographic) badges += '<span class="archive-badge infographic">Infographic</span>';
 
-                html += '<a href="./' + d.file + '" class="archive-card">' +
+                html += '<a href="./' + d.file + '" class="archive-card animate-child">' +
                     '<div class="archive-date">' + formatDate(d.date) + '<span class="archive-day"> &middot; ' + d.dayOfWeek + '</span></div>' +
                     '<div class="archive-focus">' + escapeHtml(focusText) + '</div>' +
                     '<div class="archive-meta">' + badges + '</div>' +
@@ -950,15 +1388,57 @@
 
         // ---- RENDER STATS ----
         function renderStats(digests) {
-            document.getElementById('statDigests').textContent = digests.length;
             var totalStories = 0;
             var totalPodcasts = 0;
+            var totalTools = 0;
             for (var i = 0; i < digests.length; i++) {
                 totalStories += parseInt(digests[i].kpis.aiStories) || 0;
                 if (digests[i].hasPodcast) totalPodcasts++;
+                totalTools += parseInt(digests[i].kpis.toolsCount) || 6;
             }
+
+            // Hero stats (instant)
+            document.getElementById('statDigests').textContent = digests.length;
             document.getElementById('statStories').textContent = totalStories;
             document.getElementById('statPodcasts').textContent = totalPodcasts;
+            document.getElementById('statTools').textContent = totalTools;
+
+            // Social proof stats (for count-up)
+            proofTargets.digests = digests.length;
+            proofTargets.stories = totalStories;
+            proofTargets.podcasts = totalPodcasts;
+        }
+
+        // ---- COUNT-UP ANIMATION ----
+        var proofTargets = { digests: 0, stories: 0, podcasts: 0 };
+        var countUpDone = false;
+
+        function animateCountUp(el, target, duration) {
+            var start = 0;
+            var startTime = null;
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                var progress = Math.min((timestamp - startTime) / duration, 1);
+                var eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.floor(eased * target);
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    el.textContent = target;
+                }
+            }
+            requestAnimationFrame(step);
+        }
+
+        function triggerCountUp() {
+            if (countUpDone) return;
+            countUpDone = true;
+            var elDigests = document.getElementById('proofDigests');
+            var elStories = document.getElementById('proofStories');
+            var elPodcasts = document.getElementById('proofPodcasts');
+            if (proofTargets.digests > 0) animateCountUp(elDigests, proofTargets.digests, 1200);
+            if (proofTargets.stories > 0) animateCountUp(elStories, proofTargets.stories, 1500);
+            if (proofTargets.podcasts > 0) animateCountUp(elPodcasts, proofTargets.podcasts, 1000);
         }
 
         // ---- SEARCH ----
@@ -1042,10 +1522,7 @@
                 }
             }
 
-            // Sort by date descending
             results.sort(function(a, b) { return b.date.localeCompare(a.date); });
-
-            // Limit to 15 results
             results = results.slice(0, 15);
 
             if (results.length === 0) {
@@ -1130,14 +1607,50 @@
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
+
+                        // Trigger count-up when social proof is visible
+                        if (entry.target.id === 'proof') {
+                            triggerCountUp();
+                        }
+
                         observer.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.1 });
-            document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+
+            document.querySelectorAll('.animate-in').forEach(function(el) {
+                observer.observe(el);
+            });
         } else {
-            document.querySelectorAll('.fade-in').forEach(function(el) { el.classList.add('visible'); });
+            document.querySelectorAll('.animate-in').forEach(function(el) {
+                el.classList.add('visible');
+            });
+            triggerCountUp();
         }
+
+        // ---- PARALLAX ON ORBS ----
+        var heroSection = document.querySelector('.hero');
+        var orbs = document.querySelectorAll('.orb');
+        var ticking = false;
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    var scrollY = window.pageYOffset;
+                    var heroHeight = heroSection.offsetHeight;
+                    if (scrollY < heroHeight) {
+                        var ratio = scrollY / heroHeight;
+                        orbs[0].style.transform = 'translate(' + (30 * Math.sin(Date.now() / 4000)) + 'px, ' + (-ratio * 60) + 'px)';
+                        orbs[1].style.transform = 'translate(' + (-30 * Math.sin(Date.now() / 5000)) + 'px, ' + (-ratio * 40) + 'px)';
+                        orbs[2].style.transform = 'translate(' + (-50 * Math.sin(Date.now() / 3200)) + 'px, ' + (-ratio * 80) + 'px)';
+                        orbs[3].style.transform = 'translate(' + (20 * Math.cos(Date.now() / 3600)) + 'px, ' + (-ratio * 30) + 'px)';
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
     })();
     </script>
 </body>
