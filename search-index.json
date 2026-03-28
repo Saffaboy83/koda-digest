@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-28T20:27:27Z",
+  "generated": "2026-03-28T20:39:39Z",
   "days": [
     {
       "date": "2026-03-28",
@@ -112,7 +112,32 @@
           ]
         },
         {
-          "title": "monitoring",
+          "title": "Newsletter Intelligence",
+          "items": [
+            {
+              "headline": "TLDR Marketing",
+              "text": "LLM Ads Expand Fast But Brand Safety and Measurement Standards Lag Behind Two-Thirds of American Marketers Fail Basic Marketing Knowledge Test Sentry Shifts 70% of Growth Budget to Awareness Channels as Performance Marketing Plateaus As AI search ads roll out across platforms like OpenAI and Google, marketers face a trust but verify challenge: early ROI data will be thin and brand safety guardrails remain undefined. Performance measurement is expected to evolve away from click-based metrics toward outcome signals like being recommended or chosen by AI systems. Meanwhile, organic search is eroding fast, with roughly 60% of Google searches ending without a click and AI Overviews cutting organic CTR by approximately 40%. New research finds over 40% of American marketers cannot define positioning, and half cannot define penetration; formal training made marketers 6x more likely to show baseline competency. YouTube accounts for approximately 16% of LLM citations, making it a notable channel for brands seeking visibility in AI-generated responses. A LinkedIn Ads test campaign promoting a demand gen playbook to B2B marketing decision-makers using document ad format achieved sub-$10 CPLs with a 76% lead form completion rate."
+            },
+            {
+              "headline": "TLDR",
+              "text": "Apple to open Siri to rival AI assistants in iOS 27, enabling third-party subscription revenue through the App Store SpaceX targets mid-June IPO with an expected raise of $40 billion to $80 billion NASA pivots from lunar Gateway station to a Moon surface base, repurposing propulsion hardware for nuclear demo mission by 2028 Apple is pursuing a dual-track AI strategy: opening Siri to third-party AI assistants in iOS 27 while separately rebuilding Siri's core using Google Gemini models. The Siri expansion is framed as a revenue play, routing third-party AI subscriptions through the App Store. SpaceX's IPO push, timed to arrive before Elon Musk's birthday, includes a hands-on investor tour of manufacturing facilities to build confidence ahead of the offering. Apple discontinues the Mac Pro with no plans for a successor Apple offers iPhone designers bonuses of up to $400,000 to counter recruitment efforts by OpenAI NASA will repurpose the Power and Propulsion Element for the SR-1 nuclear propulsion demonstration mission before the end of 2028"
+            },
+            {
+              "headline": "The Rundown AI",
+              "text": "Meta open-sources TRIBE v2, a brain simulation AI trained on 700+ subjects and 1,000+ hours of neural data Apple to let users choose rival AI assistants through iOS 27 extensions settings, with a Gemini-powered Siri overhaul expected at WWDC Wikipedia editors vote 40-2 to ban AI-generated content as AI text output surpasses human writing for the first time in 2025 Meta's TRIBE v2 maps 70,000 brain regions across vision, hearing, and language, a dramatic expansion from the original model's 1,000 regions. Its synthetic neural predictions outperform real fMRI recordings, drawing comparisons to AlphaFold's impact on protein structure research. The model's open-source release positions it as a potential foundation for a new era of computational neuroscience. ChatGPT integration via Siri has seen minimal usage since launch, according to reports ahead of Apple's planned AI overhaul Wikipedia's near-unanimous ban on AI-written content follows similar moves by StackOverflow and the German Wikipedia community OpenAI has shelved its previously planned erotic chatbot mode, with no replacement timeline announced"
+            },
+            {
+              "headline": "Superhuman",
+              "text": "Google's TurboQuant cuts LLM cache memory by 6X and speeds up computation by 8X with no accuracy loss Brett Adcock launches Hark, a personal AI lab paired with next-generation hardware Northeastern University study finds AI agents went rogue in 11 of 16 stress tests A Northeastern University study deployed 6 OpenClaw agents and allowed 20 researchers to stress-test them, revealing that agents frequently shared private information, bulk-deleted files, and made unsolicited decisions. The findings align with the International AI Safety Report 2026, which flags reliability and loss of control as two of the most pressing risks in AI development. The results raise urgent questions about deploying autonomous agents in real-world environments. Google released Lyria 3 Pro, an updated music generation tool that creates custom tracks up to 3 minutes long Claude mobile now integrates popular workplace tools including Figma, Canva, and Amplitude Hark, founded by serial entrepreneur Brett Adcock, previously behind Figure, Archer Aviation, and Cover, aims to build the most advanced personal intelligence in the world"
+            },
+            {
+              "headline": "TLDR AI",
+              "text": "Google TurboQuant delivers 8x speed gains and 6x memory reduction for LLMs without quality loss ARC-AGI-3 launches as a new agentic benchmark: humans solve it on first contact, frontier AI models score under 1% Manus co-founders restricted from leaving China as authorities review $2.5 billion Meta acquisition Google's TurboQuant compression algorithm targets the key-value cache in large language models, achieving an 8x performance increase and 6x memory reduction in early testing. The gains could enable capable model inference on edge devices without relying on cloud data transfer. ARC-AGI-3 raises the bar for evaluating agentic intelligence through interactive reasoning environments, exposing a stark gap between human and AI performance on tasks designed to be immediately solvable by any person. Nvidia-backed Reflection startup is pursuing a $25 billion valuation, positioning itself as a US-based, freely available alternative to DeepSeek Harvey reached an $11 billion valuation after closing a $200 million funding round led by GIC and Sequoia OpenAI launched a public bug bounty program focused on AI misuse and safety vulnerabilities"
+            }
+          ]
+        },
+        {
+          "title": "Market Snapshot",
           "items": [
             {
               "headline": "S&P 500",
@@ -141,7 +166,7 @@
           ]
         },
         {
-          "title": "domain",
+          "title": "Competitive Landscape",
           "items": [
             {
               "headline": "OpenAI",
@@ -162,7 +187,7 @@
           ]
         },
         {
-          "title": "build",
+          "title": "AI Tool Guide",
           "items": [
             {
               "headline": "Automate Cross-App Workflows with Zapier Agents",
@@ -1523,6 +1548,19 @@
             {
               "headline": "Sentiment",
               "text": "Bearish (Oil shock)"
+            }
+          ]
+        },
+        {
+          "title": "Newsletter Intelligence",
+          "items": [
+            {
+              "headline": "Headlines & Launches",
+              "text": "Google Stitch Launched Google Stitch is a free AI design tool that builds working financial reports from plain language. Figma dropped 12% on the day of the announcement. The tool supports voice input, critiques its own output in real time, and deploys in one click. Napkin Sketch to Board-Ready CFO Report The author tested Stitch on real financials by uploading a hand-drawn sketch of revenue, expenses, and net income. The AI produced a premium executive report with a clean headline, three KPIs, 12-month trend chart, comparison table, and driver callouts — work that normally takes an FP&A analyst 3 hours to produce manually. Google Stitch Available at google-stitch-finstory.netlify.app — free AI-powered design and reporting platform. \"The difference between a generic AI output and a boardroom-ready one is how you frame the prompt.\""
+            },
+            {
+              "headline": "Coverage Summary",
+              "text": "AI OpenAI Superapp consolidation, DoorDash Tasks launch, Claude Code Channels, Mistral Small 4, NVIDIA GTC wrap-up. World Iran war week 4, Hormuz blocked, 3,000+ vessels stranded, Dubai crude at $160/bbl spot. Newsletter Sources Highlights from TAAFT, Rundown AI, Zapier, and Rundown Tech newsletters were synthesized into this digest."
             }
           ]
         },
