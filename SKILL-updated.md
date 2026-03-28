@@ -160,13 +160,37 @@ artifacts are kept forever so the NotebookLM archive stays intact.
    visualizations that feel alive. Think Vice News meets Bloomberg Quicktake.
    ```
 
-   **Kick off video generation (do NOT wait — it cooks in background):**
-   Immediately after the audio poll completes, call `video_overview_create` on the permanent notebook:
-   - `format: "explainer"`, `visual_style: "auto_select"`, `language: "en"`, `confirm: true`
-   - `focus_prompt:` the dynamic cinematic prompt built above (NOT a generic summary)
-   Do NOT poll `studio_status` yet — continue to Step 2B. The video will render on NotebookLM's
-   servers during Steps 2B and 2C (~5 min), and will be polled later in Step 2D.
-   If the `video_overview_create` call itself fails, set `VIDEO_AVAILABLE = false` and continue.
+   **Kick off cinematic video generation (do NOT wait — it cooks in background):**
+   Immediately after the audio poll completes, generate the cinematic video via Python (the MCP
+   tool does not support cinematic format). Save the dynamic prompt to a temp variable `$VID_PROMPT`,
+   then run:
+
+   ```bash
+   PYTHONUTF8=1 python -c "
+   import asyncio, sys
+   if sys.platform == 'win32':
+       asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+   async def go():
+       from notebooklm import NotebookLMClient
+       client_cm = await NotebookLMClient.from_storage()
+       client = await client_cm.__aenter__()
+       try:
+           s = await client.artifacts.generate_cinematic_video(
+               'f928d89b-2520-4180-a71a-d93a75a5487c',
+               instructions='''$VID_PROMPT''',
+           )
+           print(f'Cinematic video started: {s.task_id}')
+       finally:
+           await client_cm.__aexit__(None, None, None)
+   asyncio.run(go())
+   "
+   ```
+
+   This uses `generate_cinematic_video()` (dedicated method with Veo 3 rendering).
+   Do NOT poll `studio_status` yet — continue to Step 2B. The cinematic video takes ~30-40 min
+   to render and will be polled later in Step 2D.
+   If the command fails, fall back to `video_overview_create` with `format: "explainer"` and
+   set `VIDEO_IS_CINEMATIC = false`. Continue either way.
 
 ### 2B — Download audio and serve via Vercel
 
