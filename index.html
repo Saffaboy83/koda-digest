@@ -1001,6 +1001,133 @@
             color: var(--text-secondary);
         }
 
+        /* ---- EMAIL SIGNUP ---- */
+        .email-signup-form {
+            display: flex;
+            gap: 8px;
+            max-width: 420px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .email-signup-form input[type="email"] {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.08);
+            color: white;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .email-signup-form input[type="email"]::placeholder {
+            color: rgba(255,255,255,0.4);
+        }
+
+        .email-signup-form input[type="email"]:focus {
+            border-color: var(--indigo);
+            background: rgba(255,255,255,0.12);
+        }
+
+        .email-signup-form button[type="submit"] {
+            padding: 12px 24px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--blue), var(--indigo));
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .email-signup-form button[type="submit"]:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(99,102,241,0.35);
+        }
+
+        .hero-signup-note {
+            font-size: 12px;
+            color: var(--hero-text-secondary);
+            margin-top: 6px;
+            text-align: center;
+        }
+
+        .signup-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 4px 0;
+            color: var(--hero-text-secondary);
+            font-size: 12px;
+            max-width: 420px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .signup-divider::before,
+        .signup-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.12);
+        }
+
+        /* Archive signup section */
+        .archive-signup {
+            text-align: center;
+            padding: 48px 20px;
+            margin-top: 24px;
+        }
+
+        .archive-signup-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .archive-signup-subtitle {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .archive-signup .email-signup-form input[type="email"] {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .archive-signup .email-signup-form input[type="email"]::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .archive-signup .email-signup-form input[type="email"]:focus {
+            border-color: var(--indigo);
+        }
+
+        .archive-signup-note {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
+        @media (max-width: 600px) {
+            .email-signup-form {
+                flex-direction: column;
+            }
+            .email-signup-form button[type="submit"] {
+                width: 100%;
+            }
+        }
+
         /* ---- FOOTER ---- */
         .footer {
             border-top: 1px solid var(--border);
@@ -1154,6 +1281,18 @@
             </div>
 
             <div class="hero-actions hero-stagger">
+                <form
+                    action="https://buttondown.com/api/emails/embed-subscribe/arno"
+                    method="post"
+                    class="email-signup-form"
+                    onsubmit="this.querySelector('button').textContent='Subscribing...'"
+                >
+                    <input type="hidden" value="1" name="embed" />
+                    <input type="email" name="email" placeholder="your@email.com" required />
+                    <button type="submit">Get it free</button>
+                </form>
+                <p class="hero-signup-note">Delivered to your inbox every morning. No spam.</p>
+                <div class="signup-divider">or read now</div>
                 <a href="./morning-briefing-koda.html" class="cta-primary">Get Today's Brief &#8594;</a>
                 <a href="#archive" class="cta-secondary">Explore the Archive</a>
             </div>
@@ -1249,6 +1388,23 @@
             <div class="archive-grid stagger-children" id="archiveGrid">
                 <div class="archive-empty">Loading archive...</div>
             </div>
+        </section>
+
+        <!-- EMAIL SIGNUP (below archive) -->
+        <section class="archive-signup animate-in">
+            <h3 class="archive-signup-title">Like what you see?</h3>
+            <p class="archive-signup-subtitle">Get tomorrow's brief delivered to your inbox.</p>
+            <form
+                action="https://buttondown.com/api/emails/embed-subscribe/arno"
+                method="post"
+                class="email-signup-form"
+                onsubmit="this.querySelector('button').textContent='Subscribing...'"
+            >
+                <input type="hidden" value="1" name="embed" />
+                <input type="email" name="email" placeholder="your@email.com" required />
+                <button type="submit">Subscribe free</button>
+            </form>
+            <p class="archive-signup-note">One email per day. Unsubscribe anytime.</p>
         </section>
     </main>
 
