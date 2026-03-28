@@ -52,6 +52,7 @@ def main():
         "manifest.json",
         "search-index.json",
         "recent-themes.json",
+        "latest-markets.json",
         "index.html",
         "vercel.json",
         ".gitignore",

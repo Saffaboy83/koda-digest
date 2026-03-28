@@ -190,6 +190,14 @@ def main():
         f.write(html)
     print(f"  Saved: {current_path}")
 
+    # Export latest markets for landing page
+    markets = digest.get("markets", {})
+    if markets:
+        markets_path = DIGEST_DIR / "latest-markets.json"
+        with open(markets_path, "w", encoding="utf-8") as f:
+            json.dump({"date": args.date, "markets": markets}, f)
+        print(f"  Saved: {markets_path}")
+
 
 if __name__ == "__main__":
     main()

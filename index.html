@@ -124,6 +124,17 @@
         .archive-badge.video { background: rgba(255,113,108,0.08); color: #ff716c; }
         .archive-badge.infographic { background: rgba(255,183,134,0.08); color: #ffb786; }
 
+        /* Market ticker */
+        .ticker-item { display: flex; align-items: center; gap: 8px; white-space: nowrap; padding: 8px 16px; border-radius: 8px; background: rgba(23,31,51,0.4); border: 1px solid rgba(173,198,255,0.06); }
+        .ticker-name { font-size: 11px; font-weight: 700; color: #c2c6d6; text-transform: uppercase; letter-spacing: 0.5px; }
+        .ticker-price { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; color: #dae2fd; }
+        .ticker-change { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; }
+        .ticker-up { color: #10B981; }
+        .ticker-down { color: #EF4444; }
+        .ticker-neutral { color: #F59E0B; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
         /* Reduced motion */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -201,6 +212,13 @@
         </div>
     </header>
 
+    <!-- MARKET TICKER -->
+    <section class="mb-20 animate-in" id="marketTicker">
+        <div class="flex items-center gap-6 overflow-x-auto pb-2 scrollbar-hide" id="tickerStrip">
+            <div class="text-xs text-on-surface-variant/40 uppercase tracking-widest font-bold whitespace-nowrap">Markets</div>
+        </div>
+    </section>
+
     <!-- THREE FORMATS -->
     <section class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-32 animate-in">
         <div class="bg-surface-container p-7 rounded-xl border border-transparent hover:border-[#3B82F6]/30 transition-all duration-500 group">
@@ -223,6 +241,21 @@
             </div>
             <h3 class="text-xl font-bold mb-3 text-on-surface">Watch</h3>
             <p class="text-on-surface-variant leading-relaxed text-sm">Video briefing published to YouTube daily. Visual summaries with infographics and market data you can share.</p>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER SOURCES -->
+    <section class="mb-32 animate-in">
+        <div class="text-center">
+            <p class="text-xs uppercase tracking-[0.2em] font-bold text-on-surface-variant/40 mb-8">Synthesizing the best AI newsletters into one daily briefing</p>
+            <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-4">
+                <span class="text-sm font-semibold text-on-surface-variant/50 hover:text-[#3B82F6] transition-colors">TLDR</span>
+                <span class="text-sm font-semibold text-on-surface-variant/50 hover:text-[#8B5CF6] transition-colors">Superhuman</span>
+                <span class="text-sm font-semibold text-on-surface-variant/50 hover:text-[#EC4899] transition-colors">The Rundown</span>
+                <span class="text-sm font-semibold text-on-surface-variant/50 hover:text-[#3B82F6] transition-colors">Ben's Bites</span>
+                <span class="text-sm font-semibold text-on-surface-variant/50 hover:text-[#8B5CF6] transition-colors">Build Fast with AI</span>
+                <span class="text-sm font-semibold text-on-surface-variant/50 hover:text-[#EC4899] transition-colors">Morning Brew</span>
+            </div>
         </div>
     </section>
 
@@ -592,6 +625,41 @@
         if (!str) return '';
         return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
+
+    // ---- MARKET TICKER ----
+    fetch('./latest-markets.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            var markets = data.markets || {};
+            var strip = document.getElementById('tickerStrip');
+            var tickers = [
+                { key: 'sp500', label: 'S&P 500', icon: '' },
+                { key: 'nasdaq', label: 'NASDAQ', icon: '' },
+                { key: 'btc', label: 'BTC', icon: '' },
+                { key: 'eth', label: 'ETH', icon: '' },
+                { key: 'oil', label: 'Oil', icon: '' },
+                { key: 'sentiment', label: 'Sentiment', icon: '' },
+            ];
+            var html = '<div class="text-[10px] text-on-surface-variant/40 uppercase tracking-widest font-bold whitespace-nowrap mr-2">Markets</div>';
+            for (var i = 0; i < tickers.length; i++) {
+                var t = tickers[i];
+                var d = markets[t.key];
+                if (!d) continue;
+                var price = d.price || d.value || '';
+                var change = d.change || d.label || '';
+                var dir = d.direction || 'neutral';
+                var colorClass = dir === 'up' ? 'ticker-up' : dir === 'down' ? 'ticker-down' : 'ticker-neutral';
+                html += '<div class="ticker-item">' +
+                    '<span class="ticker-name">' + t.label + '</span>' +
+                    '<span class="ticker-price">' + escapeHtml(String(price)) + '</span>' +
+                    '<span class="ticker-change ' + colorClass + '">' + escapeHtml(String(change)) + '</span>' +
+                    '</div>';
+            }
+            strip.innerHTML = html;
+        })
+        .catch(function() {
+            document.getElementById('marketTicker').style.display = 'none';
+        });
 
     // ---- INTERSECTION OBSERVER ----
     if ('IntersectionObserver' in window) {
