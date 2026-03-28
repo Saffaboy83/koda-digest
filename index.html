@@ -88,8 +88,8 @@
     <style>
         body { background-color: #0b1326; color: #dae2fd; font-family: 'Inter', sans-serif; overflow-x: hidden; }
         .glass-card { background: rgba(23, 31, 51, 0.4); backdrop-filter: blur(20px); border: 1px solid rgba(173, 198, 255, 0.1); }
-        .hero-gradient { background: linear-gradient(135deg, #adc6ff 0%, #d0bcff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .btn-gradient { background: linear-gradient(135deg, #adc6ff 0%, #d0bcff 100%); }
+        .hero-gradient { background: linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .btn-gradient { background: linear-gradient(135deg, #3B82F6, #6366F1); }
         .blur-orb { position: absolute; width: 600px; height: 600px; border-radius: 50%; filter: blur(120px); z-index: 0; opacity: 0.12; pointer-events: none; }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
 
@@ -162,13 +162,13 @@
         <div class="inline-block px-4 py-1 rounded-full border border-[#adc6ff]/20 bg-[#adc6ff]/5 text-[#adc6ff] text-[10px] uppercase tracking-[0.2em] font-bold mb-6">
             Intelligence Update
         </div>
-        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black hero-gradient tracking-tighter leading-[1.1] mb-8">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black hero-gradient tracking-tighter leading-[1.2] pb-1 mb-6">
             Koda Intelligence Briefing
         </h1>
-        <p class="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto mb-4 font-medium tracking-tight">
+        <p class="text-base md:text-lg text-on-surface-variant max-w-2xl mx-auto mb-3 font-medium tracking-tight">
             Daily AI &middot; World News &middot; Markets &middot; Tools
         </p>
-        <p class="text-base text-on-surface-variant/70 max-w-lg mx-auto mb-12">
+        <p class="text-sm text-on-surface-variant/70 max-w-lg mx-auto mb-10">
             One briefing. Every morning. <strong class="text-on-surface">Read it. Hear it. Watch it.</strong>
         </p>
 
@@ -176,77 +176,79 @@
         <form action="https://buttondown.com/api/emails/embed-subscribe/arno" method="post" class="max-w-md mx-auto flex gap-2 p-1.5 rounded-full bg-surface-container border border-outline-variant/20 mb-6" onsubmit="this.querySelector('button').textContent='Subscribing...'">
             <input type="hidden" value="1" name="embed">
             <input type="email" name="email" required class="bg-transparent border-none focus:ring-0 text-on-surface px-6 w-full text-sm placeholder:text-slate-500" placeholder="Enter your email">
-            <button type="submit" class="btn-gradient text-[#001a42] px-8 py-3 rounded-full font-bold text-sm whitespace-nowrap active:scale-95 transition-all">Subscribe</button>
+            <button type="submit" class="btn-gradient text-white px-8 py-3 rounded-full font-bold text-sm whitespace-nowrap active:scale-95 transition-all">Subscribe</button>
         </form>
         <p class="text-xs text-on-surface-variant/50 mb-16">Delivered every morning. No spam. Unsubscribe anytime.</p>
 
         <!-- Stats Cards -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
             <div class="glass-card p-5 md:p-6 rounded-xl flex flex-col items-center justify-center">
-                <span class="text-2xl md:text-3xl font-bold text-primary mb-1 font-mono" id="statDigests">--</span>
-                <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Digests Published</span>
+                <span class="text-xl md:text-2xl font-bold text-primary mb-1 font-mono" id="statDigests">--</span>
+                <span class="text-[9px] uppercase tracking-widest text-on-surface-variant font-bold">Digests Published</span>
             </div>
-            <div class="glass-card p-5 md:p-6 rounded-xl flex flex-col items-center justify-center">
-                <span class="text-2xl md:text-3xl font-bold text-secondary mb-1 font-mono" id="statStories">--</span>
-                <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">AI Stories</span>
+            <div class="glass-card p-4 md:p-5 rounded-xl flex flex-col items-center justify-center">
+                <span class="text-xl md:text-2xl font-bold text-secondary mb-1 font-mono" id="statStories">--</span>
+                <span class="text-[9px] uppercase tracking-widest text-on-surface-variant font-bold">AI Stories</span>
             </div>
-            <div class="glass-card p-5 md:p-6 rounded-xl flex flex-col items-center justify-center">
-                <span class="text-2xl md:text-3xl font-bold text-tertiary mb-1 font-mono" id="statPodcasts">--</span>
-                <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Podcasts</span>
+            <div class="glass-card p-4 md:p-5 rounded-xl flex flex-col items-center justify-center">
+                <span class="text-xl md:text-2xl font-bold text-tertiary mb-1 font-mono" id="statPodcasts">--</span>
+                <span class="text-[9px] uppercase tracking-widest text-on-surface-variant font-bold">Podcasts</span>
             </div>
-            <div class="glass-card p-5 md:p-6 rounded-xl flex flex-col items-center justify-center">
-                <span class="text-2xl md:text-3xl font-bold text-primary mb-1 font-mono" id="statTools">--</span>
-                <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Tools</span>
+            <div class="glass-card p-4 md:p-5 rounded-xl flex flex-col items-center justify-center">
+                <span class="text-xl md:text-2xl font-bold text-primary mb-1 font-mono" id="statTools">--</span>
+                <span class="text-[9px] uppercase tracking-widest text-on-surface-variant font-bold">Tools</span>
             </div>
         </div>
     </header>
 
     <!-- THREE FORMATS -->
     <section class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-32 animate-in">
-        <div class="bg-surface-container p-8 rounded-xl border border-transparent hover:border-[#adc6ff]/30 transition-all duration-500 group">
-            <div class="w-12 h-12 bg-[#adc6ff]/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-[#adc6ff]/20 transition-colors">
-                <span class="material-symbols-outlined text-[#adc6ff]">article</span>
+        <div class="bg-surface-container p-7 rounded-xl border border-transparent hover:border-[#3B82F6]/30 transition-all duration-500 group">
+            <div class="w-11 h-11 bg-[#3B82F6]/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#3B82F6]/20 transition-colors">
+                <span class="material-symbols-outlined text-[#3B82F6]">article</span>
             </div>
-            <h3 class="text-2xl font-bold mb-4 text-on-surface">Read</h3>
-            <p class="text-on-surface-variant leading-relaxed">Sourced intelligence on AI, world news, markets, competitive landscape, and tools. Every story linked to its source.</p>
+            <h3 class="text-xl font-bold mb-3 text-on-surface">Read</h3>
+            <p class="text-on-surface-variant leading-relaxed text-sm">Sourced intelligence on AI, world news, markets, competitive landscape, and tools. Every story linked to its source.</p>
         </div>
-        <div class="bg-surface-container p-8 rounded-xl border border-transparent hover:border-[#d0bcff]/30 transition-all duration-500 group">
-            <div class="w-12 h-12 bg-[#d0bcff]/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-[#d0bcff]/20 transition-colors">
-                <span class="material-symbols-outlined text-[#d0bcff]">headphones</span>
+        <div class="bg-surface-container p-7 rounded-xl border border-transparent hover:border-[#8B5CF6]/30 transition-all duration-500 group">
+            <div class="w-11 h-11 bg-[#8B5CF6]/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#8B5CF6]/20 transition-colors">
+                <span class="material-symbols-outlined text-[#8B5CF6]">headphones</span>
             </div>
-            <h3 class="text-2xl font-bold mb-4 text-on-surface">Listen</h3>
-            <p class="text-on-surface-variant leading-relaxed">AI-generated podcast that turns the day's briefing into a conversational deep-dive you can play on any commute.</p>
+            <h3 class="text-xl font-bold mb-3 text-on-surface">Listen</h3>
+            <p class="text-on-surface-variant leading-relaxed text-sm">AI-generated podcast that turns the day's briefing into a conversational deep-dive you can play on any commute.</p>
         </div>
-        <div class="bg-surface-container p-8 rounded-xl border border-transparent hover:border-[#ffb786]/30 transition-all duration-500 group">
-            <div class="w-12 h-12 bg-[#ffb786]/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-[#ffb786]/20 transition-colors">
-                <span class="material-symbols-outlined text-[#ffb786]">play_circle</span>
+        <div class="bg-surface-container p-7 rounded-xl border border-transparent hover:border-[#EC4899]/30 transition-all duration-500 group">
+            <div class="w-11 h-11 bg-[#EC4899]/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#EC4899]/20 transition-colors">
+                <span class="material-symbols-outlined text-[#EC4899]">play_circle</span>
             </div>
-            <h3 class="text-2xl font-bold mb-4 text-on-surface">Watch</h3>
-            <p class="text-on-surface-variant leading-relaxed">Video briefing published to YouTube daily. Visual summaries with infographics and market data you can share.</p>
+            <h3 class="text-xl font-bold mb-3 text-on-surface">Watch</h3>
+            <p class="text-on-surface-variant leading-relaxed text-sm">Video briefing published to YouTube daily. Visual summaries with infographics and market data you can share.</p>
         </div>
     </section>
 
     <!-- TODAY'S FOCUS -->
     <section class="mb-32 animate-in" id="snapshot">
         <div class="flex items-baseline justify-between mb-12">
-            <h2 class="text-3xl md:text-4xl font-black text-on-surface tracking-tight">Today's Focus</h2>
+            <h2 class="text-2xl md:text-3xl font-black text-on-surface tracking-tight">Today's Focus</h2>
             <div class="h-px flex-grow mx-8 bg-outline-variant/10 hidden md:block"></div>
             <a href="./morning-briefing-koda.html" class="text-sm font-bold text-primary tracking-widest uppercase hover:underline hidden md:block">Read Full Briefing</a>
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6" id="snapshotGrid">
-            <div class="bg-surface-container-low p-8 rounded-xl animate-pulse"><div class="h-4 bg-surface-container rounded w-3/4 mb-4"></div><div class="h-12 bg-surface-container rounded"></div></div>
-            <div class="bg-surface-container-low p-8 rounded-xl animate-pulse"><div class="h-4 bg-surface-container rounded w-3/4 mb-4"></div><div class="h-12 bg-surface-container rounded"></div></div>
-            <div class="bg-surface-container-low p-8 rounded-xl animate-pulse"><div class="h-4 bg-surface-container rounded w-3/4 mb-4"></div><div class="h-12 bg-surface-container rounded"></div></div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6" id="snapshotGrid">
+            <div class="lg:col-span-7 bg-surface-container-low p-8 rounded-xl animate-pulse"><div class="h-4 bg-surface-container rounded w-3/4 mb-4"></div><div class="h-12 bg-surface-container rounded"></div></div>
+            <div class="lg:col-span-5 space-y-6">
+                <div class="bg-surface-container-low p-8 rounded-xl animate-pulse"><div class="h-4 bg-surface-container rounded w-3/4 mb-4"></div><div class="h-12 bg-surface-container rounded"></div></div>
+                <div class="bg-surface-container-low p-8 rounded-xl animate-pulse"><div class="h-4 bg-surface-container rounded w-3/4 mb-4"></div><div class="h-12 bg-surface-container rounded"></div></div>
+            </div>
         </div>
         <div class="mt-8 text-center md:hidden">
-            <a href="./morning-briefing-koda.html" class="btn-gradient text-[#001a42] px-8 py-3 rounded-full font-bold text-sm inline-block">Read Full Briefing</a>
+            <a href="./morning-briefing-koda.html" class="btn-gradient text-white px-8 py-3 rounded-full font-bold text-sm inline-block">Read Full Briefing</a>
         </div>
     </section>
 
     <!-- ARCHIVE -->
     <section class="mb-24 animate-in" id="archive">
         <div class="flex items-center justify-between mb-12">
-            <h2 class="text-3xl md:text-4xl font-black text-on-surface tracking-tight">Intelligence Archive</h2>
+            <h2 class="text-2xl md:text-3xl font-black text-on-surface tracking-tight">Intelligence Archive</h2>
         </div>
 
         <!-- Search -->
@@ -265,12 +267,12 @@
 
     <!-- FOOTER CTA -->
     <section class="text-center py-16 border-t border-white/5 animate-in">
-        <h3 class="text-2xl font-bold text-on-surface mb-2">Like what you see?</h3>
+        <h3 class="text-xl font-bold text-on-surface mb-2">Like what you see?</h3>
         <p class="text-on-surface-variant mb-8">Get tomorrow's brief delivered to your inbox.</p>
         <form action="https://buttondown.com/api/emails/embed-subscribe/arno" method="post" class="max-w-md mx-auto flex gap-2 p-1.5 rounded-full bg-surface-container border border-outline-variant/20" onsubmit="this.querySelector('button').textContent='Subscribing...'">
             <input type="hidden" value="1" name="embed">
             <input type="email" name="email" required class="bg-transparent border-none focus:ring-0 text-on-surface px-6 w-full text-sm placeholder:text-slate-500" placeholder="your@email.com">
-            <button type="submit" class="btn-gradient text-[#001a42] px-8 py-3 rounded-full font-bold text-sm whitespace-nowrap active:scale-95 transition-all">Subscribe</button>
+            <button type="submit" class="btn-gradient text-white px-8 py-3 rounded-full font-bold text-sm whitespace-nowrap active:scale-95 transition-all">Subscribe</button>
         </form>
         <p class="text-xs text-on-surface-variant/50 mt-4">One email per day. Unsubscribe anytime.</p>
     </section>
@@ -315,28 +317,64 @@
         });
 
     // ---- RENDER SNAPSHOT (Today's Focus) ----
+    // Curated AI/tech images for visual impact
+    var focusImages = [
+        'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80&auto=format',
+        'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80&auto=format',
+        'https://images.unsplash.com/photo-1639322537228-f710d846310a?w=800&q=80&auto=format',
+        'https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&q=80&auto=format',
+        'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80&auto=format',
+    ];
+
     function renderSnapshot(latest) {
         if (!latest) return;
         var grid = document.getElementById('snapshotGrid');
-        var html = '';
         var topics = latest.focusTopics || [];
         var digestFile = latest.file || 'morning-briefing-koda.html';
-        var colors = ['text-primary', 'text-secondary', 'text-tertiary'];
+        var colors = ['text-[#3B82F6]', 'text-[#8B5CF6]', 'text-[#EC4899]'];
+        var hoverColors = ['group-hover:text-[#3B82F6]', 'group-hover:text-[#8B5CF6]', 'group-hover:text-[#EC4899]'];
 
-        for (var i = 0; i < topics.length && i < 3; i++) {
-            var title = typeof topics[i] === 'string' ? topics[i] : (topics[i].title || '');
-            var desc = typeof topics[i] === 'object' ? (topics[i].desc || '') : '';
-            if (desc.length > 140) desc = desc.substring(0, 137) + '...';
-            html += '<a href="./' + digestFile + '#todays-focus" class="bg-surface-container p-8 rounded-xl hover:bg-surface-container-high transition-colors no-underline block group">' +
-                '<span class="' + colors[i] + ' font-bold text-3xl mb-4 block opacity-50">' + String(i + 1).padStart(2, '0') + '</span>' +
-                '<h4 class="text-xl font-bold text-on-surface mb-3 group-hover:' + colors[i] + ' transition-colors">' + escapeHtml(title) + '</h4>' +
+        if (!topics.length) {
+            grid.innerHTML = '<div class="text-center text-on-surface-variant p-8 lg:col-span-12">No focus topics available.</div>';
+            return;
+        }
+
+        // Pick a random image for the featured card
+        var imgIdx = Math.floor(Math.random() * focusImages.length);
+        var imgUrl = focusImages[imgIdx];
+
+        // Topic 1: Large featured card with image (left, 7 cols)
+        var t0 = typeof topics[0] === 'string' ? { title: topics[0], desc: '' } : topics[0];
+        var desc0 = (t0.desc || '');
+        if (desc0.length > 200) desc0 = desc0.substring(0, 197) + '...';
+
+        var featured = '<a href="./' + digestFile + '#todays-focus" class="lg:col-span-7 bg-surface-container-low rounded-xl overflow-hidden no-underline block group">' +
+            '<div class="aspect-video relative overflow-hidden">' +
+                '<img src="' + imgUrl + '" alt="" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60" loading="lazy">' +
+                '<div class="absolute inset-0 bg-gradient-to-t from-[#0b1326] via-[#0b1326]/40 to-transparent"></div>' +
+            '</div>' +
+            '<div class="p-8 -mt-20 relative z-10">' +
+                '<span class="' + colors[0] + ' font-bold text-3xl mb-4 block opacity-50">01</span>' +
+                '<h3 class="text-2xl md:text-3xl font-bold text-on-surface mb-4 leading-tight ' + hoverColors[0] + ' transition-colors">' + escapeHtml(t0.title || '') + '</h3>' +
+                (desc0 ? '<p class="text-on-surface-variant text-sm leading-relaxed mb-4">' + escapeHtml(desc0) + '</p>' : '') +
+            '</div>' +
+            '</a>';
+
+        // Topics 2-3: Smaller stacked cards (right, 5 cols)
+        var secondary = '<div class="lg:col-span-5 flex flex-col gap-6">';
+        for (var i = 1; i < Math.min(topics.length, 3); i++) {
+            var t = typeof topics[i] === 'string' ? { title: topics[i], desc: '' } : topics[i];
+            var desc = (t.desc || '');
+            if (desc.length > 120) desc = desc.substring(0, 117) + '...';
+            secondary += '<a href="./' + digestFile + '#todays-focus" class="bg-surface-container p-7 rounded-xl hover:bg-surface-container-high transition-colors no-underline block group flex-1">' +
+                '<span class="' + colors[i] + ' font-bold text-2xl mb-3 block opacity-50">' + String(i + 1).padStart(2, '0') + '</span>' +
+                '<h4 class="text-lg font-bold text-on-surface mb-2 ' + hoverColors[i] + ' transition-colors">' + escapeHtml(t.title || '') + '</h4>' +
                 (desc ? '<p class="text-on-surface-variant text-sm leading-relaxed">' + escapeHtml(desc) + '</p>' : '') +
                 '</a>';
         }
-        if (!html) {
-            html = '<div class="text-center text-on-surface-variant p-8 col-span-3">No focus topics available.</div>';
-        }
-        grid.innerHTML = html;
+        secondary += '</div>';
+
+        grid.innerHTML = featured + secondary;
     }
 
     // ---- RENDER ARCHIVE ----
