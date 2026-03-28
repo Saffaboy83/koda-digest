@@ -15,14 +15,13 @@ if [ -n "$GIT_TOKEN" ]; then
     echo "[entrypoint] Git credentials configured"
 
     # Initialize git repo (Docker COPY doesn't include .git)
-    # --filter=blob:limit=50k skips MP3/JPG/HTML blobs to avoid OOM
     if [ ! -d "/app/.git" ]; then
         cd /app
-        git init
+        git init -b main
         git remote add origin "https://x-access-token:${GIT_TOKEN}@github.com/Saffaboy83/koda-digest.git"
         git fetch --depth 1 --filter=blob:limit=50k origin main
         git reset origin/main
-        echo "[entrypoint] Git repo initialized (partial clone, blobs <50k only)"
+        echo "[entrypoint] Git repo initialized on branch main"
     fi
 fi
 
