@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-28T22:56:53Z",
+  "generated": "2026-03-28T23:04:33Z",
   "digests": [
     {
       "date": "2026-03-28",
@@ -35,22 +35,22 @@
       "dayOfWeek": "Friday",
       "focusTopics": [
         {
-          "title": "Open-Weight Frontier Surge",
-          "desc": "Alibaba's Qwen3.5 and seven open-source March model releases are compressing the gap between proprietary and open-weight frontier performance. With over 255 models released in Q1 2026 alone, the pace of open-weight development is forcing closed labs to justify their access restrictions on capability grounds alone. xAI's Grok 4.20, deploying parallel agent architecture, adds a structural dimension to this race beyond raw benchmark scores."
+          "title": "Gemini 2.5 Pro Dominance",
+          "desc": "Google's Gemini 2.5 Pro is setting new records across math, science, and general reasoning benchmarks, putting pressure on OpenAI and Anthropic to accelerate their own release cycles. The simultaneous launch of Gemini Robotics models suggests Google is executing a coordinated push across both software and physical AI. If benchmark leads translate to enterprise adoption, Google could meaningfully close the gap with OpenAI's commercial dominance."
         },
         {
-          "title": "Hormuz Conflict Escalation",
-          "desc": "Day 26 of the US-Iran war marks a sustained military engagement with no visible off-ramp, as Trump's reference to a mysterious Iranian 'prize' at the Strait of Hormuz raises speculation about territorial or strategic objectives beyond deterrence. The deployment of thousands of additional US troops signals preparation for a prolonged campaign rather than a targeted strike operation. G7 coordination is underway, but Russia's windfall from elevated oil prices complicates unified Western pressure."
+          "title": "Hallucination Reduction Milestone",
+          "desc": "OpenAI's GPT-4.5 reportedly cuts hallucination rates by nearly half compared to its predecessor, a development with significant implications for high-stakes deployments in legal, medical, and financial sectors. Reduced hallucination has been a persistent barrier to enterprise trust, and measurable progress here could accelerate procurement decisions. Anthropic's Claude 3.7 Sonnet, with its emphasis on structured reasoning, appears to be targeting the same reliability-focused market segment."
         },
         {
-          "title": "AI Amid Geopolitical Chaos",
-          "desc": "The contrast between accelerating AI development and deepening geopolitical instability raises urgent questions about compute supply chains, energy availability, and the geopolitical alignment of frontier labs. Middle East conflict directly threatens the energy infrastructure that powers large-scale AI training and inference. Investors and policymakers should monitor whether Extreme Fear sentiment begins to constrain AI infrastructure spending in Q2 2026."
+          "title": "Geopolitical Risk Cluster",
+          "desc": "Three simultaneous crises , renewed Gaza strikes, the Turkey crackdown on over 1,400 protesters, and South Korea's deadly wildfires , are compressing global risk appetite into a single cautious posture. The Russia-Ukraine Black Sea deal offers a rare de-escalation signal, but its scope is narrow and unlikely to shift the broader defensive market mood. For AI and tech sectors, geopolitical instability historically delays enterprise spending cycles, adding a macro headwind to an otherwise bullish innovation week."
         }
       ],
       "kpis": {
-        "aiStories": "11",
+        "aiStories": "8",
         "worldEvents": "8",
-        "marketMood": "Extreme Fear",
+        "marketMood": "Cautious",
         "toolsFeatured": "6"
       },
       "hasPodcast": true,
