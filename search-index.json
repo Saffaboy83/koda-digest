@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-28T17:57:30Z",
+  "generated": "2026-03-28T18:02:25Z",
   "days": [
     {
       "date": "2026-03-28",
@@ -22,7 +22,36 @@
           ]
         },
         {
-          "title": "Executive Summary",
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,477.16 (-1.74%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "21,408.08 (-2.38%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$66,468.47 (-3.35%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$1,992.43 (-3.24%)"
+            },
+            {
+              "headline": "Oil Brent",
+              "text": "$104.52 (+3.62%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "13 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "The Briefing",
           "items": [
             {
               "headline": "Summary",
@@ -113,35 +142,6 @@
             {
               "headline": "Christchurch's One NZ Stadium Opens Its Doors",
               "text": "Christchurch's new One NZ Stadium officially opened, with former All Blacks legend Dan Carter scoring the ceremonial first kick at the venue. The stadium represents a major infrastructure milestone for the city, which has been rebuilding its civic and sporting facilities since the 2011 earthquake. The opening marks a significant moment for Christchurch's long-term urban recovery. Source →"
-            }
-          ]
-        },
-        {
-          "title": "Market Snapshot",
-          "items": [
-            {
-              "headline": "S&P 500",
-              "text": "6,477.16 (-1.74%)"
-            },
-            {
-              "headline": "NASDAQ",
-              "text": "21,408.08 (-2.38%)"
-            },
-            {
-              "headline": "BTC",
-              "text": "$66,468.47 (-3.35%)"
-            },
-            {
-              "headline": "ETH",
-              "text": "$1,992.43 (-3.24%)"
-            },
-            {
-              "headline": "Oil Brent",
-              "text": "$104.52 (+3.62%)"
-            },
-            {
-              "headline": "Sentiment",
-              "text": "13 (Extreme Fear)"
             }
           ]
         },
