@@ -51,6 +51,7 @@ def main():
         f"infographic-{args.date}.jpg",
         "manifest.json",
         "search-index.json",
+        "recent-themes.json",
         "index.html",
         "vercel.json",
         ".gitignore",
