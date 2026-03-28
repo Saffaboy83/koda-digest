@@ -15,14 +15,14 @@ if [ -n "$GIT_TOKEN" ]; then
     echo "[entrypoint] Git credentials configured"
 
     # Initialize git repo (Docker COPY doesn't include .git)
-    # Use --depth 1 to avoid downloading all historical MP3/JPG binaries
+    # --filter=blob:limit=50k skips MP3/JPG/HTML blobs to avoid OOM
     if [ ! -d "/app/.git" ]; then
         cd /app
         git init
         git remote add origin "https://x-access-token:${GIT_TOKEN}@github.com/Saffaboy83/koda-digest.git"
-        git fetch --depth 1 origin main
+        git fetch --depth 1 --filter=blob:limit=50k origin main
         git reset origin/main
-        echo "[entrypoint] Git repo initialized (shallow fetch)"
+        echo "[entrypoint] Git repo initialized (partial clone, blobs <50k only)"
     fi
 fi
 
