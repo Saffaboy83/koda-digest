@@ -48,10 +48,13 @@ FFMPEG_PATH = os.path.expanduser(
     "ffmpeg-8.1-full_build/bin/ffmpeg.exe"
 )
 
-AUDIO_FOCUS = (
+DEFAULT_AUDIO_FOCUS = (
     "Focus on the biggest AI breakthroughs, key world events and their "
     "market impact, and practical AI tools people can use today."
 )
+
+VIDEO_POLL_INTERVAL = 15.0  # seconds between download attempts
+VIDEO_POLL_TIMEOUT = 1800.0  # max wait for video (30 min)
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -98,11 +101,13 @@ def convert_png_to_jpg(png_path, jpg_path):
 # ── Main Pipeline ────────────────────────────────────────────────────────────
 
 
-async def run_pipeline(text_content, date_str, output_dir, skip_video=False):
+async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
+                       diff_text=None, audio_focus=None):
     """Run the full NotebookLM media generation pipeline."""
 
     results = []
     media_paths = {}
+    focus = audio_focus or DEFAULT_AUDIO_FOCUS
 
     # ── Import and connect ───────────────────────────────────────────────
     try:
@@ -165,6 +170,24 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False):
             # Can't generate media without source text
             return results, media_paths, 1
 
+        # ── Step 2b: Add differentiation context (if provided) ────────
+        if diff_text:
+            print("[2b/6] Adding differentiation context...")
+            try:
+                await client.sources.add_text(
+                    NOTEBOOK_ID,
+                    f"Editorial Direction -- {date_str}",
+                    diff_text,
+                    wait=True,
+                )
+                results.append(make_status("add_diff", True,
+                                           f"Added {len(diff_text)} chars differentiation"))
+                print(f"  Added {len(diff_text)} chars differentiation context.")
+                await asyncio.sleep(2)
+            except Exception as e:
+                results.append(make_status("add_diff", False, str(e)))
+                print(f"  Warning: Could not add differentiation source: {e}")
+
         # ── Step 3: PARALLEL generation (audio + infographic + video) ────
         print("[3/5] Triggering all media generation in PARALLEL...")
 
@@ -176,7 +199,7 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False):
         async def start_audio():
             s = await client.artifacts.generate_audio(
                 NOTEBOOK_ID,
-                instructions=AUDIO_FOCUS,
+                instructions=focus,
                 audio_format=AudioFormat.DEEP_DIVE,
                 audio_length=AudioLength.DEFAULT,
             )
@@ -195,7 +218,7 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False):
         async def start_video():
             s = await client.artifacts.generate_video(
                 NOTEBOOK_ID,
-                instructions=AUDIO_FOCUS,
+                instructions=focus,
                 video_format=VideoFormat.EXPLAINER,
                 video_style=VideoStyle.AUTO_SELECT,
             )
@@ -271,13 +294,56 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False):
         async def complete_video():
             if not video_status:
                 return
-            await client.artifacts.wait_for_completion(
-                NOTEBOOK_ID, video_status.task_id, timeout=1800.0
-            )
-            await client.artifacts.download_video(NOTEBOOK_ID, str(video_path))
-            results.append(make_status("video", True, "Downloaded", str(video_path)))
-            media_paths["video"] = str(video_path)
-            print(f"  Video downloaded: {video_path}")
+            # Bypass: library's wait_for_completion has a URL validation bug
+            # that downgrades COMPLETED to PROCESSING for video artifacts.
+            # Instead, try short wait then fall back to direct download retries.
+            try:
+                await client.artifacts.wait_for_completion(
+                    NOTEBOOK_ID, video_status.task_id, timeout=120.0
+                )
+                await client.artifacts.download_video(NOTEBOOK_ID, str(video_path))
+                results.append(make_status("video", True, "Downloaded", str(video_path)))
+                media_paths["video"] = str(video_path)
+                print(f"  Video downloaded: {video_path}")
+                return
+            except TimeoutError:
+                print("    Video wait_for_completion timed out (URL validation bug)")
+                print("    Falling back to direct download polling...")
+            except Exception as e:
+                print(f"    Video wait error: {e}, trying direct downloads...")
+
+            # Retry download directly -- video may be ready even though
+            # the library's URL check disagrees
+            start = time.monotonic()
+            interval = VIDEO_POLL_INTERVAL
+            attempt = 0
+            while time.monotonic() - start < VIDEO_POLL_TIMEOUT:
+                attempt += 1
+                elapsed = time.monotonic() - start
+                try:
+                    await client.artifacts.download_video(
+                        NOTEBOOK_ID, str(video_path)
+                    )
+                    results.append(make_status(
+                        "video", True,
+                        f"Downloaded (direct attempt #{attempt}, {elapsed:.0f}s)",
+                        str(video_path),
+                    ))
+                    media_paths["video"] = str(video_path)
+                    print(f"  Video downloaded: {video_path}"
+                          f" (attempt #{attempt}, {elapsed:.0f}s)")
+                    return
+                except Exception as e:
+                    print(f"    Video download attempt #{attempt}"
+                          f" ({elapsed:.0f}s): {e}")
+                await asyncio.sleep(interval)
+                interval = min(interval * 1.3, 60.0)
+
+            results.append(make_status(
+                "video", False,
+                f"All download attempts failed after {VIDEO_POLL_TIMEOUT}s",
+            ))
+            print(f"  Video: all download attempts failed")
 
         # Run all completions in parallel
         completion_tasks = [complete_audio(), complete_infographic()]
@@ -367,6 +433,10 @@ def main():
                         help="Output directory (default: current directory)")
     parser.add_argument("--skip-video", action="store_true",
                         help="Skip video generation")
+    parser.add_argument("--diff-file",
+                        help="Path to differentiation context text file")
+    parser.add_argument("--focus",
+                        help="Dynamic audio/video focus instructions (overrides default)")
     parser.add_argument("--json", action="store_true",
                         help="Output results as JSON to stdout")
 
@@ -383,18 +453,27 @@ def main():
         print("ERROR: Text content too short (< 100 chars). Provide a proper news summary.")
         sys.exit(3)
 
+    # Read optional differentiation text
+    diff_text = None
+    if args.diff_file:
+        with open(args.diff_file, "r", encoding="utf-8") as f:
+            diff_text = f.read().strip()
+
     os.makedirs(args.output_dir, exist_ok=True)
 
     print(f"Koda Digest Media Generator")
     print(f"Date: {args.date}")
     print(f"Output: {os.path.abspath(args.output_dir)}")
     print(f"Text: {len(text_content)} characters")
+    print(f"Differentiation: {'yes' if diff_text else 'no'}")
+    print(f"Focus: {'custom' if args.focus else 'default'}")
     print(f"Video: {'skip' if args.skip_video else 'generate'}")
     print()
 
     # Run the async pipeline
     results, media_paths, exit_code = asyncio.run(
-        run_pipeline(text_content, args.date, args.output_dir, args.skip_video)
+        run_pipeline(text_content, args.date, args.output_dir, args.skip_video,
+                     diff_text=diff_text, audio_focus=args.focus)
     )
 
     # Write status file

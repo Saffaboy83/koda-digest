@@ -16,7 +16,7 @@ import httpx
 from datetime import datetime
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from pipeline.config import OPENROUTER_API_KEY, today_str, write_json, read_json
+from pipeline.config import DIGEST_DIR, OPENROUTER_API_KEY, today_str, write_json, read_json
 
 # ── OpenRouter API ───────────────────────────────────────────────────────────
 
@@ -355,6 +355,52 @@ def main():
                 ("Newsletters", newsletter_summaries)]
     total_items = sum(len(s) for _, s in sections)
     print(f"  Total: {total_items} content items across {len(sections)} sections + markets")
+
+    # ── Save rolling theme ledger for cross-day differentiation ────────
+    print("  Updating theme ledger...")
+    update_theme_ledger(args.date, summary, ai_news, world_news)
+
+
+def update_theme_ledger(date, summary, ai_news, world_news):
+    """Extract today's themes and append to the rolling ledger (last 5 days).
+
+    Saves to DIGEST_DIR/recent-themes.json (repo root, committed to git)
+    so the ledger persists across Railway container runs.
+    """
+    # Extract today's themes
+    hook = summary.get("hook", "") if summary else ""
+    ai_titles = [s.get("title", "") for s in (ai_news or [])[:5]]
+    world_titles = [s.get("title", "") for s in (world_news or [])[:3]]
+    focus_topics = [
+        t.get("title", "")
+        for t in summary.get("focus_topics", [])
+    ] if summary else []
+
+    today_entry = {
+        "hook": hook,
+        "top_themes": focus_topics[:3],
+        "top_stories": ai_titles[:3] + world_titles[:2],
+        "story_angles": [
+            b.get("text", "")[:80]
+            for b in summary.get("briefs", [])
+        ] if summary else [],
+    }
+
+    # Load existing ledger from repo root, add today, trim to 5 days
+    ledger_path = DIGEST_DIR / "recent-themes.json"
+    ledger = {}
+    if ledger_path.exists():
+        with open(ledger_path, "r", encoding="utf-8") as f:
+            ledger = json.load(f)
+
+    ledger[date] = today_entry
+
+    sorted_dates = sorted(ledger.keys(), reverse=True)
+    trimmed = {d: ledger[d] for d in sorted_dates[:5]}
+
+    with open(ledger_path, "w", encoding="utf-8") as f:
+        json.dump(trimmed, f, indent=2, ensure_ascii=False)
+    print(f"    Ledger: {len(trimmed)} days stored (saved to repo root)")
 
 
 if __name__ == "__main__":
