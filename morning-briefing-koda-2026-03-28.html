@@ -59,10 +59,10 @@
 /* ── Hero Gradient Background ────────────────────────────────────────── */
 .hero-gradient {
     background:
-        radial-gradient(ellipse 80% 50% at 20% 60%, rgba(59, 130, 246, 0.12) 0%, transparent 100%),
-        radial-gradient(ellipse 60% 40% at 80% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 100%),
-        radial-gradient(ellipse 50% 60% at 50% 90%, rgba(236, 72, 153, 0.06) 0%, transparent 100%),
-        linear-gradient(180deg, #0b1326 0%, #060e20 100%);
+        radial-gradient(ellipse 80% 50% at 20% 60%, rgba(59, 130, 246, 0.15) 0%, transparent 100%),
+        radial-gradient(ellipse 60% 40% at 80% 30%, rgba(139, 92, 246, 0.1) 0%, transparent 100%),
+        radial-gradient(ellipse 50% 60% at 50% 90%, rgba(236, 72, 153, 0.08) 0%, transparent 100%),
+        linear-gradient(180deg, rgba(11, 19, 38, 0.7) 0%, rgba(6, 14, 32, 0.92) 100%);
 }
 
 /* ── Scroll Progress Bar ─────────────────────────────────────────────── */
@@ -247,7 +247,7 @@
 <section class="relative w-full pt-14 overflow-hidden">
     
     <div class="absolute inset-0 z-0">
-        <img src="./infographic-2026-03-28.jpg" class="w-full h-full object-cover opacity-[0.15]" alt="" aria-hidden="true">
+        <img src="./infographic-2026-03-28.jpg" class="w-full h-full object-cover opacity-30" alt="" aria-hidden="true">
     </div>
     
     <div class="hero-gradient absolute inset-0 z-[1]"></div>
@@ -340,6 +340,98 @@
                 </div>
                 <p class="text-sm text-[#c2c6d6] leading-relaxed">Seven of nine major text models released in March are open-source, suggesting that even amid global instability, the open-weight movement is outpacing proprietary releases and reshaping competitive dynamics faster than policy can respond.</p>
             </div>
+            
+        </div>
+    </section>
+    
+
+    
+    
+    
+    <section class="section lg:hidden">
+        <div class="section-title flex items-center gap-4 mb-6">
+            <h3 class="text-lg font-black tracking-tight uppercase">Markets</h3>
+            <div class="h-px flex-grow bg-white/[0.1]"></div>
+        </div>
+        <div class="grid grid-cols-3 gap-2">
+            
+            
+            
+            
+            
+            
+            
+            <div class="bg-[#131b2e] p-3 text-center">
+                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">S&amp;P 500</div>
+                <div class="market-price text-[13px] font-mono font-bold">6,368.85</div>
+                <div class="market-change text-[10px] font-mono" style="color: #EF4444">-1.67%</div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="bg-[#131b2e] p-3 text-center">
+                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">NASDAQ</div>
+                <div class="market-price text-[13px] font-mono font-bold">20,948.36</div>
+                <div class="market-change text-[10px] font-mono" style="color: #EF4444">-2.15%</div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="bg-[#131b2e] p-3 text-center">
+                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">BTC</div>
+                <div class="market-price text-[13px] font-mono font-bold">$66,874.83</div>
+                <div class="market-change text-[10px] font-mono" style="color: #10B981">+0.79%</div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="bg-[#131b2e] p-3 text-center">
+                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">ETH</div>
+                <div class="market-price text-[13px] font-mono font-bold">$2,021.83</div>
+                <div class="market-change text-[10px] font-mono" style="color: #10B981">+1.51%</div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="bg-[#131b2e] p-3 text-center">
+                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">Oil</div>
+                <div class="market-price text-[13px] font-mono font-bold">$112.57</div>
+                <div class="market-change text-[10px] font-mono" style="color: #10B981">+11.60%</div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="bg-[#131b2e] p-3 text-center">
+                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">Sentiment</div>
+                <div class="market-price text-[13px] font-mono font-bold">12</div>
+                <div class="market-change text-[10px] font-mono" style="color: #EF4444">Extreme Fear</div>
+            </div>
+            
             
         </div>
     </section>
@@ -850,7 +942,7 @@
 
         
         
-        <section class="section" id="market-snapshot">
+        <section class="hidden lg:block section" id="market-snapshot">
             <div class="flex items-center gap-1.5 mb-5">
                 <span class="material-symbols-outlined text-sm text-[#8c909f]">monitoring</span>
                 <span class="section-title text-xs font-black tracking-[0.15em] uppercase text-[#8c909f]">Market Snapshot</span>
@@ -1099,7 +1191,7 @@
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-6 py-10 gap-4">
         <div>
             <span class="text-sm font-bold text-[#3B82F6]">Koda Intelligence</span>
-            <p class="text-[11px] text-[#c2c6d6] mt-1">Generated 2026-03-28 15:35</p>
+            <p class="text-[11px] text-[#c2c6d6] mt-1">Generated 2026-03-28 15:48</p>
         </div>
         <div class="flex gap-6 text-[11px] uppercase tracking-wide">
             <a href="./index.html" class="text-[#c2c6d6] hover:text-white transition-colors no-underline">Archive</a>

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-28T20:39:39Z",
+  "generated": "2026-03-28T20:48:43Z",
   "days": [
     {
       "date": "2026-03-28",
@@ -18,6 +18,35 @@
             {
               "headline": "AI Amid Market Chaos",
               "text": "The Dow's 800-point drop and Extreme Fear sentiment arrive precisely as AI labs are flooding the market with new releases, creating a sharp divergence between innovation velocity and investor confidence. Historically, periods of market stress accelerate enterprise cost-cutting, which can paradoxically benefit open-source AI adoption over expensive proprietary APIs. Watch for enterprise procurement shifts in Q2 earnings guidance."
+            }
+          ]
+        },
+        {
+          "title": "Markets",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,368.85 (-1.67%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "20,948.36 (-2.15%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$66,874.83 (+0.79%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$2,021.83 (+1.51%)"
+            },
+            {
+              "headline": "Oil",
+              "text": "$112.57 (+11.60%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "12 (Extreme Fear)"
             }
           ]
         },
