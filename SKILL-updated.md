@@ -108,15 +108,62 @@ artifacts are kept forever so the NotebookLM archive stays intact.
    (`f928d89b-2520-4180-a71a-d93a75a5487c`). Delete any existing text sources via `source_delete`
    (confirm: true) to keep the notebook clean. Do NOT delete audio artifacts.
 3. **Add today's text:** `notebook_add_text` with the compiled news block as a new source.
-4. **Generate audio:** `audio_overview_create` on the permanent notebook with:
+4. **Build a dynamic audio prompt** that makes technical content accessible. Use this template:
+
+   ```
+   Deliver this as an intelligence briefing for a mixed audience of AI practitioners
+   and business professionals.
+
+   When introducing technical concepts ({LIST_2_3_TECHNICAL_TERMS_FROM_TODAY}),
+   briefly explain WHY it matters in plain language before the detail.
+
+   Open with: {MOST_IMPORTANT_STORY} and why the listener should care.
+   AI section: lead with impact, then technical detail.
+   World events: what changed and what happens next.
+   Markets: one-line numbers ({KEY_MARKET_STAT}), then what is driving them.
+   Tools: who should use {TOOL_NAME} and what problem it solves.
+
+   Tone: Two smart colleagues catching each other up over coffee. When one host uses
+   a technical term, the other naturally clarifies it.
+   Pacing: Spend more time on the 2-3 stories that matter most.
+   Avoid: Assuming listeners know what MoE, context windows, or open-weight means
+   without a quick explainer.
+   ```
+
+   **Generate audio:** `audio_overview_create` on the permanent notebook with:
    - `format: "deep_dive"`, `length: "default"`, `language: "en"`, `confirm: true`
-   - `focus_prompt: "Focus on the biggest AI breakthroughs, key world events and their market impact, and practical AI tools people can use today."`
+   - `focus_prompt:` the dynamic audio prompt built above (NOT a generic summary)
 5. **Poll:** `studio_status` until the newest audio artifact has `status: "completed"`.
    Save the artifact title and `audio_url`.
-6. **Kick off video generation (do NOT wait — it cooks in background):**
+6. **Build a dynamic cinematic video prompt** from the day's news. Identify the single most
+   dramatic story for the cold open, then structure an Act 1/2/3 narrative arc. Use this template:
+
+   ```
+   Create a cinematic intelligence briefing in the style of a high-production documentary.
+
+   Cold open: {MOST_DRAMATIC_STORY_HEADLINE} — {ONE_LINE_HOOK}
+
+   Act 1 — The Lead: {HEADLINE_CRISIS_OR_BREAKTHROUGH}. Set the stakes with key numbers
+   and context. Why this matters right now.
+
+   Act 2 — The AI Landscape: {TOP_2_AI_STORIES}. Emphasize scale, competition, and what
+   it means for practitioners. Connect developments to the broader trend.
+
+   Act 3 — Collision: Tie geopolitics, markets ({KEY_MARKET_STAT}), and technology together.
+   What does the convergence of these forces mean?
+
+   Close: Forward-looking — what to watch in the next 24-48 hours.
+
+   Tone: Authoritative but accessible, like a seasoned analyst briefing senior leadership.
+   Pacing: Vary between urgency and depth. Dramatic pauses between acts.
+   Visual direction: Rich cinematic imagery — sweeping shots, dramatic lighting, data
+   visualizations that feel alive. Think Vice News meets Bloomberg Quicktake.
+   ```
+
+   **Kick off video generation (do NOT wait — it cooks in background):**
    Immediately after the audio poll completes, call `video_overview_create` on the permanent notebook:
    - `format: "explainer"`, `visual_style: "auto_select"`, `language: "en"`, `confirm: true`
-   - `focus_prompt:` same focus as the audio, e.g. "Focus on the biggest AI breakthroughs, key world events and their market impact, and practical AI tools people can use today."
+   - `focus_prompt:` the dynamic cinematic prompt built above (NOT a generic summary)
    Do NOT poll `studio_status` yet — continue to Step 2B. The video will render on NotebookLM's
    servers during Steps 2B and 2C (~5 min), and will be polled later in Step 2D.
    If the `video_overview_create` call itself fails, set `VIDEO_AVAILABLE = false` and continue.

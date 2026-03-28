@@ -49,8 +49,23 @@ FFMPEG_PATH = os.path.expanduser(
 )
 
 DEFAULT_AUDIO_FOCUS = (
-    "Focus on the biggest AI breakthroughs, key world events and their "
-    "market impact, and practical AI tools people can use today."
+    "Deliver this as an intelligence briefing that works for both AI practitioners and "
+    "business professionals who do not live in tech. "
+    "When introducing technical concepts like parameter counts, context windows, "
+    "mixture-of-experts, or open-weight models, briefly explain WHY it matters in plain "
+    "language before diving into details. For example: 'DeepSeek released a model with "
+    "1 trillion parameters. To put that in perspective, that is roughly 5x larger than the "
+    "models most companies were running just a year ago, and they made it freely available.' "
+    "Structure: Open with the single most important story and why the listener should care. "
+    "AI developments: lead with impact, then technical detail. "
+    "World events: focus on what changed and what happens next. "
+    "Markets: one-line numbers, then what is driving them. "
+    "Tools: who should use it and what problem it solves. "
+    "Tone: Two smart colleagues catching each other up over coffee. Confident but not "
+    "jargon-heavy. When one host uses a technical term, the other should naturally clarify it. "
+    "Pacing: Spend more time on the 2-3 stories that matter most, less time listing everything. "
+    "Avoid: Assuming the listener knows what MoE, context windows, or open-weight means "
+    "without a quick explainer."
 )
 
 DEFAULT_INFOGRAPHIC_FOCUS = (
@@ -67,6 +82,25 @@ DEFAULT_INFOGRAPHIC_FOCUS = (
     "date prominently in the header. "
     "Quality: Think Bloomberg Terminal meets Wired magazine. Dense with information but "
     "visually clean and scannable."
+)
+
+DEFAULT_VIDEO_FOCUS = (
+    "Create a cinematic intelligence briefing in the style of a high-production documentary "
+    "or HBO news special. Open with a dramatic cold-open hook that captures the single most "
+    "consequential story of the day. "
+    "Structure: Act 1 -- the headline crisis or breakthrough that demands attention. "
+    "Act 2 -- the AI developments reshaping the technology landscape, with emphasis on scale, "
+    "competition, and what it means for practitioners. "
+    "Act 3 -- the collision between geopolitics, markets, and technology, tying the threads "
+    "together into a cohesive narrative. "
+    "Close with a forward-looking statement about what to watch next. "
+    "Tone: Authoritative but accessible, like a seasoned analyst briefing senior leadership. "
+    "Avoid listicle energy. Every segment should feel like it matters. "
+    "Pacing: Vary between urgency (breaking developments) and depth (analysis segments). "
+    "Use dramatic pauses and transitions between acts. "
+    "Visual direction: Rich cinematic imagery -- sweeping establishing shots, dramatic lighting, "
+    "data visualizations that feel alive, close-ups on technology and conflict zones. "
+    "Think Vice News meets Bloomberg Quicktake."
 )
 
 VIDEO_POLL_INTERVAL = 15.0  # seconds between download attempts
@@ -118,13 +152,15 @@ def convert_png_to_jpg(png_path, jpg_path):
 
 
 async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
-                       diff_text=None, audio_focus=None, infographic_focus=None):
+                       diff_text=None, audio_focus=None, infographic_focus=None,
+                       video_focus=None):
     """Run the full NotebookLM media generation pipeline."""
 
     results = []
     media_paths = {}
     focus = audio_focus or DEFAULT_AUDIO_FOCUS
     ig_focus = infographic_focus or DEFAULT_INFOGRAPHIC_FOCUS
+    vid_focus = video_focus or DEFAULT_VIDEO_FOCUS
 
     # ── Import and connect ───────────────────────────────────────────────
     try:
@@ -236,8 +272,8 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
         async def start_video():
             s = await client.artifacts.generate_video(
                 NOTEBOOK_ID,
-                instructions=focus,
-                video_format=VideoFormat.EXPLAINER,
+                instructions=vid_focus,
+                video_format=VideoFormat.CINEMATIC,
                 video_style=VideoStyle.AUTO_SELECT,
             )
             print(f"  Video generation started (task: {s.task_id})")
@@ -457,6 +493,8 @@ def main():
                         help="Dynamic audio/video focus instructions (overrides default)")
     parser.add_argument("--infographic-focus",
                         help="Custom infographic visual direction prompt (overrides default)")
+    parser.add_argument("--video-focus",
+                        help="Custom cinematic video direction prompt (overrides default)")
     parser.add_argument("--json", action="store_true",
                         help="Output results as JSON to stdout")
 
@@ -488,14 +526,16 @@ def main():
     print(f"Differentiation: {'yes' if diff_text else 'no'}")
     print(f"Focus: {'custom' if args.focus else 'default'}")
     print(f"Infographic: {'custom prompt' if args.infographic_focus else 'default prompt'}")
-    print(f"Video: {'skip' if args.skip_video else 'generate'}")
+    print(f"Video: {'skip' if args.skip_video else 'cinematic'}")
+    print(f"Video prompt: {'custom' if args.video_focus else 'default'}")
     print()
 
     # Run the async pipeline
     results, media_paths, exit_code = asyncio.run(
         run_pipeline(text_content, args.date, args.output_dir, args.skip_video,
                      diff_text=diff_text, audio_focus=args.focus,
-                     infographic_focus=args.infographic_focus)
+                     infographic_focus=args.infographic_focus,
+                     video_focus=args.video_focus)
     )
 
     # Write status file
