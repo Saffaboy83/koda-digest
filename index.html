@@ -437,10 +437,7 @@
         else if (t.match(/\b(war|conflict|iran|china|geopolit|crisis|military|sanctions|nato|hormuz)\b/)) pool = imagePool.geo;
         else if (t.match(/\b(market|stock|crypto|bitcoin|nasdaq|trade|economy|recession|inflation|freefall)\b/)) pool = imagePool.market;
         else if (t.match(/\b(chip|hardware|robot|quantum|compute|data.?center|nvidia|semiconductor)\b/)) pool = imagePool.tech;
-        // Use title hash for consistent daily selection (same title = same image)
-        var hash = 0;
-        for (var i = 0; i < t.length; i++) hash = ((hash << 5) - hash) + t.charCodeAt(i);
-        return pool[Math.abs(hash) % pool.length];
+        return pool[Math.floor(Math.random() * pool.length)];
     }
 
     function renderSnapshot(latest) {
