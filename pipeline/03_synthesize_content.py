@@ -154,15 +154,18 @@ RAW DATA:
 CITATIONS:
 {json.dumps(citations, indent=2)}
 
-Return a JSON array with 6 entries (one per company/group):
+Return a JSON array of company objects. ONLY include companies that have verifiable recent news with a source URL. If there is no concrete news for a company today, OMIT it entirely. Do NOT generate filler text like "no significant announcements" or "coverage will be updated."
+
+Each object:
 {{
   "name": "Company name",
   "status": "One-line status summary",
   "body": "2-3 sentence analysis of latest moves",
-  "source_url": "URL if available, otherwise empty string"
+  "source_url": "Source URL (REQUIRED - omit the company if you have no URL)"
 }}
 
-Companies: OpenAI, Google DeepMind, Anthropic, Meta AI, Mistral, China Challengers (group)."""
+Candidate companies: OpenAI, Google DeepMind, Anthropic, Meta AI, Mistral, China Challengers (group).
+Only include those with real, sourced news today."""
     return llm_json(prompt, SYSTEM_PROMPT) or []
 
 

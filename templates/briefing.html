@@ -238,9 +238,8 @@
     <div class="section-title"><span class="section-icon">📬</span> Newsletter Intelligence</div>
     {% for nl in newsletters %}
     <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);margin-bottom:16px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <div style="margin-bottom:16px">
             <div class="newsletter-name" style="font-size:16px;font-weight:700">{{ nl.name or "Newsletter" }}</div>
-            <div style="font-size:11px;font-weight:600;color:var(--blue);background:rgba(59,130,246,0.1);padding:3px 10px;border-radius:6px">{{ nl.date_badge or "" }}</div>
         </div>
         {% if nl.headlines %}
         <div style="margin-bottom:12px">
@@ -287,11 +286,13 @@
     <div class="section-title"><span class="section-icon">🏢</span> Competitive Landscape</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;">
         {% for comp in competitive %}
+        {% if comp.source_url %}
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">{{ comp.name or "" }}</div>
             <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">{{ (comp.status or "") | no_em_dash }}</div>
-            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">{{ (comp.body or "") | no_em_dash }}{% if comp.source_url %} <a href="{{ comp.source_url | safe_url }}" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a>{% endif %}</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">{{ (comp.body or "") | no_em_dash }} <a href="{{ comp.source_url | safe_url }}" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
         </div>
+        {% endif %}
         {% endfor %}
     </div>
 </div>
