@@ -26,9 +26,11 @@ if [ -n "$GIT_TOKEN" ]; then
 fi
 
 # Hard timeout: 45 minutes max to prevent zombie containers
+# PYTHONUNBUFFERED ensures all print output reaches Railway logs immediately
+export PYTHONUNBUFFERED=1
 TIMEOUT=2700
 echo "[entrypoint] Launching pipeline (timeout: ${TIMEOUT}s)..."
-timeout $TIMEOUT python -m pipeline.run_all "$@"
+timeout $TIMEOUT python -u -m pipeline.run_all "$@"
 EXIT_CODE=$?
 
 if [ $EXIT_CODE -eq 124 ]; then
