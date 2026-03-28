@@ -125,18 +125,25 @@
         .archive-badge.infographic { background: rgba(255,183,134,0.08); color: #ffb786; }
 
         /* Market grid */
-        .market-card { background: rgba(23,31,51,0.5); backdrop-filter: blur(12px); border: 1px solid rgba(173,198,255,0.06); border-radius: 12px; padding: 16px; text-align: center; transition: border-color 0.3s, transform 0.3s; }
-        .market-card:hover { transform: translateY(-2px); }
-        .market-card.up { border-left: 3px solid #10B981; }
-        .market-card.down { border-left: 3px solid #EF4444; }
-        .market-card.neutral { border-left: 3px solid #F59E0B; }
-        .market-icon { font-size: 18px; margin-bottom: 4px; }
-        .market-label { font-size: 10px; font-weight: 700; color: #8c909f; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-        .market-price { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 800; color: #dae2fd; }
-        .market-change { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; margin-top: 4px; }
+        .market-card { background: rgba(23,31,51,0.5); backdrop-filter: blur(12px); border: none; border-radius: 0; padding: 12px; text-align: center; transition: background 0.3s; }
+        .market-card:hover { background: rgba(23,31,51,0.8); }
+        .market-icon { display: none; }
+        .market-label { font-size: 9px; font-weight: 700; color: #8c909f; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .market-price { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 800; color: #dae2fd; }
+        .market-change { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; margin-top: 2px; }
         .mkt-up { color: #10B981; }
         .mkt-down { color: #EF4444; }
         .mkt-neutral { color: #F59E0B; }
+        @media (min-width: 768px) {
+            .market-card { border-radius: 12px; padding: 16px; border: 1px solid rgba(173,198,255,0.06); }
+            .market-card.up { border-left: 3px solid #10B981; }
+            .market-card.down { border-left: 3px solid #EF4444; }
+            .market-card.neutral { border-left: 3px solid #F59E0B; }
+            .market-icon { display: block; font-size: 18px; margin-bottom: 4px; }
+            .market-label { font-size: 10px; margin-bottom: 6px; }
+            .market-price { font-size: 18px; }
+            .market-change { font-size: 12px; margin-top: 4px; }
+        }
 
         /* Reduced motion */
         @media (prefers-reduced-motion: reduce) {

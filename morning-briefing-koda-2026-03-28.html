@@ -59,10 +59,9 @@
 /* ── Hero Gradient Background ────────────────────────────────────────── */
 .hero-gradient {
     background:
-        radial-gradient(ellipse 80% 50% at 20% 60%, rgba(59, 130, 246, 0.15) 0%, transparent 100%),
-        radial-gradient(ellipse 60% 40% at 80% 30%, rgba(139, 92, 246, 0.1) 0%, transparent 100%),
-        radial-gradient(ellipse 50% 60% at 50% 90%, rgba(236, 72, 153, 0.08) 0%, transparent 100%),
-        linear-gradient(180deg, rgba(11, 19, 38, 0.7) 0%, rgba(6, 14, 32, 0.92) 100%);
+        radial-gradient(ellipse 80% 50% at 20% 60%, rgba(59, 130, 246, 0.12) 0%, transparent 100%),
+        radial-gradient(ellipse 60% 40% at 80% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 100%),
+        linear-gradient(180deg, rgba(11, 19, 38, 0.45) 0%, rgba(11, 19, 38, 0.6) 40%, rgba(6, 14, 32, 0.92) 100%);
 }
 
 /* ── Scroll Progress Bar ─────────────────────────────────────────────── */
@@ -188,6 +187,24 @@
 .podcast-player-wrap { display: none; }
 .podcast-player-wrap.active { display: block; }
 
+/* ── Expandable Sections (Mobile Accordions) ─────────────────────────── */
+.expandable-header {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    cursor: pointer;
+}
+@media (min-width: 1024px) {
+    .expandable-header {
+        padding: 0;
+        border-bottom: none;
+        cursor: default;
+    }
+}
+
 /* ── Section Scroll Margin ───────────────────────────────────────────── */
 .section { scroll-margin-top: 80px; }
 
@@ -247,7 +264,7 @@
 <section class="relative w-full pt-14 overflow-hidden">
     
     <div class="absolute inset-0 z-0">
-        <img src="./infographic-2026-03-28.jpg" class="w-full h-full object-cover opacity-30" alt="" aria-hidden="true">
+        <img src="./infographic-2026-03-28.jpg" class="w-full h-full object-cover object-center opacity-50 blur-[2px] scale-110" alt="" aria-hidden="true">
     </div>
     
     <div class="hero-gradient absolute inset-0 z-[1]"></div>
@@ -1064,12 +1081,22 @@
 
         
         
+        <div class="lg:hidden border-t border-white/[0.08] pt-6 mt-4">
+            <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-[#8c909f] text-center mb-2">More Intelligence</p>
+        </div>
+        
+
+        
+        
         <section class="section" id="competitive-landscape">
-            <div class="flex items-center gap-1.5 mb-5">
-                <span class="material-symbols-outlined text-sm text-[#8c909f]">domain</span>
-                <span class="section-title text-xs font-black tracking-[0.15em] uppercase text-[#8c909f]">Competitive Landscape</span>
-            </div>
-            <div class="space-y-2">
+            <button class="expandable-header w-full flex items-center justify-between lg:pointer-events-none lg:cursor-default" onclick="toggleExpand(this)" aria-expanded="false">
+                <div class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-sm text-[#8c909f]">domain</span>
+                    <span class="section-title text-xs font-black tracking-[0.15em] uppercase text-[#8c909f]">Competitive Landscape</span>
+                </div>
+                <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron lg:hidden transition-transform duration-300">expand_more</span>
+            </button>
+            <div class="expandable-content hidden lg:block space-y-2 mt-4">
                 
                 
                 <div class="p-4 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
@@ -1121,62 +1148,67 @@
 
         
         
-        <section class="section bg-[#3B82F6]/5 p-5 border-t border-[#3B82F6]/20" id="ai-tool-guide">
-            <div class="flex items-center gap-1.5 mb-5">
-                <span class="material-symbols-outlined text-sm text-[#3B82F6]">build</span>
-                <span class="section-title text-xs font-black tracking-[0.15em] uppercase text-[#3B82F6]">AI Tool Guide</span>
+        <section class="section lg:bg-[#3B82F6]/5 lg:p-5 lg:border-t lg:border-[#3B82F6]/20" id="ai-tool-guide">
+            <button class="expandable-header w-full flex items-center justify-between lg:pointer-events-none lg:cursor-default" onclick="toggleExpand(this)" aria-expanded="false">
+                <div class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-sm text-[#3B82F6]">build</span>
+                    <span class="section-title text-xs font-black tracking-[0.15em] uppercase text-[#3B82F6]">AI Tool Guide</span>
+                </div>
+                <span class="material-symbols-outlined text-[#3B82F6] text-lg expand-chevron lg:hidden transition-transform duration-300">expand_more</span>
+            </button>
+            <div class="expandable-content hidden lg:block mt-4">
+                <ul class="space-y-3 list-none p-0 m-0">
+                    
+                    <li class="flex gap-2.5">
+                        <span class="material-symbols-outlined text-[#3B82F6] text-sm flex-shrink-0 mt-0.5">bolt</span>
+                        <div class="text-[12px] leading-snug">
+                            <strong class="tool-title block text-[#dae2fd] text-[13px]">Automate Cross-App Workflows with Zapier Agents</strong>
+                            <span class="tool-body text-[#c2c6d6]">Zapier Agents lets you build autonomous AI agents that act across 8,000+ apps without manual intervention. Set up trigger-based systems, such as routing new form submissions to a CRM and Slack simultaneously, or running real-time data analysis when a spreadsheet updates. Start by identifying one repetitive multi-app task and let the agent handle the full chain. <a href="https://zapier.com" target="_blank" class="text-[#3B82F6] no-underline text-[10px] hover:underline">Try it &rarr;</a></span>
+                        </div>
+                    </li>
+                    
+                    <li class="flex gap-2.5">
+                        <span class="material-symbols-outlined text-[#3B82F6] text-sm flex-shrink-0 mt-0.5">bolt</span>
+                        <div class="text-[12px] leading-snug">
+                            <strong class="tool-title block text-[#dae2fd] text-[13px]">Capture Meeting Intelligence Automatically with Bluedot</strong>
+                            <span class="tool-body text-[#c2c6d6]">Bluedot delivers 98%+ transcription accuracy across Zoom, Google Meet, and Microsoft Teams, then syncs notes directly to HubSpot or Slack. Sales and recruiting teams can stop context-switching during calls and focus on the conversation instead of note-taking. After each meeting, review the auto-synced summary in your CRM rather than rewriting notes manually. <a href="https://bluedot.ai" target="_blank" class="text-[#3B82F6] no-underline text-[10px] hover:underline">Try it &rarr;</a></span>
+                        </div>
+                    </li>
+                    
+                    <li class="flex gap-2.5">
+                        <span class="material-symbols-outlined text-[#3B82F6] text-sm flex-shrink-0 mt-0.5">bolt</span>
+                        <div class="text-[12px] leading-snug">
+                            <strong class="tool-title block text-[#dae2fd] text-[13px]">Centralize Analytics from 600+ Sources with Supaboard AI</strong>
+                            <span class="tool-body text-[#c2c6d6]">Supaboard AI pulls data from over 600 sources into automated, no-code dashboards built for team decision-making. Connect your sales, marketing, and ops data in one place to eliminate the manual reporting cycle. Use it to schedule recurring dashboard refreshes so stakeholders always have current metrics without submitting data requests. <a href="https://supaboard.ai" target="_blank" class="text-[#3B82F6] no-underline text-[10px] hover:underline">Try it &rarr;</a></span>
+                        </div>
+                    </li>
+                    
+                    <li class="flex gap-2.5">
+                        <span class="material-symbols-outlined text-[#3B82F6] text-sm flex-shrink-0 mt-0.5">bolt</span>
+                        <div class="text-[12px] leading-snug">
+                            <strong class="tool-title block text-[#dae2fd] text-[13px]">Delegate Research Tasks to Perplexity&#39;s Comet Browser</strong>
+                            <span class="tool-body text-[#c2c6d6]">Comet is an AI-native browser from Perplexity designed around &#39;do it for me&#39; tasks, handling summarization, automated browsing, and research compilation on your behalf. Instead of opening dozens of tabs, describe what you need and let Comet navigate and synthesize the results. It is best suited for recurring research workflows like competitive monitoring or daily news digests.</span>
+                        </div>
+                    </li>
+                    
+                    <li class="flex gap-2.5">
+                        <span class="material-symbols-outlined text-[#3B82F6] text-sm flex-shrink-0 mt-0.5">bolt</span>
+                        <div class="text-[12px] leading-snug">
+                            <strong class="tool-title block text-[#dae2fd] text-[13px]">Write Faster by Speaking with Wispr Flow</strong>
+                            <span class="tool-body text-[#c2c6d6]">Wispr Flow converts voice to text with context awareness, meaning it understands tone and intent well enough to draft emails, Slack messages, and AI prompts accurately. Activate it anywhere you type and dictate instead of typing to cut composition time significantly. Use it especially for long-form responses or prompt engineering, where speaking is faster than typing precise instructions. <a href="https://wisprflow.ai" target="_blank" class="text-[#3B82F6] no-underline text-[10px] hover:underline">Try it &rarr;</a></span>
+                        </div>
+                    </li>
+                    
+                    <li class="flex gap-2.5">
+                        <span class="material-symbols-outlined text-[#3B82F6] text-sm flex-shrink-0 mt-0.5">bolt</span>
+                        <div class="text-[12px] leading-snug">
+                            <strong class="tool-title block text-[#dae2fd] text-[13px]">Prototype Websites and UI Instantly with Replit Design</strong>
+                            <span class="tool-body text-[#c2c6d6]">Replit Design uses AI to generate functional websites and UI layouts from natural language descriptions, compressing the gap between idea and working prototype. Developers can describe a component or full page and receive editable code immediately, skipping the blank-canvas phase. Use it to rapidly validate design directions with stakeholders before committing to a full build.</span>
+                        </div>
+                    </li>
+                    
+                </ul>
             </div>
-            <ul class="space-y-3 list-none p-0 m-0">
-                
-                <li class="flex gap-2.5">
-                    <span class="material-symbols-outlined text-[#3B82F6] text-sm flex-shrink-0 mt-0.5">bolt</span>
-                    <div class="text-[12px] leading-snug">
-                        <strong class="tool-title block text-[#dae2fd] text-[13px]">Automate Cross-App Workflows with Zapier Agents</strong>
-                        <span class="tool-body text-[#c2c6d6]">Zapier Agents lets you build autonomous AI agents that act across 8,000+ apps without manual intervention. Set up trigger-based systems, such as routing new form submissions to a CRM and Slack simultaneously, or running real-time data analysis when a spreadsheet updates. Start by identifying one repetitive multi-app task and let the agent handle the full chain. <a href="https://zapier.com" target="_blank" class="text-[#3B82F6] no-underline text-[10px] hover:underline">Try it &rarr;</a></span>
-                    </div>
-                </li>
-                
-                <li class="flex gap-2.5">
-                    <span class="material-symbols-outlined text-[#3B82F6] text-sm flex-shrink-0 mt-0.5">bolt</span>
-                    <div class="text-[12px] leading-snug">
-                        <strong class="tool-title block text-[#dae2fd] text-[13px]">Capture Meeting Intelligence Automatically with Bluedot</strong>
-                        <span class="tool-body text-[#c2c6d6]">Bluedot delivers 98%+ transcription accuracy across Zoom, Google Meet, and Microsoft Teams, then syncs notes directly to HubSpot or Slack. Sales and recruiting teams can stop context-switching during calls and focus on the conversation instead of note-taking. After each meeting, review the auto-synced summary in your CRM rather than rewriting notes manually. <a href="https://bluedot.ai" target="_blank" class="text-[#3B82F6] no-underline text-[10px] hover:underline">Try it &rarr;</a></span>
-                    </div>
-                </li>
-                
-                <li class="flex gap-2.5">
-                    <span class="material-symbols-outlined text-[#3B82F6] text-sm flex-shrink-0 mt-0.5">bolt</span>
-                    <div class="text-[12px] leading-snug">
-                        <strong class="tool-title block text-[#dae2fd] text-[13px]">Centralize Analytics from 600+ Sources with Supaboard AI</strong>
-                        <span class="tool-body text-[#c2c6d6]">Supaboard AI pulls data from over 600 sources into automated, no-code dashboards built for team decision-making. Connect your sales, marketing, and ops data in one place to eliminate the manual reporting cycle. Use it to schedule recurring dashboard refreshes so stakeholders always have current metrics without submitting data requests. <a href="https://supaboard.ai" target="_blank" class="text-[#3B82F6] no-underline text-[10px] hover:underline">Try it &rarr;</a></span>
-                    </div>
-                </li>
-                
-                <li class="flex gap-2.5">
-                    <span class="material-symbols-outlined text-[#3B82F6] text-sm flex-shrink-0 mt-0.5">bolt</span>
-                    <div class="text-[12px] leading-snug">
-                        <strong class="tool-title block text-[#dae2fd] text-[13px]">Delegate Research Tasks to Perplexity&#39;s Comet Browser</strong>
-                        <span class="tool-body text-[#c2c6d6]">Comet is an AI-native browser from Perplexity designed around &#39;do it for me&#39; tasks, handling summarization, automated browsing, and research compilation on your behalf. Instead of opening dozens of tabs, describe what you need and let Comet navigate and synthesize the results. It is best suited for recurring research workflows like competitive monitoring or daily news digests.</span>
-                    </div>
-                </li>
-                
-                <li class="flex gap-2.5">
-                    <span class="material-symbols-outlined text-[#3B82F6] text-sm flex-shrink-0 mt-0.5">bolt</span>
-                    <div class="text-[12px] leading-snug">
-                        <strong class="tool-title block text-[#dae2fd] text-[13px]">Write Faster by Speaking with Wispr Flow</strong>
-                        <span class="tool-body text-[#c2c6d6]">Wispr Flow converts voice to text with context awareness, meaning it understands tone and intent well enough to draft emails, Slack messages, and AI prompts accurately. Activate it anywhere you type and dictate instead of typing to cut composition time significantly. Use it especially for long-form responses or prompt engineering, where speaking is faster than typing precise instructions. <a href="https://wisprflow.ai" target="_blank" class="text-[#3B82F6] no-underline text-[10px] hover:underline">Try it &rarr;</a></span>
-                    </div>
-                </li>
-                
-                <li class="flex gap-2.5">
-                    <span class="material-symbols-outlined text-[#3B82F6] text-sm flex-shrink-0 mt-0.5">bolt</span>
-                    <div class="text-[12px] leading-snug">
-                        <strong class="tool-title block text-[#dae2fd] text-[13px]">Prototype Websites and UI Instantly with Replit Design</strong>
-                        <span class="tool-body text-[#c2c6d6]">Replit Design uses AI to generate functional websites and UI layouts from natural language descriptions, compressing the gap between idea and working prototype. Developers can describe a component or full page and receive editable code immediately, skipping the blank-canvas phase. Use it to rapidly validate design directions with stakeholders before committing to a full build.</span>
-                    </div>
-                </li>
-                
-            </ul>
         </section>
         
 
@@ -1191,7 +1223,7 @@
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-6 py-10 gap-4">
         <div>
             <span class="text-sm font-bold text-[#3B82F6]">Koda Intelligence</span>
-            <p class="text-[11px] text-[#c2c6d6] mt-1">Generated 2026-03-28 15:48</p>
+            <p class="text-[11px] text-[#c2c6d6] mt-1">Generated 2026-03-28 16:01</p>
         </div>
         <div class="flex gap-6 text-[11px] uppercase tracking-wide">
             <a href="./index.html" class="text-[#c2c6d6] hover:text-white transition-colors no-underline">Archive</a>
@@ -1200,7 +1232,24 @@
     </div>
 </footer>
 
-<script>// Podcast player toggle
+<script>// Expandable sections (mobile accordions)
+function toggleExpand(btn) {
+    var content = btn.nextElementSibling;
+    var chevron = btn.querySelector('.expand-chevron');
+    if (!content) return;
+    var isHidden = content.classList.contains('hidden');
+    if (isHidden) {
+        content.classList.remove('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+        if (chevron) chevron.style.transform = 'rotate(180deg)';
+    } else {
+        content.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        if (chevron) chevron.style.transform = '';
+    }
+}
+
+// Podcast player toggle
 function togglePodcast() {
     var w = document.getElementById('podcastPlayer');
     var btn = document.querySelector('.podcast-btn');
