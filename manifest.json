@@ -1,31 +1,31 @@
 {
-  "generated": "2026-03-28T02:56:55Z",
+  "generated": "2026-03-28T04:34:24Z",
   "digests": [
     {
       "date": "2026-03-28",
       "dayOfWeek": "Saturday",
       "focusTopics": [
         {
-          "title": "Open-Weight AI Dominates March",
-          "desc": "Seven of nine text models released this month carry open-weight licenses, a structural shift that redistributes frontier AI capability away from closed commercial providers. DeepSeek V4 and Alibaba's Qwen3.5 family are the most prominent entrants, directly targeting performance benchmarks held by GPT-5.4. This concentration of open releases in a single month suggests a coordinated competitive response to OpenAI's continued commercial momentum."
+          "title": "Frontier Model Arms Race",
+          "desc": "OpenAI, Alibaba, xAI, DeepSeek, and Google all released or updated major models within the same window, signaling that the cadence of frontier AI development has accelerated dramatically. DeepSeek V4's 1 trillion parameter architecture and xAI Grok 4.20's four-agent design represent distinct strategic bets on scale versus agentic capability. Enterprises and policymakers face mounting pressure to keep pace with evaluation frameworks that are already lagging behind deployment."
         },
         {
-          "title": "Hormuz Crisis Reshapes Energy Markets",
-          "desc": "Iran's closure of the Strait of Hormuz, through which roughly 20 percent of global oil supply transits, has triggered an immediate price shock and currency pressure across import-dependent economies, with India's rupee hitting a record low. The IAEA's warning of nuclear fallout risk at the Bushehr reactor adds a catastrophic tail risk that markets have not yet fully priced. G7 ministers convening in France face a narrow window to de-escalate before supply disruptions compound into a broader economic crisis."
+          "title": "Hormuz Crisis Deepens",
+          "desc": "The US-Iran standoff over the Strait of Hormuz has moved from diplomatic tension to active military posturing, with the IDF projecting a weeks-long campaign to degrade Iranian military assets. Trump's pause on strikes targeting Iranian energy infrastructure signals tactical restraint, but the underlying escalation trajectory remains intact. The G7 Foreign Ministers convening amid these tensions suggests allied coordination is being stress-tested in real time."
         },
         {
-          "title": "Xiaomi's Trillion-Parameter Surprise",
-          "desc": "The surfacing of Xiaomi's stealth trillion-parameter model is the week's most underreported AI development, signaling that consumer hardware companies are now competing at the absolute frontier of model scale. Xiaomi's existing distribution across hundreds of millions of devices gives it a deployment surface that pure-play AI labs cannot match. If the model's capabilities prove competitive, it reframes the frontier AI race as a hardware-distribution contest as much as a research one."
+          "title": "Energy Shock and Markets",
+          "desc": "Record-high global oil and gas prices, triggered by Hormuz uncertainty, have pushed market sentiment to Extreme Fear, a level historically associated with sharp equity drawdowns and risk-off capital flows. Prolonged disruption to the strait, through which roughly 20 percent of global oil transits, would compound inflationary pressures already straining major economies. AI infrastructure investment, which is energy-intensive and capital-heavy, faces indirect headwinds if energy costs remain elevated."
         }
       ],
       "kpis": {
-        "aiStories": "12",
+        "aiStories": "11",
         "worldEvents": "8",
         "marketMood": "Extreme Fear",
         "toolsFeatured": "6"
       },
-      "hasPodcast": false,
-      "hasInfographic": false,
+      "hasPodcast": true,
+      "hasInfographic": true,
       "hasVideo": true,
       "youtubeId": "hxDd8XG1wPw",
       "file": "morning-briefing-koda-2026-03-28.html"

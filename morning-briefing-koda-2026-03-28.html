@@ -278,7 +278,7 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
     
     
     <div class="kpi-card">
-        <div class="kpi-value" style="color:var(--blue)">12</div>
+        <div class="kpi-value" style="color:var(--blue)">11</div>
         <div class="kpi-label">AI Stories</div>
     </div>
     
@@ -305,7 +305,13 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
     <div class="media-banner">
         <div class="media-banner-icon" aria-hidden="true">🎧</div>
         <div class="media-banner-title">Daily Podcast</div>
-        <div class="media-banner-sub">Not available for today</div>
+        <div class="media-banner-sub">AI-generated deep-dive briefing</div>
+        <button class="media-banner-btn podcast-btn" onclick="togglePodcast()" aria-expanded="false" aria-controls="podcastPlayer">▶ Listen Now</button>
+        <div class="podcast-player-wrap" id="podcastPlayer">
+            <audio controls style="width:100%;margin-top:10px" preload="none" aria-label="Daily podcast audio">
+                <source src="./podcast-2026-03-28.mp3" type="audio/mpeg">
+            </audio>
+        </div>
     </div>
     
 
@@ -332,40 +338,47 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
 <div class="section" id="daily-summary">
     <div class="section-title"><span class="section-icon">📋</span> Executive Summary</div>
     <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 4px 16px var(--shadow);">
-        <div class="summary-hook" style="font-size:20px;font-weight:800;margin-bottom:18px;line-height:1.4">AI model releases accelerate as geopolitical crisis sends markets into extreme fear.</div>
+        <div class="summary-hook" style="font-size:20px;font-weight:800;margin-bottom:18px;line-height:1.4">AI labs race for supremacy as geopolitical crisis sends markets into extreme fear.</div>
         
         
         
         <div class="summary-brief" style="border-left:3px solid var(--blue);padding:10px 16px;margin:10px 0;background:var(--bg-card);border-radius:0 12px 12px 0;">
             <div style="font-size:13px;font-weight:700;color:var(--blue);margin-bottom:4px">🤖 AI</div>
-            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">OpenAI launched the GPT-5.4 family on March 5, intensifying a crowded frontier model race that now includes DeepSeek V4, Alibaba&#39;s eight-variant Qwen3.5, and a stealth trillion-parameter model from Xiaomi.</div>
+            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">OpenAI&#39;s GPT-5.4 claims the top benchmark position with an Intelligence Index score of 57, intensifying competition as Alibaba, xAI, DeepSeek, and Google all ship major model updates this cycle.</div>
         </div>
         
         
         
         <div class="summary-brief" style="border-left:3px solid var(--red);padding:10px 16px;margin:10px 0;background:var(--bg-card);border-radius:0 12px 12px 0;">
             <div style="font-size:13px;font-weight:700;color:var(--red);margin-bottom:4px">🌍 World</div>
-            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">Iran closed the Strait of Hormuz to global shipping, triggering Israeli-Iranian strikes, an IAEA nuclear fallout warning at Bushehr, and an emergency G7 ministerial convening in France.</div>
+            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">The US-Iran standoff over the Strait of Hormuz escalated sharply, with the IDF estimating weeks to degrade Iranian military capacity and Trump temporarily pausing strikes on Iranian energy infrastructure.</div>
         </div>
         
         
         
         <div class="summary-brief" style="border-left:3px solid var(--emerald);padding:10px 16px;margin:10px 0;background:var(--bg-card);border-radius:0 12px 12px 0;">
             <div style="font-size:13px;font-weight:700;color:var(--emerald);margin-bottom:4px">📊 Markets</div>
-            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">Markets are registering Extreme Fear as oil prices surge on the Hormuz closure and India&#39;s rupee falls to a record low, signaling broad emerging-market stress.</div>
+            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">Sentiment has collapsed to Extreme Fear as global oil and gas prices hit record highs, driven by the Hormuz crisis and the threat of sustained disruption to a critical energy chokepoint.</div>
         </div>
         
         
         
         <div class="summary-brief" style="border-left:3px solid var(--amber);padding:10px 16px;margin:10px 0;background:var(--bg-card);border-radius:0 12px 12px 0;">
             <div style="font-size:13px;font-weight:700;color:var(--amber);margin-bottom:4px">⚡ Wild Card</div>
-            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">Seven of nine major text models released in March are open source, meaning the most consequential AI infrastructure decisions of this crisis period may be made using freely available, ungoverned tools.</div>
+            <div class="summary-brief-text" style="font-size:14px;color:var(--text-secondary)">With five major AI model launches dropping in a single news cycle, the pace of frontier model releases now outstrips the ability of enterprises to evaluate, procure, and deploy them responsibly.</div>
         </div>
         
     </div>
 </div>
 
 
+
+<div class="section" id="infographic">
+    <div class="section-title"><span class="section-icon">📊</span> Daily Infographic</div>
+    <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:16px;box-shadow:0 4px 16px var(--shadow);text-align:center">
+        <img src="./infographic-2026-03-28.jpg" alt="Koda Daily Infographic 2026-03-28" style="max-width:100%;border-radius:12px">
+    </div>
+</div>
 
 
 
@@ -379,24 +392,24 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
         <article class="focus-item">
             <div class="focus-num" style="background:linear-gradient(135deg,var(--blue),var(--purple))">1</div>
             <div class="focus-content">
-                <div class="focus-content-title">Open-Weight AI Dominates March</div>
-                <div class="focus-content-body">Seven of nine text models released this month carry open-weight licenses, a structural shift that redistributes frontier AI capability away from closed commercial providers. DeepSeek V4 and Alibaba&#39;s Qwen3.5 family are the most prominent entrants, directly targeting performance benchmarks held by GPT-5.4. This concentration of open releases in a single month suggests a coordinated competitive response to OpenAI&#39;s continued commercial momentum.</div>
+                <div class="focus-content-title">Frontier Model Arms Race</div>
+                <div class="focus-content-body">OpenAI, Alibaba, xAI, DeepSeek, and Google all released or updated major models within the same window, signaling that the cadence of frontier AI development has accelerated dramatically. DeepSeek V4&#39;s 1 trillion parameter architecture and xAI Grok 4.20&#39;s four-agent design represent distinct strategic bets on scale versus agentic capability. Enterprises and policymakers face mounting pressure to keep pace with evaluation frameworks that are already lagging behind deployment.</div>
             </div>
         </article>
         
         <article class="focus-item">
             <div class="focus-num" style="background:linear-gradient(135deg,var(--purple),var(--purple))">2</div>
             <div class="focus-content">
-                <div class="focus-content-title">Hormuz Crisis Reshapes Energy Markets</div>
-                <div class="focus-content-body">Iran&#39;s closure of the Strait of Hormuz, through which roughly 20 percent of global oil supply transits, has triggered an immediate price shock and currency pressure across import-dependent economies, with India&#39;s rupee hitting a record low. The IAEA&#39;s warning of nuclear fallout risk at the Bushehr reactor adds a catastrophic tail risk that markets have not yet fully priced. G7 ministers convening in France face a narrow window to de-escalate before supply disruptions compound into a broader economic crisis.</div>
+                <div class="focus-content-title">Hormuz Crisis Deepens</div>
+                <div class="focus-content-body">The US-Iran standoff over the Strait of Hormuz has moved from diplomatic tension to active military posturing, with the IDF projecting a weeks-long campaign to degrade Iranian military assets. Trump&#39;s pause on strikes targeting Iranian energy infrastructure signals tactical restraint, but the underlying escalation trajectory remains intact. The G7 Foreign Ministers convening amid these tensions suggests allied coordination is being stress-tested in real time.</div>
             </div>
         </article>
         
         <article class="focus-item">
             <div class="focus-num" style="background:linear-gradient(135deg,var(--emerald),var(--purple))">3</div>
             <div class="focus-content">
-                <div class="focus-content-title">Xiaomi&#39;s Trillion-Parameter Surprise</div>
-                <div class="focus-content-body">The surfacing of Xiaomi&#39;s stealth trillion-parameter model is the week&#39;s most underreported AI development, signaling that consumer hardware companies are now competing at the absolute frontier of model scale. Xiaomi&#39;s existing distribution across hundreds of millions of devices gives it a deployment surface that pure-play AI labs cannot match. If the model&#39;s capabilities prove competitive, it reframes the frontier AI race as a hardware-distribution contest as much as a research one.</div>
+                <div class="focus-content-title">Energy Shock and Markets</div>
+                <div class="focus-content-body">Record-high global oil and gas prices, triggered by Hormuz uncertainty, have pushed market sentiment to Extreme Fear, a level historically associated with sharp equity drawdowns and risk-off capital flows. Prolonged disruption to the strait, through which roughly 20 percent of global oil transits, would compound inflationary pressures already straining major economies. AI infrastructure investment, which is energy-intensive and capital-heavy, faces indirect headwinds if energy costs remain elevated.</div>
             </div>
         </article>
         
@@ -415,24 +428,40 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Model Release</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">OpenAI Launches GPT-5.4 Family on March 5</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">OpenAI released GPT-5.4 and GPT-5.4 Pro on March 5, featuring a 1 million-token context window, enhanced reasoning, native computer-use capabilities, and agentic workflow support. GPT-5.4 Mini followed on March 18 for free ChatGPT users, with paid tiers reorganized into three reasoning levels: Instant, Thinking, and Pro. The flagship model tied for first place on the LMArena leaderboard, competing directly with Claude and Gemini variants. <a href="https://champaignmagazine.com/2026/03/08/ai-by-ai-weekly-top-5-march-2-8-2026/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--emerald);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Open Source</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">DeepSeek V4 Targets Frontier Models Open-Weight</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">DeepSeek V4, expected around March 3, arrives with 1 trillion total parameters and 32 billion active parameters, native multimodal support, and a 1 million-plus token context window, all released as open-weight. The architecture positions it directly against proprietary frontier models from OpenAI and Anthropic while remaining freely accessible to developers. Its scale and openness make it one of the most significant releases of the quarter. <a href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank" style="color:var(--emerald);font-size:11px;text-decoration:none;">Source →</a></div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">OpenAI GPT-5.4 Tops Benchmarks with Intelligence Index 57</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">OpenAI released GPT-5.4 on March 5-6, 2026, claiming the top spot on AI leaderboards with an Intelligence Index of 57. The model supports a 1-million-token context window, enhanced step-by-step reasoning, and native computer-use for agentic workflows. Variants include &#39;xhigh&#39; and &#39;Thinking&#39; editions, positioning it as the leading frontier model for coding and autonomous task execution. <a href="https://champaignmagazine.com/2026/03/08/ai-by-ai-weekly-top-5-march-2-8-2026/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
         </div>
         
         
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">China</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Alibaba Releases Qwen3.5 in Eight Variants</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Alibaba shipped the Qwen3.5 series in March, offering eight open-weight variants ranging from 0.8 billion to 397 billion parameters. The breadth of the lineup allows developers to deploy models across a wide range of hardware configurations, from edge devices to data center clusters. Qwen3.5 ranks among the highest-performing open-weight text models released in Q1 2026. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Alibaba Qwen3.5 Narrows Gap with Frontier Models</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Alibaba released the Qwen3.5 series on March 5, 2026, spanning models from 0.8B to 397B parameters using a Mixture-of-Experts architecture for its largest variants. The series achieved an Intelligence Index of 45, the highest among open-weight models released in March. The release signals continued progress from Chinese labs in closing the performance gap with proprietary Western frontier models. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+        
+        
+        
+        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Model Release</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">xAI Grok 4.20 Exits Beta with Four-Agent Architecture</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">xAI moved Grok 4.20 out of beta in March 2026, completing a full release after its February debut. The model features a distinctive four-agent parallel architecture designed to improve reasoning quality and complex task performance. Grok 4.20 is positioned as a competitive frontier offering, though it trails GPT-5.4 on the Intelligence Index. <a href="https://designforonline.com/the-best-ai-models-so-far-in-2026/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+        
+        
+        
+        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">China</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">DeepSeek V4 Launches with 1 Trillion Parameters</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">DeepSeek released V4 on March 3, 2026, featuring 1 trillion total parameters with 32 billion active at inference time and a 1-million-token context window. The model also supports multimodal inputs, making it one of the most capable open-architecture releases of the quarter. Its release contributed to a Q1 2026 total exceeding 255 major model launches. <a href="https://manifold.markets/prismatic/march-2026-ai-model-releases" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+        
+        
+        
+        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Model Release</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Google Gemini 3.1 Flash-Lite Targets Efficient Inference</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Google released Gemini 3.1 Flash-Lite Preview on March 3, 2026, a lightweight proprietary model scoring an Intelligence Index of 34. The release follows February&#39;s Gemini 3.1 Pro, which topped 13 of 16 major benchmarks including LMSYS Arena and GPQA. Flash-Lite is designed for cost-efficient inference use cases rather than frontier performance. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
         </div>
         
         
@@ -440,71 +469,47 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--emerald);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Open Source</div>
             <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Seven of Nine March Text Models Are Open Source</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Of the nine major text models shipped in March 2026, seven were released under open-source or open-weight licenses, including contributions from Mistral AI, MiniMax, NVIDIA, Xiaomi, and DeepSeek. Mistral Small 4 carries an Apache 2.0 license, and NVIDIA released both Nemotron 3 Super and VoiceChat as open-source. This ratio accelerates developer access and multi-model testing at a pace that proprietary labs are struggling to match. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" style="color:var(--emerald);font-size:11px;text-decoration:none;">Source →</a></div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Of the nine text-focused models released in March 2026, seven carried open-source licenses, including Mistral Small 4 under Apache 2.0, Xiaomi&#39;s MiMo-V2-Pro, MiniMax&#39;s M2.7, and NVIDIA&#39;s Nemotron 3 Super and VoiceChat. This ratio reflects a sustained industry trend toward open-weight releases competing directly with proprietary alternatives. Alibaba&#39;s Qwen3.5 series further reinforced the open-source tier with its 397B MoE variant. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" style="color:var(--emerald);font-size:11px;text-decoration:none;">Source →</a></div>
         </div>
         
         
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Model Release</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Xiaomi&#39;s Stealth Trillion-Parameter Model Surfaces</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">A previously unattributed trillion-parameter model, later identified as Xiaomi&#39;s Hunter Alpha, appeared on OpenRouter between March 11 and 19 without an official announcement. The stealth release drew attention from developers who benchmarked it before its origin was confirmed. Hunter Alpha represents Xiaomi&#39;s most ambitious AI effort to date, following the earlier open-source release of MiMo-V2-Pro. <a href="https://www.devflokers.com/blog/new-ai-model-releases-open-source-projects-march-18-19-2026" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Benchmark</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">March Releases Prioritize Reasoning Efficiency Over Scale</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Across March 2026 releases, leading labs shifted emphasis toward reasoning efficiency rather than raw parameter counts, with top models excelling on GPQA graduate-level question-answering and real-world coding and agentic tasks. GPT-5.4, Claude 4.5 and 4.6 Sonnet, and Gemini variants all clustered near the top of benchmark leaderboards using this approach. The trend suggests that compute-efficient reasoning architectures are becoming the primary competitive axis for frontier labs. <a href="https://www.alphacorp.ai/blog/top-5-llms-for-march-2026-benchmarks-pricing-picks" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Trend</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Q1 2026 Tracks Over 255 Total AI Releases</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Q1 2026 logged between 255 and 271 tracked AI model releases, with March matching February&#39;s pace of 12 major drops. Rapid bi-weekly iteration cycles from OpenAI, Anthropic, Google, xAI, and Alibaba are breaking benchmarks across reasoning, multimodal, and long-context categories. The velocity is pushing startups toward multi-model testing strategies rather than single-vendor commitments. <a href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Model Release</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">NVIDIA Ships Nemotron 3 Super and VoiceChat</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">NVIDIA released two open-source models in March: Nemotron 3 Super, a text model, and VoiceChat, targeting conversational audio applications. Both releases extend NVIDIA&#39;s strategy of building an open model ecosystem alongside its dominant hardware business. Nemotron 3 Super joins a crowded field of open-weight text models but benefits from NVIDIA&#39;s optimization for its own GPU infrastructure. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Model Release</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">xAI&#39;s Grok 4.20 Beta Exits Testing Phase</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">xAI&#39;s Grok 4.20 Beta, a text model, moved out of beta during March 2026, marking a maturation of xAI&#39;s model release cadence. The model competes in the same tier as GPT-5.4 and Gemini variants on reasoning benchmarks. xAI has maintained a rapid iteration schedule since Grok&#39;s initial launch, with 4.20 representing the latest in a series of incremental capability upgrades. <a href="https://manifold.markets/prismatic/march-2026-ai-model-releases" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--emerald);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Open Source</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Mistral Small 4 Released Under Apache 2.0</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Mistral AI released Mistral Small 4 in March 2026 under the permissive Apache 2.0 license, allowing unrestricted commercial use and modification. The release continues Mistral&#39;s positioning as a European open-source alternative to American and Chinese frontier labs. Apache 2.0 licensing distinguishes it from some competitors that use more restrictive open-weight terms. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" style="color:var(--emerald);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Model Release</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Google DeepMind Previews Gemini 3.1 Flash-Lite</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Google DeepMind released a preview of Gemini 3.1 Flash-Lite in March 2026, a proprietary model targeting lightweight and cost-efficient deployment scenarios. Flash-Lite sits below the full Gemini 3.1 lineup in capability but is designed for high-throughput applications where latency and cost matter more than peak performance. It competes directly with GPT-5.4 Mini and similar efficiency-focused releases from other labs. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--amber);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Hardware</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">NVIDIA Nemotron 3 Integrates Voice and Supercomputing</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">NVIDIA released Nemotron 3 Super and a companion VoiceChat model in March 2026, both under open-source licenses. Nemotron 3 Super targets specialized supercomputing tasks, while VoiceChat extends NVIDIA&#39;s reach into real-time voice AI applications. The dual release positions NVIDIA as an active model developer, not only a hardware supplier, in the generative AI stack. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" style="color:var(--amber);font-size:11px;text-decoration:none;">Source →</a></div>
         </div>
         
         
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">China</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">MiniMax-M2.7 Joins Open-Source Model Field</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">MiniMax released MiniMax-M2.7 as an open-source text model in March 2026, adding another entry to an increasingly crowded open-weight landscape. The release reflects growing participation from Chinese AI startups in the global open-source model ecosystem, alongside Alibaba and DeepSeek. MiniMax-M2.7 targets developers seeking capable open alternatives without the scale requirements of 100-billion-plus parameter models. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Xiaomi Enters AI Model Race with MiMo-V2-Pro</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Xiaomi released MiMo-V2-Pro in March 2026, an open-source multimodal model marking the consumer electronics giant&#39;s entry into competitive frontier AI development. The release adds to a growing list of Chinese technology companies shipping capable open-weight models alongside Alibaba and DeepSeek. MiMo-V2-Pro&#39;s multimodal focus suggests Xiaomi is targeting integration with its device ecosystem. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+        
+        
+        
+        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Trend</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Q1 2026 Model Release Velocity Exceeds 255 Launches</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">The first quarter of 2026 surpassed 255 major AI model releases, with February and early March each delivering 12 or more significant models. The pace reflects intensifying competition across proprietary and open-source developers globally. Analysts tracking the space flagged additional anticipated releases including Anthropic&#39;s Opus 4.7 and Sonnet 4.7 as likely Q1 additions. <a href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+        
+        
+        
+        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--emerald);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Open Source</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Mistral Small 4 Extends Apache 2.0 Open Model Lineup</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Mistral AI released Mistral Small 4 in March 2026 under the permissive Apache 2.0 license, continuing the French lab&#39;s strategy of offering commercially usable open-weight models. The release maintains Mistral&#39;s position as a key European contributor to the open-source AI ecosystem. No specific benchmark scores were disclosed at launch, but the model competes in the efficient small-model segment. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" style="color:var(--emerald);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+        
+        
+        
+        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--indigo);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Agents</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">GPT-5.4 Introduces Native Computer-Use for Agents</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">OpenAI&#39;s GPT-5.4 includes native computer-use capabilities, enabling the model to interact directly with software interfaces as part of agentic workflows. This feature, combined with the 1-million-token context window, positions GPT-5.4 as a foundation for autonomous multi-step task automation. The capability builds on earlier computer-use experiments and reflects OpenAI&#39;s strategic push toward agent-first deployment. <a href="https://champaignmagazine.com/2026/03/08/ai-by-ai-weekly-top-5-march-2-8-2026/" target="_blank" style="color:var(--indigo);font-size:11px;text-decoration:none;">Source →</a></div>
         </div>
         
     </div>
@@ -522,64 +527,64 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Conflict</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Iran Closes Strait of Hormuz, Disrupting Global Shipping</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Iran blocked the Strait of Hormuz on or around March 28, halting oil and fertilizer exports through one of the world&#39;s most critical maritime chokepoints. US Secretary of State Marco Rubio convened G7 foreign ministers in France, urging allies to secure the strait and warning that Iran may impose tolls on passing vessels. The closure sent shockwaves through global commodity markets and prompted emergency diplomatic coordination. <a href="https://www.nzherald.co.nz/nz/nz-herald-morning-headlines-saturday-march-28-2026/GNBM6CRCA2YNMAQEN4TC7PVWCE/" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">US-Iran Strait of Hormuz Standoff Escalates</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">President Trump extended a second deadline for Iran to open the Strait of Hormuz, saying peace talks are going &#39;very well&#39; while threatening renewed strikes if no deal is reached. Video footage emerged showing an Iranian missile narrowly missing a US F/A-18 fighter jet during the standoff. An international studies professor argued Iran currently holds the strategic upper hand against both the US and Israel. <a href="https://abcnews.com/international" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
         </div>
         
         
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Conflict</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Israel and Iran Exchange Strikes, Escalation Deepens</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Israel launched fresh airstrikes on Iran on March 28, three weeks after initial US-Israel attacks on February 28, while Iran responded with a large-scale missile barrage targeting Israeli territory. No diplomatic progress has been reported, and President Trump extended the deadline for potential US strikes on Iranian energy infrastructure into April. The conflict has now entered a sustained exchange phase with no clear off-ramp. <a href="https://www.globalissues.org/news/2026" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
-        </div>
-        
-        
-        
-        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--amber);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Humanitarian</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">IAEA Warns of Nuclear Fallout Risk at Bushehr</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">The International Atomic Energy Agency issued a warning that strikes on Iran&#39;s Bushehr nuclear plant could trigger a radiological accident with regional consequences. The alert came as Israeli and US military operations continued to expand in scope, raising fears that nuclear infrastructure could become a direct target. A radiological incident at Bushehr would affect neighboring Gulf states, Iraq, and potentially South Asia. <a href="https://www.globalissues.org/news/2026" target="_blank" style="color:var(--amber);font-size:11px;text-decoration:none;">Source →</a></div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Trump Pauses Strikes on Iranian Energy Infrastructure</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Trump extended a pause on US strikes targeting Iranian energy sites, as analysts warn a prolonged conflict could severely disrupt global oil supply chains. Iran&#39;s continued grip on regional oil flows has raised energy security concerns worldwide. Oil prices climbed on March 28 amid the sustained Gulf tensions. <a href="https://abcnews.com/international" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
         </div>
         
         
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--emerald);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Economy</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Oil Prices Surge, India&#39;s Rupee Hits Record Low</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Global oil and gas prices reached unprecedented levels on March 28 as Middle East conflict and the Hormuz closure compounded supply fears. India&#39;s rupee fell to a record low of 94.24 against the US dollar, reflecting acute pressure on oil-importing economies. New Zealand activated phase one of a four-phase national fuel contingency plan in response to the supply disruption. <a href="https://www.nzherald.co.nz/nz/nz-herald-morning-headlines-saturday-march-28-2026/GNBM6CRCA2YNMAQEN4TC7PVWCE/" target="_blank" style="color:var(--emerald);font-size:11px;text-decoration:none;">Source →</a></div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Global Gas and Oil Prices Hit Record Highs</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Gas and oil prices reached unprecedented levels globally on March 28, driven largely by Gulf tensions and Iran&#39;s control over key oil infrastructure. Experts warn that a prolonged US-Iran conflict could sustain or worsen the price surge. The spike is compounding energy security concerns across importing nations. <a href="https://www.nzherald.co.nz/nz/nz-herald-morning-headlines-saturday-march-28-2026/GNBM6CRCA2YNMAQEN4TC7PVWCE/" target="_blank" style="color:var(--emerald);font-size:11px;text-decoration:none;">Source →</a></div>
         </div>
         
         
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Diplomacy</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">G7 Ministers Convene in France Over Hormuz Crisis</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">G7 foreign ministers held an emergency summit in France on March 28 to coordinate a response to Iran&#39;s closure of the Strait of Hormuz and the broader Middle East escalation. Secretary of State Rubio led calls for allied action to restore freedom of navigation in the Gulf. The meeting underscored the extent to which the conflict has shifted from a regional crisis to a global economic and security emergency. <a href="https://www.globalissues.org/news/2026" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">G7 Foreign Ministers Convene Amid Global Tensions</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">G7 foreign ministers gathered in France on March 28 to address a range of escalating global crises, with the US-Iran conflict prominent on the agenda. The summit comes at a moment of heightened instability across the Middle East and Europe. No specific outcomes or joint statements had been reported as of the briefing date. <a href="https://www.nzherald.co.nz/nz/nz-herald-morning-headlines-saturday-march-28-2026/GNBM6CRCA2YNMAQEN4TC7PVWCE/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
         </div>
         
         
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--amber);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Humanitarian</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">FAO Warns War Threatens Global Food Security</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">The UN Food and Agriculture Organization issued an alert on March 28 warning that the Middle East conflict is endangering global food security by disrupting energy and fertilizer supply chains during critical harvest seasons. The Hormuz closure has halted fertilizer exports from Gulf producers, threatening agricultural output across South Asia and Africa. The FAO called for immediate humanitarian corridors to protect food supply logistics. <a href="https://www.globalissues.org/news/2026" target="_blank" style="color:var(--amber);font-size:11px;text-decoration:none;">Source →</a></div>
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Conflict</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">IDF Projects Weeks to Degrade Iran&#39;s Military</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">An Israeli official stated on March 28 that the IDF requires several more weeks to significantly degrade Iran&#39;s military capabilities. The official also expressed skepticism that ongoing US-Iran diplomatic talks would produce a lasting deal. Israel&#39;s assessment adds pressure to the timeline of any potential ceasefire or agreement. <a href="https://abcnews.com/international" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
+        </div>
+        
+        
+        
+        <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Diplomacy</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">China Watches Iran Conflict&#39;s Regional Fallout</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">China is closely monitoring the escalating US-Iran conflict as it reshapes strategic dynamics across the Middle East. Beijing&#39;s interest is tied to both regional stability and its significant energy imports from Gulf producers. No formal Chinese policy response had been announced as of March 28. <a href="https://abcnews.com/international" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
         </div>
         
         
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Policy</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">India Receives Fourth S-400 Squadron From Russia</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">India took delivery of its fourth squadron of Russian-made S-400 Triumf air defense systems on March 28, a significant boost to its long-range air defense capabilities amid heightened global tensions. The acquisition continues India&#39;s strategic defense diversification despite ongoing US pressure over purchases from Russia. The timing signals New Delhi&#39;s intent to reinforce its defensive posture as regional instability intensifies. <a href="https://bestcolleges.indiatoday.in/news-detail/school-assembly-news-headlines-today-march-28-top-national-sports-and-world-news-curated-for-you-8655" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Bolsonaro Leaves Hospital to Begin Prison Sentence</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Former Brazilian President Jair Bolsonaro was discharged from hospital on March 28 and transferred to begin serving a 27-year prison sentence. The conviction marks a significant legal and political milestone in Brazil following years of controversy surrounding his presidency. No further details on the specific charges or facility were included in available reports. <a href="https://abcnews.com/international" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
         </div>
         
         
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Policy</div>
-            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Rapper Balen Shah Sworn In as Nepal&#39;s PM</div>
-            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Balen Shah, a rapper and civil engineer who rose to prominence as mayor of Kathmandu, was sworn in as Nepal&#39;s 47th Prime Minister on March 28. His ascent marks a generational shift in Nepali politics, breaking from the country&#39;s entrenched party establishment. Shah&#39;s administration will face immediate pressure to address economic stagnation and the downstream effects of global fuel price surges. <a href="https://bestcolleges.indiatoday.in/news-detail/school-assembly-news-headlines-today-march-28-top-national-sports-and-world-news-curated-for-you-8655" target="_blank" style="color:var(--purple);font-size:11px;text-decoration:none;">Source →</a></div>
+            <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);background:rgba(59,130,246,0.08);padding:3px 10px;border-radius:6px;margin-bottom:10px;">Conflict</div>
+            <div class="card-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Molotov Attack Targets Russian Center in Prague</div>
+            <div class="card-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">An unidentified attacker threw Molotov cocktails at a Russian cultural center in Prague on or around March 28, according to police reports. Czech authorities launched an investigation into the incident, which caused unspecified damage. The attack reflects ongoing anti-Russian sentiment in Central Europe amid the broader geopolitical climate. <a href="https://abcnews.com/international" target="_blank" style="color:var(--red);font-size:11px;text-decoration:none;">Source →</a></div>
         </div>
         
     </div>
@@ -632,9 +637,9 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
             <div style="font-size:20px;margin-bottom:4px">₿</div>
             <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">BTC</div>
-            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">$65,998.47</div>
-            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--emerald);margin-top:4px">+0.10%</div>
-            <svg width="80" height="24" viewBox="0 0 80 24" style="display:block;margin:8px auto 0" aria-hidden="true"><polyline points="0.0,15.0 16.0,3.5 32.0,5.0 48.0,2.0 64.0,11.5 80.0,22.0" fill="none" stroke="var(--emerald)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">$66,167.84</div>
+            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--red);margin-top:4px">-0.28%</div>
+            <svg width="80" height="24" viewBox="0 0 80 24" style="display:block;margin:8px auto 0" aria-hidden="true"><polyline points="0.0,15.5 16.0,3.5 32.0,5.1 48.0,2.0 64.0,11.8 80.0,22.0" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         
         
@@ -647,9 +652,9 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
             <div style="font-size:20px;margin-bottom:4px">◆</div>
             <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">ETH</div>
-            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">$1,985.40</div>
-            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--emerald);margin-top:4px">+0.20%</div>
-            <svg width="80" height="24" viewBox="0 0 80 24" style="display:block;margin:8px auto 0" aria-hidden="true"><polyline points="0.0,14.6 16.0,3.7 32.0,3.3 48.0,2.0 64.0,13.9 80.0,22.0" fill="none" stroke="var(--emerald)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">$1,987.68</div>
+            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--red);margin-top:4px">-0.20%</div>
+            <svg width="80" height="24" viewBox="0 0 80 24" style="display:block;margin:8px auto 0" aria-hidden="true"><polyline points="0.0,14.8 16.0,3.8 32.0,3.4 48.0,2.0 64.0,14.0 80.0,22.0" fill="none" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         
         
@@ -662,9 +667,9 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 2px 8px var(--shadow);text-align:center;">
             <div style="font-size:20px;margin-bottom:4px">🛢</div>
             <div class="market-ticker" style="font-size:11px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Oil Brent</div>
-            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">$106.84</div>
-            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--emerald);margin-top:4px">+5.92%</div>
-            <svg width="80" height="24" viewBox="0 0 80 24" style="display:block;margin:8px auto 0" aria-hidden="true"><polyline points="0.0,2.0 16.0,22.0 32.0,14.6 48.0,18.3 64.0,8.8 80.0,10.7" fill="none" stroke="var(--emerald)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="market-price" style="font-size:22px;font-weight:800;font-family:'JetBrains Mono',monospace">$112.57</div>
+            <div class="market-change" style="font-size:13px;font-weight:700;color:var(--emerald);margin-top:4px">+11.60%</div>
+            <svg width="80" height="24" viewBox="0 0 80 24" style="display:block;margin:8px auto 0" aria-hidden="true"><polyline points="0.0,2.6 16.0,22.0 32.0,14.8 48.0,18.4 64.0,9.2 80.0,2.0" fill="none" stroke="var(--emerald)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         
         
@@ -708,7 +713,7 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
         
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Deep Dives</div>
-            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">Elon Musk is engineering a SpaceX IPO that could raise between $40B and $75B, targeting a mid-June listing timed to his birthday. The deal would fold xAI into SpaceX to pitch investors on orbital AI data centers, and would bypass the traditional banker-led roadshow in favor of an unusually large retail allocation of 30%. The structure, if executed, would represent one of the largest and most unconventional public offerings in Wall Street history.</div>
+            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">Elon Musk is engineering a SpaceX IPO that could raise between $40B and $75B, targeting a mid-June listing timed to his birthday. The deal would fold xAI into SpaceX to pitch investors on orbital AI data centers, and would allocate an unprecedented 30% of shares to retail investors rather than following the traditional banker-led roadshow model. The structure challenges conventional IPO norms and could represent the largest public offering in history.</div>
         </div>
         
         
@@ -735,28 +740,28 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Headlines</div>
             <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">Anthropic is considering an IPO as soon as October, with early discussions underway with Wall Street banks; a listing could raise more than $60 billion.</li><li style="margin:4px 0;font-size:13px">Elon Musk&#39;s X restructured ahead of SpaceX&#39;s potential $1 trillion-plus IPO, cutting its CMO and nontechnical staff while planning to launch payments service X Money next month.</li><li style="margin:4px 0;font-size:13px">Google released Gemini 3.1 Flash Live, a real-time voice model built for low-latency, natural dialogue, available across developer APIs, enterprise tools, and consumer products.</li>
+                <li style="margin:4px 0;font-size:13px">Anthropic is considering an IPO as soon as October, with early discussions underway with Wall Street banks; a listing could raise more than $60 billion.</li><li style="margin:4px 0;font-size:13px">Elon Musk&#39;s X restructured ahead of SpaceX&#39;s potential $1 trillion-plus IPO, cutting its CMO and nontechnical staff while planning to launch payments platform X Money next month.</li><li style="margin:4px 0;font-size:13px">Google released Gemini 3.1 Flash Live, a low-latency real-time voice model available across its developer APIs, enterprise tools, and consumer products.</li>
             </ul>
         </div>
         
         
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Deep Dives</div>
-            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">Intercom&#39;s vertical AI agent Fin is outperforming general-purpose models including GPT-5.4 and Opus 4.5, resolving nearly 2 million customer issues per week and approaching $100 million in recurring revenue. USV built internal AI agents that ingest meeting transcripts, emails, and calendars to generate structured knowledge tied to companies and people, effectively replacing traditional CRM tools with a continuously updated, context-aware system.</div>
+            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">Intercom&#39;s vertical AI agent Fin is outperforming general-purpose models including GPT-5.4 and Opus 4.5, resolving nearly 2 million customer issues per week and approaching $100 million in recurring revenue, signaling a shift toward domain-specific models. Separately, venture firm USV built internal AI agents that ingest meeting transcripts, emails, and calendars to generate a continuously updated knowledge base, effectively replacing off-the-shelf CRM tools.</div>
         </div>
         
         
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Quick Hits</div>
             <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">Anthropic&#39;s IPO deliberations are ongoing with no final decisions made.</li><li style="margin:4px 0;font-size:13px">X is directing remaining staff to focus on revenue growth following recent layoffs of nontechnical employees.</li><li style="margin:4px 0;font-size:13px">Gemini 3.1 Flash Live is positioned as a developer and enterprise-ready real-time voice solution from Google.</li>
+                <li style="margin:4px 0;font-size:13px">Anthropic&#39;s IPO deliberations are ongoing with no final decisions made.</li><li style="margin:4px 0;font-size:13px">X is directing remaining staff to focus on revenue growth following recent layoffs.</li><li style="margin:4px 0;font-size:13px">Gemini 3.1 Flash Live targets natural, low-latency dialogue for real-time voice applications.</li>
             </ul>
         </div>
         
         
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Trending Tools</div>
-            <span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Gemini 3.1 Flash Live: Google&#39;s low-latency real-time voice AI model available via developer APIs and enterprise products.</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Fin by Intercom: A vertical AI customer service agent resolving nearly 2 million issues per week and nearing $100 million in recurring revenue.</span>
+            <span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Gemini 3.1 Flash Live: Google&#39;s real-time voice AI model for low-latency natural dialogue.</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Fin by Intercom: A vertical customer service AI agent resolving nearly 2 million issues per week.</span>
         </div>
         
         
@@ -774,28 +779,28 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Headlines</div>
             <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">Meta releases TRIBE v2, a foundation model that predicts human brain activity across vision, sound, and language using data from roughly 700 volunteers</li><li style="margin:4px 0;font-size:13px">Google embeds Gemini 3.1 Flash Live into Gemini and Search Live, enabling 2x longer conversations and faster, more context-aware voice responses</li><li style="margin:4px 0;font-size:13px">English Wikipedia bans AI-generated articles, citing LLM failures to meet its neutrality, verifiability, and source attribution standards</li>
+                <li style="margin:4px 0;font-size:13px">Meta releases TRIBE v2, a foundation model that predicts human brain activity across vision, sound, and language using data from roughly 700 volunteers</li><li style="margin:4px 0;font-size:13px">Google embeds Gemini 3.1 Flash Live into Gemini and Search Live, enabling 2x longer conversations and faster, more natural voice responses</li><li style="margin:4px 0;font-size:13px">English Wikipedia bans AI-generated articles, citing LLM tendencies to violate its neutrality, verifiability, and source attribution policies</li>
             </ul>
         </div>
         
         
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Deep Dives</div>
-            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">Meta&#39;s TRIBE v2 is positioned as a medical research accelerant, with the company open-sourcing the model and its codebase to support breakthroughs in understanding and treating neurological disorders. Google&#39;s Gemini 3.1 Flash Live overhaul focuses on reducing friction in voice AI, addressing common pain points like awkward pauses and flat tone. Wikipedia&#39;s AI content ban reflects growing institutional resistance to LLM-generated text in high-stakes information environments.</div>
+            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">Meta&#39;s TRIBE v2 is positioned as a medical research accelerator, with the company open-sourcing the model and its codebase to support breakthroughs in understanding and treating neurological disorders. Google&#39;s Gemini 3.1 Flash Live overhaul focuses on reducing conversational friction, with tone adjustment and fewer awkward pauses marking a push toward more human-like audio AI. Wikipedia&#39;s LLM ban reflects growing institutional resistance to AI-generated content in high-trust information environments.</div>
         </div>
         
         
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Quick Hits</div>
             <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">Meta open-sourced TRIBE v2 along with a public demo at aidemos.atmeta.com</li><li style="margin:4px 0;font-size:13px">Gemini Live now supports tone adjustment depending on conversational context</li><li style="margin:4px 0;font-size:13px">Wikipedia permits AI use for refining or translating articles but prohibits AI from authoring them outright</li>
+                <li style="margin:4px 0;font-size:13px">A startup announced plans to build what it calls &#39;humanity&#39;s platform for uploaded consciousness&#39;</li><li style="margin:4px 0;font-size:13px">GenAI is projected to drive $40 billion in fraud losses by 2027, according to a Plaid-sponsored report</li><li style="margin:4px 0;font-size:13px">The newsletter highlights tools for creating 3D apps and websites using AI</li>
             </ul>
         </div>
         
         
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Trending Tools</div>
-            <span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">TRIBE v2 by Meta: a brain activity prediction foundation model with an open codebase and interactive demo</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Gemini 3.1 Flash Live by Google: a voice model powering Gemini Live with improved fluency and longer session support</span>
+            <span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">TRIBE v2 demo and codebase released publicly by Meta</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Gemini Live powered by Gemini 3.1 Flash Live for real-time voice interaction</span>
         </div>
         
         
@@ -813,28 +818,28 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Headlines</div>
             <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">Apple Music in iOS 26.4 gets immersive fullscreen redesign for albums and playlists</li><li style="margin:4px 0;font-size:13px">Spotify beta-tests Artist Profile Protection to block AI-generated music misattribution</li><li style="margin:4px 0;font-size:13px">Autodesk introduces practical AI tools for Maya and 3ds Max</li>
+                <li style="margin:4px 0;font-size:13px">Apple Music in iOS 26.4 gets immersive fullscreen design for albums and playlists with dynamic color-matched backgrounds</li><li style="margin:4px 0;font-size:13px">Spotify beta-tests Artist Profile Protection to block AI-generated music from being falsely attributed to real artists</li><li style="margin:4px 0;font-size:13px">Autodesk introduces practical AI tools for Maya and 3ds Max including Wonder 3D and AI-assisted texturing</li>
             </ul>
         </div>
         
         
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Deep Dives</div>
-            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">A piece argues that designing for average users is a strategic error, since digital behavior follows skewed distributions where high-engagement users in the 95th to 99th percentile generate disproportionate business value. A separate analysis contends that most UX failures originate in flawed product strategy and untested assumptions, not poor interface design, and that rigorous user research and problem definition must precede any visual work in Figma.</div>
+            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">Two opinion pieces anchor the analysis section: one argues that designing for average users is a strategic error because digital behavior follows skewed distributions, with high-value users in the 95th to 99th percentile driving disproportionate business outcomes. The second contends that most UX failures originate in flawed product strategy and untested assumptions, not interface design, and that rigorous user research and problem definition must precede any work in tools like Figma.</div>
         </div>
         
         
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Quick Hits</div>
             <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">iOS 26.4 Apple Music update introduces dynamic artwork-matched backgrounds and a redesigned Profile screen shared across Music, Podcasts, and TV apps</li><li style="margin:4px 0;font-size:13px">Spotify&#39;s Artist Profile Protection feature sends email alerts to artists when music is delivered under their name, letting them approve or decline releases</li><li style="margin:4px 0;font-size:13px">Autodesk&#39;s new AI features include AI-generated horse motion in MotionMaker, Wonder 3D for text-to-3D object creation, AI-assisted texturing, and an Autodesk Assistant for software guidance</li>
+                <li style="margin:4px 0;font-size:13px">iOS 26.4 also redesigns the Profile screen shared across Music, Podcasts, and TV, streamlining Apple Account management including gift card redemption</li><li style="margin:4px 0;font-size:13px">Spotify&#39;s Artist Profile Protection sends email alerts to artists when music is delivered under their name, giving them approve or decline control</li><li style="margin:4px 0;font-size:13px">Autodesk&#39;s MotionMaker feature adds AI-generated horse motion for animators in Maya and 3ds Max</li>
             </ul>
         </div>
         
         
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Trending Tools</div>
-            <span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Autodesk MotionMaker with AI-generated horse motion for Maya and 3ds Max</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Wonder 3D: Autodesk tool for generating editable 3D objects from text prompts</span>
+            <span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Autodesk Wonder 3D: generates editable 3D objects from text prompts inside Maya and 3ds Max</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Autodesk Assistant: an AI-powered in-software guidance tool designed to simplify navigation for 3D artists</span>
         </div>
         
         
@@ -859,21 +864,21 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
         
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Deep Dives</div>
-            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">Analysis of 18 SaaS earnings calls finds AI is currently margin-neutral, not yet profitable, with Salesforce reporting $800 million in Agentforce ARR but most firms facing high compute costs. Success hinges on proprietary data moats, while trust remains a barrier in regulated sectors like healthcare. RSAC speakers urged enterprises to move fast on AI and quantum security without panicking, emphasizing proven governance fundamentals and preparation for post-quantum cryptography.</div>
+            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">Analysis of 18 SaaS earnings calls finds AI is currently margin-neutral, with Salesforce reporting $800 million in Agentforce ARR but most firms still absorbing high compute costs. Success in AI-driven SaaS depends on proprietary data moats, though trust barriers persist in regulated sectors like healthcare. RSAC commentary urges enterprises to move fast on AI and quantum security without panic, anchoring strategy in proven governance fundamentals and post-quantum cryptography preparation.</div>
         </div>
         
         
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Quick Hits</div>
             <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">Attackers exploiting modern auth flows mean MFA and password resets no longer fully prevent account takeover once tokens are issued</li><li style="margin:4px 0;font-size:13px">Traditional identity and access controls do not scale to autonomous AI agents, forcing enterprises to adopt AI-native defenses</li><li style="margin:4px 0;font-size:13px">Post-quantum cryptography readiness is emerging as a parallel priority alongside AI security at the enterprise level</li>
+                <li style="margin:4px 0;font-size:13px">Attackers exploiting modern auth flows mean MFA and password resets no longer fully prevent account takeover once tokens are issued</li><li style="margin:4px 0;font-size:13px">Traditional identity and access controls do not scale to autonomous AI agents, forcing enterprises to adopt AI-native defenses</li><li style="margin:4px 0;font-size:13px">Enterprises must begin preparing for post-quantum cryptography as AI and quantum threats accelerate in parallel</li>
             </ul>
         </div>
         
         
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Trending Tools</div>
-            <span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">1Password Unified Access: discovers shadow AI and unmanaged agents, vaults credentials, and audits access with attribution</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">JumpCloud: positioning its identity platform as a governance layer for shadow AI and unapproved tool usage inside enterprises</span>
+            <span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">1Password Unified Access: discovers shadow AI and unmanaged agents, vaults credentials, and audits access with clear attribution</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">JumpCloud: positions identity governance as the primary mechanism for controlling unsanctioned AI tool usage inside organizations</span>
         </div>
         
         
@@ -893,28 +898,28 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Headlines</div>
             <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">Intercom&#39;s Fin agent resolves nearly 2 million customer issues per week and has grown to almost $100 million in recurring revenue, marking a new era of vertical AI models.</li><li style="margin:4px 0;font-size:13px">AI companies are building for early adopters rather than the skeptical mainstream users who will determine whether AI delivers on its productivity promises.</li><li style="margin:4px 0;font-size:13px">The imagination chasm: six critical infrastructure pieces, including a communication layer, dynamic auth, and a payments layer, are still missing before agent-to-agent economies can function.</li>
+                <li style="margin:4px 0;font-size:13px">Intercom&#39;s Fin agent resolves nearly 2 million customer issues per week and has grown to almost $100 million in recurring revenue, marking a new era of vertical AI models.</li><li style="margin:4px 0;font-size:13px">AI companies are building for early adopters rather than the skeptical mainstream users who will determine whether AI delivers on its productivity promises.</li><li style="margin:4px 0;font-size:13px">The six missing components blocking agent-to-agent economies include a communication layer, vendor-agnostic infrastructure, dynamic auth, a payments layer, a marketplace, and real benchmarks.</li>
             </ul>
         </div>
         
         
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Deep Dives</div>
-            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">AI features are eroding subscription app margins by introducing variable costs that scale with user engagement, disrupting the near-zero marginal cost model traditional SaaS relies on. The most successful businesses are redesigning their entire systems around usage economics, treating AI costs the way they treat acquisition spend or infrastructure. Teams are advised to rigorously measure whether AI feature improvements justify their cost before scaling.</div>
+            <div class="newsletter-item" style="font-size:13px;color:var(--text-secondary)">AI features introduce variable costs that scale with user engagement, disrupting the near-zero marginal cost model of traditional subscription apps. Successful businesses are redesigning their entire systems around usage economics, treating AI spend the same way they manage acquisition or infrastructure budgets. The key discipline is measuring whether AI-driven improvements justify their cost before committing to implementation.</div>
         </div>
         
         
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Quick Hits</div>
             <ul style="list-style:none;padding:0">
-                <li style="margin:4px 0;font-size:13px">Vertical AI models like Intercom&#39;s Fin are outperforming general-purpose models on domain-specific benchmarks for speed, cost, and resolution rate.</li><li style="margin:4px 0;font-size:13px">The early adopter phase of AI is closing fast; the next growth wave depends on winning over curious but skeptical mainstream users.</li><li style="margin:4px 0;font-size:13px">Most industries still cannot define what an AI agent is, which is identified as the primary blocker to building the 99% of useful agents that do not yet exist.</li>
+                <li style="margin:4px 0;font-size:13px">Vertical AI models like Intercom&#39;s Fin are outperforming general-purpose models on domain-specific tasks in speed, cost, and resolution rate.</li><li style="margin:4px 0;font-size:13px">The gap between early AI adoption and mainstream maturation is closing fast, putting pressure on builders to design for less technical, more skeptical users.</li><li style="margin:4px 0;font-size:13px">Most industries still cannot define what an AI agent is, which is the core reason 99% of potentially useful agents have not yet been built.</li>
             </ul>
         </div>
         
         
         <div style="margin-bottom:12px">
             <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-secondary);margin-bottom:6px">Trending Tools</div>
-            <span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Metronome: a billing platform used by Anthropic and Confluent, now offering a free sandbox and startup-friendly pricing for early-stage companies.</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">MCP/A2A: cited as an emerging communication layer standard needed to enable agent-to-agent economies.</span>
+            <span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Intercom Fin: a vertical AI agent for customer service resolving nearly 2 million issues per week</span><span style="display:inline-block;font-size:11px;font-weight:600;background:rgba(99,102,241,0.1);color:var(--indigo);padding:3px 10px;border-radius:6px;margin:2px 4px 2px 0">Metronome: a billing platform used by Anthropic and Confluent, now offering self-serve startup-friendly pricing with a free sandbox</span>
         </div>
         
         
@@ -936,38 +941,38 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">OpenAI</div>
-            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">Shutters Sora app amid $5B+ operating costs while closing $110B funding round and planning 2026 IPO.</div>
-            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">OpenAI shut down its standalone Sora video generation app on March 25, 2026, after monthly active users slid from 6 million in December 2025 to 5 million by March and annual operating costs exceeded $5 billion. The company is redirecting the underlying video technology toward robotics and world simulation, with potential integration into ChatGPT. Despite the retreat, OpenAI secured a record $110 billion funding round led by Amazon, Nvidia, and SoftBank, now serves 900 million weekly users, and is targeting a Q4 2026 IPO while nearly doubling its workforce to 8,000 employees. <a href="https://www.mediapost.com/publications/article/413844/openai-prepares-for-ipo.html" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">Shutting down Sora API, closing $110B funding round, and pivoting toward robotics and enterprise productivity.</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">OpenAI discontinued the Sora public API on March 24, 2026, citing inference costs described internally as &#39;economically irreconcilable&#39; with public pricing, despite the product peaking at 5 million downloads in October 2025. The underlying video technology will be folded into ChatGPT rather than retired outright, while the company reorients toward robotics and world simulation under CEO of Applications Fidji Simo&#39;s direction. A $110 billion funding milestone anchored by Amazon, Nvidia, and SoftBank, including a $100 billion AWS infrastructure collaboration, positions OpenAI for a potential IPO as early as Q4 2026. <a href="https://www.digitalapplied.com/blog/march-2026-ai-roundup-month-that-changed-everything" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
         </div>
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">Google DeepMind</div>
-            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">No verified developments available for March 2026.</div>
-            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">The available intelligence data for this briefing period contains no confirmed announcements or strategic moves from Google DeepMind as of March 2026. Analysis will be updated as sourced reporting becomes available. Readers should treat any unverified claims about this company with caution.</div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">No specific March 2026 announcements available in current data.</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Available intelligence for March 2026 does not include confirmed announcements or strategic moves from Google DeepMind. The broader industry context notes that Gemini 3.1 Ultra, featuring native multimodal reasoning, launched during this period, though detailed attribution and sourcing for that release remain limited. Coverage gaps should be addressed with direct monitoring of Google DeepMind&#39;s official channels.</div>
         </div>
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">Anthropic</div>
-            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">No verified developments available for March 2026.</div>
-            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">The available intelligence data for this briefing period contains no confirmed announcements or strategic moves from Anthropic as of March 2026. Notably, OpenAI cited competition with Anthropic as a driver of its planned workforce expansion to 8,000 employees, signaling that rivalry between the two remains a key industry dynamic. Analysis will be updated as sourced reporting becomes available.</div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">Competing aggressively with OpenAI for private equity partnerships as of late March 2026.</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Reporting from late March 2026 indicates Anthropic is actively contesting OpenAI for deals with private equity firms, signaling a push to deepen enterprise and institutional relationships beyond its existing customer base. The competitive dynamic with OpenAI is intensifying across both the enterprise sales and infrastructure investment dimensions. Specific product releases or funding developments from Anthropic during this period are not confirmed in available data. <a href="https://www.youtube.com/watch?v=GdCTQX91knk" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
         </div>
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">Meta AI</div>
-            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">No verified developments available for March 2026.</div>
-            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">The available intelligence data for this briefing period contains no confirmed announcements or strategic moves from Meta AI as of March 2026. A TechCrunch video headline references Meta being &#34;shut out in court&#34; alongside the Sora story, but no substantive detail was available to analyze responsibly. Analysis will be updated as sourced reporting becomes available. <a href="https://techcrunch.com/video/openai-shuts-down-sora-while-meta-gets-shut-out-in-court/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">No confirmed March 2026 announcements available; legal setbacks reported in broader coverage.</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Available data does not include specific product or strategic announcements from Meta AI for March 2026. Broader industry coverage references Meta facing legal challenges during this period, though details are not fully sourced in the current dataset. Monitoring of Meta AI&#39;s open-source model releases and infrastructure investments remains necessary to fill this gap. <a href="https://techcrunch.com/video/openai-shuts-down-sora-while-meta-gets-shut-out-in-court/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
         </div>
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">Mistral</div>
-            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">No verified developments available for March 2026.</div>
-            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">The available intelligence data for this briefing period contains no confirmed announcements or strategic moves from Mistral as of March 2026. Analysis will be updated as sourced reporting becomes available. Readers should treat any unverified claims about this company with caution.</div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">Released Mistral Small 4, a 22B-parameter open-source model outperforming closed models several times its size.</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Mistral released Mistral Small 4 in March 2026 under the Apache 2.0 license, delivering a 22-billion parameter model that outperformed closed competitors three to five times its size on standardized reasoning and instruction-following benchmarks. The release reinforces Mistral&#39;s positioning as the leading open-source alternative to proprietary frontier models, offering enterprises a permissively licensed option with competitive capability. This continues a pattern of Mistral achieving outsized benchmark performance relative to model scale. <a href="https://www.digitalapplied.com/blog/march-2026-ai-roundup-month-that-changed-everything" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none;">Source →</a></div>
         </div>
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div class="comp-name" style="font-size:15px;font-weight:700;margin-bottom:4px">China Challengers</div>
-            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">No verified developments available for March 2026.</div>
-            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">The available intelligence data for this briefing period contains no confirmed announcements or strategic moves from Chinese AI companies, including DeepSeek, Baidu, or Alibaba, as of March 2026. Analysis will be updated as sourced reporting becomes available. Readers should treat any unverified claims about this group with caution.</div>
+            <div style="font-size:12px;font-weight:600;color:var(--blue);margin-bottom:10px">No specific March 2026 announcements from Chinese AI companies available in current data.</div>
+            <div class="comp-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Available intelligence for March 2026 does not include confirmed developments from major Chinese AI players such as Baidu, Alibaba DAMO Academy, Zhipu AI, or DeepSeek. The absence of data should not be interpreted as inactivity, as Chinese AI development continues at a rapid pace across both open and closed model ecosystems. Direct sourcing from Chinese company announcements and regional technology press is recommended to close this coverage gap.</div>
         </div>
         
     </div>
@@ -984,43 +989,43 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">⚡ TIP 01</div>
-            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Automate Complex Research with Manus</div>
-            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Manus operates as a fully autonomous AI agent that handles multi-step tasks from start to finish, including research, data gathering, and workflow execution, without requiring constant input. Set it a goal, such as compiling a competitive analysis or summarizing industry reports, and it works through the process independently. At $20 per month, it is a practical investment for teams that spend significant time on repetitive research cycles. <a href="https://manus.im/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Delegate Multi-Step Work to Manus</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Manus is an autonomous AI agent that handles end-to-end tasks without requiring you to switch between tools or babysit each step. Use it for complex research projects, data gathering, or workflows that previously demanded manual coordination across multiple platforms. At $20 per month, it is a direct replacement for hours of repetitive cognitive overhead. <a href="https://manus.im" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
         </div>
         
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">💻 TIP 02</div>
-            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Accelerate Development Cycles with Cursor</div>
-            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Cursor integrates AI-driven code generation and real-time editing directly into your development environment, reducing the time spent on boilerplate, debugging, and refactoring. Use it to describe a function in plain language and receive working code instantly, or highlight a bug and ask for a fix with context-aware suggestions. At $20 per month, it is one of the most cost-effective ways to measurably increase engineering output. <a href="https://cursor.com/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Write and Debug Faster with Cursor</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Cursor is a code editor with deeply integrated AI assistance, designed to help developers write, refactor, and debug code through natural language instructions alongside traditional editing. Open a file, describe the change you need, and let Cursor generate or revise the code in context. At $20 per month, it is one of the most practical investments for any developer spending significant time in an editor. <a href="https://cursor.com" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
         </div>
         
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">⚡ TIP 03</div>
-            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Draft Faster with Wisprflow Voice-to-Text</div>
-            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Wisprflow.ai converts spoken words into polished, context-aware text across emails, Slack messages, and notes, going beyond basic transcription by understanding the tone and intent of your communication. Activate it whenever you need to produce written content quickly, especially during back-to-back meetings or while multitasking. This tool is particularly effective for professionals who write dozens of messages daily and want to reclaim time without sacrificing quality. <a href="https://wisprflow.ai/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">🔨 TIP 03</div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Launch a Web App Without Writing Code Using Lovable</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Lovable lets non-technical founders describe a web application in plain language and receive a fully functional, deployable product in return. It handles both frontend and backend generation, making it viable for MVPs, internal tools, and client-facing products. At $25 per month, it removes the need to hire a developer for early-stage builds. <a href="https://lovable.dev" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
         </div>
         
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">⚡ TIP 04</div>
-            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Delegate Web Tasks to Comet, Perplexity&#39;s AI Browser</div>
-            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Comet is an AI-powered browser from Perplexity that executes web-based tasks on your behalf, including research, data extraction, and routine browsing workflows, through a conversational interface. Instead of manually navigating multiple sites, instruct Comet to gather pricing data, summarize articles, or fill out forms and retrieve results. It is best suited for knowledge workers who spend a large portion of their day sourcing information from the web. <a href="https://comet.perplexity.ai/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Replace Search with Cited AI Answers via Perplexity</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Perplexity functions as a research-grade search engine that returns sourced, cited answers rather than a list of links to manually review. Use the Pro tier at $20 per month to access multiple AI models and handle deeper research queries with greater accuracy. It is particularly effective for professionals who need verifiable information quickly without sifting through pages of results. <a href="https://perplexity.com" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
         </div>
         
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">🔨 TIP 05</div>
-            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Ship Full-Stack Apps Without Code Using Lovable</div>
-            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Lovable enables non-technical founders, designers, and product managers to build and deploy full-stack web applications by describing features in plain language, a practice often called vibe-coding. Use it to rapidly prototype ideas, validate concepts with real users, or build internal tools without waiting on engineering resources. It is especially valuable in early-stage product development where speed of iteration matters more than architectural perfection. <a href="https://lovable.dev/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">⚡ TIP 05</div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Dictate Emails and Prompts Hands-Free with Wisprflow</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Wisprflow converts natural spoken language into clean, formatted text across any application, including email clients, messaging tools, and AI prompt interfaces. Rather than typing out long client updates or detailed prompts, speak them aloud and let Wisprflow handle the transcription and formatting. It is especially useful for high-volume communicators who want to reduce time spent at the keyboard. <a href="https://wisprflow.ai" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
         </div>
         
         
         <div style="background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 2px 8px var(--shadow);">
             <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--purple);margin-bottom:8px">⚡ TIP 06</div>
-            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Orchestrate AI Agents Across 8,000 Apps with Zapier Agents</div>
-            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Zapier Agents allows you to build and deploy AI-powered automation agents using natural language, connecting them to over 8,000 applications including Gmail, Slack, Salesforce, and Notion. Define a trigger and a goal in plain English, and the agent handles the logic, data routing, and execution across your entire tool stack. This is the fastest path to eliminating repetitive cross-platform workflows without writing a single line of code. <a href="https://zapier.com/" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
+            <div class="tool-title" style="font-size:15px;font-weight:700;margin-bottom:8px">Automate Web Research with Perplexity Comet</div>
+            <div class="tool-body" style="font-size:13px;color:var(--text-secondary);line-height:1.6">Comet is an autonomous browsing agent built by Perplexity that navigates the web, completes research tasks, and returns structured results without requiring manual page-by-page navigation. Use it to automate competitive research, content aggregation, or any workflow that involves pulling information from multiple web sources. It is integrated directly with Perplexity, making it a natural extension for existing Pro subscribers. <a href="https://comet.perplexity.com" target="_blank" style="color:var(--blue);font-size:11px;text-decoration:none">Try it →</a></div>
         </div>
         
     </div>
@@ -1032,7 +1037,7 @@ html.dark-mode .topbar{background:rgba(15,23,42,0.88);}
 
 <footer style="text-align:center;padding:40px 24px;border-top:1px solid var(--border);margin-top:40px">
     <div style="font-size:14px;font-weight:700;margin-bottom:4px">Koda Intelligence</div>
-    <div style="font-size:12px;color:var(--text-secondary)">Generated 2026-03-28 02:56 | Sources: Web Search, Newsletter feeds, NotebookLM</div>
+    <div style="font-size:12px;color:var(--text-secondary)">Generated 2026-03-28 04:34 | Sources: Web Search, Newsletter feeds, NotebookLM</div>
     <div style="font-size:11px;color:var(--text-secondary);margin-top:8px">© 2026 Koda Community</div>
 </footer>
 
