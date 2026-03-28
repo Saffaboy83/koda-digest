@@ -264,7 +264,7 @@
 <section class="relative w-full pt-14 overflow-hidden">
     
     <div class="absolute inset-0 z-0">
-        <img src="./infographic-2026-03-28.jpg" class="w-full h-full object-cover object-center opacity-50 blur-[2px] scale-110" alt="" aria-hidden="true">
+        <img src="./hero-2026-03-28.jpg" class="w-full h-full object-cover object-center opacity-50 scale-105" alt="" aria-hidden="true">
     </div>
     
     <div class="hero-gradient absolute inset-0 z-[1]"></div>
@@ -502,10 +502,14 @@
     
     
     <section class="section" id="todays-focus">
-        <div class="section-title flex items-center gap-4 mb-8">
-            <h3 class="text-2xl font-black tracking-tight uppercase">Today's Focus</h3>
-            <div class="h-px flex-grow bg-white/[0.1]"></div>
-        </div>
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-8 lg:pointer-events-none lg:cursor-default" onclick="toggleExpand(this)" aria-expanded="false">
+            <div class="flex items-center gap-4 flex-grow min-w-0">
+                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">Today's Focus</h3>
+                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
+            </div>
+            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron lg:hidden transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
+        </button>
+        <div class="expandable-content hidden lg:block mt-4 lg:mt-0">
         <div class="space-y-3">
             
             
@@ -534,6 +538,7 @@
             </div>
             
         </div>
+        </div>
     </section>
     
 
@@ -541,10 +546,14 @@
     
     
     <section class="section" id="ai-developments">
-        <div class="section-title flex items-center gap-4 mb-8">
-            <h3 class="text-2xl font-black tracking-tight uppercase">AI Developments</h3>
-            <div class="h-px flex-grow bg-white/[0.1]"></div>
-        </div>
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-8 lg:pointer-events-none lg:cursor-default" onclick="toggleExpand(this)" aria-expanded="false">
+            <div class="flex items-center gap-4 flex-grow min-w-0">
+                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">AI Developments</h3>
+                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
+            </div>
+            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron lg:hidden transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
+        </button>
+        <div class="expandable-content hidden lg:block mt-4 lg:mt-0">
         <div class="grid md:grid-cols-2 gap-4">
             
             
@@ -668,6 +677,7 @@
             </article>
             
         </div>
+        </div>
     </section>
     
 
@@ -675,10 +685,14 @@
     
     
     <section class="section" id="world-news">
-        <div class="section-title flex items-center gap-4 mb-8">
-            <h3 class="text-2xl font-black tracking-tight uppercase">World News</h3>
-            <div class="h-px flex-grow bg-white/[0.1]"></div>
-        </div>
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-8 lg:pointer-events-none lg:cursor-default" onclick="toggleExpand(this)" aria-expanded="false">
+            <div class="flex items-center gap-4 flex-grow min-w-0">
+                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">World News</h3>
+                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
+            </div>
+            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron lg:hidden transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
+        </button>
+        <div class="expandable-content hidden lg:block mt-4 lg:mt-0">
         <div class="grid md:grid-cols-2 gap-4">
             
             
@@ -746,16 +760,21 @@
             </article>
             
         </div>
+        </div>
     </section>
     
 
     
     
     <section class="section" id="newsletter-intelligence">
-        <div class="section-title flex items-center gap-4 mb-8">
-            <h3 class="text-2xl font-black tracking-tight uppercase">Newsletter Intelligence</h3>
-            <div class="h-px flex-grow bg-white/[0.1]"></div>
-        </div>
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-8 lg:pointer-events-none lg:cursor-default" onclick="toggleExpand(this)" aria-expanded="false">
+            <div class="flex items-center gap-4 flex-grow min-w-0">
+                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">Newsletter Intelligence</h3>
+                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
+            </div>
+            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron lg:hidden transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
+        </button>
+        <div class="expandable-content hidden lg:block mt-4 lg:mt-0">
         
         <div class="newsletter-card bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
             <div class="newsletter-name text-[15px] font-bold mb-3">TLDR Marketing</div>
@@ -947,6 +966,7 @@
             
         </div>
         
+        </div>
     </section>
     
 
@@ -1223,7 +1243,7 @@
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-6 py-10 gap-4">
         <div>
             <span class="text-sm font-bold text-[#3B82F6]">Koda Intelligence</span>
-            <p class="text-[11px] text-[#c2c6d6] mt-1">Generated 2026-03-28 16:01</p>
+            <p class="text-[11px] text-[#c2c6d6] mt-1">Generated 2026-03-28 16:12</p>
         </div>
         <div class="flex gap-6 text-[11px] uppercase tracking-wide">
             <a href="./index.html" class="text-[#c2c6d6] hover:text-white transition-colors no-underline">Archive</a>
