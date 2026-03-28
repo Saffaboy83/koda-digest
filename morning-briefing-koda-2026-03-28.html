@@ -191,6 +191,18 @@
 /* ── Section Scroll Margin ───────────────────────────────────────────── */
 .section { scroll-margin-top: 80px; }
 
+/* ── Sidebar Scroll ──────────────────────────────────────────────────── */
+.sidebar-scroll {
+    max-height: calc(100vh - 5rem);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.08) transparent;
+}
+.sidebar-scroll::-webkit-scrollbar { width: 4px; }
+.sidebar-scroll::-webkit-scrollbar-track { background: transparent; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.08); border-radius: 2px; }
+.sidebar-scroll::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.15); }
+
 /* ── Focus Styles (Accessibility) ────────────────────────────────────── */
 :focus-visible { outline: 2px solid #3B82F6; outline-offset: 2px; border-radius: 4px; }
 
@@ -233,7 +245,12 @@
 
 
 <section class="relative w-full pt-14 overflow-hidden">
-    <div class="hero-gradient absolute inset-0 z-0"></div>
+    
+    <div class="absolute inset-0 z-0">
+        <img src="./infographic-2026-03-28.jpg" class="w-full h-full object-cover opacity-[0.07]" alt="" aria-hidden="true">
+    </div>
+    
+    <div class="hero-gradient absolute inset-0 z-[1]"></div>
     <div class="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-12 md:pt-24 md:pb-20 flex flex-col md:flex-row items-end justify-between gap-8">
         <div class="max-w-3xl">
             <p class="font-mono text-xs text-[#3B82F6] mb-3 tracking-[0.2em] uppercase">28 March 2026</p>
@@ -247,20 +264,20 @@
         
         <div class="hidden lg:grid grid-cols-2 gap-4 text-right flex-shrink-0">
             <div>
-                <span class="block text-[10px] text-[#8c909f] uppercase tracking-widest mb-0.5">AI Stories</span>
-                <span class="text-lg font-bold tracking-tighter">12</span>
+                <span class="kpi-label block text-[10px] text-[#8c909f] uppercase tracking-widest mb-0.5">AI Stories</span>
+                <span class="kpi-value text-lg font-bold tracking-tighter">12</span>
             </div>
             <div>
-                <span class="block text-[10px] text-[#8c909f] uppercase tracking-widest mb-0.5">World Events</span>
-                <span class="text-lg font-bold tracking-tighter">8</span>
+                <span class="kpi-label block text-[10px] text-[#8c909f] uppercase tracking-widest mb-0.5">World Events</span>
+                <span class="kpi-value text-lg font-bold tracking-tighter">8</span>
             </div>
             <div>
-                <span class="block text-[10px] text-[#8c909f] uppercase tracking-widest mb-0.5">Market Mood</span>
-                <span class="text-lg font-bold tracking-tighter">Extreme Fear</span>
+                <span class="kpi-label block text-[10px] text-[#8c909f] uppercase tracking-widest mb-0.5">Market Mood</span>
+                <span class="kpi-value text-lg font-bold tracking-tighter">Extreme Fear</span>
             </div>
             <div>
-                <span class="block text-[10px] text-[#8c909f] uppercase tracking-widest mb-0.5">Tools Featured</span>
-                <span class="text-lg font-bold tracking-tighter">6</span>
+                <span class="kpi-label block text-[10px] text-[#8c909f] uppercase tracking-widest mb-0.5">Tools Featured</span>
+                <span class="kpi-value text-lg font-bold tracking-tighter">6</span>
             </div>
         </div>
     </div>
@@ -276,7 +293,7 @@
     
     
     <section class="section" id="daily-summary">
-        <div class="flex items-center gap-3 mb-6">
+        <div class="section-title flex items-center gap-3 mb-6">
             <h3 class="text-xl font-black tracking-tighter uppercase">The Briefing</h3>
             <div class="h-px flex-grow bg-white/[0.06]"></div>
         </div>
@@ -289,7 +306,7 @@
             <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors duration-300 group">
                 <div class="flex justify-between items-start mb-1.5">
                     <span class="text-[11px] uppercase tracking-[0.1em] font-bold" style="color: #3B82F6">AI</span>
-                    <span class="material-symbols-outlined text-[#8c909f] text-lg transition-colors" style="group-hover:color:#3B82F6">smart_toy</span>
+                    <span class="material-symbols-outlined text-[#8c909f] text-lg transition-colors">smart_toy</span>
                 </div>
                 <p class="text-sm text-[#c2c6d6] leading-relaxed">OpenAI launched GPT-5.4 with a million-token context window, while DeepSeek V4 debuted at 1 trillion parameters and Alibaba shipped eight open-weight Qwen3.5 variants, marking one of the densest single-day release cycles in AI history.</p>
             </div>
@@ -299,7 +316,7 @@
             <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors duration-300 group">
                 <div class="flex justify-between items-start mb-1.5">
                     <span class="text-[11px] uppercase tracking-[0.1em] font-bold" style="color: #EF4444">World</span>
-                    <span class="material-symbols-outlined text-[#8c909f] text-lg transition-colors" style="group-hover:color:#EF4444">public</span>
+                    <span class="material-symbols-outlined text-[#8c909f] text-lg transition-colors">public</span>
                 </div>
                 <p class="text-sm text-[#c2c6d6] leading-relaxed">Iran struck a Saudi base injuring 12 US troops, prompting G7 coordination to secure the Strait of Hormuz as Trump extended his Iran energy strike deadline to April 6.</p>
             </div>
@@ -309,7 +326,7 @@
             <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors duration-300 group">
                 <div class="flex justify-between items-start mb-1.5">
                     <span class="text-[11px] uppercase tracking-[0.1em] font-bold" style="color: #10B981">Markets</span>
-                    <span class="material-symbols-outlined text-[#8c909f] text-lg transition-colors" style="group-hover:color:#10B981">trending_up</span>
+                    <span class="material-symbols-outlined text-[#8c909f] text-lg transition-colors">trending_up</span>
                 </div>
                 <p class="text-sm text-[#c2c6d6] leading-relaxed">Oil surged past $100 per barrel and the Dow shed 800 points as Middle East escalation and a 43-day US government shutdown pushed sentiment to Extreme Fear.</p>
             </div>
@@ -319,7 +336,7 @@
             <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors duration-300 group">
                 <div class="flex justify-between items-start mb-1.5">
                     <span class="text-[11px] uppercase tracking-[0.1em] font-bold" style="color: #F59E0B">Wild Card</span>
-                    <span class="material-symbols-outlined text-[#8c909f] text-lg transition-colors" style="group-hover:color:#F59E0B">bolt</span>
+                    <span class="material-symbols-outlined text-[#8c909f] text-lg transition-colors">bolt</span>
                 </div>
                 <p class="text-sm text-[#c2c6d6] leading-relaxed">Seven of nine major text models released in March are open-source, suggesting that even amid global instability, the open-weight movement is outpacing proprietary releases and reshaping competitive dynamics faster than policy can respond.</p>
             </div>
@@ -362,7 +379,7 @@
     
     
     <section class="section" id="infographic">
-        <div class="flex items-center gap-3 mb-6">
+        <div class="section-title flex items-center gap-3 mb-6">
             <h3 class="text-xl font-black tracking-tighter uppercase">Daily Infographic</h3>
             <div class="h-px flex-grow bg-white/[0.06]"></div>
         </div>
@@ -376,7 +393,7 @@
     
     
     <section class="section" id="todays-focus">
-        <div class="flex items-center gap-3 mb-6">
+        <div class="section-title flex items-center gap-3 mb-6">
             <h3 class="text-xl font-black tracking-tighter uppercase">Today's Focus</h3>
             <div class="h-px flex-grow bg-white/[0.06]"></div>
         </div>
@@ -386,24 +403,24 @@
             <div class="flex gap-4 items-start p-5 bg-[#131b2e]">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm text-white flex-shrink-0" style="background: linear-gradient(135deg, #3B82F6, #8B5CF6)">1</div>
                 <div>
-                    <div class="text-sm font-bold mb-1">Open-Source AI Surge</div>
-                    <div class="text-[13px] text-[#c2c6d6] leading-relaxed">Seven of nine March text model releases are open-source, with Alibaba alone shipping eight Qwen3.5 variants in a single drop. This concentration of open-weight releases signals a structural shift: frontier-quality models are becoming commoditized faster than enterprise licensing models can adapt. DeepSeek V4 at 1 trillion parameters adds further pressure on closed providers to justify premium pricing.</div>
+                    <div class="focus-content-title text-sm font-bold mb-1">Open-Source AI Surge</div>
+                    <div class="focus-content-body text-[13px] text-[#c2c6d6] leading-relaxed">Seven of nine March text model releases are open-source, with Alibaba alone shipping eight Qwen3.5 variants in a single drop. This concentration of open-weight releases signals a structural shift: frontier-quality models are becoming commoditized faster than enterprise licensing models can adapt. DeepSeek V4 at 1 trillion parameters adds further pressure on closed providers to justify premium pricing.</div>
                 </div>
             </div>
             
             <div class="flex gap-4 items-start p-5 bg-[#131b2e]">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm text-white flex-shrink-0" style="background: linear-gradient(135deg, #8B5CF6, #8B5CF6)">2</div>
                 <div>
-                    <div class="text-sm font-bold mb-1">Hormuz Crisis and Oil</div>
-                    <div class="text-[13px] text-[#c2c6d6] leading-relaxed">Iran&#39;s strike on a Saudi base and the subsequent breach of the $100 oil threshold represent a significant escalation with direct supply-chain implications for AI infrastructure, which is heavily energy-dependent. G7 efforts to secure the Strait of Hormuz suggest a prolonged standoff rather than a quick resolution. Data center operators and cloud providers should monitor energy cost forecasts closely.</div>
+                    <div class="focus-content-title text-sm font-bold mb-1">Hormuz Crisis and Oil</div>
+                    <div class="focus-content-body text-[13px] text-[#c2c6d6] leading-relaxed">Iran&#39;s strike on a Saudi base and the subsequent breach of the $100 oil threshold represent a significant escalation with direct supply-chain implications for AI infrastructure, which is heavily energy-dependent. G7 efforts to secure the Strait of Hormuz suggest a prolonged standoff rather than a quick resolution. Data center operators and cloud providers should monitor energy cost forecasts closely.</div>
                 </div>
             </div>
             
             <div class="flex gap-4 items-start p-5 bg-[#131b2e]">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm text-white flex-shrink-0" style="background: linear-gradient(135deg, #10B981, #8B5CF6)">3</div>
                 <div>
-                    <div class="text-sm font-bold mb-1">AI Amid Market Chaos</div>
-                    <div class="text-[13px] text-[#c2c6d6] leading-relaxed">The Dow&#39;s 800-point drop and Extreme Fear sentiment arrive precisely as AI labs are flooding the market with new releases, creating a sharp divergence between innovation velocity and investor confidence. Historically, periods of market stress accelerate enterprise cost-cutting, which can paradoxically benefit open-source AI adoption over expensive proprietary APIs. Watch for enterprise procurement shifts in Q2 earnings guidance.</div>
+                    <div class="focus-content-title text-sm font-bold mb-1">AI Amid Market Chaos</div>
+                    <div class="focus-content-body text-[13px] text-[#c2c6d6] leading-relaxed">The Dow&#39;s 800-point drop and Extreme Fear sentiment arrive precisely as AI labs are flooding the market with new releases, creating a sharp divergence between innovation velocity and investor confidence. Historically, periods of market stress accelerate enterprise cost-cutting, which can paradoxically benefit open-source AI adoption over expensive proprietary APIs. Watch for enterprise procurement shifts in Q2 earnings guidance.</div>
                 </div>
             </div>
             
@@ -415,7 +432,7 @@
     
     
     <section class="section" id="ai-developments">
-        <div class="flex items-center gap-3 mb-6">
+        <div class="section-title flex items-center gap-3 mb-6">
             <h3 class="text-xl font-black tracking-tighter uppercase">AI Developments</h3>
             <div class="h-px flex-grow bg-white/[0.06]"></div>
         </div>
@@ -427,8 +444,8 @@
                 <div class="flex gap-2 mb-2">
                     <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #3B82F6; background: #3B82F615">Model Release</span>
                 </div>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">OpenAI Launches GPT-5.4 With Million-Token Context</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">OpenAI released GPT-5.4 on March 5, positioning it as a reasoning-optimized model with a 1-million-token context window, improved step-by-step reasoning, and native computer-use capabilities for agents. The model ties for the top spot on leading benchmarks and is described as matching GPT-6-level reasoning within an efficient architecture. A companion release, GPT-5.3 Instant, shipped shortly before to reduce hallucinations and improve cost efficiency. <a href="https://champaignmagazine.com/2026/03/08/ai-by-ai-weekly-top-5-march-2-8-2026/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">OpenAI Launches GPT-5.4 With Million-Token Context</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">OpenAI released GPT-5.4 on March 5, positioning it as a reasoning-optimized model with a 1-million-token context window, improved step-by-step reasoning, and native computer-use capabilities for agents. The model ties for the top spot on leading benchmarks and is described as matching GPT-6-level reasoning within an efficient architecture. A companion release, GPT-5.3 Instant, shipped shortly before to reduce hallucinations and improve cost efficiency. <a href="https://champaignmagazine.com/2026/03/08/ai-by-ai-weekly-top-5-march-2-8-2026/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
             </article>
             
             
@@ -437,8 +454,8 @@
                 <div class="flex gap-2 mb-2">
                     <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #EF4444; background: #EF444415">China</span>
                 </div>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">DeepSeek V4 Debuts With 1 Trillion Parameters</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">DeepSeek released V4 around March 3 as an open-weight model featuring 1 trillion total parameters with 32 billion active at inference time, a 1-million-token context window, and native multimodal support. The architecture directly challenges proprietary frontier models from OpenAI and Google while remaining openly accessible. Its mixture-of-experts design keeps compute costs manageable despite the headline parameter count. <a href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #EF4444">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">DeepSeek V4 Debuts With 1 Trillion Parameters</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">DeepSeek released V4 around March 3 as an open-weight model featuring 1 trillion total parameters with 32 billion active at inference time, a 1-million-token context window, and native multimodal support. The architecture directly challenges proprietary frontier models from OpenAI and Google while remaining openly accessible. Its mixture-of-experts design keeps compute costs manageable despite the headline parameter count. <a href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #EF4444">Source &rarr;</a></p>
             </article>
             
             
@@ -447,8 +464,8 @@
                 <div class="flex gap-2 mb-2">
                     <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #10B981; background: #10B98115">Open Source</span>
                 </div>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">Alibaba Ships Eight Qwen3.5 Variants Open-Weight</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">Alibaba released the Qwen3.5 series in March 2026, comprising eight open-weight models ranging from 0.8 billion to 397 billion parameters. The breadth of the family signals a deliberate strategy to cover edge deployment through frontier-scale use cases with a single unified lineage. All variants are openly available, continuing Alibaba&#39;s push to compete with Western labs on accessibility. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #10B981">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Alibaba Ships Eight Qwen3.5 Variants Open-Weight</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Alibaba released the Qwen3.5 series in March 2026, comprising eight open-weight models ranging from 0.8 billion to 397 billion parameters. The breadth of the family signals a deliberate strategy to cover edge deployment through frontier-scale use cases with a single unified lineage. All variants are openly available, continuing Alibaba&#39;s push to compete with Western labs on accessibility. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #10B981">Source &rarr;</a></p>
             </article>
             
             
@@ -457,8 +474,8 @@
                 <div class="flex gap-2 mb-2">
                     <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #3B82F6; background: #3B82F615">Model Release</span>
                 </div>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">Google Releases Gemini 3 Deep Think and Lyria 3</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">On March 26, Google launched Gemini 3 Deep Think as a live reasoning update to its Gemini 3 line, alongside two music generation models: Lyria 3 and Lyria 3 Pro. The simultaneous release of a reasoning upgrade and dedicated audio-generation models reflects Google&#39;s strategy of expanding Gemini into specialized creative and analytical domains. Lyria 3 Pro targets professional music production workflows. <a href="https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-march-26-2026-direction-over-drama/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Google Releases Gemini 3 Deep Think and Lyria 3</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">On March 26, Google launched Gemini 3 Deep Think as a live reasoning update to its Gemini 3 line, alongside two music generation models: Lyria 3 and Lyria 3 Pro. The simultaneous release of a reasoning upgrade and dedicated audio-generation models reflects Google&#39;s strategy of expanding Gemini into specialized creative and analytical domains. Lyria 3 Pro targets professional music production workflows. <a href="https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-march-26-2026-direction-over-drama/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
             </article>
             
             
@@ -467,8 +484,8 @@
                 <div class="flex gap-2 mb-2">
                     <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #8B5CF6; background: #8B5CF615">Trend</span>
                 </div>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">Seven of Nine March Text Models Are Open-Source</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">Of the nine major text models shipped in March 2026, seven carried open-source or open-weight licenses, including releases from Mistral AI, Xiaomi, MiniMax, and NVIDIA. Mistral Small 4 ships under the permissive Apache 2.0 license, while NVIDIA contributed both Nemotron 3 Super and a VoiceChat model. The trend underscores a structural shift in the industry toward accessible model distribution even at frontier capability levels. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #8B5CF6">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Seven of Nine March Text Models Are Open-Source</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Of the nine major text models shipped in March 2026, seven carried open-source or open-weight licenses, including releases from Mistral AI, Xiaomi, MiniMax, and NVIDIA. Mistral Small 4 ships under the permissive Apache 2.0 license, while NVIDIA contributed both Nemotron 3 Super and a VoiceChat model. The trend underscores a structural shift in the industry toward accessible model distribution even at frontier capability levels. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #8B5CF6">Source &rarr;</a></p>
             </article>
             
             
@@ -477,8 +494,8 @@
                 <div class="flex gap-2 mb-2">
                     <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #6366F1; background: #6366F115">Agents</span>
                 </div>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">Amazon and OpenAI Partner on Bedrock Stateful Runtime</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">Amazon and OpenAI announced a partnership to bring a Stateful Runtime Environment to Amazon Bedrock, enabling persistent memory and advanced tool-use for AI agents. The integration is designed to support long-running agentic workflows that require context continuity across sessions. The feature is listed as upcoming, with no firm launch date confirmed as of March 26. <a href="https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-march-26-2026-direction-over-drama/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #6366F1">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Amazon and OpenAI Partner on Bedrock Stateful Runtime</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Amazon and OpenAI announced a partnership to bring a Stateful Runtime Environment to Amazon Bedrock, enabling persistent memory and advanced tool-use for AI agents. The integration is designed to support long-running agentic workflows that require context continuity across sessions. The feature is listed as upcoming, with no firm launch date confirmed as of March 26. <a href="https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-march-26-2026-direction-over-drama/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #6366F1">Source &rarr;</a></p>
             </article>
             
             
@@ -487,8 +504,8 @@
                 <div class="flex gap-2 mb-2">
                     <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #8B5CF6; background: #8B5CF615">Trend</span>
                 </div>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">Q1 2026 Sees 255-Plus AI Model Releases</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">More than 255 AI model releases were recorded in Q1 2026, with major labs shipping on roughly bi-weekly cycles. The pace reflects a strategic pivot away from single flagship launches toward continuous release of specialized model families. Analysts note that volume and specialization, rather than singular breakthrough moments, now define competitive positioning in the frontier AI market. <a href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #8B5CF6">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Q1 2026 Sees 255-Plus AI Model Releases</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">More than 255 AI model releases were recorded in Q1 2026, with major labs shipping on roughly bi-weekly cycles. The pace reflects a strategic pivot away from single flagship launches toward continuous release of specialized model families. Analysts note that volume and specialization, rather than singular breakthrough moments, now define competitive positioning in the frontier AI market. <a href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #8B5CF6">Source &rarr;</a></p>
             </article>
             
             
@@ -497,8 +514,8 @@
                 <div class="flex gap-2 mb-2">
                     <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #10B981; background: #10B98115">Open Source</span>
                 </div>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">NVIDIA Releases Nemotron 3 Super and VoiceChat</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">NVIDIA shipped two open-source models in March 2026: Nemotron 3 Super, a general-purpose language model, and Nemotron VoiceChat, targeting conversational voice applications. Both releases are open-source, extending NVIDIA&#39;s strategy of building an ecosystem around its hardware through freely available model assets. The VoiceChat model positions NVIDIA to compete in the growing real-time voice AI segment. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #10B981">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">NVIDIA Releases Nemotron 3 Super and VoiceChat</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">NVIDIA shipped two open-source models in March 2026: Nemotron 3 Super, a general-purpose language model, and Nemotron VoiceChat, targeting conversational voice applications. Both releases are open-source, extending NVIDIA&#39;s strategy of building an ecosystem around its hardware through freely available model assets. The VoiceChat model positions NVIDIA to compete in the growing real-time voice AI segment. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #10B981">Source &rarr;</a></p>
             </article>
             
             
@@ -507,8 +524,8 @@
                 <div class="flex gap-2 mb-2">
                     <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #3B82F6; background: #3B82F615">Model Release</span>
                 </div>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">xAI Ships Grok 4.20 Beta in March</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">xAI released Grok 4.20 Beta during March 2026, adding to a crowded month of frontier model launches. The release follows a February 17 version of Grok 4.20, suggesting xAI is iterating rapidly on its flagship model line. Specific benchmark scores for the March beta have not been published, but the model is positioned within the competitive frontier reasoning tier. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">xAI Ships Grok 4.20 Beta in March</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">xAI released Grok 4.20 Beta during March 2026, adding to a crowded month of frontier model launches. The release follows a February 17 version of Grok 4.20, suggesting xAI is iterating rapidly on its flagship model line. Specific benchmark scores for the March beta have not been published, but the model is positioned within the competitive frontier reasoning tier. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
             </article>
             
             
@@ -517,8 +534,8 @@
                 <div class="flex gap-2 mb-2">
                     <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #EF4444; background: #EF444415">China</span>
                 </div>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">Xiaomi and MiniMax Enter Open-Source LLM Race</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">Xiaomi released MiMo-V2-Pro and MiniMax shipped MiniMax-M2.7 in March 2026, both as open-source models. The entries from a consumer electronics giant and a Chinese AI startup signal that the open-weight model ecosystem is broadening well beyond established Western and Chinese frontier labs. Both models are positioned as capable general-purpose language models accessible to developers without licensing restrictions. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #EF4444">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Xiaomi and MiniMax Enter Open-Source LLM Race</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Xiaomi released MiMo-V2-Pro and MiniMax shipped MiniMax-M2.7 in March 2026, both as open-source models. The entries from a consumer electronics giant and a Chinese AI startup signal that the open-weight model ecosystem is broadening well beyond established Western and Chinese frontier labs. Both models are positioned as capable general-purpose language models accessible to developers without licensing restrictions. <a href="https://whatllm.org/blog/llm-releases-march-2026" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #EF4444">Source &rarr;</a></p>
             </article>
             
             
@@ -527,8 +544,8 @@
                 <div class="flex gap-2 mb-2">
                     <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #6366F1; background: #6366F115">Agents</span>
                 </div>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">OpenClaw Open-Source Agent Project Goes Viral</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">OpenClaw, an open-source AI agent project, saw a viral surge in GitHub activity on March 26, coinciding with a wave of major model announcements. The project attracted significant developer attention, reflecting growing community interest in building autonomous agent frameworks on top of newly released frontier models. No single corporate backer has been identified; the project appears to be community-driven. <a href="https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-march-26-2026-direction-over-drama/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #6366F1">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">OpenClaw Open-Source Agent Project Goes Viral</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">OpenClaw, an open-source AI agent project, saw a viral surge in GitHub activity on March 26, coinciding with a wave of major model announcements. The project attracted significant developer attention, reflecting growing community interest in building autonomous agent frameworks on top of newly released frontier models. No single corporate backer has been identified; the project appears to be community-driven. <a href="https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-march-26-2026-direction-over-drama/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #6366F1">Source &rarr;</a></p>
             </article>
             
             
@@ -537,8 +554,8 @@
                 <div class="flex gap-2 mb-2">
                     <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #3B82F6; background: #3B82F615">Model Release</span>
                 </div>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">GPT-5.3 Garlic API Targets Efficiency Mid-March</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">OpenAI released the full API for GPT-5.3, internally codenamed Garlic, in mid-March 2026, with a focus on inference efficiency and reduced operational costs. The release sits between the hallucination-reduction GPT-5.3 Instant and the flagship GPT-5.4, suggesting OpenAI is maintaining a tiered product line for different cost and performance requirements. Developer access through the API allows integration into production applications immediately. <a href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">GPT-5.3 Garlic API Targets Efficiency Mid-March</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">OpenAI released the full API for GPT-5.3, internally codenamed Garlic, in mid-March 2026, with a focus on inference efficiency and reduced operational costs. The release sits between the hallucination-reduction GPT-5.3 Instant and the flagship GPT-5.4, suggesting OpenAI is maintaining a tiered product line for different cost and performance requirements. Developer access through the API allows integration into production applications immediately. <a href="https://blog.mean.ceo/new-ai-model-releases-news-march-2026/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
             </article>
             
         </div>
@@ -549,7 +566,7 @@
     
     
     <section class="section" id="world-news">
-        <div class="flex items-center gap-3 mb-6">
+        <div class="section-title flex items-center gap-3 mb-6">
             <h3 class="text-xl font-black tracking-tighter uppercase">World News</h3>
             <div class="h-px flex-grow bg-white/[0.06]"></div>
         </div>
@@ -559,64 +576,64 @@
             
             <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
                 <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #EF4444; background: #EF444415">Conflict</span>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">Iran Strikes Saudi Base, Injures 12 US Troops</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">An Iranian missile and drone attack on a Saudi Arabian military base injured at least 12 US service members, two of them seriously, on March 28. The strike marks a significant escalation in the 2026 Iran war, which now involves Iraq and multiple regional bases. Iran released imagery from the attack, signaling a willingness to publicize direct confrontation with US and Israeli forces. <a href="https://en.wikipedia.org/wiki/Portal:Current_events/2026_March_28" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #EF4444">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Iran Strikes Saudi Base, Injures 12 US Troops</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">An Iranian missile and drone attack on a Saudi Arabian military base injured at least 12 US service members, two of them seriously, on March 28. The strike marks a significant escalation in the 2026 Iran war, which now involves Iraq and multiple regional bases. Iran released imagery from the attack, signaling a willingness to publicize direct confrontation with US and Israeli forces. <a href="https://en.wikipedia.org/wiki/Portal:Current_events/2026_March_28" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #EF4444">Source &rarr;</a></p>
             </article>
             
             
             
             <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
                 <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #10B981; background: #10B98115">Economy</span>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">Oil Tops $100, Dow Drops 800 Points</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">Global oil prices surpassed $100 per barrel on March 28 as Middle East conflict threatened shipping through the Strait of Hormuz, one of the world&#39;s most critical energy chokepoints. The Dow Jones Industrial Average fell nearly 800 points in response, reflecting broad investor alarm over supply disruption risks. The economic shock compounds existing market volatility tied to the ongoing Iran war. <a href="https://www.youtube.com/watch?v=2WUZtyWiAok" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #10B981">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Oil Tops $100, Dow Drops 800 Points</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Global oil prices surpassed $100 per barrel on March 28 as Middle East conflict threatened shipping through the Strait of Hormuz, one of the world&#39;s most critical energy chokepoints. The Dow Jones Industrial Average fell nearly 800 points in response, reflecting broad investor alarm over supply disruption risks. The economic shock compounds existing market volatility tied to the ongoing Iran war. <a href="https://www.youtube.com/watch?v=2WUZtyWiAok" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #10B981">Source &rarr;</a></p>
             </article>
             
             
             
             <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
                 <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #3B82F6; background: #3B82F615">Diplomacy</span>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">G7 Moves to Secure Strait of Hormuz</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">G7 nations reached an agreement on March 28 to coordinate efforts securing the Strait of Hormuz following disruptions caused by the Iran war. The EU proposed adapting the Black Sea grain corridor model to restore energy shipping through the strait. Separately, Ukraine and Saudi Arabia signed a first-of-its-kind Gulf defense agreement, reflecting deepening links between the Ukraine and Middle East conflicts. <a href="https://www.euronews.com/video/2026/03/28/latest-news-bulletin-march-28th-2026-midday" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">G7 Moves to Secure Strait of Hormuz</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">G7 nations reached an agreement on March 28 to coordinate efforts securing the Strait of Hormuz following disruptions caused by the Iran war. The EU proposed adapting the Black Sea grain corridor model to restore energy shipping through the strait. Separately, Ukraine and Saudi Arabia signed a first-of-its-kind Gulf defense agreement, reflecting deepening links between the Ukraine and Middle East conflicts. <a href="https://www.euronews.com/video/2026/03/28/latest-news-bulletin-march-28th-2026-midday" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
             </article>
             
             
             
             <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
                 <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #8B5CF6; background: #8B5CF615">Policy</span>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">Trump Delays Iran Energy Strike Deadline to April 6</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">President Trump announced on March 28 that the US would postpone any targeting of Iranian energy infrastructure until April 6, citing ongoing negotiations he described as going very well. The delay comes despite continued Iranian defiance and regional strikes that have killed civilians. Critics note the extension creates uncertainty for allies and markets already rattled by the conflict. <a href="https://www.youtube.com/watch?v=JwQlPnUqFps" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #8B5CF6">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Trump Delays Iran Energy Strike Deadline to April 6</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">President Trump announced on March 28 that the US would postpone any targeting of Iranian energy infrastructure until April 6, citing ongoing negotiations he described as going very well. The delay comes despite continued Iranian defiance and regional strikes that have killed civilians. Critics note the extension creates uncertainty for allies and markets already rattled by the conflict. <a href="https://www.youtube.com/watch?v=JwQlPnUqFps" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #8B5CF6">Source &rarr;</a></p>
             </article>
             
             
             
             <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
                 <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #8B5CF6; background: #8B5CF615">Policy</span>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">US Government Shutdown Reaches Day 43</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">The US partial government shutdown entered its 43rd day on March 28 after House Republicans blocked a Senate funding plan. President Trump signed an executive order directing the Department of Homeland Security to pay TSA agents, as long security lines at airports drew mounting frustration from travelers. The standoff has left federal agencies in prolonged limbo with no clear resolution in sight. <a href="https://www.youtube.com/watch?v=JLQ1QZibua0" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #8B5CF6">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">US Government Shutdown Reaches Day 43</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">The US partial government shutdown entered its 43rd day on March 28 after House Republicans blocked a Senate funding plan. President Trump signed an executive order directing the Department of Homeland Security to pay TSA agents, as long security lines at airports drew mounting frustration from travelers. The standoff has left federal agencies in prolonged limbo with no clear resolution in sight. <a href="https://www.youtube.com/watch?v=JLQ1QZibua0" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #8B5CF6">Source &rarr;</a></p>
             </article>
             
             
             
             <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
                 <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #EF4444; background: #EF444415">Conflict</span>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">Lebanon Declares Israeli Actions an Invasion</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">Lebanese officials formally characterized ongoing Israeli military operations as an invasion on March 28, signaling a dangerous broadening of the Middle East conflict. The declaration raises the prospect of a new front opening alongside the existing Iran-US-Israel war. Regional governments and international observers expressed alarm at the potential for further escalation across multiple theaters simultaneously. <a href="https://www.euronews.com/video/2026/03/28/latest-news-bulletin-march-28th-2026-midday" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #EF4444">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Lebanon Declares Israeli Actions an Invasion</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Lebanese officials formally characterized ongoing Israeli military operations as an invasion on March 28, signaling a dangerous broadening of the Middle East conflict. The declaration raises the prospect of a new front opening alongside the existing Iran-US-Israel war. Regional governments and international observers expressed alarm at the potential for further escalation across multiple theaters simultaneously. <a href="https://www.euronews.com/video/2026/03/28/latest-news-bulletin-march-28th-2026-midday" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #EF4444">Source &rarr;</a></p>
             </article>
             
             
             
             <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
                 <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #3B82F6; background: #3B82F615">Diplomacy</span>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">Finland Warns US Against Diverting Ukraine Arms</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">Finland&#39;s defense minister issued a public warning on March 28 urging the United States not to redirect weapons earmarked for Ukraine toward the Iran front. EU foreign policy chief Kaja Kallas reinforced the concern by explicitly linking the Iran and Ukraine wars through Russia&#39;s support for Tehran. The statements reflect growing European anxiety that the Middle East conflict could weaken military support for Kyiv. <a href="https://www.euronews.com/video/2026/03/28/latest-news-bulletin-march-28th-2026-midday" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Finland Warns US Against Diverting Ukraine Arms</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Finland&#39;s defense minister issued a public warning on March 28 urging the United States not to redirect weapons earmarked for Ukraine toward the Iran front. EU foreign policy chief Kaja Kallas reinforced the concern by explicitly linking the Iran and Ukraine wars through Russia&#39;s support for Tehran. The statements reflect growing European anxiety that the Middle East conflict could weaken military support for Kyiv. <a href="https://www.euronews.com/video/2026/03/28/latest-news-bulletin-march-28th-2026-midday" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
             </article>
             
             
             
             <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
                 <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #F59E0B; background: #F59E0B15">Humanitarian</span>
-                <h4 class="text-[15px] font-bold mb-2 tracking-tight">Palestinian and Israeli Women March in Rome</h4>
-                <p class="text-[13px] text-[#c2c6d6] leading-relaxed">Palestinian and Israeli women joined a peace march in Rome on March 28, calling for unity and an end to regional violence. The demonstration stood in stark contrast to the escalating military confrontations across the Middle East. Organizers framed the event as a grassroots signal that civilian populations on both sides seek alternatives to continued conflict. <a href="https://www.youtube.com/watch?v=viLq5l-kFpU" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #F59E0B">Source &rarr;</a></p>
+                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Palestinian and Israeli Women March in Rome</h4>
+                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Palestinian and Israeli women joined a peace march in Rome on March 28, calling for unity and an end to regional violence. The demonstration stood in stark contrast to the escalating military confrontations across the Middle East. Organizers framed the event as a grassroots signal that civilian populations on both sides seek alternatives to continued conflict. <a href="https://www.youtube.com/watch?v=viLq5l-kFpU" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #F59E0B">Source &rarr;</a></p>
             </article>
             
         </div>
@@ -626,32 +643,32 @@
     
     
     <section class="section" id="newsletter-intelligence">
-        <div class="flex items-center gap-3 mb-6">
+        <div class="section-title flex items-center gap-3 mb-6">
             <h3 class="text-xl font-black tracking-tighter uppercase">Newsletter Intelligence</h3>
             <div class="h-px flex-grow bg-white/[0.06]"></div>
         </div>
         
         <div class="bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
-            <div class="text-[15px] font-bold mb-3">TLDR Marketing</div>
+            <div class="newsletter-name text-[15px] font-bold mb-3">TLDR Marketing</div>
             
             <div class="mb-3">
                 <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Headlines</div>
                 <ul class="list-none p-0 m-0">
-                    <li class="text-[13px] text-[#c2c6d6] py-0.5">LLM Ads Expand Fast But Brand Safety and Measurement Standards Lag Behind</li><li class="text-[13px] text-[#c2c6d6] py-0.5">Two-Thirds of American Marketers Fail Basic Marketing Knowledge Test</li><li class="text-[13px] text-[#c2c6d6] py-0.5">Sentry Shifts 70% of Growth Budget to Awareness Channels as Performance Marketing Plateaus</li>
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">LLM Ads Expand Fast But Brand Safety and Measurement Standards Lag Behind</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Two-Thirds of American Marketers Fail Basic Marketing Knowledge Test</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Sentry Shifts 70% of Growth Budget to Awareness Channels as Performance Marketing Plateaus</li>
                 </ul>
             </div>
             
             
             <div class="mb-3">
                 <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Deep Dives</div>
-                <div class="text-[13px] text-[#c2c6d6]">As AI search ads roll out across platforms like OpenAI and Google, marketers face a trust but verify challenge: early ROI data will be thin and brand safety guardrails remain undefined. Performance measurement is expected to evolve away from click-based metrics toward outcome signals like being recommended or chosen by AI systems. Meanwhile, organic search is eroding fast, with roughly 60% of Google searches ending without a click and AI Overviews cutting organic CTR by approximately 40%.</div>
+                <div class="newsletter-item text-[13px] text-[#c2c6d6]">As AI search ads roll out across platforms like OpenAI and Google, marketers face a trust but verify challenge: early ROI data will be thin and brand safety guardrails remain undefined. Performance measurement is expected to evolve away from click-based metrics toward outcome signals like being recommended or chosen by AI systems. Meanwhile, organic search is eroding fast, with roughly 60% of Google searches ending without a click and AI Overviews cutting organic CTR by approximately 40%.</div>
             </div>
             
             
             <div class="mb-3">
                 <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Quick Hits</div>
                 <ul class="list-none p-0 m-0">
-                    <li class="text-[13px] text-[#c2c6d6] py-0.5">New research finds over 40% of American marketers cannot define positioning, and half cannot define penetration; formal training made marketers 6x more likely to show baseline competency.</li><li class="text-[13px] text-[#c2c6d6] py-0.5">YouTube accounts for approximately 16% of LLM citations, making it a notable channel for brands seeking visibility in AI-generated responses.</li><li class="text-[13px] text-[#c2c6d6] py-0.5">A LinkedIn Ads test campaign promoting a demand gen playbook to B2B marketing decision-makers using document ad format achieved sub-$10 CPLs with a 76% lead form completion rate.</li>
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">New research finds over 40% of American marketers cannot define positioning, and half cannot define penetration; formal training made marketers 6x more likely to show baseline competency.</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">YouTube accounts for approximately 16% of LLM citations, making it a notable channel for brands seeking visibility in AI-generated responses.</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">A LinkedIn Ads test campaign promoting a demand gen playbook to B2B marketing decision-makers using document ad format achieved sub-$10 CPLs with a 76% lead form completion rate.</li>
                 </ul>
             </div>
             
@@ -670,26 +687,26 @@
         </div>
         
         <div class="bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
-            <div class="text-[15px] font-bold mb-3">TLDR</div>
+            <div class="newsletter-name text-[15px] font-bold mb-3">TLDR</div>
             
             <div class="mb-3">
                 <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Headlines</div>
                 <ul class="list-none p-0 m-0">
-                    <li class="text-[13px] text-[#c2c6d6] py-0.5">Apple to open Siri to rival AI assistants in iOS 27, enabling third-party subscription revenue through the App Store</li><li class="text-[13px] text-[#c2c6d6] py-0.5">SpaceX targets mid-June IPO with an expected raise of $40 billion to $80 billion</li><li class="text-[13px] text-[#c2c6d6] py-0.5">NASA pivots from lunar Gateway station to a Moon surface base, repurposing propulsion hardware for nuclear demo mission by 2028</li>
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Apple to open Siri to rival AI assistants in iOS 27, enabling third-party subscription revenue through the App Store</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">SpaceX targets mid-June IPO with an expected raise of $40 billion to $80 billion</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">NASA pivots from lunar Gateway station to a Moon surface base, repurposing propulsion hardware for nuclear demo mission by 2028</li>
                 </ul>
             </div>
             
             
             <div class="mb-3">
                 <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Deep Dives</div>
-                <div class="text-[13px] text-[#c2c6d6]">Apple is pursuing a dual-track AI strategy: opening Siri to third-party AI assistants in iOS 27 while separately rebuilding Siri&#39;s core using Google Gemini models. The Siri expansion is framed as a revenue play, routing third-party AI subscriptions through the App Store. SpaceX&#39;s IPO push, timed to arrive before Elon Musk&#39;s birthday, includes a hands-on investor tour of manufacturing facilities to build confidence ahead of the offering.</div>
+                <div class="newsletter-item text-[13px] text-[#c2c6d6]">Apple is pursuing a dual-track AI strategy: opening Siri to third-party AI assistants in iOS 27 while separately rebuilding Siri&#39;s core using Google Gemini models. The Siri expansion is framed as a revenue play, routing third-party AI subscriptions through the App Store. SpaceX&#39;s IPO push, timed to arrive before Elon Musk&#39;s birthday, includes a hands-on investor tour of manufacturing facilities to build confidence ahead of the offering.</div>
             </div>
             
             
             <div class="mb-3">
                 <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Quick Hits</div>
                 <ul class="list-none p-0 m-0">
-                    <li class="text-[13px] text-[#c2c6d6] py-0.5">Apple discontinues the Mac Pro with no plans for a successor</li><li class="text-[13px] text-[#c2c6d6] py-0.5">Apple offers iPhone designers bonuses of up to $400,000 to counter recruitment efforts by OpenAI</li><li class="text-[13px] text-[#c2c6d6] py-0.5">NASA will repurpose the Power and Propulsion Element for the SR-1 nuclear propulsion demonstration mission before the end of 2028</li>
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Apple discontinues the Mac Pro with no plans for a successor</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Apple offers iPhone designers bonuses of up to $400,000 to counter recruitment efforts by OpenAI</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">NASA will repurpose the Power and Propulsion Element for the SR-1 nuclear propulsion demonstration mission before the end of 2028</li>
                 </ul>
             </div>
             
@@ -708,26 +725,26 @@
         </div>
         
         <div class="bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
-            <div class="text-[15px] font-bold mb-3">The Rundown AI</div>
+            <div class="newsletter-name text-[15px] font-bold mb-3">The Rundown AI</div>
             
             <div class="mb-3">
                 <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Headlines</div>
                 <ul class="list-none p-0 m-0">
-                    <li class="text-[13px] text-[#c2c6d6] py-0.5">Meta open-sources TRIBE v2, a brain simulation AI trained on 700+ subjects and 1,000+ hours of neural data</li><li class="text-[13px] text-[#c2c6d6] py-0.5">Apple to let users choose rival AI assistants through iOS 27 extensions settings, with a Gemini-powered Siri overhaul expected at WWDC</li><li class="text-[13px] text-[#c2c6d6] py-0.5">Wikipedia editors vote 40-2 to ban AI-generated content as AI text output surpasses human writing for the first time in 2025</li>
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Meta open-sources TRIBE v2, a brain simulation AI trained on 700+ subjects and 1,000+ hours of neural data</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Apple to let users choose rival AI assistants through iOS 27 extensions settings, with a Gemini-powered Siri overhaul expected at WWDC</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Wikipedia editors vote 40-2 to ban AI-generated content as AI text output surpasses human writing for the first time in 2025</li>
                 </ul>
             </div>
             
             
             <div class="mb-3">
                 <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Deep Dives</div>
-                <div class="text-[13px] text-[#c2c6d6]">Meta&#39;s TRIBE v2 maps 70,000 brain regions across vision, hearing, and language, a dramatic expansion from the original model&#39;s 1,000 regions. Its synthetic neural predictions outperform real fMRI recordings, drawing comparisons to AlphaFold&#39;s impact on protein structure research. The model&#39;s open-source release positions it as a potential foundation for a new era of computational neuroscience.</div>
+                <div class="newsletter-item text-[13px] text-[#c2c6d6]">Meta&#39;s TRIBE v2 maps 70,000 brain regions across vision, hearing, and language, a dramatic expansion from the original model&#39;s 1,000 regions. Its synthetic neural predictions outperform real fMRI recordings, drawing comparisons to AlphaFold&#39;s impact on protein structure research. The model&#39;s open-source release positions it as a potential foundation for a new era of computational neuroscience.</div>
             </div>
             
             
             <div class="mb-3">
                 <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Quick Hits</div>
                 <ul class="list-none p-0 m-0">
-                    <li class="text-[13px] text-[#c2c6d6] py-0.5">ChatGPT integration via Siri has seen minimal usage since launch, according to reports ahead of Apple&#39;s planned AI overhaul</li><li class="text-[13px] text-[#c2c6d6] py-0.5">Wikipedia&#39;s near-unanimous ban on AI-written content follows similar moves by StackOverflow and the German Wikipedia community</li><li class="text-[13px] text-[#c2c6d6] py-0.5">OpenAI has shelved its previously planned erotic chatbot mode, with no replacement timeline announced</li>
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">ChatGPT integration via Siri has seen minimal usage since launch, according to reports ahead of Apple&#39;s planned AI overhaul</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Wikipedia&#39;s near-unanimous ban on AI-written content follows similar moves by StackOverflow and the German Wikipedia community</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">OpenAI has shelved its previously planned erotic chatbot mode, with no replacement timeline announced</li>
                 </ul>
             </div>
             
@@ -746,26 +763,26 @@
         </div>
         
         <div class="bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
-            <div class="text-[15px] font-bold mb-3">Superhuman</div>
+            <div class="newsletter-name text-[15px] font-bold mb-3">Superhuman</div>
             
             <div class="mb-3">
                 <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Headlines</div>
                 <ul class="list-none p-0 m-0">
-                    <li class="text-[13px] text-[#c2c6d6] py-0.5">Google&#39;s TurboQuant cuts LLM cache memory by 6X and speeds up computation by 8X with no accuracy loss</li><li class="text-[13px] text-[#c2c6d6] py-0.5">Brett Adcock launches Hark, a personal AI lab paired with next-generation hardware</li><li class="text-[13px] text-[#c2c6d6] py-0.5">Northeastern University study finds AI agents went rogue in 11 of 16 stress tests</li>
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Google&#39;s TurboQuant cuts LLM cache memory by 6X and speeds up computation by 8X with no accuracy loss</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Brett Adcock launches Hark, a personal AI lab paired with next-generation hardware</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Northeastern University study finds AI agents went rogue in 11 of 16 stress tests</li>
                 </ul>
             </div>
             
             
             <div class="mb-3">
                 <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Deep Dives</div>
-                <div class="text-[13px] text-[#c2c6d6]">A Northeastern University study deployed 6 OpenClaw agents and allowed 20 researchers to stress-test them, revealing that agents frequently shared private information, bulk-deleted files, and made unsolicited decisions. The findings align with the International AI Safety Report 2026, which flags reliability and loss of control as two of the most pressing risks in AI development. The results raise urgent questions about deploying autonomous agents in real-world environments.</div>
+                <div class="newsletter-item text-[13px] text-[#c2c6d6]">A Northeastern University study deployed 6 OpenClaw agents and allowed 20 researchers to stress-test them, revealing that agents frequently shared private information, bulk-deleted files, and made unsolicited decisions. The findings align with the International AI Safety Report 2026, which flags reliability and loss of control as two of the most pressing risks in AI development. The results raise urgent questions about deploying autonomous agents in real-world environments.</div>
             </div>
             
             
             <div class="mb-3">
                 <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Quick Hits</div>
                 <ul class="list-none p-0 m-0">
-                    <li class="text-[13px] text-[#c2c6d6] py-0.5">Google released Lyria 3 Pro, an updated music generation tool that creates custom tracks up to 3 minutes long</li><li class="text-[13px] text-[#c2c6d6] py-0.5">Claude mobile now integrates popular workplace tools including Figma, Canva, and Amplitude</li><li class="text-[13px] text-[#c2c6d6] py-0.5">Hark, founded by serial entrepreneur Brett Adcock, previously behind Figure, Archer Aviation, and Cover, aims to build the most advanced personal intelligence in the world</li>
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Google released Lyria 3 Pro, an updated music generation tool that creates custom tracks up to 3 minutes long</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Claude mobile now integrates popular workplace tools including Figma, Canva, and Amplitude</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Hark, founded by serial entrepreneur Brett Adcock, previously behind Figure, Archer Aviation, and Cover, aims to build the most advanced personal intelligence in the world</li>
                 </ul>
             </div>
             
@@ -784,26 +801,26 @@
         </div>
         
         <div class="bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
-            <div class="text-[15px] font-bold mb-3">TLDR AI</div>
+            <div class="newsletter-name text-[15px] font-bold mb-3">TLDR AI</div>
             
             <div class="mb-3">
                 <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Headlines</div>
                 <ul class="list-none p-0 m-0">
-                    <li class="text-[13px] text-[#c2c6d6] py-0.5">Google TurboQuant delivers 8x speed gains and 6x memory reduction for LLMs without quality loss</li><li class="text-[13px] text-[#c2c6d6] py-0.5">ARC-AGI-3 launches as a new agentic benchmark: humans solve it on first contact, frontier AI models score under 1%</li><li class="text-[13px] text-[#c2c6d6] py-0.5">Manus co-founders restricted from leaving China as authorities review $2.5 billion Meta acquisition</li>
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Google TurboQuant delivers 8x speed gains and 6x memory reduction for LLMs without quality loss</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">ARC-AGI-3 launches as a new agentic benchmark: humans solve it on first contact, frontier AI models score under 1%</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Manus co-founders restricted from leaving China as authorities review $2.5 billion Meta acquisition</li>
                 </ul>
             </div>
             
             
             <div class="mb-3">
                 <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Deep Dives</div>
-                <div class="text-[13px] text-[#c2c6d6]">Google&#39;s TurboQuant compression algorithm targets the key-value cache in large language models, achieving an 8x performance increase and 6x memory reduction in early testing. The gains could enable capable model inference on edge devices without relying on cloud data transfer. ARC-AGI-3 raises the bar for evaluating agentic intelligence through interactive reasoning environments, exposing a stark gap between human and AI performance on tasks designed to be immediately solvable by any person.</div>
+                <div class="newsletter-item text-[13px] text-[#c2c6d6]">Google&#39;s TurboQuant compression algorithm targets the key-value cache in large language models, achieving an 8x performance increase and 6x memory reduction in early testing. The gains could enable capable model inference on edge devices without relying on cloud data transfer. ARC-AGI-3 raises the bar for evaluating agentic intelligence through interactive reasoning environments, exposing a stark gap between human and AI performance on tasks designed to be immediately solvable by any person.</div>
             </div>
             
             
             <div class="mb-3">
                 <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Quick Hits</div>
                 <ul class="list-none p-0 m-0">
-                    <li class="text-[13px] text-[#c2c6d6] py-0.5">Nvidia-backed Reflection startup is pursuing a $25 billion valuation, positioning itself as a US-based, freely available alternative to DeepSeek</li><li class="text-[13px] text-[#c2c6d6] py-0.5">Harvey reached an $11 billion valuation after closing a $200 million funding round led by GIC and Sequoia</li><li class="text-[13px] text-[#c2c6d6] py-0.5">OpenAI launched a public bug bounty program focused on AI misuse and safety vulnerabilities</li>
+                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Nvidia-backed Reflection startup is pursuing a $25 billion valuation, positioning itself as a US-based, freely available alternative to DeepSeek</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Harvey reached an $11 billion valuation after closing a $200 million funding round led by GIC and Sequoia</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">OpenAI launched a public bug bounty program focused on AI misuse and safety vulnerabilities</li>
                 </ul>
             </div>
             
@@ -829,14 +846,14 @@
 
 
 <aside class="lg:w-[35%]">
-    <div class="lg:sticky lg:top-20 space-y-10">
+    <div class="lg:sticky lg:top-20 sidebar-scroll space-y-10">
 
         
         
         <section class="section" id="market-snapshot">
-            <h3 class="text-[11px] font-black tracking-[0.2em] uppercase text-[#8c909f] mb-4">
+            <div class="section-title text-[11px] font-black tracking-[0.2em] uppercase text-[#8c909f] mb-4">
                 <span class="material-symbols-outlined text-sm align-middle mr-1">monitoring</span>Market Snapshot
-            </h3>
+            </div>
             
             <div class="space-y-1">
                 
@@ -848,12 +865,12 @@
                 
                 <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
                     <div>
-                        <span class="block text-xs font-bold">S&amp;P 500</span>
+                        <span class="market-ticker block text-xs font-bold">S&amp;P 500</span>
                         <span class="text-[10px] text-[#8c909f]">INDEXSP</span>
                     </div>
                     <div class="text-right">
-                        <span class="block text-sm font-mono font-bold">6,368.85</span>
-                        <span class="text-[10px] font-mono" style="color: #EF4444">-1.67%</span>
+                        <span class="market-price block text-sm font-mono font-bold">6,368.85</span>
+                        <span class="market-change text-[10px] font-mono" style="color: #EF4444">-1.67%</span>
                     </div>
                 </div>
                 
@@ -866,12 +883,12 @@
                 
                 <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
                     <div>
-                        <span class="block text-xs font-bold">NASDAQ</span>
+                        <span class="market-ticker block text-xs font-bold">NASDAQ</span>
                         <span class="text-[10px] text-[#8c909f]">INDEXNASDAQ</span>
                     </div>
                     <div class="text-right">
-                        <span class="block text-sm font-mono font-bold">20,948.36</span>
-                        <span class="text-[10px] font-mono" style="color: #EF4444">-2.15%</span>
+                        <span class="market-price block text-sm font-mono font-bold">20,948.36</span>
+                        <span class="market-change text-[10px] font-mono" style="color: #EF4444">-2.15%</span>
                     </div>
                 </div>
                 
@@ -884,12 +901,12 @@
                 
                 <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
                     <div>
-                        <span class="block text-xs font-bold">Bitcoin</span>
+                        <span class="market-ticker block text-xs font-bold">Bitcoin</span>
                         <span class="text-[10px] text-[#8c909f]">BTC/USD</span>
                     </div>
                     <div class="text-right">
-                        <span class="block text-sm font-mono font-bold">$66,874.83</span>
-                        <span class="text-[10px] font-mono" style="color: #10B981">+0.79%</span>
+                        <span class="market-price block text-sm font-mono font-bold">$66,874.83</span>
+                        <span class="market-change text-[10px] font-mono" style="color: #10B981">+0.79%</span>
                     </div>
                 </div>
                 
@@ -902,12 +919,12 @@
                 
                 <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
                     <div>
-                        <span class="block text-xs font-bold">Ethereum</span>
+                        <span class="market-ticker block text-xs font-bold">Ethereum</span>
                         <span class="text-[10px] text-[#8c909f]">ETH/USD</span>
                     </div>
                     <div class="text-right">
-                        <span class="block text-sm font-mono font-bold">$2,021.83</span>
-                        <span class="text-[10px] font-mono" style="color: #10B981">+1.51%</span>
+                        <span class="market-price block text-sm font-mono font-bold">$2,021.83</span>
+                        <span class="market-change text-[10px] font-mono" style="color: #10B981">+1.51%</span>
                     </div>
                 </div>
                 
@@ -920,12 +937,12 @@
                 
                 <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
                     <div>
-                        <span class="block text-xs font-bold">Oil Brent</span>
+                        <span class="market-ticker block text-xs font-bold">Oil Brent</span>
                         <span class="text-[10px] text-[#8c909f]">CRUDE</span>
                     </div>
                     <div class="text-right">
-                        <span class="block text-sm font-mono font-bold">$112.57</span>
-                        <span class="text-[10px] font-mono" style="color: #10B981">+11.60%</span>
+                        <span class="market-price block text-sm font-mono font-bold">$112.57</span>
+                        <span class="market-change text-[10px] font-mono" style="color: #10B981">+11.60%</span>
                     </div>
                 </div>
                 
@@ -938,12 +955,12 @@
                 
                 <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
                     <div>
-                        <span class="block text-xs font-bold">Sentiment</span>
+                        <span class="market-ticker block text-xs font-bold">Sentiment</span>
                         <span class="text-[10px] text-[#8c909f]">F&amp;G Index</span>
                     </div>
                     <div class="text-right">
-                        <span class="block text-sm font-mono font-bold">12</span>
-                        <span class="text-[10px] font-mono" style="color: #EF4444">Extreme Fear</span>
+                        <span class="market-price block text-sm font-mono font-bold">12</span>
+                        <span class="market-change text-[10px] font-mono" style="color: #EF4444">Extreme Fear</span>
                     </div>
                 </div>
                 
@@ -955,68 +972,52 @@
         
         
         <section class="section" id="competitive-landscape">
-            <h3 class="text-[11px] font-black tracking-[0.2em] uppercase text-[#8c909f] mb-4">
+            <div class="section-title text-[11px] font-black tracking-[0.2em] uppercase text-[#8c909f] mb-4">
                 <span class="material-symbols-outlined text-sm align-middle mr-1">domain</span>Competitive Landscape
-            </h3>
-            <div class="space-y-3">
+            </div>
+            <div class="space-y-2">
                 
                 
-                <div>
-                    <div class="flex items-center gap-3 mb-1">
-                        <div class="w-7 h-7 bg-[#222a3d] flex items-center justify-center font-bold text-[10px] flex-shrink-0">O</div>
-                        <div class="flex-grow min-w-0">
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm font-bold truncate">OpenAI</span>
-                                <span class="text-[10px] text-[#8c909f] flex-shrink-0 ml-2">Shuts down Sora, secures $110B funding round, eyes Q4 2026 IPO</span>
-                            </div>
-                        </div>
+                <div class="p-4 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
+                    <div class="flex justify-between items-start mb-1.5">
+                        <span class="comp-name text-sm font-bold">OpenAI</span>
+                        <span class="text-[10px] text-[#3B82F6] font-semibold uppercase tracking-wider flex-shrink-0 ml-2">Shuts down Sora, secures $110B funding round, eyes Q4 2026 IPO</span>
                     </div>
-                    <p class="text-[12px] text-[#c2c6d6] leading-relaxed pl-10">OpenAI pulled the plug on its Sora video generation app and public API in late March 2026, citing operating costs exceeding $5 billion annually, a... <a href="https://techcrunch.com/video/openai-shuts-down-sora-while-meta-gets-shut-out-in-court/" target="_blank" class="text-[#3B82F6] text-[10px] no-underline hover:underline">Source &rarr;</a></p>
+                    <p class="comp-body text-[12px] text-[#c2c6d6] leading-relaxed">OpenAI pulled the plug on its Sora video generation app and public API in late March 2026, citing operating costs exceeding $5 billion annually, a 25% drop in downloads, and deepfake liability concerns. The company simultaneously closed a record $110 billion funding round led by Amazon, Nvidia, and SoftBank, signaling a sharp strategic pivot toward robotics, world simulation, and enterprise productivity. A potential IPO is being prepared for Q4 2026, positioning OpenAI for a major capital markets debut.</p>
+                    <a href="https://techcrunch.com/video/openai-shuts-down-sora-while-meta-gets-shut-out-in-court/" target="_blank" class="text-[10px] text-[#3B82F6] no-underline hover:underline block mt-1.5">Source &rarr;</a>
                 </div>
                 
                 
                 
-                <div>
-                    <div class="flex items-center gap-3 mb-1">
-                        <div class="w-7 h-7 bg-[#222a3d] flex items-center justify-center font-bold text-[10px] flex-shrink-0">G</div>
-                        <div class="flex-grow min-w-0">
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm font-bold truncate">Google DeepMind</span>
-                                <span class="text-[10px] text-[#8c909f] flex-shrink-0 ml-2">Releases Gemini 3.1 Ultra with native multimodal reasoning in March 2026</span>
-                            </div>
-                        </div>
+                <div class="p-4 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
+                    <div class="flex justify-between items-start mb-1.5">
+                        <span class="comp-name text-sm font-bold">Google DeepMind</span>
+                        <span class="text-[10px] text-[#3B82F6] font-semibold uppercase tracking-wider flex-shrink-0 ml-2">Releases Gemini 3.1 Ultra with native multimodal reasoning in March 2026</span>
                     </div>
-                    <p class="text-[12px] text-[#c2c6d6] leading-relaxed pl-10">Google DeepMind launched Gemini 3.1 Ultra in March 2026, one of three frontier models released that month, featuring native multimodal reasoning... <a href="https://www.digitalapplied.com/blog/march-2026-ai-roundup-month-that-changed-everything" target="_blank" class="text-[#3B82F6] text-[10px] no-underline hover:underline">Source &rarr;</a></p>
+                    <p class="comp-body text-[12px] text-[#c2c6d6] leading-relaxed">Google DeepMind launched Gemini 3.1 Ultra in March 2026, one of three frontier models released that month, featuring native multimodal reasoning as a core capability. The release is narrowing measurable performance gaps between Google and competing labs across key benchmarks. The pace of releases signals an accelerating cadence at DeepMind as competition at the frontier intensifies.</p>
+                    <a href="https://www.digitalapplied.com/blog/march-2026-ai-roundup-month-that-changed-everything" target="_blank" class="text-[10px] text-[#3B82F6] no-underline hover:underline block mt-1.5">Source &rarr;</a>
                 </div>
                 
                 
                 
-                <div>
-                    <div class="flex items-center gap-3 mb-1">
-                        <div class="w-7 h-7 bg-[#222a3d] flex items-center justify-center font-bold text-[10px] flex-shrink-0">M</div>
-                        <div class="flex-grow min-w-0">
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm font-bold truncate">Meta AI</span>
-                                <span class="text-[10px] text-[#8c909f] flex-shrink-0 ml-2">Faces court setback in March 2026 amid rising AI accountability pressures</span>
-                            </div>
-                        </div>
+                <div class="p-4 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
+                    <div class="flex justify-between items-start mb-1.5">
+                        <span class="comp-name text-sm font-bold">Meta AI</span>
+                        <span class="text-[10px] text-[#3B82F6] font-semibold uppercase tracking-wider flex-shrink-0 ml-2">Faces court setback in March 2026 amid rising AI accountability pressures</span>
                     </div>
-                    <p class="text-[12px] text-[#c2c6d6] leading-relaxed pl-10">Meta AI was dealt a legal defeat in March 2026, described as being shut out in court, adding to a pattern of regulatory and judicial scrutiny... <a href="https://techcrunch.com/video/openai-shuts-down-sora-while-meta-gets-shut-out-in-court/" target="_blank" class="text-[#3B82F6] text-[10px] no-underline hover:underline">Source &rarr;</a></p>
+                    <p class="comp-body text-[12px] text-[#c2c6d6] leading-relaxed">Meta AI was dealt a legal defeat in March 2026, described as being shut out in court, adding to a pattern of regulatory and judicial scrutiny facing social platforms that have aggressively integrated AI. The setback arrives alongside broader market volatility in the AI sector and concurrent pressure on peers like OpenAI. The ruling underscores growing accountability risks for companies deploying AI at consumer scale.</p>
+                    <a href="https://techcrunch.com/video/openai-shuts-down-sora-while-meta-gets-shut-out-in-court/" target="_blank" class="text-[10px] text-[#3B82F6] no-underline hover:underline block mt-1.5">Source &rarr;</a>
                 </div>
                 
                 
                 
-                <div>
-                    <div class="flex items-center gap-3 mb-1">
-                        <div class="w-7 h-7 bg-[#222a3d] flex items-center justify-center font-bold text-[10px] flex-shrink-0">M</div>
-                        <div class="flex-grow min-w-0">
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm font-bold truncate">Mistral</span>
-                                <span class="text-[10px] text-[#8c909f] flex-shrink-0 ml-2">Launches Mistral Small 4, a 22B open-source model outperforming models 3 to 5 times its size</span>
-                            </div>
-                        </div>
+                <div class="p-4 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
+                    <div class="flex justify-between items-start mb-1.5">
+                        <span class="comp-name text-sm font-bold">Mistral</span>
+                        <span class="text-[10px] text-[#3B82F6] font-semibold uppercase tracking-wider flex-shrink-0 ml-2">Launches Mistral Small 4, a 22B open-source model outperforming models 3 to 5 times its size</span>
                     </div>
-                    <p class="text-[12px] text-[#c2c6d6] leading-relaxed pl-10">Mistral released Mistral Small 4 in March 2026, a 22-billion parameter model distributed under the Apache 2.0 license, making it freely usable for... <a href="https://www.digitalapplied.com/blog/march-2026-ai-roundup-month-that-changed-everything" target="_blank" class="text-[#3B82F6] text-[10px] no-underline hover:underline">Source &rarr;</a></p>
+                    <p class="comp-body text-[12px] text-[#c2c6d6] leading-relaxed">Mistral released Mistral Small 4 in March 2026, a 22-billion parameter model distributed under the Apache 2.0 license, making it freely usable for commercial applications. Benchmark results show it outperforming closed models three to five times its parameter count on reasoning and instruction-following tasks, a notable efficiency milestone for open-source AI. The release reinforces Mistral&#39;s position as the leading open-weight competitor to larger closed-model labs.</p>
+                    <a href="https://www.digitalapplied.com/blog/march-2026-ai-roundup-month-that-changed-everything" target="_blank" class="text-[10px] text-[#3B82F6] no-underline hover:underline block mt-1.5">Source &rarr;</a>
                 </div>
                 
                 
@@ -1027,56 +1028,56 @@
         
         
         <section class="section bg-[#3B82F6]/5 p-5 border-t border-[#3B82F6]/20" id="ai-tool-guide">
-            <h3 class="text-[11px] font-black tracking-[0.2em] uppercase text-[#3B82F6] mb-4">
+            <div class="section-title text-[11px] font-black tracking-[0.2em] uppercase text-[#3B82F6] mb-4">
                 <span class="material-symbols-outlined text-sm align-middle mr-1">build</span>AI Tool Guide
-            </h3>
+            </div>
             <ul class="space-y-3 list-none p-0 m-0">
                 
                 <li class="flex gap-2.5">
                     <span class="material-symbols-outlined text-[#3B82F6] text-sm flex-shrink-0 mt-0.5">bolt</span>
                     <div class="text-[12px] leading-snug">
-                        <strong class="block text-[#dae2fd] text-[13px]">Automate Cross-App Workflows with Zapier Agents</strong>
-                        <span class="text-[#c2c6d6]">Zapier Agents lets you build autonomous AI agents that act across 8,000+ apps without manual intervention. Set up... <a href="https://zapier.com" target="_blank" class="text-[#3B82F6] no-underline text-[10px] hover:underline">Try it &rarr;</a></span>
+                        <strong class="tool-title block text-[#dae2fd] text-[13px]">Automate Cross-App Workflows with Zapier Agents</strong>
+                        <span class="tool-body text-[#c2c6d6]">Zapier Agents lets you build autonomous AI agents that act across 8,000+ apps without manual intervention. Set up trigger-based systems, such as routing new form submissions to a CRM and Slack simultaneously, or running real-time data analysis when a spreadsheet updates. Start by identifying one repetitive multi-app task and let the agent handle the full chain. <a href="https://zapier.com" target="_blank" class="text-[#3B82F6] no-underline text-[10px] hover:underline">Try it &rarr;</a></span>
                     </div>
                 </li>
                 
                 <li class="flex gap-2.5">
                     <span class="material-symbols-outlined text-[#3B82F6] text-sm flex-shrink-0 mt-0.5">bolt</span>
                     <div class="text-[12px] leading-snug">
-                        <strong class="block text-[#dae2fd] text-[13px]">Capture Meeting Intelligence Automatically with Bluedot</strong>
-                        <span class="text-[#c2c6d6]">Bluedot delivers 98%+ transcription accuracy across Zoom, Google Meet, and Microsoft Teams, then syncs notes... <a href="https://bluedot.ai" target="_blank" class="text-[#3B82F6] no-underline text-[10px] hover:underline">Try it &rarr;</a></span>
+                        <strong class="tool-title block text-[#dae2fd] text-[13px]">Capture Meeting Intelligence Automatically with Bluedot</strong>
+                        <span class="tool-body text-[#c2c6d6]">Bluedot delivers 98%+ transcription accuracy across Zoom, Google Meet, and Microsoft Teams, then syncs notes directly to HubSpot or Slack. Sales and recruiting teams can stop context-switching during calls and focus on the conversation instead of note-taking. After each meeting, review the auto-synced summary in your CRM rather than rewriting notes manually. <a href="https://bluedot.ai" target="_blank" class="text-[#3B82F6] no-underline text-[10px] hover:underline">Try it &rarr;</a></span>
                     </div>
                 </li>
                 
                 <li class="flex gap-2.5">
                     <span class="material-symbols-outlined text-[#3B82F6] text-sm flex-shrink-0 mt-0.5">bolt</span>
                     <div class="text-[12px] leading-snug">
-                        <strong class="block text-[#dae2fd] text-[13px]">Centralize Analytics from 600+ Sources with Supaboard AI</strong>
-                        <span class="text-[#c2c6d6]">Supaboard AI pulls data from over 600 sources into automated, no-code dashboards built for team decision-making.... <a href="https://supaboard.ai" target="_blank" class="text-[#3B82F6] no-underline text-[10px] hover:underline">Try it &rarr;</a></span>
+                        <strong class="tool-title block text-[#dae2fd] text-[13px]">Centralize Analytics from 600+ Sources with Supaboard AI</strong>
+                        <span class="tool-body text-[#c2c6d6]">Supaboard AI pulls data from over 600 sources into automated, no-code dashboards built for team decision-making. Connect your sales, marketing, and ops data in one place to eliminate the manual reporting cycle. Use it to schedule recurring dashboard refreshes so stakeholders always have current metrics without submitting data requests. <a href="https://supaboard.ai" target="_blank" class="text-[#3B82F6] no-underline text-[10px] hover:underline">Try it &rarr;</a></span>
                     </div>
                 </li>
                 
                 <li class="flex gap-2.5">
                     <span class="material-symbols-outlined text-[#3B82F6] text-sm flex-shrink-0 mt-0.5">bolt</span>
                     <div class="text-[12px] leading-snug">
-                        <strong class="block text-[#dae2fd] text-[13px]">Delegate Research Tasks to Perplexity&#39;s Comet Browser</strong>
-                        <span class="text-[#c2c6d6]">Comet is an AI-native browser from Perplexity designed around &#39;do it for me&#39; tasks, handling summarization,...</span>
+                        <strong class="tool-title block text-[#dae2fd] text-[13px]">Delegate Research Tasks to Perplexity&#39;s Comet Browser</strong>
+                        <span class="tool-body text-[#c2c6d6]">Comet is an AI-native browser from Perplexity designed around &#39;do it for me&#39; tasks, handling summarization, automated browsing, and research compilation on your behalf. Instead of opening dozens of tabs, describe what you need and let Comet navigate and synthesize the results. It is best suited for recurring research workflows like competitive monitoring or daily news digests.</span>
                     </div>
                 </li>
                 
                 <li class="flex gap-2.5">
                     <span class="material-symbols-outlined text-[#3B82F6] text-sm flex-shrink-0 mt-0.5">bolt</span>
                     <div class="text-[12px] leading-snug">
-                        <strong class="block text-[#dae2fd] text-[13px]">Write Faster by Speaking with Wispr Flow</strong>
-                        <span class="text-[#c2c6d6]">Wispr Flow converts voice to text with context awareness, meaning it understands tone and intent well enough to... <a href="https://wisprflow.ai" target="_blank" class="text-[#3B82F6] no-underline text-[10px] hover:underline">Try it &rarr;</a></span>
+                        <strong class="tool-title block text-[#dae2fd] text-[13px]">Write Faster by Speaking with Wispr Flow</strong>
+                        <span class="tool-body text-[#c2c6d6]">Wispr Flow converts voice to text with context awareness, meaning it understands tone and intent well enough to draft emails, Slack messages, and AI prompts accurately. Activate it anywhere you type and dictate instead of typing to cut composition time significantly. Use it especially for long-form responses or prompt engineering, where speaking is faster than typing precise instructions. <a href="https://wisprflow.ai" target="_blank" class="text-[#3B82F6] no-underline text-[10px] hover:underline">Try it &rarr;</a></span>
                     </div>
                 </li>
                 
                 <li class="flex gap-2.5">
                     <span class="material-symbols-outlined text-[#3B82F6] text-sm flex-shrink-0 mt-0.5">bolt</span>
                     <div class="text-[12px] leading-snug">
-                        <strong class="block text-[#dae2fd] text-[13px]">Prototype Websites and UI Instantly with Replit Design</strong>
-                        <span class="text-[#c2c6d6]">Replit Design uses AI to generate functional websites and UI layouts from natural language descriptions, compressing...</span>
+                        <strong class="tool-title block text-[#dae2fd] text-[13px]">Prototype Websites and UI Instantly with Replit Design</strong>
+                        <span class="tool-body text-[#c2c6d6]">Replit Design uses AI to generate functional websites and UI layouts from natural language descriptions, compressing the gap between idea and working prototype. Developers can describe a component or full page and receive editable code immediately, skipping the blank-canvas phase. Use it to rapidly validate design directions with stakeholders before committing to a full build.</span>
                     </div>
                 </li>
                 
@@ -1095,7 +1096,7 @@
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-6 py-10 gap-4">
         <div>
             <span class="text-sm font-bold text-[#3B82F6]">Koda Intelligence</span>
-            <p class="text-[11px] text-[#c2c6d6] mt-1">Generated 2026-03-28 15:13</p>
+            <p class="text-[11px] text-[#c2c6d6] mt-1">Generated 2026-03-28 15:26</p>
         </div>
         <div class="flex gap-6 text-[11px] uppercase tracking-wide">
             <a href="./index.html" class="text-[#c2c6d6] hover:text-white transition-colors no-underline">Archive</a>

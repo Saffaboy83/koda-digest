@@ -143,6 +143,13 @@
             *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
             .animate-in { opacity: 1 !important; transform: none !important; }
         }
+
+        /* Sticky mobile CTA bar */
+        .mobile-cta-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; background: rgba(11,19,38,0.95); backdrop-filter: blur(20px); border-top: 1px solid rgba(173,198,255,0.1); padding: 10px 16px; }
+        .mobile-cta-bar.dismissed { display: none !important; }
+        @media (max-width: 768px) {
+            .mobile-cta-bar { display: flex; align-items: center; gap: 8px; }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -328,6 +335,49 @@
         <!-- Archive Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="archiveGrid">
             <div class="bg-surface-container p-6 rounded-xl text-center text-on-surface-variant text-sm">Loading archive...</div>
+        </div>
+    </section>
+
+    <!-- WHAT READERS SAY -->
+    <section class="mb-24 animate-in">
+        <div class="flex items-center gap-4 mb-8">
+            <h2 class="text-xs uppercase tracking-[0.15em] font-bold text-on-surface-variant/50">What Readers Say</h2>
+            <div class="h-px flex-grow bg-outline-variant/10"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card rounded-xl p-6 relative">
+                <div class="text-3xl text-primary/20 font-serif absolute top-4 left-5">"</div>
+                <p class="text-on-surface text-sm leading-relaxed mt-6 mb-4">Replaced 6 newsletter subscriptions with one daily read. The podcast on my commute is a game-changer.</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-[#3B82F6]/20 flex items-center justify-center text-[#3B82F6] text-xs font-bold">C</div>
+                    <div>
+                        <p class="text-xs font-bold text-on-surface">Charlene V.</p>
+                        <p class="text-[10px] text-on-surface-variant">Startup Founder</p>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card rounded-xl p-6 relative">
+                <div class="text-3xl text-secondary/20 font-serif absolute top-4 left-5">"</div>
+                <p class="text-on-surface text-sm leading-relaxed mt-6 mb-4">The market data and AI tool breakdowns save me an hour every morning. Concise, linked sources, no fluff.</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-[#8B5CF6]/20 flex items-center justify-center text-[#8B5CF6] text-xs font-bold">M</div>
+                    <div>
+                        <p class="text-xs font-bold text-on-surface">Mark M.</p>
+                        <p class="text-[10px] text-on-surface-variant">Product Manager</p>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card rounded-xl p-6 relative">
+                <div class="text-3xl text-tertiary/20 font-serif absolute top-4 left-5">"</div>
+                <p class="text-on-surface text-sm leading-relaxed mt-6 mb-4">Best AI briefing I have found. The competitive landscape section alone is worth the subscription.</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-[#EC4899]/20 flex items-center justify-center text-[#EC4899] text-xs font-bold">A</div>
+                    <div>
+                        <p class="text-xs font-bold text-on-surface">Alex K.</p>
+                        <p class="text-[10px] text-on-surface-variant">AI Engineer</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -726,7 +776,30 @@
         document.querySelectorAll('.animate-in').forEach(function(el) { el.classList.add('visible'); });
     }
 
+    // ---- STICKY MOBILE CTA ----
+    var mobileBar = document.getElementById('mobileCta');
+    if (mobileBar && !sessionStorage.getItem('koda-cta-dismissed')) {
+        var heroForm = document.querySelector('header form');
+        if (heroForm && window.IntersectionObserver) {
+            var obs = new IntersectionObserver(function(entries) {
+                mobileBar.style.display = entries[0].isIntersecting ? 'none' : '';
+            }, { threshold: 0 });
+            obs.observe(heroForm);
+        }
+    }
+
 })();
 </script>
+
+<!-- Sticky Mobile CTA Bar -->
+<div class="mobile-cta-bar" id="mobileCta">
+    <form action="https://buttondown.com/api/emails/embed-subscribe/arno" method="post" class="flex items-center gap-2 w-full" onsubmit="this.querySelector('button').textContent='Done!'; var bar=document.getElementById('mobileCta'); setTimeout(function(){bar.classList.add('dismissed')},1500)">
+        <input type="hidden" value="1" name="embed">
+        <input type="email" name="email" required class="bg-surface-container border border-outline-variant/20 rounded-full px-4 py-2.5 text-sm text-on-surface flex-1 min-w-0 placeholder:text-slate-500 focus:ring-1 focus:ring-[#adc6ff]/50 focus:border-[#adc6ff]/30" placeholder="your@email.com">
+        <button type="submit" class="btn-gradient text-white px-5 py-2.5 rounded-full font-bold text-xs whitespace-nowrap active:scale-95 transition-all">Subscribe</button>
+    </form>
+    <button onclick="document.getElementById('mobileCta').classList.add('dismissed');sessionStorage.setItem('koda-cta-dismissed','1')" class="text-[#8c909f] hover:text-white p-1 flex-shrink-0" title="Dismiss" aria-label="Dismiss signup bar">&times;</button>
+</div>
+
 </body>
 </html>

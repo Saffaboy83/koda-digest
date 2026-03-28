@@ -1,15 +1,28 @@
 {
-  "generated": "2026-03-28T20:15:00Z",
+  "generated": "2026-03-28T20:27:27Z",
   "digests": [
     {
       "date": "2026-03-28",
       "dayOfWeek": "Saturday",
-      "focusTopics": [],
+      "focusTopics": [
+        {
+          "title": "Open-Source AI Surge",
+          "desc": "Seven of nine March text model releases are open-source, with Alibaba alone shipping eight Qwen3.5 variants in a single drop. This concentration of open-weight releases signals a structural shift: frontier-quality models are becoming commoditized faster than enterprise licensing models can adapt. DeepSeek V4 at 1 trillion parameters adds further pressure on closed providers to justify premium pricing."
+        },
+        {
+          "title": "Hormuz Crisis and Oil",
+          "desc": "Iran's strike on a Saudi base and the subsequent breach of the $100 oil threshold represent a significant escalation with direct supply-chain implications for AI infrastructure, which is heavily energy-dependent. G7 efforts to secure the Strait of Hormuz suggest a prolonged standoff rather than a quick resolution. Data center operators and cloud providers should monitor energy cost forecasts closely."
+        },
+        {
+          "title": "AI Amid Market Chaos",
+          "desc": "The Dow's 800-point drop and Extreme Fear sentiment arrive precisely as AI labs are flooding the market with new releases, creating a sharp divergence between innovation velocity and investor confidence. Historically, periods of market stress accelerate enterprise cost-cutting, which can paradoxically benefit open-source AI adoption over expensive proprietary APIs. Watch for enterprise procurement shifts in Q2 earnings guidance."
+        }
+      ],
       "kpis": {
-        "aiStories": "",
-        "worldEvents": "",
-        "marketMood": "",
-        "toolsFeatured": ""
+        "aiStories": "12",
+        "worldEvents": "8",
+        "marketMood": "Extreme Fear",
+        "toolsFeatured": "6"
       },
       "hasPodcast": true,
       "hasInfographic": true,
@@ -182,7 +195,7 @@
       "kpis": {
         "aiStories": "12",
         "worldEvents": "8",
-        "marketMood": "Bearish",
+        "marketMood": "📈",
         "toolsFeatured": "6"
       },
       "hasPodcast": true,

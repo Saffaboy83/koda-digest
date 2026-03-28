@@ -1,9 +1,196 @@
 {
-  "generated": "2026-03-28T20:15:00Z",
+  "generated": "2026-03-28T20:27:27Z",
   "days": [
     {
       "date": "2026-03-28",
-      "sections": []
+      "sections": [
+        {
+          "title": "Today's Focus",
+          "items": [
+            {
+              "headline": "Open-Source AI Surge",
+              "text": "Seven of nine March text model releases are open-source, with Alibaba alone shipping eight Qwen3.5 variants in a single drop. This concentration of open-weight releases signals a structural shift: frontier-quality models are becoming commoditized faster than enterprise licensing models can adapt. DeepSeek V4 at 1 trillion parameters adds further pressure on closed providers to justify premium pricing."
+            },
+            {
+              "headline": "Hormuz Crisis and Oil",
+              "text": "Iran's strike on a Saudi base and the subsequent breach of the $100 oil threshold represent a significant escalation with direct supply-chain implications for AI infrastructure, which is heavily energy-dependent. G7 efforts to secure the Strait of Hormuz suggest a prolonged standoff rather than a quick resolution. Data center operators and cloud providers should monitor energy cost forecasts closely."
+            },
+            {
+              "headline": "AI Amid Market Chaos",
+              "text": "The Dow's 800-point drop and Extreme Fear sentiment arrive precisely as AI labs are flooding the market with new releases, creating a sharp divergence between innovation velocity and investor confidence. Historically, periods of market stress accelerate enterprise cost-cutting, which can paradoxically benefit open-source AI adoption over expensive proprietary APIs. Watch for enterprise procurement shifts in Q2 earnings guidance."
+            }
+          ]
+        },
+        {
+          "title": "AI Developments",
+          "items": [
+            {
+              "headline": "OpenAI Launches GPT-5.4 With Million-Token Context",
+              "text": "OpenAI released GPT-5.4 on March 5, positioning it as a reasoning-optimized model with a 1-million-token context window, improved step-by-step reasoning, and native computer-use capabilities for agents. The model ties for the top spot on leading benchmarks and is described as matching GPT-6-level reasoning within an efficient architecture. A companion release, GPT-5.3 Instant, shipped shortly before to reduce hallucinations and improve cost efficiency. Source &rarr;"
+            },
+            {
+              "headline": "DeepSeek V4 Debuts With 1 Trillion Parameters",
+              "text": "DeepSeek released V4 around March 3 as an open-weight model featuring 1 trillion total parameters with 32 billion active at inference time, a 1-million-token context window, and native multimodal support. The architecture directly challenges proprietary frontier models from OpenAI and Google while remaining openly accessible. Its mixture-of-experts design keeps compute costs manageable despite the headline parameter count. Source &rarr;"
+            },
+            {
+              "headline": "Alibaba Ships Eight Qwen3.5 Variants Open-Weight",
+              "text": "Alibaba released the Qwen3.5 series in March 2026, comprising eight open-weight models ranging from 0.8 billion to 397 billion parameters. The breadth of the family signals a deliberate strategy to cover edge deployment through frontier-scale use cases with a single unified lineage. All variants are openly available, continuing Alibaba's push to compete with Western labs on accessibility. Source &rarr;"
+            },
+            {
+              "headline": "Google Releases Gemini 3 Deep Think and Lyria 3",
+              "text": "On March 26, Google launched Gemini 3 Deep Think as a live reasoning update to its Gemini 3 line, alongside two music generation models: Lyria 3 and Lyria 3 Pro. The simultaneous release of a reasoning upgrade and dedicated audio-generation models reflects Google's strategy of expanding Gemini into specialized creative and analytical domains. Lyria 3 Pro targets professional music production workflows. Source &rarr;"
+            },
+            {
+              "headline": "Seven of Nine March Text Models Are Open-Source",
+              "text": "Of the nine major text models shipped in March 2026, seven carried open-source or open-weight licenses, including releases from Mistral AI, Xiaomi, MiniMax, and NVIDIA. Mistral Small 4 ships under the permissive Apache 2.0 license, while NVIDIA contributed both Nemotron 3 Super and a VoiceChat model. The trend underscores a structural shift in the industry toward accessible model distribution even at frontier capability levels. Source &rarr;"
+            },
+            {
+              "headline": "Amazon and OpenAI Partner on Bedrock Stateful Runtime",
+              "text": "Amazon and OpenAI announced a partnership to bring a Stateful Runtime Environment to Amazon Bedrock, enabling persistent memory and advanced tool-use for AI agents. The integration is designed to support long-running agentic workflows that require context continuity across sessions. The feature is listed as upcoming, with no firm launch date confirmed as of March 26. Source &rarr;"
+            },
+            {
+              "headline": "Q1 2026 Sees 255-Plus AI Model Releases",
+              "text": "More than 255 AI model releases were recorded in Q1 2026, with major labs shipping on roughly bi-weekly cycles. The pace reflects a strategic pivot away from single flagship launches toward continuous release of specialized model families. Analysts note that volume and specialization, rather than singular breakthrough moments, now define competitive positioning in the frontier AI market. Source &rarr;"
+            },
+            {
+              "headline": "NVIDIA Releases Nemotron 3 Super and VoiceChat",
+              "text": "NVIDIA shipped two open-source models in March 2026: Nemotron 3 Super, a general-purpose language model, and Nemotron VoiceChat, targeting conversational voice applications. Both releases are open-source, extending NVIDIA's strategy of building an ecosystem around its hardware through freely available model assets. The VoiceChat model positions NVIDIA to compete in the growing real-time voice AI segment. Source &rarr;"
+            },
+            {
+              "headline": "xAI Ships Grok 4.20 Beta in March",
+              "text": "xAI released Grok 4.20 Beta during March 2026, adding to a crowded month of frontier model launches. The release follows a February 17 version of Grok 4.20, suggesting xAI is iterating rapidly on its flagship model line. Specific benchmark scores for the March beta have not been published, but the model is positioned within the competitive frontier reasoning tier. Source &rarr;"
+            },
+            {
+              "headline": "Xiaomi and MiniMax Enter Open-Source LLM Race",
+              "text": "Xiaomi released MiMo-V2-Pro and MiniMax shipped MiniMax-M2.7 in March 2026, both as open-source models. The entries from a consumer electronics giant and a Chinese AI startup signal that the open-weight model ecosystem is broadening well beyond established Western and Chinese frontier labs. Both models are positioned as capable general-purpose language models accessible to developers without licensing restrictions. Source &rarr;"
+            },
+            {
+              "headline": "OpenClaw Open-Source Agent Project Goes Viral",
+              "text": "OpenClaw, an open-source AI agent project, saw a viral surge in GitHub activity on March 26, coinciding with a wave of major model announcements. The project attracted significant developer attention, reflecting growing community interest in building autonomous agent frameworks on top of newly released frontier models. No single corporate backer has been identified; the project appears to be community-driven. Source &rarr;"
+            },
+            {
+              "headline": "GPT-5.3 Garlic API Targets Efficiency Mid-March",
+              "text": "OpenAI released the full API for GPT-5.3, internally codenamed Garlic, in mid-March 2026, with a focus on inference efficiency and reduced operational costs. The release sits between the hallucination-reduction GPT-5.3 Instant and the flagship GPT-5.4, suggesting OpenAI is maintaining a tiered product line for different cost and performance requirements. Developer access through the API allows integration into production applications immediately. Source &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "World News",
+          "items": [
+            {
+              "headline": "Iran Strikes Saudi Base, Injures 12 US Troops",
+              "text": "An Iranian missile and drone attack on a Saudi Arabian military base injured at least 12 US service members, two of them seriously, on March 28. The strike marks a significant escalation in the 2026 Iran war, which now involves Iraq and multiple regional bases. Iran released imagery from the attack, signaling a willingness to publicize direct confrontation with US and Israeli forces. Source &rarr;"
+            },
+            {
+              "headline": "Oil Tops $100, Dow Drops 800 Points",
+              "text": "Global oil prices surpassed $100 per barrel on March 28 as Middle East conflict threatened shipping through the Strait of Hormuz, one of the world's most critical energy chokepoints. The Dow Jones Industrial Average fell nearly 800 points in response, reflecting broad investor alarm over supply disruption risks. The economic shock compounds existing market volatility tied to the ongoing Iran war. Source &rarr;"
+            },
+            {
+              "headline": "G7 Moves to Secure Strait of Hormuz",
+              "text": "G7 nations reached an agreement on March 28 to coordinate efforts securing the Strait of Hormuz following disruptions caused by the Iran war. The EU proposed adapting the Black Sea grain corridor model to restore energy shipping through the strait. Separately, Ukraine and Saudi Arabia signed a first-of-its-kind Gulf defense agreement, reflecting deepening links between the Ukraine and Middle East conflicts. Source &rarr;"
+            },
+            {
+              "headline": "Trump Delays Iran Energy Strike Deadline to April 6",
+              "text": "President Trump announced on March 28 that the US would postpone any targeting of Iranian energy infrastructure until April 6, citing ongoing negotiations he described as going very well. The delay comes despite continued Iranian defiance and regional strikes that have killed civilians. Critics note the extension creates uncertainty for allies and markets already rattled by the conflict. Source &rarr;"
+            },
+            {
+              "headline": "US Government Shutdown Reaches Day 43",
+              "text": "The US partial government shutdown entered its 43rd day on March 28 after House Republicans blocked a Senate funding plan. President Trump signed an executive order directing the Department of Homeland Security to pay TSA agents, as long security lines at airports drew mounting frustration from travelers. The standoff has left federal agencies in prolonged limbo with no clear resolution in sight. Source &rarr;"
+            },
+            {
+              "headline": "Lebanon Declares Israeli Actions an Invasion",
+              "text": "Lebanese officials formally characterized ongoing Israeli military operations as an invasion on March 28, signaling a dangerous broadening of the Middle East conflict. The declaration raises the prospect of a new front opening alongside the existing Iran-US-Israel war. Regional governments and international observers expressed alarm at the potential for further escalation across multiple theaters simultaneously. Source &rarr;"
+            },
+            {
+              "headline": "Finland Warns US Against Diverting Ukraine Arms",
+              "text": "Finland's defense minister issued a public warning on March 28 urging the United States not to redirect weapons earmarked for Ukraine toward the Iran front. EU foreign policy chief Kaja Kallas reinforced the concern by explicitly linking the Iran and Ukraine wars through Russia's support for Tehran. The statements reflect growing European anxiety that the Middle East conflict could weaken military support for Kyiv. Source &rarr;"
+            },
+            {
+              "headline": "Palestinian and Israeli Women March in Rome",
+              "text": "Palestinian and Israeli women joined a peace march in Rome on March 28, calling for unity and an end to regional violence. The demonstration stood in stark contrast to the escalating military confrontations across the Middle East. Organizers framed the event as a grassroots signal that civilian populations on both sides seek alternatives to continued conflict. Source &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "monitoring",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,368.85 (-1.67%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "20,948.36 (-2.15%)"
+            },
+            {
+              "headline": "Bitcoin",
+              "text": "$66,874.83 (+0.79%)"
+            },
+            {
+              "headline": "Ethereum",
+              "text": "$2,021.83 (+1.51%)"
+            },
+            {
+              "headline": "Oil Brent",
+              "text": "$112.57 (+11.60%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "12 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "domain",
+          "items": [
+            {
+              "headline": "OpenAI",
+              "text": "OpenAI pulled the plug on its Sora video generation app and public API in late March 2026, citing operating costs exceeding $5 billion annually, a 25% drop in downloads, and deepfake liability concerns. The company simultaneously closed a record $110 billion funding round led by Amazon, Nvidia, and SoftBank, signaling a sharp strategic pivot toward robotics, world simulation, and enterprise productivity. A potential IPO is being prepared for Q4 2026, positioning OpenAI for a major capital markets debut."
+            },
+            {
+              "headline": "Google DeepMind",
+              "text": "Google DeepMind launched Gemini 3.1 Ultra in March 2026, one of three frontier models released that month, featuring native multimodal reasoning as a core capability. The release is narrowing measurable performance gaps between Google and competing labs across key benchmarks. The pace of releases signals an accelerating cadence at DeepMind as competition at the frontier intensifies."
+            },
+            {
+              "headline": "Meta AI",
+              "text": "Meta AI was dealt a legal defeat in March 2026, described as being shut out in court, adding to a pattern of regulatory and judicial scrutiny facing social platforms that have aggressively integrated AI. The setback arrives alongside broader market volatility in the AI sector and concurrent pressure on peers like OpenAI. The ruling underscores growing accountability risks for companies deploying AI at consumer scale."
+            },
+            {
+              "headline": "Mistral",
+              "text": "Mistral released Mistral Small 4 in March 2026, a 22-billion parameter model distributed under the Apache 2.0 license, making it freely usable for commercial applications. Benchmark results show it outperforming closed models three to five times its parameter count on reasoning and instruction-following tasks, a notable efficiency milestone for open-source AI. The release reinforces Mistral's position as the leading open-weight competitor to larger closed-model labs."
+            }
+          ]
+        },
+        {
+          "title": "build",
+          "items": [
+            {
+              "headline": "Automate Cross-App Workflows with Zapier Agents",
+              "text": "Zapier Agents lets you build autonomous AI agents that act across 8,000+ apps without manual intervention. Set up trigger-based systems, such as routing new form submissions to a CRM and Slack simultaneously, or running real-time data analysis when a spreadsheet updates. Start by identifying one repetitive multi-app task and let the agent handle the full chain. Try it &rarr;"
+            },
+            {
+              "headline": "Capture Meeting Intelligence Automatically with Bluedot",
+              "text": "Bluedot delivers 98%+ transcription accuracy across Zoom, Google Meet, and Microsoft Teams, then syncs notes directly to HubSpot or Slack. Sales and recruiting teams can stop context-switching during calls and focus on the conversation instead of note-taking. After each meeting, review the auto-synced summary in your CRM rather than rewriting notes manually. Try it &rarr;"
+            },
+            {
+              "headline": "Centralize Analytics from 600+ Sources with Supaboard AI",
+              "text": "Supaboard AI pulls data from over 600 sources into automated, no-code dashboards built for team decision-making. Connect your sales, marketing, and ops data in one place to eliminate the manual reporting cycle. Use it to schedule recurring dashboard refreshes so stakeholders always have current metrics without submitting data requests. Try it &rarr;"
+            },
+            {
+              "headline": "Delegate Research Tasks to Perplexity's Comet Browser",
+              "text": "Comet is an AI-native browser from Perplexity designed around 'do it for me' tasks, handling summarization, automated browsing, and research compilation on your behalf. Instead of opening dozens of tabs, describe what you need and let Comet navigate and synthesize the results. It is best suited for recurring research workflows like competitive monitoring or daily news digests."
+            },
+            {
+              "headline": "Write Faster by Speaking with Wispr Flow",
+              "text": "Wispr Flow converts voice to text with context awareness, meaning it understands tone and intent well enough to draft emails, Slack messages, and AI prompts accurately. Activate it anywhere you type and dictate instead of typing to cut composition time significantly. Use it especially for long-form responses or prompt engineering, where speaking is faster than typing precise instructions. Try it &rarr;"
+            },
+            {
+              "headline": "Prototype Websites and UI Instantly with Replit Design",
+              "text": "Replit Design uses AI to generate functional websites and UI layouts from natural language descriptions, compressing the gap between idea and working prototype. Developers can describe a component or full page and receive editable code immediately, skipping the blank-canvas phase. Use it to rapidly validate design directions with stakeholders before committing to a full build."
+            }
+          ]
+        }
+      ]
     },
     {
       "date": "2026-03-27",
@@ -26,7 +213,7 @@
           ]
         },
         {
-          "title": "Market Snapshot",
+          "title": "",
           "items": [
             {
               "headline": "S&P 500",
@@ -55,7 +242,7 @@
           ]
         },
         {
-          "title": "The Briefing",
+          "title": "",
           "items": [
             {
               "headline": "Summary",
@@ -64,7 +251,7 @@
           ]
         },
         {
-          "title": "AI Developments",
+          "title": "",
           "items": [
             {
               "headline": "OpenAI GPT-5.4 Tops Intelligence Index at 57",
@@ -113,7 +300,7 @@
           ]
         },
         {
-          "title": "World News",
+          "title": "",
           "items": [
             {
               "headline": "US-Iran War Enters Day 26 With Strikes",
@@ -150,7 +337,7 @@
           ]
         },
         {
-          "title": "Competitive Landscape",
+          "title": "",
           "items": [
             {
               "headline": "OpenAI",
@@ -179,7 +366,7 @@
           ]
         },
         {
-          "title": "AI Tool Guide",
+          "title": "",
           "items": [
             {
               "headline": "Delegate Complex Workflows to Manus",
@@ -230,7 +417,7 @@
           ]
         },
         {
-          "title": "Market Snapshot",
+          "title": "",
           "items": [
             {
               "headline": "S&P 500",
@@ -259,7 +446,7 @@
           ]
         },
         {
-          "title": "The Briefing",
+          "title": "",
           "items": [
             {
               "headline": "Summary",
@@ -268,7 +455,7 @@
           ]
         },
         {
-          "title": "AI Developments",
+          "title": "",
           "items": [
             {
               "headline": "OpenAI GPT-5.4 Debuts With 1M-Token Context",
@@ -317,7 +504,7 @@
           ]
         },
         {
-          "title": "World News",
+          "title": "",
           "items": [
             {
               "headline": "U.S.-Israel Iran Strikes Enter Day 26",
@@ -354,7 +541,7 @@
           ]
         },
         {
-          "title": "Competitive Landscape",
+          "title": "",
           "items": [
             {
               "headline": "OpenAI",
@@ -383,7 +570,7 @@
           ]
         },
         {
-          "title": "AI Tool Guide",
+          "title": "",
           "items": [
             {
               "headline": "Automate Repetitive Workflows with Zapier Copilot",
@@ -434,7 +621,7 @@
           ]
         },
         {
-          "title": "Market Snapshot",
+          "title": "",
           "items": [
             {
               "headline": "S&P 500",
@@ -463,7 +650,7 @@
           ]
         },
         {
-          "title": "The Briefing",
+          "title": "",
           "items": [
             {
               "headline": "Summary",
@@ -472,7 +659,7 @@
           ]
         },
         {
-          "title": "AI Developments",
+          "title": "",
           "items": [
             {
               "headline": "GPT-5.4 and Gemini 3.1 Pro Tied at Top",
@@ -521,7 +708,7 @@
           ]
         },
         {
-          "title": "World News",
+          "title": "",
           "items": [
             {
               "headline": "Iran Rejects Trump's 15-Point Ceasefire Proposal",
@@ -558,7 +745,7 @@
           ]
         },
         {
-          "title": "Competitive Landscape",
+          "title": "",
           "items": [
             {
               "headline": "OpenAI",
@@ -587,7 +774,7 @@
           ]
         },
         {
-          "title": "AI Tool Guide",
+          "title": "",
           "items": [
             {
               "headline": "Automate Workflows with Zapier Agents",
@@ -638,7 +825,7 @@
           ]
         },
         {
-          "title": "Market Snapshot",
+          "title": "",
           "items": [
             {
               "headline": "S&P 500",
@@ -667,7 +854,7 @@
           ]
         },
         {
-          "title": "The Briefing",
+          "title": "",
           "items": [
             {
               "headline": "Summary",
@@ -676,7 +863,7 @@
           ]
         },
         {
-          "title": "AI Developments",
+          "title": "",
           "items": [
             {
               "headline": "OpenAI GPT-5.4 Launches With 1M-Token Context",
@@ -725,7 +912,7 @@
           ]
         },
         {
-          "title": "World News",
+          "title": "",
           "items": [
             {
               "headline": "US-Iran War Escalates Amid Diplomatic Backchannels",
@@ -762,7 +949,7 @@
           ]
         },
         {
-          "title": "Competitive Landscape",
+          "title": "",
           "items": [
             {
               "headline": "OpenAI",
@@ -791,7 +978,7 @@
           ]
         },
         {
-          "title": "AI Tool Guide",
+          "title": "",
           "items": [
             {
               "headline": "Automate Meeting Notes with Bluedot",
@@ -842,7 +1029,7 @@
           ]
         },
         {
-          "title": "Daily Summary",
+          "title": "",
           "items": [
             {
               "headline": "Summary",
@@ -867,7 +1054,7 @@
           ]
         },
         {
-          "title": "AI Developments",
+          "title": "",
           "items": [
             {
               "headline": "GPT-5.4: 1.05M Tokens, Autonomous Execution, 75% on OSWorld-V",
@@ -904,7 +1091,7 @@
           ]
         },
         {
-          "title": "World News",
+          "title": "",
           "items": [
             {
               "headline": "Iran-US-Israel War Day 23: Hormuz Ultimatum, Trump Pauses Strikes",
@@ -925,7 +1112,7 @@
           ]
         },
         {
-          "title": "Market Snapshot",
+          "title": "",
           "items": [
             {
               "headline": "S&P 500",
@@ -954,36 +1141,61 @@
           ]
         },
         {
-          "title": "Newsletter Intelligence",
+          "title": "",
           "items": [
             {
               "headline": "finstory AI",
-              "text": "I turned a napkin sketch into a board-ready CFO report with AI (one prompt) | Google Stitch is free and it's already breaking things: Google launched Stitch this week — a free AI design tool that builds working, board-quality reports and interfaces from plain-language prompts. No wireframes. No Figma. No design agency. The author tested it on real financial data: uploaded a photo of hand-drawn numbers, typed one prompt, and got back a premium executive financial report complete with a clean headline, 12-month trend charts with green/red performance indicators, a comparison table, and three FP&A driver callouts. Output quality equivalent to three hours of analyst work on a Sunday night. Figma lost 12% the day Stitch launched: That market signal is the story. Google just made free what professional teams used to pay $50-100 per seat per month for. This pattern does not stay in design software. It moves to every category of professional work. Finance reporting is next. Legal document generation after that. The prompt is the FP&A judgment: The key insight in this issue is not about the tool. It's about how you prompt it. \"Don't ask for a design. Ask for FP&A judgment built into a visual format.\" That is a completely different instruction. Generic AI outputs look generic because the prompt was generic. Specificity in the prompt produces specificity in the output. The author provides a copy-paste prompt template for generating CFO-ready reports. The professional work disruption curve is accelerating: Stitch is a signal, not an endpoint. AI is systematically making professional tools free. Each disruption follows the same pattern: tool launches free, incumbents drop in market value, early adopters get an unfair advantage for 6-12 months before the skill becomes table stakes. You are inside the 6-12 month window right now for finance AI tools. You can see the live demo at google-stitch-finstory.netlify.app Stitch critiques its own work in real time and responds to voice commands One-click deploy to production — no engineering required \"The difference between a generic AI output and a boardroom-ready one is how you frame the prompt. Don't ask for a design. Ask for FP&A judgment built into a visual format.\""
-            },
-            {
-              "headline": "Pinecone",
-              "text": "February/March Global Newsletter: BYOC on All 3 Clouds, HIPAA Standard, Deletion at Scale | BYOC (Bring Your Own Cloud) now in public preview on AWS, GCP, and Azure: This is a major enterprise unlock. BYOC lets you run Pinecone's data plane inside your own cloud account. Your vectors, metadata, and queries never leave your environment. Setup is fully self-serve via a Pulumi-based wizard with pull-based operations that execute locally in your cluster. No SSH, no VPN, no inbound network access required. This removes the #1 objection for enterprise AI deployments: data sovereignty. HIPAA compliance for Standard plan at $190/month: Previously available only on Enterprise. Starting now, Standard plan customers can add HIPAA compliance including encrypted data storage, audit logging, enhanced security controls, and BAA execution support. This opens the healthcare AI market to mid-market companies that couldn't afford Enterprise pricing. Garbage Day — How Pinecone Safely Deletes Billions of Objects: Deleting data at scale is harder than adding it. Pinecone's Janitor garbage collection system safely removes billions of objects from immutable blob storage without disrupting live queries. The post covers why deletion in distributed systems requires more than a delete call, and how Pinecone keeps storage costs low without sacrificing query reliability. Essential reading if you're running a production vector database. When \"Performance\" Means Two Different Things: Speed and accuracy are both called \"performance\" in AI, but optimizing for one trades off against the other. This post breaks down the distinction for production systems: when you need latency-optimized retrieval vs. when precision matters more. A practical framework for setting the right performance target before you build. Upcoming webinar: Pinecone Platform Series — Slab Architecture (March 24) Upcoming webinar: Nuances of Hybrid Search (March 26) Vector Search for Agentic AI hands-on introduction series starting April 23 Pinecone + n8n official node: The official Pinecone Assistant node for n8n is live, enabling no-code vector search workflows in automated pipelines. 10M-vector benchmark guide: New guide covers how to benchmark Pinecone at 10M+ vectors with real performance data. \"BYOC removes the #1 enterprise objection: data sovereignty. Your vectors, metadata, and queries never leave your environment.\""
-            },
-            {
-              "headline": "TLDR",
-              "text": "Meta's CEO Agent, Amazon's AI phone, SpaceX + Tesla chip factory | Meta is building a CEO agent: Mark Zuckerberg is building an AI agent to help him run Meta. He envisions a future where everyone has their own AI agents handling tasks, communication, and decision support. This is not a chatbot experiment. This is the CEO of a $1.5T company betting his own workflow on autonomous AI. Amazon's AI-native phone: Amazon is developing a phone built around AI from the ground up, not AI bolted onto an existing OS. If it ships, it would be the first major consumer hardware designed for agentic workflows by default. SpaceX + Tesla chip factory: Elon Musk's \"Terafab\" AI chip factory will combine SpaceX and Tesla resources to manufacture custom AI silicon. The goal is to reduce dependency on NVIDIA and build chips optimized for Tesla's self-driving and xAI's Grok infrastructure. 85% of YC's W26 batch is AI-first. 56 of 198 companies are building fully autonomous agents positioned as AI employees. Gemini (crypto exchange) hit with class-action lawsuit over IPO disclosures."
-            },
-            {
-              "headline": "The Rundown AI",
-              "text": "Elon Musk's 'Terafab' AI chip factory + Google Stitch website redesign | Terafab is Musk's play for AI hardware independence: The Rundown breaks down how the factory would produce custom chips for both Tesla FSD training and xAI's Grok models. Current NVIDIA dependency is a bottleneck for both companies. Vertical integration is the move. Google Stitch website redesign tutorial: Step-by-step guide on using Google Stitch to completely redesign a website from scratch using only prompts. The tool generates responsive HTML/CSS and deploys in one click. This is the practical how-to the finstory AI newsletter teased."
-            },
-            {
-              "headline": "Superhuman AI",
-              "text": "Scientists use plastic to beat Parkinson's | Plastic-based treatment for Parkinson's: Scientists developed a plastic material that can deliver dopamine-producing cells directly to the brain, bypassing the blood-brain barrier. Early results show significant motor function improvement in animal models. This could change the treatment paradigm for neurodegenerative diseases. AI in scientific discovery is accelerating: This week's issue highlights how AI models are now being used to predict protein folding, drug interactions, and treatment outcomes at speeds that compress years of research into weeks. The pattern: AI handles the combinatorial explosion of possibilities, humans handle the judgment calls."
-            },
-            {
-              "headline": "simple.ai by Dharmesh",
-              "text": "A 3-Part Strategy for Keeping Up with AI | Use AI daily, do not just study it: Dharmesh Shah (HubSpot co-founder) argues that hands-on experience teaches more than reading research papers. The most important thing is not tracking every development but actually using AI in your day-to-day work. He recommends tools like Company Research Agent, Prospect Extractor, and ICP Builder on agent.ai. Schedule quarterly AI opportunity reviews: Every quarter, take your top 3 growth obstacles and check if new AI tools can now address them. Keep a \"not yet, but soon\" list. Companies that evaluated AI once and gave up fell behind competitors who revisited regularly. Try new tools with specific problems in mind: Problem-first evaluation beats aimless exploration. When Claude 3.7 Sonnet launched, Dharmesh tested it specifically for code review efficiency and found hybrid reasoning was remarkably effective at understanding complex codebases. \"What you shouldn't do is decide at any point that AI is not good enough to tackle a problem and then forget about it. The answer might change faster than you expect.\""
+              "text": "I turned a napkin sketch into a board-ready CFO report with AI (one prompt) | "
             }
           ]
         },
         {
-          "title": "Competitive Landscape",
+          "title": "Quick Hits",
+          "items": [
+            {
+              "headline": "Pinecone",
+              "text": "February/March Global Newsletter: BYOC on All 3 Clouds, HIPAA Standard, Deletion at Scale | "
+            }
+          ]
+        },
+        {
+          "title": "Trending Tools",
+          "items": [
+            {
+              "headline": "TLDR",
+              "text": "Meta's CEO Agent, Amazon's AI phone, SpaceX + Tesla chip factory | "
+            }
+          ]
+        },
+        {
+          "title": "Quick Hits",
+          "items": [
+            {
+              "headline": "The Rundown AI",
+              "text": "Elon Musk's 'Terafab' AI chip factory + Google Stitch website redesign | "
+            }
+          ]
+        },
+        {
+          "title": "Headlines & Launches",
+          "items": [
+            {
+              "headline": "Superhuman AI",
+              "text": "Scientists use plastic to beat Parkinson's | "
+            }
+          ]
+        },
+        {
+          "title": "Headlines & Launches",
+          "items": [
+            {
+              "headline": "simple.ai by Dharmesh",
+              "text": "A 3-Part Strategy for Keeping Up with AI | "
+            }
+          ]
+        },
+        {
+          "title": "",
           "items": [
             {
               "headline": "OpenAI",
@@ -1012,7 +1224,7 @@
           ]
         },
         {
-          "title": "AI Tool Guide",
+          "title": "",
           "items": [
             {
               "headline": "Don't Let AI Become Your Exoskeleton",
@@ -1063,7 +1275,7 @@
           ]
         },
         {
-          "title": "Daily Summary",
+          "title": "",
           "items": [
             {
               "headline": "Summary",
@@ -1088,85 +1300,7 @@
           ]
         },
         {
-          "title": "AI Developments",
-          "items": [
-            {
-              "headline": "OpenAI Superapp",
-              "text": "GPT-5.4 consolidation of ChatGPT, Codex, and Atlas into a single desktop application. Features 1.05M token context window. Represents the largest UX consolidation in AI history, targeting $25B+ revenue."
-            },
-            {
-              "headline": "Google Gemini 3.1 Pro",
-              "text": "Tops the intelligence index at 57 points with 1M context window and 77.1% ARC-AGI-2 score. Full multimodal reasoning across text, image, audio, and video makes it the most versatile model released this quarter."
-            },
-            {
-              "headline": "Anthropic Claude 4.6",
-              "text": "Achieves 80.8% on SWE-Bench Verified, leading all coding benchmarks. Pentagon DOD lawsuit draws support from OpenAI and Google employees. Enterprise deployment expanding via Microsoft partnership."
-            },
-            {
-              "headline": "Google Stitch",
-              "text": "Free AI design tool that generates high-fidelity reports from natural language prompts. Converts napkin sketches into board-ready executive reports. Figma stock dropped 12% on launch day, signaling a major disruption."
-            },
-            {
-              "headline": "NVIDIA Nemotron 3 Super",
-              "text": "120B-parameter hybrid mixture-of-experts model with only 12B active per forward pass. Built specifically for multi-agent applications. Announced at GTC 2026 as a cornerstone of NVIDIA's AI software stack."
-            },
-            {
-              "headline": "MiniMax M2.5",
-              "text": "Rivals Claude Opus 4.6 at significantly lower cost, emerging as a new challenger in the frontier model race. Strong performance across coding and reasoning benchmarks positions it as a cost-effective alternative."
-            },
-            {
-              "headline": "Mistral Forge",
-              "text": "Enterprise platform for building custom AI models. Company on track for $1B ARR with CEO confirming enterprise focus is paying off. GPU-efficient architecture differentiates from larger competitors."
-            },
-            {
-              "headline": "Palantir Maven",
-              "text": "Pentagon designates Maven as a formal program of record with long-term military funding across all branches. Marks the transition of AI from experimental defense projects to core military infrastructure."
-            },
-            {
-              "headline": "Cursor Plan Mode",
-              "text": "Users commit at 2x the rate with Plan Mode enabled. Head of Design shows designers coding actual features instead of Figma mockups. Shift+Tab activates structured step-by-step execution for complex tasks."
-            },
-            {
-              "headline": "Private LLM",
-              "text": "Run DeepSeek, Llama, Phi, and Gemma on-device with zero internet connectivity. Full privacy-first AI on your phone with no cloud dependency. Works with Siri shortcuts for seamless mobile integration."
-            }
-          ]
-        },
-        {
-          "title": "World News",
-          "items": [
-            {
-              "headline": "Iran Missiles Near Dimona",
-              "text": "Strikes hit Arad and Dimona near Israel's nuclear research center, injuring 100+. First time in history a nuclear facility has been directly targeted. Major escalation in regional conflict with global implications."
-            },
-            {
-              "headline": "Hormuz Strait Crisis",
-              "text": "Trump gives Iran 48hr ultimatum to reopen strait. Iran says the strait will be completely closed if the US follows through on threats. Over 5,000 vessels stranded as global shipping faces unprecedented disruption."
-            },
-            {
-              "headline": "Diego Garcia Attacked",
-              "text": "Iran fired two intermediate-range ballistic missiles at the US-UK military base on Diego Garcia in the Indian Ocean. Neither missile struck the base directly, but the attack marks a significant geographic expansion of hostilities."
-            },
-            {
-              "headline": "Lebanon Strikes",
-              "text": "Israel launches new strikes targeting Hezbollah infrastructure in southern Lebanon. The operations aim to degrade cross-border attack capabilities amid the broader regional escalation driven by the Iran crisis."
-            },
-            {
-              "headline": "Sudan Hospital Strike",
-              "text": "64 killed including 13 children in a hospital strike in western Darfur, confirmed by the WHO. The ongoing conflict continues to produce devastating civilian casualties with limited international intervention."
-            },
-            {
-              "headline": "Cuba Blackout",
-              "text": "Cuba's power grid collapsed for the third time in March, leaving the entire country without electricity. The recurring infrastructure failures reflect deep systemic issues with public health and economic consequences."
-            },
-            {
-              "headline": "Ohio Meteor",
-              "text": "A suspected meteor lit up skies across Ohio and Pennsylvania accompanied by sonic booms. Residents reported brilliant flashes and shaking windows. Authorities confirmed no damage but investigations continue."
-            }
-          ]
-        },
-        {
-          "title": "Market Snapshot",
+          "title": "",
           "items": [
             {
               "headline": "S&P 500",
@@ -1195,57 +1329,43 @@
           ]
         },
         {
-          "title": "Newsletter Intelligence",
+          "title": "",
           "items": [
             {
               "headline": "Superhuman AI",
-              "text": "Zain Kahn — &ldquo;Scientists use plastic to beat Parkinson&rsquo;s&rdquo; | Science Sunday special covering non-AI breakthroughs across space, medicine, and hardware innovation. Hubble catches comet exploding in real time. Man survives 48 hours without lungs. Edinburgh scientists convert plastic bottles to Parkinson's medication. Harvard builds chip to twist and control light. Taya AI necklace for journaling, Nosh One robot chef, iGarden Swim Jet, Fort wearable for strength training. Botox shows promise as antidepressant. Wearable compression sleeve aids cancer recovery. New cholesterol pill enlicitide cuts LDL by 60%. &ldquo;The odds of witnessing a comet breaking up live through Hubble are vanishingly small&rdquo;"
-            },
-            {
-              "headline": "TAAFT",
-              "text": "&ldquo;Run LLMs on Your Phone&rdquo; | Pentagon makes Palantir Maven official. White House drops national AI framework. WordPress gives AI agents publish access via MCP integration with 19 write operations. KiloClaw, LEANSpark, Unbiased Ventures pitch deck scorer, PixAI Art, ProfilePro. Karpathy says engineering is 80% delegating to AI agents. Cursor Head of Design shows designers coding actual features instead of Figma mockups. openpilot (driver assistance for 300+ cars), MetaClaw (self-evolving agent framework). &ldquo;Engineering is now 80% delegating to AI agents&rdquo; — Andrej Karpathy"
-            },
-            {
-              "headline": "finstory AI",
-              "text": "&ldquo;Napkin sketch to board-ready CFO report&rdquo; | Google Stitch turns hand-drawn financial sketches into premium executive reports with one prompt. Demonstrates FP&A judgment, not just formatting. One-click deployment from sketch to boardroom-ready output. The difference between generic AI output and boardroom-ready output is asking for judgment, not design. Figma stock dropped 12% on Stitch launch day. This pattern will move into every category of professional work where design meets domain expertise. &ldquo;Don&rsquo;t ask for a design. Ask for FP&A judgment built into a visual format.&rdquo;"
-            },
-            {
-              "headline": "Dharmesh Shah @ simple.ai",
-              "text": "&ldquo;3-Part Strategy for Keeping Up with AI&rdquo; | 1) Use AI daily — don&rsquo;t just study it. 2) Schedule quarterly AI opportunity reviews. 3) Try new tools with specific problems in mind, not generic curiosity. Companies that evaluate AI, find it not ready, and don&rsquo;t revisit for a year fall behind competitors who were more persistent. Maintain a &ldquo;not yet but soon&rdquo; list. Company Research Agent, Prospect Extractor, ICP Builder on agent.ai. &ldquo;The frequency with which we get new [X changes everything] values is accelerating&rdquo;"
+              "text": "Zain Kahn — &ldquo;Scientists use plastic to beat Parkinson&rsquo;s&rdquo; | "
             }
           ]
         },
         {
-          "title": "Competitive Landscape",
+          "title": "Good News",
           "items": [
             {
-              "headline": "OpenAI",
-              "text": "GPT-5.4 Superapp consolidation merges ChatGPT, Codex, and Atlas into one desktop app with 1.05M tokens. Targeting $25B revenue. Largest UX consolidation in AI history positions them as the default consumer AI platform."
-            },
-            {
-              "headline": "Google DeepMind",
-              "text": "Gemini 3.1 Pro tops intelligence benchmarks at 57 points with 1M context and 77.1% ARC-AGI-2. Stitch disrupts the design tool category on day one. Strong multimodal reasoning across all modalities gives them unique breadth."
-            },
-            {
-              "headline": "Meta AI",
-              "text": "Llama 4 open-source release focuses on agentic capability and developer ecosystem. Strategy: out-distribute rather than out-spend. Building the largest open-source AI community as a competitive moat against closed-source rivals."
-            },
-            {
-              "headline": "Mistral",
-              "text": "On track for $1B ARR with the Forge enterprise platform for custom AI models. GPU-efficient architecture appeals to cost-conscious enterprises. European headquarters provides regulatory advantage as EU AI Act takes effect."
-            },
-            {
-              "headline": "Anthropic",
-              "text": "Claude 4.6 leads SWE-Bench Verified at 80.8%, the top coding benchmark score. Pentagon lawsuit draws cross-industry support from OpenAI and Google employees. Enterprise deployment expanding via Microsoft Azure partnership."
-            },
-            {
-              "headline": "Challengers",
-              "text": "Cursor achieves 2x commit rates with Plan Mode. MiniMax M2.5 rivals frontier models at lower cost. Xiaomi MiMo-V2-Pro enters the arena. The challenger tier is compressing the gap with incumbents faster than expected."
+              "headline": "TAAFT",
+              "text": "&ldquo;Run LLMs on Your Phone&rdquo; | "
             }
           ]
         },
         {
-          "title": "️ AI Tool Guide",
+          "title": "Open Source",
+          "items": [
+            {
+              "headline": "finstory AI",
+              "text": "&ldquo;Napkin sketch to board-ready CFO report&rdquo; | "
+            }
+          ]
+        },
+        {
+          "title": "Impact",
+          "items": [
+            {
+              "headline": "Dharmesh Shah @ simple.ai",
+              "text": "&ldquo;3-Part Strategy for Keeping Up with AI&rdquo; | "
+            }
+          ]
+        },
+        {
+          "title": "️",
           "items": [
             {
               "headline": "Mindset",
