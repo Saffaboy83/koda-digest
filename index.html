@@ -478,11 +478,11 @@
             return;
         }
 
-        // Pick image based on topic content for daily variety
-        var imgUrl = pickImage(t0.title || '');
-
         // Topic 1: Large featured card with image (left, 7 cols)
         var t0 = typeof topics[0] === 'string' ? { title: topics[0], desc: '' } : topics[0];
+
+        // Pick image based on topic content for daily variety
+        var imgUrl = pickImage(t0.title || '');
         var desc0 = (t0.desc || '');
         if (desc0.length > 200) desc0 = desc0.substring(0, 197) + '...';
 
@@ -552,7 +552,7 @@
         for (var i = 0; i < digests.length; i++) {
             totalStories += parseInt(digests[i].kpis.aiStories) || 0;
             if (digests[i].hasPodcast) totalPodcasts++;
-            totalTools += parseInt(digests[i].kpis.toolsCount) || 6;
+            totalTools += parseInt(digests[i].kpis.toolsFeatured) || 6;
         }
 
         animateCount(document.getElementById('statDigests'), digests.length, 800);
