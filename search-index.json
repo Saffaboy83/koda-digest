@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-29T10:15:59Z",
-  "days": [
+  "generated": "2026-03-29T16:27:28Z",
+  "entries": [
     {
       "date": "2026-03-29",
       "sections": [
@@ -224,7 +224,9 @@
             }
           ]
         }
-      ]
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-03-29.html"
     },
     {
       "date": "2026-03-28",
@@ -469,7 +471,9 @@
             }
           ]
         }
-      ]
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-03-28.html"
     },
     {
       "date": "2026-03-27",
@@ -714,7 +718,9 @@
             }
           ]
         }
-      ]
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-03-27.html"
     },
     {
       "date": "2026-03-26",
@@ -959,7 +965,9 @@
             }
           ]
         }
-      ]
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-03-26.html"
     },
     {
       "date": "2026-03-25",
@@ -1204,7 +1212,9 @@
             }
           ]
         }
-      ]
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-03-25.html"
     },
     {
       "date": "2026-03-24",
@@ -1408,7 +1418,9 @@
             }
           ]
         }
-      ]
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-03-24.html"
     },
     {
       "date": "2026-03-23",
@@ -1654,7 +1666,9 @@
             }
           ]
         }
-      ]
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-03-23.html"
     },
     {
       "date": "2026-03-22",
@@ -1795,7 +1809,9 @@
             }
           ]
         }
-      ]
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-03-22.html"
     },
     {
       "date": "2026-03-21",
@@ -1967,6 +1983,80 @@
             {
               "headline": "Claude Opus 4.6 + Cursor Composer 2",
               "text": "Claude Opus 4.6 is the current best coding model with 1M context. Cursor Composer 2 and Claude Code Channels expand AI coding accessibility. Together they represent the frontier of AI-assisted software development."
+            }
+          ]
+        }
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-03-21.html"
+    },
+    {
+      "date": "2026-03-28",
+      "type": "editorial",
+      "file": "editorial/2026-03-28-open-weight-flood.html",
+      "title": "The Open-Weight Flood: Why 78% of March's AI Models Were Free",
+      "tag": "Strategy",
+      "sections": [
+        {
+          "title": "Introduction",
+          "items": [
+            {
+              "headline": "The Open-Weight Flood: Why 78% of March's AI Models Were Free",
+              "text": "Seven out of nine major text models released in March 2026 were free to download. Read that again. 78%. Not demos. Not waitlists. Not \"contact sales.\" Full-weight models you can run on your own hardware, fine-tune for your own use case, and deploy without asking permission. The proof is in the release logs. The promise is simple: the economics of AI just flipped. The plan for this article is to show you exactly what that means, what to ignore, and what to build."
+            }
+          ]
+        },
+        {
+          "title": "The Commoditization Curve",
+          "items": [
+            {
+              "headline": "The Commoditization Curve",
+              "text": "Every technology follows the same arc. It starts expensive and rare. Then it gets cheap and abundant. Then the value migrates somewhere else entirely. I call this the Commoditization Curve, and AI models just hit the steep part. Think of it in three layers: Layer 1: The Model. This is where the industry spent 2023 and 2024 competing. Who has the best weights? Who tops the leaderboard? That era is ending. When Alibaba releases Qwen3.5 in eight variants from 0.8B to 397B parameters under Apache 2."
+            }
+          ]
+        },
+        {
+          "title": "The Strategic Logic",
+          "items": [
+            {
+              "headline": "The Strategic Logic",
+              "text": "Each open release tells a different story, but they share one thesis: giving away the model creates asymmetric advantage somewhere else. Alibaba's eight-variant blitz is a volume play. Qwen3.5 covers every deployment scenario from mobile (0.8B) to data center (397B). The goal is not model revenue. It is ecosystem capture. Every developer who builds on Qwen is one more node in Alibaba's cloud flywheel. The model is free. The compute to run it is not. NVIDIA's Nemotron giveaway follows the same lo"
+            }
+          ]
+        },
+        {
+          "title": "The Counterargument Is Real",
+          "items": [
+            {
+              "headline": "The Counterargument Is Real",
+              "text": "I want to be honest about the limits. Proprietary models still lead open-weight alternatives by roughly 9 benchmark points on complex reasoning tasks, according to March 2026 evaluations (WhatLLM). That gap justifies 10 to 20 times higher token costs for premium use cases. If you are building an AI-powered legal review system or a medical diagnostic tool, those 9 points matter. Sam Altman described AI as \"a metered utility like electricity\" (UniladTech, March 2026). He is positioning GPT-5.4 not"
+            }
+          ]
+        },
+        {
+          "title": "The Enterprise Knife Fight",
+          "items": [
+            {
+              "headline": "The Enterprise Knife Fight",
+              "text": "Meanwhile, the proprietary players are not sitting still. OpenAI is undercutting Anthropic on private equity deals (TransformerNews). xAI is wooing enterprises with on-site engineers. The competition for the 20% of use cases that justify premium pricing is getting vicious. This is what a commoditizing market looks like. The middle disappears. You either compete on cost (open-weight) or on premium service (proprietary with white-glove support). There is no comfortable position between."
+            }
+          ]
+        },
+        {
+          "title": "2031",
+          "items": [
+            {
+              "headline": "2031",
+              "text": "Project this forward five years. If open-weight models close that 9-point reasoning gap (and the pace suggests they will within 18 to 24 months), the value of proprietary weights drops to near zero. What remains valuable is three things: inference infrastructure, safety alignment, and regulatory relationships. This might mean the AI industry in 2031 looks more like Linux than like Windows. The core technology is free and ubiquitous. The money is in enterprise support, managed services, and verti"
+            }
+          ]
+        },
+        {
+          "title": "What to Build This Weekend",
+          "items": [
+            {
+              "headline": "What to Build This Weekend",
+              "text": "Stop reading about open-weight models. Start using one. Here is your weekend plan: 1. Pick one model and run it locally. Download Qwen3.5-7B or Mistral Small 4 via Ollama. This takes 15 minutes. You now have a model running on your laptop with zero API costs and zero data leaving your machine. 2. Fine-tune it on your domain. Use Unsloth or Axolotl to fine-tune on 500 examples from your industry. Customer support tickets, internal docs, sales emails. Whatever your team touches daily. Three hours "
             }
           ]
         }

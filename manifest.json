@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-29T10:15:59Z",
+  "generated": "2026-03-29T16:27:28Z",
   "digests": [
     {
       "date": "2026-03-29",
@@ -27,7 +27,7 @@
       "hasPodcast": true,
       "hasInfographic": true,
       "hasVideo": true,
-      "youtubeId": "c_n_og84D1E",
+      "youtubeId": "Ihdb6BJ-7fU",
       "file": "morning-briefing-koda-2026-03-29.html"
     },
     {
@@ -261,6 +261,14 @@
       "hasVideo": false,
       "youtubeId": "",
       "file": "morning-briefing-koda-2026-03-21.html"
+    }
+  ],
+  "editorials": [
+    {
+      "date": "2026-03-28",
+      "title": "The Open-Weight Flood: Why 78% of March's AI Models Were Free",
+      "tag": "Strategy",
+      "file": "editorial/2026-03-28-open-weight-flood.html"
     }
   ]
 }

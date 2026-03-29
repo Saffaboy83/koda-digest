@@ -115,6 +115,9 @@
         .search-result-snippet { font-size: 13px; color: #c2c6d6; line-height: 1.5; }
         .search-result-snippet mark { background: rgba(173,198,255,0.25); color: #dae2fd; border-radius: 2px; padding: 0 2px; }
         .search-no-results { padding: 20px; text-align: center; color: #c2c6d6; font-size: 14px; }
+        .search-type-badge { display: inline-flex; align-items: center; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 7px; border-radius: 4px; }
+        .search-type-badge.digest { background: rgba(59,130,246,0.12); color: #60a5fa; }
+        .search-type-badge.editorial { background: rgba(139,92,246,0.12); color: #a78bfa; }
 
         /* Archive badges */
         .archive-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 9px; font-weight: 700; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px; }
@@ -177,12 +180,31 @@
             <a class="hidden md:inline text-slate-400 hover:text-slate-100 transition-colors text-sm" href="#archive">Archive</a>
         </div>
         <div class="flex items-center gap-3">
+            <div class="relative" id="topbarSearchWrap">
+                <button id="topbarSearchBtn" class="text-slate-400 hover:text-white transition-colors p-1" title="Search (Ctrl+K)">
+                    <span class="material-symbols-outlined text-xl">search</span>
+                </button>
+            </div>
             <button id="themeToggle" class="text-slate-400 hover:text-white transition-colors p-1" title="Toggle theme">
                 <span class="material-symbols-outlined text-xl">dark_mode</span>
             </button>
         </div>
     </div>
 </nav>
+
+<!-- Unified Search Overlay -->
+<div id="searchOverlay" class="fixed inset-0 z-[60] hidden" style="background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);">
+    <div class="max-w-2xl mx-auto mt-20 md:mt-32 px-4">
+        <div class="bg-[#171f33] border border-[#424754]/40 rounded-2xl shadow-2xl overflow-hidden">
+            <div class="flex items-center gap-3 px-5 py-4 border-b border-white/5">
+                <span class="material-symbols-outlined text-[#adc6ff] text-xl">search</span>
+                <input type="text" id="globalSearchInput" autocomplete="off" placeholder="Search digests and editorials..." class="flex-1 bg-transparent border-none outline-none text-base text-[#dae2fd] placeholder:text-slate-500 font-medium">
+                <kbd class="hidden md:inline text-[10px] font-mono text-slate-500 border border-slate-600 rounded px-1.5 py-0.5">ESC</kbd>
+            </div>
+            <div id="globalSearchResults" class="max-h-[60vh] overflow-y-auto"></div>
+        </div>
+    </div>
+</div>
 
 <main id="main-content" class="pt-20 md:pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
 
@@ -368,9 +390,9 @@
 
         <!-- Search -->
         <div class="relative mb-8">
-            <label for="searchInput" class="sr-only">Search all digests</label>
+            <label for="searchInput" class="sr-only">Search digests and editorials</label>
             <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl pointer-events-none">search</span>
-            <input type="text" id="searchInput" autocomplete="off" placeholder="Search all digests..." class="w-full bg-surface-container border border-outline-variant/20 rounded-xl pl-12 pr-4 py-4 text-sm text-on-surface placeholder:text-slate-500 focus:ring-1 focus:ring-[#adc6ff]/50 focus:border-[#adc6ff]/30 transition-all">
+            <input type="text" id="searchInput" autocomplete="off" placeholder="Search digests and editorials..." class="w-full bg-surface-container border border-outline-variant/20 rounded-xl pl-12 pr-4 py-4 text-sm text-on-surface placeholder:text-slate-500 focus:ring-1 focus:ring-[#adc6ff]/50 focus:border-[#adc6ff]/30 transition-all">
             <div class="search-results" id="searchResults"></div>
         </div>
 
@@ -655,45 +677,76 @@
         requestAnimationFrame(step);
     }
 
-    // ---- SEARCH ----
+    // ---- UNIFIED SEARCH ----
     var searchIndex = null;
-    var searchInput = document.getElementById('searchInput');
-    var searchResults = document.getElementById('searchResults');
+    var searchOverlay = document.getElementById('searchOverlay');
+    var globalSearchInput = document.getElementById('globalSearchInput');
+    var globalSearchResults = document.getElementById('globalSearchResults');
+    var archiveSearchInput = document.getElementById('searchInput');
+    var archiveSearchResults = document.getElementById('searchResults');
     var debounceTimer = null;
 
-    searchInput.addEventListener('input', function() {
-        clearTimeout(debounceTimer);
-        var query = searchInput.value.trim();
-        if (query.length < 2) { searchResults.classList.remove('active'); return; }
-        debounceTimer = setTimeout(function() { performSearch(query); }, 300);
+    function openSearch() {
+        searchOverlay.classList.remove('hidden');
+        globalSearchInput.value = '';
+        globalSearchResults.innerHTML = '';
+        setTimeout(function() { globalSearchInput.focus(); }, 50);
+    }
+    function closeSearch() {
+        searchOverlay.classList.add('hidden');
+        globalSearchInput.value = '';
+        globalSearchResults.innerHTML = '';
+    }
+
+    document.getElementById('topbarSearchBtn').addEventListener('click', openSearch);
+    searchOverlay.addEventListener('click', function(e) { if (e.target === searchOverlay) closeSearch(); });
+    document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+        if (e.key === 'Escape' && !searchOverlay.classList.contains('hidden')) closeSearch();
     });
 
-    searchInput.addEventListener('focus', function() {
-        if (searchInput.value.trim().length >= 2 && searchResults.innerHTML) searchResults.classList.add('active');
-    });
+    // Wire both inputs to the same search engine
+    function wireSearchInput(input, resultsEl, isOverlay) {
+        input.addEventListener('input', function() {
+            clearTimeout(debounceTimer);
+            var query = input.value.trim();
+            if (query.length < 2) { resultsEl.innerHTML = ''; if (!isOverlay) resultsEl.classList.remove('active'); return; }
+            debounceTimer = setTimeout(function() { performSearch(query, resultsEl, isOverlay); }, 200);
+        });
+    }
+    wireSearchInput(globalSearchInput, globalSearchResults, true);
+    if (archiveSearchInput) wireSearchInput(archiveSearchInput, archiveSearchResults, false);
 
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.relative')) searchResults.classList.remove('active');
-    });
+    // Also let archive input open the overlay on focus (optional: keep inline results too)
+    if (archiveSearchInput) {
+        archiveSearchInput.addEventListener('focus', function() {
+            if (archiveSearchInput.value.trim().length >= 2 && archiveSearchResults.innerHTML) archiveSearchResults.classList.add('active');
+        });
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.relative')) archiveSearchResults.classList.remove('active');
+        });
+    }
 
-    function performSearch(query) {
+    function performSearch(query, resultsEl, isOverlay) {
         if (!searchIndex) {
             fetch('./search-index.json')
                 .then(function(r) { return r.json(); })
-                .then(function(data) { searchIndex = data; doSearch(query); })
-                .catch(function() { searchResults.innerHTML = '<div class="search-no-results">Search unavailable.</div>'; searchResults.classList.add('active'); });
-        } else { doSearch(query); }
+                .then(function(data) { searchIndex = data; doSearch(query, resultsEl, isOverlay); })
+                .catch(function() { resultsEl.innerHTML = '<div class="search-no-results">Search unavailable.</div>'; if (!isOverlay) resultsEl.classList.add('active'); });
+        } else { doSearch(query, resultsEl, isOverlay); }
     }
 
-    function doSearch(query) {
+    function doSearch(query, resultsEl, isOverlay) {
         var terms = query.toLowerCase().split(/\s+/).filter(function(t) { return t.length > 0; });
-        if (terms.length === 0) { searchResults.classList.remove('active'); return; }
+        if (terms.length === 0) { resultsEl.innerHTML = ''; if (!isOverlay) resultsEl.classList.remove('active'); return; }
 
         var results = [];
-        var days = searchIndex.days || [];
-        for (var i = 0; i < days.length; i++) {
-            var day = days[i];
-            var sections = day.sections || [];
+        var entries = searchIndex.entries || searchIndex.days || [];
+        for (var i = 0; i < entries.length; i++) {
+            var entry = entries[i];
+            var entryType = entry.type || 'digest';
+            var entryFile = entry.file || findFileForDate(entry.date);
+            var sections = entry.sections || [];
             for (var j = 0; j < sections.length; j++) {
                 var section = sections[j];
                 var items = section.items || [];
@@ -703,7 +756,6 @@
                     var bodyText = (item.text || '').toLowerCase();
                     var fullText = headline + ' ' + bodyText;
 
-                    // Score: count matching terms + bonus for headline matches + partial matches
                     var score = 0;
                     var matchedTerms = 0;
                     for (var t = 0; t < terms.length; t++) {
@@ -711,10 +763,8 @@
                         if (fullText.indexOf(term) !== -1) {
                             matchedTerms++;
                             score += 10;
-                            // Bonus for headline match
                             if (headline.indexOf(term) !== -1) score += 15;
                         } else {
-                            // Partial match: check if any word in text starts with the term (prefix match)
                             var words = fullText.split(/[\s,.\-\/]+/);
                             for (var w = 0; w < words.length; w++) {
                                 if (words[w].indexOf(term) === 0 && term.length >= 3) {
@@ -727,25 +777,20 @@
                         }
                     }
 
-                    // Require at least one term to match
                     if (matchedTerms > 0) {
-                        // Bonus for matching ALL terms
                         if (matchedTerms === terms.length) score += 20;
-                        // Recency bonus (newer = higher)
-                        var dayAge = i; // index 0 = newest
-                        score -= dayAge * 2;
-                        results.push({ date: day.date, section: section.title, headline: item.headline, text: item.text, file: findFileForDate(day.date), score: score });
+                        score -= i * 2;
+                        results.push({ date: entry.date, type: entryType, section: section.title, headline: item.headline, text: item.text, file: entryFile, score: score });
                     }
                 }
             }
         }
 
-        // Sort by relevance score (highest first)
         results.sort(function(a, b) { return b.score - a.score; });
         results = results.slice(0, 20);
 
         if (results.length === 0) {
-            searchResults.innerHTML = '<div class="search-no-results">No results for "' + escapeHtml(query) + '"</div>';
+            resultsEl.innerHTML = '<div class="search-no-results">No results for "' + escapeHtml(query) + '"</div>';
         } else {
             var html = '';
             for (var r = 0; r < results.length; r++) {
@@ -753,15 +798,17 @@
                 var snippet = extractSnippet(res.text, terms[0], 80);
                 snippet = highlightTerms(snippet, terms);
                 var headlineHl = highlightTerms(escapeHtml(res.headline), terms);
-                var sectionAnchor = slugify(res.section);
-                html += '<a href="./' + res.file + '#' + sectionAnchor + '" class="search-result-item">' +
-                    '<div class="search-result-meta"><span class="search-result-date">' + formatDate(res.date) + '</span><span class="search-result-section">' + escapeHtml(res.section) + '</span></div>' +
+                var sectionAnchor = res.type === 'editorial' ? '' : slugify(res.section);
+                var href = './' + res.file + (sectionAnchor ? '#' + sectionAnchor : '');
+                var typeBadge = '<span class="search-type-badge ' + res.type + '">' + (res.type === 'editorial' ? 'Editorial' : 'Digest') + '</span>';
+                html += '<a href="' + href + '" class="search-result-item" ' + (isOverlay ? 'onclick="closeSearch()"' : '') + '>' +
+                    '<div class="search-result-meta">' + typeBadge + '<span class="search-result-date">' + formatDate(res.date) + '</span><span class="search-result-section">' + escapeHtml(res.section) + '</span></div>' +
                     '<div class="search-result-headline">' + headlineHl + '</div>' +
                     '<div class="search-result-snippet">' + snippet + '</div></a>';
             }
-            searchResults.innerHTML = html;
+            resultsEl.innerHTML = html;
         }
-        searchResults.classList.add('active');
+        if (!isOverlay) resultsEl.classList.add('active');
     }
 
     function findFileForDate(date) {
@@ -862,8 +909,8 @@
     }
 
     // ---- AUTO-FOCUS SEARCH ON #archive ----
-    if (window.location.hash === '#archive' && searchInput) {
-        setTimeout(function() { searchInput.focus(); }, 500);
+    if (window.location.hash === '#archive' && archiveSearchInput) {
+        setTimeout(function() { archiveSearchInput.focus(); }, 500);
     }
 
     // ---- STICKY MOBILE CTA ----

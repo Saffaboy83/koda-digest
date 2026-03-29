@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-Build manifest.json and search-index.json from dated Koda digest HTML files.
+Build manifest.json and search-index.json from dated Koda digest HTML files
+and editorial articles.
 
 Uses Python stdlib only (no pip installs). Parses all
-morning-briefing-koda-YYYY-MM-DD.html files and extracts metadata
-for the archive browser and searchable text for cross-day search.
+morning-briefing-koda-YYYY-MM-DD.html files + editorial/*.html articles
+and extracts metadata for the archive browser and unified searchable text.
 
 Usage:
     python build-index.py
@@ -313,14 +314,115 @@ def parse_html_file(filepath):
     return manifest_entry, search_entry
 
 
+def parse_editorial_file(filepath: str) -> dict | None:
+    """Parse an editorial HTML file and return a search entry with type='editorial'."""
+    basename = os.path.basename(filepath)
+    # Skip template and index files
+    if basename in ("template-editorial.html", "index.html"):
+        return None
+
+    with open(filepath, "r", encoding="utf-8") as f:
+        html = f.read()
+
+    # Extract date from filename (YYYY-MM-DD-slug.html)
+    date_match = re.search(r"(\d{4}-\d{2}-\d{2})", basename)
+    if not date_match:
+        # Try datePublished from JSON-LD
+        ld_match = re.search(r'"datePublished"\s*:\s*"(\d{4}-\d{2}-\d{2})"', html)
+        if not ld_match:
+            return None
+        date_str = ld_match.group(1)
+    else:
+        date_str = date_match.group(1)
+
+    # Extract title from <h1 class="hero-title">
+    title_match = re.search(
+        r'class="hero-title"[^>]*>(.*?)</h1>', html, re.DOTALL
+    )
+    title = strip_html(title_match.group(1)) if title_match else ""
+
+    # Extract subtitle/description from hero-subtitle
+    subtitle_match = re.search(
+        r'class="hero-subtitle"[^>]*>(.*?)</p>', html, re.DOTALL
+    )
+    subtitle = strip_html(subtitle_match.group(1)) if subtitle_match else ""
+
+    # Extract tag (e.g., "Strategy")
+    tag_match = re.search(r'class="tag"[^>]*>(.*?)</span>', html, re.DOTALL)
+    tag = strip_html(tag_match.group(1)) if tag_match else ""
+
+    # Extract article body sections by h2/h3 headings
+    body_match = re.search(
+        r'<article\s+class="article-body">(.*?)</article>', html, re.DOTALL
+    )
+    if not body_match:
+        # Fallback: just index the title + subtitle
+        return {
+            "date": date_str,
+            "type": "editorial",
+            "file": "editorial/" + basename,
+            "title": title,
+            "tag": tag,
+            "sections": [
+                {
+                    "title": title,
+                    "items": [{"headline": title, "text": subtitle}],
+                }
+            ],
+        }
+
+    body_html = body_match.group(1)
+
+    # Split body into sections by h2 headings
+    sections: list[dict] = []
+    # Find all h2/h3 positions
+    heading_pattern = re.compile(
+        r"<(h[23])[^>]*>(.*?)</\1>", re.DOTALL
+    )
+    headings = [(m.start(), m.end(), strip_html(m.group(2))) for m in heading_pattern.finditer(body_html)]
+
+    # Collect paragraphs before the first heading as intro
+    if headings:
+        intro_html = body_html[: headings[0][0]]
+    else:
+        intro_html = body_html
+
+    intro_paras = re.findall(r"<p[^>]*>(.*?)</p>", intro_html, re.DOTALL)
+    intro_text = " ".join(strip_html(p) for p in intro_paras).strip()
+    if intro_text:
+        sections.append({
+            "title": "Introduction",
+            "items": [{"headline": title, "text": intro_text[:500]}],
+        })
+
+    # Process each heading section
+    for i, (start, end, heading_text) in enumerate(headings):
+        next_start = headings[i + 1][0] if i + 1 < len(headings) else len(body_html)
+        section_html = body_html[end:next_start]
+        paras = re.findall(r"<p[^>]*>(.*?)</p>", section_html, re.DOTALL)
+        text = " ".join(strip_html(p) for p in paras).strip()
+        if text:
+            sections.append({
+                "title": heading_text,
+                "items": [{"headline": heading_text, "text": text[:500]}],
+            })
+
+    return {
+        "date": date_str,
+        "type": "editorial",
+        "file": "editorial/" + basename,
+        "title": title,
+        "tag": tag,
+        "sections": sections,
+    }
+
+
 def main():
     base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # --- Digests ---
     pattern = os.path.join(base_dir, "morning-briefing-koda-????-??-??.html")
     files = sorted(glob.glob(pattern), reverse=True)
-
-    if not files:
-        print("No dated digest HTML files found.")
-        return
 
     print(f"Found {len(files)} digest file(s)")
 
@@ -331,23 +433,51 @@ def main():
         print(f"  Parsing {os.path.basename(filepath)}...")
         manifest_entry, search_entry = parse_html_file(filepath)
         manifest_entries.append(manifest_entry)
+        # Tag digest search entries
+        search_entry["type"] = "digest"
+        search_entry["file"] = manifest_entry["file"]
         search_entries.append(search_entry)
+
+    # --- Editorials ---
+    editorial_dir = os.path.join(base_dir, "editorial")
+    editorial_files = sorted(
+        glob.glob(os.path.join(editorial_dir, "????-??-??-*.html")), reverse=True
+    )
+
+    print(f"Found {len(editorial_files)} editorial file(s)")
+
+    editorial_entries = []
+    for filepath in editorial_files:
+        print(f"  Parsing editorial/{os.path.basename(filepath)}...")
+        entry = parse_editorial_file(filepath)
+        if entry:
+            search_entries.append(entry)
+            editorial_entries.append({
+                "date": entry["date"],
+                "title": entry["title"],
+                "tag": entry.get("tag", ""),
+                "file": entry["file"],
+            })
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
-    # Write manifest.json
-    manifest = {"generated": now, "digests": manifest_entries}
+    # Write manifest.json (digests + editorials)
+    manifest = {
+        "generated": now,
+        "digests": manifest_entries,
+        "editorials": editorial_entries,
+    }
     manifest_path = os.path.join(base_dir, "manifest.json")
     with open(manifest_path, "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2, ensure_ascii=False)
-    print(f"Wrote {manifest_path} ({len(manifest_entries)} entries)")
+    print(f"Wrote {manifest_path} ({len(manifest_entries)} digests, {len(editorial_entries)} editorials)")
 
-    # Write search-index.json
-    search_index = {"generated": now, "days": search_entries}
+    # Write search-index.json (unified: digests + editorials, each tagged with type)
+    search_index = {"generated": now, "entries": search_entries}
     search_path = os.path.join(base_dir, "search-index.json")
     with open(search_path, "w", encoding="utf-8") as f:
         json.dump(search_index, f, indent=2, ensure_ascii=False)
-    print(f"Wrote {search_path} ({len(search_entries)} days)")
+    print(f"Wrote {search_path} ({len(search_entries)} entries)")
 
 
 if __name__ == "__main__":
