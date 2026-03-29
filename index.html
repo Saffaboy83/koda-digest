@@ -786,7 +786,7 @@
             }
         }
 
-        results.sort(function(a, b) { return b.score - a.score; });
+        results.sort(function(a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : b.score - a.score; });
         results = results.slice(0, 20);
 
         if (results.length === 0) {
