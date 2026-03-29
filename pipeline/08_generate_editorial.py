@@ -40,6 +40,10 @@ PERPLEXITY_URL = "https://api.perplexity.ai/chat/completions"
 PERPLEXITY_MODEL = "sonar-pro"
 PERPLEXITY_API_KEY = os.environ.get("PERPLEXITY_API_KEY", "")
 
+LEONARDO_API_KEY = os.environ.get("LEONARDO_API_KEY", "")
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
+SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
+
 EXPERT_ROUTING = {
     "tools": "Jack Roberts",
     "automation": "Jack Roberts",
@@ -346,6 +350,155 @@ def fact_check_article(article: str) -> tuple[str, list[dict]]:
             log.append({"claim": claim, "verdict": "UNVERIFIABLE", "detail": "Perplexity unavailable"})
 
     return corrected, log
+
+
+# ── Step 05E: Hero Image ─────────────────────────────────────────────────────
+
+_TAG_SUBJECTS: dict[str, str] = {
+    "strategy":   "a cathedral of crystalline data pillars rising into deep space, one beam of violet light cutting through the darkness",
+    "tools":      "an intricate network of glowing API nodes and data pipelines converging at a single supernova-bright point",
+    "automation": "streams of light-coded instructions flowing through a dark geometric lattice, executing in perfect parallel",
+    "markets":    "cascading golden data particles falling through dark angular architecture like a digital waterfall",
+    "ai":         "a fractal neural network branching outward from a luminous core, each node pulsing with violet energy",
+    "leadership": "towering abstract structures ascending through dark volumetric fog toward a single point of light",
+    "saas":       "interconnected orbital rings of data spinning around a glowing infrastructure core in deep space",
+    "content":    "flowing luminescent ribbons of light weaving through a dark infinite canvas",
+    "sales":      "bold geometric forms erupting from darkness with amber and blue light, conveying momentum and impact",
+    "investing":  "long-exposure light trails tracing upward arcs through a dark mathematical landscape",
+}
+
+
+def generate_editorial_hero(topic: dict, date: str) -> str | None:
+    """Generate a hero image for the editorial via Leonardo.ai. Returns URL or None."""
+    import time
+
+    hero_filename = f"editorial-hero-{date}.jpg"
+    hero_path = DIGEST_DIR / hero_filename
+
+    if not LEONARDO_API_KEY:
+        print("  WARNING: No LEONARDO_API_KEY, skipping hero image")
+        return None
+
+    if hero_path.exists():
+        print(f"  Hero image already exists: {hero_filename}")
+    else:
+        tag = (topic.get("tag", "") or "").lower()
+        subject = _TAG_SUBJECTS.get(tag)
+
+        # Fall back to keyword scan of the topic text
+        if not subject:
+            topic_text = (topic.get("topic", "") or "").lower()
+            for key, subj in _TAG_SUBJECTS.items():
+                if key in topic_text:
+                    subject = subj
+                    break
+        if not subject:
+            subject = _TAG_SUBJECTS["ai"]
+
+        image_prompt = (
+            f"Cinematic digital art: {subject}. "
+            f"Dark moody atmosphere, deep shadows, volumetric lighting, rich contrast. "
+            f"Color palette: deep navy, electric blue, violet purple, subtle cyan accents. "
+            f"Wide composition, no people, no faces, no bodies, no hands. "
+            f"Absolutely NO text, NO words, NO labels, NO numbers, NO letters, NO typography anywhere. "
+            f"Clean abstract visual only. Photorealistic 3D render, dramatic cinematic lighting."
+        )
+
+        print(f"  Generating editorial hero via Leonardo.ai...")
+
+        headers = {
+            "authorization": f"Bearer {LEONARDO_API_KEY}",
+            "Content-Type": "application/json",
+            "accept": "application/json",
+        }
+        payload = {
+            "model": "gemini-2.5-flash-image",
+            "parameters": {
+                "width": 1024,
+                "height": 576,
+                "prompt": image_prompt,
+                "quantity": 1,
+                "style_ids": ["111dc692-d470-4eec-b791-3475abac4c46"],
+                "prompt_enhance": "OFF",
+            },
+            "public": False,
+        }
+
+        try:
+            resp = httpx.post(
+                "https://cloud.leonardo.ai/api/rest/v2/generations",
+                json=payload, headers=headers, timeout=30,
+            )
+            resp.raise_for_status()
+            generation_id = resp.json().get("generate", {}).get("generationId")
+            if not generation_id:
+                print(f"  WARNING: No generation ID returned: {resp.json()}")
+                return None
+
+            poll_url = f"https://cloud.leonardo.ai/api/rest/v1/generations/{generation_id}"
+            for attempt in range(30):
+                time.sleep(3)
+                poll = httpx.get(poll_url, headers=headers, timeout=15)
+                poll.raise_for_status()
+                gen = poll.json().get("generations_by_pk", {})
+                state = gen.get("status", "")
+
+                if state == "COMPLETE":
+                    images = gen.get("generated_images", [])
+                    if not images:
+                        print("  WARNING: Generation complete but no images returned")
+                        return None
+                    img_data = httpx.get(images[0]["url"], timeout=30)
+                    img_data.raise_for_status()
+                    with open(hero_path, "wb") as f:
+                        f.write(img_data.content)
+                    size_kb = hero_path.stat().st_size // 1024
+                    print(f"  Hero image saved: {hero_filename} ({size_kb}KB)")
+                    break
+                elif state == "FAILED":
+                    print("  WARNING: Leonardo generation failed")
+                    return None
+                if attempt % 5 == 4:
+                    print(f"    Still generating... ({(attempt + 1) * 3}s)")
+            else:
+                print("  WARNING: Leonardo generation timed out after 90s")
+                return None
+
+        except Exception as e:
+            print(f"  WARNING: Hero image generation failed: {e}")
+            if hero_path.exists():
+                hero_path.unlink()
+            return None
+
+    # Upload to Supabase
+    if SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY and hero_path.exists():
+        try:
+            upload_url = f"{SUPABASE_URL}/storage/v1/object/koda-media/{hero_filename}"
+            with open(hero_path, "rb") as f:
+                img_bytes = f.read()
+            upload_resp = httpx.put(
+                upload_url,
+                content=img_bytes,
+                headers={
+                    "apikey": SUPABASE_SERVICE_ROLE_KEY,
+                    "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
+                    "Content-Type": "image/jpeg",
+                    "x-upsert": "true",
+                },
+                timeout=30,
+            )
+            upload_resp.raise_for_status()
+            public_url = f"{SUPABASE_URL}/storage/v1/object/public/koda-media/{hero_filename}"
+            print(f"  Uploaded to Supabase: {public_url}")
+            return public_url
+        except Exception as e:
+            print(f"  WARNING: Supabase upload failed: {e}")
+
+    # Relative fallback (served by Vercel)
+    if hero_path.exists():
+        return f"../{hero_filename}"
+
+    return None
 
 
 # ── Step 06E: Render HTML ────────────────────────────────────────────────────
@@ -686,11 +839,19 @@ def main() -> None:
     verified = sum(1 for f in fact_log if f["verdict"] == "VERIFIED")
     print(f"  Checked {len(fact_log)} claims, {verified} verified")
 
+    # Step 05E: Hero image
+    print("\n  Step 05E: Generating hero image...")
+    hero_url = generate_editorial_hero(topic, args.date)
+    if hero_url:
+        print(f"  Hero URL: {hero_url}")
+    else:
+        print("  No hero image (skipped or failed)")
+
     # Step 06E: Render HTML
     print("\n  Step 06E: Rendering HTML...")
     slug = slugify(topic.get("topic", "editorial"))
     filename = f"{args.date}-{slug}.html"
-    html = render_html(article, topic, args.date)
+    html = render_html(article, topic, args.date, hero_url=hero_url)
 
     if not html:
         print("  ERROR: HTML rendering failed")
@@ -715,6 +876,7 @@ def main() -> None:
         "tag": topic.get("tag", ""),
         "expert_overlay": topic.get("expert_overlay", ""),
         "word_count": word_count,
+        "hero_url": hero_url or "",
         "fact_check": {"claims_checked": len(fact_log), "verified": verified},
     }
     write_json("editorial-status.json", status)

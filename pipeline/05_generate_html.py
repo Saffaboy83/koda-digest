@@ -307,6 +307,7 @@ def generate_html(digest, media_status, date):
 
     has_podcast, has_infographic = check_media(date, media_status)
     has_hero_image = generate_hero_image(digest, date)
+    editorial_status = read_json("editorial-status.json")
 
     context = {
         # Metadata
@@ -322,6 +323,13 @@ def generate_html(digest, media_status, date):
         "has_hero_image": has_hero_image,
         "podcast_url": media_url(f"podcast-{date}.mp3"),
         "infographic_url": media_url(f"infographic-{date}.jpg"),
+
+        # Editorial (from step 04E — only set if it ran successfully today)
+        "editorial": editorial_status if (
+            editorial_status
+            and editorial_status.get("success")
+            and editorial_status.get("date") == date
+        ) else None,
 
         # Content sections (passed directly from JSON)
         "summary": digest.get("summary", {}),
