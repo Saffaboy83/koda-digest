@@ -1,33 +1,33 @@
 {
-  "generated": "2026-03-29T16:27:28Z",
+  "generated": "2026-03-29T18:11:59Z",
   "digests": [
     {
       "date": "2026-03-29",
       "dayOfWeek": "Sunday",
       "focusTopics": [
         {
-          "title": "Million-Token Context Wars",
-          "desc": "GPT-5.4's million-token context window sets a new commercial benchmark, but the real story is convergence: DeepSeek V4 and Qwen3.5 are closing capability gaps at unprecedented speed. Open-weight releases from NVIDIA and Alibaba mean frontier-level context handling is no longer locked behind proprietary APIs. The competitive moat for any single lab is shrinking by the week."
+          "title": "Q1 Model Surge Hits 255",
+          "desc": "The first quarter of 2026 set a record with 255 model releases, reflecting an industry-wide sprint to ship. Mistral Small 4 posted a notable 0.7 on the GPQA benchmark, proving that smaller labs continue to close the gap with frontier players. The sheer volume raises questions about evaluation fatigue and whether downstream users can meaningfully assess this many options."
         },
         {
-          "title": "Middle East Conflict Widens",
-          "desc": "Houthi missile strikes on Israel, Iranian attacks on Saudi infrastructure, and a fresh US Marine deployment signal a conflict expanding well beyond Gaza. Global shipping routes through the Red Sea face renewed disruption, compounding the economic anxiety already visible in market sentiment. The involvement of state and non-state actors across multiple countries raises the risk of a broader regional war."
+          "title": "OpenAI's Safety Governance Push",
+          "desc": "OpenAI expanded its bug bounty program to cover AI safety vulnerabilities and simultaneously published a Model Spec behavior framework. Together, these moves formalize external accountability in ways the company has long promised but rarely operationalized. The framework could become a de facto industry template if regulators reference it in upcoming policy guidance."
         },
         {
-          "title": "Fear Meets Frontier Innovation",
-          "desc": "Extreme Fear in markets typically suppresses venture funding and enterprise procurement, yet March 2026 has produced the densest cluster of major model releases in AI history. This disconnect suggests labs are racing to establish dominance before a potential economic downturn constrains spending. Companies evaluating adoption face a paradox: the best models ever built are arriving at the worst possible moment for budget approvals."
+          "title": "Meta Bets on Neuroscience AI",
+          "desc": "TRIBE v2 applies foundation model techniques to neuroscience data, positioning Meta at the intersection of brain science and generative AI. The release suggests Meta is diversifying beyond consumer-facing models into high-value scientific applications. If the model gains traction in clinical or research settings, it could open a new revenue stream entirely separate from advertising."
         }
       ],
       "kpis": {
-        "aiStories": "11",
-        "worldEvents": "6",
+        "aiStories": "8",
+        "worldEvents": "7",
         "marketMood": "Extreme Fear",
         "toolsFeatured": "6"
       },
       "hasPodcast": true,
       "hasInfographic": true,
       "hasVideo": true,
-      "youtubeId": "Ihdb6BJ-7fU",
+      "youtubeId": "2_ERgrS1kZQ",
       "file": "morning-briefing-koda-2026-03-29.html"
     },
     {

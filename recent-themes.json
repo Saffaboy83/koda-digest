@@ -1,23 +1,50 @@
 {
   "2026-03-29": {
-    "hook": "OpenAI's million-token GPT-5.4 drops into a world where trillion-parameter rivals and regional war collide.",
+    "hook": "Record-breaking model releases flood Q1 as neuroscience, safety, and geopolitical chaos reshape the AI landscape simultaneously.",
     "top_themes": [
-      "Million-Token Context Wars",
-      "Middle East Conflict Widens",
-      "Fear Meets Frontier Innovation"
+      "Q1 Model Surge Hits 255",
+      "OpenAI's Safety Governance Push",
+      "Meta Bets on Neuroscience AI"
     ],
     "top_stories": [
-      "OpenAI Launches GPT-5.4 With Million-Token Context",
-      "DeepSeek V4 Arrives With Trillion Parameters",
-      "Alibaba Ships Qwen3.5 Up to 397B Parameters",
-      "Houthis Launch Missile at Israel, Widening War",
-      "US Marines Deploy to Middle East"
+      "Meta Releases TRIBE v2 Neuroscience Foundation Model",
+      "OpenAI Expands Bug Bounty to AI Safety",
+      "OpenAI Publishes Model Spec Behavior Framework",
+      "Q1 2026 Model Releases Hit Record 255",
+      "Mistral Small 4 Posts 0.7 GPQA Score",
+      "Brain-AI Interface Models Enter Mainstream Research",
+      "GPQA Benchmark Becomes Frontier Standard Measure",
+      "AI Safety Bounties Signal Regulatory Anticipation",
+      "Trump Postpones Iran Strikes, Claims Victory",
+      "Air Strikes Damage Historic Palace in Tehran",
+      "Colombian Military Plane Crash Kills 69",
+      "Air Canada Jet Hits Truck at LaGuardia",
+      "Lukashenko Makes First Visit to North Korea",
+      "UN Council Condemns Iran, Demands Reparations",
+      "Texas Refinery Incident Triggers Shelter-in-Place Order"
+    ],
+    "source_urls": [
+      "https://radicaldatascience.wordpress.com/2026/03/26/ai-news-briefs-bulletin-board-for-march-2026/",
+      "https://radicaldatascience.wordpress.com/2026/03/26/ai-news-briefs-bulletin-board-for-march-2026/",
+      "https://radicaldatascience.wordpress.com/2026/03/26/ai-news-briefs-bulletin-board-for-march-2026/",
+      "https://llm-stats.com/llm-updates",
+      "https://llm-stats.com/llm-updates",
+      "https://radicaldatascience.wordpress.com/2026/03/26/ai-news-briefs-bulletin-board-for-march-2026/",
+      "https://llm-stats.com/llm-updates",
+      "https://radicaldatascience.wordpress.com/2026/03/26/ai-news-briefs-bulletin-board-for-march-2026/",
+      "https://www.youtube.com/watch?v=IRrBa0KXbhM",
+      "https://www.youtube.com/watch?v=IRrBa0KXbhM",
+      "https://www.youtube.com/watch?v=IRrBa0KXbhM",
+      "https://www.youtube.com/watch?v=IRrBa0KXbhM",
+      "https://www.youtube.com/watch?v=IRrBa0KXbhM",
+      "https://www.youtube.com/watch?v=IRrBa0KXbhM",
+      "https://www.youtube.com/watch?v=IRrBa0KXbhM"
     ],
     "story_angles": [
-      "OpenAI launched GPT-5.4 with a million-token context window, but DeepSeek V4's t",
-      "Houthi forces fired a missile at Israel while Iranian strikes hit a Saudi milita",
-      "Sentiment sits at Extreme Fear as escalating regional warfare and supply chain u",
-      "Iran's threat of retaliation against US universities could disrupt the academic "
+      "Meta unveiled TRIBE v2, a neuroscience foundation model that bridges brain imagi",
+      "Trump postponed planned strikes on Iran and claimed diplomatic victory, even as ",
+      "Sentiment sits at Extreme Fear, with investors rattled by escalating Middle East",
+      "Lukashenko's first-ever visit to North Korea hints at a deepening authoritarian "
     ]
   },
   "2026-03-28": {
