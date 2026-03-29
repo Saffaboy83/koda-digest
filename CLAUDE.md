@@ -162,11 +162,17 @@ Compresses ~42MB m4a to ~11MB mp3 (64kbps mono, 22050Hz). Voice audio doesn't ne
 ```
 Authenticated as Saffaboy83. Used for creating releases (legacy) and general GitHub operations.
 
-### Newsletter Email: Auto-send via Chrome
-- No `gmail_send_draft` MCP tool exists
-- **Workaround**: Create draft via `gmail_create_draft`, then navigate to Gmail in Chrome and click Send
-- Voice profile: Punchy, direct, Hormozi-style ("Look.", "The reality is,", imperatives)
+### Newsletter Email: Gmail API (automated in pipeline)
+- Step 07 sends via Gmail API with OAuth token (no Chrome needed)
+- Premium dark-mode HTML email matching the site's design system
 - Distribution list: cazmarincowitz@outlook.com, markmarincowitz9@gmail.com, charlene@vanillasky.co.za, Arno_marincowitz@yahoo.co.uk, saffaboyjm@gmail.com
+
+### Email Signup: Beehiiv
+- Publication: koda.beehiiv.com (slug: "koda")
+- Embed forms use a Vercel serverless function (`/api/subscribe`) that proxies to Beehiiv API
+- Keeps the custom inline form design (no Beehiiv iframe)
+- Env vars: `BEEHIIV_API_KEY`, `BEEHIIV_PUBLICATION_ID`
+- Forms in: `index.html` (3 locations), `templates/briefing.html` (1 location)
 
 ### All External Links: target="_blank"
 - Every `<a href>` in the HTML dashboard opens in a new tab

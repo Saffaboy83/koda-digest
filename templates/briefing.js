@@ -162,3 +162,29 @@ if (window.location.hash) {
         }
     });
 })();
+
+/* ── Beehiiv Subscribe ──────────────────────────────────────── */
+function kodaSubscribe(form) {
+    var btn = form.querySelector('button');
+    var email = form.querySelector('input[name="email"]').value;
+    btn.textContent = 'Subscribing...';
+    btn.disabled = true;
+    fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+    }).then(function(r) {
+        if (r.ok) {
+            btn.textContent = 'Subscribed!';
+            btn.style.background = '#10B981';
+            form.querySelector('input[name="email"]').value = '';
+        } else {
+            btn.textContent = 'Try again';
+            btn.disabled = false;
+        }
+    }).catch(function() {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+    });
+    return false;
+}

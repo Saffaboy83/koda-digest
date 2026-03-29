@@ -201,8 +201,7 @@
         </p>
 
         <!-- Email Subscribe -->
-        <form action="https://buttondown.com/api/emails/embed-subscribe/arno" method="post" class="max-w-md mx-auto flex gap-2 p-1.5 rounded-full bg-surface-container border border-outline-variant/20 mb-6" onsubmit="this.querySelector('button').textContent='Subscribing...'">
-            <input type="hidden" value="1" name="embed">
+        <form class="max-w-md mx-auto flex gap-2 p-1.5 rounded-full bg-surface-container border border-outline-variant/20 mb-6" onsubmit="return kodaSubscribe(this)">
             <input type="email" name="email" required class="bg-transparent border-none focus:ring-0 text-on-surface px-6 w-full text-sm placeholder:text-slate-500" placeholder="Enter your email">
             <button type="submit" class="btn-gradient text-white px-8 py-3 rounded-full font-bold text-sm whitespace-nowrap active:scale-95 transition-all">Subscribe</button>
         </form>
@@ -408,8 +407,7 @@
     <section class="text-center py-16 border-t border-white/5 animate-in">
         <h3 class="text-xl font-bold text-on-surface mb-2">Like what you see?</h3>
         <p class="text-on-surface-variant mb-8">Get tomorrow's brief delivered to your inbox.</p>
-        <form action="https://buttondown.com/api/emails/embed-subscribe/arno" method="post" class="max-w-md mx-auto flex gap-2 p-1.5 rounded-full bg-surface-container border border-outline-variant/20" onsubmit="this.querySelector('button').textContent='Subscribing...'">
-            <input type="hidden" value="1" name="embed">
+        <form class="max-w-md mx-auto flex gap-2 p-1.5 rounded-full bg-surface-container border border-outline-variant/20" onsubmit="return kodaSubscribe(this)">
             <input type="email" name="email" required class="bg-transparent border-none focus:ring-0 text-on-surface px-6 w-full text-sm placeholder:text-slate-500" placeholder="your@email.com">
             <button type="submit" class="btn-gradient text-white px-8 py-3 rounded-full font-bold text-sm whitespace-nowrap active:scale-95 transition-all">Subscribe</button>
         </form>
@@ -861,12 +859,39 @@
     }
 
 })();
+
+function kodaSubscribe(form) {
+    var btn = form.querySelector('button');
+    var emailInput = form.querySelector('input[name="email"]');
+    var email = emailInput.value;
+    btn.textContent = 'Subscribing...';
+    btn.disabled = true;
+    fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+    }).then(function(r) {
+        if (r.ok) {
+            btn.textContent = 'Subscribed!';
+            btn.style.background = '#10B981';
+            emailInput.value = '';
+            var bar = document.getElementById('mobileCta');
+            if (bar) setTimeout(function() { bar.classList.add('dismissed'); }, 1500);
+        } else {
+            btn.textContent = 'Try again';
+            btn.disabled = false;
+        }
+    }).catch(function() {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+    });
+    return false;
+}
 </script>
 
 <!-- Sticky Mobile CTA Bar -->
 <div class="mobile-cta-bar" id="mobileCta">
-    <form action="https://buttondown.com/api/emails/embed-subscribe/arno" method="post" class="flex items-center gap-2 w-full" onsubmit="this.querySelector('button').textContent='Done!'; var bar=document.getElementById('mobileCta'); setTimeout(function(){bar.classList.add('dismissed')},1500)">
-        <input type="hidden" value="1" name="embed">
+    <form class="flex items-center gap-2 w-full" onsubmit="return kodaSubscribe(this)">
         <input type="email" name="email" required class="bg-surface-container border border-outline-variant/20 rounded-full px-4 py-2.5 text-sm text-on-surface flex-1 min-w-0 placeholder:text-slate-500 focus:ring-1 focus:ring-[#adc6ff]/50 focus:border-[#adc6ff]/30" placeholder="your@email.com">
         <button type="submit" class="btn-gradient text-white px-5 py-2.5 rounded-full font-bold text-xs whitespace-nowrap active:scale-95 transition-all">Subscribe</button>
     </form>

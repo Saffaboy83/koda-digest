@@ -43,104 +43,203 @@ def build_email_subject(digest):
 
 
 def build_email_html(digest, media_status):
-    """Generate the newsletter email HTML body."""
+    """Generate the newsletter email HTML body with premium dark-mode design."""
     date_label = digest.get("date_label", digest["date"])
     date = digest.get("date", "")
     summary = digest.get("summary", {})
     hook = summary.get("hook", "Your daily AI intelligence briefing is ready.")
     markets = digest.get("markets", {})
     media = media_status.get("media", {}) if media_status else {}
+    ai_news = digest.get("ai_news", [])[:3]
+    world_news = digest.get("world_news", [])[:2]
 
-    # Build briefs section
+    # Brief cards with color-coded left borders (matching site)
+    brief_colors = {"ai": "#3B82F6", "world": "#EF4444", "markets": "#10B981", "wildcard": "#F59E0B"}
     briefs_html = ""
     for brief in summary.get("briefs", []):
-        briefs_html += f"""<tr>
-          <td style="padding:6px 12px;font-weight:700;color:#3B82F6;width:80px">{brief['label']}</td>
-          <td style="padding:6px 12px;color:#CBD5E1">{brief['text']}</td>
-        </tr>"""
+        color = brief_colors.get(brief.get("icon", ""), "#3B82F6")
+        label = brief.get("label", "")
+        text = brief.get("text", "")
+        briefs_html += f"""<tr><td style="padding:0 0 8px 0">
+          <table width="100%" cellpadding="0" cellspacing="0" style="background:#131B2E;border-left:3px solid {color}">
+            <tr>
+              <td style="padding:12px 16px">
+                <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:{color}">{label}</span>
+                <p style="margin:4px 0 0;font-size:14px;color:#C2C6D6;line-height:1.5">{text}</p>
+              </td>
+            </tr>
+          </table>
+        </td></tr>"""
 
-    # Build market table
-    market_rows = ""
-    ticker_map = {"sp500": "S&P 500", "nasdaq": "NASDAQ", "btc": "Bitcoin",
-                  "eth": "Ethereum", "oil": "Oil Brent", "sentiment": "Sentiment"}
+    # Market ticker row (compact 3-column layout)
+    ticker_map = {"sp500": "S&P", "nasdaq": "NDX", "btc": "BTC",
+                  "eth": "ETH", "oil": "Oil", "sentiment": "Mood"}
+    market_cells = ""
     for key, label in ticker_map.items():
         data = markets.get(key, {})
         if isinstance(data, dict):
             price = data.get("price", data.get("value", "N/A"))
             change = data.get("change", data.get("label", ""))
-            color = "#10B981" if "+" in str(change) else "#EF4444" if "-" in str(change) else "#94A3B8"
-            market_rows += f"""<tr>
-              <td style="padding:6px 12px;color:#E2E8F0;font-weight:600">{label}</td>
-              <td style="padding:6px 12px;color:#E2E8F0;text-align:right">{price}</td>
-              <td style="padding:6px 12px;color:{color};text-align:right">{change}</td>
-            </tr>"""
+            direction = data.get("direction", "neutral")
+            color = "#10B981" if direction == "up" else "#EF4444" if direction == "down" else "#F59E0B"
+            market_cells += f"""<td style="padding:8px 4px;text-align:center;width:33%">
+              <span style="display:block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#8C909F">{label}</span>
+              <span style="display:block;font-size:13px;font-weight:700;color:#E2E8F0;font-family:'Courier New',monospace">{price}</span>
+              <span style="display:block;font-size:10px;font-family:'Courier New',monospace;color:{color}">{change}</span>
+            </td>"""
+
+    # Split market cells into 2 rows of 3
+    market_items = list(ticker_map.items())
+    market_row1 = ""
+    market_row2 = ""
+    for i, (key, label) in enumerate(market_items):
+        data = markets.get(key, {})
+        if isinstance(data, dict):
+            price = data.get("price", data.get("value", "N/A"))
+            change = data.get("change", data.get("label", ""))
+            direction = data.get("direction", "neutral")
+            color = "#10B981" if direction == "up" else "#EF4444" if direction == "down" else "#F59E0B"
+            cell = f"""<td style="padding:10px 4px;text-align:center;width:33%;background:#131B2E">
+              <span style="display:block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#8C909F;margin-bottom:2px">{label}</span>
+              <span style="display:block;font-size:14px;font-weight:700;color:#E2E8F0;font-family:'Courier New',monospace">{price}</span>
+              <span style="display:block;font-size:11px;font-family:'Courier New',monospace;color:{color}">{change}</span>
+            </td>"""
+            if i < 3:
+                market_row1 += cell
+            else:
+                market_row2 += cell
+
+    # Top stories preview (drives click-through)
+    stories_html = ""
+    cat_colors = {
+        "Model Release": "#3B82F6", "Benchmark": "#8B5CF6", "Agents": "#6366F1",
+        "Hardware": "#F59E0B", "Enterprise": "#10B981", "Policy": "#EF4444",
+        "Conflict": "#EF4444", "Diplomacy": "#3B82F6", "Economy": "#10B981",
+    }
+    for story in (ai_news + world_news)[:4]:
+        cat = story.get("category", "")
+        color = cat_colors.get(cat, "#3B82F6")
+        title = story.get("title", "")
+        body = story.get("body", "")
+        if len(body) > 120:
+            body = body[:117] + "..."
+        stories_html += f"""<tr><td style="padding:0 0 8px 0">
+          <table width="100%" cellpadding="0" cellspacing="0" style="background:#131B2E">
+            <tr><td style="padding:14px 16px">
+              <span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:{color};background:rgba(59,130,246,0.08);padding:2px 8px;display:inline-block;margin-bottom:6px">{cat}</span>
+              <p style="margin:0 0 4px;font-size:15px;font-weight:700;color:#E2E8F0">{title}</p>
+              <p style="margin:0;font-size:13px;color:#94A3B8;line-height:1.4">{body}</p>
+            </td></tr>
+          </table>
+        </td></tr>"""
 
     # Media buttons
-    media_buttons = ""
+    media_html = ""
+    podcast_url = ""
+    yt_url = ""
     if media.get("podcast"):
         podcast_url = f"{SUPABASE_URL}/storage/v1/object/public/koda-media/podcast-{date}.mp3" if SUPABASE_URL else f"https://www.koda.community/podcast-{date}.mp3"
-        media_buttons += f"""<a href="{podcast_url}"
-          style="display:inline-block;padding:12px 24px;background:#8B5CF6;color:white;
-          text-decoration:none;border-radius:8px;font-weight:700;margin:4px">
-          Listen to Podcast</a>"""
 
-    # Check for YouTube video
     video_result_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "youtube-result.json")
     if os.path.exists(video_result_path):
         try:
             with open(video_result_path, "r") as f:
                 vr = json.load(f)
             yt_url = vr.get("url", "")
-            if yt_url:
-                media_buttons += f"""<a href="{yt_url}"
-                  style="display:inline-block;padding:12px 24px;background:#EF4444;color:white;
-                  text-decoration:none;border-radius:8px;font-weight:700;margin:4px">
-                  Watch Video</a>"""
         except Exception:
             pass
 
+    if podcast_url or yt_url:
+        buttons = ""
+        if podcast_url:
+            buttons += f"""<td style="padding:0 4px;width:50%">
+              <a href="{podcast_url}" style="display:block;padding:14px 8px;background:#6366F1;color:white;text-decoration:none;text-align:center;font-weight:700;font-size:13px">&#9654; Listen to Podcast</a>
+            </td>"""
+        if yt_url:
+            buttons += f"""<td style="padding:0 4px;width:50%">
+              <a href="{yt_url}" style="display:block;padding:14px 8px;background:#EC4899;color:white;text-decoration:none;text-align:center;font-weight:700;font-size:13px">&#9654; Watch Video</a>
+            </td>"""
+        media_html = f"""<tr><td style="padding:0 24px 20px">
+          <table width="100%" cellpadding="0" cellspacing="0"><tr>{buttons}</tr></table>
+        </td></tr>"""
+
     html = f"""<!DOCTYPE html>
-<html><head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background:#0F172A;font-family:Arial,Helvetica,sans-serif">
-<table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;background:#1E293B">
-  <tr><td style="padding:32px 24px;text-align:center;
-    background:linear-gradient(135deg,#1E293B 0%,#312E81 100%)">
-    <h1 style="margin:0;color:white;font-size:24px">Koda Intelligence</h1>
-    <p style="margin:8px 0 0;color:#94A3B8;font-size:14px">{date_label}</p>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="color-scheme" content="dark"><meta name="supported-color-schemes" content="dark">
+<title>Koda Intelligence | {date_label}</title></head>
+<body style="margin:0;padding:0;background:#0B1326;font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased">
+
+<!-- Outer wrapper -->
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#0B1326">
+<tr><td align="center" style="padding:16px 12px">
+
+<!-- Inner card -->
+<table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#0F172A">
+
+  <!-- Header with gradient -->
+  <tr><td style="padding:28px 24px 24px;text-align:center;background:linear-gradient(135deg,#1E293B 0%,#312E81 50%,#1E293B 100%)">
+    <!-- K badge -->
+    <table cellpadding="0" cellspacing="0" style="margin:0 auto 12px"><tr>
+      <td style="width:36px;height:36px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);text-align:center;line-height:36px;color:white;font-weight:900;font-size:16px">K</td>
+    </tr></table>
+    <h1 style="margin:0;color:white;font-size:22px;font-weight:800;letter-spacing:-0.5px">Koda Intelligence</h1>
+    <p style="margin:6px 0 0;color:#94A3B8;font-size:12px;text-transform:uppercase;letter-spacing:2px">{date_label}</p>
   </td></tr>
 
-  <tr><td style="padding:24px">
-    <p style="color:#E2E8F0;font-size:18px;font-weight:700;margin:0 0 12px">
-      {hook}
-    </p>
-    <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #334155;border-radius:8px;overflow:hidden">
+  <!-- Accent line -->
+  <tr><td style="padding:0"><table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <td style="height:2px;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899)"></td>
+  </tr></table></td></tr>
+
+  <!-- Hook -->
+  <tr><td style="padding:24px 24px 8px">
+    <p style="margin:0;color:#E2E8F0;font-size:20px;font-weight:800;line-height:1.3;letter-spacing:-0.3px">{hook}</p>
+  </td></tr>
+
+  <!-- The Briefing -->
+  <tr><td style="padding:16px 24px 4px">
+    <p style="margin:0 0 10px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#8C909F">The Briefing</p>
+    <table width="100%" cellpadding="0" cellspacing="0">
       {briefs_html}
     </table>
   </td></tr>
 
-  <tr><td style="padding:0 24px 24px">
-    <p style="color:#94A3B8;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin:0 0 8px">Market Pulse</p>
-    <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #334155;border-radius:8px;overflow:hidden">
-      {market_rows}
+  <!-- Market Pulse -->
+  <tr><td style="padding:16px 24px">
+    <p style="margin:0 0 10px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#8C909F">Market Pulse</p>
+    <table width="100%" cellpadding="0" cellspacing="4" style="border-spacing:4px">
+      <tr>{market_row1}</tr>
+      <tr>{market_row2}</tr>
     </table>
   </td></tr>
 
-  <tr><td style="padding:0 24px;text-align:center">
+  <!-- Top Stories -->
+  <tr><td style="padding:8px 24px 4px">
+    <p style="margin:0 0 10px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#8C909F">Top Stories</p>
+    <table width="100%" cellpadding="0" cellspacing="0">
+      {stories_html}
+    </table>
+  </td></tr>
+
+  <!-- Media Buttons -->
+  {media_html}
+
+  <!-- CTA Button -->
+  <tr><td style="padding:8px 24px 28px;text-align:center">
     <a href="https://www.koda.community/morning-briefing-koda-{date}.html"
-      style="display:inline-block;padding:14px 32px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);
-      color:white;text-decoration:none;border-radius:8px;font-weight:700;font-size:16px">
-      READ THE FULL DIGEST</a>
+      style="display:inline-block;padding:16px 40px;background:#3B82F6;color:white;text-decoration:none;font-weight:800;font-size:15px;letter-spacing:0.5px">READ THE FULL DIGEST</a>
   </td></tr>
 
-  <tr><td style="padding:16px 24px;text-align:center">
-    {media_buttons}
-  </td></tr>
-
-  <tr><td style="padding:24px;text-align:center;border-top:1px solid #334155">
-    <p style="color:#64748B;font-size:12px;margin:0">
-      Koda Intelligence | <a href="https://www.koda.community" style="color:#3B82F6">koda.community</a>
+  <!-- Footer -->
+  <tr><td style="padding:20px 24px;border-top:1px solid #1E293B;text-align:center">
+    <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#3B82F6">Koda Intelligence</p>
+    <p style="margin:0;font-size:11px;color:#64748B">
+      <a href="https://www.koda.community" style="color:#64748B;text-decoration:none">koda.community</a>
     </p>
   </td></tr>
+
+</table>
+</td></tr>
 </table>
 </body></html>"""
 
