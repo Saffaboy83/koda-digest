@@ -416,7 +416,7 @@ def generate_editorial_hero(topic: dict, date: str) -> str | None:
             "model": "gemini-2.5-flash-image",
             "parameters": {
                 "width": 1024,
-                "height": 576,
+                "height": 1024,
                 "prompt": image_prompt,
                 "quantity": 1,
                 "style_ids": ["111dc692-d470-4eec-b791-3475abac4c46"],
@@ -431,9 +431,13 @@ def generate_editorial_hero(topic: dict, date: str) -> str | None:
                 json=payload, headers=headers, timeout=30,
             )
             resp.raise_for_status()
-            generation_id = resp.json().get("generate", {}).get("generationId")
+            submit_body = resp.json()
+            if not isinstance(submit_body, dict):
+                print(f"  WARNING: Unexpected submit response: {str(submit_body)[:200]}")
+                return None
+            generation_id = submit_body.get("generate", {}).get("generationId")
             if not generation_id:
-                print(f"  WARNING: No generation ID returned: {resp.json()}")
+                print(f"  WARNING: No generation ID returned: {submit_body}")
                 return None
 
             poll_url = f"https://cloud.leonardo.ai/api/rest/v1/generations/{generation_id}"
@@ -441,7 +445,11 @@ def generate_editorial_hero(topic: dict, date: str) -> str | None:
                 time.sleep(3)
                 poll = httpx.get(poll_url, headers=headers, timeout=15)
                 poll.raise_for_status()
-                gen = poll.json().get("generations_by_pk", {})
+                poll_body = poll.json()
+                if not isinstance(poll_body, dict):
+                    print(f"  WARNING: Unexpected poll response: {str(poll_body)[:200]}")
+                    return None
+                gen = poll_body.get("generations_by_pk", {})
                 state = gen.get("status", "")
 
                 if state == "COMPLETE":
