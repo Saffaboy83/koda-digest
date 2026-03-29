@@ -25,11 +25,12 @@ if [ -n "$GIT_TOKEN" ]; then
     fi
 fi
 
-# Hard timeout: 45 minutes max to prevent zombie containers
+# Hard timeout: 75 minutes max to prevent zombie containers
+# Cinematic video (Veo 3) alone takes 30-45 min, plus download + upload + HTML + git + email
 # PYTHONUNBUFFERED ensures all print output reaches Railway logs immediately
 export PYTHONUNBUFFERED=1
-TIMEOUT=2700
-echo "[entrypoint] Launching pipeline (timeout: ${TIMEOUT}s)..."
+TIMEOUT=4500
+echo "[entrypoint] Launching pipeline (timeout: ${TIMEOUT}s / 75min)..."
 timeout $TIMEOUT python -u -m pipeline.run_all "$@"
 EXIT_CODE=$?
 
