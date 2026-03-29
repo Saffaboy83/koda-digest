@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}} | Koda Editorial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%236366F1'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='system-ui' font-weight='800'>K</text></svg>">
+    <meta property="og:title" content="{{TITLE}} | Koda Editorial">
+    <meta property="og:description" content="{{META_DESCRIPTION}}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.koda.community/editorial/{{FILENAME}}">
+    <meta property="og:site_name" content="Koda Digest">
+    <meta property="og:image" content="{{OG_IMAGE_URL}}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="{{META_DESCRIPTION}}">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{{TITLE}}",
+        "datePublished": "{{DATE_ISO}}",
+        "description": "{{META_DESCRIPTION}}",
+        "author": {"@type": "Organization", "name": "Koda Editorial"},
+        "publisher": {"@type": "Organization", "name": "Koda Intelligence", "url": "https://www.koda.community"},
+        "mainEntityOfPage": "https://www.koda.community/editorial/{{FILENAME}}",
+        "wordCount": "{{WORD_COUNT}}",
+        "timeRequired": "PT{{READ_MINUTES}}M"
+    }
+    </script>
+    <style>
+/* ── Reset & Base ──────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.7;
+    color: #1a1a2e;
+    background: #fafbfe;
+}
+
+/* ── Dark Mode ─────────────────────────────────────────────────── */
+body.dark {
+    color: #dae2fd;
+    background: #0b1326;
+}
+body.dark .topbar { background: rgba(11, 19, 38, 0.92); border-color: rgba(255,255,255,0.06); }
+body.dark .article-card { background: rgba(23, 31, 51, 0.6); border-color: rgba(255,255,255,0.06); }
+body.dark .hero-section { background: linear-gradient(180deg, #0f1a33 0%, #0b1326 100%); }
+body.dark .pull-quote { background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.3); }
+body.dark .data-viz { background: rgba(23, 31, 51, 0.8); border-color: rgba(255,255,255,0.08); }
+body.dark .source-footer { background: rgba(23, 31, 51, 0.6); border-color: rgba(255,255,255,0.06); }
+body.dark .tag { background: rgba(99, 102, 241, 0.15); color: #a5b4fc; }
+body.dark h1, body.dark h2, body.dark h3 { color: #f1f5ff; }
+body.dark a { color: #818cf8; }
+
+/* ── Light Mode ────────────────────────────────────────────────── */
+.topbar { background: rgba(255,255,255,0.92); border-bottom: 1px solid rgba(0,0,0,0.06); }
+.article-card { background: white; border: 1px solid rgba(0,0,0,0.06); }
+.hero-section { background: linear-gradient(180deg, #f0f4ff 0%, #fafbfe 100%); }
+.pull-quote { background: rgba(99, 102, 241, 0.04); border-left: 4px solid #6366F1; }
+.data-viz { background: #f8fafc; border: 1px solid rgba(0,0,0,0.06); }
+.source-footer { background: #f8fafc; border-top: 1px solid rgba(0,0,0,0.06); }
+.tag { background: rgba(99, 102, 241, 0.08); color: #4f46e5; }
+
+/* ── Topbar ────────────────────────────────────────────────────── */
+.topbar {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+    padding: 0 24px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.topbar-brand {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; color: inherit;
+}
+.topbar-brand-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 16px; color: white;
+}
+.topbar-brand-text { font-weight: 700; font-size: 15px; letter-spacing: -0.02em; }
+.topbar-nav { display: flex; align-items: center; gap: 12px; }
+.topbar-link {
+    font-size: 13px; font-weight: 500; text-decoration: none;
+    padding: 6px 12px; border-radius: 6px;
+    transition: all 0.2s;
+}
+.topbar-link:hover { background: rgba(99, 102, 241, 0.1); }
+.topbar-home {
+    background: linear-gradient(135deg, #3B82F6, #6366F1);
+    color: white !important; font-weight: 600;
+}
+.topbar-home:hover { opacity: 0.9; background: linear-gradient(135deg, #3B82F6, #6366F1); }
+
+/* ── Theme Toggle ──────────────────────────────────────────────── */
+.theme-toggle {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: transparent; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; transition: all 0.2s;
+}
+body.dark .theme-toggle { border-color: rgba(255,255,255,0.1); }
+
+/* ── Scroll Progress ───────────────────────────────────────────── */
+.scroll-progress {
+    position: fixed; top: 0; left: 0;
+    width: 0%; height: 3px;
+    background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+    z-index: 1001; transition: width 0.1s linear;
+    pointer-events: none;
+}
+
+/* ── Hero ───────────────────────────────────────────────────────── */
+.hero-section {
+    padding: 96px 24px 48px;
+    text-align: center;
+}
+.hero-inner { max-width: 720px; margin: 0 auto; }
+.hero-meta {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; margin-bottom: 20px;
+    font-size: 13px; font-weight: 500; opacity: 0.7;
+    font-family: 'JetBrains Mono', monospace;
+}
+.hero-title {
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 800; letter-spacing: -0.03em;
+    line-height: 1.15; margin-bottom: 16px;
+}
+.hero-subtitle {
+    font-size: 17px; line-height: 1.6;
+    opacity: 0.75; max-width: 600px; margin: 0 auto;
+}
+.tag {
+    display: inline-block; padding: 4px 12px;
+    border-radius: 20px; font-size: 12px;
+    font-weight: 600; letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+/* ── Hero Image ────────────────────────────────────────────────── */
+.hero-image {
+    max-width: 800px; margin: 32px auto 0;
+    border-radius: 16px; overflow: hidden;
+}
+.hero-image img {
+    width: 100%; height: auto; display: block;
+    border-radius: 16px;
+}
+
+/* ── Article Body ──────────────────────────────────────────────── */
+.article-body {
+    max-width: 720px; margin: 0 auto;
+    padding: 48px 24px 64px;
+}
+.article-body h2 {
+    font-size: 24px; font-weight: 800;
+    letter-spacing: -0.02em; margin: 48px 0 16px;
+    line-height: 1.2;
+}
+.article-body h3 {
+    font-size: 18px; font-weight: 700;
+    margin: 32px 0 12px; line-height: 1.3;
+}
+.article-body p {
+    font-size: 17px; line-height: 1.75;
+    margin-bottom: 20px;
+}
+.article-body a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ── Pull Quote ────────────────────────────────────────────────── */
+.pull-quote {
+    margin: 40px 0;
+    padding: 24px 28px;
+    border-radius: 12px;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.5;
+    font-style: italic;
+}
+.pull-quote-attribution {
+    display: block; margin-top: 12px;
+    font-size: 13px; font-weight: 600;
+    font-style: normal; opacity: 0.6;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── Data Visualization ────────────────────────────────────────── */
+.data-viz {
+    margin: 32px 0;
+    padding: 24px;
+    border-radius: 16px;
+}
+.data-viz-title {
+    font-size: 14px; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 16px; opacity: 0.6;
+}
+
+/* ── Comparison Table ──────────────────────────────────────────── */
+.comparison-table {
+    width: 100%; border-collapse: collapse;
+    margin: 24px 0; font-size: 15px;
+}
+.comparison-table th {
+    text-align: left; padding: 12px 16px;
+    font-size: 12px; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+}
+.comparison-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
+
+/* ── Source Footer ─────────────────────────────────────────────── */
+.source-footer {
+    max-width: 720px; margin: 0 auto;
+    padding: 32px 24px; font-size: 14px;
+}
+.source-footer h4 {
+    font-size: 12px; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 12px; opacity: 0.5;
+}
+.source-footer ul { list-style: none; padding: 0; }
+.source-footer li {
+    padding: 4px 0; font-size: 14px; opacity: 0.7;
+}
+
+/* ── CTA Bar ───────────────────────────────────────────────────── */
+.cta-bar {
+    max-width: 720px; margin: 0 auto 48px;
+    padding: 32px 24px;
+    text-align: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.08));
+    border: 1px solid rgba(99,102,241,0.15);
+}
+.cta-bar p { font-size: 16px; margin-bottom: 16px; font-weight: 500; }
+.cta-btn {
+    display: inline-block; padding: 12px 28px;
+    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    color: white; font-weight: 700; font-size: 14px;
+    border-radius: 10px; text-decoration: none;
+    transition: all 0.2s;
+}
+.cta-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* ── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+    .hero-section { padding: 80px 16px 32px; }
+    .article-body { padding: 32px 16px 48px; }
+    .article-body p { font-size: 16px; }
+    .pull-quote { font-size: 17px; padding: 20px; }
+    .hero-meta { flex-direction: column; gap: 8px; }
+}
+
+/* ── Fade-in Animation ─────────────────────────────────────────── */
+.fade-in {
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Topbar -->
+<nav class="topbar">
+    <a href="../index.html" class="topbar-brand">
+        <div class="topbar-brand-icon">K</div>
+        <span class="topbar-brand-text">Koda Editorial</span>
+    </a>
+    <div class="topbar-nav">
+        <a href="../index.html" class="topbar-link topbar-home">Home</a>
+        <a href="../morning-briefing-koda.html" class="topbar-link">Today's Digest</a>
+        <a href="./index.html" class="topbar-link">Archive</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <span id="themeIcon">🌙</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="hero-section">
+    <div class="hero-inner">
+        <div class="hero-meta">
+            <span class="tag">{{EXPERT_OVERLAY_TAG}}</span>
+            <span>{{DATE_DISPLAY}}</span>
+            <span>{{READ_MINUTES}} min read</span>
+        </div>
+        <h1 class="hero-title">{{TITLE}}</h1>
+        <p class="hero-subtitle">{{SUBTITLE}}</p>
+    </div>
+    <!-- Hero Image (AI-generated or data viz) -->
+    <div class="hero-image fade-in">
+        <img src="{{HERO_IMAGE_URL}}" alt="{{HERO_IMAGE_ALT}}" loading="eager">
+    </div>
+</header>
+
+<!-- Article Body -->
+<article class="article-body">
+
+    <!-- SECTION 1: THE HOOK (Hormozi layer) -->
+    {{HOOK_CONTENT}}
+
+    <!-- SECTION 2: THE FRAMEWORK (Martell layer) -->
+    <h2>{{FRAMEWORK_TITLE}}</h2>
+    {{FRAMEWORK_CONTENT}}
+
+    <!-- SECTION 3: THE DEEP DIVE (Expert overlay) -->
+    <h2>{{DEEP_DIVE_TITLE}}</h2>
+    {{DEEP_DIVE_CONTENT}}
+
+    <!-- Optional: Pull Quote -->
+    <!--
+    <div class="pull-quote fade-in">
+        "Quote text here."
+        <span class="pull-quote-attribution">Source, Date</span>
+    </div>
+    -->
+
+    <!-- Optional: Data Visualization -->
+    <!--
+    <div class="data-viz fade-in">
+        <div class="data-viz-title">Chart Title</div>
+        [inline SVG or HTML chart here]
+    </div>
+    -->
+
+    <!-- Optional: Comparison Table -->
+    <!--
+    <table class="comparison-table fade-in">
+        <thead><tr><th>Model</th><th>Params</th><th>Score</th></tr></thead>
+        <tbody><tr><td>...</td><td>...</td><td>...</td></tr></tbody>
+    </table>
+    -->
+
+    <!-- SECTION 4: THE ZOOM OUT (theMITmonk layer) -->
+    <h2>{{ZOOM_OUT_TITLE}}</h2>
+    {{ZOOM_OUT_CONTENT}}
+
+    <!-- SECTION 5: THE BUILD (Sabrina Ramonov layer) -->
+    <h2>What to Build This Week</h2>
+    {{BUILD_CONTENT}}
+</article>
+
+<!-- Source Footer -->
+<footer class="source-footer">
+    <h4>Sources</h4>
+    <ul>
+        {{SOURCE_LIST}}
+    </ul>
+    <p style="margin-top:16px;font-size:13px;opacity:0.5;">
+        Fact-checked via multi-source verification. All statistics traced to primary sources.
+        <br>Published by Koda Editorial Team.
+    </p>
+</footer>
+
+<!-- CTA -->
+<div class="cta-bar fade-in">
+    <p>Get the full intelligence briefing every morning.</p>
+    <a href="../index.html#subscribe" class="cta-btn">Subscribe to Koda Digest</a>
+</div>
+
+<!-- Scripts -->
+<script>
+// Theme toggle (shares koda-theme key with digest pages)
+(function() {
+    const body = document.body;
+    const toggle = document.getElementById('themeToggle');
+    const icon = document.getElementById('themeIcon');
+    const saved = localStorage.getItem('koda-theme');
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme:dark)').matches)) {
+        body.classList.add('dark');
+        icon.textContent = '☀️';
+    }
+    toggle.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        const isDark = body.classList.contains('dark');
+        icon.textContent = isDark ? '☀️' : '🌙';
+        localStorage.setItem('koda-theme', isDark ? 'dark' : 'light');
+    });
+})();
+
+// Scroll progress bar
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('scrollProgress').style.width = pct + '%';
+});
+
+// Fade-in on scroll
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

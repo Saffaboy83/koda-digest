@@ -23,7 +23,8 @@ Keep MEMORY.md current. When something changes, update it in place. Replace outd
 
 A fully automated daily intelligence dashboard at **koda.community** (Vercel).
 Covers AI developments, world news, markets, newsletters, competitive landscape,
-and AI tools — with a NotebookLM podcast, cinematic video (YouTube), and infographic.
+and AI tools — with a NotebookLM podcast, cinematic video (YouTube), infographic,
+and a daily long-form editorial blog post.
 
 ## Architecture
 
@@ -67,6 +68,70 @@ This digest is PUBLIC-FACING. Do NOT include any personal data:
 - NO YouTube video titles containing personal identifiers
 - NO political figures in any media (video, infographic, images). No faces of presidents, prime ministers, generals, or named political leaders. Use abstract representations: empty podiums, building exteriors, flags, hardware, documents.
 - Today's Focus: derived from TOP NEWS STORIES, not personal calendar/email
+
+## Editorial Blog (koda.community/editorial/)
+
+### What It Is
+A daily 1,200-1,800 word analysis piece that picks ONE angle from the day's digest
+and goes deep. Not a news recap. Think Stratechery meets Hormozi meets a builder's newsletter.
+
+### Voice System: Expert Routing
+Six content creator voices are blended into a "Koda Voice" with an expert-routing model.
+Every article has the same structural DNA (Hormozi hook, Martell framework, theMITmonk
+zoom-out, Sabrina close) but the middle "deep dive" section activates ONE expert overlay
+based on topic:
+- **Jack Roberts** -> tools, automation, APIs, agents
+- **Paul J Lipsky** -> monetization, side hustles, business models
+- **Dan Martell** -> scaling, leadership, SaaS, delegation
+- **theMITmonk (elevated)** -> strategy, career, investing
+- **Sabrina Ramonov (elevated)** -> content creation, personal brand
+- **Hormozi (elevated)** -> sales, pricing, offers, marketing
+
+Voice profiles extracted from NotebookLM notebooks (50-300 sources each).
+Full guide: `editorial/koda-voice-guide.md`
+
+### Fact-Checking
+Every article passes through a fact-check gate before publication:
+- All verifiable claims extracted and categorized
+- Statistics require 2+ independent sources
+- Quotes traced to primary source
+- Confidence scoring: VERIFIED/HIGH -> publish, MODERATE -> rewrite, LOW -> remove
+- Common pitfalls checked: model version confusion, param vs token, open-source vs open-weight
+- Full framework: `editorial/fact-check-framework.md`
+
+### Article Structure
+1. **The Hook** (50-100 words) - Hormozi: proof, promise, plan
+2. **The Framework** (150-250 words) - Martell: named principle
+3. **The Deep Dive** (500-800 words) - Expert overlay: topic-specific voice
+4. **The Zoom Out** (200-300 words) - theMITmonk: 5-year arc
+5. **The Build** (150-200 words) - Sabrina: actionable steps
+
+### Visuals Per Article
+- 1 hero image (AI-generated, dark premium abstract, Koda colors)
+- 1-2 inline visuals: pull quotes, data visualizations, comparison tables
+- No stock photos. No decorative illustrations. Purposeful visuals only.
+- Hero images uploaded to Supabase: `editorial-hero-YYYY-MM-DD.jpg`
+
+### File Structure
+```
+editorial/
+  SKILL.md                          # Editorial skill definition
+  koda-voice-guide.md               # 6 voice profiles + routing + anti-slop checklist
+  fact-check-framework.md           # Verification pipeline
+  template-editorial.html           # HTML template
+  index.html                        # Editorial archive page (to build)
+  YYYY-MM-DD-slug.html              # Individual articles
+```
+
+### URL Structure
+- Archive: `koda.community/editorial/`
+- Articles: `koda.community/editorial/YYYY-MM-DD-slug.html`
+- Linked from daily digest via "Today's Editorial" card
+
+### Pipeline Integration
+Steps 01E-06E run in parallel with the existing media pipeline.
+The editorial is independent of NotebookLM/podcast/video generation.
+See `editorial/SKILL.md` for the full step-by-step pipeline.
 
 ## Key Design Decisions
 
@@ -199,8 +264,14 @@ C:\Users\arno_\Digest\
   .youtube_token.json                 # OAuth refresh token (gitignored)
   vercel.json                         # Vercel config
   .gitignore                          # Excludes *.m4a, *.mp4, client_secret.json, .youtube_token.json
-  SKILL-updated.md                    # Source of truth for the skill
+  SKILL-updated.md                    # Source of truth for the digest skill
   CLAUDE.md                           # This file
+  editorial/                          # Daily editorial blog system
+    SKILL.md                          # Editorial skill definition
+    koda-voice-guide.md               # 6 voice profiles + expert routing
+    fact-check-framework.md           # Claim verification pipeline
+    template-editorial.html           # Article HTML template
+    YYYY-MM-DD-slug.html              # Published articles (permanent)
 ```
 
 ## Skill Location

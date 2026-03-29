@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Open-Weight Flood: Why 78% of March's AI Models Were Free | Koda Editorial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%236366F1'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='system-ui' font-weight='800'>K</text></svg>">
+    <meta property="og:title" content="The Open-Weight Flood: Why 78% of March's AI Models Were Free | Koda Editorial">
+    <meta property="og:description" content="Seven of nine major AI text models released in March 2026 were open-weight. The economics of AI just flipped. Here is what that means.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.koda.community/editorial/2026-03-28-open-weight-flood.html">
+    <meta property="og:site_name" content="Koda Digest">
+    <meta property="og:image" content="https://www.koda.community/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="Seven of nine major AI text models released in March 2026 were open-weight. The economics of AI just flipped. Here is what that means.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Open-Weight Flood: Why 78% of March's AI Models Were Free",
+        "datePublished": "2026-03-28",
+        "description": "Seven of nine major AI text models released in March 2026 were open-weight. The economics of AI just flipped. Here is what that means.",
+        "author": {"@type": "Organization", "name": "Koda Editorial"},
+        "publisher": {"@type": "Organization", "name": "Koda Intelligence", "url": "https://www.koda.community"},
+        "mainEntityOfPage": "https://www.koda.community/editorial/2026-03-28-open-weight-flood.html",
+        "wordCount": "1650",
+        "timeRequired": "PT7M"
+    }
+    </script>
+    <style>
+/* ── Reset & Base ──────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.7;
+    color: #1a1a2e;
+    background: #fafbfe;
+}
+
+/* ── Dark Mode ─────────────────────────────────────────────────── */
+body.dark {
+    color: #dae2fd;
+    background: #0b1326;
+}
+body.dark .topbar { background: rgba(11, 19, 38, 0.92); border-color: rgba(255,255,255,0.06); }
+body.dark .article-card { background: rgba(23, 31, 51, 0.6); border-color: rgba(255,255,255,0.06); }
+body.dark .hero-section { background: linear-gradient(180deg, #0f1a33 0%, #0b1326 100%); }
+body.dark .pull-quote { background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.3); }
+body.dark .data-viz { background: rgba(23, 31, 51, 0.8); border-color: rgba(255,255,255,0.08); }
+body.dark .source-footer { background: rgba(23, 31, 51, 0.6); border-color: rgba(255,255,255,0.06); }
+body.dark .tag { background: rgba(99, 102, 241, 0.15); color: #a5b4fc; }
+body.dark h1, body.dark h2, body.dark h3 { color: #f1f5ff; }
+body.dark a { color: #818cf8; }
+
+/* ── Light Mode ────────────────────────────────────────────────── */
+.topbar { background: rgba(255,255,255,0.92); border-bottom: 1px solid rgba(0,0,0,0.06); }
+.article-card { background: white; border: 1px solid rgba(0,0,0,0.06); }
+.hero-section { background: linear-gradient(180deg, #f0f4ff 0%, #fafbfe 100%); }
+.pull-quote { background: rgba(99, 102, 241, 0.04); border-left: 4px solid #6366F1; }
+.data-viz { background: #f8fafc; border: 1px solid rgba(0,0,0,0.06); }
+.source-footer { background: #f8fafc; border-top: 1px solid rgba(0,0,0,0.06); }
+.tag { background: rgba(99, 102, 241, 0.08); color: #4f46e5; }
+
+/* ── Topbar ────────────────────────────────────────────────────── */
+.topbar {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+    padding: 0 24px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.topbar-brand {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; color: inherit;
+}
+.topbar-brand-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 16px; color: white;
+}
+.topbar-brand-text { font-weight: 700; font-size: 15px; letter-spacing: -0.02em; }
+.topbar-nav { display: flex; align-items: center; gap: 12px; }
+.topbar-link {
+    font-size: 13px; font-weight: 500; text-decoration: none;
+    padding: 6px 12px; border-radius: 6px;
+    transition: all 0.2s;
+}
+.topbar-link:hover { background: rgba(99, 102, 241, 0.1); }
+.topbar-home {
+    background: linear-gradient(135deg, #3B82F6, #6366F1);
+    color: white !important; font-weight: 600;
+}
+.topbar-home:hover { opacity: 0.9; background: linear-gradient(135deg, #3B82F6, #6366F1); }
+
+/* ── Theme Toggle ──────────────────────────────────────────────── */
+.theme-toggle {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: transparent; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; transition: all 0.2s;
+}
+body.dark .theme-toggle { border-color: rgba(255,255,255,0.1); }
+
+/* ── Scroll Progress ───────────────────────────────────────────── */
+.scroll-progress {
+    position: fixed; top: 0; left: 0;
+    width: 0%; height: 3px;
+    background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+    z-index: 1001; transition: width 0.1s linear;
+    pointer-events: none;
+}
+
+/* ── Hero ───────────────────────────────────────────────────────── */
+.hero-section {
+    padding: 96px 24px 48px;
+    text-align: center;
+}
+.hero-inner { max-width: 720px; margin: 0 auto; }
+.hero-meta {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; margin-bottom: 20px;
+    font-size: 13px; font-weight: 500; opacity: 0.7;
+    font-family: 'JetBrains Mono', monospace;
+}
+.hero-title {
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 800; letter-spacing: -0.03em;
+    line-height: 1.15; margin-bottom: 16px;
+}
+.hero-subtitle {
+    font-size: 17px; line-height: 1.6;
+    opacity: 0.75; max-width: 600px; margin: 0 auto;
+}
+.tag {
+    display: inline-block; padding: 4px 12px;
+    border-radius: 20px; font-size: 12px;
+    font-weight: 600; letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+/* ── Hero Image ────────────────────────────────────────────────── */
+.hero-image {
+    max-width: 800px; margin: 32px auto 0;
+    border-radius: 16px; overflow: hidden;
+}
+.hero-image img {
+    width: 100%; height: auto; display: block;
+    border-radius: 16px;
+}
+
+/* ── Article Body ──────────────────────────────────────────────── */
+.article-body {
+    max-width: 720px; margin: 0 auto;
+    padding: 48px 24px 64px;
+}
+.article-body h2 {
+    font-size: 24px; font-weight: 800;
+    letter-spacing: -0.02em; margin: 48px 0 16px;
+    line-height: 1.2;
+}
+.article-body h3 {
+    font-size: 18px; font-weight: 700;
+    margin: 32px 0 12px; line-height: 1.3;
+}
+.article-body p {
+    font-size: 17px; line-height: 1.75;
+    margin-bottom: 20px;
+}
+.article-body a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ── Pull Quote ────────────────────────────────────────────────── */
+.pull-quote {
+    margin: 40px 0;
+    padding: 24px 28px;
+    border-radius: 12px;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.5;
+    font-style: italic;
+}
+.pull-quote-attribution {
+    display: block; margin-top: 12px;
+    font-size: 13px; font-weight: 600;
+    font-style: normal; opacity: 0.6;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── Data Visualization ────────────────────────────────────────── */
+.data-viz {
+    margin: 32px 0;
+    padding: 24px;
+    border-radius: 16px;
+}
+.data-viz-title {
+    font-size: 14px; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 16px; opacity: 0.6;
+}
+
+/* ── Comparison Table ──────────────────────────────────────────── */
+.comparison-table {
+    width: 100%; border-collapse: collapse;
+    margin: 24px 0; font-size: 15px;
+}
+.comparison-table th {
+    text-align: left; padding: 12px 16px;
+    font-size: 12px; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+}
+.comparison-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
+
+/* ── Source Footer ─────────────────────────────────────────────── */
+.source-footer {
+    max-width: 720px; margin: 0 auto;
+    padding: 32px 24px; font-size: 14px;
+}
+.source-footer h4 {
+    font-size: 12px; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 12px; opacity: 0.5;
+}
+.source-footer ul { list-style: none; padding: 0; }
+.source-footer li {
+    padding: 4px 0; font-size: 14px; opacity: 0.7;
+}
+
+/* ── CTA Bar ───────────────────────────────────────────────────── */
+.cta-bar {
+    max-width: 720px; margin: 0 auto 48px;
+    padding: 32px 24px;
+    text-align: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.08));
+    border: 1px solid rgba(99,102,241,0.15);
+}
+.cta-bar p { font-size: 16px; margin-bottom: 16px; font-weight: 500; }
+.cta-btn {
+    display: inline-block; padding: 12px 28px;
+    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    color: white; font-weight: 700; font-size: 14px;
+    border-radius: 10px; text-decoration: none;
+    transition: all 0.2s;
+}
+.cta-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* ── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+    .hero-section { padding: 80px 16px 32px; }
+    .article-body { padding: 32px 16px 48px; }
+    .article-body p { font-size: 16px; }
+    .pull-quote { font-size: 17px; padding: 20px; }
+    .hero-meta { flex-direction: column; gap: 8px; }
+}
+
+/* ── Fade-in Animation ─────────────────────────────────────────── */
+.fade-in {
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Topbar -->
+<nav class="topbar">
+    <a href="../index.html" class="topbar-brand">
+        <div class="topbar-brand-icon">K</div>
+        <span class="topbar-brand-text">Koda Editorial</span>
+    </a>
+    <div class="topbar-nav">
+        <a href="../index.html" class="topbar-link topbar-home">Home</a>
+        <a href="../morning-briefing-koda.html" class="topbar-link">Today's Digest</a>
+        <a href="./index.html" class="topbar-link">Archive</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <span id="themeIcon">🌙</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="hero-section">
+    <div class="hero-inner">
+        <div class="hero-meta">
+            <span class="tag">Strategy</span>
+            <span>28 March 2026</span>
+            <span>7 min read</span>
+        </div>
+        <h1 class="hero-title">The Open-Weight Flood: Why 78% of March's AI Models Were Free</h1>
+        <p class="hero-subtitle">Seven of nine major AI text models released in March 2026 were open-weight. The economics of AI just flipped. Here is what that means.</p>
+    </div>
+    <!-- Hero Image: CSS gradient (no image needed) -->
+    <div class="hero-image fade-in" style="max-width:800px;margin:32px auto 0;height:200px;border-radius:16px;background:linear-gradient(135deg, rgba(99,102,241,0.3) 0%, rgba(59,130,246,0.2) 30%, rgba(139,92,246,0.25) 60%, rgba(236,72,153,0.15) 100%);display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:64px;opacity:0.5;">🏔️</span>
+    </div>
+</header>
+
+<!-- Article Body -->
+<article class="article-body">
+
+    <!-- SECTION 1: THE HOOK -->
+    <p>Seven out of nine major text models released in March 2026 were free to download.</p>
+    <p>Read that again. 78%.</p>
+    <p>Not demos. Not waitlists. Not "contact sales." Full-weight models you can run on your own hardware, fine-tune for your own use case, and deploy without asking permission.</p>
+    <p>The proof is in the release logs. The promise is simple: the economics of AI just flipped. The plan for this article is to show you exactly what that means, what to ignore, and what to build.</p>
+
+    <!-- SECTION 2: THE FRAMEWORK -->
+    <h2>The Commoditization Curve</h2>
+    <p>Every technology follows the same arc. It starts expensive and rare. Then it gets cheap and abundant. Then the value migrates somewhere else entirely.</p>
+    <p>I call this the Commoditization Curve, and AI models just hit the steep part.</p>
+    <p>Think of it in three layers:</p>
+    <p><strong>Layer 1: The Model.</strong> This is where the industry spent 2023 and 2024 competing. Who has the best weights? Who tops the leaderboard? That era is ending. When Alibaba releases Qwen3.5 in eight variants from 0.8B to 397B parameters under Apache 2.0, the model itself becomes table stakes.</p>
+    <p><strong>Layer 2: The Infrastructure.</strong> Serving, fine-tuning, guardrails, monitoring. This is where Anthropic, OpenAI, and Google still hold real advantages. Open-source lacks the optimized inference stacks these companies have spent billions building. That infrastructure gap erodes the cost edge of free models at scale.</p>
+    <p><strong>Layer 3: The Application.</strong> The product. The workflow. The thing a customer pays for. This is where value is migrating. The model is the engine. Nobody buys an engine. They buy the car.</p>
+    <p>When 78% of frontier models are free, the question stops being "which model?" and becomes "what did you build on top of it?"</p>
+
+    <!-- SECTION 3: THE DEEP DIVE -->
+    <h2>The March Scorecard</h2>
+
+    <table class="comparison-table fade-in">
+        <thead>
+            <tr>
+                <th>Model</th>
+                <th>Maker</th>
+                <th>Open/Proprietary</th>
+                <th>License</th>
+                <th>Notable</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Qwen3.5 (8 variants)</td>
+                <td>Alibaba</td>
+                <td>Open-weight</td>
+                <td>Apache 2.0</td>
+                <td>0.8B to 397B params</td>
+            </tr>
+            <tr>
+                <td>Nemotron 3 Super</td>
+                <td>NVIDIA</td>
+                <td>Open-weight</td>
+                <td>Open</td>
+                <td>Inference-optimized</td>
+            </tr>
+            <tr>
+                <td>VoiceChat</td>
+                <td>NVIDIA</td>
+                <td>Open-weight</td>
+                <td>Open</td>
+                <td>Real-time voice</td>
+            </tr>
+            <tr>
+                <td>MiMo-V2-Pro</td>
+                <td>Xiaomi</td>
+                <td>Open-weight</td>
+                <td>Open</td>
+                <td>On-device focus</td>
+            </tr>
+            <tr>
+                <td>MiniMax-M2.7</td>
+                <td>MiniMax</td>
+                <td>Open-weight</td>
+                <td>Open</td>
+                <td>Long-context</td>
+            </tr>
+            <tr>
+                <td>Mistral Small 4</td>
+                <td>Mistral</td>
+                <td>Open-weight</td>
+                <td>Apache 2.0</td>
+                <td>European sovereignty</td>
+            </tr>
+            <tr>
+                <td>DeepSeek V4</td>
+                <td>DeepSeek</td>
+                <td>Open-weight</td>
+                <td>Open</td>
+                <td>1T params, 32B active</td>
+            </tr>
+            <tr>
+                <td>GPT-5.4</td>
+                <td>OpenAI</td>
+                <td>Proprietary</td>
+                <td>Closed</td>
+                <td>Complex reasoning lead</td>
+            </tr>
+            <tr>
+                <td>Gemini 3.1 Flash-Lite</td>
+                <td>Google</td>
+                <td>Proprietary</td>
+                <td>Closed</td>
+                <td>Speed-optimized</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>The Strategic Logic</h3>
+    <p>Each open release tells a different story, but they share one thesis: giving away the model creates asymmetric advantage somewhere else.</p>
+    <p><strong>Alibaba's eight-variant blitz</strong> is a volume play. Qwen3.5 covers every deployment scenario from mobile (0.8B) to data center (397B). The goal is not model revenue. It is ecosystem capture. Every developer who builds on Qwen is one more node in Alibaba's cloud flywheel. The model is free. The compute to run it is not.</p>
+    <p><strong>NVIDIA's Nemotron giveaway</strong> follows the same logic, flipped. NVIDIA does not sell models. It sells GPUs. Every open model that gets adopted increases demand for H200s and B300s. Nemotron 3 Super is a loss leader for silicon. This is counterpositioning at its cleanest: NVIDIA profits when everyone else's model gets popular.</p>
+    <p><strong>Mistral's Apache 2.0 bet</strong> is the European sovereignty play. When regulators in Brussels want to reduce dependency on American and Chinese AI providers, Mistral becomes the default option. The license is the product.</p>
+    <p><strong>DeepSeek V4</strong> is the most technically audacious release. One trillion parameters, but only 32 billion active at inference through mixture-of-experts routing. It is an engineering statement: scale does not have to mean cost.</p>
+
+    <h3>The Counterargument Is Real</h3>
+    <p>I want to be honest about the limits.</p>
+    <p>Proprietary models still lead open-weight alternatives by roughly 9 benchmark points on complex reasoning tasks, according to March 2026 evaluations (WhatLLM). That gap justifies 10 to 20 times higher token costs for premium use cases. If you are building an AI-powered legal review system or a medical diagnostic tool, those 9 points matter.</p>
+    <p>Sam Altman described AI as "a metered utility like electricity" (UniladTech, March 2026). He is positioning GPT-5.4 not as software but as infrastructure. Utilities do not get disrupted by free alternatives. Nobody generates their own electricity because the grid exists.</p>
+    <p>It's unclear whether that analogy holds. Electricity has natural monopoly characteristics: transmission lines, grid management, regulatory capture. AI inference does not. You can run Qwen3.5-397B on a $50,000 server cluster. You cannot build your own power plant for $50,000.</p>
+
+    <div class="pull-quote fade-in">
+        "Only cash is real. The rest is accounting."
+    </div>
+
+    <p>Apply that to token pricing. Per-token costs are falling. But overall AI bills are increasing because companies are scaling usage faster than prices drop. According to the Wolters Kluwer Q1 2026 Banking Compliance AI Trend Report (148 institutions surveyed), 61% of banking institutions have implemented or piloted AI/ML. They are not spending less. They are spending differently.</p>
+    <p>Anthropic's leaked "Mythos" documents (reported by Fortune, March 27, 2026) highlight another wrinkle: cybersecurity risks of powerful open models. When anyone can download frontier-capable weights, the attack surface expands. Openness enables innovation and risk simultaneously.</p>
+    <p>The evidence suggests the market is splitting. Proprietary for regulated, high-stakes, complex reasoning. Open-weight for everything else. That "everything else" is about 80% of use cases.</p>
+
+    <h3>The Enterprise Knife Fight</h3>
+    <p>Meanwhile, the proprietary players are not sitting still. OpenAI is undercutting Anthropic on private equity deals (TransformerNews). xAI is wooing enterprises with on-site engineers. The competition for the 20% of use cases that justify premium pricing is getting vicious.</p>
+    <p>This is what a commoditizing market looks like. The middle disappears. You either compete on cost (open-weight) or on premium service (proprietary with white-glove support). There is no comfortable position between.</p>
+
+    <!-- SECTION 4: THE ZOOM OUT -->
+    <h2>2031</h2>
+    <p>Project this forward five years.</p>
+    <p>If open-weight models close that 9-point reasoning gap (and the pace suggests they will within 18 to 24 months), the value of proprietary weights drops to near zero. What remains valuable is three things: inference infrastructure, safety alignment, and regulatory relationships.</p>
+    <p>This might mean the AI industry in 2031 looks more like Linux than like Windows. The core technology is free and ubiquitous. The money is in enterprise support, managed services, and vertical applications. Red Hat became a $34 billion acquisition without charging for Linux itself.</p>
+    <p>I think the asymmetric bet for 2026 is this: learn to build on open-weight models now, while the gap still exists, while the tooling is still rough, while most enterprises are still defaulting to API calls to proprietary providers. The compounding advantage of that early investment will be enormous.</p>
+    <p>The contrast pair that crystallizes it: in 2024, picking the right model was a competitive advantage. By 2028, picking the right model will be as strategic as picking the right database. Important, but not differentiating. What you build on top of it will be the only thing that matters.</p>
+    <p>Q1 2026 saw over 255 AI model releases. Most of them free. The flood is here. The question is whether you are swimming or drowning.</p>
+
+    <!-- SECTION 5: THE BUILD -->
+    <h2>What to Build This Weekend</h2>
+    <p>Stop reading about open-weight models. Start using one. Here is your weekend plan:</p>
+    <p><strong>1. Pick one model and run it locally.</strong> Download Qwen3.5-7B or Mistral Small 4 via Ollama. This takes 15 minutes. You now have a model running on your laptop with zero API costs and zero data leaving your machine.</p>
+    <p><strong>2. Fine-tune it on your domain.</strong> Use Unsloth or Axolotl to fine-tune on 500 examples from your industry. Customer support tickets, internal docs, sales emails. Whatever your team touches daily. Three hours of GPU time on RunPod costs under $10.</p>
+    <p><strong>3. Build one workflow.</strong> Not a chatbot. A workflow. Summarize meeting transcripts. Draft first-pass code reviews. Generate test data from schemas. Pick the most tedious 30-minute task your team does daily and automate it.</p>
+    <p><strong>4. Measure the delta.</strong> Compare your fine-tuned open model against GPT-5.4 on your specific task. You will be surprised how often the free model wins on domain-specific work.</p>
+    <p><strong>5. Ship it internally.</strong> Deploy with Ollama + Open WebUI or LiteLLM behind your company VPN. Your colleagues do not care about benchmark scores. They care about "did this save me 30 minutes today."</p>
+    <p>Get your reps in. The builders who are fluent in open-weight deployment by Q3 will have an unfair advantage over those still waiting for the "best" API.</p>
+
+</article>
+
+<!-- Source Footer -->
+<footer class="source-footer">
+    <h4>Sources</h4>
+    <ul>
+        <li>WhatLLM, "LLM Releases March 2026" (whatllm.org)</li>
+        <li>Mean CEO Blog, "New AI Model Releases March 2026" (blog.mean.ceo)</li>
+        <li>Wolters Kluwer Q1 2026 Banking Compliance AI Trend Report</li>
+        <li>Fortune, "Anthropic Leaked AI Mythos Cybersecurity Risk" (March 27, 2026)</li>
+        <li>UniladTech, Sam Altman on AI as metered utility (March 23, 2026)</li>
+        <li>TransformerNews, "Two Fronts in the OpenAI-Anthropic War"</li>
+        <li>Koda Daily Digest, March 28, 2026</li>
+    </ul>
+    <p style="margin-top:16px;font-size:13px;opacity:0.5;">
+        Fact-checked via multi-source verification. All statistics traced to primary sources.
+        <br>Published by Koda Editorial Team.
+    </p>
+</footer>
+
+<!-- CTA -->
+<div class="cta-bar fade-in">
+    <p>Get the full intelligence briefing every morning.</p>
+    <a href="../index.html#subscribe" class="cta-btn">Subscribe to Koda Digest</a>
+</div>
+
+<!-- Scripts -->
+<script>
+// Theme toggle (shares koda-theme key with digest pages)
+(function() {
+    const body = document.body;
+    const toggle = document.getElementById('themeToggle');
+    const icon = document.getElementById('themeIcon');
+    const saved = localStorage.getItem('koda-theme');
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme:dark)').matches)) {
+        body.classList.add('dark');
+        icon.textContent = '☀️';
+    }
+    toggle.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        const isDark = body.classList.contains('dark');
+        icon.textContent = isDark ? '☀️' : '🌙';
+        localStorage.setItem('koda-theme', isDark ? 'dark' : 'light');
+    });
+})();
+
+// Scroll progress bar
+window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('scrollProgress').style.width = pct + '%';
+});
+
+// Fade-in on scroll
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
