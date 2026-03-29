@@ -245,7 +245,6 @@ Format for the digest card:
     <a href="./editorial/YYYY-MM-DD-slug.html" target="_blank" class="block p-5 bg-[#131b2e] hover:bg-[#171f33] border-l-4 border-[#8B5CF6] transition-colors no-underline group">
         <div class="flex flex-wrap items-center gap-2 mb-2.5">
             <span class="text-[10px] font-bold uppercase tracking-widest bg-[#8B5CF6]/10 text-[#8B5CF6] px-2 py-0.5 rounded">{{TAG}}</span>
-            <span class="text-[11px] text-[#8c909f]">{{EXPERT}}</span>
             <span class="text-[11px] text-[#8c909f]">{{READ_MINUTES}} min read</span>
         </div>
         <h3 class="text-[15px] font-bold text-[#dae2fd] leading-snug mb-3 group-hover:text-white transition-colors">{{TITLE}}</h3>
