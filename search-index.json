@@ -1,6 +1,251 @@
 {
-  "generated": "2026-03-29T00:06:38Z",
+  "generated": "2026-03-29T01:06:51Z",
   "days": [
+    {
+      "date": "2026-03-29",
+      "sections": [
+        {
+          "title": "Today's Focus",
+          "items": [
+            {
+              "headline": "Frontier Models Hit Parity",
+              "text": "GPT-5.4 and Gemini 3.1 Pro are statistically indistinguishable on key evals, while Grok 4.20 claims the lowest hallucination rate ever recorded. The performance ceiling is compressing, shifting competition toward reliability, cost, and ecosystem integration rather than raw capability."
+            },
+            {
+              "headline": "Open-Weight Momentum Accelerates",
+              "text": "Seven of the nine notable models released in March were open-weight, with Alibaba's Qwen 3.5 alone shipping eight variants. This wave is democratizing access at an unprecedented pace and pressuring closed-model providers to justify premium pricing with differentiated tooling and support."
+            },
+            {
+              "headline": "Geopolitics Rattles Tech Outlook",
+              "text": "Escalating Middle East violence, combined with political backlash over Trump's Saudi Arabia remarks, has driven market sentiment to Extreme Fear. For AI companies dependent on global cloud infrastructure and cross-border data flows, sustained instability poses real supply chain and regulatory risk heading into Q2."
+            }
+          ]
+        },
+        {
+          "title": "Markets",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,368.85 (-1.67%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "20,948.36 (-2.15%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$66,412.99 (+0.02%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$1,995.79 (-0.05%)"
+            },
+            {
+              "headline": "Oil",
+              "text": "$112.57 (+11.60%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "9 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "AI Developments",
+          "items": [
+            {
+              "headline": "GPT-5.4 and Gemini 3.1 Pro Virtually Tied",
+              "text": "OpenAI's GPT-5.4 scored 57.17 on the Intelligence Index in March 2026, falling just 0.01 points behind Google's Gemini 3.1 Pro Preview at 57.18. The razor-thin margin marks the closest top-tier benchmark race to date, with both models representing the current ceiling of large language model performance. Source &rarr;"
+            },
+            {
+              "headline": "Grok 4.20 Posts Lowest Hallucination Rate Ever",
+              "text": "xAI's Grok 4.20 introduced a novel architecture in which four AI agents run in parallel and collaboratively debate responses before producing output. The approach yielded a hallucination rate of 22%, the lowest ever measured on standard benchmarks, representing a genuinely new strategy for improving factual reliability. Source &rarr;"
+            },
+            {
+              "headline": "Seven of Nine March Models Were Open-Weight",
+              "text": "Open-source momentum accelerated in March 2026, with seven of the month's nine major text model releases shipping as open-weight. The trend signals a structural shift in the competitive landscape, as proprietary-only releases increasingly become the exception rather than the norm. Source &rarr;"
+            },
+            {
+              "headline": "Alibaba's Qwen 3.5 Ships Eight Model Variants",
+              "text": "Alibaba released Qwen 3.5 in eight sizes ranging from 0.8 billion to 397 billion parameters, continuing its push to close the gap with proprietary frontier models. The broad parameter range positions Qwen as a flexible option for deployment scenarios from edge devices to data center inference. Source &rarr;"
+            },
+            {
+              "headline": "Amazon and OpenAI Partner on Bedrock Runtime",
+              "text": "Amazon announced a strategic partnership with OpenAI to co-develop a Stateful Runtime Environment on Amazon Bedrock. The collaboration frames persistent memory and tool-use infrastructure as foundational layers of the next AI stack, with availability expected in coming months. Source &rarr;"
+            },
+            {
+              "headline": "Google Ships Specialized Model Family in March",
+              "text": "Google released a suite of purpose-built models simultaneously: Gemini 3.1 Deep Think for advanced reasoning, Lyria 3 and Lyria 3 Pro for music generation, and Gemini 3.1 Flash-Lite Preview as a lightweight proprietary option. The batch release reflects a strategy of specialization over single monolithic model updates. Source &rarr;"
+            },
+            {
+              "headline": "Claude Opus 4.6 Scores 52.95 on Intelligence Index",
+              "text": "Anthropic's Claude Opus 4.6 posted a 52.95 on the Intelligence Index, while Claude Sonnet 4.6 delivered near-Opus performance at Sonnet-tier pricing. The Sonnet variant's cost efficiency makes it a compelling option for enterprise deployments that need strong reasoning without frontier-model costs. Source &rarr;"
+            },
+            {
+              "headline": "Xiaomi and MiniMax Lead Open-Weight Value Tier",
+              "text": "MiniMax-M2.7 scored 49.62 on the Intelligence Index, while Xiaomi's MiMo-V2-Pro reached 49, making both the strongest open-weight options below the frontier tier. These models offer competitive performance for organizations unwilling or unable to depend on proprietary API providers. Source &rarr;"
+            },
+            {
+              "headline": "OpenClaw Goes Viral as Fastest-Growing GitHub Repo",
+              "text": "OpenClaw, an open-source AI agent project originating from China, became one of GitHub's fastest-growing repositories after shipping three releases on March 25 alone. The project's rapid adoption highlights sustained global demand for open, community-driven agent frameworks. Source &rarr;"
+            },
+            {
+              "headline": "Mistral Small 4 Ships Under Apache 2.0",
+              "text": "Mistral released Small 4 under the permissive Apache 2.0 license, joining the wave of open-weight models that dominated March releases. The licensing choice removes commercial restrictions and positions Mistral as a direct competitor to Alibaba and Xiaomi in the open ecosystem. Source &rarr;"
+            },
+            {
+              "headline": "NVIDIA Launches Nemotron 3 Super and VoiceChat",
+              "text": "NVIDIA released Nemotron 3 Super alongside VoiceChat, expanding its portfolio beyond GPU hardware into model development. The releases underscore NVIDIA's strategy of vertically integrating across the AI stack, from chips to inference-ready models. Source &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "World News",
+          "items": [
+            {
+              "headline": "Middle East Conflict Escalates Amid Humanitarian Crisis",
+              "text": "Ongoing war in the Middle East has intensified, impacting millions of civilians and raising urgent concerns over regional stability. The escalation has prompted renewed calls from international organizations for ceasefire negotiations and humanitarian access. Global leaders are facing mounting pressure to intervene as the crisis deepens. Source &rarr;"
+            },
+            {
+              "headline": "Trump Sparks Backlash Over Saudi Arabia Remarks",
+              "text": "Former U.S. President Donald Trump drew worldwide criticism for controversial comments regarding Saudi Crown Prince Mohammed bin Salman. The remarks have strained U.S.-Saudi diplomatic channels and reignited debates over American foreign policy in the Middle East. International leaders and analysts warned the comments could destabilize broader regional partnerships. Source &rarr;"
+            },
+            {
+              "headline": "Palestinian, Israeli Women March for Peace in Rome",
+              "text": "Palestinian and Israeli women joined together in Rome for a peace demonstration calling for an end to violence and a path toward coexistence. The march drew international attention as a rare display of cross-community solidarity amid ongoing conflict. Organizers framed the event as a rejection of division and a demand for diplomatic solutions. Source &rarr;"
+            },
+            {
+              "headline": "Disneyland Paris Opens €2 Billion Adventure World",
+              "text": "French President Emmanuel Macron attended the March 29 unveiling of Disney Adventure World, a €2 billion expansion of Disneyland Paris that doubles the second park's footprint. The project, anchored by the new World of Frozen attraction, has created 1,000 new jobs with 82% of suppliers sourced from France and Europe. It represents one of the largest private infrastructure investments in French tourism history. Source &rarr;"
+            },
+            {
+              "headline": "Sikh Activist Addresses Human Rights in Geneva",
+              "text": "A prominent Canadian Sikh activist spoke at international forums in Geneva, drawing attention to human rights concerns and global justice advocacy. The address highlighted ongoing tensions between diaspora communities and foreign governments over issues of political freedom and transnational repression. The appearance underscored Geneva's role as a hub for international human rights discourse. Source &rarr;"
+            },
+            {
+              "headline": "Social Media Influence on Legal Trials Debated",
+              "text": "A growing global debate is scrutinizing the role social media platforms play in shaping public opinion during high-profile legal proceedings. Critics argue that viral content and online campaigns can compromise fair trial standards and jury impartiality. Legal experts and policymakers are calling for clearer guidelines to balance free expression with judicial integrity. Source &rarr;"
+            },
+            {
+              "headline": "Argentina Honors Victims in National Remembrance Day",
+              "text": "Argentina held national commemorations honoring victims of past state violence, reaffirming the country's commitment to memory and justice. The observance, tied to the anniversary of the 1976 military coup, included public ceremonies and calls to protect democratic institutions. Officials and civil society leaders emphasized the importance of historical accountability for future generations. Source &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "Featured Newsletters",
+          "items": [
+            {
+              "headline": "Superhuman",
+              "text": "Figure 03 becomes the first humanoid robot to enter the White House Amazon acquires Fauna Robotics to enter the consumer humanoid market China deploys OpenClaw-powered robots as AI agents leap from laptops to physical hardware This special robotics edition covers three major developments. Figure's 03 humanoid walked the White House halls at the 'Fostering the Future Together' global summit, greeting attendees in 11 languages as the US government pitched AI-powered humanoid teachers for personalized education. Amazon acquired New York startup Fauna Robotics, maker of the viral child-sized household humanoid Sprout (retailing at $50k), folding the team into its Personal Robotics Group and entering direct competition with Tesla, Figure AI, and Boston Dynamics. In China, robotics firm Ecovacs debuted Bajie, a household robot powered by OpenClaw, signaling that Chinese firms are already deploying AI agents in physical robots while much of the world is still experimenting with software-based agents. Figure 03 greeted people in 11 languages during its historic White House appearance at a global education summit on March 25, 2026 Amazon's acquisition of Fauna Robotics puts it in the consumer humanoid race alongside Tesla, Figure AI, and Boston Dynamics Ecovacs debuted Bajie, a household robot powered by OpenClaw, marking China's push to embed AI agents directly into consumer robotics"
+            },
+            {
+              "headline": "The Rundown AI",
+              "text": "Elon Musk plans to take SpaceX public with a mid-June IPO targeting a $1.5T valuation after folding xAI into the company Meta's next-generation Ray-Ban AI glasses surface in FCC filings Defense AI startup Shield AI reaches $12.7B valuation Elon Musk is engineering what could be the largest and most unconventional IPO in history, plotting a mid-June SpaceX listing that may raise between $40B and $75B. The plan includes folding xAI into SpaceX to pitch investors on orbital AI data centers, with an unprecedented 30% of shares allocated to retail investors rather than relying on a traditional banker-led roadshow. Internal timelines are reportedly synced to Musk's birthday, and the massive retail allocation is designed to give everyday traders and Musk loyalists a direct seat in the offering. Meta is investing $10B in a massive new data center in Texas Defense startup Shield AI has hit a $12.7B valuation Meta's new Ray-Ban AI glasses leaked through FCC filings"
+            },
+            {
+              "headline": "TLDR",
+              "text": "Anthropic considers an IPO as soon as October, with early Wall Street bank discussions underway and a potential valuation exceeding $60 billion Elon Musk's X restructures with layoffs of nontechnical staff and the departure of its chief marketing officer, right-sizing ahead of SpaceX's potential $1 trillion-plus IPO and an April launch of X Money payments Google releases Gemini 3.1 Flash Live, a real-time voice model optimized for low-latency natural dialogue, available across developer APIs, enterprise tools, and consumer products Intercom's customer service agent Fin exemplifies the rise of vertical AI models, outperforming general-purpose models like GPT-5.4 and Opus 4.5 while resolving nearly 2 million customer issues per week and approaching $100 million in recurring revenue. USV built internal AI agents that ingest meeting transcripts, emails, and calendars to create structured knowledge bases, evolving from simple meeting recaps into a custom CRM after existing tools failed to support real-time context. Cursor is exploring real-time reinforcement learning for its AI coding assistant Cato Networks is hosting an April 14 webinar on securing AI transformation, covering Shadow AI discovery, prompt guardrails, and runtime protection for AI agents X plans to launch its payments business, X Money, in early public access next month"
+            },
+            {
+              "headline": "Superhuman",
+              "text": "Meta reveals TRIBE v2, a foundation model that predicts human brain activity across vision, sound, and language Google releases Gemini 3.1 Flash Live with major overhaul to Gemini Live voice conversations English Wikipedia bans AI-generated articles, citing violations of core content policies Meta released TRIBE v2, a brain-predictive foundation model trained on data from roughly 700 volunteers that forecasts neural activity across vision, sound, and language. The company open-sourced the model, its codebase, and a demo, aiming to accelerate research into neurological disorders. Separately, the newsletter flagged a startup building what it calls \"humanity's platform for uploaded consciousness,\" signaling an increasingly surreal trajectory for AI-adjacent ventures. Google's Gemini 3.1 Flash Live now powers Gemini Live with 2X longer conversations, faster responses, fewer awkward pauses, and context-aware tone adjustment. English Wikipedia concluded that LLM-generated text often fails its three core content policies: neutrality, verifiability, and attribution to reliable sources. AI may still be used to refine or translate articles. Plaid warns that generative AI could drive $40 billion in fraud losses by 2027, promoting its identity verification tools as a countermeasure."
+            },
+            {
+              "headline": "TLDR",
+              "text": "Apple Music in iOS 26.4 gets immersive fullscreen redesign for albums and playlists Spotify beta-tests Artist Profile Protection tool to block AI slop misattribution Autodesk introduces practical AI tools for Maya and 3ds Max focused on workflow improvements A detailed analysis argues that designing for the \"average user\" is fundamentally flawed because digital behavior follows skewed distributions, not bell curves. Most users are either casual \"tourists\" or ultra-engaged \"whales\" in the 95th to 99th percentile who generate disproportionate business value. A separate piece contends that most UX failures originate from flawed product strategy and untested assumptions, not poor interface design, emphasizing that thorough user research and precise problem definition must precede any work in Figma. iOS 26.4 redesigns Apple Music with dynamic color backgrounds that complement album artwork, plus a unified Profile screen shared across Music, Podcasts, and TV apps Spotify's Artist Profile Protection sends email notifications when music is delivered under an artist's name, letting them approve or decline releases before they go live Autodesk's new AI features include MotionMaker for AI-generated horse motion, Wonder 3D for text-to-3D object creation, AI-assisted texturing, and an Autodesk Assistant for software guidance \"Most users are either casual 'tourists' with minimal engagement or ultra-engaged 'whale' users in the 95th-99th percentile who generate disproportionate business value.\""
+            },
+            {
+              "headline": "TLDR",
+              "text": "Device code phishing campaign hits 340+ Microsoft 365 orgs, bypassing MFA via token abuse RSAC 2026 consensus: AI agents have broken traditional identity and security models JumpCloud frames identity as the control plane for managing shadow AI in enterprises An analysis of 18 SaaS earnings calls reveals that AI remains margin-neutral rather than profitable for most firms, despite headline numbers like Salesforce's $800 million in Agentforce ARR. High compute costs are eating into gains, and success increasingly depends on proprietary data moats, while trust remains a significant barrier in regulated sectors like healthcare. Separately, RSAC 2026 coverage emphasized that enterprises should not panic over AI and quantum threats but must move quickly, applying proven governance fundamentals while preparing for post-quantum cryptography and autonomous, AI-driven security operations. An active device code phishing campaign is capturing Microsoft 365 authentication tokens, maintaining access even after password resets, rendering MFA and password rotation insufficient once tokens are issued. RSAC 2026 closed with a clear theme: traditional identity and access controls do not scale to autonomous AI agents, and securing AI increasingly requires AI-native defenses. JumpCloud is positioning identity governance, not generic AI policy memos, as the real answer to shadow AI proliferation among employees using unapproved tools. \"If employees are already using unapproved AI tools, visibility and access governance matter more than another generic AI policy memo.\""
+            }
+          ]
+        },
+        {
+          "title": "Competitive Landscape",
+          "items": [
+            {
+              "headline": "OpenAI",
+              "text": "OpenAI closed a $110 billion funding round in March 2026 led by Amazon, Nvidia, and SoftBank, anchored by a $100 billion AWS infrastructure collaboration. The company now serves 900 million weekly users but quietly discontinued the Sora public API on March 24 after inference costs exceeded $5 billion annually, active users stalled at 5 million, and downloads fell 25% in March. The Sora shutdown signals a strategic pivot toward robotics, world simulation, and high-productivity verticals as OpenAI prepares for a potential Q4 2026 IPO."
+            },
+            {
+              "headline": "Google DeepMind",
+              "text": "Google DeepMind released Gemini 3.1 Ultra in March 2026, featuring native multimodal reasoning that narrows capability gaps between leading labs to a matter of weeks rather than months. The lab also shipped Veo shortly before OpenAI's Sora entered the market, intensifying the video generation arms race. The rapid cadence underscores Google's strategy of layering model releases to maintain competitive pressure across modalities."
+            },
+            {
+              "headline": "Anthropic",
+              "text": "Anthropic surfaced in Nasdaq correction analysis on March 27, with commentators characterizing the company's trajectory as a \"generational run\" even as broader tech markets sold off. Specific product or funding announcements were not detailed, but the framing suggests strong private market momentum and investor confidence relative to peers. The mention positions Anthropic as a perceived safe harbor within an otherwise turbulent AI investment landscape."
+            },
+            {
+              "headline": "Meta AI",
+              "text": "A court ruling reported on March 27 ordered the shutdown or restriction of Meta AI capabilities in a case holding social platforms accountable for AI-driven harms. The decision could set a significant precedent for how integrated AI assistants on social networks are regulated. Details on scope and enforcement timeline remain limited, but the ruling introduces material legal risk to Meta's strategy of embedding AI across its family of apps."
+            },
+            {
+              "headline": "Mistral",
+              "text": "Mistral shipped Mistral Small 4 in March 2026, a 22-billion parameter model released under the Apache 2.0 license. Benchmarks show it outperforming closed-source models three to five times its size on reasoning and instruction-following tasks, reinforcing Mistral's position as the leading European open-weight lab. The release lands as Model Context Protocol (MCP) hits 97 million installs industry-wide, expanding the ecosystem in which efficient open models can compete."
+            }
+          ]
+        },
+        {
+          "title": "AI Tool Guide",
+          "items": [
+            {
+              "headline": "Manus: Delegate Entire Research Workflows to an Autonomous Agent",
+              "text": "Manus is an autonomous AI agent designed to handle multi-step tasks from start to finish without constant supervision. Feed it a complex brief, such as a competitive market analysis or a sourced report, and it will independently research, synthesize, and deliver a finished output. Best used for tasks where you need depth but cannot justify hours of manual work: try it first on a low-stakes internal report to calibrate its output quality before handing it client-facing projects. Try it &rarr;"
+            },
+            {
+              "headline": "Lovable: Go from Idea to Full-Stack Prototype in Minutes",
+              "text": "Lovable lets non-technical founders and creators build full-stack web applications and sites using plain-language prompts, a practice now widely called vibe coding. Describe the app you want, including layout, features, and data logic, and Lovable generates working code you can deploy immediately. Use it to validate product ideas with real, clickable prototypes before investing in a dedicated engineering team. Try it &rarr;"
+            },
+            {
+              "headline": "Cursor: Supercharge Your IDE with Inline AI Code Generation",
+              "text": "Cursor embeds an AI coding assistant directly into your editor, offering context-aware code generation, refactoring suggestions, and debugging help as you type. Rather than switching between a chatbot and your IDE, you stay in flow while the model reads your entire codebase for relevant context. Start by using it for boilerplate and test generation, then gradually trust it with more complex refactors as you learn its strengths and blind spots. Try it &rarr;"
+            },
+            {
+              "headline": "Zapier Agents: Build No-Code AI Workflows Across 8,000+ Apps",
+              "text": "Zapier's new Agents layer, paired with its Copilot feature, lets you describe a business process in natural language and have an AI agent orchestrate it across thousands of integrations. A practical starting point: automate your lead pipeline by having an agent pull new form submissions, enrich them with company data, summarize the results, and push qualified leads into your CRM. The no-code interface means operations and marketing teams can own their own automations without filing engineering tickets. Try it &rarr;"
+            },
+            {
+              "headline": "Supaboard AI: Centralize Team Data for AI-Driven Decision Making",
+              "text": "Supaboard AI aggregates data from multiple sources into a single dashboard layer, then uses AI to generate reports, surface anomalies, and visualize trends without requiring SQL or BI expertise. The mindset shift here is important: stop treating reporting as a periodic chore and instead set up always-on dashboards that update automatically. Start by connecting your two or three most critical data sources and asking Supaboard to generate a weekly summary you can share in standups. Try it &rarr;"
+            },
+            {
+              "headline": "Claude with Artifacts: Turn Conversations into Interactive Deliverables",
+              "text": "Claude's Artifacts feature transforms a standard AI chat into a real-time workspace where code snippets, documents, and even small web apps render live alongside the conversation. Use it for iterative creative work: draft a contract, refine a landing page, or build an interactive data visualization, all while discussing changes in the same window. The key technique is to treat each Artifact as a versioned draft, asking Claude to revise specific sections rather than regenerating from scratch, which preserves context and saves time. Try it &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,368.85 (-1.67%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "20,948.36 (-2.15%)"
+            },
+            {
+              "headline": "Bitcoin",
+              "text": "$66,412.99 (+0.02%)"
+            },
+            {
+              "headline": "Ethereum",
+              "text": "$1,995.79 (-0.05%)"
+            },
+            {
+              "headline": "Oil Brent",
+              "text": "$112.57 (+11.60%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "9 (Extreme Fear)"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-03-28",
       "sections": [

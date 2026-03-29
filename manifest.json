@@ -1,6 +1,35 @@
 {
-  "generated": "2026-03-29T00:06:38Z",
+  "generated": "2026-03-29T01:06:51Z",
   "digests": [
+    {
+      "date": "2026-03-29",
+      "dayOfWeek": "Sunday",
+      "focusTopics": [
+        {
+          "title": "Frontier Models Hit Parity",
+          "desc": "GPT-5.4 and Gemini 3.1 Pro are statistically indistinguishable on key evals, while Grok 4.20 claims the lowest hallucination rate ever recorded. The performance ceiling is compressing, shifting competition toward reliability, cost, and ecosystem integration rather than raw capability."
+        },
+        {
+          "title": "Open-Weight Momentum Accelerates",
+          "desc": "Seven of the nine notable models released in March were open-weight, with Alibaba's Qwen 3.5 alone shipping eight variants. This wave is democratizing access at an unprecedented pace and pressuring closed-model providers to justify premium pricing with differentiated tooling and support."
+        },
+        {
+          "title": "Geopolitics Rattles Tech Outlook",
+          "desc": "Escalating Middle East violence, combined with political backlash over Trump's Saudi Arabia remarks, has driven market sentiment to Extreme Fear. For AI companies dependent on global cloud infrastructure and cross-border data flows, sustained instability poses real supply chain and regulatory risk heading into Q2."
+        }
+      ],
+      "kpis": {
+        "aiStories": "11",
+        "worldEvents": "7",
+        "marketMood": "Extreme Fear",
+        "toolsFeatured": "6"
+      },
+      "hasPodcast": true,
+      "hasInfographic": true,
+      "hasVideo": true,
+      "youtubeId": "-_5gPQTjYYY",
+      "file": "morning-briefing-koda-2026-03-29.html"
+    },
     {
       "date": "2026-03-28",
       "dayOfWeek": "Saturday",
