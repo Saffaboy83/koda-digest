@@ -7,6 +7,10 @@ client_secret.json
 .youtube_token.json
 .gmail_token.json
 .env
+*.env.*
+GMAIL-TOKEN-B64.txt
+RAILWAY-ENV-VARS.txt
+RAILWAY-TOKENS.txt
 media-status.json
 podcast-*.mp3
 infographic-*.jpg
