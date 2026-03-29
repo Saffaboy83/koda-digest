@@ -1,11 +1,13 @@
 """
 Step 06: Deploy to Vercel via git push.
 
-Runs build-index.py, then stages, commits, and pushes to origin/main.
-Vercel auto-deploys on push.
+1. Upload media (podcast, infographic) to Supabase Storage
+2. Run build-index.py to update manifest + search index
+3. Stage, commit, and push to origin/main
+4. Vercel auto-deploys on push
 
 Input:  HTML files, media files, manifest.json, search-index.json
-Output: Live site at www.koda.community
+Output: Live site at www.koda.community, media on Supabase Storage
 """
 
 import argparse
@@ -35,6 +37,9 @@ def main():
 
     print(f"[06] Deploying digest for {args.date}")
 
+    # Note: Media uploads (Supabase, YouTube) happen in step 04 after generation,
+    # BEFORE step 05 renders the HTML (which needs youtube-result.json and Supabase URLs).
+
     # Step 1: Rebuild search index
     print("  Rebuilding search index...")
     ok, output = run(f"{sys.executable} build-index.py")
@@ -44,11 +49,12 @@ def main():
         print(f"    WARNING: build-index.py failed: {output[-200:]}")
 
     # Step 2: Stage files
+    # Note: podcast-*.mp3 and infographic-*.jpg are gitignored
+    # (served from Supabase Storage, not Vercel). Hero images are committed.
     files_to_stage = [
         "morning-briefing-koda.html",
         f"morning-briefing-koda-{args.date}.html",
-        f"podcast-{args.date}.mp3",
-        f"infographic-{args.date}.jpg",
+        f"hero-{args.date}.jpg",
         "manifest.json",
         "search-index.json",
         "recent-themes.json",

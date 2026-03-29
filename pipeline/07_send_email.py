@@ -19,7 +19,8 @@ from email.mime.text import MIMEText
 from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from pipeline.config import EMAIL_RECIPIENTS, DIGEST_DIR, today_str, write_json, read_json
+from pipeline.config import (EMAIL_RECIPIENTS, DIGEST_DIR, SUPABASE_URL,
+                              today_str, write_json, read_json)
 
 GMAIL_TOKEN_PATH = DIGEST_DIR / ".gmail_token.json"
 GMAIL_SCOPES = [
@@ -77,7 +78,8 @@ def build_email_html(digest, media_status):
     # Media buttons
     media_buttons = ""
     if media.get("podcast"):
-        media_buttons += f"""<a href="https://www.koda.community/podcast-{date}.mp3"
+        podcast_url = f"{SUPABASE_URL}/storage/v1/object/public/koda-media/podcast-{date}.mp3" if SUPABASE_URL else f"https://www.koda.community/podcast-{date}.mp3"
+        media_buttons += f"""<a href="{podcast_url}"
           style="display:inline-block;padding:12px 24px;background:#8B5CF6;color:white;
           text-decoration:none;border-radius:8px;font-weight:700;margin:4px">
           Listen to Podcast</a>"""

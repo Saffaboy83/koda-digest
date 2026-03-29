@@ -42,7 +42,7 @@ NOTEBOOK_ID = os.environ.get(
     "NOTEBOOK_ID", "f928d89b-2520-4180-a71a-d93a75a5487c"
 )
 
-FFMPEG_PATH = os.path.expanduser(
+FFMPEG_PATH = os.environ.get("FFMPEG_PATH", "") or shutil.which("ffmpeg") or os.path.expanduser(
     "~/AppData/Local/Microsoft/WinGet/Packages/"
     "Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/"
     "ffmpeg-8.1-full_build/bin/ffmpeg.exe"
@@ -143,6 +143,29 @@ DEFAULT_VIDEO_FOCUS = (
     "of power and decision-making: empty podiums, government buildings exteriors, flags, "
     "diplomatic tables, military hardware without identifiable personnel, policy documents, "
     "press briefing rooms without people. This applies to ALL acts and scenes."
+    "\n\n"
+    "TECHNICAL STABILIZERS (apply to ALL scenes): "
+    "Maintain subject center-frame stability in all shots. "
+    "Consistent shadow direction within each act. "
+    "Prevent horizon warping on drone and crane movements. "
+    "Preserve architectural geometry in all environment shots. "
+    "Lock screen text legibility on any data visualizations. "
+    "Smooth interpolation on all transitions -- dissolves over hard cuts."
+    "\n\n"
+    "SOUND DESIGN & ATMOSPHERE: "
+    "Crisis scenes: distant machinery rumble, dust particles in light beams, heat shimmer "
+    "on tarmac, muffled radio chatter. "
+    "Technology scenes: deep server fan hum, electrical crackle of cooling systems, cool "
+    "air condensation, high-frequency data transfer tone. "
+    "Collision scenes: both soundscapes bleeding together, rising ambient tension, "
+    "mechanical rhythms merging with digital pulses. "
+    "Close: silence except a single sustained tone fading to black."
+    "\n\n"
+    "SENSORY TEXTURE (layer into every scene): "
+    "Rain on glass, steam from vents, dust motes caught in shafts of light. "
+    "Screen reflections on faces and polished surfaces. "
+    "Depth particles: fog layers, atmospheric haze, bokeh light points in backgrounds. "
+    "Material textures: brushed metal, polished glass, rough concrete, wet asphalt reflections."
 )
 
 VIDEO_POLL_INTERVAL = 15.0  # seconds between download attempts
@@ -195,7 +218,8 @@ def convert_png_to_jpg(png_path, jpg_path):
 
 async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
                        diff_text=None, audio_focus=None, infographic_focus=None,
-                       video_focus=None, visual_script=None):
+                       video_focus=None, visual_script=None,
+                       infographic_source=None):
     """Run the full NotebookLM media generation pipeline."""
 
     results = []
@@ -300,6 +324,24 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
             except Exception as e:
                 results.append(make_status("add_visual_script", False, str(e)))
                 print(f"  Warning: Could not add visual script source: {e}")
+
+        # ── Step 2d: Add infographic visual direction source (if provided) ──
+        if infographic_source:
+            print("[2d/6] Adding infographic visual direction source...")
+            try:
+                await client.sources.add_text(
+                    NOTEBOOK_ID,
+                    f"Infographic Visual Direction -- {date_str}",
+                    infographic_source,
+                    wait=True,
+                )
+                results.append(make_status("add_infographic_source", True,
+                                           f"Added {len(infographic_source)} chars infographic direction"))
+                print(f"  Added {len(infographic_source)} chars infographic direction.")
+                await asyncio.sleep(2)
+            except Exception as e:
+                results.append(make_status("add_infographic_source", False, str(e)))
+                print(f"  Warning: Could not add infographic source: {e}")
 
         # ── Step 3: PARALLEL generation (audio + infographic + video) ────
         print("[3/5] Triggering all media generation in PARALLEL...")
@@ -555,6 +597,8 @@ def main():
                         help="Custom cinematic video direction prompt (overrides default)")
     parser.add_argument("--visual-script-file",
                         help="Path to visual production script for cinematic video (added as notebook source)")
+    parser.add_argument("--infographic-source-file",
+                        help="Path to infographic visual direction source (added as notebook source)")
     parser.add_argument("--json", action="store_true",
                         help="Output results as JSON to stdout")
 
@@ -583,6 +627,12 @@ def main():
         with open(args.visual_script_file, "r", encoding="utf-8") as f:
             visual_script = f.read().strip()
 
+    # Read optional infographic source
+    infographic_source = None
+    if args.infographic_source_file:
+        with open(args.infographic_source_file, "r", encoding="utf-8") as f:
+            infographic_source = f.read().strip()
+
     os.makedirs(args.output_dir, exist_ok=True)
 
     print(f"Koda Digest Media Generator")
@@ -591,6 +641,7 @@ def main():
     print(f"Text: {len(text_content)} characters")
     print(f"Differentiation: {'yes' if diff_text else 'no'}")
     print(f"Visual script: {'yes' if visual_script else 'no'}")
+    print(f"Infographic source: {'yes' if infographic_source else 'no'}")
     print(f"Focus: {'custom' if args.focus else 'default'}")
     print(f"Infographic: {'custom prompt' if args.infographic_focus else 'default prompt'}")
     print(f"Video: {'skip' if args.skip_video else 'cinematic'}")
@@ -603,7 +654,8 @@ def main():
                      diff_text=diff_text, audio_focus=args.focus,
                      infographic_focus=args.infographic_focus,
                      video_focus=args.video_focus,
-                     visual_script=visual_script)
+                     visual_script=visual_script,
+                     infographic_source=infographic_source)
     )
 
     # Write status file

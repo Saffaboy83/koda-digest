@@ -18,7 +18,8 @@ import re
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from pipeline.config import DIGEST_DIR, LEONARDO_API_KEY, today_str, read_json
+from pipeline.config import (DIGEST_DIR, LEONARDO_API_KEY, SUPABASE_URL,
+                              today_str, read_json)
 
 # ── Template Setup ──────────────────────────────────────────────────────────
 
@@ -65,6 +66,13 @@ def get_youtube_id():
         except Exception as e:
             print(f"  WARNING: Could not read youtube-result.json: {e}")
     return ""
+
+
+def media_url(filename):
+    """Return the public URL for a media file (Supabase if available, relative fallback)."""
+    if SUPABASE_URL:
+        return f"{SUPABASE_URL}/storage/v1/object/public/koda-media/{filename}"
+    return f"./{filename}"
 
 
 def check_media(date, media_status):
@@ -171,7 +179,7 @@ def generate_hero_image(digest, date):
 
     # v2 endpoint for Nano Banana generation
     payload = {
-        "model": "gemini-2.5-flash-image",
+        "model": "nano-banana",
         "parameters": {
             "width": 1024,
             "height": 1024,
@@ -308,10 +316,12 @@ def generate_html(digest, media_status, date):
         "year": datetime.now().year,
         "youtube_id": get_youtube_id(),
 
-        # Media availability
+        # Media availability and URLs
         "has_podcast": has_podcast,
         "has_infographic": has_infographic,
         "has_hero_image": has_hero_image,
+        "podcast_url": media_url(f"podcast-{date}.mp3"),
+        "infographic_url": media_url(f"infographic-{date}.jpg"),
 
         # Content sections (passed directly from JSON)
         "summary": digest.get("summary", {}),
