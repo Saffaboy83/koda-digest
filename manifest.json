@@ -1,33 +1,33 @@
 {
-  "generated": "2026-03-29T01:06:51Z",
+  "generated": "2026-03-29T10:15:59Z",
   "digests": [
     {
       "date": "2026-03-29",
       "dayOfWeek": "Sunday",
       "focusTopics": [
         {
-          "title": "Frontier Models Hit Parity",
-          "desc": "GPT-5.4 and Gemini 3.1 Pro are statistically indistinguishable on key evals, while Grok 4.20 claims the lowest hallucination rate ever recorded. The performance ceiling is compressing, shifting competition toward reliability, cost, and ecosystem integration rather than raw capability."
+          "title": "Million-Token Context Wars",
+          "desc": "GPT-5.4's million-token context window sets a new commercial benchmark, but the real story is convergence: DeepSeek V4 and Qwen3.5 are closing capability gaps at unprecedented speed. Open-weight releases from NVIDIA and Alibaba mean frontier-level context handling is no longer locked behind proprietary APIs. The competitive moat for any single lab is shrinking by the week."
         },
         {
-          "title": "Open-Weight Momentum Accelerates",
-          "desc": "Seven of the nine notable models released in March were open-weight, with Alibaba's Qwen 3.5 alone shipping eight variants. This wave is democratizing access at an unprecedented pace and pressuring closed-model providers to justify premium pricing with differentiated tooling and support."
+          "title": "Middle East Conflict Widens",
+          "desc": "Houthi missile strikes on Israel, Iranian attacks on Saudi infrastructure, and a fresh US Marine deployment signal a conflict expanding well beyond Gaza. Global shipping routes through the Red Sea face renewed disruption, compounding the economic anxiety already visible in market sentiment. The involvement of state and non-state actors across multiple countries raises the risk of a broader regional war."
         },
         {
-          "title": "Geopolitics Rattles Tech Outlook",
-          "desc": "Escalating Middle East violence, combined with political backlash over Trump's Saudi Arabia remarks, has driven market sentiment to Extreme Fear. For AI companies dependent on global cloud infrastructure and cross-border data flows, sustained instability poses real supply chain and regulatory risk heading into Q2."
+          "title": "Fear Meets Frontier Innovation",
+          "desc": "Extreme Fear in markets typically suppresses venture funding and enterprise procurement, yet March 2026 has produced the densest cluster of major model releases in AI history. This disconnect suggests labs are racing to establish dominance before a potential economic downturn constrains spending. Companies evaluating adoption face a paradox: the best models ever built are arriving at the worst possible moment for budget approvals."
         }
       ],
       "kpis": {
         "aiStories": "11",
-        "worldEvents": "7",
+        "worldEvents": "6",
         "marketMood": "Extreme Fear",
         "toolsFeatured": "6"
       },
       "hasPodcast": true,
       "hasInfographic": true,
       "hasVideo": true,
-      "youtubeId": "-_5gPQTjYYY",
+      "youtubeId": "c_n_og84D1E",
       "file": "morning-briefing-koda-2026-03-29.html"
     },
     {
