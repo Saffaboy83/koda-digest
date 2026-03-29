@@ -78,13 +78,31 @@ NOTE: No calendar or personal email queries. This digest is public-facing.
 
 ## STEP 2 — NOTEBOOKLM PODCAST + INFOGRAPHIC + VIDEO (do before writing HTML)
 
-Uses a **single permanent notebook** (`f928d89b-2520-4180-a71a-d93a75a5487c`) to avoid
-eating up the notebook count limit. Old text sources are deleted daily; audio and infographic
-artifacts are kept forever so the NotebookLM archive stays intact.
+### Notebook Policy
 
-### 2A — Generate the audio in NotebookLM
+- **Daily digest** (this skill's normal flow): Uses the **permanent notebook**
+  (`f928d89b-2520-4180-a71a-d93a75a5487c`). Old text sources are deleted daily;
+  audio/infographic/video artifacts are kept forever.
+- **Ad-hoc / standalone media requests** (user asks for media outside the daily digest):
+  ALWAYS use `--new-notebook` flag. NEVER touch the permanent notebook for ad-hoc work.
+
+### Source Architecture (MANDATORY — applies to ALL media generation)
+
+Every media generation run MUST create **4 files** before calling the pipeline:
+
+1. **News text** (`news-YYYY-MM-DD.txt`) — the compiled content/source material
+2. **Audio editorial direction** (`audio-direction-YYYY-MM-DD.txt`) — dedicated source doc for the podcast
+3. **Infographic visual direction** (`infographic-source-YYYY-MM-DD.txt`) — dedicated source doc for the infographic
+4. **Video visual script** (`visual-script-YYYY-MM-DD.txt`) — dedicated source doc for the cinematic video
+
+All 4 files are added as separate notebook sources. Each media type gets its own source doc
+plus the shared news text. This is the **source-based approach** that produces high-quality
+output — never rely on instruction prompts alone.
+
+### 2A — Compile content and create all source documents
 
 1. **Compile** all gathered news into a single structured text block (600-1200 words).
+   Save to `[DIGEST_DIR]/news-YYYY-MM-DD.txt`.
    Use clear section headers and lead each story with a bold headline + key stat:
    ```
    ## AI DEVELOPMENTS
@@ -104,39 +122,81 @@ artifacts are kept forever so the NotebookLM archive stays intact.
    [2-3 sentence summary]
    ```
    This structured format improves both the podcast narration and infographic visual quality.
-2. **Clean previous sources:** Call `notebook_get` on the permanent notebook
-   (`f928d89b-2520-4180-a71a-d93a75a5487c`). Delete any existing text sources via `source_delete`
-   (confirm: true) to keep the notebook clean. Do NOT delete audio artifacts.
-3. **Add today's text:** `notebook_add_text` with the compiled news block as a new source.
-4. **Build a dynamic audio prompt** that makes technical content accessible. Use this template:
+
+2. **Build an audio editorial direction source doc** (`audio-direction-YYYY-MM-DD.txt`).
+   This is NOT a prompt — it is a rich editorial guide added as a notebook source to shape
+   how the podcast hosts discuss the material. Write ~300-500 words covering:
 
    ```
-   Deliver this as an intelligence briefing for a mixed audience of AI practitioners
-   and business professionals.
+   AUDIO EDITORIAL DIRECTION — Koda Daily Briefing {DATE}
+   ========================================================
 
-   When introducing technical concepts ({LIST_2_3_TECHNICAL_TERMS_FROM_TODAY}),
-   briefly explain WHY it matters in plain language before the detail.
+   TARGET AUDIENCE: [Describe who is listening and what they already know]
 
-   Open with: {MOST_IMPORTANT_STORY} and why the listener should care.
-   AI section: lead with impact, then technical detail.
-   World events: what changed and what happens next.
-   Markets: one-line numbers ({KEY_MARKET_STAT}), then what is driving them.
-   Tools: who should use {TOOL_NAME} and what problem it solves.
+   NARRATIVE ARC:
+   [What story opens the episode and why? What's the emotional arc?]
 
-   Tone: Two smart colleagues catching each other up over coffee. When one host uses
-   a technical term, the other naturally clarifies it.
-   Pacing: Spend more time on the 2-3 stories that matter most.
-   Avoid: Assuming listeners know what MoE, context windows, or open-weight means
-   without a quick explainer.
+   STORY 1 — {HEADLINE}:
+   - Lead with: [the hook — why should the listener care?]
+   - Explain: [which technical terms need plain-language unpacking]
+   - Key insight: [the one takeaway that changes how the listener thinks]
+   - Make it tangible: [analogy or comparison that grounds abstract concepts]
+
+   STORY 2 — {HEADLINE}:
+   - [Same structure as Story 1]
+
+   [Repeat for each major story]
+
+   TONE GUIDANCE:
+   - Two smart colleagues at a coffee shop. One more technical, one asks
+     the questions a business person would ask.
+   - When mentioning "{TECHNICAL_TERM}" — explain it: "{plain language definition}"
+   - Avoid jargon without explanation.
+
+   PACING:
+   - Spend 60%+ on the 2-3 stories that matter most
+   - [Which stories should feel urgent? Which should feel empowering?]
+   - End with: [the convergent insight or call to action]
    ```
 
-   **Generate audio:** `audio_overview_create` on the permanent notebook with:
-   - `format: "deep_dive"`, `length: "default"`, `language: "en"`, `confirm: true`
-   - `focus_prompt:` the dynamic audio prompt built above (NOT a generic summary)
-5. **Poll:** `studio_status` until the newest audio artifact has `status: "completed"`.
-   Save the artifact title and `audio_url`.
-6. **Build a visual production script** as a second notebook source. This is NOT the same as
-   the news text -- it is a dedicated scene-by-scene script written for Veo 3's visual engine.
+3. **Build an infographic visual direction source doc** (`infographic-source-YYYY-MM-DD.txt`).
+   This is a detailed visual brief added as a notebook source. Write ~400-600 words covering:
+
+   ```
+   INFOGRAPHIC VISUAL DIRECTION — Koda Daily Digest {DATE}
+   ============================================================
+
+   FORMAT: Dark premium 2x2 grid infographic. Magazine-quality. Bloomberg Terminal meets Wired.
+
+   QUADRANT 1 (TOP LEFT) — "{HEADLINE_1}"
+   Visual: [Describe the illustration — what imagery represents this story]
+   Key data points to feature prominently:
+   - "{STAT_1}" (source)
+   - "{STAT_2}" (source)
+   - "{STAT_3}" (source)
+   Illustration style: [Color palette, mood, specific visual elements]
+   Must include: [Required data visualization — chart type, trend line, etc.]
+
+   QUADRANT 2 (TOP RIGHT) — "{HEADLINE_2}"
+   [Same structure]
+
+   QUADRANT 3 (BOTTOM LEFT) — "{HEADLINE_3}"
+   [Same structure]
+
+   QUADRANT 4 (BOTTOM RIGHT) — "{HEADLINE_4}"
+   [Same structure]
+
+   BRAND ELEMENTS:
+   - Title: "Koda Daily AI Digest — {DATE}" in bold header
+   - "Koda" with paw-print icon — bottom left
+   - "koda.community" — bottom right
+   - Dark navy/indigo background with neon accent colors
+
+   STRICT RULE: Do NOT depict any recognizable political figures.
+   ```
+
+4. **Build a visual production script** (`visual-script-YYYY-MM-DD.txt`).
+   This is a dedicated scene-by-scene script written for Veo 3's visual engine.
    Based on the day's top stories, write a ~400-600 word visual script using this template:
 
    ```
@@ -180,24 +240,54 @@ artifacts are kept forever so the NotebookLM archive stays intact.
    FINAL FRAME: {Single powerful image that encapsulates the day. Hold the shot. Let it breathe.}
    ```
 
-   **Add the visual script as a notebook source:**
-   Call `notebook_add_text` with the visual script as a new source titled
-   "Visual Production Script -- {DATE}". This gives Veo 3 explicit scene direction alongside
-   the factual news content.
+### 2A-ALT — Primary method: `notebooklm_media.py` (all-in-one pipeline)
 
-7. **Kick off cinematic video generation (do NOT wait -- it cooks in background):**
-   Immediately after adding the visual script, generate the cinematic video via Python (the MCP
-   tool does not support cinematic format). Save the dynamic instructions to `$VID_PROMPT`:
+The Python script handles notebook setup, source management, parallel generation, download,
+compression, and status tracking. Use it as the primary method:
 
-   ```
-   Create a cinematic intelligence briefing using the Visual Production Script source as
-   your scene-by-scene guide. Follow the shot descriptions, color grades, and camera
-   movements specified in the script. Every frame should feel like a Netflix documentary
-   or Bloomberg Originals film. Push Veo 3 visual quality to maximum.
-   ```
+```bash
+cd [DIGEST_DIR]
+PYTHONUTF8=1 python notebooklm_media.py \
+  --text-file news-YYYY-MM-DD.txt \
+  --date YYYY-MM-DD \
+  --diff-file audio-direction-YYYY-MM-DD.txt \
+  --infographic-source-file infographic-source-YYYY-MM-DD.txt \
+  --visual-script-file visual-script-YYYY-MM-DD.txt \
+  --infographic-focus "[DYNAMIC_INFOGRAPHIC_PROMPT]" \
+  [NOTEBOOK_FLAG]
+```
 
-   Then run:
+**NOTEBOOK_FLAG** depends on context:
+- Daily digest: omit (uses permanent notebook, cleans old sources)
+- Ad-hoc / standalone: `--new-notebook --notebook-title "[TITLE]"`
 
+The script adds all 4 sources (news + 3 direction docs) to the notebook, then fires
+audio + infographic + video generation in parallel. It handles download, compression
+(ffmpeg for audio, PNG→JPG for infographic), and writes `media-status.json`.
+
+Output files: `podcast-YYYY-MM-DD.mp3`, `infographic-YYYY-MM-DD.jpg`, `video-YYYY-MM-DD.mp4`
+
+If the script exits with code 2 (AUTH EXPIRED), run `python notebooklm_login.py` and retry.
+If it exits with code 1 (partial failure), check `media-status.json` for which steps failed
+and fall back to Chrome MCP for those specific media types.
+
+### 2A-FALLBACK — MCP tools + Chrome (if Python script fails)
+
+If `notebooklm_media.py` fails entirely, fall back to MCP tools:
+
+1. **Clean previous sources:** Call `notebook_get` on the permanent notebook
+   (`f928d89b-2520-4180-a71a-d93a75a5487c`). Delete existing text sources via `source_delete`
+   (confirm: true). Do NOT delete audio/infographic/video artifacts.
+2. **Add all 4 sources** via `notebook_add_text`:
+   - News text (titled "Koda Daily Digest — {DATE}")
+   - Audio editorial direction (titled "Audio Editorial Direction — {DATE}")
+   - Infographic visual direction (titled "Infographic Visual Direction — {DATE}")
+   - Visual production script (titled "Visual Production Script — {DATE}")
+3. **Generate audio:** `audio_overview_create` with `format: "deep_dive"`, `length: "default"`,
+   `language: "en"`, `confirm: true`, and a dynamic `focus_prompt`
+4. **Generate infographic:** `infographic_create` with `orientation: "landscape"`,
+   `detail_level: "detailed"`, `language: "en"`, `confirm: true`, and a dynamic `focus_prompt`
+5. **Generate cinematic video** via Python (MCP tool does NOT support cinematic format):
    ```bash
    PYTHONUTF8=1 python -c "
    import asyncio, sys
@@ -210,7 +300,9 @@ artifacts are kept forever so the NotebookLM archive stays intact.
        try:
            s = await client.artifacts.generate_cinematic_video(
                'f928d89b-2520-4180-a71a-d93a75a5487c',
-               instructions='''$VID_PROMPT''',
+               instructions='''Create a cinematic intelligence briefing using the Visual
+               Production Script source as your scene-by-scene guide. Push Veo 3 visual
+               quality to maximum.''',
            )
            print(f'Cinematic video started: {s.task_id}')
        finally:
@@ -218,12 +310,9 @@ artifacts are kept forever so the NotebookLM archive stays intact.
    asyncio.run(go())
    "
    ```
-
-   This uses `generate_cinematic_video()` (dedicated Veo 3 method -- different from `generate_video()`).
-   Do NOT poll `studio_status` yet -- continue to Step 2B. Cinematic videos take ~30-45 min
-   to render via Veo 3 and will be polled later in Step 2D.
-   If the command fails, fall back to `video_overview_create` with `format: "explainer"` and
-   set `VIDEO_IS_CINEMATIC = false`. Continue either way.
+   Do NOT poll yet -- cinematic videos take ~30-45 min. Continue to Step 2B.
+   If the command fails, fall back to `video_overview_create` with `format: "explainer"`.
+   Set `VIDEO_IS_CINEMATIC = false`. Continue either way.
 
 ### 2B — Download audio and serve via Supabase Storage
 
@@ -1012,6 +1101,7 @@ After saving both HTML files, deploy:
 cd [DIGEST_DIR]
 git add morning-briefing-koda.html morning-briefing-koda-*.html \
         manifest.json search-index.json index.html \
+        editorial/*.html editorial/editorial-hero-*.jpg \
         vercel.json .gitignore
 git commit -m "Digest $(date +%Y-%m-%d)"
 git push origin main
@@ -1021,6 +1111,38 @@ If `git push` fails due to sandbox proxy restrictions (403 from proxy), show the
 a message: "Digest saved locally. Run `./deploy.sh` from your Digest folder to push to Vercel."
 
 Vercel auto-deploys from the `main` branch within ~30 seconds of a push.
+
+---
+
+## STEP 5B — GENERATE DAILY EDITORIAL (parallel with Step 5)
+
+Generate a daily long-form editorial article for `koda.community/editorial/`.
+This runs the `editorial/SKILL.md` pipeline. It is independent of the media pipeline.
+
+### Quick summary of editorial steps:
+1. **Topic selection**: Scan `digest-content.json`, pick highest-thesis story
+2. **Expert routing**: Select voice overlay (Jack Roberts=tools, Paul J Lipsky=monetization, Dan Martell=scaling, theMITmonk=strategy, Sabrina Ramonov=content, Hormozi=sales)
+3. **Deep research**: Perplexity search for additional data + contrarian takes
+4. **Draft**: 1,200-1,800 words using Koda Voice Guide (`editorial/koda-voice-guide.md`)
+5. **Voice review**: Anti-slop checklist (zero em dashes, zero banned phrases)
+6. **Fact-check**: Multi-source verification per `editorial/fact-check-framework.md`
+7. **Hero image**: Generate via Leonardo AI, upload to Supabase koda-media bucket
+8. **Render HTML**: Use `editorial/template-editorial.html`, save to `editorial/YYYY-MM-DD-slug.html`
+9. **Link from digest**: Add "Today's Editorial" card between Daily Summary and Today's Focus
+10. **Update editorial archive**: Add card to `editorial/index.html`
+
+### Files involved:
+- `editorial/SKILL.md` — full pipeline definition
+- `editorial/koda-voice-guide.md` — 6 voice profiles + expert routing
+- `editorial/fact-check-framework.md` — verification pipeline
+- `editorial/template-editorial.html` — article HTML template
+- `editorial/index.html` — archive page (update with new card)
+
+### Deploy:
+Include editorial files in the git commit:
+```bash
+git add editorial/YYYY-MM-DD-slug.html editorial/index.html editorial/editorial-hero-*.jpg
+```
 
 ---
 
