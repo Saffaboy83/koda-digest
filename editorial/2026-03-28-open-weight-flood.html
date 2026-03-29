@@ -281,26 +281,28 @@ body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
-<body>
+<body class="dark">
 
 <!-- Scroll Progress -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
-<!-- Topbar -->
-<nav class="topbar">
-    <a href="../index.html" class="topbar-brand">
-        <div class="topbar-brand-icon">K</div>
-        <span class="topbar-brand-text">Koda Editorial</span>
-    </a>
-    <div class="topbar-nav">
-        <a href="../index.html" class="topbar-link topbar-home">Home</a>
-        <a href="../morning-briefing-koda.html" class="topbar-link">Today's Digest</a>
-        <a href="./index.html" class="topbar-link">Archive</a>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-            <span id="themeIcon">🌙</span>
-        </button>
+<!-- Topbar (matches daily digest) -->
+<header class="fixed top-0 w-full z-50 bg-[#0b1326]/80 backdrop-blur-xl border-b border-white/[0.06]" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(11,19,38,0.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);">
+    <div style="max-width:1280px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;">
+        <a href="../index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;">
+            <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;">K</div>
+            <div>
+                <div style="font-size:14px;font-weight:700;color:#3B82F6;">Koda Editorial</div>
+                <div style="font-size:10px;color:#8c909f;">Daily Analysis</div>
+            </div>
+        </a>
+        <div style="display:flex;align-items:center;gap:8px;">
+            <a href="./index.html" style="font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:600;padding:6px 12px;border-radius:6px;background:rgba(255,255,255,0.05);color:#8c909f;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='rgba(59,130,246,0.15)';this.style.color='#3B82F6'" onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.color='#8c909f'">Archive</a>
+            <a href="../morning-briefing-koda.html" style="font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:600;padding:6px 12px;border-radius:6px;background:rgba(255,255,255,0.05);color:#8c909f;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='rgba(59,130,246,0.15)';this.style.color='#3B82F6'" onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.color='#8c909f'">Today's Digest</a>
+            <a href="../index.html" style="font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:6px 12px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;text-decoration:none;transition:all 0.2s;margin-left:4px;" onmouseover="this.style.boxShadow='0 4px 12px rgba(59,130,246,0.3)'" onmouseout="this.style.boxShadow='none'">&larr; Home</a>
+        </div>
     </div>
-</nav>
+</header>
 
 <!-- Hero Section -->
 <header class="hero-section">
@@ -314,8 +316,8 @@ body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
         <p class="hero-subtitle">Seven of nine major AI text models released in March 2026 were open-weight. The economics of AI just flipped. Here is what that means.</p>
     </div>
     <!-- Hero Image: CSS gradient (no image needed) -->
-    <div class="hero-image fade-in" style="max-width:800px;margin:32px auto 0;height:200px;border-radius:16px;background:linear-gradient(135deg, rgba(99,102,241,0.3) 0%, rgba(59,130,246,0.2) 30%, rgba(139,92,246,0.25) 60%, rgba(236,72,153,0.15) 100%);display:flex;align-items:center;justify-content:center;">
-        <span style="font-size:64px;opacity:0.5;">🏔️</span>
+    <div class="hero-image fade-in">
+        <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/editorial-hero-2026-03-28.jpg" alt="Abstract digital art: streams of light branching from a single source against dark indigo, representing the open-weight AI flood" loading="eager" style="width:100%;height:auto;display:block;border-radius:16px;">
     </div>
 </header>
 
@@ -482,31 +484,62 @@ body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
     </p>
 </footer>
 
-<!-- CTA -->
-<div class="cta-bar fade-in">
-    <p>Get the full intelligence briefing every morning.</p>
-    <a href="../index.html#subscribe" class="cta-btn">Subscribe to Koda Digest</a>
-</div>
+<!-- Subscribe CTA (matches daily digest) -->
+<section style="max-width:48rem;margin:0 auto;padding:64px 24px 16px;text-align:center;">
+    <div style="background:rgba(11,19,38,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:32px 40px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:128px;height:4px;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);border-radius:0 0 4px 4px;"></div>
+        <h3 style="font-size:20px;font-weight:700;color:white;margin-bottom:8px;">Want this every morning?</h3>
+        <p style="color:#c2c6d6;font-size:14px;margin-bottom:24px;">AI analysis, world news, markets, and tools. One briefing, delivered free.</p>
+        <form style="display:flex;gap:8px;max-width:28rem;margin:0 auto;padding:6px;border-radius:9999px;background:#171f33;border:1px solid rgba(255,255,255,0.06);" onsubmit="return kodaSubscribe(this)">
+            <input type="email" name="email" required style="background:transparent;border:none;outline:none;color:white;padding:0 20px;width:100%;font-size:14px;font-family:'Inter',system-ui,sans-serif;" placeholder="your@email.com">
+            <button type="submit" style="background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;padding:12px 24px;border-radius:9999px;font-weight:700;font-size:14px;white-space:nowrap;border:none;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.boxShadow='0 4px 12px rgba(59,130,246,0.3)'" onmouseout="this.style.boxShadow='none'">Subscribe</button>
+        </form>
+        <p style="font-size:10px;color:#8c909f;margin-top:12px;">One email per day. No spam. Unsubscribe anytime.</p>
+    </div>
+</section>
+
+<!-- Footer (matches daily digest) -->
+<footer style="background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto;">
+    <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;padding:40px 24px;gap:16px;">
+        <div>
+            <span style="font-size:14px;font-weight:700;color:#3B82F6;">Koda Editorial</span>
+            <p style="font-size:11px;color:#c2c6d6;margin-top:4px;">Published 28 March 2026</p>
+        </div>
+        <div style="display:flex;gap:24px;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;">
+            <a href="./index.html" style="color:#c2c6d6;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#c2c6d6'">Editorial Archive</a>
+            <a href="../index.html#archive" style="color:#c2c6d6;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#c2c6d6'">Digest Archive</a>
+            <span style="color:#c2c6d6;">&copy; 2026 Koda Intelligence</span>
+        </div>
+    </div>
+</footer>
 
 <!-- Scripts -->
 <script>
-// Theme toggle (shares koda-theme key with digest pages)
-(function() {
-    const body = document.body;
-    const toggle = document.getElementById('themeToggle');
-    const icon = document.getElementById('themeIcon');
-    const saved = localStorage.getItem('koda-theme');
-    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme:dark)').matches)) {
-        body.classList.add('dark');
-        icon.textContent = '☀️';
-    }
-    toggle.addEventListener('click', () => {
-        body.classList.toggle('dark');
-        const isDark = body.classList.contains('dark');
-        icon.textContent = isDark ? '☀️' : '🌙';
-        localStorage.setItem('koda-theme', isDark ? 'dark' : 'light');
+/* Beehiiv Subscribe */
+function kodaSubscribe(form) {
+    var btn = form.querySelector('button');
+    var email = form.querySelector('input[name="email"]').value;
+    btn.textContent = 'Subscribing...';
+    btn.disabled = true;
+    fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+    }).then(function(r) {
+        if (r.ok) {
+            btn.textContent = 'Subscribed!';
+            btn.style.background = '#10B981';
+            form.querySelector('input[name="email"]').value = '';
+        } else {
+            btn.textContent = 'Try again';
+            btn.disabled = false;
+        }
+    }).catch(function() {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
     });
-})();
+    return false;
+}
 
 // Scroll progress bar
 window.addEventListener('scroll', () => {
