@@ -226,15 +226,32 @@ No political figures. 16:9 aspect ratio.
 
 ### Step 07E: Link from Digest
 
-**Add an "Editorial" card** to today's digest HTML (morning-briefing-koda.html).
-Place it after the Daily Summary section. Format:
+**Add an "Editorial" card** to today's digest HTML (BOTH morning-briefing-koda.html AND the dated archive copy).
+
+**Placement**: Directly after the Infographic section (right after the `<div class="infographic-overlay">...</div>`), NOT at the bottom of the main column.
+
+**Also update these files**:
+- `editorial/index.html` — add the new article card at the TOP of the grid (newest first)
+- `index.html` (landing page) — replace the "Daily Editorial" card with today's article (title, date, excerpt, read time, link)
+
+Format for the digest card:
 
 ```html
-<div class="editorial-card" style="...">
-  <span class="tag">TODAY'S EDITORIAL</span>
-  <h3><a href="./editorial/YYYY-MM-DD-slug.html">{{TITLE}}</a></h3>
-  <p>{{SUBTITLE}} ({{READ_MINUTES}} min read)</p>
-</div>
+<section class="section" id="todays-editorial">
+    <div class="flex items-center gap-1.5 mb-4">
+        <span class="material-symbols-outlined text-sm text-[#8B5CF6]">edit_note</span>
+        <span class="text-xs font-black tracking-[0.15em] uppercase text-[#8c909f]">Today's Editorial</span>
+    </div>
+    <a href="./editorial/YYYY-MM-DD-slug.html" target="_blank" class="block p-5 bg-[#131b2e] hover:bg-[#171f33] border-l-4 border-[#8B5CF6] transition-colors no-underline group">
+        <div class="flex flex-wrap items-center gap-2 mb-2.5">
+            <span class="text-[10px] font-bold uppercase tracking-widest bg-[#8B5CF6]/10 text-[#8B5CF6] px-2 py-0.5 rounded">{{TAG}}</span>
+            <span class="text-[11px] text-[#8c909f]">{{EXPERT}}</span>
+            <span class="text-[11px] text-[#8c909f]">{{READ_MINUTES}} min read</span>
+        </div>
+        <h3 class="text-[15px] font-bold text-[#dae2fd] leading-snug mb-3 group-hover:text-white transition-colors">{{TITLE}}</h3>
+        <span class="text-[11px] font-bold uppercase tracking-widest text-[#8B5CF6]">Read Analysis &rarr;</span>
+    </a>
+</section>
 ```
 
 ### Step 08E: Update Search Index

@@ -1216,20 +1216,22 @@ This runs the `editorial/SKILL.md` pipeline. It is independent of the media pipe
 6. **Fact-check**: Multi-source verification per `editorial/fact-check-framework.md`
 7. **Hero image**: Generate via Leonardo AI, upload to Supabase koda-media bucket
 8. **Render HTML**: Use `editorial/template-editorial.html`, save to `editorial/YYYY-MM-DD-slug.html`
-9. **Link from digest**: Add "Today's Editorial" card between Daily Summary and Today's Focus
-10. **Update editorial archive**: Add card to `editorial/index.html`
+9. **Link from digest**: Add "Today's Editorial" card directly after the Infographic section (right after the infographic overlay div), NOT at the bottom of the main column
+10. **Update editorial archive**: Add card to `editorial/index.html` (newest article first)
+11. **Update landing page**: Replace the "Daily Editorial" card in `index.html` with today's article (title, date, excerpt, read time, link)
 
 ### Files involved:
 - `editorial/SKILL.md` — full pipeline definition
 - `editorial/koda-voice-guide.md` — 6 voice profiles + expert routing
 - `editorial/fact-check-framework.md` — verification pipeline
 - `editorial/template-editorial.html` — article HTML template
-- `editorial/index.html` — archive page (update with new card)
+- `editorial/index.html` — archive page (update with new card, newest first)
+- `index.html` — landing page (update Daily Editorial section)
 
 ### Deploy:
 Include editorial files in the git commit:
 ```bash
-git add editorial/YYYY-MM-DD-slug.html editorial/index.html editorial/editorial-hero-*.jpg
+git add editorial/YYYY-MM-DD-slug.html editorial/index.html editorial/editorial-hero-*.jpg index.html
 ```
 
 ---

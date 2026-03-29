@@ -1,33 +1,33 @@
 {
-  "generated": "2026-03-29T20:38:10Z",
+  "generated": "2026-03-29T21:52:51Z",
   "digests": [
     {
       "date": "2026-03-29",
       "dayOfWeek": "Sunday",
       "focusTopics": [
         {
-          "title": "Agents That Rewrite Themselves",
-          "desc": "Anthropic's AutoDream and Meta's Hyperagents both enable AI systems to modify their own behavior loops, a capability that was theoretical six months ago. The parallel announcements suggest self-modification is becoming a competitive axis, not a research curiosity. Alignment researchers have flagged the absence of any shared safety protocol between the two approaches."
+          "title": "Open-Source AI Surge",
+          "desc": "Seven of nine March text model releases are open-source, with Alibaba alone shipping eight Qwen3.5 variants in a single drop. This concentration of open-weight releases signals a structural shift: frontier-quality models are becoming commoditized faster than enterprise licensing models can adapt. DeepSeek V4 at 1 trillion parameters adds further pressure on closed providers to justify premium pricing."
         },
         {
-          "title": "DeepSeek's Engram Architecture Gambit",
-          "desc": "DeepSeek's new Engram architecture represents a structural departure from the transformer paradigm that has dominated since 2017. Early benchmarks are scarce, but the naming itself signals ambition: engrams reference biological memory traces, hinting at persistent, evolving internal representations. If the architecture delivers on efficiency claims, it could reshape the cost calculus for frontier model training."
+          "title": "Hormuz Crisis and Oil",
+          "desc": "Iran's strike on a Saudi base and the subsequent breach of the $100 oil threshold represent a significant escalation with direct supply-chain implications for AI infrastructure, which is heavily energy-dependent. G7 efforts to secure the Strait of Hormuz suggest a prolonged standoff rather than a quick resolution. Data center operators and cloud providers should monitor energy cost forecasts closely."
         },
         {
-          "title": "Shutdown Meets Correction Territory",
-          "desc": "Day 41 of the government shutdown now coincides with a formal Dow correction and extreme fear sentiment, creating a feedback loop where political paralysis amplifies market anxiety. Congressional recess threatens to extend the impasse further. For AI companies dependent on federal contracts, cloud procurement, and regulatory clarity, the dysfunction introduces a new layer of operational uncertainty."
+          "title": "AI Amid Market Chaos",
+          "desc": "The Dow's 800-point drop and Extreme Fear sentiment arrive precisely as AI labs are flooding the market with new releases, creating a sharp divergence between innovation velocity and investor confidence. Historically, periods of market stress accelerate enterprise cost-cutting, which can paradoxically benefit open-source AI adoption over expensive proprietary APIs. Watch for enterprise procurement shifts in Q2 earnings guidance."
         }
       ],
       "kpis": {
-        "aiStories": "8",
-        "worldEvents": "7",
+        "aiStories": "12",
+        "worldEvents": "8",
         "marketMood": "Extreme Fear",
         "toolsFeatured": "6"
       },
       "hasPodcast": true,
       "hasInfographic": true,
       "hasVideo": true,
-      "youtubeId": "6oNH56-sbNw",
+      "youtubeId": "2_ERgrS1kZQ",
       "file": "morning-briefing-koda-2026-03-29.html"
     },
     {
@@ -264,6 +264,12 @@
     }
   ],
   "editorials": [
+    {
+      "date": "2026-03-29",
+      "title": "OpenAI Launches GPT-5.4 With Million-Token Context",
+      "tag": "Strategy",
+      "file": "editorial/2026-03-29-openai-launches-gpt-54-with-million-token-context.html"
+    },
     {
       "date": "2026-03-28",
       "title": "The Open-Weight Flood: Why 78% of March's AI Models Were Free",
