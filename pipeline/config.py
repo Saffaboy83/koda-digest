@@ -34,6 +34,7 @@ OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 PERPLEXITY_API_KEY = os.environ.get("PERPLEXITY_API_KEY", "")
 SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
 SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
+LEONARDO_API_KEY = os.environ.get("LEONARDO_API_KEY", "")
 
 # ── Constants ────────────────────────────────────────────────────────────────
 

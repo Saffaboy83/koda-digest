@@ -21,10 +21,10 @@ from pipeline.config import DIGEST_DIR, OPENROUTER_API_KEY, today_str, write_jso
 # ── OpenRouter API ───────────────────────────────────────────────────────────
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-SONNET_MODEL = "anthropic/claude-sonnet-4.6"
+LLM_MODEL = "anthropic/claude-opus-4-6"
 
 
-def llm_call(prompt, system="", model=SONNET_MODEL, max_tokens=4000):
+def llm_call(prompt, system="", model=LLM_MODEL, max_tokens=4000):
     """Call OpenRouter API and return the text response."""
     if not OPENROUTER_API_KEY:
         return None
@@ -50,7 +50,7 @@ def llm_call(prompt, system="", model=SONNET_MODEL, max_tokens=4000):
     return resp.json()["choices"][0]["message"]["content"]
 
 
-def llm_json(prompt, system="", model=SONNET_MODEL, max_tokens=4000):
+def llm_json(prompt, system="", model=LLM_MODEL, max_tokens=4000):
     """Call LLM and parse the response as JSON."""
     system_with_json = system + "\n\nIMPORTANT: Respond ONLY with valid JSON. No markdown, no code fences, no explanation."
     raw = llm_call(prompt, system_with_json, model, max_tokens)
@@ -141,7 +141,7 @@ Return a JSON object:
 }}
 
 Use exact numbers from the data. If a value is unavailable, use "N/A"."""
-    return llm_json(prompt, SYSTEM_PROMPT, model=SONNET_MODEL) or {}
+    return llm_json(prompt, SYSTEM_PROMPT, model=LLM_MODEL) or {}
 
 
 def synthesize_competitive(raw_content, citations):
@@ -219,7 +219,7 @@ Return a JSON object:
   "quote": "Most notable quote from the newsletter (if any, otherwise empty string)",
   "source_link": "{nl.get('source_link', '')}"
 }}"""
-        result = llm_json(prompt, SYSTEM_PROMPT, model=SONNET_MODEL, max_tokens=1500)
+        result = llm_json(prompt, SYSTEM_PROMPT, model=LLM_MODEL, max_tokens=1500)
         if result:
             entries.append(result)
 
@@ -232,15 +232,38 @@ def synthesize_summary(ai_news, world_news, markets):
     world_titles = [s["title"] for s in (world_news or [])[:5]]
     market_mood = markets.get("sentiment", {}).get("label", "Mixed") if markets else "Mixed"
 
+    # Load recent hooks from theme ledger to prevent repetition
+    recent_hooks_block = ""
+    ledger_path = DIGEST_DIR / "recent-themes.json"
+    if ledger_path.exists():
+        try:
+            with open(ledger_path, "r", encoding="utf-8") as f:
+                ledger = json.load(f)
+            recent_hooks = [
+                f"  - {d}: \"{entry.get('hook', '')}\""
+                for d, entry in sorted(ledger.items(), reverse=True)
+            ]
+            if recent_hooks:
+                recent_hooks_block = (
+                    "\n\nRECENT HOOKS (DO NOT repeat these patterns or phrasing):\n"
+                    + "\n".join(recent_hooks)
+                    + "\n\nYou MUST use a completely different sentence structure and opening phrase. "
+                    "Vary your approach: try a question, a statistic lead-in, a contrast ('While X, Y'), "
+                    "a declarative surprise, or a named-entity opening. NEVER start with 'AI labs race' "
+                    "or any variation seen above."
+                )
+        except Exception:
+            pass
+
     prompt = f"""Create the executive summary for today's Koda Intelligence Briefing.
 
 TOP AI STORIES: {json.dumps(ai_titles)}
 TOP WORLD STORIES: {json.dumps(world_titles)}
-MARKET MOOD: {market_mood}
+MARKET MOOD: {market_mood}{recent_hooks_block}
 
 Return a JSON object:
 {{
-  "hook": "One punchy sentence that captures today's biggest theme (max 20 words)",
+  "hook": "One punchy sentence that captures today's biggest theme (max 20 words). MUST use a fresh sentence structure unlike any recent hook.",
   "briefs": [
     {{"icon": "ai", "label": "AI", "text": "One sentence on the biggest AI story"}},
     {{"icon": "world", "label": "World", "text": "One sentence on the biggest world story"}},

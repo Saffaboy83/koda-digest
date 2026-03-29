@@ -18,7 +18,7 @@ import re
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from pipeline.config import DIGEST_DIR, today_str, read_json
+from pipeline.config import DIGEST_DIR, LEONARDO_API_KEY, today_str, read_json
 
 # ── Template Setup ──────────────────────────────────────────────────────────
 
@@ -80,6 +80,173 @@ def check_media(date, media_status):
     return has_podcast, has_infographic
 
 
+# ── Hero Image Generation ──────────────────────────────────────────────────
+
+def generate_hero_image(digest, date):
+    """Generate a unique hero image using Leonardo.ai Nano Banana based on today's content."""
+    import httpx
+    import time
+
+    hero_path = DIGEST_DIR / f"hero-{date}.jpg"
+    if hero_path.exists():
+        print(f"  Hero image already exists: {hero_path.name}")
+        return True
+
+    if not LEONARDO_API_KEY:
+        print("  WARNING: No LEONARDO_API_KEY, skipping hero image")
+        return False
+
+    # Build a visual theme from focus topics, using the date to pick a primary angle
+    import hashlib
+    topics = digest.get("summary", {}).get("focus_topics", [])
+    hook = (digest.get("summary", {}).get("hook", "") or "").lower()
+    briefs = digest.get("summary", {}).get("briefs", [])
+
+    # Collect all thematic angles from the day's content
+    angles = []
+    for topic in topics:
+        title = (topic.get("title", "") or "").lower()
+        desc = (topic.get("description", "") or "").lower()
+        combined = title + " " + desc
+
+        if any(kw in combined for kw in ["ai", "model", "open-source", "neural", "llm", "frontier"]):
+            angles.append({
+                "subject": "an intricate web of glowing neural pathways branching outward from a central core, electric pulses traveling along crystalline fibers",
+                "mood": "awe-inspiring, expansive, luminous",
+            })
+        if any(kw in combined for kw in ["war", "conflict", "military", "iran", "crisis", "strike", "troops"]):
+            angles.append({
+                "subject": "a massive storm system seen from above with lightning illuminating fractured tectonic plates, dark volcanic energy",
+                "mood": "ominous, turbulent, raw power",
+            })
+        if any(kw in combined for kw in ["market", "stock", "oil", "dow", "economy", "crash", "freefall"]):
+            angles.append({
+                "subject": "abstract geometric shards falling through space like a collapsing structure, streaks of red and amber light through dark void",
+                "mood": "dramatic, kinetic, tension",
+            })
+        if any(kw in combined for kw in ["open-source", "release", "launch", "commodit"]):
+            angles.append({
+                "subject": "thousands of luminous orbs spreading outward from a singularity in a dark ocean, ripple patterns in light",
+                "mood": "expansive, democratizing, hopeful energy",
+            })
+        if any(kw in combined for kw in ["regulation", "policy", "govern", "law", "compliance"]):
+            angles.append({
+                "subject": "towering crystalline pillars forming a structured grid against a stormy sky, order emerging from chaos",
+                "mood": "authoritative, structured, imposing",
+            })
+        if any(kw in combined for kw in ["energy", "climate", "sustain", "green", "carbon"]):
+            angles.append({
+                "subject": "swirling aurora-like energy ribbons wrapping around a dark sphere, organic meets digital",
+                "mood": "elemental, powerful, natural force",
+            })
+
+    if not angles:
+        angles.append({
+            "subject": "abstract data streams flowing through a dark crystalline landscape, nodes of light pulsing at intersections",
+            "mood": "futuristic, contemplative",
+        })
+
+    # Use the day number to rotate through angles (guarantees different visual each day)
+    day_num = int(date.split("-")[-1])
+    primary = angles[day_num % len(angles)]
+
+    image_prompt = (
+        f"Cinematic digital art: {primary['subject']}. "
+        f"Mood: {primary['mood']}. "
+        f"Dark moody atmosphere, deep shadows, volumetric lighting, rich contrast. "
+        f"Color palette: deep navy, electric blue, violet purple, subtle cyan accents. "
+        f"Wide composition, no people, no faces, no bodies, no hands. "
+        f"Absolutely NO text, NO words, NO labels, NO numbers, NO letters, NO typography anywhere. "
+        f"Clean abstract visual only. Photorealistic 3D render, dramatic cinematic lighting."
+    )
+
+    print(f"  Generating hero image via Leonardo.ai Nano Banana...")
+    print(f"    Prompt: {image_prompt[:120]}...")
+
+    headers = {
+        "authorization": f"Bearer {LEONARDO_API_KEY}",
+        "Content-Type": "application/json",
+        "accept": "application/json",
+    }
+
+    # v2 endpoint for Nano Banana generation
+    payload = {
+        "model": "gemini-2.5-flash-image",
+        "parameters": {
+            "width": 1024,
+            "height": 1024,
+            "prompt": image_prompt,
+            "quantity": 1,
+            "style_ids": ["111dc692-d470-4eec-b791-3475abac4c46"],  # Dynamic style
+            "prompt_enhance": "OFF",
+        },
+        "public": False,
+    }
+
+    try:
+        # Submit generation request via v2
+        resp = httpx.post(
+            "https://cloud.leonardo.ai/api/rest/v2/generations",
+            json=payload, headers=headers, timeout=30,
+        )
+        resp.raise_for_status()
+        result = resp.json()
+        generation_id = result.get("generate", {}).get("generationId")
+
+        if not generation_id:
+            print(f"  WARNING: No generation ID returned: {result}")
+            return False
+
+        print(f"    Generation ID: {generation_id}")
+
+        # Poll for completion via v1 endpoint
+        poll_url = f"https://cloud.leonardo.ai/api/rest/v1/generations/{generation_id}"
+        for attempt in range(30):  # up to 90 seconds
+            time.sleep(3)
+            status_resp = httpx.get(poll_url, headers=headers, timeout=15)
+            status_resp.raise_for_status()
+            gen = status_resp.json().get("generations_by_pk", {})
+            state = gen.get("status", "")
+
+            if state == "COMPLETE":
+                images = gen.get("generated_images", [])
+                if not images:
+                    print("  WARNING: Generation complete but no images returned")
+                    return False
+
+                image_url = images[0].get("url", "")
+                if not image_url:
+                    print("  WARNING: No image URL in response")
+                    return False
+
+                # Download the generated image
+                print(f"    Downloading generated image...")
+                img_resp = httpx.get(image_url, timeout=30)
+                img_resp.raise_for_status()
+                with open(hero_path, "wb") as f:
+                    f.write(img_resp.content)
+
+                size_kb = hero_path.stat().st_size // 1024
+                print(f"  Saved hero image: {hero_path.name} ({size_kb}KB)")
+                return True
+
+            elif state == "FAILED":
+                print(f"  WARNING: Leonardo generation failed")
+                return False
+
+            if attempt % 5 == 4:
+                print(f"    Still generating... ({(attempt + 1) * 3}s)")
+
+        print("  WARNING: Leonardo generation timed out after 90s")
+        return False
+
+    except Exception as e:
+        print(f"  WARNING: Leonardo hero image generation failed: {e}")
+        if hero_path.exists():
+            hero_path.unlink()
+        return False
+
+
 # ── Main Assembly ───────────────────────────────────────────────────────────
 
 def safe_url(value):
@@ -131,6 +298,7 @@ def generate_html(digest, media_status, date):
     template = env.get_template("briefing.html")
 
     has_podcast, has_infographic = check_media(date, media_status)
+    has_hero_image = generate_hero_image(digest, date)
 
     context = {
         # Metadata
@@ -143,6 +311,7 @@ def generate_html(digest, media_status, date):
         # Media availability
         "has_podcast": has_podcast,
         "has_infographic": has_infographic,
+        "has_hero_image": has_hero_image,
 
         # Content sections (passed directly from JSON)
         "summary": digest.get("summary", {}),
