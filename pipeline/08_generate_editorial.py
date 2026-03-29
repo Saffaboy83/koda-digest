@@ -369,15 +369,51 @@ _TAG_SUBJECTS: dict[str, str] = {
 }
 
 
+def _generate_hero_via_openrouter(image_prompt: str, hero_path: Path) -> bool:
+    """Fallback: generate hero image via OpenRouter (DALL-E 3). Returns True on success."""
+    if not OPENROUTER_API_KEY:
+        return False
+    try:
+        print("  Trying DALL-E 3 via OpenRouter as fallback...")
+        resp = httpx.post(
+            "https://openrouter.ai/api/v1/images/generations",
+            json={
+                "model": "openai/dall-e-3",
+                "prompt": image_prompt,
+                "n": 1,
+                "size": "1024x1024",
+                "quality": "standard",
+                "response_format": "url",
+            },
+            headers={
+                "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+                "Content-Type": "application/json",
+            },
+            timeout=60,
+        )
+        resp.raise_for_status()
+        img_url = resp.json()["data"][0]["url"]
+        img_data = httpx.get(img_url, timeout=30)
+        img_data.raise_for_status()
+        with open(hero_path, "wb") as f:
+            f.write(img_data.content)
+        print(f"  DALL-E fallback hero saved ({hero_path.stat().st_size // 1024}KB)")
+        return True
+    except Exception as e:
+        print(f"  WARNING: DALL-E fallback also failed: {e}")
+        return False
+
+
 def generate_editorial_hero(topic: dict, date: str) -> str | None:
-    """Generate a hero image for the editorial via Leonardo.ai. Returns URL or None."""
+    """Generate a hero image for the editorial. Primary: Leonardo.ai. Fallback: DALL-E via OpenRouter."""
     import time
 
     hero_filename = f"editorial-hero-{date}.jpg"
-    hero_path = DIGEST_DIR / hero_filename
+    # Save inside editorial/ so Vercel serves it and git tracks it
+    hero_path = DIGEST_DIR / "editorial" / hero_filename
 
-    if not LEONARDO_API_KEY:
-        print("  WARNING: No LEONARDO_API_KEY, skipping hero image")
+    if not LEONARDO_API_KEY and not OPENROUTER_API_KEY:
+        print("  WARNING: No image API keys available, skipping hero image")
         return None
 
     if hero_path.exists():
@@ -474,10 +510,12 @@ def generate_editorial_hero(topic: dict, date: str) -> str | None:
                 return None
 
         except Exception as e:
-            print(f"  WARNING: Hero image generation failed: {e}")
+            print(f"  WARNING: Leonardo hero generation failed: {e}")
             if hero_path.exists():
                 hero_path.unlink()
-            return None
+            # Try DALL-E fallback
+            if not _generate_hero_via_openrouter(image_prompt, hero_path):
+                return None
 
     # Upload to Supabase
     if SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY and hero_path.exists():
@@ -503,9 +541,9 @@ def generate_editorial_hero(topic: dict, date: str) -> str | None:
         except Exception as e:
             print(f"  WARNING: Supabase upload failed: {e}")
 
-    # Relative fallback (served by Vercel)
+    # Relative fallback: hero is in editorial/ alongside the article HTML
     if hero_path.exists():
-        return f"../{hero_filename}"
+        return f"./{hero_filename}"
 
     return None
 

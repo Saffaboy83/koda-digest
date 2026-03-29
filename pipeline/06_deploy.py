@@ -64,10 +64,13 @@ def main():
         ".gitignore",
     ]
 
-    # Add any editorial HTML files generated for today
+    # Add any editorial HTML files and hero images generated for today
     editorial_dir = DIGEST_DIR / "editorial"
     for editorial_file in sorted(editorial_dir.glob(f"{args.date}-*.html")):
         files_to_stage.append(f"editorial/{editorial_file.name}")
+    hero_file = editorial_dir / f"editorial-hero-{args.date}.jpg"
+    if hero_file.exists():
+        files_to_stage.append(f"editorial/editorial-hero-{args.date}.jpg")
 
     # If editorial ran successfully today, also stage the updated archive + landing page
     editorial_status_path = DIGEST_DIR / "pipeline" / "data" / "editorial-status.json"
