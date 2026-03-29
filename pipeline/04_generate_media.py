@@ -799,7 +799,8 @@ def main():
     env["PYTHONUTF8"] = "1"
 
     print(f"  Running notebooklm_media.py...")
-    result = subprocess.run(cmd, env=env, capture_output=False, timeout=1800)
+    # Cinematic video (Veo 3) takes 30-45 min to render; allow 60 min total
+    result = subprocess.run(cmd, env=env, capture_output=False, timeout=3600)
 
     # Read the status file that notebooklm_media.py writes
     status_path = DIGEST_DIR / "media-status.json"

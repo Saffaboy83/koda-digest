@@ -54,8 +54,8 @@ def run_step(step_id, name, script, date, extra_args=None):
 
     start = datetime.now()
     try:
-        # Media generation (step 04) needs longer timeout for video
-        step_timeout = 1800 if step_id == "04" else 900
+        # Media generation (step 04) needs longer timeout for cinematic video (Veo 3: 30-45 min)
+        step_timeout = 3600 if step_id == "04" else 900
         result = subprocess.run(
             cmd, env=env, timeout=step_timeout,
             cwd=str(DIGEST_DIR),
