@@ -126,9 +126,9 @@ def compile_text_for_notebooklm(digest: dict) -> str:
 
     text = "\n".join(sections)
 
-    # Ensure within NotebookLM's sweet spot
-    if len(text) > 8000:
-        text = text[:8000] + "\n\n[Content trimmed for generation]"
+    # NotebookLM handles 500K+ chars; allow richer source material for better media
+    if len(text) > 12000:
+        text = text[:12000] + "\n\n[Content trimmed for generation]"
 
     return text
 
@@ -701,6 +701,9 @@ def main():
     # Compile text for NotebookLM
     text = compile_text_for_notebooklm(digest)
     print(f"  Compiled {len(text)} chars for NotebookLM")
+    if len(text) < 4000:
+        print(f"  WARNING: Source text only {len(text)} chars (below 4KB threshold)")
+        print(f"  Media quality may be reduced. Consider re-running Step 01 with broader queries.")
 
     # Write text to temp file
     text_file = DIGEST_DIR / "pipeline" / "data" / "notebooklm-text.txt"

@@ -28,14 +28,19 @@ from pipeline.config import DIGEST_DIR, today_str, ensure_data_dir, write_json, 
 # ── Step Definitions ─────────────────────────────────────────────────────────
 
 STEPS = [
-    ("01", "Gather News", "01_gather_news.py"),
-    ("02", "Gather Newsletters", "02_gather_newsletters.py"),
-    ("03", "Synthesize Content", "03_synthesize_content.py"),
-    ("04", "Generate Media", "04_generate_media.py"),
-    ("05", "Generate HTML", "05_generate_html.py"),
-    ("06", "Deploy", "06_deploy.py"),
-    ("07", "Send Email", "07_send_email.py"),
+    ("01",  "Gather News",          "01_gather_news.py"),
+    ("02",  "Gather Newsletters",   "02_gather_newsletters.py"),
+    ("03",  "Synthesize Content",   "03_synthesize_content.py"),
+    ("03B", "Verify Stats",         "03b_verify_stats.py"),
+    ("04",  "Generate Media",       "04_generate_media.py"),
+    ("04E", "Generate Editorial",   "08_generate_editorial.py"),
+    ("05",  "Generate HTML",        "05_generate_html.py"),
+    ("06",  "Deploy",               "06_deploy.py"),
+    ("07",  "Send Email",           "07_send_email.py"),
 ]
+
+# Step ordering index for --from comparisons (string comparison breaks for "03B" vs "04")
+STEP_ORDER = {step_id: i for i, (step_id, _, _) in enumerate(STEPS)}
 
 
 def run_step(step_id, name, script, date, extra_args=None):
@@ -55,7 +60,8 @@ def run_step(step_id, name, script, date, extra_args=None):
     start = datetime.now()
     try:
         # Media generation (step 04) needs longer timeout for cinematic video (Veo 3: 30-45 min)
-        step_timeout = 3600 if step_id == "04" else 900
+        # Editorial (04E) needs moderate timeout for LLM calls + image gen
+        step_timeout = 3600 if step_id == "04" else 600 if step_id == "04E" else 900
         result = subprocess.run(
             cmd, env=env, timeout=step_timeout,
             cwd=str(DIGEST_DIR),
@@ -105,7 +111,7 @@ def main():
     for step_id, name, script in STEPS:
         if args.only and step_id not in args.only:
             continue
-        if args.from_step and step_id < args.from_step:
+        if args.from_step and STEP_ORDER.get(step_id, 99) < STEP_ORDER.get(args.from_step, 0):
             continue
         if step_id in skip_steps:
             continue
@@ -132,8 +138,8 @@ def main():
 
         if not success:
             all_passed = False
-            # Steps 04 (media) and 07 (email) are non-critical
-            if step_id in ("04", "07"):
+            # Non-critical steps: stat verification, media, editorial, email
+            if step_id in ("03B", "04", "04E", "07"):
                 print(f"  Non-critical step {step_id} failed — continuing...")
             else:
                 print(f"\n  Critical step {step_id} failed. Pipeline stopped.")

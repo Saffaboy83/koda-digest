@@ -40,8 +40,8 @@ def perplexity_search(query, system_prompt="Be precise and concise."):
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": query},
         ],
-        "max_tokens": 2000,
-        "temperature": 0.1,
+        "max_tokens": 4000,
+        "temperature": 0.15,
         "return_citations": True,
     }
 
@@ -229,6 +229,10 @@ def main():
 
     path = write_json("raw-data.json", output)
     print(f"\n  Saved to {path}")
+
+    # Save raw search results separately for stat verification (Step 03B)
+    write_json("raw-search-results.json", results)
+    print(f"  Saved raw-search-results.json for stat verification")
 
     # Quick summary
     total_chars = sum(len(r["content"]) for r in results.values())
