@@ -1,5 +1,3 @@
-import crypto from "crypto";
-
 export default async function handler(req, res) {
   // Accept both GET (email link click) and POST
   const params =
@@ -11,7 +9,8 @@ export default async function handler(req, res) {
     return res.status(400).send(errorPage("Missing email or token."));
   }
 
-  // Validate HMAC token
+  // Validate HMAC token (inline crypto to avoid import issues)
+  const crypto = require("crypto");
   const secret = process.env.UNSUBSCRIBE_SECRET ||
     (process.env.BEEHIIV_API_KEY || "koda-unsub-key").slice(0, 16);
   const expected = crypto
