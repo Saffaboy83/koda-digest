@@ -69,6 +69,17 @@ def main():
     for editorial_file in sorted(editorial_dir.glob(f"{args.date}-*.html")):
         files_to_stage.append(f"editorial/{editorial_file.name}")
 
+    # If editorial ran successfully today, also stage the updated archive + landing page
+    editorial_status_path = DIGEST_DIR / "pipeline" / "data" / "editorial-status.json"
+    try:
+        import json as _json
+        es = _json.loads(editorial_status_path.read_text())
+        if es.get("success") and es.get("date") == args.date:
+            files_to_stage.append("editorial/index.html")
+            print("  Editorial succeeded today: will also stage editorial/index.html")
+    except Exception:
+        pass  # editorial didn't run or status missing — skip
+
     existing = []
     for f in files_to_stage:
         path = DIGEST_DIR / f

@@ -799,6 +799,117 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     return html
 
 
+# ── Archive + Landing Page Updates ───────────────────────────────────────────
+
+def _excerpt(article_text: str, max_chars: int = 150) -> str:
+    """Extract a clean excerpt from the article hook (first paragraph)."""
+    paragraphs = [p.strip() for p in article_text.split('\n\n') if p.strip()]
+    raw = paragraphs[0] if paragraphs else ""
+    # Strip any markdown bold/italic
+    raw = re.sub(r'\*+', '', raw)
+    return raw[:max_chars].rstrip(' .,') + ("..." if len(raw) > max_chars else "")
+
+
+def _format_date_display(date_str: str) -> str:
+    """Format YYYY-MM-DD as '29 March 2026'."""
+    dt = datetime.strptime(date_str, "%Y-%m-%d")
+    return dt.strftime("%-d %B %Y") if hasattr(dt, 'strftime') else dt.strftime("%d %B %Y").lstrip("0")
+
+
+def _update_editorial_archive(
+    article_title: str,
+    filename: str,
+    tag: str,
+    date_str: str,
+    word_count: int,
+    article_text: str,
+) -> None:
+    """Prepend today's article card to editorial/index.html."""
+    archive_path = DIGEST_DIR / "editorial" / "index.html"
+    if not archive_path.exists():
+        print("  WARNING: editorial/index.html not found, skipping archive update")
+        return
+
+    content = archive_path.read_text(encoding="utf-8")
+    date_display = _format_date_display(date_str)
+    read_min = max(1, word_count // 250)
+    excerpt = _excerpt(article_text)
+
+    new_card = f'''    <a href="./{filename}" class="article-card">
+        <div class="article-meta">
+            <span class="tag">{tag}</span>
+            <span class="date">{date_display}</span>
+        </div>
+        <h2>{article_title}</h2>
+        <p>{excerpt}</p>
+        <div class="read-time">{read_min} min read</div>
+    </a>
+'''
+
+    # Insert after the opening <div class="grid"> tag
+    marker = '<div class="grid">'
+    if marker in content:
+        updated = content.replace(marker, marker + "\n" + new_card, 1)
+        archive_path.write_text(updated, encoding="utf-8")
+        print(f"  Updated editorial/index.html with card for {date_str}")
+    else:
+        print("  WARNING: could not find grid marker in editorial/index.html")
+
+
+def _update_landing_page(
+    article_title: str,
+    filename: str,
+    tag: str,
+    date_str: str,
+    word_count: int,
+    article_text: str,
+) -> None:
+    """Replace the featured editorial card in index.html."""
+    landing_path = DIGEST_DIR / "index.html"
+    if not landing_path.exists():
+        print("  WARNING: index.html not found, skipping landing page update")
+        return
+
+    content = landing_path.read_text(encoding="utf-8")
+    date_display = _format_date_display(date_str)
+    read_min = max(1, word_count // 250)
+    excerpt = _excerpt(article_text, max_chars=120)
+
+    start_marker = "<!-- EDITORIAL-CARD-START -->"
+    end_marker = "<!-- EDITORIAL-CARD-END -->"
+
+    if start_marker not in content or end_marker not in content:
+        print("  WARNING: EDITORIAL-CARD-START/END markers not found in index.html, skipping")
+        return
+
+    new_card = f"""<!-- EDITORIAL-CARD-START -->
+        <a href="./editorial/{filename}" class="block no-underline group">
+            <div class="bg-surface-container border border-outline-variant/20 rounded-2xl p-8 md:p-10 transition-all group-hover:border-[#6366F1]/30 group-hover:-translate-y-1" style="background:linear-gradient(135deg, rgba(99,102,241,0.06), rgba(139,92,246,0.04));">
+                <div class="flex items-center gap-3 mb-4">
+                    <span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;background:rgba(99,102,241,0.15);color:#a5b4fc;">{tag}</span>
+                    <span class="text-xs font-mono text-on-surface-variant/50">{date_display}</span>
+                    <span class="text-xs font-mono text-on-surface-variant/40">{read_min} min read</span>
+                </div>
+                <h3 class="text-xl md:text-2xl font-extrabold text-on-surface tracking-tight mb-3 group-hover:text-[#a5b4fc] transition-colors">{article_title}</h3>
+                <p class="text-sm text-on-surface-variant/70 leading-relaxed max-w-2xl">{excerpt}</p>
+            </div>
+        </a>
+<!-- EDITORIAL-CARD-END -->"""
+
+    # Replace between markers
+    pattern = re.compile(
+        re.escape(start_marker) + r".*?" + re.escape(end_marker),
+        re.DOTALL
+    )
+    updated = pattern.sub(new_card, content)
+
+    if updated == content:
+        print("  WARNING: landing page editorial card replacement had no effect")
+    else:
+        landing_path.write_text(updated, encoding="utf-8")
+        print(f"  Updated index.html editorial card for {date_str}")
+
+
 # ── Main ─────────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -883,12 +994,16 @@ def main() -> None:
             f.write(html)
         print(f"  Saved: editorial/{filename} ({len(html)} chars, {word_count} words)")
 
+    # Derive article title (same logic as render_html uses)
+    article_title = topic.get("topic", "Today's Analysis")[:80]
+
     # Save status
     status = {
         "date": args.date,
         "success": True,
         "filename": filename,
         "filepath": f"editorial/{filename}",
+        "title": article_title,
         "topic": topic.get("topic", ""),
         "tag": topic.get("tag", ""),
         "expert_overlay": topic.get("expert_overlay", ""),
@@ -897,6 +1012,29 @@ def main() -> None:
         "fact_check": {"claims_checked": len(fact_log), "verified": verified},
     }
     write_json("editorial-status.json", status)
+
+    # Update editorial/index.html — prepend today's article card at the top
+    if not args.dry_run:
+        _update_editorial_archive(
+            article_title=article_title,
+            filename=filename,
+            tag=topic.get("tag", "Strategy"),
+            date_str=args.date,
+            word_count=word_count,
+            article_text=article,
+        )
+
+    # Update landing page index.html — replace featured editorial card
+    if not args.dry_run:
+        _update_landing_page(
+            article_title=article_title,
+            filename=filename,
+            tag=topic.get("tag", "Strategy"),
+            date_str=args.date,
+            word_count=word_count,
+            article_text=article,
+        )
+
     print(f"\n  Editorial generation complete!")
 
 
