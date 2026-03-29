@@ -179,7 +179,7 @@ def generate_hero_image(digest, date):
 
     # v2 endpoint for Nano Banana generation
     payload = {
-        "model": "nano-banana",
+        "model": "gemini-2.5-flash-image",
         "parameters": {
             "width": 1024,
             "height": 1024,
