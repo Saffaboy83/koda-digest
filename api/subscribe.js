@@ -17,6 +17,48 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Check if subscriber already exists (may be inactive from prior unsubscribe)
+    const searchResp = await fetch(
+      `https://api.beehiiv.com/v2/publications/${pubId}/subscriptions?email=${encodeURIComponent(email)}`,
+      {
+        headers: { Authorization: `Bearer ${apiKey}` },
+      }
+    );
+
+    if (searchResp.ok) {
+      const searchData = await searchResp.json();
+      const existing = (searchData.data || []).find(
+        (s) => s.email.toLowerCase() === email.toLowerCase()
+      );
+
+      if (existing && existing.status !== "active") {
+        // Reactivate inactive subscriber
+        const reactivateResp = await fetch(
+          `https://api.beehiiv.com/v2/publications/${pubId}/subscriptions/${existing.id}`,
+          {
+            method: "PATCH",
+            headers: {
+              Authorization: `Bearer ${apiKey}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ unsubscribe: false }),
+          }
+        );
+
+        if (reactivateResp.ok) {
+          return res.status(200).json({ ok: true, reactivated: true });
+        }
+
+        console.error("Reactivate error:", reactivateResp.status, await reactivateResp.text());
+        return res.status(500).json({ error: "Resubscription failed" });
+      }
+
+      if (existing && existing.status === "active") {
+        return res.status(200).json({ ok: true, already: true });
+      }
+    }
+
+    // New subscriber — create fresh
     const resp = await fetch(
       `https://api.beehiiv.com/v2/publications/${pubId}/subscriptions`,
       {
