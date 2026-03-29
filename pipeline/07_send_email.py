@@ -1,15 +1,18 @@
 """
 Step 07: Send the daily newsletter email.
 
-Sends via Beehiiv Create Post API (primary) to all subscribers.
-Falls back to Gmail API (secondary) for the 5-person distribution list.
+Fetches active subscribers from Beehiiv, then sends via Gmail API using BCC
+so recipients don't see each other's email addresses.
+Includes a per-subscriber unsubscribe link that removes them from Beehiiv.
 
 Input:  pipeline/data/digest-content.json, pipeline/data/media-status.json
-Output: Beehiiv post (sent to all subscribers) or Gmail email (fallback)
+Output: Gmail email to all Beehiiv subscribers (BCC)
 """
 
 import argparse
 import base64
+import hashlib
+import hmac
 import json
 import sys
 import os
@@ -23,6 +26,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from pipeline.config import (EMAIL_RECIPIENTS, DIGEST_DIR, SUPABASE_URL,
                               BEEHIIV_API_KEY, BEEHIIV_PUBLICATION_ID,
                               today_str, write_json, read_json)
+
+UNSUBSCRIBE_SECRET = os.environ.get("UNSUBSCRIBE_SECRET", BEEHIIV_API_KEY[:16] if BEEHIIV_API_KEY else "koda-unsub-key")
 
 GMAIL_TOKEN_PATH = DIGEST_DIR / ".gmail_token.json"
 GMAIL_SCOPES = [
@@ -235,8 +240,11 @@ def build_email_html(digest, media_status):
   <!-- Footer -->
   <tr><td style="padding:20px 24px;border-top:1px solid #1E293B;text-align:center">
     <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#3B82F6">Koda Intelligence</p>
-    <p style="margin:0;font-size:11px;color:#64748B">
+    <p style="margin:0 0 8px;font-size:11px;color:#64748B">
       <a href="https://www.koda.community" style="color:#64748B;text-decoration:none">koda.community</a>
+    </p>
+    <p style="margin:0;font-size:10px;color:#475569">
+      <a href="{{{{UNSUBSCRIBE_URL}}}}" style="color:#475569;text-decoration:underline">Unsubscribe</a>
     </p>
   </td></tr>
 
@@ -248,43 +256,67 @@ def build_email_html(digest, media_status):
     return html
 
 
-def send_via_beehiiv(subject, html_body):
-    """Send newsletter via Beehiiv Create Post API. Returns True on success."""
+def generate_unsubscribe_token(email: str) -> str:
+    """Generate an HMAC token for a given email to prevent unauthorized unsubscribes."""
+    return hmac.new(
+        UNSUBSCRIBE_SECRET.encode(), email.lower().encode(), hashlib.sha256
+    ).hexdigest()[:32]
+
+
+def build_unsubscribe_url(email: str) -> str:
+    """Build a personalized unsubscribe URL for a subscriber."""
+    token = generate_unsubscribe_token(email)
+    return f"https://www.koda.community/api/unsubscribe?email={email}&token={token}"
+
+
+def fetch_beehiiv_subscribers() -> list[str]:
+    """Fetch active subscriber emails from Beehiiv. Returns list of emails."""
     if not BEEHIIV_API_KEY or not BEEHIIV_PUBLICATION_ID:
         print("  Beehiiv: not configured (missing API key or publication ID)")
-        return False
+        return []
 
     pub_id = BEEHIIV_PUBLICATION_ID
     if not pub_id.startswith("pub_"):
         pub_id = f"pub_{pub_id}"
 
+    all_emails = []
+    page = None
+
     try:
-        resp = httpx.post(
-            f"https://api.beehiiv.com/v2/publications/{pub_id}/posts",
-            headers={
-                "Authorization": f"Bearer {BEEHIIV_API_KEY}",
-                "Content-Type": "application/json",
-            },
-            json={
-                "title": subject,
-                "body_content": html_body,
-                "status": "confirmed",
-            },
-            timeout=30,
-        )
+        while True:
+            params = {"limit": 100}
+            if page:
+                params["page"] = page
 
-        if resp.status_code in (200, 201):
-            data = resp.json().get("data", {})
-            post_id = data.get("id", "unknown")
-            print(f"  Beehiiv: sent! Post ID: {post_id}")
-            return True
+            resp = httpx.get(
+                f"https://api.beehiiv.com/v2/publications/{pub_id}/subscriptions",
+                headers={"Authorization": f"Bearer {BEEHIIV_API_KEY}"},
+                params=params,
+                timeout=15,
+            )
 
-        print(f"  Beehiiv: failed ({resp.status_code}): {resp.text[:300]}")
-        return False
+            if resp.status_code != 200:
+                print(f"  Beehiiv: failed to fetch subscribers ({resp.status_code})")
+                break
+
+            data = resp.json()
+            subs = data.get("data", [])
+            for sub in subs:
+                if sub.get("status") == "active":
+                    all_emails.append(sub["email"])
+
+            # Pagination
+            next_page = data.get("next_page")
+            if not next_page:
+                break
+            page = next_page
+
+        print(f"  Beehiiv: fetched {len(all_emails)} active subscribers")
+        return all_emails
 
     except Exception as e:
-        print(f"  Beehiiv: error: {e}")
-        return False
+        print(f"  Beehiiv: error fetching subscribers: {e}")
+        return []
 
 
 def get_gmail_credentials():
@@ -344,8 +376,9 @@ def get_gmail_credentials():
     return creds
 
 
-def send_email_gmail_api(subject, html_body, recipients):
-    """Send email via Gmail API. Returns True on success."""
+def send_email_gmail_api(subject, html_template, recipients, sender_email="saffaboyjm@gmail.com"):
+    """Send individual emails via Gmail API. Each recipient gets a personalized
+    unsubscribe link and cannot see other recipients' addresses."""
     creds = get_gmail_credentials()
     if not creds:
         return False
@@ -357,20 +390,30 @@ def send_email_gmail_api(subject, html_body, recipients):
         return False
 
     service = build("gmail", "v1", credentials=creds)
+    sent_count = 0
 
-    msg = MIMEMultipart("alternative")
-    msg["Subject"] = subject
-    msg["From"] = "me"
-    msg["To"] = ", ".join(recipients)
-    msg.attach(MIMEText(html_body, "html"))
+    for recipient in recipients:
+        # Personalize unsubscribe link for this recipient
+        unsub_url = build_unsubscribe_url(recipient)
+        html_body = html_template.replace("{{UNSUBSCRIBE_URL}}", unsub_url)
 
-    raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
-    result = service.users().messages().send(
-        userId="me", body={"raw": raw}
-    ).execute()
+        msg = MIMEMultipart("alternative")
+        msg["Subject"] = subject
+        msg["From"] = f"Koda Digest <{sender_email}>"
+        msg["To"] = recipient
+        msg.attach(MIMEText(html_body, "html"))
 
-    print(f"  Sent! Message ID: {result.get('id')}")
-    return True
+        try:
+            raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
+            service.users().messages().send(
+                userId="me", body={"raw": raw}
+            ).execute()
+            sent_count += 1
+        except Exception as e:
+            print(f"  Failed to send to {recipient}: {e}")
+
+    print(f"  Sent to {sent_count}/{len(recipients)} recipients")
+    return sent_count > 0
 
 
 def main():
@@ -391,15 +434,22 @@ def main():
     subject = build_email_subject(digest)
     html_body = build_email_html(digest, media_status)
 
+    # Fetch subscribers from Beehiiv (dynamic list)
+    print("  Fetching subscriber list from Beehiiv...")
+    subscribers = fetch_beehiiv_subscribers()
+    if not subscribers:
+        print("  No Beehiiv subscribers found, using static fallback list")
+        subscribers = EMAIL_RECIPIENTS
+
     print(f"  Subject: {subject}")
-    print(f"  Recipients: {len(EMAIL_RECIPIENTS)}")
+    print(f"  Recipients: {len(subscribers)} (via BCC)")
     print(f"  HTML body: {len(html_body)} chars")
 
     # Save email for reference
     email_data = {
         "date": args.date,
         "subject": subject,
-        "recipients": EMAIL_RECIPIENTS,
+        "recipients": subscribers,
         "html_body": html_body,
         "generated_at": datetime.now().isoformat(),
     }
@@ -414,16 +464,11 @@ def main():
         print(f"  Preview: {preview_path}")
         return
 
-    # Primary: Send via Beehiiv (reaches all website subscribers)
-    print("  Sending via Beehiiv...")
-    beehiiv_sent = send_via_beehiiv(subject, html_body)
-
-    # Fallback: Send via Gmail API to distribution list
-    if not beehiiv_sent:
-        print("  Falling back to Gmail API...")
-        gmail_sent = send_email_gmail_api(subject, html_body, EMAIL_RECIPIENTS)
-        if not gmail_sent:
-            print("  Both Beehiiv and Gmail failed | draft saved to email-draft.json")
+    # Send via Gmail API with BCC (recipients can't see each other)
+    print("  Sending via Gmail API (BCC)...")
+    gmail_sent = send_email_gmail_api(subject, html_body, subscribers)
+    if not gmail_sent:
+        print("  Gmail send failed | draft saved to email-draft.json")
 
 
 if __name__ == "__main__":
