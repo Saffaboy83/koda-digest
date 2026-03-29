@@ -1,33 +1,33 @@
 {
-  "generated": "2026-03-29T19:19:05Z",
+  "generated": "2026-03-29T20:38:10Z",
   "digests": [
     {
       "date": "2026-03-29",
       "dayOfWeek": "Sunday",
       "focusTopics": [
         {
-          "title": "Luma's Pricing Power Play",
-          "desc": "Luma's Uni-1 enters the market at price points below both Google and OpenAI equivalents, signaling that cost competition is now a primary battleground alongside capability. This could compress margins across the industry and force incumbents to respond with their own cuts or bundled offerings. The timing is notable: it arrives just as the broader Q1 model pipeline goes quiet, giving Luma an outsized share of attention."
+          "title": "Agents That Rewrite Themselves",
+          "desc": "Anthropic's AutoDream and Meta's Hyperagents both enable AI systems to modify their own behavior loops, a capability that was theoretical six months ago. The parallel announcements suggest self-modification is becoming a competitive axis, not a research curiosity. Alignment researchers have flagged the absence of any shared safety protocol between the two approaches."
         },
         {
-          "title": "Iran Widens Regional Strikes",
-          "desc": "Tehran's decision to target not only Israel but also Gulf states marks a significant escalation, pulling energy-producing nations directly into the conflict zone. Washington's response has been uncharacteristically restrained, with Trump claiming Iran is seeking a deal. Whether diplomacy materializes or the strikes provoke retaliation will likely define market direction for weeks."
+          "title": "DeepSeek's Engram Architecture Gambit",
+          "desc": "DeepSeek's new Engram architecture represents a structural departure from the transformer paradigm that has dominated since 2017. Early benchmarks are scarce, but the naming itself signals ambition: engrams reference biological memory traces, hinting at persistent, evolving internal representations. If the architecture delivers on efficiency claims, it could reshape the cost calculus for frontier model training."
         },
         {
-          "title": "Open Models Gain Momentum",
-          "desc": "Mistral Small 4 is seeing growing adoption following its open release, and Meta's TRIBE v2 code drop adds another high-quality open resource to the ecosystem. Together, these moves reinforce a trend: open-weight models are becoming viable alternatives to proprietary APIs. NVIDIA's Nemotron 3 Super, holding a 0.8-point GPQA lead, adds competitive pressure from the hardware side of the stack."
+          "title": "Shutdown Meets Correction Territory",
+          "desc": "Day 41 of the government shutdown now coincides with a formal Dow correction and extreme fear sentiment, creating a feedback loop where political paralysis amplifies market anxiety. Congressional recess threatens to extend the impasse further. For AI companies dependent on federal contracts, cloud procurement, and regulatory clarity, the dysfunction introduces a new layer of operational uncertainty."
         }
       ],
       "kpis": {
         "aiStories": "8",
-        "worldEvents": "4",
+        "worldEvents": "7",
         "marketMood": "Extreme Fear",
         "toolsFeatured": "6"
       },
       "hasPodcast": true,
       "hasInfographic": true,
       "hasVideo": true,
-      "youtubeId": "Ka-4TU8Y5ys",
+      "youtubeId": "6oNH56-sbNw",
       "file": "morning-briefing-koda-2026-03-29.html"
     },
     {

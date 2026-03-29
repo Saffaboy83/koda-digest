@@ -1,44 +1,50 @@
 {
   "2026-03-29": {
-    "hook": "Luma's aggressive pricing gambit lands as Q1's model frenzy suddenly goes silent and missiles fly across the Gulf.",
+    "hook": "Self-modifying AI agents arrive at the worst possible moment for human confidence in anything.",
     "top_themes": [
-      "Luma's Pricing Power Play",
-      "Iran Widens Regional Strikes",
-      "Open Models Gain Momentum"
+      "Agents That Rewrite Themselves",
+      "DeepSeek's Engram Architecture Gambit",
+      "Shutdown Meets Correction Territory"
     ],
     "top_stories": [
-      "Luma Uni-1 Undercuts Google and OpenAI Pricing",
-      "Late March Model Pipeline Goes Quiet After Record Q1",
-      "NVIDIA Nemotron 3 Super Holds 0.8 GPQA Lead",
-      "Mistral Small 4 Adoption Grows After Open Release",
-      "Meta TRIBE v2 Code and Checkpoints Now Available",
-      "256k Context Windows Becoming Open-Source Standard",
-      "Mixture-of-Experts Dominates Q1 Efficiency Models",
-      "Brain-Encoding AI Models Draw Multi-Lab Interest",
-      "Iran Fires Missiles at Israel and Gulf States",
-      "Trump Claims Iran Is 'Begging' for Deal",
-      "Gulf States Targeted in Widening Regional Strikes",
-      "US Foreign Policy Shift Toward Iran Negotiations"
+      "Google Gemini 3.1 Ultra Ships 2M Context",
+      "Anthropic AutoDream Lets Claude Self-Modify Behavior",
+      "Microsoft MAI-Image-2 Enters Text-to-Image Race",
+      "DeepSeek Unveils Engram as New Architecture",
+      "Meta Hyperagents Explore Agent Self-Modification Frontier",
+      "Self-Modifying AI Systems Emerge at Multiple Labs",
+      "Late March Model Pipeline Slows After Record Q1",
+      "MiniMax M2.7 Targets Autonomous Debugging Workflows",
+      "Trump Extends Iran Strait Deadline by 10 Days",
+      "59% of Americans Say Iran Action Went Too Far",
+      "Israel Says It Killed Iran's Navy Chief",
+      "Dow Enters Correction, Down 10% From High",
+      "Government Shutdown Hits Day 41, Recess Looms",
+      "Modi Convenes Chief Ministers on West Asia Crisis",
+      "Nepal Probes Political Leaders' Assets Over 35 Years"
     ],
     "source_urls": [
-      "https://www.neuralbuddies.com/p/ai-news-recap-march-27-2026",
-      "https://llm-stats.com/llm-updates",
-      "https://llm-stats.com/llm-updates",
-      "https://llm-stats.com/llm-updates",
-      "https://radicaldatascience.wordpress.com/2026/03/26/ai-news-briefs-bulletin-board-for-march-2026/",
-      "https://www.neuralbuddies.com/p/ai-news-recap-march-27-2026",
+      "https://blog.mean.ceo/new-ai-model-releases-news-march-2026/",
+      "https://blog.mean.ceo/new-ai-model-releases-news-march-2026/",
+      "https://blog.mean.ceo/new-ai-model-releases-news-march-2026/",
+      "https://blog.mean.ceo/new-ai-model-releases-news-march-2026/",
       "https://blog.mean.ceo/new-ai-model-releases-news-march-2026/",
       "https://radicaldatascience.wordpress.com/2026/03/26/ai-news-briefs-bulletin-board-for-march-2026/",
-      "https://www.youtube.com/watch?v=HitErYM1_kQ",
-      "https://www.youtube.com/watch?v=HitErYM1_kQ",
-      "https://www.youtube.com/watch?v=HitErYM1_kQ",
-      "https://www.youtube.com/watch?v=HitErYM1_kQ"
+      "https://llm-stats.com/llm-updates",
+      "https://radicaldatascience.wordpress.com/2026/03/26/ai-news-briefs-bulletin-board-for-march-2026/",
+      "https://www.youtube.com/watch?v=my14qqg8Of4",
+      "https://www.youtube.com/watch?v=-VH5da4xqKE",
+      "https://www.youtube.com/watch?v=my14qqg8Of4",
+      "https://www.youtube.com/watch?v=9v5WY_-nJKs",
+      "https://www.youtube.com/watch?v=my14qqg8Of4",
+      "https://www.youtube.com/watch?v=I8HujXB3hW0",
+      "https://www.youtube.com/watch?v=I8HujXB3hW0"
     ],
     "story_angles": [
-      "Luma's Uni-1 model undercuts both Google and OpenAI on price, injecting a new co",
-      "Iran launched missile strikes targeting Israel and multiple Gulf states, dramati",
-      "Sentiment sits at Extreme Fear, driven by escalating Middle East hostilities and",
-      "Meta quietly released TRIBE v2 code and checkpoints into the open, a move that c"
+      "Anthropic's AutoDream framework and Meta's Hyperagents both cross the same thres",
+      "Trump's 10-day extension on the Iran Strait deadline buys limited time as 59% of",
+      "The Dow has officially entered correction territory, down 10% from its high, wit",
+      "Three separate labs, Anthropic, Meta, and DeepSeek, are converging on agent self"
     ]
   },
   "2026-03-28": {
