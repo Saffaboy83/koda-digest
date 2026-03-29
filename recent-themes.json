@@ -1,50 +1,44 @@
 {
   "2026-03-29": {
-    "hook": "Record-breaking model releases flood Q1 as neuroscience, safety, and geopolitical chaos reshape the AI landscape simultaneously.",
+    "hook": "Luma's aggressive pricing gambit lands as Q1's model frenzy suddenly goes silent and missiles fly across the Gulf.",
     "top_themes": [
-      "Q1 Model Surge Hits 255",
-      "OpenAI's Safety Governance Push",
-      "Meta Bets on Neuroscience AI"
+      "Luma's Pricing Power Play",
+      "Iran Widens Regional Strikes",
+      "Open Models Gain Momentum"
     ],
     "top_stories": [
-      "Meta Releases TRIBE v2 Neuroscience Foundation Model",
-      "OpenAI Expands Bug Bounty to AI Safety",
-      "OpenAI Publishes Model Spec Behavior Framework",
-      "Q1 2026 Model Releases Hit Record 255",
-      "Mistral Small 4 Posts 0.7 GPQA Score",
-      "Brain-AI Interface Models Enter Mainstream Research",
-      "GPQA Benchmark Becomes Frontier Standard Measure",
-      "AI Safety Bounties Signal Regulatory Anticipation",
-      "Trump Postpones Iran Strikes, Claims Victory",
-      "Air Strikes Damage Historic Palace in Tehran",
-      "Colombian Military Plane Crash Kills 69",
-      "Air Canada Jet Hits Truck at LaGuardia",
-      "Lukashenko Makes First Visit to North Korea",
-      "UN Council Condemns Iran, Demands Reparations",
-      "Texas Refinery Incident Triggers Shelter-in-Place Order"
+      "Luma Uni-1 Undercuts Google and OpenAI Pricing",
+      "Late March Model Pipeline Goes Quiet After Record Q1",
+      "NVIDIA Nemotron 3 Super Holds 0.8 GPQA Lead",
+      "Mistral Small 4 Adoption Grows After Open Release",
+      "Meta TRIBE v2 Code and Checkpoints Now Available",
+      "256k Context Windows Becoming Open-Source Standard",
+      "Mixture-of-Experts Dominates Q1 Efficiency Models",
+      "Brain-Encoding AI Models Draw Multi-Lab Interest",
+      "Iran Fires Missiles at Israel and Gulf States",
+      "Trump Claims Iran Is 'Begging' for Deal",
+      "Gulf States Targeted in Widening Regional Strikes",
+      "US Foreign Policy Shift Toward Iran Negotiations"
     ],
     "source_urls": [
-      "https://radicaldatascience.wordpress.com/2026/03/26/ai-news-briefs-bulletin-board-for-march-2026/",
-      "https://radicaldatascience.wordpress.com/2026/03/26/ai-news-briefs-bulletin-board-for-march-2026/",
-      "https://radicaldatascience.wordpress.com/2026/03/26/ai-news-briefs-bulletin-board-for-march-2026/",
+      "https://www.neuralbuddies.com/p/ai-news-recap-march-27-2026",
       "https://llm-stats.com/llm-updates",
       "https://llm-stats.com/llm-updates",
-      "https://radicaldatascience.wordpress.com/2026/03/26/ai-news-briefs-bulletin-board-for-march-2026/",
       "https://llm-stats.com/llm-updates",
       "https://radicaldatascience.wordpress.com/2026/03/26/ai-news-briefs-bulletin-board-for-march-2026/",
-      "https://www.youtube.com/watch?v=IRrBa0KXbhM",
-      "https://www.youtube.com/watch?v=IRrBa0KXbhM",
-      "https://www.youtube.com/watch?v=IRrBa0KXbhM",
-      "https://www.youtube.com/watch?v=IRrBa0KXbhM",
-      "https://www.youtube.com/watch?v=IRrBa0KXbhM",
-      "https://www.youtube.com/watch?v=IRrBa0KXbhM",
-      "https://www.youtube.com/watch?v=IRrBa0KXbhM"
+      "https://www.neuralbuddies.com/p/ai-news-recap-march-27-2026",
+      "https://blog.mean.ceo/new-ai-model-releases-news-march-2026/",
+      "https://radicaldatascience.wordpress.com/2026/03/26/ai-news-briefs-bulletin-board-for-march-2026/",
+      "https://www.youtube.com/watch?v=HitErYM1_kQ",
+      "https://www.youtube.com/watch?v=HitErYM1_kQ",
+      "https://www.youtube.com/watch?v=HitErYM1_kQ",
+      "https://www.youtube.com/watch?v=HitErYM1_kQ"
     ],
     "story_angles": [
-      "Meta unveiled TRIBE v2, a neuroscience foundation model that bridges brain imagi",
-      "Trump postponed planned strikes on Iran and claimed diplomatic victory, even as ",
-      "Sentiment sits at Extreme Fear, with investors rattled by escalating Middle East",
-      "Lukashenko's first-ever visit to North Korea hints at a deepening authoritarian "
+      "Luma's Uni-1 model undercuts both Google and OpenAI on price, injecting a new co",
+      "Iran launched missile strikes targeting Israel and multiple Gulf states, dramati",
+      "Sentiment sits at Extreme Fear, driven by escalating Middle East hostilities and",
+      "Meta quietly released TRIBE v2 code and checkpoints into the open, a move that c"
     ]
   },
   "2026-03-28": {

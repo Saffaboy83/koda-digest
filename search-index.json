@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-29T18:36:09Z",
+  "generated": "2026-03-29T19:19:05Z",
   "entries": [
     {
       "date": "2026-03-29",
@@ -8,16 +8,16 @@
           "title": "Today's Focus",
           "items": [
             {
-              "headline": "Q1 Model Surge Hits 255",
-              "text": "The first quarter of 2026 set a record with 255 model releases, reflecting an industry-wide sprint to ship. Mistral Small 4 posted a notable 0.7 on the GPQA benchmark, proving that smaller labs continue to close the gap with frontier players. The sheer volume raises questions about evaluation fatigue and whether downstream users can meaningfully assess this many options."
+              "headline": "Luma's Pricing Power Play",
+              "text": "Luma's Uni-1 enters the market at price points below both Google and OpenAI equivalents, signaling that cost competition is now a primary battleground alongside capability. This could compress margins across the industry and force incumbents to respond with their own cuts or bundled offerings. The timing is notable: it arrives just as the broader Q1 model pipeline goes quiet, giving Luma an outsized share of attention."
             },
             {
-              "headline": "OpenAI's Safety Governance Push",
-              "text": "OpenAI expanded its bug bounty program to cover AI safety vulnerabilities and simultaneously published a Model Spec behavior framework. Together, these moves formalize external accountability in ways the company has long promised but rarely operationalized. The framework could become a de facto industry template if regulators reference it in upcoming policy guidance."
+              "headline": "Iran Widens Regional Strikes",
+              "text": "Tehran's decision to target not only Israel but also Gulf states marks a significant escalation, pulling energy-producing nations directly into the conflict zone. Washington's response has been uncharacteristically restrained, with Trump claiming Iran is seeking a deal. Whether diplomacy materializes or the strikes provoke retaliation will likely define market direction for weeks."
             },
             {
-              "headline": "Meta Bets on Neuroscience AI",
-              "text": "TRIBE v2 applies foundation model techniques to neuroscience data, positioning Meta at the intersection of brain science and generative AI. The release suggests Meta is diversifying beyond consumer-facing models into high-value scientific applications. If the model gains traction in clinical or research settings, it could open a new revenue stream entirely separate from advertising."
+              "headline": "Open Models Gain Momentum",
+              "text": "Mistral Small 4 is seeing growing adoption following its open release, and Meta's TRIBE v2 code drop adds another high-quality open resource to the ecosystem. Together, these moves reinforce a trend: open-weight models are becoming viable alternatives to proprietary APIs. NVIDIA's Nemotron 3 Super, holding a 0.8-point GPQA lead, adds competitive pressure from the hardware side of the stack."
             }
           ]
         },
@@ -34,11 +34,11 @@
             },
             {
               "headline": "BTC",
-              "text": "$66,225.07 (-0.15%)"
+              "text": "$66,413.84 (+0.14%)"
             },
             {
               "headline": "ETH",
-              "text": "$1,990.37 (-0.12%)"
+              "text": "$1,998.29 (+0.28%)"
             },
             {
               "headline": "Oil",
@@ -54,36 +54,36 @@
           "title": "AI Developments",
           "items": [
             {
-              "headline": "Meta Releases TRIBE v2 Neuroscience Foundation Model",
-              "text": "Meta unveiled TRIBE v2 on March 26, a foundation model trained on over 500 hours of fMRI recordings from more than 700 subjects to predict human brain responses to visual and audio stimuli. The model enables zero-shot predictions for new subjects, languages, and tasks without additional training. Meta released the full model weights, codebase, research paper, and an interactive demo for the neuroscience and AI research communities. Source &rarr;"
+              "headline": "Luma Uni-1 Undercuts Google and OpenAI Pricing",
+              "text": "Luma AI's Uni-1 foundational model reportedly outscores benchmarks from both Google and OpenAI while costing up to 30% less, according to a March 27 recap. Specific benchmark scores have not yet been disclosed, but the pricing advantage positions Luma as a cost-competitive frontier alternative. Source &rarr;"
             },
             {
-              "headline": "OpenAI Expands Bug Bounty to AI Safety",
-              "text": "OpenAI launched a public bug bounty program on March 26 that goes beyond traditional cybersecurity vulnerabilities to target AI misuse and safety risks. The expanded program invites external researchers to identify and report abuse scenarios, jailbreaks, and other safety-relevant flaws in OpenAI's deployed models. This marks one of the first major bounty programs explicitly scoped to cover AI-specific harm vectors rather than conventional software bugs. Source &rarr;"
+              "headline": "Late March Model Pipeline Goes Quiet After Record Q1",
+              "text": "No major model releases were tracked on March 28 or 29, marking a rare two-day lull after Q1 2026 hit a record 255 releases. The pause follows a dense mid-March stretch that included NVIDIA Nemotron 3 Super, Mistral Small 4, and multiple Qwen3.5 variants. The slowdown may reflect teams consolidating around newly shipped models before Q2 begins. Source &rarr;"
             },
             {
-              "headline": "OpenAI Publishes Model Spec Behavior Framework",
-              "text": "OpenAI released its Model Spec framework on March 26, a structured document defining desired model behavior, safety principles, and instruction-following guidelines for its AI systems. The spec outlines how models should handle conflicting instructions, refuse harmful requests, and balance helpfulness with safety constraints. The publication represents OpenAI's most detailed public articulation of its alignment philosophy to date. Source &rarr;"
+              "headline": "NVIDIA Nemotron 3 Super Holds 0.8 GPQA Lead",
+              "text": "NVIDIA's Nemotron 3 Super, a 120B-parameter mixture-of-experts model with a 12B active parameter budget released March 11, continues to hold a GPQA score of 0.8. That result places it above Mistral Small 4's 0.7 and makes it one of the strongest efficiency-focused models of Q1 2026. Source &rarr;"
             },
             {
-              "headline": "Q1 2026 Model Releases Hit Record 255",
-              "text": "The first quarter of 2026 has already produced 255 tracked model releases according to LLM Stats, reflecting an unprecedented pace of development across commercial and open-source labs. The surge is driven by a combination of frontier releases like GPT-5.4 and Mistral Small 4, alongside hundreds of smaller fine-tuned and domain-specific variants. The figure underscores how model development has shifted from a handful of annual flagship launches to a continuous, high-volume release cycle. Source &rarr;"
+              "headline": "Mistral Small 4 Adoption Grows After Open Release",
+              "text": "Mistral's Small 4 (119B parameters, 256k context, GPQA 0.7) continues gaining traction roughly two weeks after its open-source release. The model unifies instruction-following, deep reasoning, and multimodal chat in a single architecture. Its Le Chat v1.15.0 app integration gives consumer users direct access to the model's capabilities. Source &rarr;"
             },
             {
-              "headline": "Mistral Small 4 Posts 0.7 GPQA Score",
-              "text": "Mistral's open-source Small 4 model, released March 17, achieved a 0.7 score on the GPQA benchmark, positioning it as a competitive mid-tier option for developers seeking capable open-weight alternatives. While trailing GPT-5.4's 0.9 GPQA score, the model offers a strong performance-to-cost ratio for enterprise and research deployments. Mistral continues to carve out a niche as the leading European open-source AI lab. Source &rarr;"
+              "headline": "Meta TRIBE v2 Code and Checkpoints Now Available",
+              "text": "Meta released code, model checkpoints, a paper, and a live demo for TRIBE v2, its neuroscience foundation model trained on over 500 hours of fMRI data from 700+ subjects. The model predicts human brain responses to visual and auditory stimuli in a zero-shot setting across subjects, languages, and tasks, outperforming standard encoding approaches. Source &rarr;"
             },
             {
-              "headline": "Brain-AI Interface Models Enter Mainstream Research",
-              "text": "Meta's TRIBE v2 release signals a broader trend of AI labs investing in neuroscience foundation models that bridge brain imaging data and machine learning. The model's ability to perform zero-shot prediction across new subjects and languages suggests potential applications in brain-computer interfaces, clinical diagnostics, and cognitive science. The open release of training data and code could accelerate a new subfield at the intersection of neuroscience and generative AI. Source &rarr;"
+              "headline": "256k Context Windows Becoming Open-Source Standard",
+              "text": "Mistral Small 4's 256k context length joins a growing list of open-weight models offering six-figure token windows, a capability that was frontier-exclusive just a year ago. Combined with OpenAI's GPT-5.4 pushing to one million tokens on the proprietary side, the context-length race is reshaping how developers architect retrieval and agent workflows. Source &rarr;"
             },
             {
-              "headline": "GPQA Benchmark Becomes Frontier Standard Measure",
-              "text": "With both GPT-5.4 (0.9) and Mistral Small 4 (0.7) reporting GPQA scores as headline metrics, the graduate-level question answering benchmark has solidified its role as the primary yardstick for frontier model capability in 2026. The benchmark tests expert-level reasoning across science and humanities, and its adoption by multiple labs reflects industry consensus on measuring genuine reasoning rather than pattern matching. The gap between closed and open models on GPQA has narrowed significantly compared to a year ago. Source &rarr;"
+              "headline": "Mixture-of-Experts Dominates Q1 Efficiency Models",
+              "text": "NVIDIA's Nemotron 3 Super (120B total, 12B active) exemplifies Q1 2026's dominant architecture trend: mixture-of-experts designs that deliver frontier-class scores at a fraction of full-parameter inference cost. The approach allows deployment on smaller GPU clusters while maintaining competitive GPQA results, accelerating enterprise adoption timelines. Source &rarr;"
             },
             {
-              "headline": "AI Safety Bounties Signal Regulatory Anticipation",
-              "text": "OpenAI's expansion of its bug bounty program into AI-specific safety risks reflects growing industry anticipation of stricter regulatory frameworks expected later in 2026. By proactively inviting external scrutiny of abuse vectors, OpenAI positions itself ahead of potential compliance mandates from the EU AI Act's enforcement phase and proposed US legislation. The move may pressure other frontier labs to establish comparable third-party safety review mechanisms. Source &rarr;"
+              "headline": "Brain-Encoding AI Models Draw Multi-Lab Interest",
+              "text": "Meta's TRIBE v2 is part of a broader wave of brain-encoding foundation models entering mainstream AI research in early 2026. By training on large-scale fMRI datasets and enabling zero-shot cross-subject prediction, these models open new pathways for neuroscience, accessibility tools, and brain-computer interface development. Source &rarr;"
             }
           ]
         },
@@ -91,32 +91,20 @@
           "title": "World News",
           "items": [
             {
-              "headline": "Trump Postpones Iran Strikes, Claims Victory",
-              "text": "President Trump delayed planned attacks on Iranian power plants for five days after a 48-hour deadline to reopen the Strait of Hormuz, while claiming victory in the conflict. Iran denied any talks took place and accused Trump of market manipulation. Air strikes hit energy facilities in Kermanshah and Isfahan, though responsibility remains unconfirmed. Source &rarr;"
+              "headline": "Iran Fires Missiles at Israel and Gulf States",
+              "text": "Tehran launched a fresh wave of missile strikes targeting Israel and Gulf states on March 29, marking a significant escalation in the ongoing US-Iran conflict now in its 28th day. The attacks came despite diplomatic signals from Washington, intensifying fears of a broader regional war across West Asia. Source &rarr;"
             },
             {
-              "headline": "Air Strikes Damage Historic Palace in Tehran",
-              "text": "Early morning strikes on Tehran triggered rescue operations and damaged the historic Sabad Palace. Iran warned of public health consequences from the attacks. The UAE's Sultan Al Jabir condemned the weaponization of the Strait of Hormuz, while Qatar denied playing any mediation role. Source &rarr;"
+              "headline": "Trump Claims Iran Is 'Begging' for Deal",
+              "text": "President Donald Trump stated on March 29 that Iran is 'begging' for a peace deal, signaling a potential pivot toward negotiations even as battlefield hostilities rage. The rhetoric contrasts sharply with Tehran's simultaneous missile launches, raising questions about whether backchannel diplomacy is underway alongside the military campaign. Source &rarr;"
             },
             {
-              "headline": "Colombian Military Plane Crash Kills 69",
-              "text": "A military plane crash in Colombia killed at least 69 people and injured 57 others on March 29. Details on the cause of the crash and the flight's mission have not yet been released. It marks one of the deadliest aviation disasters in the country in recent years. Source &rarr;"
+              "headline": "Gulf States Targeted in Widening Regional Strikes",
+              "text": "Iranian missiles struck targets in Gulf states alongside Israel on March 29, expanding the conflict's geographic footprint beyond the initial US-Iran theater. The attacks on Gulf nations risk drawing additional regional powers into direct confrontation and could further disrupt energy infrastructure near the Strait of Hormuz, where oil already topped $100 per barrel earlier this week. Source &rarr;"
             },
             {
-              "headline": "Air Canada Jet Hits Truck at LaGuardia",
-              "text": "An Air Canada jet collided with a fire truck at New York's LaGuardia Airport, killing two pilots and injuring dozens. The circumstances of the ground collision are under investigation. The incident disrupted operations at one of the busiest airports in the northeastern United States. Source &rarr;"
-            },
-            {
-              "headline": "Lukashenko Makes First Visit to North Korea",
-              "text": "Belarusian leader Alexander Lukashenko arrived in Pyongyang for his first visit to North Korea, receiving a grand welcome from Kim Jong Un. The trip underscores deepening ties among Putin's allies amid shifting global diplomatic alignments. No specific agreements were announced at the time of the visit. Source &rarr;"
-            },
-            {
-              "headline": "UN Council Condemns Iran, Demands Reparations",
-              "text": "The UN Human Rights Council condemned Tehran's attacks on Gulf neighbors and demanded reparations, adding a multilateral dimension to the Hormuz crisis. The resolution signals growing international pressure on Iran beyond the bilateral US confrontation. Qatar and the UAE have distanced themselves from direct mediation efforts. Source &rarr;"
-            },
-            {
-              "headline": "Texas Refinery Incident Triggers Shelter-in-Place Order",
-              "text": "Officials in Texas ordered residents near Valero's Port Arthur refinery to shelter in place after reports of an unspecified incident at the facility. Authorities prioritized public safety and recovery operations. The event comes at a sensitive time for energy markets already rattled by the Hormuz crisis and oil prices above $100 per barrel. Source &rarr;"
+              "headline": "US Foreign Policy Shift Toward Iran Negotiations",
+              "text": "Trump's public framing of Iran as seeking peace represents a notable rhetorical shift from the administration's posture earlier in the conflict, which focused on military strikes and maximum pressure. Analysts note the language could be laying groundwork for ceasefire talks, though no formal diplomatic channel has been publicly confirmed as of March 29. Source &rarr;"
             }
           ]
         },
@@ -125,28 +113,15 @@
           "items": [
             {
               "headline": "Superhuman",
-              "text": "CERN scientists transport antimatter by road for the first time, driving 92 antiprotons 6.2 miles across Geneva campus MIT researchers link high-energy neutrino detected off Sicily to a possible exploding black hole, potentially validating Hawking's 1974 prediction Kyushu University team breaks solar efficiency barrier with 130% yield using singlet fission process This edition is Superhuman's 'Science Sunday' special, covering non-AI breakthroughs. The antimatter transport, over a decade in development, could eventually enable shipments to quieter facilities in Germany for experiments probing why matter survived the Big Bang. The solar cell breakthrough at Kyushu University achieved what was long considered impossible: energy conversion exceeding 100% by splitting a single photon's energy into two usable charges via singlet fission. CERN's antimatter road trip used a cryogenic trap loaded onto a truck, a milestone that could lead to longer-distance antimatter transport to Germany An underwater telescope off Sicily detected a neutrino far more energetic than anything produced in Earth-based particle colliders, first spotted in 2023 Kyushu University's singlet fission solar technique hit 130% conversion yield, shattering the traditional single-junction efficiency ceiling"
+              "text": "CERN scientists transport antimatter by road for the first time, driving 92 antiprotons 6.2 miles across the Geneva campus MIT researchers link ultra-energetic neutrino detected off Sicily to a possible exploding black hole, potentially validating Hawking's 1974 prediction Kyushu University team breaks solar efficiency barrier with 130% energy conversion yield using singlet fission This edition is Superhuman's weekly 'Science Sunday' roundup, spotlighting breakthroughs outside of AI. The centerpiece is CERN's decade-long effort to make antimatter portable: scientists loaded antiprotons into a cryogenic trap, transported them by truck, and hope to eventually ship antimatter to Germany for experiments probing why matter survived the Big Bang. Alongside that, MIT's analysis of a record-energy neutrino could confirm Hawking radiation from exploding black holes, while Kyushu University demonstrated singlet fission in solar cells, splitting a single photon's energy into two usable charges and exceeding the theoretical 100% conversion limit. CERN's antimatter transport used a cryogenic trap carrying 92 antiprotons over 6.2 miles, a feat over ten years in development An underwater telescope off Sicily detected a neutrino far more energetic than anything produced in Earth-based particle colliders Kyushu University's singlet fission solar cell achieved 130% energy yield, surpassing what was once considered a hard physical limit"
             },
             {
               "headline": "The Rundown AI",
-              "text": "Alibaba.com launches Accio Work, an agentic system deploying digital employees for 24/7 business tasks Exclusive Q&A with Kuo Zhang, President of alibaba.com, on the shift from AI assistants to AI operators Agent-to-agent communication positioned as the future of B2B commerce The newsletter features an exclusive interview with Kuo Zhang, President of alibaba.com, centered on the company's new Accio Work platform. Zhang outlines three priorities for companies adopting agentic AI: focusing on business value rather than activity, building transparency checkpoints, and rethinking team operations. The conversation frames a broader organizational shift from treating AI as a helper tool to deploying it as an autonomous operator handling core business functions. Accio Work deploys a team of AI-powered digital employees to handle complex business tasks around the clock Zhang argues that AI operator success depends on high-value decision-making, not just speed of processing or content generation The newsletter references OpenClaw's launch months prior as a pivotal moment for agentic AI in business \"Early on, we were impressed by how fast AI could write or process data, but for an AI operator, those are just basic capabilities. Success is about the high-value decisions.\""
+              "text": "Alibaba.com launches Accio Work, an agentic system deploying digital employees for 24/7 business tasks Exclusive Q&A with Kuo Zhang, President of alibaba.com, on the shift from AI assistants to AI operators Agent-to-agent interaction positioned as the future of B2B commerce The newsletter features an exclusive interview with Kuo Zhang, President of alibaba.com, centered on the company's new Accio Work platform. Zhang outlines three priorities for companies adopting agentic AI: focusing on business value rather than activity, building transparency checkpoints, and rethinking team operations. The conversation frames a broader organizational shift from treating AI as a helper tool to deploying it as an autonomous operator handling core business functions. Accio Work deploys a team of AI-powered digital employees to handle complex business tasks around the clock Zhang argues that agent-to-agent communication will reshape B2B interactions The newsletter references OpenClaw's launch months prior as a turning point for agentic AI in business \"Success is about the high-value decisions, not just activity. Early on, we were impressed by how fast AI could write or process data, but for an AI operator, those are just basic capabilities.\""
             },
             {
               "headline": "Superhuman",
-              "text": "Figure 03 becomes the first humanoid robot to enter the White House Amazon acquires Fauna Robotics to enter the consumer humanoid market China deploys OpenClaw-powered robots as household agents Figure's 03 humanoid walked the White House halls at the 'Fostering the Future Together' global summit on March 25, greeting attendees in 11 languages as the US government pitched AI-powered humanoid teachers for personalized education. Amazon acquired New York startup Fauna Robotics, maker of the viral child-sized household humanoid Sprout (retailing at $50k), folding the team into its Personal Robotics Group and putting it in direct competition with Tesla, Figure AI, and Boston Dynamics. In China, robotics firm Ecovacs debuted Bajie, a household robot powered by OpenClaw, signaling a shift from software-based AI agents to physically embodied ones. Figure 03 greeted White House summit attendees in 11 languages, marking the first humanoid robot to enter the building Amazon's Fauna Robotics acquisition puts the Sprout household humanoid ($50k) under its Personal Robotics Group while keeping the brand intact Chinese firm Ecovacs launched Bajie, a household robot running OpenClaw, as China moves AI agents from laptops into physical robots"
-            }
-          ]
-        },
-        {
-          "title": "Competitive Landscape",
-          "items": [
-            {
-              "headline": "OpenAI",
-              "text": "OpenAI is shutting down Sora, its standalone video-generation app, citing unsustainable compute costs and intensifying competition in the generative video space. The freed resources will be redirected toward robotics and enterprise AI, signaling a strategic retreat from consumer-facing creative tools. Separately, CEO Sam Altman confirmed that training on the next model, codenamed 'Spud,' is complete and a release could come within weeks, while SoftBank locked in a $40 billion loan from JP Morgan and Goldman Sachs to fund a $30 billion investment in the company."
-            },
-            {
-              "headline": "Google DeepMind",
-              "text": "Google released TurboQuant on March 24, a model compression algorithm that reduces memory requirements by roughly six times. The technique has already begun to depress memory chip pricing, a ripple effect that underscores how inference-side efficiency gains can reshape hardware economics. If widely adopted, TurboQuant could lower the cost floor for deploying large models on-device and at the edge, pressuring DRAM suppliers like Samsung and SK Hynix."
+              "text": "Figure 03 becomes the first humanoid robot to enter the White House at global education summit Amazon acquires Fauna Robotics and its $50k Sprout humanoid, entering the consumer home robotics market China deploys OpenClaw AI agents inside physical robots, with Ecovacs debuting household robot Bajie This special robotics edition covers three major developments signaling the mainstreaming of humanoid robots. Figure 03 walked the White House halls at the 'Fostering the Future Together' summit, greeting attendees in 11 languages as the US government pitched AI-powered humanoid teachers for personalized education. Amazon's acquisition of New York startup Fauna Robotics and its child-sized Sprout humanoid puts the company in direct competition with Tesla, Figure AI, and Boston Dynamics in the consumer robotics space. Figure 03 greeted White House summit attendees in 11 languages, demonstrating a vision for AI-powered personalized education Amazon acquired Fauna Robotics; the Sprout humanoid retails for $50k and the brand will continue under Amazon's Personal Robotics Group Chinese robotics firm Ecovacs debuted Bajie, a household robot powered by OpenClaw, marking a shift from software AI agents to embodied deployment"
             }
           ]
         },
@@ -154,28 +129,28 @@
           "title": "AI Tool Guide",
           "items": [
             {
-              "headline": "Manus: Let an AI Agent Run Your Research End to End",
-              "text": "Manus is an autonomous AI agent that handles multi-step tasks like market research, competitive analysis, and report generation without constant prompting. Instead of juggling a browser, spreadsheet, and writing tool, describe your goal in plain language and let Manus execute the full workflow. Start with a bounded task, like a competitor pricing comparison, to calibrate how much autonomy you are comfortable delegating. Try it &rarr;"
+              "headline": "Manus: Let an AI Agent Run Your Entire Research Workflow",
+              "text": "Manus is an end-to-end AI agent that handles multi-step tasks like competitive research, report generation, and data gathering without switching between tools. Instead of prompting a chatbot for each subtask, describe your full objective and let Manus orchestrate the research, synthesis, and output in one pass. Start with a well-scoped brief: define the deliverable format, the sources to prioritize, and the depth of analysis you need. Try it &rarr;"
             },
             {
-              "headline": "Cursor: The AI Coding Editor That Reads Your Entire Codebase",
-              "text": "Cursor indexes your full repository and uses that context to generate, refactor, and debug code with far fewer hallucinations than generic copilots. Open a project, highlight a function, and ask Cursor to optimize or explain it; the tool rewrites in place with inline diffs you can accept or reject. Developers on 2026 productivity lists consistently rank it as the single biggest time saver for daily coding work. Try it &rarr;"
+              "headline": "Cursor: AI-Native Code Editor That Writes Alongside You",
+              "text": "Cursor integrates large language models directly into the editing experience, offering inline code generation, multi-file refactoring, and natural language commands that understand your full codebase context. The productivity gain is highest when you use its \"chat with codebase\" feature to ask architectural questions before writing new modules. Pair it with your existing Git workflow; Cursor's diffs make AI-generated changes easy to review before committing."
             },
             {
-              "headline": "Zapier Agents: Build Custom Agentic Workflows Without Code",
-              "text": "Zapier Agents lets you create AI agents that orchestrate actions across thousands of connected apps, from CRM updates to Slack notifications to database writes, all triggered by natural language instructions. Define a goal like 'when a new lead fills out this form, enrich the data, score it, and route it to the right sales rep' and the agent handles the chain. Use the built-in testing sandbox to validate each step before going live. Try it &rarr;"
+              "headline": "Zapier Agents: Build No-Code Agentic Workflows in Plain English",
+              "text": "Zapier's agent builder lets you describe a multi-step automation in natural language, then generates a working workflow connecting any combination of its 7,000+ app integrations. Use the Copilot feature to prototype complex sequences like \"when a lead fills out a form, enrich it with company data, score it, and route it to the right Slack channel.\" The built-in ChatGPT access means you can add data transformation and summarization steps without leaving the platform. Try it &rarr;"
             },
             {
-              "headline": "Lovable: Vibe-Code a Working App Without Writing a Line",
-              "text": "Lovable turns plain English descriptions into functional web applications, letting non-developers prototype dashboards, internal tools, and customer-facing apps in minutes. Describe the interface and logic you want, iterate with conversational edits, and export production-ready code when you are satisfied. It is especially useful for validating product ideas before committing engineering resources. Try it &rarr;"
+              "headline": "Lovable: Turn a Text Prompt Into a Working Web App in Minutes",
+              "text": "Lovable is a vibe-coding platform that generates functional web applications from plain-language descriptions, handling frontend layout, basic logic, and deployment in one step. It is best suited for internal tools, landing pages, and quick prototypes where speed matters more than custom architecture. Describe your app's purpose, specify the data fields you need, and iterate by chatting with the builder rather than editing code directly. Try it &rarr;"
             },
             {
-              "headline": "Bluedot: Turn Every Meeting Into Automated Action Items",
-              "text": "Bluedot records and transcribes meetings with high accuracy, then uses agent workflows to extract action items, update your CRM, and push follow-up tasks to project management tools automatically. Connect it to Salesforce, HubSpot, or Notion so post-meeting busywork disappears. The biggest productivity gain comes from its real-time tagging: flag a decision during the call and Bluedot routes it to the right system before the meeting ends. Try it &rarr;"
+              "headline": "Comet Browser: An Agentic Browser That Executes Tasks for You",
+              "text": "Comet Browser adds an agentic mode to web browsing, letting you delegate tasks like filling out forms, extracting structured data from pages, or monitoring sites for changes. Think of it as a browser-native AI assistant that can see and interact with the page you are on. Try it for repetitive web-based workflows: price tracking, competitor monitoring, or batch data entry across portals that lack APIs."
             },
             {
-              "headline": "Comet Browser: Browse the Web in Agentic Mode",
-              "text": "Comet Browser offers a free agentic browsing mode where an AI layer sits on top of your web activity, summarizing pages, extracting data into structured formats, and automating repetitive browser tasks like form filling or price tracking. Think of it as giving your browser a co-pilot that watches what you do and offers to handle the tedious parts. Start by enabling agentic mode on a single workflow, like weekly competitor monitoring, to see the time savings before expanding."
+              "headline": "Supaboard AI: No-Code Dashboards From 600+ Data Sources",
+              "text": "Supaboard connects to databases, SaaS tools, and spreadsheets, then uses AI to suggest and build dashboards with the metrics that matter most to your team. Ask it questions in natural language like \"show me monthly churn by acquisition channel\" and it generates the visualization automatically. Use it to replace manual reporting workflows: connect your production database, set up scheduled snapshots, and share live dashboards with stakeholders. Try it &rarr;"
             }
           ]
         },
@@ -192,11 +167,11 @@
             },
             {
               "headline": "Bitcoin",
-              "text": "$66,225.07 (-0.15%)"
+              "text": "$66,413.84 (+0.14%)"
             },
             {
               "headline": "Ethereum",
-              "text": "$1,990.37 (-0.12%)"
+              "text": "$1,998.29 (+0.28%)"
             },
             {
               "headline": "Oil Brent",
