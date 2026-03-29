@@ -9,7 +9,8 @@ export default async function handler(req, res) {
   }
 
   const apiKey = process.env.BEEHIIV_API_KEY;
-  const pubId = process.env.BEEHIIV_PUBLICATION_ID;
+  const rawPubId = process.env.BEEHIIV_PUBLICATION_ID || "";
+  const pubId = rawPubId.startsWith("pub_") ? rawPubId : `pub_${rawPubId}`;
 
   if (!apiKey || !pubId) {
     return res.status(500).json({ error: "Newsletter service not configured" });
