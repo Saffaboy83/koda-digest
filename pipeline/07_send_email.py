@@ -265,8 +265,9 @@ def generate_unsubscribe_token(email: str) -> str:
 
 def build_unsubscribe_url(email: str) -> str:
     """Build a personalized unsubscribe URL for a subscriber."""
+    from urllib.parse import quote
     token = generate_unsubscribe_token(email)
-    return f"https://www.koda.community/api/unsubscribe?email={email}&token={token}"
+    return f"https://www.koda.community/api/unsubscribe?email={quote(email, safe='')}&token={token}"
 
 
 def fetch_beehiiv_subscribers() -> list[str]:
