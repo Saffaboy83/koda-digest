@@ -309,46 +309,97 @@ Output the article as clean text with ## headings. No markdown code fences. No m
 # ── Step 04F: Fact-Check ─────────────────────────────────────────────────────
 
 def fact_check_article(article: str) -> tuple[str, list[dict]]:
-    """Extract and verify key claims. Returns corrected article + verification log."""
+    """
+    Multi-pass fact checker.
+    Pass 1: Opus extracts all verifiable claims as structured JSON.
+    Pass 2: Perplexity verifies each claim individually.
+    Pass 3: Sentences containing LOW/DISPUTED claims are removed from the article.
+    Returns corrected article + verification log.
+    """
     log: list[dict] = []
 
-    # Extract specific numbers and claims
-    claims = re.findall(
-        r'(?:(?:\d+(?:\.\d+)?[%BMK]?\s+(?:percent|billion|million|parameter|release|model|percent))|'
-        r'(?:\$[\d,.]+\s*(?:billion|million)?)|'
-        r'(?:\d+(?:\.\d+)?x\s+\w+)|'
-        r'(?:(?:GPQA|MMLU|HumanEval|MATH|Arena)\s+(?:score\s+(?:of\s+)?)?\d+\.?\d*%?))',
-        article, re.IGNORECASE
+    # ── Pass 1: LLM extracts all verifiable claims ───────────────────────────
+    extraction_prompt = (
+        "Extract every verifiable factual claim from this article as a JSON array. "
+        "Include: statistics, benchmark scores, AI model names and versions, product features, "
+        "prices, source attributions, and quoted figures. "
+        'For each claim output: {"claim": "exact quote", "type": "stat|model|feature|price|attribution|benchmark"}\n'
+        "Return ONLY a raw JSON array. No prose. No markdown fences.\n\nARTICLE:\n" + article[:6000]
     )
+    raw = _llm_call(extraction_prompt, model=OPUS_MODEL, max_tokens=1500, temperature=0.1)
+    try:
+        cleaned = re.sub(r"^```(?:json)?\s*|\s*```$", "", (raw or "").strip(), flags=re.MULTILINE)
+        claims_list: list[dict] = json.loads(cleaned)
+    except Exception:
+        print("  WARNING: Claim extraction parse failed, using regex fallback")
+        claims_list = [{"claim": m, "type": "stat"} for m in re.findall(r"[\$\d][\d,.]+[%BMKx]?\b", article)]
 
-    if not claims:
-        print("  No specific claims to verify")
+    if not claims_list:
+        print("  No claims extracted to verify")
         return article, log
 
-    print(f"  Found {len(claims)} claims to verify")
+    print(f"  Extracted {len(claims_list)} claims — verifying with Perplexity...")
 
-    # Verify the most impactful claims (max 5 to keep pipeline fast)
+    # ── Pass 2: Perplexity verifies each claim ───────────────────────────────
     corrected = article
-    for claim in claims[:5]:
+    bad_sentences: list[str] = []
+
+    # Prioritise highest-risk claim types first
+    priority = ["benchmark", "model", "feature", "attribution", "price", "stat"]
+    claims_list.sort(key=lambda c: priority.index(c.get("type", "stat"))
+                     if c.get("type", "stat") in priority else 99)
+
+    for item in claims_list[:12]:  # cap at 12 to keep step fast
+        claim = item.get("claim", "").strip()
+        ctype = item.get("type", "stat")
+        if not claim or len(claim) < 6:
+            continue
+
         result = _perplexity_call(
-            f"Verify this specific claim (March 2026): \"{claim}\". Is this number accurate? Reply in one sentence."
+            f'Fact-check this claim from a March 2026 AI article: "{claim}". '
+            f"Is it accurate? If wrong, state the correct value. Reply in 2 sentences max."
         )
-        if result:
-            content = result["content"].upper()
-            verdict = "PLAUSIBLE"
-            if "INACCURATE" in content or "INCORRECT" in content or "FALSE" in content or "WRONG" in content:
-                verdict = "INACCURATE"
-            elif "CONFIRMED" in content or "ACCURATE" in content or "CORRECT" in content or "VERIFIED" in content:
-                verdict = "VERIFIED"
+        if not result:
+            log.append({"claim": claim, "type": ctype, "verdict": "UNVERIFIABLE", "detail": "no response"})
+            continue
 
-            log.append({"claim": claim, "verdict": verdict, "detail": result["content"][:200]})
-            print(f"    {verdict}: {claim}")
+        content = result["content"]
+        upper = content.upper()
 
-            if verdict == "INACCURATE":
-                # Hedge the claim
-                corrected = corrected.replace(claim, f"approximately {claim}")
+        if any(w in upper for w in ("INACCURATE", "INCORRECT", "FALSE", "WRONG",
+                                     "DOES NOT EXIST", "NOT FOUND", "NO EVIDENCE",
+                                     "FABRICATED", "MISATTRIBUTED", "CANNOT CONFIRM",
+                                     "NOT CONFIRMED", "UNVERIFIABLE")):
+            verdict = "LOW"
+        elif any(w in upper for w in ("DISPUTED", "CONTRADICTS", "CONFLICT")):
+            verdict = "DISPUTED"
+        elif any(w in upper for w in ("CONFIRMED", "ACCURATE", "CORRECT",
+                                       "VERIFIED", "MATCHES", "IS CORRECT")):
+            verdict = "VERIFIED"
         else:
-            log.append({"claim": claim, "verdict": "UNVERIFIABLE", "detail": "Perplexity unavailable"})
+            verdict = "MODERATE"
+
+        log.append({"claim": claim, "type": ctype, "verdict": verdict, "detail": content[:300]})
+        print(f"    {verdict} [{ctype}]: {claim[:80]}")
+
+        # ── Pass 3: Flag sentences with LOW or DISPUTED claims ───────────────
+        if verdict in ("LOW", "DISPUTED"):
+            for sentence in re.split(r"(?<=[.!?])\s+", article):
+                key = claim[:50]
+                if key in sentence and sentence not in bad_sentences:
+                    bad_sentences.append(sentence)
+
+    # Remove problematic sentences
+    if bad_sentences:
+        print(f"  Removing {len(bad_sentences)} sentence(s) with LOW/DISPUTED claims")
+        for bad in bad_sentences:
+            corrected = corrected.replace(bad, "")
+        corrected = re.sub(r"  +", " ", corrected)
+        corrected = re.sub(r"\n{3,}", "\n\n", corrected)
+
+    verified = sum(1 for e in log if e["verdict"] == "VERIFIED")
+    low = sum(1 for e in log if e["verdict"] in ("LOW", "DISPUTED"))
+    print(f"  Fact-check: {verified} verified, {low} removed of {len(log)} checked")
 
     return corrected, log
 
@@ -432,8 +483,11 @@ def generate_editorial_hero(topic: dict, date: str) -> str | None:
         if not subject:
             subject = _TAG_SUBJECTS["ai"]
 
+        # Build a context-aware visual from the actual topic, not just the tag
+        topic_text = (topic.get("topic", "") or "")[:120]
         image_prompt = (
-            f"Cinematic digital art: {subject}. "
+            f"Cinematic digital art inspired by: {topic_text}. "
+            f"Visual approach: {subject}. "
             f"Dark moody atmosphere, deep shadows, volumetric lighting, rich contrast. "
             f"Color palette: deep navy, electric blue, violet purple, subtle cyan accents. "
             f"Wide composition, no people, no faces, no bodies, no hands. "
@@ -624,8 +678,8 @@ def render_html(article: str, topic: dict, date: str, hero_url: str | None = Non
     # Hero image
     hero_img_html = ""
     if hero_url:
-        hero_img_html = f'''    <div class="hero-image fade-in">
-        <img src="{hero_url}" alt="Abstract digital art for {tag}" loading="eager" style="width:100%;height:auto;display:block;border-radius:16px;">
+        hero_img_html = f'''    <div class="hero-image fade-in" style="max-width:800px;max-height:420px;margin:32px auto 0;border-radius:16px;overflow:hidden;">
+        <img src="{hero_url}" alt="{title}" loading="eager" style="width:100%;height:420px;object-fit:cover;object-position:center;display:block;border-radius:16px;">
     </div>'''
 
     slug = slugify(title)
