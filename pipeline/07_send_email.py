@@ -1,11 +1,11 @@
 """
 Step 07: Send the daily newsletter email.
 
-Generates HTML email from digest-content.json and sends via Gmail API.
-Falls back to saving a draft JSON if Gmail credentials aren't available.
+Sends via Beehiiv Create Post API (primary) to all subscribers.
+Falls back to Gmail API (secondary) for the 5-person distribution list.
 
 Input:  pipeline/data/digest-content.json, pipeline/data/media-status.json
-Output: Sent email (or email-draft.json if credentials missing)
+Output: Beehiiv post (sent to all subscribers) or Gmail email (fallback)
 """
 
 import argparse
@@ -13,6 +13,7 @@ import base64
 import json
 import sys
 import os
+import httpx
 from datetime import datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -20,6 +21,7 @@ from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from pipeline.config import (EMAIL_RECIPIENTS, DIGEST_DIR, SUPABASE_URL,
+                              BEEHIIV_API_KEY, BEEHIIV_PUBLICATION_ID,
                               today_str, write_json, read_json)
 
 GMAIL_TOKEN_PATH = DIGEST_DIR / ".gmail_token.json"
@@ -246,6 +248,45 @@ def build_email_html(digest, media_status):
     return html
 
 
+def send_via_beehiiv(subject, html_body):
+    """Send newsletter via Beehiiv Create Post API. Returns True on success."""
+    if not BEEHIIV_API_KEY or not BEEHIIV_PUBLICATION_ID:
+        print("  Beehiiv: not configured (missing API key or publication ID)")
+        return False
+
+    pub_id = BEEHIIV_PUBLICATION_ID
+    if not pub_id.startswith("pub_"):
+        pub_id = f"pub_{pub_id}"
+
+    try:
+        resp = httpx.post(
+            f"https://api.beehiiv.com/v2/publications/{pub_id}/posts",
+            headers={
+                "Authorization": f"Bearer {BEEHIIV_API_KEY}",
+                "Content-Type": "application/json",
+            },
+            json={
+                "title": subject,
+                "body_content": html_body,
+                "status": "confirmed",
+            },
+            timeout=30,
+        )
+
+        if resp.status_code in (200, 201):
+            data = resp.json().get("data", {})
+            post_id = data.get("id", "unknown")
+            print(f"  Beehiiv: sent! Post ID: {post_id}")
+            return True
+
+        print(f"  Beehiiv: failed ({resp.status_code}): {resp.text[:300]}")
+        return False
+
+    except Exception as e:
+        print(f"  Beehiiv: error: {e}")
+        return False
+
+
 def get_gmail_credentials():
     """Get Gmail API credentials, reusing YouTube OAuth client."""
     try:
@@ -373,13 +414,16 @@ def main():
         print(f"  Preview: {preview_path}")
         return
 
-    # Send via Gmail API
-    print("  Sending via Gmail API...")
-    sent = send_email_gmail_api(subject, html_body, EMAIL_RECIPIENTS)
-    if not sent:
-        print("  Gmail API send failed | draft saved to email-draft.json")
-        print("  To authorize Gmail send, run: python pipeline/07_send_email.py --date <date>")
-        print("  (A browser window will open for one-time OAuth authorization)")
+    # Primary: Send via Beehiiv (reaches all website subscribers)
+    print("  Sending via Beehiiv...")
+    beehiiv_sent = send_via_beehiiv(subject, html_body)
+
+    # Fallback: Send via Gmail API to distribution list
+    if not beehiiv_sent:
+        print("  Falling back to Gmail API...")
+        gmail_sent = send_email_gmail_api(subject, html_body, EMAIL_RECIPIENTS)
+        if not gmail_sent:
+            print("  Both Beehiiv and Gmail failed | draft saved to email-draft.json")
 
 
 if __name__ == "__main__":
