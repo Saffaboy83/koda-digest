@@ -51,13 +51,22 @@ def load_js():
     return ""
 
 
-def get_youtube_id():
-    """Read YouTube video ID from youtube-result.json."""
+def get_youtube_id(date: str = "") -> str:
+    """Read YouTube video ID from youtube-result.json.
+    Only returns an ID if it was uploaded on the same date as today's digest.
+    Stale IDs from previous days are silently ignored.
+    """
     yt_path = DIGEST_DIR / "youtube-result.json"
     if yt_path.exists():
         try:
             with open(yt_path, "r", encoding="utf-8") as f:
-                raw_id = json.load(f).get("video_id", "")
+                data = json.load(f)
+            raw_id = data.get("video_id", "")
+            stamped_date = data.get("date", "")
+            # Reject if from a different day
+            if date and stamped_date and stamped_date != date:
+                print(f"  INFO: youtube-result.json is from {stamped_date}, not {date} — skipping stale video")
+                return ""
             if re.fullmatch(r'[A-Za-z0-9_\-]{11}', raw_id):
                 return raw_id
             if raw_id:
@@ -315,7 +324,7 @@ def generate_html(digest, media_status, date):
         "date_label": format_date_label(date),
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "year": datetime.now().year,
-        "youtube_id": get_youtube_id(),
+        "youtube_id": get_youtube_id(date),
 
         # Media availability and URLs
         "has_podcast": has_podcast,

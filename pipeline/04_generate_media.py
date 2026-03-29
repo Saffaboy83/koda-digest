@@ -667,11 +667,14 @@ def upload_to_youtube(date, digest, media):
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
         if result.returncode == 0:
             print(f"    YouTube upload complete")
-            # Verify the result file
+            # Verify the result file and stamp with today's date
             yt_result_path = DIGEST_DIR / "youtube-result.json"
             if yt_result_path.exists():
                 with open(yt_result_path, "r") as f:
                     yt_data = json.load(f)
+                yt_data["date"] = args.date  # stamp so step 05 can validate freshness
+                with open(yt_result_path, "w") as f:
+                    json.dump(yt_data, f)
                 print(f"    Video ID: {yt_data.get('video_id', 'unknown')}")
                 print(f"    URL: {yt_data.get('url', 'unknown')}")
         else:
