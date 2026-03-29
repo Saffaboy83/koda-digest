@@ -62,7 +62,13 @@ def main():
         "index.html",
         "vercel.json",
         ".gitignore",
+        "pipeline/data/editorial-status.json",
     ]
+
+    # Add any editorial HTML files generated for today
+    editorial_dir = DIGEST_DIR / "editorial"
+    for editorial_file in sorted(editorial_dir.glob(f"{args.date}-*.html")):
+        files_to_stage.append(f"editorial/{editorial_file.name}")
 
     existing = []
     for f in files_to_stage:
