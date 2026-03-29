@@ -68,6 +68,48 @@ def llm_json(prompt, system="", model=LLM_MODEL, max_tokens=4000):
     return json.loads(text)
 
 
+# ── Freshness / Dedup ───────────────────────────────────────────────────────
+
+def load_recent_stories(days: int = 5) -> str:
+    """Load recent story titles and URLs from recent-themes.json for dedup context."""
+    ledger_path = DIGEST_DIR / "recent-themes.json"
+    if not ledger_path.exists():
+        return ""
+
+    try:
+        with open(ledger_path, "r", encoding="utf-8") as f:
+            ledger = json.load(f)
+    except Exception:
+        return ""
+
+    lines = []
+    for date in sorted(ledger.keys(), reverse=True)[:days]:
+        entry = ledger[date]
+        titles = entry.get("top_stories", [])
+        themes = entry.get("top_themes", [])
+        if titles:
+            lines.append(f"  {date}: {', '.join(titles)}")
+        if themes:
+            lines.append(f"    Themes: {', '.join(themes)}")
+
+    if not lines:
+        return ""
+
+    return (
+        "\n\nSTORIES PUBLISHED IN THE LAST 5 DAYS (DO NOT repeat these unless there is a "
+        "genuinely new development today):\n"
+        + "\n".join(lines)
+        + "\n\nFRESHNESS RULES:\n"
+        "- If a story appeared in the last 2 days with the same headline/stat, SKIP IT.\n"
+        "- If an ongoing event has a NEW development today (new strike, new data, new policy), "
+        "include it but lead with what changed TODAY.\n"
+        "- A model release (e.g., GPT-5.4) can appear on launch day + 1 follow-up MAX. After that, "
+        "only include if there is new benchmark data, pricing, or adoption news.\n"
+        "- Tools should rotate: skip any tool that appeared in the last 3 days.\n"
+        "- Prefer stories that are genuinely NEW over stories that are merely important.\n"
+    )
+
+
 # ── Synthesis Prompts ────────────────────────────────────────────────────────
 
 SYSTEM_PROMPT = """You are the editor of Koda Intelligence Briefing, a daily AI-focused news digest.
@@ -79,6 +121,7 @@ This is a public-facing briefing, not a personal newsletter. No personal data.""
 
 def synthesize_ai_news(raw_content, citations):
     """Transform raw AI news into structured story cards."""
+    freshness_context = load_recent_stories()
     prompt = f"""Analyze this raw AI news data and extract 8-12 distinct stories.
 
 RAW DATA:
@@ -86,6 +129,7 @@ RAW DATA:
 
 CITATIONS:
 {json.dumps(citations, indent=2)}
+{freshness_context}
 
 Return a JSON array of story objects. Each story:
 {{
@@ -96,12 +140,13 @@ Return a JSON array of story objects. Each story:
   "source_url": "URL from citations if available, otherwise empty string"
 }}
 
-Return 8-12 stories, ordered by significance."""
+Return 8-12 stories, ordered by significance. Prioritize FRESH stories over stale repeats."""
     return llm_json(prompt, SYSTEM_PROMPT) or []
 
 
 def synthesize_world_news(raw_content, citations):
     """Transform raw world news into structured story cards."""
+    freshness_context = load_recent_stories()
     prompt = f"""Analyze this raw world news data and extract 6-8 distinct stories.
 
 RAW DATA:
@@ -109,6 +154,7 @@ RAW DATA:
 
 CITATIONS:
 {json.dumps(citations, indent=2)}
+{freshness_context}
 
 Return a JSON array of story objects:
 {{
@@ -119,7 +165,8 @@ Return a JSON array of story objects:
   "source_url": "URL from citations if available, otherwise empty string"
 }}
 
-Return 6-8 stories, ordered by global impact."""
+Return 6-8 stories, ordered by global impact. For ongoing events (wars, crises), only include
+if there is a NEW development today. Lead with what changed, not a recap."""
     return llm_json(prompt, SYSTEM_PROMPT) or []
 
 
@@ -146,6 +193,7 @@ Use exact numbers from the data. If a value is unavailable, use "N/A"."""
 
 def synthesize_competitive(raw_content, citations):
     """Transform competitive landscape data into company cards."""
+    freshness_context = load_recent_stories()
     prompt = f"""Analyze this competitive intelligence data for major AI companies.
 
 RAW DATA:
@@ -153,6 +201,7 @@ RAW DATA:
 
 CITATIONS:
 {json.dumps(citations, indent=2)}
+{freshness_context}
 
 Return a JSON array of company objects. ONLY include companies that have verifiable recent news with a source URL. If there is no concrete news for a company today, OMIT it entirely. Do NOT generate filler text like "no significant announcements" or "coverage will be updated."
 
@@ -165,12 +214,13 @@ Each object:
 }}
 
 Candidate companies: OpenAI, Google DeepMind, Anthropic, Meta AI, Mistral, China Challengers (group).
-Only include those with real, sourced news today."""
+Only include those with real, sourced news today. Skip companies whose only news was already covered."""
     return llm_json(prompt, SYSTEM_PROMPT) or []
 
 
 def synthesize_tools(raw_content, citations):
     """Transform AI tools data into tip cards."""
+    freshness_context = load_recent_stories()
     prompt = f"""Analyze this AI tools data and create 6 actionable tip cards.
 
 RAW DATA:
@@ -178,6 +228,7 @@ RAW DATA:
 
 CITATIONS:
 {json.dumps(citations, indent=2)}
+{freshness_context}
 
 Return a JSON array of 6 tip objects:
 {{
@@ -185,7 +236,9 @@ Return a JSON array of 6 tip objects:
   "title": "Tool or technique name",
   "body": "2-3 sentence actionable description of what it does and how to use it",
   "url": "Official URL if available, otherwise empty string"
-}}"""
+}}
+
+Prioritize tools NOT featured in recent days. Rotate recommendations for variety."""
     return llm_json(prompt, SYSTEM_PROMPT) or []
 
 
@@ -395,8 +448,10 @@ def update_theme_ledger(date, summary, ai_news, world_news):
     """
     # Extract today's themes
     hook = summary.get("hook", "") if summary else ""
-    ai_titles = [s.get("title", "") for s in (ai_news or [])[:5]]
-    world_titles = [s.get("title", "") for s in (world_news or [])[:3]]
+    ai_titles = [s.get("title", "") for s in (ai_news or [])]
+    world_titles = [s.get("title", "") for s in (world_news or [])]
+    ai_urls = [s.get("source_url", "") for s in (ai_news or []) if s.get("source_url")]
+    world_urls = [s.get("source_url", "") for s in (world_news or []) if s.get("source_url")]
     focus_topics = [
         t.get("title", "")
         for t in summary.get("focus_topics", [])
@@ -405,7 +460,8 @@ def update_theme_ledger(date, summary, ai_news, world_news):
     today_entry = {
         "hook": hook,
         "top_themes": focus_topics[:3],
-        "top_stories": ai_titles[:3] + world_titles[:2],
+        "top_stories": ai_titles + world_titles,
+        "source_urls": ai_urls + world_urls,
         "story_angles": [
             b.get("text", "")[:80]
             for b in summary.get("briefs", [])

@@ -60,27 +60,31 @@ def perplexity_search(query, system_prompt="Be precise and concise."):
 # ── Query Definitions ────────────────────────────────────────────────────────
 
 def build_queries(date_label, month_year):
-    """Return the 5 search queries for news gathering."""
+    """Return the 5 search queries for news gathering.
+
+    Uses today's date (not month/year) for AI news, competitive, and tools
+    to maximize freshness and reduce cross-day repetition.
+    """
     return {
         "ai_news": {
-            "query": f"Latest AI model releases, breakthroughs, and major AI developments in {month_year}. Include specific model names, companies, benchmarks, and capabilities.",
-            "system": "You are an AI industry analyst. Report the most significant AI developments with specific details: model names, company names, key capabilities, and benchmark results. Focus on developments from the last 48 hours.",
+            "query": f"AI model releases and major AI developments today {date_label}. Include specific model names, companies, benchmarks, and capabilities announced in the last 48 hours.",
+            "system": "You are an AI industry analyst. Report the most significant AI developments with specific details: model names, company names, key capabilities, and benchmark results. Focus ONLY on developments from the last 48 hours. Do NOT report on models launched more than a week ago unless there is new benchmark data or pricing news.",
         },
         "world_news": {
             "query": f"Top world news stories today {date_label}. Cover geopolitics, economy, conflicts, diplomacy, and major global events.",
-            "system": "You are a world news editor. Report the top 6-8 global stories with key facts, locations, and context. Be factual and concise.",
+            "system": "You are a world news editor. Report the top 6-8 global stories with key facts, locations, and context. Focus on what happened TODAY, not ongoing background. For continuing events, lead with the new development.",
         },
         "markets": {
             "query": f"S&P 500, NASDAQ, Bitcoin, Ethereum, Oil Brent price and percentage change today {date_label}. Include market sentiment indicators.",
             "system": "You are a financial markets analyst. Provide exact closing prices, daily percentage changes, and brief sentiment analysis. Use numbers, not words.",
         },
         "competitive": {
-            "query": f"Latest news from OpenAI, Google DeepMind, Anthropic, Meta AI, Mistral, and Chinese AI companies in {month_year}.",
-            "system": "You are a competitive intelligence analyst covering the AI industry. For each major company, report their most recent announcement, product launch, or strategic move. Be specific about dates and details.",
+            "query": f"OpenAI Google DeepMind Anthropic Meta AI Mistral latest news announcements today {date_label}.",
+            "system": "You are a competitive intelligence analyst covering the AI industry. For each major company, report ONLY their most recent announcement from the last 48 hours. If a company has no new news today, say so rather than repeating old news.",
         },
         "tools": {
-            "query": f"Best new AI productivity tools, coding assistants, and agentic workflow tools in {month_year}. Include tool names, what they do, and links.",
-            "system": "You are an AI tools reviewer. Recommend 6 specific tools with their names, one-line descriptions, use cases, and official URLs. Focus on tools released or updated in the last month.",
+            "query": f"New AI productivity tools coding assistants agentic workflow tools launched or updated this week {date_label}. Include tool names, what they do, and links.",
+            "system": "You are an AI tools reviewer. Recommend 6 specific tools with their names, one-line descriptions, use cases, and official URLs. Focus on tools released or updated in the LAST 7 DAYS. Prefer tools that are NEW over tools that are merely popular.",
         },
     }
 

@@ -63,16 +63,83 @@ Use whichever `/sessions/[session-id]/mnt/Digest/` path resolves. Never hardcode
 
 ---
 
+## STEP 0 — FRESHNESS CHECK (run BEFORE data gathering)
+
+Read `recent-themes.json` to load the last 5 days of published stories, themes, and angles.
+This file is the dedup reference. Every story in today's digest will be checked against it.
+
+```python
+# Pseudocode for freshness logic
+recent = load("recent-themes.json")  # last 5 days
+recent_titles = collect all top_stories from last 5 entries
+recent_themes = collect all top_themes from last 5 entries
+recent_urls = collect all source_url values from last 5 digest-content.json snapshots
+```
+
+These lists will be used in Step 1B (Freshness Gate) to filter out stale content.
+
+---
+
 ## STEP 1 — DATA GATHERING (run all in parallel)
 
-1. **AI/Tech News** — `WebSearch`: "latest AI model releases developments [Month Year]"
-2. **World News** — `WebSearch`: "top world news stories today [Date]"
-3. **Market Data** — `WebSearch`: "S&P 500 NASDAQ Bitcoin Ethereum price today [Date]"
-4. **Newsletters** — `gmail_search_messages` for `from:newsletter OR subject:digest OR subject:weekly newer_than:3d`, then `gmail_read_message` on each newsletter found
-5. **Competitive Landscape** — `WebSearch`: "OpenAI Google DeepMind Meta AI Mistral Anthropic latest news [Month Year]"
-6. **AI Tools & Tips** — `WebSearch`: "AI productivity tools tutorials agentic workflows [Month Year]"
+Use **today's date** in all search queries to maximize freshness. Do NOT use "[Month Year]"
+for AI news or competitive landscape queries. That returns the same results for days.
+
+1. **AI/Tech News** — `WebSearch`: "AI model releases announcements today [Full Date]" AND
+   "new AI tools launched [Full Date]" (run both, merge results)
+2. **World News** — `WebSearch`: "top world news stories today [Full Date]"
+3. **Market Data** — `WebSearch`: "S&P 500 NASDAQ Bitcoin Ethereum price today [Full Date]"
+4. **Newsletters** — `gmail_search_messages` for `from:newsletter OR subject:digest OR subject:weekly newer_than:1d`, then `gmail_read_message` on each newsletter found.
+   Prefer `newer_than:1d` over `newer_than:3d` to avoid re-reading old newsletters.
+5. **Competitive Landscape** — `WebSearch`: "OpenAI Google DeepMind Meta AI Anthropic Mistral news today [Full Date]"
+6. **AI Tools & Tips** — `WebSearch`: "new AI tools productivity launches this week [Full Date]"
 
 NOTE: No calendar or personal email queries. This digest is public-facing.
+
+---
+
+## STEP 1B — FRESHNESS GATE (run after data gathering, before synthesis)
+
+Compare every gathered story against the `recent-themes.json` dedup reference.
+Classify each story into one of three categories:
+
+### Category 1: FRESH (include as-is)
+- Story has never appeared in the last 5 days
+- Different source URL from anything published recently
+- New product, new announcement, new event
+- **Action**: Include in today's digest normally
+
+### Category 2: EVOLVING (include only with new angle)
+- Same broad theme appeared before (e.g., "Iran conflict" day after day)
+- But there is a genuine NEW DEVELOPMENT (new strike, new policy, new data point)
+- **Action**: Include, but lead with the NEW development, not a recap.
+  The headline and body must reference what changed TODAY specifically.
+  Never re-use the same headline. Never re-state the same stat without new context.
+
+### Category 3: STALE (replace)
+- Same story, same stat, same source URL as a previous day
+- No meaningful new information beyond what was already published
+- Model releases that were covered 2+ days ago with no new benchmarks or reactions
+- **Action**: DROP this story. Replace with a fresh story from the gathered data.
+  If not enough fresh stories, search again with more specific queries:
+  "AI news [today's exact date]" or "[company name] announcement today"
+
+### Freshness rules:
+- A specific model release (e.g., "GPT-5.4") can appear on launch day + 1 follow-up day MAX.
+  After that, it needs a genuinely new angle (pricing change, benchmark result, adoption data).
+- Market data is always fresh (prices change daily). Never classify as stale.
+- Newsletter content is always fresh if the newsletter was published today.
+- Tool recommendations should rotate. If a tool appeared in the last 3 days, skip it.
+- Competitive landscape can repeat a company but must have a NEW event for that company.
+
+### Output:
+Log the freshness classification:
+```
+FRESH: [story title] — never seen
+EVOLVING: [story title] — seen on [date], new angle: [what changed]
+STALE: [story title] — seen on [date], dropping
+REPLACED: [stale story] → [fresh replacement]
+```
 
 ---
 
