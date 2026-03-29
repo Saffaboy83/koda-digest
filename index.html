@@ -177,7 +177,7 @@
         <div class="flex items-center gap-4 md:gap-8">
             <a class="text-[#adc6ff] font-semibold text-xs md:text-sm md:border-b-2 md:border-[#adc6ff] md:pb-1 transition-all" href="./morning-briefing-koda.html">Today's Briefing</a>
             <a class="hidden md:inline text-slate-400 hover:text-slate-100 transition-colors text-sm" href="./editorial/">Editorial</a>
-            <a class="hidden md:inline text-slate-400 hover:text-slate-100 transition-colors text-sm" href="#archive">Archive</a>
+            <a class="hidden md:inline text-slate-400 hover:text-slate-100 transition-colors text-sm" href="./archive/">Archive</a>
         </div>
         <div class="flex items-center gap-3">
             <div class="relative" id="topbarSearchWrap">
@@ -382,24 +382,18 @@
         </a>
     </section>
 
-    <!-- ARCHIVE -->
+    <!-- ARCHIVE CTA -->
     <section class="mb-24 animate-in" id="archive">
-        <div class="flex items-center justify-between mb-12">
-            <h2 class="text-2xl md:text-3xl font-black text-on-surface tracking-tight">Intelligence Archive</h2>
-        </div>
-
-        <!-- Search -->
-        <div class="relative mb-8">
-            <label for="searchInput" class="sr-only">Search digests and editorials</label>
-            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl pointer-events-none">search</span>
-            <input type="text" id="searchInput" autocomplete="off" placeholder="Search digests and editorials..." class="w-full bg-surface-container border border-outline-variant/20 rounded-xl pl-12 pr-4 py-4 text-sm text-on-surface placeholder:text-slate-500 focus:ring-1 focus:ring-[#adc6ff]/50 focus:border-[#adc6ff]/30 transition-all">
-            <div class="search-results" id="searchResults"></div>
-        </div>
-
-        <!-- Archive Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="archiveGrid">
-            <div class="bg-surface-container p-6 rounded-xl text-center text-on-surface-variant text-sm">Loading archive...</div>
-        </div>
+        <a href="./archive/" class="glass-card rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 no-underline group hover:border-[#6366F1]/20 transition-all">
+            <div>
+                <h2 class="text-2xl md:text-3xl font-black text-on-surface tracking-tight mb-2">Intelligence Archive</h2>
+                <p class="text-on-surface-variant text-sm">Browse all daily digests and editorial articles, with filters and search.</p>
+                <div class="flex items-center gap-3 mt-4" id="archiveStats"></div>
+            </div>
+            <div class="btn-gradient text-white px-8 py-3 rounded-full font-bold text-sm whitespace-nowrap group-hover:shadow-lg group-hover:shadow-[#3B82F6]/20 transition-all flex items-center gap-2">
+                Browse Archive <span class="material-symbols-outlined text-lg">arrow_forward</span>
+            </div>
+        </a>
     </section>
 
     <!-- WHAT READERS SAY -->
@@ -501,12 +495,11 @@
         .then(function(data) {
             manifest = data;
             renderSnapshot(data.digests[0]);
-            renderArchive(data.digests);
             renderStats(data.digests);
         })
         .catch(function() {
             document.getElementById('snapshotGrid').innerHTML = '<div class="text-center text-on-surface-variant p-8">Could not load digest data.</div>';
-            document.getElementById('archiveGrid').innerHTML = '<div class="text-center text-on-surface-variant p-8">Could not load archive.</div>';
+            // archive now on separate page
         });
 
     // ---- RENDER SNAPSHOT (Today's Focus) ----
@@ -604,33 +597,7 @@
     }
 
     // ---- RENDER ARCHIVE ----
-    function renderArchive(digests) {
-        var grid = document.getElementById('archiveGrid');
-        if (!digests || digests.length === 0) {
-            grid.innerHTML = '<div class="text-center text-on-surface-variant p-8">No digests available yet.</div>';
-            return;
-        }
-        var html = '';
-        for (var i = 0; i < digests.length; i++) {
-            var d = digests[i];
-            var ft = (d.focusTopics && d.focusTopics[0]);
-            var focusText = ft ? (typeof ft === 'string' ? ft : (ft.title || 'Intelligence Briefing')) : 'Intelligence Briefing';
-
-            var badges = '';
-            if (d.kpis.aiStories) badges += '<span class="archive-badge stories">' + d.kpis.aiStories + ' AI</span>';
-            if (d.kpis.worldEvents) badges += '<span class="archive-badge world">' + d.kpis.worldEvents + ' World</span>';
-            if (d.hasPodcast) badges += '<span class="archive-badge podcast">Podcast</span>';
-            if (d.hasVideo) badges += '<span class="archive-badge video">Video</span>';
-            if (d.hasInfographic) badges += '<span class="archive-badge infographic">Infographic</span>';
-
-            html += '<a href="./' + d.file + '" class="bg-surface-container p-6 rounded-xl hover:translate-y-[-4px] transition-all duration-300 no-underline block">' +
-                '<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-4">' + formatDate(d.date) + ' &middot; ' + d.dayOfWeek + '</p>' +
-                '<h5 class="text-lg font-bold text-on-surface mb-5 leading-snug">' + escapeHtml(focusText) + '</h5>' +
-                '<div class="flex flex-wrap gap-2">' + badges + '</div>' +
-                '</a>';
-        }
-        grid.innerHTML = html;
-    }
+    // renderArchive removed -- archive is now a separate page at /archive/
 
     // ---- RENDER STATS ----
     function renderStats(digests) {

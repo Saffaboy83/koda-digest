@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive | Koda Intelligence</title>
+    <meta name="description" content="Browse all Koda daily digests and editorial articles. AI developments, world news, markets and tools.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%236366F1'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='system-ui' font-weight='800'>K</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background: #0b1326; color: #dae2fd; font-family: 'Inter', system-ui, sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
+
+        /* Topbar */
+        .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(11,19,38,0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+        .topbar-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+        .topbar-icon { width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #3B82F6, #8B5CF6); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; color: white; }
+        .topbar-text { font-weight: 700; font-size: 15px; letter-spacing: -0.02em; color: #3B82F6; }
+        .topbar-nav { display: flex; align-items: center; gap: 8px; }
+        .topbar-link { font-size: 11px; font-family: 'JetBrains Mono', monospace; font-weight: 600; padding: 6px 12px; border-radius: 6px; background: rgba(255,255,255,0.05); color: #8c909f; text-decoration: none; transition: all 0.2s; }
+        .topbar-link:hover { background: rgba(59,130,246,0.15); color: #3B82F6; }
+        .topbar-home { background: linear-gradient(135deg, #3B82F6, #6366F1); color: white !important; font-weight: 700; border-radius: 8px; }
+        .topbar-home:hover { box-shadow: 0 4px 12px rgba(59,130,246,0.3); }
+        .topbar-search-btn { width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.05); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #8c909f; transition: all 0.2s; }
+        .topbar-search-btn:hover { background: rgba(59,130,246,0.15); color: #3B82F6; }
+
+        /* Filter bar */
+        .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; }
+        .filter-btn { font-size: 12px; font-weight: 600; padding: 8px 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); background: transparent; color: #8c909f; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; }
+        .filter-btn:hover { border-color: rgba(173,198,255,0.2); color: #dae2fd; }
+        .filter-btn.active { background: linear-gradient(135deg, #3B82F6, #6366F1); color: white; border-color: transparent; }
+
+        /* Cards */
+        .archive-card { background: rgba(23, 31, 51, 0.5); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 24px; text-decoration: none; color: inherit; display: block; transition: all 0.3s; }
+        .archive-card:hover { transform: translateY(-4px); border-color: rgba(99,102,241,0.2); background: rgba(23, 31, 51, 0.8); }
+        .card-date { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; color: #8c909f; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+        .card-title { font-size: 17px; font-weight: 700; color: #f1f5ff; margin-bottom: 12px; line-height: 1.35; }
+        .card-desc { font-size: 13px; color: #8c909f; line-height: 1.5; margin-bottom: 16px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .card-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+        .badge { display: inline-flex; align-items: center; gap: 4px; font-size: 9px; font-weight: 700; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px; }
+        .badge.type-digest { background: rgba(59,130,246,0.12); color: #60a5fa; }
+        .badge.type-editorial { background: rgba(139,92,246,0.12); color: #a78bfa; }
+        .badge.stories { background: rgba(208,188,255,0.1); color: #d0bcff; }
+        .badge.world { background: rgba(109,245,225,0.1); color: #6df5e1; }
+        .badge.podcast { background: rgba(255,183,134,0.08); color: #ffb786; }
+        .badge.video { background: rgba(255,113,108,0.08); color: #ff716c; }
+        .badge.infographic { background: rgba(255,183,134,0.08); color: #ffb786; }
+        .badge.tag { background: rgba(99,102,241,0.12); color: #a5b4fc; }
+
+        /* Grid */
+        .archive-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        @media (min-width: 640px) { .archive-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .archive-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        /* Empty state */
+        .empty-state { text-align: center; padding: 60px 20px; color: #8c909f; font-size: 14px; }
+
+        /* Animate */
+        .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s, transform 0.5s; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        @media (prefers-reduced-motion: reduce) { .fade-in { opacity: 1; transform: none; } }
+
+        /* Search overlay */
+        .search-overlay { position: fixed; inset: 0; z-index: 60; display: none; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
+        .search-overlay.active { display: block; }
+        .search-modal { max-width: 640px; margin: 80px auto 0; padding: 0 16px; }
+        .search-box { background: #171f33; border: 1px solid rgba(66,71,84,0.4); border-radius: 16px; box-shadow: 0 25px 50px rgba(0,0,0,0.5); overflow: hidden; }
+        .search-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .search-header input { flex: 1; background: transparent; border: none; outline: none; font-size: 16px; color: #dae2fd; font-family: 'Inter', sans-serif; }
+        .search-header kbd { font-size: 10px; font-family: 'JetBrains Mono', monospace; color: #64748b; border: 1px solid #475569; border-radius: 4px; padding: 2px 6px; }
+        .sr-item { padding: 14px 18px; border-bottom: 1px solid rgba(173,198,255,0.05); cursor: pointer; transition: background 0.15s; text-decoration: none; display: block; color: inherit; }
+        .sr-item:hover { background: rgba(99,102,241,0.1); }
+        .sr-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+        .sr-date { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #adc6ff; padding: 2px 8px; background: rgba(173,198,255,0.12); border-radius: 4px; }
+        .sr-section { font-size: 11px; color: #c2c6d6; text-transform: uppercase; letter-spacing: 0.5px; }
+        .sr-headline { font-size: 14px; font-weight: 600; color: #dae2fd; margin-bottom: 4px; }
+        .sr-snippet { font-size: 13px; color: #c2c6d6; line-height: 1.5; }
+        .sr-snippet mark { background: rgba(173,198,255,0.25); color: #dae2fd; border-radius: 2px; padding: 0 2px; }
+        .sr-badge { display: inline-flex; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 7px; border-radius: 4px; }
+        .sr-badge.digest { background: rgba(59,130,246,0.12); color: #60a5fa; }
+        .sr-badge.editorial { background: rgba(139,92,246,0.12); color: #a78bfa; }
+        .sr-empty { padding: 20px; text-align: center; color: #c2c6d6; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<!-- Topbar -->
+<nav class="topbar">
+    <div class="topbar-inner">
+        <a href="../index.html" class="topbar-brand">
+            <div class="topbar-icon">K</div>
+            <span class="topbar-text">Koda Archive</span>
+        </a>
+        <div class="topbar-nav">
+            <button id="topbarSearchBtn" class="topbar-search-btn" title="Search (Ctrl+K)">
+                <span class="material-symbols-outlined" style="font-size:18px;">search</span>
+            </button>
+            <a href="../morning-briefing-koda.html" class="topbar-link">Today's Digest</a>
+            <a href="../editorial/" class="topbar-link">Editorial</a>
+            <a href="../index.html" class="topbar-link topbar-home">&larr; Home</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Main content -->
+<main style="max-width:1280px;margin:0 auto;padding:88px 24px 80px;">
+
+    <!-- Header -->
+    <header class="fade-in" style="margin-bottom:40px;">
+        <h1 style="font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-0.03em;color:#f1f5ff;margin-bottom:8px;">Intelligence Archive</h1>
+        <p style="font-size:15px;color:#8c909f;">Every daily digest and editorial article, newest first.</p>
+    </header>
+
+    <!-- Filters -->
+    <div class="filter-bar fade-in" style="margin-bottom:32px;">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="digest">Digests</button>
+        <button class="filter-btn" data-filter="editorial">Editorials</button>
+    </div>
+
+    <!-- Grid -->
+    <div class="archive-grid fade-in" id="archiveGrid">
+        <div class="empty-state">Loading archive...</div>
+    </div>
+
+</main>
+
+<!-- Search Overlay -->
+<div id="searchOverlay" class="search-overlay">
+    <div class="search-modal">
+        <div class="search-box">
+            <div class="search-header">
+                <span class="material-symbols-outlined" style="color:#adc6ff;font-size:20px;">search</span>
+                <input type="text" id="globalSearchInput" autocomplete="off" placeholder="Search digests and editorials...">
+                <kbd>ESC</kbd>
+            </div>
+            <div id="globalSearchResults" style="max-height:60vh;overflow-y:auto;"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    'use strict';
+
+    // ---- HELPERS ----
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    function fmtDate(d) { var p = d.split('-'); return months[parseInt(p[1])-1] + ' ' + parseInt(p[2]) + ', ' + p[0]; }
+    function dayOfWeek(d) { return ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][new Date(d + 'T00:00:00').getDay()]; }
+    function esc(s) { return s ? s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') : ''; }
+
+    // ---- LOAD MANIFEST ----
+    var allItems = [];
+    var activeFilter = 'all';
+
+    fetch('../manifest.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            // Build unified items array
+            var digests = data.digests || [];
+            for (var i = 0; i < digests.length; i++) {
+                var d = digests[i];
+                allItems.push({ type: 'digest', date: d.date, title: (d.focusTopics && d.focusTopics[0] ? (d.focusTopics[0].title || 'Intelligence Briefing') : 'Intelligence Briefing'), desc: (d.focusTopics && d.focusTopics[0] ? (d.focusTopics[0].desc || '') : ''), file: d.file, kpis: d.kpis, hasPodcast: d.hasPodcast, hasVideo: d.hasVideo, hasInfographic: d.hasInfographic });
+            }
+            var editorials = data.editorials || [];
+            for (var j = 0; j < editorials.length; j++) {
+                var e = editorials[j];
+                allItems.push({ type: 'editorial', date: e.date, title: e.title || 'Editorial', desc: '', file: e.file, tag: e.tag || '' });
+            }
+            // Sort newest first
+            allItems.sort(function(a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
+            renderGrid();
+        })
+        .catch(function() {
+            document.getElementById('archiveGrid').innerHTML = '<div class="empty-state">Could not load archive.</div>';
+        });
+
+    // ---- FILTERS ----
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    for (var f = 0; f < filterBtns.length; f++) {
+        filterBtns[f].addEventListener('click', function() {
+            for (var b = 0; b < filterBtns.length; b++) filterBtns[b].classList.remove('active');
+            this.classList.add('active');
+            activeFilter = this.getAttribute('data-filter');
+            renderGrid();
+        });
+    }
+
+    // ---- RENDER ----
+    function renderGrid() {
+        var grid = document.getElementById('archiveGrid');
+        var filtered = activeFilter === 'all' ? allItems : allItems.filter(function(item) { return item.type === activeFilter; });
+
+        if (!filtered.length) {
+            grid.innerHTML = '<div class="empty-state">No items found.</div>';
+            return;
+        }
+
+        var html = '';
+        for (var i = 0; i < filtered.length; i++) {
+            var item = filtered[i];
+            var href = '../' + item.file;
+            var badges = '<span class="badge type-' + item.type + '">' + (item.type === 'editorial' ? 'Editorial' : 'Digest') + '</span>';
+
+            if (item.type === 'digest') {
+                if (item.kpis && item.kpis.aiStories) badges += '<span class="badge stories">' + esc(item.kpis.aiStories) + ' AI</span>';
+                if (item.kpis && item.kpis.worldEvents) badges += '<span class="badge world">' + esc(item.kpis.worldEvents) + ' World</span>';
+                if (item.hasPodcast) badges += '<span class="badge podcast">Podcast</span>';
+                if (item.hasVideo) badges += '<span class="badge video">Video</span>';
+            } else {
+                if (item.tag) badges += '<span class="badge tag">' + esc(item.tag) + '</span>';
+            }
+
+            var desc = item.desc ? '<p class="card-desc">' + esc(item.desc) + '</p>' : '';
+
+            html += '<a href="' + href + '" class="archive-card">' +
+                '<div class="card-date">' + fmtDate(item.date) + ' &middot; ' + dayOfWeek(item.date) + '</div>' +
+                '<h3 class="card-title">' + esc(item.title) + '</h3>' +
+                desc +
+                '<div class="card-badges">' + badges + '</div>' +
+                '</a>';
+        }
+        grid.innerHTML = html;
+    }
+
+    // ---- SEARCH ----
+    var overlay = document.getElementById('searchOverlay');
+    var searchInput = document.getElementById('globalSearchInput');
+    var searchResults = document.getElementById('globalSearchResults');
+    var idx = null, timer = null;
+
+    function openSearch() { overlay.classList.add('active'); searchInput.value = ''; searchResults.innerHTML = ''; setTimeout(function() { searchInput.focus(); }, 50); }
+    function closeSearch() { overlay.classList.remove('active'); }
+
+    document.getElementById('topbarSearchBtn').addEventListener('click', openSearch);
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) closeSearch(); });
+    document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+        if (e.key === 'Escape' && overlay.classList.contains('active')) closeSearch();
+    });
+
+    searchInput.addEventListener('input', function() {
+        clearTimeout(timer);
+        var q = searchInput.value.trim();
+        if (q.length < 2) { searchResults.innerHTML = ''; return; }
+        timer = setTimeout(function() { search(q); }, 200);
+    });
+
+    function search(q) {
+        if (!idx) {
+            fetch('../search-index.json').then(function(r) { return r.json(); }).then(function(d) { idx = d; run(q); }).catch(function() { searchResults.innerHTML = '<div class="sr-empty">Search unavailable.</div>'; });
+        } else run(q);
+    }
+
+    function run(q) {
+        var terms = q.toLowerCase().split(/\s+/).filter(function(t) { return t.length > 0; });
+        if (!terms.length) { searchResults.innerHTML = ''; return; }
+        var hits = [], entries = idx.entries || idx.days || [];
+        for (var i = 0; i < entries.length; i++) {
+            var en = entries[i], tp = en.type || 'digest', fl = en.file || ('morning-briefing-koda-' + en.date + '.html'), secs = en.sections || [];
+            for (var j = 0; j < secs.length; j++) {
+                var sec = secs[j], items = sec.items || [];
+                for (var k = 0; k < items.length; k++) {
+                    var it = items[k], hl = (it.headline || '').toLowerCase(), bt = (it.text || '').toLowerCase(), ft = hl + ' ' + bt, sc = 0, mt = 0;
+                    for (var t = 0; t < terms.length; t++) {
+                        var tm = terms[t];
+                        if (ft.indexOf(tm) !== -1) { mt++; sc += 10; if (hl.indexOf(tm) !== -1) sc += 15; }
+                        else { var ws = ft.split(/[\s,.\-\/]+/); for (var w = 0; w < ws.length; w++) { if (ws[w].indexOf(tm) === 0 && tm.length >= 3) { mt++; sc += 5; break; } } }
+                    }
+                    if (mt > 0) { if (mt === terms.length) sc += 20; sc -= i * 2; hits.push({ date: en.date, type: tp, section: sec.title, headline: it.headline, text: it.text, file: fl, score: sc }); }
+                }
+            }
+        }
+        hits.sort(function(a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : b.score - a.score; });
+        hits = hits.slice(0, 20);
+        if (!hits.length) { searchResults.innerHTML = '<div class="sr-empty">No results for "' + esc(q) + '"</div>'; return; }
+        var h = '';
+        for (var r = 0; r < hits.length; r++) {
+            var rs = hits[r], sn = snippet(rs.text, terms[0], 80), sa = rs.type === 'editorial' ? '' : slug(rs.section), href = '../' + rs.file + (sa ? '#' + sa : '');
+            h += '<a href="' + href + '" class="sr-item" onclick="closeSearch()"><div class="sr-meta"><span class="sr-badge ' + rs.type + '">' + (rs.type === 'editorial' ? 'Editorial' : 'Digest') + '</span><span class="sr-date">' + fmtDate(rs.date) + '</span><span class="sr-section">' + esc(rs.section) + '</span></div><div class="sr-headline">' + hilight(esc(rs.headline), terms) + '</div><div class="sr-snippet">' + hilight(sn, terms) + '</div></a>';
+        }
+        searchResults.innerHTML = h;
+    }
+
+    function snippet(t, tm, c) { if (!t) return ''; var l = t.toLowerCase(), i = l.indexOf(tm.toLowerCase()); if (i === -1) return t.substring(0, c * 2); var s = Math.max(0, i - c), e = Math.min(t.length, i + tm.length + c), r = t.substring(s, e); if (s > 0) r = '...' + r; if (e < t.length) r += '...'; return r; }
+    function hilight(t, terms) { for (var i = 0; i < terms.length; i++) { t = t.replace(new RegExp('(' + terms[i].replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi'), '<mark>$1</mark>'); } return t; }
+    function slug(t) { return t.toLowerCase().replace(/['']/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
+
+    // ---- FADE IN ----
+    if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function(entries) { entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(function(el) { obs.observe(el); });
+    } else { document.querySelectorAll('.fade-in').forEach(function(el) { el.classList.add('visible'); }); }
+
+})();
+</script>
+
+</body>
+</html>
