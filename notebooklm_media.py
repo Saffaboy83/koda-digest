@@ -219,7 +219,8 @@ def convert_png_to_jpg(png_path, jpg_path):
 async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
                        diff_text=None, audio_focus=None, infographic_focus=None,
                        video_focus=None, visual_script=None,
-                       infographic_source=None):
+                       infographic_source=None, new_notebook=False,
+                       notebook_title=None, existing_notebook_id=None):
     """Run the full NotebookLM media generation pipeline."""
 
     results = []
@@ -253,29 +254,48 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
         raise
 
     try:
-        # ── Step 1: Clean old sources ────────────────────────────────────
-        print("[1/6] Cleaning old text sources...")
-        try:
-            sources = await client.sources.list(NOTEBOOK_ID)
-            deleted = 0
-            for src in sources:
-                try:
-                    await client.sources.delete(NOTEBOOK_ID, src.id)
-                    deleted += 1
-                    await asyncio.sleep(1)  # Rate limit buffer
-                except Exception as e:
-                    print(f"  Warning: Could not delete source {src.id}: {e}")
-            results.append(make_status("clean_sources", True, f"Deleted {deleted} old sources"))
-            print(f"  Deleted {deleted} old sources.")
-        except Exception as e:
-            results.append(make_status("clean_sources", False, str(e)))
-            print(f"  Warning: Could not clean sources: {e}")
+        # ── Step 1: Notebook setup ────────────────────────────────────
+        if existing_notebook_id:
+            notebook_id = existing_notebook_id
+            print(f"[1/6] Using existing notebook: {notebook_id}")
+            results.append(make_status("use_notebook", True, f"Using: {notebook_id}"))
+        elif new_notebook:
+            title = notebook_title or f"Koda Media — {date_str}"
+            print(f"[1/6] Creating new notebook: {title}")
+            try:
+                nb = await client.notebooks.create(title)
+                notebook_id = nb.id
+                results.append(make_status("create_notebook", True, f"Created: {notebook_id}"))
+                print(f"  Created notebook: {notebook_id}")
+                await asyncio.sleep(2)
+            except Exception as e:
+                results.append(make_status("create_notebook", False, str(e)))
+                print(f"  ERROR creating notebook: {e}")
+                return results, media_paths, 1
+        else:
+            notebook_id = NOTEBOOK_ID
+            print("[1/6] Cleaning old text sources...")
+            try:
+                sources = await client.sources.list(notebook_id)
+                deleted = 0
+                for src in sources:
+                    try:
+                        await client.sources.delete(notebook_id, src.id)
+                        deleted += 1
+                        await asyncio.sleep(1)  # Rate limit buffer
+                    except Exception as e:
+                        print(f"  Warning: Could not delete source {src.id}: {e}")
+                results.append(make_status("clean_sources", True, f"Deleted {deleted} old sources"))
+                print(f"  Deleted {deleted} old sources.")
+            except Exception as e:
+                results.append(make_status("clean_sources", False, str(e)))
+                print(f"  Warning: Could not clean sources: {e}")
 
         # ── Step 2: Add today's news text ────────────────────────────────
         print("[2/6] Adding today's news text...")
         try:
             await client.sources.add_text(
-                NOTEBOOK_ID,
+                notebook_id,
                 f"Koda Daily Digest — {date_str}",
                 text_content,
                 wait=True,
@@ -294,7 +314,7 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
             print("[2b/6] Adding differentiation context...")
             try:
                 await client.sources.add_text(
-                    NOTEBOOK_ID,
+                    notebook_id,
                     f"Editorial Direction -- {date_str}",
                     diff_text,
                     wait=True,
@@ -312,7 +332,7 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
             print("[2c/6] Adding visual script source...")
             try:
                 await client.sources.add_text(
-                    NOTEBOOK_ID,
+                    notebook_id,
                     f"Visual Production Script -- {date_str}",
                     visual_script,
                     wait=True,
@@ -330,7 +350,7 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
             print("[2d/6] Adding infographic visual direction source...")
             try:
                 await client.sources.add_text(
-                    NOTEBOOK_ID,
+                    notebook_id,
                     f"Infographic Visual Direction -- {date_str}",
                     infographic_source,
                     wait=True,
@@ -353,7 +373,7 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
         # Fire all generation requests concurrently
         async def start_audio():
             s = await client.artifacts.generate_audio(
-                NOTEBOOK_ID,
+                notebook_id,
                 instructions=focus,
                 audio_format=AudioFormat.DEEP_DIVE,
                 audio_length=AudioLength.DEFAULT,
@@ -363,7 +383,7 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
 
         async def start_infographic():
             s = await client.artifacts.generate_infographic(
-                NOTEBOOK_ID,
+                notebook_id,
                 instructions=ig_focus,
                 orientation=InfographicOrientation.LANDSCAPE,
                 detail_level=InfographicDetail.DETAILED,
@@ -373,7 +393,7 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
 
         async def start_video():
             s = await client.artifacts.generate_cinematic_video(
-                NOTEBOOK_ID,
+                notebook_id,
                 instructions=vid_focus,
             )
             print(f"  Cinematic video generation started (task: {s.task_id})")
@@ -408,10 +428,10 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
             if not audio_status:
                 return
             await client.artifacts.wait_for_completion(
-                NOTEBOOK_ID, audio_status.task_id, timeout=1800.0
+                notebook_id, audio_status.task_id, timeout=1800.0
             )
             raw_audio = Path(output_dir) / f"podcast-raw-{date_str}.wav"
-            await client.artifacts.download_audio(NOTEBOOK_ID, str(raw_audio))
+            await client.artifacts.download_audio(notebook_id, str(raw_audio))
             print(f"  Audio downloaded")
             ok, detail = compress_audio(raw_audio, audio_path)
             if ok:
@@ -430,10 +450,10 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
             if not infographic_status:
                 return
             await client.artifacts.wait_for_completion(
-                NOTEBOOK_ID, infographic_status.task_id, timeout=1800.0
+                notebook_id, infographic_status.task_id, timeout=1800.0
             )
             infographic_png = Path(output_dir) / f"infographic-{date_str}.png"
-            await client.artifacts.download_infographic(NOTEBOOK_ID, str(infographic_png))
+            await client.artifacts.download_infographic(notebook_id, str(infographic_png))
             print(f"  Infographic downloaded")
             ok, detail = convert_png_to_jpg(infographic_png, infographic_jpg)
             results.append(make_status("infographic", True, detail, str(infographic_jpg)))
@@ -453,9 +473,9 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
             # Instead, try short wait then fall back to direct download retries.
             try:
                 await client.artifacts.wait_for_completion(
-                    NOTEBOOK_ID, video_status.task_id, timeout=120.0
+                    notebook_id, video_status.task_id, timeout=120.0
                 )
-                await client.artifacts.download_video(NOTEBOOK_ID, str(video_path))
+                await client.artifacts.download_video(notebook_id, str(video_path))
                 results.append(make_status("video", True, "Downloaded", str(video_path)))
                 media_paths["video"] = str(video_path)
                 print(f"  Video downloaded: {video_path}")
@@ -476,7 +496,7 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
                 elapsed = time.monotonic() - start
                 try:
                     await client.artifacts.download_video(
-                        NOTEBOOK_ID, str(video_path)
+                        notebook_id, str(video_path)
                     )
                     results.append(make_status(
                         "video", True,
@@ -523,6 +543,7 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
             if not r["success"] and r["step"] not in ("clean_sources",):
                 exit_code = 1
 
+        media_paths["notebook_id"] = notebook_id
         return results, media_paths, exit_code
 
     except Exception as e:
@@ -546,13 +567,14 @@ async def run_pipeline(text_content, date_str, output_dir, skip_video=False,
 # ── Chrome Fallback Instructions ─────────────────────────────────────────────
 
 
-def print_chrome_fallback(failed_steps):
+def print_chrome_fallback(failed_steps, notebook_id=None):
     """Print instructions for Chrome-based manual generation."""
+    nb_id = notebook_id or NOTEBOOK_ID
     print("\n" + "=" * 60)
     print("CHROME FALLBACK — Manual steps needed:")
     print("=" * 60)
     print(f"\nThe following steps failed via API: {', '.join(failed_steps)}")
-    print(f"\nNotebook: https://notebooklm.google.com/notebook/{NOTEBOOK_ID}")
+    print(f"\nNotebook: https://notebooklm.google.com/notebook/{nb_id}")
     print("\nIn Claude Code, run the skill's Chrome MCP steps for:")
 
     if "audio" in failed_steps:
@@ -599,6 +621,12 @@ def main():
                         help="Path to visual production script for cinematic video (added as notebook source)")
     parser.add_argument("--infographic-source-file",
                         help="Path to infographic visual direction source (added as notebook source)")
+    parser.add_argument("--new-notebook", action="store_true",
+                        help="Create a new notebook instead of reusing the permanent Koda one")
+    parser.add_argument("--notebook-title",
+                        help="Title for the new notebook (requires --new-notebook)")
+    parser.add_argument("--notebook-id",
+                        help="Use an existing notebook by ID (skips creation and source cleanup)")
     parser.add_argument("--json", action="store_true",
                         help="Output results as JSON to stdout")
 
@@ -646,6 +674,14 @@ def main():
     print(f"Infographic: {'custom prompt' if args.infographic_focus else 'default prompt'}")
     print(f"Video: {'skip' if args.skip_video else 'cinematic'}")
     print(f"Video prompt: {'custom' if args.video_focus else 'default'}")
+    if args.notebook_id:
+        print(f"Notebook: existing ({args.notebook_id})")
+    elif args.new_notebook:
+        print(f"Notebook: NEW")
+    else:
+        print(f"Notebook: permanent (Koda)")
+    if args.notebook_title:
+        print(f"Notebook title: {args.notebook_title}")
     print()
 
     # Run the async pipeline
@@ -655,7 +691,10 @@ def main():
                      infographic_focus=args.infographic_focus,
                      video_focus=args.video_focus,
                      visual_script=visual_script,
-                     infographic_source=infographic_source)
+                     infographic_source=infographic_source,
+                     new_notebook=args.new_notebook,
+                     notebook_title=args.notebook_title,
+                     existing_notebook_id=args.notebook_id)
     )
 
     # Write status file
@@ -674,10 +713,11 @@ def main():
         print(json.dumps(status, indent=2))
 
     # Show Chrome fallback for any failures
+    actual_notebook_id = media_paths.get("notebook_id")
     failed = [r["step"] for r in results
               if not r["success"] and r["step"] in ("audio", "infographic", "video")]
     if failed:
-        print_chrome_fallback(failed)
+        print_chrome_fallback(failed, notebook_id=actual_notebook_id)
 
     sys.exit(exit_code)
 

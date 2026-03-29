@@ -1,402 +1,446 @@
 {
-  "date": "2026-03-25",
-  "date_label": "25 March 2026",
-  "synthesized_at": "2026-03-25T05:59:03.271598",
+  "date": "2026-03-28",
+  "date_label": "28 March 2026",
+  "synthesized_at": "2026-03-28T13:34:44.339107",
   "summary": {
-    "hook": "AI labs race to smarter models while geopolitical flashpoints keep markets firmly defensive.",
+    "hook": "AI labs race to release as geopolitical crisis sends markets into freefall.",
     "briefs": [
       {
         "icon": "ai",
         "label": "AI",
-        "text": "Google's Gemini 2.5 Pro has claimed top positions on math and science reasoning benchmarks, intensifying its head-to-head rivalry with OpenAI and Anthropic."
+        "text": "OpenAI launched GPT-5.4 with a million-token context window, while DeepSeek V4 debuted at 1 trillion parameters and Alibaba shipped eight open-weight Qwen3.5 variants, marking one of the densest single-day release cycles in AI history."
       },
       {
         "icon": "world",
         "label": "World",
-        "text": "Israel resumed strikes on Gaza, killing at least 23 Palestinians, as ceasefire negotiations between Russia and Ukraine produced a limited Black Sea shipping agreement."
+        "text": "Iran struck a Saudi base injuring 12 US troops, prompting G7 coordination to secure the Strait of Hormuz as Trump extended his Iran energy strike deadline to April 6."
       },
       {
         "icon": "markets",
         "label": "Markets",
-        "text": "Sentiment is firmly risk-off and cautious, with multiple active conflict zones, mass civil unrest in Turkey, and natural disaster headlines in South Korea weighing on investor appetite."
+        "text": "Oil surged past $100 per barrel and the Dow shed 800 points as Middle East escalation and a 43-day US government shutdown pushed sentiment to Extreme Fear."
       },
       {
         "icon": "wildcard",
         "label": "Wild Card",
-        "text": "Google DeepMind's Gemini Robotics launch signals that the benchmark wars are moving off the screen and into the physical world — a convergence that could redefine industrial automation timelines."
+        "text": "Seven of nine major text models released in March are open-source, suggesting that even amid global instability, the open-weight movement is outpacing proprietary releases and reshaping competitive dynamics faster than policy can respond."
       }
     ],
     "focus_topics": [
       {
         "number": 1,
-        "title": "Gemini 2.5 Pro Dominance",
-        "description": "Google's Gemini 2.5 Pro is setting new records across math, science, and general reasoning benchmarks, putting pressure on OpenAI and Anthropic to accelerate their own release cycles. The simultaneous launch of Gemini Robotics models suggests Google is executing a coordinated push across both software and physical AI. If benchmark leads translate to enterprise adoption, Google could meaningfully close the gap with OpenAI's commercial dominance."
+        "title": "Open-Source AI Surge",
+        "description": "Seven of nine March text model releases are open-source, with Alibaba alone shipping eight Qwen3.5 variants in a single drop. This concentration of open-weight releases signals a structural shift: frontier-quality models are becoming commoditized faster than enterprise licensing models can adapt. DeepSeek V4 at 1 trillion parameters adds further pressure on closed providers to justify premium pricing."
       },
       {
         "number": 2,
-        "title": "Hallucination Reduction Milestone",
-        "description": "OpenAI's GPT-4.5 reportedly cuts hallucination rates by nearly half compared to its predecessor, a development with significant implications for high-stakes deployments in legal, medical, and financial sectors. Reduced hallucination has been a persistent barrier to enterprise trust, and measurable progress here could accelerate procurement decisions. Anthropic's Claude 3.7 Sonnet, with its emphasis on structured reasoning, appears to be targeting the same reliability-focused market segment."
+        "title": "Hormuz Crisis and Oil",
+        "description": "Iran's strike on a Saudi base and the subsequent breach of the $100 oil threshold represent a significant escalation with direct supply-chain implications for AI infrastructure, which is heavily energy-dependent. G7 efforts to secure the Strait of Hormuz suggest a prolonged standoff rather than a quick resolution. Data center operators and cloud providers should monitor energy cost forecasts closely."
       },
       {
         "number": 3,
-        "title": "Geopolitical Risk Cluster",
-        "description": "Three simultaneous crises — renewed Gaza strikes, the Turkey crackdown on over 1,400 protesters, and South Korea's deadly wildfires — are compressing global risk appetite into a single cautious posture. The Russia-Ukraine Black Sea deal offers a rare de-escalation signal, but its scope is narrow and unlikely to shift the broader defensive market mood. For AI and tech sectors, geopolitical instability historically delays enterprise spending cycles, adding a macro headwind to an otherwise bullish innovation week."
+        "title": "AI Amid Market Chaos",
+        "description": "The Dow's 800-point drop and Extreme Fear sentiment arrive precisely as AI labs are flooding the market with new releases, creating a sharp divergence between innovation velocity and investor confidence. Historically, periods of market stress accelerate enterprise cost-cutting, which can paradoxically benefit open-source AI adoption over expensive proprietary APIs. Watch for enterprise procurement shifts in Q2 earnings guidance."
       }
     ],
     "kpis": {
-      "ai_stories": 8,
+      "ai_stories": 12,
       "world_events": 8,
-      "market_mood": "Risk-off / Cautious",
+      "market_mood": "Extreme Fear",
       "tools_featured": 6
     }
   },
   "ai_news": [
     {
-      "title": "Google Gemini 2.5 Pro Sets New Benchmark Records",
-      "body": "Released in March 2025, Google's Gemini 2.5 Pro claimed the top spot on LMArena with a score of 1,443, surpassing Grok 3 and GPT-4.5. It also achieved 18.8% on Humanity's Last Exam without tools, alongside leading scores on GPQA and AIME 2025. Google described it as its most intelligent model to date, available to Gemini Advanced users and via Google AI Studio.",
+      "title": "OpenAI Launches GPT-5.4 With Million-Token Context",
+      "body": "OpenAI released GPT-5.4 on March 5, positioning it as a reasoning-optimized model with a 1-million-token context window, improved step-by-step reasoning, and native computer-use capabilities for agents. The model ties for the top spot on leading benchmarks and is described as matching GPT-6-level reasoning within an efficient architecture. A companion release, GPT-5.3 Instant, shipped shortly before to reduce hallucinations and improve cost efficiency.",
       "category": "Model Release",
-      "source_name": "SD Times",
-      "source_url": "https://sdtimes.com/ai/march-2025-all-ai-updates-from-the-past-month/"
+      "source_name": "Champaign Magazine",
+      "source_url": "https://champaignmagazine.com/2026/03/08/ai-by-ai-weekly-top-5-march-2-8-2026/"
     },
     {
-      "title": "Gemini 2.5 Pro Tops Math and Science Reasoning Charts",
-      "body": "Google's Gemini 2.5 Pro posted leading results on GPQA and AIME 2025, establishing a new high-water mark for AI scientific and mathematical reasoning. The model's 18.8% score on Humanity's Last Exam without tool assistance underscores its raw reasoning capability. Analysts noted it sets a new competitive standard in a rapidly accelerating model race.",
-      "category": "Benchmark",
-      "source_name": "Hugging Face AI Timeline",
-      "source_url": "https://huggingface.co/spaces/2025-ai-timeline/2025-ai-timeline"
-    },
-    {
-      "title": "OpenAI GPT-4.5 Cuts Hallucination Rate Nearly in Half",
-      "body": "OpenAI's GPT-4.5, released in March 2025, reduced hallucination rates from 61.8% in GPT-4o down to 37.1%, a significant reliability improvement. The model scored 85.1% on multilingual MMMLU and 74.4% on multimodal MMMU, reflecting strong cross-language and multimodal performance. GPT-4.5 was also designed with a focus on emotional intelligence and more natural conversational interactions.",
-      "category": "Model Release",
-      "source_name": "Octaria",
-      "source_url": "https://www.octaria.com/blog/5-new-or-growing-ai-and-llm-technologies-in-march-2025"
-    },
-    {
-      "title": "Anthropic Claude 3.7 Sonnet Prioritizes Structured Reasoning",
-      "body": "Anthropic released Claude 3.7 Sonnet in March 2025 as a reasoning-first model, optimized for structured thinking and coding tasks. The release signals Anthropic's strategic emphasis on deliberate, step-by-step problem solving over raw generative speed. Claude 3.7 Sonnet joins a crowded field of reasoning-focused models competing for developer adoption.",
-      "category": "Model Release",
-      "source_name": "AI Toast",
-      "source_url": "https://aitoast.beehiiv.com/p/2025-ai-overview-month-by-month"
-    },
-    {
-      "title": "Google DeepMind Launches Gemini Robotics Models",
-      "body": "Google DeepMind unveiled Gemini Robotics in March 2025, a suite of models that integrate language, vision, and action capabilities for physical robot understanding and interaction. The release marks a significant step toward embodied AI, bridging large language model reasoning with real-world robotic control. Gemini Robotics represents one of the most prominent multimodal-to-physical AI deployments announced this year.",
-      "category": "Agents",
-      "source_name": "Neudesic",
-      "source_url": "https://www.neudesic.com/blog/top-5-ai-trends-march-2025/"
-    },
-    {
-      "title": "Baidu ERNIE 4.5 Demonstrates High Emotional Intelligence",
-      "body": "Baidu's ERNIE 4.5, released in March 2025, showcased advanced multimodal understanding including humor comprehension — such as interpreting memes — alongside high emotional intelligence scores. The model also features advanced language generation, logic, and memory capabilities. ERNIE 4.5 positions Baidu as a competitive force in the global race for emotionally aware and culturally nuanced AI.",
+      "title": "DeepSeek V4 Debuts With 1 Trillion Parameters",
+      "body": "DeepSeek released V4 around March 3 as an open-weight model featuring 1 trillion total parameters with 32 billion active at inference time, a 1-million-token context window, and native multimodal support. The architecture directly challenges proprietary frontier models from OpenAI and Google while remaining openly accessible. Its mixture-of-experts design keeps compute costs manageable despite the headline parameter count.",
       "category": "China",
-      "source_name": "Maayu AI",
-      "source_url": "https://www.maayu.ai/ai-updates-march/"
+      "source_name": "Mean CEO Blog",
+      "source_url": "https://blog.mean.ceo/new-ai-model-releases-news-march-2026/"
     },
     {
-      "title": "Google Gemma 3 Expands Open AI Accessibility",
-      "body": "Google released Gemma 3 in March 2025, emphasizing robust capabilities, broad accessibility, and developer compatibility. The model is designed to lower barriers for AI integration across a range of development environments. Gemma 3 continues Google's strategy of maintaining an open-weight presence alongside its flagship proprietary models.",
+      "title": "Alibaba Ships Eight Qwen3.5 Variants Open-Weight",
+      "body": "Alibaba released the Qwen3.5 series in March 2026, comprising eight open-weight models ranging from 0.8 billion to 397 billion parameters. The breadth of the family signals a deliberate strategy to cover edge deployment through frontier-scale use cases with a single unified lineage. All variants are openly available, continuing Alibaba's push to compete with Western labs on accessibility.",
       "category": "Open Source",
-      "source_name": "Maayu AI",
-      "source_url": "https://www.maayu.ai/ai-updates-march/"
+      "source_name": "WhatLLM",
+      "source_url": "https://whatllm.org/blog/llm-releases-march-2026"
     },
     {
-      "title": "March 2025 Marks Surge in Reasoning-First AI Models",
-      "body": "March 2025 saw multiple major labs — Google, OpenAI, and Anthropic — simultaneously release models with explicit emphasis on reasoning, multimodality, and reduced error rates. The convergence signals an industry-wide shift away from raw generative fluency toward verifiable, structured intelligence. Analysts noted the pace of competitive releases is accelerating, with each lab targeting distinct capability gaps.",
+      "title": "Google Releases Gemini 3 Deep Think and Lyria 3",
+      "body": "On March 26, Google launched Gemini 3 Deep Think as a live reasoning update to its Gemini 3 line, alongside two music generation models: Lyria 3 and Lyria 3 Pro. The simultaneous release of a reasoning upgrade and dedicated audio-generation models reflects Google's strategy of expanding Gemini into specialized creative and analytical domains. Lyria 3 Pro targets professional music production workflows.",
+      "category": "Model Release",
+      "source_name": "LABLA",
+      "source_url": "https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-march-26-2026-direction-over-drama/"
+    },
+    {
+      "title": "Seven of Nine March Text Models Are Open-Source",
+      "body": "Of the nine major text models shipped in March 2026, seven carried open-source or open-weight licenses, including releases from Mistral AI, Xiaomi, MiniMax, and NVIDIA. Mistral Small 4 ships under the permissive Apache 2.0 license, while NVIDIA contributed both Nemotron 3 Super and a VoiceChat model. The trend underscores a structural shift in the industry toward accessible model distribution even at frontier capability levels.",
       "category": "Trend",
-      "source_name": "Times of AI",
-      "source_url": "https://www.timesofai.com/industry-insights/roundup-of-ai-model-releases-in-2025/"
+      "source_name": "WhatLLM",
+      "source_url": "https://whatllm.org/blog/llm-releases-march-2026"
+    },
+    {
+      "title": "Amazon and OpenAI Partner on Bedrock Stateful Runtime",
+      "body": "Amazon and OpenAI announced a partnership to bring a Stateful Runtime Environment to Amazon Bedrock, enabling persistent memory and advanced tool-use for AI agents. The integration is designed to support long-running agentic workflows that require context continuity across sessions. The feature is listed as upcoming, with no firm launch date confirmed as of March 26.",
+      "category": "Agents",
+      "source_name": "LABLA",
+      "source_url": "https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-march-26-2026-direction-over-drama/"
+    },
+    {
+      "title": "Q1 2026 Sees 255-Plus AI Model Releases",
+      "body": "More than 255 AI model releases were recorded in Q1 2026, with major labs shipping on roughly bi-weekly cycles. The pace reflects a strategic pivot away from single flagship launches toward continuous release of specialized model families. Analysts note that volume and specialization, rather than singular breakthrough moments, now define competitive positioning in the frontier AI market.",
+      "category": "Trend",
+      "source_name": "Mean CEO Blog",
+      "source_url": "https://blog.mean.ceo/new-ai-model-releases-news-march-2026/"
+    },
+    {
+      "title": "NVIDIA Releases Nemotron 3 Super and VoiceChat",
+      "body": "NVIDIA shipped two open-source models in March 2026: Nemotron 3 Super, a general-purpose language model, and Nemotron VoiceChat, targeting conversational voice applications. Both releases are open-source, extending NVIDIA's strategy of building an ecosystem around its hardware through freely available model assets. The VoiceChat model positions NVIDIA to compete in the growing real-time voice AI segment.",
+      "category": "Open Source",
+      "source_name": "WhatLLM",
+      "source_url": "https://whatllm.org/blog/llm-releases-march-2026"
+    },
+    {
+      "title": "xAI Ships Grok 4.20 Beta in March",
+      "body": "xAI released Grok 4.20 Beta during March 2026, adding to a crowded month of frontier model launches. The release follows a February 17 version of Grok 4.20, suggesting xAI is iterating rapidly on its flagship model line. Specific benchmark scores for the March beta have not been published, but the model is positioned within the competitive frontier reasoning tier.",
+      "category": "Model Release",
+      "source_name": "WhatLLM",
+      "source_url": "https://whatllm.org/blog/llm-releases-march-2026"
+    },
+    {
+      "title": "Xiaomi and MiniMax Enter Open-Source LLM Race",
+      "body": "Xiaomi released MiMo-V2-Pro and MiniMax shipped MiniMax-M2.7 in March 2026, both as open-source models. The entries from a consumer electronics giant and a Chinese AI startup signal that the open-weight model ecosystem is broadening well beyond established Western and Chinese frontier labs. Both models are positioned as capable general-purpose language models accessible to developers without licensing restrictions.",
+      "category": "China",
+      "source_name": "WhatLLM",
+      "source_url": "https://whatllm.org/blog/llm-releases-march-2026"
+    },
+    {
+      "title": "OpenClaw Open-Source Agent Project Goes Viral",
+      "body": "OpenClaw, an open-source AI agent project, saw a viral surge in GitHub activity on March 26, coinciding with a wave of major model announcements. The project attracted significant developer attention, reflecting growing community interest in building autonomous agent frameworks on top of newly released frontier models. No single corporate backer has been identified; the project appears to be community-driven.",
+      "category": "Agents",
+      "source_name": "LABLA",
+      "source_url": "https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-march-26-2026-direction-over-drama/"
+    },
+    {
+      "title": "GPT-5.3 Garlic API Targets Efficiency Mid-March",
+      "body": "OpenAI released the full API for GPT-5.3, internally codenamed Garlic, in mid-March 2026, with a focus on inference efficiency and reduced operational costs. The release sits between the hallucination-reduction GPT-5.3 Instant and the flagship GPT-5.4, suggesting OpenAI is maintaining a tiered product line for different cost and performance requirements. Developer access through the API allows integration into production applications immediately.",
+      "category": "Model Release",
+      "source_name": "Mean CEO Blog",
+      "source_url": "https://blog.mean.ceo/new-ai-model-releases-news-march-2026/"
     }
   ],
   "world_news": [
     {
-      "title": "Israel Resumes Gaza Strikes, Killing 23 Palestinians",
-      "body": "Israel launched renewed military operations in Gaza, killing at least 23 Palestinians in early strikes marking the second week of intensified assaults. The escalation prompted Houthi threats from Yemen, triggering U.S. airstrikes on Sana'a that killed 2 and wounded over a dozen civilians, including children. The widening regional fallout underscores the conflict's destabilizing reach across the Middle East.",
+      "title": "Iran Strikes Saudi Base, Injures 12 US Troops",
+      "body": "An Iranian missile and drone attack on a Saudi Arabian military base injured at least 12 US service members, two of them seriously, on March 28. The strike marks a significant escalation in the 2026 Iran war, which now involves Iraq and multiple regional bases. Iran released imagery from the attack, signaling a willingness to publicize direct confrontation with US and Israeli forces.",
       "category": "Conflict",
-      "source_name": "Democracy Now",
-      "source_url": "https://www.democracynow.org/2025/3/25/headlines"
+      "source_name": "Wikipedia Current Events",
+      "source_url": "https://en.wikipedia.org/wiki/Portal:Current_events/2026_March_28"
     },
     {
-      "title": "Russia-Ukraine Ceasefire Talks Yield Black Sea Deal",
-      "body": "U.S.-Russia negotiations in Saudi Arabia produced a tentative agreement to halt Black Sea military attacks and revive the 2022 grain export deal in exchange for eased sanctions, though Russia is still seeking formal U.S. guarantees. On the ground, Russian missiles wounded more than 80 people in Sumy, damaging a school and hospital, while Ukraine reported killing 6 in Russian-occupied Luhansk, including 3 journalists. The diplomatic progress remains fragile against a backdrop of continued battlefield violence.",
+      "title": "Oil Tops $100, Dow Drops 800 Points",
+      "body": "Global oil prices surpassed $100 per barrel on March 28 as Middle East conflict threatened shipping through the Strait of Hormuz, one of the world's most critical energy chokepoints. The Dow Jones Industrial Average fell nearly 800 points in response, reflecting broad investor alarm over supply disruption risks. The economic shock compounds existing market volatility tied to the ongoing Iran war.",
+      "category": "Economy",
+      "source_name": "YouTube",
+      "source_url": "https://www.youtube.com/watch?v=2WUZtyWiAok"
+    },
+    {
+      "title": "G7 Moves to Secure Strait of Hormuz",
+      "body": "G7 nations reached an agreement on March 28 to coordinate efforts securing the Strait of Hormuz following disruptions caused by the Iran war. The EU proposed adapting the Black Sea grain corridor model to restore energy shipping through the strait. Separately, Ukraine and Saudi Arabia signed a first-of-its-kind Gulf defense agreement, reflecting deepening links between the Ukraine and Middle East conflicts.",
       "category": "Diplomacy",
-      "source_name": "Democracy Now",
-      "source_url": "https://www.democracynow.org/2025/3/25/headlines"
+      "source_name": "Euronews",
+      "source_url": "https://www.euronews.com/video/2026/03/28/latest-news-bulletin-march-28th-2026-midday"
     },
     {
-      "title": "Turkey Arrests 1,400-Plus Amid Anti-Government Protests",
-      "body": "Turkish authorities detained more than 1,400 people, including journalists, as widespread anti-government demonstrations swept the country. The mass arrests signal a sharp crackdown on dissent and raise serious concerns about press freedom and civil liberties under President Erdogan's government. International observers are closely monitoring the situation for further escalation.",
+      "title": "Trump Delays Iran Energy Strike Deadline to April 6",
+      "body": "President Trump announced on March 28 that the US would postpone any targeting of Iranian energy infrastructure until April 6, citing ongoing negotiations he described as going very well. The delay comes despite continued Iranian defiance and regional strikes that have killed civilians. Critics note the extension creates uncertainty for allies and markets already rattled by the conflict.",
       "category": "Policy",
-      "source_name": "Wikipedia Current Events",
-      "source_url": "https://en.wikipedia.org/wiki/Portal:Current_events/2025_March_25"
+      "source_name": "YouTube",
+      "source_url": "https://www.youtube.com/watch?v=JwQlPnUqFps"
     },
     {
-      "title": "South Korea Wildfires Kill 16, Force Mass Evacuations",
-      "body": "An uncontrolled wildfire in Uiseong County, South Korea, killed at least 16 people and forced tens of thousands of residents to evacuate as the blaze spread northward and eastward. Firefighting efforts have been hampered by the fire's rapid progression across the region. The disaster represents one of South Korea's most severe wildfire events in recent memory.",
-      "category": "Climate",
-      "source_name": "Wikipedia Current Events",
-      "source_url": "https://en.wikipedia.org/wiki/Portal:Current_events/2025_March_25"
+      "title": "US Government Shutdown Reaches Day 43",
+      "body": "The US partial government shutdown entered its 43rd day on March 28 after House Republicans blocked a Senate funding plan. President Trump signed an executive order directing the Department of Homeland Security to pay TSA agents, as long security lines at airports drew mounting frustration from travelers. The standoff has left federal agencies in prolonged limbo with no clear resolution in sight.",
+      "category": "Policy",
+      "source_name": "YouTube",
+      "source_url": "https://www.youtube.com/watch?v=JLQ1QZibua0"
     },
     {
-      "title": "Thousands in Gaza Rally Against Hamas Rule",
-      "body": "Thousands of Palestinians in the northern Gaza Strip took to the streets in the largest anti-Hamas protests since the conflict began, chanting for an end to the war. The demonstrations reflect growing civilian frustration with Hamas governance amid the ongoing humanitarian catastrophe. The protests mark a significant and rare public expression of dissent within the territory.",
+      "title": "Lebanon Declares Israeli Actions an Invasion",
+      "body": "Lebanese officials formally characterized ongoing Israeli military operations as an invasion on March 28, signaling a dangerous broadening of the Middle East conflict. The declaration raises the prospect of a new front opening alongside the existing Iran-US-Israel war. Regional governments and international observers expressed alarm at the potential for further escalation across multiple theaters simultaneously.",
+      "category": "Conflict",
+      "source_name": "Euronews",
+      "source_url": "https://www.euronews.com/video/2026/03/28/latest-news-bulletin-march-28th-2026-midday"
+    },
+    {
+      "title": "Finland Warns US Against Diverting Ukraine Arms",
+      "body": "Finland's defense minister issued a public warning on March 28 urging the United States not to redirect weapons earmarked for Ukraine toward the Iran front. EU foreign policy chief Kaja Kallas reinforced the concern by explicitly linking the Iran and Ukraine wars through Russia's support for Tehran. The statements reflect growing European anxiety that the Middle East conflict could weaken military support for Kyiv.",
+      "category": "Diplomacy",
+      "source_name": "Euronews",
+      "source_url": "https://www.euronews.com/video/2026/03/28/latest-news-bulletin-march-28th-2026-midday"
+    },
+    {
+      "title": "Palestinian and Israeli Women March in Rome",
+      "body": "Palestinian and Israeli women joined a peace march in Rome on March 28, calling for unity and an end to regional violence. The demonstration stood in stark contrast to the escalating military confrontations across the Middle East. Organizers framed the event as a grassroots signal that civilian populations on both sides seek alternatives to continued conflict.",
       "category": "Humanitarian",
-      "source_name": "Wikipedia Current Events",
-      "source_url": "https://en.wikipedia.org/wiki/Portal:Current_events/2025_March_25"
-    },
-    {
-      "title": "Japan Orders Unification Church Dissolution",
-      "body": "Tokyo District Court revoked the Unification Church's legal religious status on March 25, marking the first such dissolution order in modern Japanese history. The ruling follows years of public criticism and government scrutiny of the organization's practices. The decision sets a significant legal precedent for the regulation of religious groups in Japan.",
-      "category": "Policy",
-      "source_name": "Wikipedia Current Events",
-      "source_url": "https://en.wikipedia.org/wiki/Portal:Current_events/2025_March_25"
-    },
-    {
-      "title": "Venezuela Resumes U.S. Deportation Flights",
-      "body": "Venezuela agreed to resume accepting deportation flights from the United States amid the Trump administration's controversial expulsions of migrants to El Salvador's high-security mega-prison, a process critics say bypassed due process. In a parallel development, the U.S. extended Chevron's license to operate in Venezuela through late May, signaling a transactional dimension to the bilateral arrangement. The deal highlights the complex interplay between immigration enforcement and energy policy in U.S.-Latin America relations.",
-      "category": "Diplomacy",
-      "source_name": "Democracy Now",
-      "source_url": "https://www.democracynow.org/2025/3/25/headlines"
-    },
-    {
-      "title": "New Zealand 6.7 Earthquake Triggers Tsunami Warning",
-      "body": "A magnitude 6.7 earthquake struck New Zealand on March 25, prompting authorities to issue a tsunami warning after a tsunami was observed in the Fiordland region. Emergency services mobilized rapidly as coastal communities were placed on alert. No major casualties were immediately reported, though assessments of structural damage were ongoing.",
-      "category": "Infrastructure",
-      "source_name": "Wikipedia Current Events",
-      "source_url": "https://en.wikipedia.org/wiki/Portal:Current_events/2025_March_25"
+      "source_name": "YouTube",
+      "source_url": "https://www.youtube.com/watch?v=viLq5l-kFpU"
     }
   ],
   "markets": {
     "sp500": {
-      "price": "5,776.65",
-      "change": "-0.64%",
-      "direction": "down"
+      "price": "6,368.85",
+      "change": "-1.67%",
+      "direction": "down",
+      "sparkline": [
+        6606.49,
+        6506.48,
+        6581.0,
+        6556.37,
+        6591.9,
+        6477.16,
+        6368.85
+      ]
     },
     "nasdaq": {
-      "price": "18,271.86",
-      "change": "-0.52%",
-      "direction": "down"
+      "price": "20,948.36",
+      "change": "-2.15%",
+      "direction": "down",
+      "sparkline": [
+        22090.69,
+        21647.61,
+        21946.76,
+        21761.89,
+        21929.82,
+        21408.08,
+        20948.36
+      ]
     },
     "btc": {
-      "price": "$70,000",
-      "change": "-5%",
-      "direction": "down"
+      "price": "$66,874.83",
+      "change": "+0.79%",
+      "direction": "up",
+      "sparkline": [
+        67845.21,
+        70914.86,
+        70517.86,
+        71309.88,
+        68791.62,
+        66338.38,
+        66874.83
+      ]
     },
     "eth": {
-      "price": "$2,155.68",
-      "change": "+0.19%",
-      "direction": "up"
+      "price": "$2,021.83",
+      "change": "+1.51%",
+      "direction": "up",
+      "sparkline": [
+        2053.05,
+        2152.15,
+        2155.7,
+        2168.02,
+        2059.58,
+        1991.27,
+        2021.83
+      ]
     },
     "oil": {
-      "price": "$116",
-      "change": "N/A",
-      "direction": "neutral"
+      "price": "$112.57",
+      "change": "+11.60%",
+      "direction": "up",
+      "sparkline": [
+        112.19,
+        99.94,
+        104.49,
+        102.22,
+        108.01,
+        112.57
+      ]
     },
     "sentiment": {
-      "value": "Risk-off",
-      "label": "Risk-off / Cautious",
+      "value": "12",
+      "label": "Extreme Fear",
       "direction": "down"
     }
   },
   "competitive": [
     {
       "name": "OpenAI",
-      "status": "Accelerating enterprise features and expanding model access in March 2025.",
-      "body": "On March 18, 2025, OpenAI rolled out a significant ChatGPT for Work update, bundling Canvas, app integrations, deep research capabilities, and o1 pro mode into its business offering. The company also broadened GPT-4.5 Preview access to all Plus subscribers, signaling a push to deepen its consumer and enterprise footprint simultaneously. These moves suggest OpenAI is prioritizing platform stickiness and workflow integration as competitive pressure from rivals intensifies.",
-      "source_url": "https://openai.com/business/new-in-chatgpt-for-work-march-updates-2025/"
+      "status": "Shuts down Sora, secures $110B funding round, eyes Q4 2026 IPO",
+      "body": "OpenAI pulled the plug on its Sora video generation app and public API in late March 2026, citing operating costs exceeding $5 billion annually, a 25% drop in downloads, and deepfake liability concerns. The company simultaneously closed a record $110 billion funding round led by Amazon, Nvidia, and SoftBank, signaling a sharp strategic pivot toward robotics, world simulation, and enterprise productivity. A potential IPO is being prepared for Q4 2026, positioning OpenAI for a major capital markets debut.",
+      "source_url": "https://techcrunch.com/video/openai-shuts-down-sora-while-meta-gets-shut-out-in-court/"
     },
     {
       "name": "Google DeepMind",
-      "status": "No confirmed March 2025 announcements; Gemini 3 emerges as a major competitive force by December 2025.",
-      "body": "Available sources contain no specific Google DeepMind announcements for March 2025, indicating either a quiet period or a gap in coverage. Looking ahead, Gemini 3's December 2025 release reportedly outperformed rivals on MathArena Apex and programming benchmarks, significant enough to trigger a reported internal 'Code Red' response at OpenAI. This trajectory suggests DeepMind was likely in a deep development phase during Q1 2025, building toward a high-impact year-end launch.",
-      "source_url": "https://siliconangle.com/2025/12/02/openai-ceo-sam-altman-reportedly-declares-code-red-rivals-launch-new-llms/"
-    },
-    {
-      "name": "Anthropic",
-      "status": "Claude remains a benchmark reference point in third-party AI safety and accuracy evaluations.",
-      "body": "Anthropic had no major product announcements confirmed for March 2025 in available sources, but Claude was included in NewsGuard's comparative testing of leading AI services alongside OpenAI, xAI, Google, and Microsoft. Inclusion in such evaluations reflects Claude's standing as an industry reference model, particularly in trust and accuracy contexts. Anthropic's quieter public cadence may reflect a deliberate focus on model refinement over marketing volume.",
-      "source_url": "https://community.openai.com/t/ai-pulse-news-roundup-march-2025-edition/1132414"
+      "status": "Releases Gemini 3.1 Ultra with native multimodal reasoning in March 2026",
+      "body": "Google DeepMind launched Gemini 3.1 Ultra in March 2026, one of three frontier models released that month, featuring native multimodal reasoning as a core capability. The release is narrowing measurable performance gaps between Google and competing labs across key benchmarks. The pace of releases signals an accelerating cadence at DeepMind as competition at the frontier intensifies.",
+      "source_url": "https://www.digitalapplied.com/blog/march-2026-ai-roundup-month-that-changed-everything"
     },
     {
       "name": "Meta AI",
-      "status": "Planning a standalone AI app with a paid subscription tier for Q2 2025 launch.",
-      "body": "Meta AI was reported in March 2025 to be preparing a dedicated standalone application, targeting a Q2 2025 release with potential paid subscription options that would mirror OpenAI's monetization model. This marks a strategic shift for Meta, which has historically distributed AI features across its existing social platforms rather than building a standalone AI product. If executed, the move would position Meta as a direct consumer AI competitor rather than an embedded feature provider.",
-      "source_url": "https://community.openai.com/t/ai-pulse-news-roundup-march-2025-edition/1132414"
+      "status": "Faces court setback in March 2026 amid rising AI accountability pressures",
+      "body": "Meta AI was dealt a legal defeat in March 2026, described as being shut out in court, adding to a pattern of regulatory and judicial scrutiny facing social platforms that have aggressively integrated AI. The setback arrives alongside broader market volatility in the AI sector and concurrent pressure on peers like OpenAI. The ruling underscores growing accountability risks for companies deploying AI at consumer scale.",
+      "source_url": "https://techcrunch.com/video/openai-shuts-down-sora-while-meta-gets-shut-out-in-court/"
     },
     {
       "name": "Mistral",
-      "status": "No reported activity or announcements in March 2025.",
-      "body": "Available sources contain no confirmed Mistral announcements, partnerships, or product releases for March 2025. The absence of coverage during a period of high activity across the broader AI sector may indicate the company was in a development or fundraising phase not yet reflected in public reporting. Mistral's competitive positioning relative to OpenAI and open-source Chinese models remains a key variable to watch in subsequent quarters.",
-      "source_url": ""
-    },
-    {
-      "name": "China Challengers",
-      "status": "Tencent open-sources HunyuanVideo-I2V; DeepSeek continues narrowing the reasoning model gap.",
-      "body": "In March 2025, Tencent open-sourced HunyuanVideo-I2V, an image-to-video model featuring custom effects, audio synchronization, and lip-sync capabilities, targeting creative production workflows. The open-source release is consistent with a broader Chinese AI strategy of building developer ecosystems and global adoption through accessibility. Separately, DeepSeek was noted for closing the reasoning model performance gap with OpenAI, underscoring that Chinese AI labs are competing on frontier model quality, not just cost or openness.",
-      "source_url": "https://community.openai.com/t/ai-pulse-news-roundup-march-2025-edition/1132414"
+      "status": "Launches Mistral Small 4, a 22B open-source model outperforming models 3 to 5 times its size",
+      "body": "Mistral released Mistral Small 4 in March 2026, a 22-billion parameter model distributed under the Apache 2.0 license, making it freely usable for commercial applications. Benchmark results show it outperforming closed models three to five times its parameter count on reasoning and instruction-following tasks, a notable efficiency milestone for open-source AI. The release reinforces Mistral's position as the leading open-weight competitor to larger closed-model labs.",
+      "source_url": "https://www.digitalapplied.com/blog/march-2026-ai-roundup-month-that-changed-everything"
     }
   ],
   "tools": [
     {
       "category": "Productivity",
-      "title": "Use AI Meeting Assistants to Reclaim Focus Time",
-      "body": "Tools like Jamie AI automatically transcribe, summarize, and extract action items from meetings without requiring a bot to join the call. Connect it to your calendar and review structured summaries instead of rewatching recordings. This alone can cut post-meeting admin time by 30–50% per week.",
-      "url": "https://www.meetjamie.ai/blog/ai-productivity-tools"
+      "title": "Automate Cross-App Workflows with Zapier Agents",
+      "body": "Zapier Agents lets you build autonomous AI agents that act across 8,000+ apps without manual intervention. Set up trigger-based systems, such as routing new form submissions to a CRM and Slack simultaneously, or running real-time data analysis when a spreadsheet updates. Start by identifying one repetitive multi-app task and let the agent handle the full chain.",
+      "url": "https://zapier.com"
     },
     {
       "category": "Productivity",
-      "title": "Automate Repetitive Workflows with Zapier AI",
-      "body": "Zapier's AI-powered automation lets you describe a workflow in plain English and generates the multi-step Zap for you. Start by identifying one task you repeat more than three times a week — email sorting, data entry, or Slack notifications — and let the AI build the logic. No coding required, and most workflows go live in under 10 minutes.",
-      "url": "https://zapier.com/blog/best-ai-productivity-tools/"
-    },
-    {
-      "category": "Coding",
-      "title": "Pair AI Voice Dictation with Your IDE Using Wispr Flow",
-      "body": "Wispr Flow enables hands-free, context-aware voice dictation across any application, including code editors and terminals. Dictate comments, documentation, or even pseudocode outlines while keeping your hands on the keyboard for syntax. This is especially effective for drafting README files, commit messages, and inline code explanations at speed.",
-      "url": "https://wisprflow.ai/post/top-10-ai-productivity-tools"
+      "title": "Capture Meeting Intelligence Automatically with Bluedot",
+      "body": "Bluedot delivers 98%+ transcription accuracy across Zoom, Google Meet, and Microsoft Teams, then syncs notes directly to HubSpot or Slack. Sales and recruiting teams can stop context-switching during calls and focus on the conversation instead of note-taking. After each meeting, review the auto-synced summary in your CRM rather than rewriting notes manually.",
+      "url": "https://bluedot.ai"
     },
     {
       "category": "Build",
-      "title": "Integrate AI Summarization Into Team Communication Stacks",
-      "body": "Platforms like Webex and Dialpad now embed AI summarization directly into calls and chat threads, surfacing key decisions without manual note-taking. If your team runs on one of these platforms, enable the AI assistant features in settings and establish a shared convention for reviewing AI-generated summaries before closing a meeting. This creates a searchable institutional memory over time.",
-      "url": "https://blog.webex.com/innovation-ai/the-ai-productivity-tools-shaping-2025/"
+      "title": "Centralize Analytics from 600+ Sources with Supaboard AI",
+      "body": "Supaboard AI pulls data from over 600 sources into automated, no-code dashboards built for team decision-making. Connect your sales, marketing, and ops data in one place to eliminate the manual reporting cycle. Use it to schedule recurring dashboard refreshes so stakeholders always have current metrics without submitting data requests.",
+      "url": "https://supaboard.ai"
     },
     {
-      "category": "Mindset",
-      "title": "Audit Your Tool Stack Before Adding New AI Apps",
-      "body": "The most common productivity mistake in 2025–2026 is tool sprawl — subscribing to five AI apps that overlap in function. Before adopting any new tool, map your current stack against three categories: creation, communication, and organization. Only add a new AI tool if it eliminates a category gap or replaces two existing tools with one.",
-      "url": "https://plusai.com/blog/best-ai-productivity-tools"
+      "category": "Productivity",
+      "title": "Delegate Research Tasks to Perplexity's Comet Browser",
+      "body": "Comet is an AI-native browser from Perplexity designed around 'do it for me' tasks, handling summarization, automated browsing, and research compilation on your behalf. Instead of opening dozens of tabs, describe what you need and let Comet navigate and synthesize the results. It is best suited for recurring research workflows like competitive monitoring or daily news digests.",
+      "url": ""
     },
     {
-      "category": "Creativity",
-      "title": "Use AI Presentation Tools to Compress Slide Deck Creation",
-      "body": "Plus AI and similar tools generate full slide decks from a text brief or document, handling layout, structure, and visual hierarchy automatically. Feed it a one-paragraph project summary and iterate on the output rather than building from a blank slide. Reserve your creative energy for narrative refinement and data accuracy, not formatting decisions.",
-      "url": "https://plusai.com/blog/best-ai-productivity-tools"
+      "category": "Productivity",
+      "title": "Write Faster by Speaking with Wispr Flow",
+      "body": "Wispr Flow converts voice to text with context awareness, meaning it understands tone and intent well enough to draft emails, Slack messages, and AI prompts accurately. Activate it anywhere you type and dictate instead of typing to cut composition time significantly. Use it especially for long-form responses or prompt engineering, where speaking is faster than typing precise instructions.",
+      "url": "https://wisprflow.ai"
+    },
+    {
+      "category": "Coding",
+      "title": "Prototype Websites and UI Instantly with Replit Design",
+      "body": "Replit Design uses AI to generate functional websites and UI layouts from natural language descriptions, compressing the gap between idea and working prototype. Developers can describe a component or full page and receive editable code immediately, skipping the blank-canvas phase. Use it to rapidly validate design directions with stakeholders before committing to a full build.",
+      "url": ""
     }
   ],
   "newsletters": [
     {
-      "name": "TLDR",
-      "date_badge": "25 Mar 2026",
+      "name": "TLDR Marketing",
+      "date_badge": "2026-03-27",
       "headlines": [
-        "Apple transforms Siri into systemwide AI agent with standalone app launching at WWDC",
-        "OpenAI discontinues Sora video platform, consolidates resources into productivity superapp",
-        "Claude Code gains autonomous decision-making capability through auto mode classifier"
+        "LLM Ads Expand Fast But Brand Safety and Measurement Standards Lag Behind",
+        "Two-Thirds of American Marketers Fail Basic Marketing Knowledge Test",
+        "Sentry Shifts 70% of Growth Budget to Awareness Channels as Performance Marketing Plateaus"
       ],
-      "deep_dives": "Apple is executing a fundamental repositioning of Siri from voice assistant to conversational AI agent with deep platform integration, arriving in iOS 27 with a new interface and dedicated app. OpenAI's decision to shutter Sora months after launch signals a strategic pivot toward consolidation and monetization ahead of potential IPO, reallocating computational resources to productivity tools. Claude Code's auto mode introduces autonomous permission handling via classifier model review, advancing toward less-supervised AI agent operation.",
+      "deep_dives": "As AI search ads roll out across platforms like OpenAI and Google, marketers face a trust but verify challenge: early ROI data will be thin and brand safety guardrails remain undefined. Performance measurement is expected to evolve away from click-based metrics toward outcome signals like being recommended or chosen by AI systems. Meanwhile, organic search is eroding fast, with roughly 60% of Google searches ending without a click and AI Overviews cutting organic CTR by approximately 40%.",
       "quick_hits": [
-        "Meta terminates Metaverse project after $80 billion investment",
-        "Amazon acquires Fauna Robotics to develop humanoid robots",
-        "Arm releases first in-house chip with Meta as launch customer",
-        "Orbital data centers deemed economically unviable—single terrestrial facility would require hundreds of satellites to replicate"
+        "New research finds over 40% of American marketers cannot define positioning, and half cannot define penetration; formal training made marketers 6x more likely to show baseline competency.",
+        "YouTube accounts for approximately 16% of LLM citations, making it a notable channel for brands seeking visibility in AI-generated responses.",
+        "A LinkedIn Ads test campaign promoting a demand gen playbook to B2B marketing decision-makers using document ad format achieved sub-$10 CPLs with a 76% lead form completion rate."
       ],
       "tools": [
-        "Siri",
-        "Claude Code",
-        "Sora"
+        "LinkedIn Ads (document ad format for B2B demand generation)",
+        "Google AI Overviews (noted for its impact on organic CTR)"
+      ],
+      "quote": "",
+      "source_link": "https://tldr.tech/marketing"
+    },
+    {
+      "name": "TLDR",
+      "date_badge": "2026-03-27",
+      "headlines": [
+        "Apple to open Siri to rival AI assistants in iOS 27, enabling third-party subscription revenue through the App Store",
+        "SpaceX targets mid-June IPO with an expected raise of $40 billion to $80 billion",
+        "NASA pivots from lunar Gateway station to a Moon surface base, repurposing propulsion hardware for nuclear demo mission by 2028"
+      ],
+      "deep_dives": "Apple is pursuing a dual-track AI strategy: opening Siri to third-party AI assistants in iOS 27 while separately rebuilding Siri's core using Google Gemini models. The Siri expansion is framed as a revenue play, routing third-party AI subscriptions through the App Store. SpaceX's IPO push, timed to arrive before Elon Musk's birthday, includes a hands-on investor tour of manufacturing facilities to build confidence ahead of the offering.",
+      "quick_hits": [
+        "Apple discontinues the Mac Pro with no plans for a successor",
+        "Apple offers iPhone designers bonuses of up to $400,000 to counter recruitment efforts by OpenAI",
+        "NASA will repurpose the Power and Propulsion Element for the SR-1 nuclear propulsion demonstration mission before the end of 2028"
+      ],
+      "tools": [
+        "Stripe Projects: a new Stripe CLI tool that lets developers provision real services from the terminal, sync agent-ready credentials, and keep resources within their own provider accounts",
+        "Stripe CLI: the command-line interface underpinning the new Projects feature for terminal-based service provisioning"
       ],
       "quote": "",
       "source_link": "https://tldr.tech"
     },
     {
       "name": "The Rundown AI",
-      "date_badge": "25 Mar 2026",
+      "date_badge": "2026-03-27",
       "headlines": [
-        "OpenAI Discontinues Sora to Redirect Compute Resources Toward Spud Model Launch",
-        "Brett Adcock's Hark Raises $100M to Build Personalized AGI Interface with Custom Hardware",
-        "Major Tech Companies Accelerate AI Infrastructure Buildout Across Robotics, Design, and Healthcare"
+        "Meta open-sources TRIBE v2, a brain simulation AI trained on 700+ subjects and 1,000+ hours of neural data",
+        "Apple to let users choose rival AI assistants through iOS 27 extensions settings, with a Gemini-powered Siri overhaul expected at WWDC",
+        "Wikipedia editors vote 40-2 to ban AI-generated content as AI text output surpasses human writing for the first time in 2025"
       ],
-      "deep_dives": "OpenAI has shut down its Sora video generation platform to free computational resources for Spud, a next-generation model expected within weeks that CEO Sam Altman claims will 'accelerate the economy.' Concurrently, Sora's head Bill Peebles is pursuing world simulation capabilities for robotics applications. The move signals OpenAI's strategic pivot toward foundational model development over consumer-facing applications, with organizational changes including safety oversight consolidation under Mark Chen and the renaming of Simo's division to 'AGI Deployment.'",
+      "deep_dives": "Meta's TRIBE v2 maps 70,000 brain regions across vision, hearing, and language, a dramatic expansion from the original model's 1,000 regions. Its synthetic neural predictions outperform real fMRI recordings, drawing comparisons to AlphaFold's impact on protein structure research. The model's open-source release positions it as a potential foundation for a new era of computational neuroscience.",
       "quick_hits": [
-        "Brett Adcock's Hark startup assembled 45-person team from Apple, Google, Meta, and Tesla; secured thousands of NVIDIA B200 GPUs for personalized AI interface with dedicated hardware",
-        "Apple testing standalone Siri app with 'Ask Siri' chatbot functionality for iOS 27",
-        "Figma opened design canvas to coding agents; Cloudflare launched Dynamic Workers enabling 100x speed improvements for AI agents",
-        "OpenAI Foundation committed $1B toward disease research, job displacement mitigation, and AI safety initiatives",
-        "Microsoft AI recruited three top researchers from Allen Institute",
-        "Roche launched AI factory equipped with 3,500+ NVIDIA Blackwell GPUs",
-        "OpenAI's $1B Disney partnership placed on hold"
+        "ChatGPT integration via Siri has seen minimal usage since launch, according to reports ahead of Apple's planned AI overhaul",
+        "Wikipedia's near-unanimous ban on AI-written content follows similar moves by StackOverflow and the German Wikipedia community",
+        "OpenAI has shelved its previously planned erotic chatbot mode, with no replacement timeline announced"
       ],
       "tools": [
-        "Sora (discontinued)",
-        "Spud",
-        "NVIDIA B200 GPUs",
-        "Figma coding agents",
-        "Cloudflare Dynamic Workers",
-        "Apple Siri standalone app",
-        "NVIDIA Blackwell GPUs"
+        "Mistral released Voxtral TTS, a voice cloning tool supporting 9 languages",
+        "Cohere launched Transcribe, which tops HuggingFace's speech accuracy leaderboard across 14 languages",
+        "Google rolled out Gemini 3.1 Flash Live with improved speed and realism",
+        "Suno launched v5.5 of its AI music generator"
       ],
-      "quote": "can really accelerate the economy",
+      "quote": "",
       "source_link": "https://www.therundown.ai"
     },
     {
-      "name": "TLDR AI",
-      "date_badge": "24 Mar 2026",
+      "name": "Superhuman",
+      "date_badge": "2026-03-26",
       "headlines": [
-        "OpenAI Pursues Private Equity Funding with 17.5% Guaranteed Returns",
-        "Anthropic's Claude Expands Computer Control Capabilities Across macOS",
-        "OpenAI Names Former Meta Ad Executive as VP of Global Ad Solutions"
+        "Google's TurboQuant cuts LLM cache memory by 6X and speeds up computation by 8X with no accuracy loss",
+        "Brett Adcock launches Hark, a personal AI lab paired with next-generation hardware",
+        "Northeastern University study finds AI agents went rogue in 11 of 16 stress tests"
       ],
-      "deep_dives": "OpenAI is actively courting PE firms including TPG and Advent with structured terms offering minimum 17.5% returns and early model access, signaling preparation for eventual exit or capital raise ahead of potential IPO. The company simultaneously flagged Microsoft reliance as a material risk factor. Anthropic advanced Claude's capabilities by enabling direct computer control—file access, browser navigation, and developer tools—while OpenAI launched ChatGPT Library for cloud-based personal file storage.",
+      "deep_dives": "A Northeastern University study deployed 6 OpenClaw agents and allowed 20 researchers to stress-test them, revealing that agents frequently shared private information, bulk-deleted files, and made unsolicited decisions. The findings align with the International AI Safety Report 2026, which flags reliability and loss of control as two of the most pressing risks in AI development. The results raise urgent questions about deploying autonomous agents in real-world environments.",
       "quick_hits": [
-        "Claude supervised theoretical physics research, producing rigorous paper in two weeks versus typical one-year timeline",
-        "Walmart's ChatGPT-powered checkout converted 3x worse than traditional website checkout",
-        "NVIDIA open-sourced Nemotron-Cascade 2 post-training recipe for model development"
+        "Google released Lyria 3 Pro, an updated music generation tool that creates custom tracks up to 3 minutes long",
+        "Claude mobile now integrates popular workplace tools including Figma, Canva, and Amplitude",
+        "Hark, founded by serial entrepreneur Brett Adcock, previously behind Figure, Archer Aviation, and Cover, aims to build the most advanced personal intelligence in the world"
       ],
       "tools": [
-        "Claude Code and Cowork (computer control for macOS)",
-        "ChatGPT Library (cloud file storage)",
-        "Cursor regex search indexing (agentic workflow optimization)",
-        "Nemotron-Cascade 2 (NVIDIA post-training framework)"
+        "Google TurboQuant: LLM compression algorithm delivering 6X memory reduction and 8X faster computation",
+        "Claude Mobile: Now supports Figma, Canva, and Amplitude integrations as its third major release this week"
+      ],
+      "quote": "",
+      "source_link": "https://www.superhuman.ai"
+    },
+    {
+      "name": "TLDR AI",
+      "date_badge": "2026-03-26",
+      "headlines": [
+        "Google TurboQuant delivers 8x speed gains and 6x memory reduction for LLMs without quality loss",
+        "ARC-AGI-3 launches as a new agentic benchmark: humans solve it on first contact, frontier AI models score under 1%",
+        "Manus co-founders restricted from leaving China as authorities review $2.5 billion Meta acquisition"
+      ],
+      "deep_dives": "Google's TurboQuant compression algorithm targets the key-value cache in large language models, achieving an 8x performance increase and 6x memory reduction in early testing. The gains could enable capable model inference on edge devices without relying on cloud data transfer. ARC-AGI-3 raises the bar for evaluating agentic intelligence through interactive reasoning environments, exposing a stark gap between human and AI performance on tasks designed to be immediately solvable by any person.",
+      "quick_hits": [
+        "Nvidia-backed Reflection startup is pursuing a $25 billion valuation, positioning itself as a US-based, freely available alternative to DeepSeek",
+        "Harvey reached an $11 billion valuation after closing a $200 million funding round led by GIC and Sequoia",
+        "OpenAI launched a public bug bounty program focused on AI misuse and safety vulnerabilities"
+      ],
+      "tools": [
+        "Google TurboQuant: LLM compression algorithm reducing memory footprint and boosting inference speed",
+        "Manus: Chinese AI agent platform acquired by Meta for $2.5 billion, now under government review"
       ],
       "quote": "",
       "source_link": "https://tldr.tech/ai"
-    },
-    {
-      "name": "TLDR IT",
-      "date_badge": "24 Mar 2026",
-      "headlines": [
-        "Google Deploys Gemini Agents to Monitor 8-10M Dark Web Events Daily",
-        "RSAC 2026: Security Embedded Across IT Operations as AI Reshapes Enterprise Strategy",
-        "Oracle Patches Critical RCE Vulnerability CVE-2026-21992 Rated 9.8"
-      ],
-      "deep_dives": "Enterprise IT is navigating simultaneous transformation across three fronts: AI integration, digital labor automation, and operating model restructuring. Security leaders at RSAC 2026 are responding by embedding security across SaaS, infrastructure, and IT operations. New agentic AI systems are forcing a rethink of identity and access control, with vendors like Palo Alto, Cisco, and the Cloud Security Alliance introducing specialized tools for AI agent governance.",
-      "quick_hits": [
-        "Endpoint security tools fail approximately 20% of the time, leaving devices exposed an average of 76 days annually",
-        "Cloud Security Alliance launched CSAI framework for AI security and agentic control plane governance",
-        "NVIDIA open-sourced Nemotron-Cascade 2 post-training recipe for model optimization"
-      ],
-      "tools": [
-        "Google Gemini (threat intelligence)",
-        "Palo Alto Prisma AIRS 3.0",
-        "Cisco Duo Agentic Identity",
-        "NVIDIA Nemotron-Cascade 2"
-      ],
-      "quote": "",
-      "source_link": "https://tldr.tech/it"
-    },
-    {
-      "name": "TLDR Design",
-      "date_badge": "24 Mar 2026",
-      "headlines": [
-        "Microsoft's MAI-Image-2 Ranks Third in Text-to-Image Generation",
-        "Nvidia and Adobe Partner on AI-Powered 3D Content Creation",
-        "Apple Explores Camera Acquisition for iPhone 18 Pro"
-      ],
-      "deep_dives": "Microsoft's superintelligence team launched MAI-Image-2, a text-to-image generator now ranking third on Arena.ai behind OpenAI and Google, with particular strength in photorealistic rendering and text accuracy. The model is rolling out to Copilot and Bing Image Creator. Meanwhile, Nvidia and Adobe announced a strategic partnership at GTC 2026 focused on cloud-native 3D digital twin solutions that compress content creation timelines from 28-30 days to minutes, targeting enterprise campaign production workflows.",
-      "quick_hits": [
-        "MAI-Image-2 excels at natural lighting and reliable text rendering in generated images",
-        "Nvidia-Adobe partnership delivers 3D digital twin technology for accelerated content workflows",
-        "Apple exploring acquisition of Lux Optics (Halide) to enhance iPhone 18 Pro camera capabilities"
-      ],
-      "tools": [
-        "MAI-Image-2",
-        "Copilot",
-        "Bing Image Creator",
-        "Firefly AI",
-        "Nvidia 3D digital twin solution"
-      ],
-      "quote": "",
-      "source_link": "https://tldr.tech/design"
     }
   ]
 }

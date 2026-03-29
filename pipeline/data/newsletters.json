@@ -1,42 +1,41 @@
 {
-  "date": "2025-03-25",
-  "gathered_at": "2026-03-25T11:00:00",
+  "date": "2026-03-27",
   "source": "gmail_mcp",
   "newsletters": [
     {
+      "sender": "TLDR Marketing",
+      "subject": "LLM ads' brand safety risk, budgeting for awareness, journo pitch tips",
+      "date": "2026-03-27",
+      "content": "LLM Ads Raise Concerns: AI search ads will expand quickly but lack clear measurement and brand safety standards, raising risks for marketers. Platforms like OpenAI and Google are testing ads, but early ROI data will be limited. Experts recommend a trust but verify approach. Performance measurement may shift away from clicks toward actions like being recommended or chosen. Two-thirds of American Marketers Would Fail a Basic Marketing Test: New research shows most American marketers lack foundational knowledge. Half couldn't define penetration, over 40% didn't understand positioning. Formal training made marketers 6x more likely to demonstrate baseline competency. Sentry puts 70% of growth budget into awareness: Sentry focuses on podcasts, influencers, and OOH. Performance channels are plateauing with ~60% of Google searches ending without a click and organic CTR dropping ~40% when AI Overviews appear. YouTube drives about 16% of LLM citations. LinkedIn Ads delivered sub-$10 CPLs in a test campaign promoting a demand gen playbook to B2B marketing decision-makers using document ad format with 76% lead form completion rate.",
+      "source_link": "https://tldr.tech/marketing"
+    },
+    {
       "sender": "TLDR",
-      "subject": "Inside Siri's reboot, OpenAI cancels Sora, Claude Code auto mode",
-      "date": "25 Mar 2026",
-      "source_link": "https://tldr.tech",
-      "content": "Apple plans AI reboot with standalone Siri app, new look, and 'Ask Siri' button in iOS 27. Apple testing a standalone app for Siri transforming it from traditional voice assistant to systemwide AI agent with deep integration across platforms. Updated Siri will have conversational format through text and voice, slated for WWDC June 8. OpenAI scraps Sora video platform months after launch, redirecting computing resources toward productivity tools and consolidating into one superapp ahead of potential IPO. Auto mode for Claude Code allows autonomous permission decisions with classifier model reviewing conversations before each action. Meta decides to shut down Metaverse project after reportedly spending $80 billion. Amazon acquires Fauna Robotics building 'approachable' humanoid robots. Arm releases first in-house chip with Meta as debut customer. Orbital data centers economically unviable - replicating single large terrestrial data center would require hundreds of satellites."
+      "subject": "SpaceX IPO playbook, Apple allows AI assistants, Stripe Projects",
+      "date": "2026-03-27",
+      "content": "Apple Plans to Open Up Siri to Rival AI Assistants in iOS 27: Apple will let Siri use AI services other than ChatGPT. The approach will help Apple generate more revenue from third-party subscriptions through the App Store. The change is separate from Apple's work with Google to rebuild Siri using Gemini models. SpaceX IPO: SpaceX is preparing for an initial public offering aimed at mid-June, just before Elon Musk's birthday. Musk wants investors to visit SpaceX's manufacturing facilities. The IPO is expected to raise between $40 billion and $80 billion. Stripe Projects: New tool in the Stripe CLI that lets users provision real services from the terminal, keep resources in their provider accounts, sync agent-ready credentials safely. NASA Plan for Gateway: NASA will pause work on lunar space station and focus on building a surface base on the Moon. Plans to repurpose the Power and Propulsion Element into a nuclear propulsion demo for the SR-1 mission before end of 2028. Apple Discontinues Mac Pro with no plans for future hardware. Apple Gives iPhone Designers Bonuses Up to $400K to counter OpenAI poaching.",
+      "source_link": "https://tldr.tech"
     },
     {
       "sender": "The Rundown AI",
-      "subject": "OpenAI's Sora gets the axe",
-      "date": "25 Mar 2026",
-      "source_link": "https://www.therundown.ai",
-      "content": "OpenAI axed Sora AI video generator to free up compute for Spud, next major model ready in weeks. Employees called Sora a 'drag' on resources. Spud model Altman says 'can really accelerate the economy'. Sora head Bill Peebles pursuing 'world simulation' for robotics to automate physical economy. OpenAI's $1B Disney partnership on ice. Altman moving safety under Mark Chen, Simo's division renamed 'AGI Deployment'. Brett Adcock launched Hark with $100M - new AI startup creating 'new interface to AGI' via personalized AI with dedicated hardware, 45-person team from Apple/Google/Meta/Tesla, signed deal for thousands of NVIDIA B200 GPUs. Apple testing standalone Siri app with 'Ask Siri' chatbot for iOS 27. Figma opened design canvas to coding agents. Cloudflare launched Dynamic Workers for AI agents at 100x speed. OpenAI Foundation committed $1B for disease, job displacement, AI safety. Microsoft AI poached three top Allen Institute researchers. Roche launched AI factory with 3,500+ Nvidia Blackwell GPUs."
+      "subject": "Meta's new open-source brain AI",
+      "date": "2026-03-27",
+      "content": "Meta open-sourced TRIBE v2, an AI model trained on brain scans from 700+ people that simulates neural activity across vision, hearing, and language. Its synthetic predictions outperform real fMRI recordings. Trained on 1,000+ hours of brain data, v2 maps 70,000 brain regions (up from 1,000) with 700+ subjects. Could do for brain research what AlphaFold did for protein structure. Apple to unlock Siri for rival AI assistants: Users will pick preferred AI in extensions settings for iOS 27. ChatGPT use via Siri has reportedly been minimal. Apple expected to introduce new Siri AI overhaul powered by Gemini at WWDC in early June. Wikipedia bans AI from writing its articles: Near-unanimous 40-2 vote by editors. AI text reportedly surpassed human output for first time in 2025. StackOverflow and German Wikipedia have enacted similar bans. Google rolled out Gemini 3.1 Flash Live with upgrades in speed and realism. Mistral released Voxtral TTS for voice cloning across 9 languages. OpenAI shelved its planned erotic chatbot mode. Suno launched v5.5 of its AI music generator. Cohere released Transcribe, topping HuggingFace's accuracy leaderboard across 14 languages.",
+      "source_link": "https://www.therundown.ai"
+    },
+    {
+      "sender": "Superhuman",
+      "subject": "TurboQuant just broke LLM economics",
+      "date": "2026-03-26",
+      "content": "Google reveals TurboQuant: A compression algorithm that reduces LLM cache memory by 6X to deliver 8X faster computations with zero accuracy loss. Could drastically reduce cost and compute needs of running LLMs. Also dropped Lyria 3 Pro, an update to its music generation tool letting you create custom tracks up to 3 minutes long. Brett Adcock launches Hark: A new AI lab whose mission is to build the most advanced personal intelligence in the world and pair it with next-generation hardware. Founded by serial tech entrepreneur who previously launched Figure, Archer Aviation, and Cover. Claude mobile tools: Popular workplace tools like Figma, Canva, and Amplitude now available on Claude mobile. Third major release of the week following Computer Use and Auto Mode. AI Agents of Chaos: Northeastern University study deployed 6 OpenClaw agents, let 20 researchers stress-test them. Agents frequently went rogue in 11 of 16 tests, sharing private info, bulk-deleting files, making unsolicited decisions. International AI Safety Report 2026 flags reliability and loss of control as two major risks.",
+      "source_link": "https://www.superhuman.ai"
     },
     {
       "sender": "TLDR AI",
-      "subject": "OpenAI PE deal terms, ChatGPT Library, building an AI chip",
-      "date": "24 Mar 2026",
-      "source_link": "https://tldr.tech/ai",
-      "content": "OpenAI courting buyout firms, offering PE firms guaranteed 17.5% minimum return and early model access. TPG and Advent potential investors. Claude Code and Cowork can now use your computer - open files, browsers, dev tools on macOS. ChatGPT Library stores personal files on OpenAI cloud. Professor supervised Claude through theoretical physics research - rigorous paper in two weeks instead of usual year. Cursor published fast regex search indexing for agent tools - qualitative difference for agentic workflows. NVIDIA released Nemotron-Cascade 2 open-sourcing post-training recipe. Walmart ChatGPT checkout converted 3x worse than website. OpenAI hired former Meta ad exec Dave Dugan as VP global ad solutions. OpenAI calls out Microsoft reliance as risk ahead of IPO."
-    },
-    {
-      "sender": "TLDR IT",
-      "subject": "Gemini hunts the dark web, AI reshapes IT strategy, RSAC is all about AI",
-      "date": "24 Mar 2026",
-      "source_link": "https://tldr.tech/it",
-      "content": "Google putting Gemini agents into threat-intel workflow to sift through 8-10 million dark-web events per day. RSAC 2026 opened in San Francisco with ~45,000 security leaders - security embedded across IT operations, SaaS, infrastructure. Oracle emergency patch for critical 9.8-rated vulnerability CVE-2026-21992 allowing unauthenticated remote code execution. Cloud Security Alliance launched CSAI for AI security and 'agentic control plane'. Enterprise IT dealing with overlapping shifts: AI, digital labor, operating model change. Palo Alto Prisma AIRS 3.0 unified security for agents, AI apps, identity. Cisco Duo Agentic Identity extends access control to AI agents. Endpoint security tools fail ~20% of time, devices exposed ~76 days annually. NVIDIA open-sourcing Nemotron-Cascade 2 post-training recipe."
-    },
-    {
-      "sender": "TLDR Design",
-      "subject": "Microsoft Image Gen, Nvidia Adobe Partnership, iPhone 18 Camera Upgrade",
-      "date": "24 Mar 2026",
-      "source_link": "https://tldr.tech/design",
-      "content": "Microsoft superintelligence team released MAI-Image-2 text-to-image generator ranking third on Arena.ai behind OpenAI and Google. Excels at photorealistic images with natural lighting and reliable text rendering, rolling out to Copilot and Bing Image Creator. Nvidia and Adobe strategic partnership at GTC 2026 for AI-powered content creation with cloud-native 3D digital twin solution reducing campaign production from 28-30 days to minutes. Apple explored acquiring Lux Optics (Halide) for iPhone 18 Pro camera improvements. Adobe prioritizing content creators with accessible mobile apps and Firefly AI tools."
+      "subject": "Google TurboQuant, ARC-AGI-3, Manus founders detained",
+      "date": "2026-03-26",
+      "content": "Google's TurboQuant: Compression algorithm that reduces LLM memory footprint while boosting speed and maintaining accuracy. Reduces size of key-value cache. Early testing shows 8x performance increase and 6x reduction in memory usage without quality loss. Could improve edge device model outputs without cloud data transfer. ARC-AGI-3 is Out: Designed to evaluate agentic intelligence via interactive reasoning environments. 100% solvable by humans on first contact, but all frontier AI reasoning models currently solve under 1%. Nvidia-backed Reflection startup seeking $25 billion valuation: Leading effort to create freely available US AI systems. Described as the DeepSeek of the West. Manus Co-founders Restricted from Leaving China: Authorities reviewing the company's $2.5 billion sale to Meta. Concerns that Manus' moves could encourage other Chinese companies to relocate. Harvey reached $11B valuation after raising $200M led by GIC and Sequoia. OpenAI launched public bug bounty program targeting AI misuse and safety risks.",
+      "source_link": "https://tldr.tech/ai"
     }
   ]
 }
