@@ -520,6 +520,14 @@ def slugify(text: str) -> str:
     return slug[:60]
 
 
+def inline_md(text: str) -> str:
+    """Convert inline markdown to HTML. Order matters: bold before italic."""
+    text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
+    text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
+    text = re.sub(r'`(.+?)`', r'<code>\1</code>', text)
+    return text
+
+
 def render_html(article: str, topic: dict, date: str, hero_url: str | None = None) -> str:
     """Render editorial HTML from the article text."""
     tag = topic.get("tag", "Strategy")
@@ -555,7 +563,7 @@ def render_html(article: str, topic: dict, date: str, hero_url: str | None = Non
     for para in hook.split('\n\n'):
         para = para.strip()
         if para:
-            body_html += f"    <p>{para}</p>\n"
+            body_html += f"    <p>{inline_md(para)}</p>\n"
 
     # Named sections
     for sec in named_sections:
@@ -571,9 +579,9 @@ def render_html(article: str, topic: dict, date: str, hero_url: str | None = Non
             # Check if it's a pull quote (starts with >)
             if para.startswith('>'):
                 quote_text = para.lstrip('> ').strip()
-                body_html += f'    <blockquote class="pull-quote fade-in">{quote_text}</blockquote>\n'
+                body_html += f'    <blockquote class="pull-quote fade-in">{inline_md(quote_text)}</blockquote>\n'
             else:
-                body_html += f"    <p>{para}</p>\n"
+                body_html += f"    <p>{inline_md(para)}</p>\n"
 
     # Hero image
     hero_img_html = ""
