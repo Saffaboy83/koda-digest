@@ -166,12 +166,13 @@ For each claim, note its type (statistic, attribution, event, comparison, tempor
 - Any DISPUTED: acknowledge the dispute in the article text
 
 **Common pitfalls to check**:
-- Model name/version confusion (GPT-4 vs GPT-4o vs GPT-5)
+- Model name/version confusion (GPT-4 vs GPT-4o vs GPT-5) -- always verify the LATEST model name via web search before publishing. Never use cached/outdated names from search results.
 - Parameter count vs token count (different numbers)
 - Open-source vs open-weight (different things)
 - "Raised $X" vs "valued at $X" (different claims)
 - Benchmark scores without benchmark name (meaningless)
 - Relative dates ("last week") not converted to absolute dates
+- Tool descriptions with specific model names (e.g., "Perplexity gives access to GPT-4o") -- verify current supported models. If unsure, describe capabilities generically ("access to frontier models") rather than risk naming outdated versions.
 
 ### Step 05E: Generate Visuals
 

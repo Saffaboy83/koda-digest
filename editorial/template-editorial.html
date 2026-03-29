@@ -52,7 +52,6 @@ body.dark .article-card { background: rgba(23, 31, 51, 0.6); border-color: rgba(
 body.dark .hero-section { background: linear-gradient(180deg, #0f1a33 0%, #0b1326 100%); }
 body.dark .pull-quote { background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.3); }
 body.dark .data-viz { background: rgba(23, 31, 51, 0.8); border-color: rgba(255,255,255,0.08); }
-body.dark .source-footer { background: rgba(23, 31, 51, 0.6); border-color: rgba(255,255,255,0.06); }
 body.dark .tag { background: rgba(99, 102, 241, 0.15); color: #a5b4fc; }
 body.dark h1, body.dark h2, body.dark h3 { color: #f1f5ff; }
 body.dark a { color: #818cf8; }
@@ -63,7 +62,6 @@ body.dark a { color: #818cf8; }
 .hero-section { background: linear-gradient(180deg, #f0f4ff 0%, #fafbfe 100%); }
 .pull-quote { background: rgba(99, 102, 241, 0.04); border-left: 4px solid #6366F1; }
 .data-viz { background: #f8fafc; border: 1px solid rgba(0,0,0,0.06); }
-.source-footer { background: #f8fafc; border-top: 1px solid rgba(0,0,0,0.06); }
 .tag { background: rgba(99, 102, 241, 0.08); color: #4f46e5; }
 
 /* ── Topbar ────────────────────────────────────────────────────── */
@@ -229,22 +227,6 @@ body.dark .theme-toggle { border-color: rgba(255,255,255,0.1); }
 }
 body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
 
-/* ── Source Footer ─────────────────────────────────────────────── */
-.source-footer {
-    max-width: 720px; margin: 0 auto;
-    padding: 32px 24px; font-size: 14px;
-}
-.source-footer h4 {
-    font-size: 12px; font-weight: 700;
-    font-family: 'JetBrains Mono', monospace;
-    text-transform: uppercase; letter-spacing: 0.05em;
-    margin-bottom: 12px; opacity: 0.5;
-}
-.source-footer ul { list-style: none; padding: 0; }
-.source-footer li {
-    padding: 4px 0; font-size: 14px; opacity: 0.7;
-}
-
 /* ── CTA Bar ───────────────────────────────────────────────────── */
 .cta-bar {
     max-width: 720px; margin: 0 auto 48px;
@@ -369,17 +351,7 @@ body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
     {{BUILD_CONTENT}}
 </article>
 
-<!-- Source Footer -->
-<footer class="source-footer">
-    <h4>Sources</h4>
-    <ul>
-        {{SOURCE_LIST}}
-    </ul>
-    <p style="margin-top:16px;font-size:13px;opacity:0.5;">
-        Fact-checked via multi-source verification. All statistics traced to primary sources.
-        <br>Published by Koda Editorial Team.
-    </p>
-</footer>
+<!-- Sources verified internally via fact-check framework; not displayed publicly -->
 
 <!-- CTA -->
 <div class="cta-bar fade-in">

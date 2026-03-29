@@ -29,6 +29,13 @@
         .topbar-home:hover { box-shadow: 0 4px 12px rgba(59,130,246,0.3); }
         .topbar-search-btn { width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.05); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #8c909f; transition: all 0.2s; }
         .topbar-search-btn:hover { background: rgba(59,130,246,0.15); color: #3B82F6; }
+        @media (max-width: 640px) {
+            .topbar-inner { padding: 0 16px; }
+            .topbar-brand { gap: 8px; }
+            .topbar-text { font-size: 13px; }
+            .topbar-link:not(.topbar-home) { display: none; }
+            .filter-btn { padding: 8px 14px; font-size: 11px; }
+        }
 
         /* Filter bar */
         .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; }

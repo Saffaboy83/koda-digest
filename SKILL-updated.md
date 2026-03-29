@@ -141,6 +141,27 @@ STALE: [story title] — seen on [date], dropping
 REPLACED: [stale story] → [fresh replacement]
 ```
 
+### Model & product version accuracy (CRITICAL):
+
+When writing tool descriptions, competitive analysis, or any content that names AI models
+or products, you MUST use the latest model names as of today. Web search results often
+contain cached/outdated descriptions. Before publishing any model name, verify it is current.
+
+**Known outdated names to NEVER use (as of March 2026):**
+- "GPT-4o" → current: GPT-5.4 (or check latest OpenAI release)
+- "Claude 3.5 Sonnet" → current: Claude Sonnet 4.6 (model family is Claude 4.5/4.6)
+- "Gemini 2.5 Pro" → current: check latest Google release (Gemini 2.5 may still be current, verify)
+- "Llama 3" → current: check latest Meta release
+
+**Rule:** If a tool description (e.g., "Perplexity Pro gives you access to GPT-4o, Claude 3.5...")
+contains model names, run a quick WebSearch for "[tool name] supported models [today's date]"
+to verify. If you cannot confirm the current models, describe the tool's capability generically
+(e.g., "access to frontier models from OpenAI, Anthropic, and Google") rather than naming
+specific versions that may be wrong.
+
+This applies to: AI Tool Guide section, Competitive Landscape, editorial articles, and any
+content that references specific model versions or product tiers.
+
 ---
 
 ## STEP 2 — NOTEBOOKLM PODCAST + INFOGRAPHIC + VIDEO (do before writing HTML)
