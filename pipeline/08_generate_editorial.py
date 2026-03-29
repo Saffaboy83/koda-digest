@@ -149,7 +149,8 @@ def select_topic(digest: dict) -> dict | None:
     for story in digest.get("world_news", []):
         stories.append({"title": story["title"], "body": story.get("body", ""), "section": "World"})
     for story in digest.get("competitive", []):
-        stories.append({"title": story["title"], "body": story.get("body", ""), "section": "Competitive"})
+        title = story.get("title") or f"{story.get('name', '')} — {story.get('status', '')}".strip(" —")
+        stories.append({"title": title, "body": story.get("body", ""), "section": "Competitive"})
 
     if not stories:
         return None

@@ -62,7 +62,6 @@ def main():
         "index.html",
         "vercel.json",
         ".gitignore",
-        "pipeline/data/editorial-status.json",
     ]
 
     # Add any editorial HTML files generated for today
