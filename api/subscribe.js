@@ -32,24 +32,37 @@ export default async function handler(req, res) {
       );
 
       if (existing && existing.status !== "active") {
-        // Reactivate inactive subscriber
-        const reactivateResp = await fetch(
+        // Delete inactive subscription, then recreate (PATCH doesn't reactivate)
+        await fetch(
           `https://api.beehiiv.com/v2/publications/${pubId}/subscriptions/${existing.id}`,
           {
-            method: "PATCH",
+            method: "DELETE",
+            headers: { Authorization: `Bearer ${apiKey}` },
+          }
+        );
+
+        const recreateResp = await fetch(
+          `https://api.beehiiv.com/v2/publications/${pubId}/subscriptions`,
+          {
+            method: "POST",
             headers: {
               Authorization: `Bearer ${apiKey}`,
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ unsubscribe: false }),
+            body: JSON.stringify({
+              email,
+              send_welcome_email: false,
+              utm_source: "koda_website",
+              referring_site: "https://www.koda.community",
+            }),
           }
         );
 
-        if (reactivateResp.ok) {
+        if (recreateResp.ok) {
           return res.status(200).json({ ok: true, reactivated: true });
         }
 
-        console.error("Reactivate error:", reactivateResp.status, await reactivateResp.text());
+        console.error("Reactivate error:", recreateResp.status, await recreateResp.text());
         return res.status(500).json({ error: "Resubscription failed" });
       }
 
