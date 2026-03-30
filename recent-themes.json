@@ -1,4 +1,52 @@
 {
+  "2026-03-30": {
+    "hook": "Meta's brain-mapping breakthrough lands in a week where the real world feels unmappable.",
+    "top_themes": [
+      "Meta Opens Neuroscience AI",
+      "Hormuz Chokepoint Rattles Markets",
+      "Agent Architecture Goes Isolated"
+    ],
+    "top_stories": [
+      "Meta TRIBE v2 Maps Brain Responses at Scale",
+      "ByteDance DeerFlow 2.0 Ships Isolated Agent Architecture",
+      "Late March AI Release Pipeline Hits Quiet Stretch",
+      "Q1 2026 Model Count Settles Near Record High",
+      "Open-Source Neuroscience AI Gains Momentum From Meta",
+      "GPT-5.4 Holds Intelligence Index Lead at 57.17",
+      "China's Open-Weight Labs Consolidate Q1 Gains",
+      "Agentic Frameworks Proliferate as Labs Shift Focus",
+      "Iran Launches Major Retaliatory Strikes on Israel",
+      "UN Warns Escalation Now Risks Uncontrollable Spiral",
+      "Strait of Hormuz Disruptions Hit Energy, Food Prices",
+      "Supreme Court Hears Trump Birthright Citizenship Challenge",
+      "Pakistan, Saudi Arabia Coordinate Regional De-escalation Push",
+      "DRC Violence Worsens Near Burundi Border",
+      "U.S. Spy Plane Loss Exposes Costly Platform Vulnerability"
+    ],
+    "source_urls": [
+      "https://whatllm.org/blog/llm-releases-march-2026",
+      "https://whatllm.org/blog/llm-releases-march-2026",
+      "https://aiflashreport.com/model-releases.html",
+      "https://blog.mean.ceo/new-ai-model-releases-news-march-2026/",
+      "https://whatllm.org/blog/llm-releases-march-2026",
+      "https://whatllm.org/blog/llm-releases-march-2026",
+      "https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-announcements-march-25-2026-the-stuff-that-actually-matters-today-beyond-openai-and-google/",
+      "https://radicaldatascience.wordpress.com/2026/03/20/ai-news-briefs-bulletin-board-for-march-2026/",
+      "https://www.globalissues.org/news/2026/03",
+      "https://www.globalissues.org/news/2026/03",
+      "https://www.youtube.com/watch?v=SFXQzdfKhq0",
+      "https://www.youtube.com/watch?v=6tcKmV2nIig",
+      "https://www.youtube.com/watch?v=6tcKmV2nIig",
+      "https://www.globalissues.org/news/2026/03",
+      "https://www.youtube.com/watch?v=f0c96_2VtSA"
+    ],
+    "story_angles": [
+      "Meta's TRIBE v2 open-source framework maps neural responses at unprecedented sca",
+      "Iran launched major retaliatory strikes against Israel, prompting UN warnings of",
+      "Sentiment has cratered to Extreme Fear as Strait of Hormuz disruptions ripple th",
+      "ByteDance's DeerFlow 2.0 quietly shipped an isolated agent architecture this wee"
+    ]
+  },
   "2026-03-29": {
     "hook": "Self-modifying AI agents arrive at the worst possible moment for human confidence in anything.",
     "top_themes": [

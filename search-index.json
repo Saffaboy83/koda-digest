@@ -1,6 +1,204 @@
 {
-  "generated": "2026-03-29T21:52:51Z",
+  "generated": "2026-03-30T10:39:20Z",
   "entries": [
+    {
+      "date": "2026-03-30",
+      "sections": [
+        {
+          "title": "Today's Focus",
+          "items": [
+            {
+              "headline": "Meta Opens Neuroscience AI",
+              "text": "TRIBE v2 represents Meta's most significant open-source contribution to computational neuroscience, enabling researchers to map brain responses at a scale previously limited to well-funded labs. The release has energized the open-source neuro-AI community and could accelerate timelines for non-invasive brain-computer interfaces. It also positions Meta as a serious player in foundational science, not just consumer AI products."
+            },
+            {
+              "headline": "Hormuz Chokepoint Rattles Markets",
+              "text": "Disruptions near the Strait of Hormuz, through which roughly 20% of global oil transits, have sent energy and food prices sharply higher. The Supreme Court's simultaneous hearing on birthright citizenship adds domestic legal uncertainty to an already volatile backdrop. Together, these pressures explain why fear gauges have hit extremes not seen since early 2025."
+            },
+            {
+              "headline": "Agent Architecture Goes Isolated",
+              "text": "ByteDance's DeerFlow 2.0 introduces a sandboxed, isolated agent architecture designed to limit cascading failures between autonomous components. This approach contrasts with the tightly coupled multi-agent systems favored by several Western labs and reflects growing industry awareness that safety-by-design matters more than speed. As Q1 2026 model counts settle near record highs, architectural discipline may become the differentiator regulators reward."
+            }
+          ]
+        },
+        {
+          "title": "Markets",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,368.85 (-1.67%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "20,948.36 (-2.15%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$67,411.76 (+2.18%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$2,052.61 (+3.52%)"
+            },
+            {
+              "headline": "Oil",
+              "text": "$107.88 (+0.04%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "8 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "AI Developments",
+          "items": [
+            {
+              "headline": "Meta TRIBE v2 Maps Brain Responses at Scale",
+              "text": "Meta released TRIBE v2 on March 26, a foundation model that predicts human brain responses to visual and auditory stimuli using over 500 hours of fMRI data from more than 700 participants. The model supports zero-shot predictions across subjects, languages, and tasks, outperforming standard neuroscience approaches. Meta open-sourced the full codebase, paper, and demo for the research community. Source &rarr;"
+            },
+            {
+              "headline": "ByteDance DeerFlow 2.0 Ships Isolated Agent Architecture",
+              "text": "ByteDance released DeerFlow 2.0 on March 23, an open-source framework that runs isolated AI agents for discrete tasks. The system represents ByteDance's continued push into agentic infrastructure, offering developers a modular approach to multi-agent orchestration. Details on benchmarks and enterprise adoption remain limited. Source &rarr;"
+            },
+            {
+              "headline": "Late March AI Release Pipeline Hits Quiet Stretch",
+              "text": "No major AI model releases or benchmark updates were reported in the 48 hours spanning March 28 to 30, marking a notable lull after a record-setting Q1 that saw 255 model releases through late March. The pause follows a concentrated burst of launches including GPT-5.4, DeepSeek V4, and eight Qwen3.5 variants in the final week of March. Labs appear to be shifting focus from launches to integration and enterprise deployment. Source &rarr;"
+            },
+            {
+              "headline": "Q1 2026 Model Count Settles Near Record High",
+              "text": "With the March release window effectively closing, Q1 2026 is on track to finish with approximately 255 distinct model releases, the highest quarterly total on record. The surge was driven by open-weight competition between Alibaba, Meta, and ByteDance, alongside frontier pushes from OpenAI and DeepSeek. The final days of the quarter suggest labs are pausing to assess positioning before Q2 strategies take shape. Source &rarr;"
+            },
+            {
+              "headline": "Open-Source Neuroscience AI Gains Momentum From Meta",
+              "text": "TRIBE v2's open release signals Meta's growing investment in neuroscience-adjacent AI, a niche that has attracted less corporate attention than language or vision models. The model's ability to generalize brain response predictions across unseen subjects without fine-tuning could accelerate clinical and cognitive research. Researchers can access the demo and weights immediately. Source &rarr;"
+            },
+            {
+              "headline": "GPT-5.4 Holds Intelligence Index Lead at 57.17",
+              "text": "OpenAI's GPT-5.4, launched March 28, continues to top the Intelligence Index at 57.17, with no challenger emerging over the weekend. MiniMax-M2.7 sits second at 49.62, while Alibaba's Qwen3.5 series clusters in the mid-tier. No new benchmark submissions were recorded in the March 29 to 30 window. Source &rarr;"
+            },
+            {
+              "headline": "China's Open-Weight Labs Consolidate Q1 Gains",
+              "text": "Alibaba's eight Qwen3.5 variants and ByteDance's DeerFlow 2.0 cap a quarter in which Chinese labs dramatically expanded their open-weight footprint. Combined with earlier releases from DeepSeek, Chinese-origin models now represent a significant share of the publicly available frontier stack. The strategic implications for export controls and compute policy are likely to surface in Q2 debates. Source &rarr;"
+            },
+            {
+              "headline": "Agentic Frameworks Proliferate as Labs Shift Focus",
+              "text": "With DeerFlow 2.0 from ByteDance and Meta's Hyperagents both shipping in late March, the agentic AI infrastructure space is becoming crowded heading into Q2. The trend toward isolated, self-modifying, and autonomous agent systems suggests that the next competitive frontier may center less on raw model capability and more on orchestration and reliability. Enterprise adoption timelines remain unclear. Source &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "World News",
+          "items": [
+            {
+              "headline": "Iran Launches Major Retaliatory Strikes on Israel",
+              "text": "Iran escalated the Middle East conflict today with heavy strikes directly targeting Israel, marking a significant intensification beyond the proxy and base-level attacks of recent weeks. Reports claim a $700 million U.S. surveillance aircraft was destroyed by a low-cost Iranian drone, a development that shocked military analysts and raised questions about expensive platform vulnerability. The strikes follow over three weeks of U.S. and Israeli operations against Iranian targets. Source &rarr;"
+            },
+            {
+              "headline": "UN Warns Escalation Now Risks Uncontrollable Spiral",
+              "text": "Secretary-General António Guterres warned that the Iran-Israel exchange has pushed the conflict toward a threshold that may become impossible to reverse, highlighting active mediation efforts underway. The strikes coincide with Eid and Nowruz celebrations, compounding civilian hardship across the region. Guterres also noted ongoing efforts to maintain lifesaving fertilizer shipments despite the disruptions. Source &rarr;"
+            },
+            {
+              "headline": "Strait of Hormuz Disruptions Hit Energy, Food Prices",
+              "text": "Strikes on Middle East gas fields are now driving energy prices sharply higher, with cascading effects on global agrifood supply chains dependent on the Strait of Hormuz corridor. New Zealand's government is actively monitoring domestic impacts and has reopened debate on building LNG import terminals as a hedge against prolonged disruption. The energy shock compounds the market turmoil that saw oil top $100 and the Dow drop 800 points earlier this week. Source &rarr;"
+            },
+            {
+              "headline": "Supreme Court Hears Trump Birthright Citizenship Challenge",
+              "text": "The U.S. Supreme Court began hearing arguments today on President Trump's executive order restricting birthright citizenship, a case with sweeping constitutional implications for the 14th Amendment. The legal showdown arrives amid a 41-day government shutdown and deepening market correction, adding another layer of domestic instability. A ruling is not expected immediately, but oral arguments will signal the Court's leanings. Source &rarr;"
+            },
+            {
+              "headline": "Pakistan, Saudi Arabia Coordinate Regional De-escalation Push",
+              "text": "Pakistani Prime Minister Shehbaz Sharif met with Saudi Foreign Minister to discuss a coordinated diplomatic effort aimed at calming the spiraling Middle East conflict. Pakistan simultaneously began evacuating stranded citizens from Iran as strikes intensified. The meeting signals growing alarm among Muslim-majority nations that the war could destabilize the broader region beyond the immediate combatants. Source &rarr;"
+            },
+            {
+              "headline": "DRC Violence Worsens Near Burundi Border",
+              "text": "Escalating clashes between AFC and M23 rebels and DRC government forces have intensified near Burundi's border, with drone strikes reported in the area as of late March. The violence is driving a surge of returnees into already overwhelmed border communities, straining humanitarian services. The crisis has drawn comparatively little international attention as global focus remains fixed on the Middle East. Source &rarr;"
+            },
+            {
+              "headline": "U.S. Spy Plane Loss Exposes Costly Platform Vulnerability",
+              "text": "The reported destruction of a $700 million American surveillance aircraft by a relatively inexpensive Iranian drone has triggered urgent debate among defense analysts about asymmetric warfare economics. The incident echoes Houthi drone successes against costly naval assets and raises questions about the sustainability of deploying high-value platforms in contested airspace. Pentagon officials have not yet confirmed the loss publicly. Source &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "Featured Newsletters",
+          "items": [
+            {
+              "headline": "Superhuman",
+              "text": "CERN scientists transport antimatter by road for the first time, driving 92 antiprotons 6.2 miles across Geneva campus MIT researchers link high-energy neutrino detected off Sicily to a possible exploding black hole, potentially validating Hawking's 1974 prediction Kyushu University team breaks solar efficiency barrier with 130% yield using singlet fission process This edition is Superhuman's weekly 'Science Sunday' roundup, covering non-AI breakthroughs in physics and energy. The antimatter transport, over a decade in development, could eventually enable shipments to quieter lab environments in Germany for experiments probing why matter survived the Big Bang. The solar cell breakthrough at Kyushu University achieved what was long considered impossible: energy conversion exceeding 100% by splitting a single photon's energy into two usable charges via singlet fission. CERN's antimatter road trip used a cryogenic trap loaded onto a truck, a milestone that could lead to longer transports to facilities in Germany A neutrino detected by an underwater telescope off Sicily in 2023 is orders of magnitude more energetic than anything produced in Earth-based particle colliders Kyushu University's singlet fission solar technique hit 130% yield, shattering the conventional single-junction efficiency ceiling"
+            },
+            {
+              "headline": "The Rundown AI",
+              "text": "Alibaba.com launches Accio Work, an agentic system deploying digital employees for 24/7 business operations Exclusive Q&A with Kuo Zhang, President of alibaba.com, on the shift from AI assistants to AI operators Agent-to-agent interaction positioned as the future of B2B commerce The newsletter features an exclusive interview with Kuo Zhang, President of alibaba.com, centered on the company's new Accio Work platform. Zhang outlines three priorities for companies adopting agentic AI: focusing on business value rather than raw activity, building transparency checkpoints, and rethinking team structures. The conversation frames a broader shift from AI as a passive assistant to AI as an autonomous operator handling complex business tasks, with agent-to-agent communication emerging as the next frontier for B2B interactions. Accio Work deploys a team of AI digital employees to handle complex business tasks around the clock Zhang argues success with AI operators depends on high-value decision-making, not just speed of output The newsletter references OpenClaw's launch months earlier as a pivotal moment for agentic AI in business \"Early on, we were impressed by how fast AI could write or process data, but for an AI operator, those are just basic capabilities. Success is about the high-value decisions.\""
+            },
+            {
+              "headline": "Superhuman",
+              "text": "Figure 03 becomes the first humanoid robot to enter the White House at global education summit Amazon acquires Fauna Robotics and its $50k Sprout humanoid, entering the consumer home robotics market China deploys OpenClaw AI agents inside physical robots, with Ecovacs debuting household robot Bajie This special robotics edition covers three major developments signaling the industry's rapid mainstreaming. Figure 03 walked the White House halls at the 'Fostering the Future Together' summit, greeting attendees in 11 languages as the US government pitched AI-powered humanoid teachers for personalized education. Amazon's acquisition of New York startup Fauna Robotics and its viral child-sized Sprout humanoid puts the company in direct competition with Tesla, Figure AI, and Boston Dynamics in the consumer segment. Meanwhile, China is moving beyond software-based AI agents by embedding OpenClaw into physical robots, with Ecovacs launching Bajie as a household robot powered by the framework. Figure 03 greeted White House summit attendees in 11 languages, marking the first humanoid robot to enter the building Amazon acquired Fauna Robotics; the Sprout humanoid retails for $50k and the brand will continue under Amazon's Personal Robotics Group Chinese robotics firm Ecovacs debuted Bajie, a household robot powered by OpenClaw, as China moves AI agents from laptops into physical robots"
+            }
+          ]
+        },
+        {
+          "title": "AI Tool Guide",
+          "items": [
+            {
+              "headline": "Manus: Replace Your Tool Stack With One AI Agent",
+              "text": "Manus is an end-to-end AI agent that handles research, data gathering, and multi-step workflows autonomously. Instead of juggling separate tools for web research, summarization, and report building, feed Manus a single prompt describing your desired output. Start with a complex weekly task you currently do manually, like competitor analysis, and benchmark the time savings against your existing process. Try it &rarr;"
+            },
+            {
+              "headline": "Cursor: AI-Enhanced Code Editing With Measurable Speed Gains",
+              "text": "Cursor is an AI coding assistant built directly into an editor environment, delivering substantial productivity gains for developers writing, refactoring, or debugging code. Use its inline generation to scaffold boilerplate, then lean on its contextual autocomplete for logic-heavy sections. Developers report the biggest wins when pairing Cursor with an existing codebase rather than starting from scratch, since it excels at understanding surrounding context. Try it &rarr;"
+            },
+            {
+              "headline": "Lovable: Vibe-Code a Web App From a Single Prompt",
+              "text": "Lovable lets non-developers build simple web applications by describing what they want in plain language, a technique sometimes called vibe-coding. Try it for internal dashboards, landing pages, or lightweight CRUD apps where hiring a developer would be overkill. Write your prompt with specific UI details (layout, color, data fields) to get a usable first draft in minutes rather than hours. Try it &rarr;"
+            },
+            {
+              "headline": "Comet Browser: Free Agentic Browsing for Autonomous Workflows",
+              "text": "Comet Browser offers a free agentic mode that lets AI autonomously navigate the web, fill forms, extract data, and complete multi-step browser tasks on your behalf. It ranks as the top free AI productivity tool in current 2026 roundups. Use it for repetitive web workflows like price monitoring, form submissions, or aggregating information across multiple sites without writing a single script."
+            },
+            {
+              "headline": "Zapier Agents: Build No-Code AI Workflows in Natural Language",
+              "text": "Zapier now lets you create AI agents and orchestrate complex automations using plain English instructions, including data extraction, testing, and multi-app coordination. Describe the workflow you want (for example, \"when a new lead enters my CRM, research their company and draft a personalized email\") and Zapier's Copilot will wire the steps together. This is especially powerful for teams already using Zapier integrations who want to layer agentic reasoning on top of existing automations. Try it &rarr;"
+            },
+            {
+              "headline": "Stack Audit: Map Your Tools Before Adding AI Replacements",
+              "text": "Before adopting any of these AI tools, spend 30 minutes listing every tool you use weekly and the specific task it handles. Identify overlaps where a single AI agent like Manus or Zapier Agents could consolidate three or four separate subscriptions. This audit prevents the common trap of adding AI tools on top of existing ones, which increases complexity instead of reducing it."
+            }
+          ]
+        },
+        {
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,368.85 (-1.67%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "20,948.36 (-2.15%)"
+            },
+            {
+              "headline": "Bitcoin",
+              "text": "$67,411.76 (+2.18%)"
+            },
+            {
+              "headline": "Ethereum",
+              "text": "$2,052.61 (+3.52%)"
+            },
+            {
+              "headline": "Oil Brent",
+              "text": "$107.88 (+0.04%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "8 (Extreme Fear)"
+            }
+          ]
+        }
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-03-30.html"
+    },
     {
       "date": "2026-03-29",
       "sections": [
@@ -2011,6 +2209,60 @@
       "file": "morning-briefing-koda-2026-03-21.html"
     },
     {
+      "date": "2026-03-30",
+      "type": "editorial",
+      "file": "editorial/2026-03-30-a-700m-surveillance-aircraft-destroyed-by-a-cheap-iranian-dr.html",
+      "title": "A $700M surveillance aircraft destroyed by a cheap Iranian drone exposes the cor",
+      "tag": "Strategy",
+      "sections": [
+        {
+          "title": "Introduction",
+          "items": [
+            {
+              "headline": "A $700M surveillance aircraft destroyed by a cheap Iranian drone exposes the cor",
+              "text": "A $700 million Boeing E-3 Sentry AWACS aircraft, serial number 81-0005, sat parked at Prince Sultan Air Base in Saudi Arabia on March 27, 2026. By morning it was a charred skeleton. That is a cost ratio of 35,000 to 1. The attacker spent pocket change. This is not a story about drones. This is a story about what happens when the economics of attack and defense diverge by four orders of magnitude, and why every person building critical infrastructure, digital or physical, needs to internalize the"
+            }
+          ]
+        },
+        {
+          "title": "The Compression Trap",
+          "items": [
+            {
+              "headline": "The Compression Trap",
+              "text": "Here is the framework. I call it the Compression Trap, and it works like this. When the cost to destroy an asset compresses toward zero while the cost to build and maintain that asset stays flat or rises, the defender enters a losing loop. Every dollar spent on protection buys less safety over time. Every dollar the attacker spends buys more destruction. The gap does not close. It widens. Three variables define the trap. First, the Replacement Lag: how long it takes to rebuild what you lost. Sec"
+            }
+          ]
+        },
+        {
+          "title": "The Asymmetric Flywheel Nobody Wants to Discuss",
+          "items": [
+            {
+              "headline": "The Asymmetric Flywheel Nobody Wants to Discuss",
+              "text": "Let me pull from a concept I keep returning to: asymmetric advantage as a compounding force. In business strategy, we celebrate asymmetry when it favors us. Nvidia's CUDA moat. Costco's $1.50 hot dog as a loss leader that locks in membership revenue. Apple's ecosystem switching costs. These are asymmetric advantages that compound in the builder's favor. But asymmetry compounds in both directions. The Shahed-136 is a plywood-and-fiberglass airframe with a small jet engine and a GPS guidance unit."
+            }
+          ]
+        },
+        {
+          "title": "2031",
+          "items": [
+            {
+              "headline": "2031",
+              "text": "Five years from now, three shifts will have reshaped how nations and companies think about critical infrastructure. First, the drone-to-defense cost ratio will force a redesign of military basing. The U.S. Air Force's Agile Combat Employment concept, which disperses aircraft across smaller, less predictable locations, will move from PowerPoint to doctrine. Fixed mega-bases like Prince Sultan will become logistics hubs, not parking lots for $700 million aircraft. The 36 E-7 Wedgetails on order wi"
+            }
+          ]
+        },
+        {
+          "title": "What to Build This Weekend",
+          "items": [
+            {
+              "headline": "What to Build This Weekend",
+              "text": "You do not need a defense contract to apply the Compression Trap framework. Here is how to stress-test your own infrastructure this weekend. Step one: map your single points of failure. Use Manus to run a research workflow that audits your tech stack. Ask it to identify every system where one failure would halt operations. Database, DNS provider, authentication service, payment processor. List them. Step two: calculate your replacement lag. For each single point of failure, estimate how long it "
+            }
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-03-29",
       "type": "editorial",
       "file": "editorial/2026-03-29-openai-launches-gpt-54-with-million-token-context.html",
@@ -2040,7 +2292,7 @@
           "items": [
             {
               "headline": "The Asymmetric Bet Hiding Inside a Spec Sheet",
-              "text": "Let me frame this through the lens of asymmetric advantage, because that is what GPT-5.4 actually represents for OpenAI, and what it could represent for you. Consider the competitive landscape on March 5, 2026. Google's Gemini 3.1 Pro Preview scores 57.18 on the Artificial Analysis Intelligence Index. GPT-5.4 scores 57.17. Anthropic's Claude Opus 4.5 sits at 43.09. The top two models are statistically tied on raw intelligence. So what separates them? Pricing and ecosystem lock-in. GPT-5.4 costs "
+              "text": "Let me frame this through the lens of asymmetric advantage, because that is what GPT-5.4 actually represents for OpenAI, and what it could represent for you. Consider the competitive landscape on March 5, 2026. Google's Gemini 3.1 Pro Preview and GPT-5.4 are both scoring around 57 on the Artificial Analysis Intelligence Index, essentially tied on raw intelligence. Anthropic's Claude Opus 4.6 sits at approximately 53. So what separates the top two? Pricing and ecosystem lock-in. GPT-5.4 standard "
             }
           ]
         },
