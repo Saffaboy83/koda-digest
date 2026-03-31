@@ -1,6 +1,183 @@
 {
-  "generated": "2026-03-31T01:55:20Z",
+  "generated": "2026-03-31T10:44:59Z",
   "entries": [
+    {
+      "date": "2026-03-31",
+      "sections": [
+        {
+          "title": "Today's Focus",
+          "items": [
+            {
+              "headline": "Kharg Island Threat Escalation",
+              "text": "Trump's explicit threat to obliterate Iran's Kharg Island targets the chokepoint through which roughly 90% of Iranian crude exports flow. Destroying or blockading the island would send oil prices into a historic spike, rippling through every sector including energy-hungry AI data center operations. The confirmation of Iran's Revolutionary Guard Navy chief's death suggests kinetic operations are already underway."
+            },
+            {
+              "headline": "NATO Cracks Over Iran",
+              "text": "Spain's decision to close its airspace to U.S. military operations against Iran marks a significant break in allied solidarity. This is not a symbolic protest; it forces operational rerouting and signals that European partners may refuse to back Washington's Middle East posture. The precedent could extend to technology and intelligence-sharing agreements that underpin transatlantic AI and defense collaboration."
+            },
+            {
+              "headline": "Cascading Global Instability",
+              "text": "A magnitude 7 earthquake striking Vanuatu and the Philippine peso's seventh record low compound a picture of simultaneous systemic stress across geopolitical, geological, and financial domains. Markets registering Extreme Fear reflect not just one crisis but the convergence of several. For AI companies dependent on global supply chains and international capital flows, this environment raises the cost of everything from chips to cloud infrastructure."
+            }
+          ]
+        },
+        {
+          "title": "Markets",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,343.72 (-0.39%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "20,794.64 (-0.73%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$66,092.18 (-0.90%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$2,017.56 (-0.33%)"
+            },
+            {
+              "headline": "Oil",
+              "text": "$108.01 (+0.61%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "11 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "World News",
+          "items": [
+            {
+              "headline": "Trump Threatens to Obliterate Iran's Kharg Island",
+              "text": "President Trump escalated rhetoric against Iran, specifically threatening to destroy Kharg Island, the country's primary oil export hub, along with oil wells and power plants if a ceasefire deal is not reached. The US is simultaneously deploying 57,000 troops to the region. This marks a shift from military to civilian infrastructure targeting, raising alarm among allies and energy markets. Source &rarr;"
+            },
+            {
+              "headline": "Spain Closes Airspace to US Iran Operations",
+              "text": "Spain shut its airspace to American military aircraft involved in strikes on Iran, marking the first NATO ally to actively obstruct US operations in the conflict. Prime Minister Pedro Sanchez called the US-led war \"an extraordinary mistake.\" The move signals a deepening transatlantic rift as European nations grow increasingly uneasy with the scope of the campaign. Source &rarr;"
+            },
+            {
+              "headline": "Iran Confirms Revolutionary Guard Navy Chief's Death",
+              "text": "Iran officially confirmed the death of Revolutionary Guard navy chief Alirez Tangsiri, days after Israel claimed responsibility for the strike. Tangsiri oversaw Iran's fast-boat fleet and mine-laying capabilities in the Persian Gulf, making his elimination a significant operational blow. His death may further complicate any near-term ceasefire negotiations. Source &rarr;"
+            },
+            {
+              "headline": "Magnitude 7 Earthquake Strikes Vanuatu Islands",
+              "text": "A powerful magnitude 7.0 earthquake hit the Vanuatu Islands in the South Pacific. Details on casualties and structural damage remain limited, but the quake's strength raises concerns about potential tsunami activity in the region. Vanuatu, a small island nation of roughly 330,000 people, suffered a devastating quake in late 2024 that damaged much of its capital. Source &rarr;"
+            },
+            {
+              "headline": "Philippine Peso Hits Record Low Seventh Time",
+              "text": "The Philippine Peso slid to 60.69 against the US Dollar, setting a new record low for the seventh time in March alone. The currency's decline reflects broader emerging-market pressure from surging oil prices tied to the Iran conflict and a strong dollar. The Philippines reported its oil inventory can last up to 50 days with fresh supply arrivals, offering a limited buffer. Source &rarr;"
+            },
+            {
+              "headline": "Gunmen Kill Over 70 at South Sudan Mine",
+              "text": "Unknown gunmen massacred more than 70 people in South Sudan following a dispute at a gold mine. The attack underscores the lethal intersection of resource competition and armed group activity in the country, which continues to struggle with intercommunal violence years after its civil war. No group has claimed responsibility. Source &rarr;"
+            },
+            {
+              "headline": "Zelensky Pitches Drone Tech on Gulf Tour",
+              "text": "Ukrainian President Zelensky, wrapping up visits to Saudi Arabia, the UAE, Qatar, and Jordan, unveiled what he called \"trick agreements\" and offered to share Ukraine's expertise in unblocking maritime trade routes using novel drone technology. The pitch appears aimed at positioning Ukraine as a security partner in the Gulf amid Hormuz Strait disruptions. Details of the agreements remain unclear. Source &rarr;"
+            },
+            {
+              "headline": "Taiwan Opposition Leader Plans China Visit",
+              "text": "Taiwan's opposition leader is scheduled to visit China next month, ahead of anticipated policy shifts under the Trump administration. The visit could reshape cross-strait dynamics at a sensitive moment, as Washington's attention remains consumed by the Iran conflict. Specific agenda items and Beijing's formal response have not yet been disclosed. Source &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "Featured Newsletters",
+          "items": [
+            {
+              "headline": "The Rundown AI",
+              "text": "Inside Sora's $1M-a-day collapse at OpenAI, with Disney blindsided by sudden shutdown Microsoft pits Claude against ChatGPT for research capabilities Stanford exposes AI's people-pleasing problem A WSJ investigation revealed the chaotic behind-the-scenes story of OpenAI shutting down its Sora video generator. The platform was burning roughly $1 million per day in compute costs, and Disney, which had an enterprise pilot in progress, was informed the product was dead less than an hour before the public announcement. An internal code-named model reportedly required Sora's compute budget, forcing OpenAI to make a sudden strategic shift away from its once-viral video generation platform. Microsoft is positioning Anthropic's Claude as a competitor to its own ChatGPT integration for research tasks Stanford released findings highlighting a systemic 'people-pleasing' or sycophancy problem in current AI models A tutorial featured building a travel itinerary using Perplexity Computer"
+            },
+            {
+              "headline": "The Rundown AI",
+              "text": "Physical Intelligence in talks to raise $1B at $11B+ valuation, nearly doubling its worth in four months Snail-like robot designed to crawl through the gut to fight cancer LimX's 'Luna' humanoid robot debuts on the catwalk Physical Intelligence, a two-year-old San Francisco lab founded by ex-Google DeepMind scientists, is reportedly closing roughly $1B in new funding at a valuation north of $11B, up from $5.6B just four months ago. The startup is building AI foundation models designed to control fleets of general-purpose robots across household and industrial tasks, with Peter Thiel's Founders Fund and Lightspeed Venture Partners reportedly participating. The raise intensifies competition with Skild AI, Figure, and Tesla's Optimus program in the race to build a universal AI brain for robotics. Violinists now have purpose-built exoskeletons to assist with performance strain A snail-inspired robot is being developed to navigate the human gut for cancer treatment LimX Dynamics showcased its humanoid robot 'Luna' walking a fashion catwalk"
+            },
+            {
+              "headline": "TLDR",
+              "text": "Anthropic's 'Claude Mythos' leaked as a new model tier larger and more intelligent than Opus, scoring dramatically higher on coding, academic reasoning, and cybersecurity benchmarks, though it remains too compute-intensive for general release Meta's Avocado 9B model pushed back to at least May as it falls short of competitors; Meta AI is reportedly routing some requests through Google's Gemini and has discussed temporarily licensing Gemini technology Anthropic's Claude paid subscriptions have more than doubled this year, with the majority of new subscribers joining the lowest tier, though OpenAI remains the largest consumer AI platform AutoBe, an open-source AI agent that generates complete backends from natural language, demonstrated a harness that boosted qwen3-coder-next's function calling success rate from 6.75% to over 99.8%. The approach uses type schemas to constrain outputs and compilers to verify results, showing how structured tooling can dramatically improve unreliable model capabilities. Black Duck Signal launched as an agentic AppSec tool combining LLM-powered code analysis with 20+ years of human-vetted security intelligence to find and fix vulnerabilities in AI-generated code Meta running parallel experiments with multiple Avocado model variants including Avocado Mango Agent Last xAI cofounder exits the company (referenced in subject line)"
+            },
+            {
+              "headline": "TLDR",
+              "text": "NYSE-parent Intercontinental Exchange completes $2B investment in Polymarket as prediction markets go mainstream Revolut profit soars to record $2.3 billion in 2025, plans UK lending expansion Mastercard bids to offload Nets payments unit originally bought for $3.2B Agentic payment infrastructure is emerging as a way to unlock new monetization models for content platforms beyond traditional subscriptions. These systems enable pay-per-article, pay-to-preview for AI crawlers, paid comments, and tipping, shifting from fixed monetization to configurable, granular pricing that lets creators earn without sacrificing reach. Intercontinental Exchange invested an additional $600M into Polymarket, completing a $2B commitment and signaling institutional adoption of prediction markets as a data and trading layer. Revolut is converting secondary users into full-service banking customers by rolling out credit cards, personal loans, and overdrafts in the UK. Mastercard is seeking a buyer for the real-time payments business it acquired from Danish company Nets in 2019 for $3.2 billion."
+            },
+            {
+              "headline": "Superhuman",
+              "text": "Anthropic finalizing Claude Mythos, its most powerful model family yet, sending cybersecurity stocks into freefall Google Gemini now lets users import chat history and preferences from rival AI chatbots OpenAI launches Codex plugins to automate workflows with reusable skill bundles and MCP servers A leaked blog post revealed Anthropic is finalizing its Claude Mythos family of models, which also hinted at a new model tier called Capybara. Anthropic claims Mythos will represent a 'step change' in AI capabilities, positioning it as the strongest model yet for cybersecurity, coding, and reasoning. The leak alone was enough to rattle cybersecurity stocks on Friday, March 27, though no official release date has been set. Gemini's new import feature lets users upload preferences and full chat histories from competing AI tools via a new Settings option, eliminating switching costs between chatbots. OpenAI's Codex plugins bundle skills, workplace apps, and Model Context Protocol servers into reusable workflows, directly competing with Anthropic's Claude Code. WorkOS published a guide on why identical AI prompts produce inconsistent answers and how teams are using evals to fix the problem."
+            },
+            {
+              "headline": "TLDR",
+              "text": "European Commission confirms cyberattack with 350GB of data claimed stolen from AWS-hosted infrastructure OpenAI shuts down Sora app and related video models just six months after launch AI frameworks like LangChain and Langflow emerge as critical new attack surfaces Analysis pieces argue that AI is fundamentally a job creation technology, driving new roles and 'superworker' models rather than simply eliminating positions, with the real challenge being how fast organizations can redesign roles and reskill teams. Separately, CIOs are reassessing their SaaS strategies as AI agents reshape enterprise software into more action-oriented, orchestrated systems rather than replacing existing platforms outright. The European Commission's AWS cloud account compromise, likely identity/IAM-related, exposed massive datasets without breaching core infrastructure, underscoring cloud identity risks. Multiple critical vulnerabilities across LangChain, LangGraph, and Langflow expose filesystem data, environment secrets, and API keys, shifting attacks toward the 'AI plumbing' layer connecting models to enterprise systems. OpenAI's Sora shutdown signals that flashy AI demos still struggle to become durable products; vendor stability matters more than novelty. \"Pilot excitement is not the same thing as operational fit, and vendor stability matters more than novelty right now.\""
+            }
+          ]
+        },
+        {
+          "title": "AI Tool Guide",
+          "items": [
+            {
+              "headline": "Lovable: Prompt-to-App Without a Dev Team",
+              "text": "Lovable lets you describe an application in plain language and generates a working full-stack prototype in minutes. Use it to validate product ideas before committing engineering resources: describe your user flow, iterate on the generated UI, then export clean code when you are ready to scale. Best suited for internal tools, MVPs, and landing pages with dynamic backends. Try it &rarr;"
+            },
+            {
+              "headline": "Cursor: AI-Native Code Editor for Faster Iteration",
+              "text": "Cursor embeds large language models directly into a VS Code-style editor, letting you highlight blocks of code and ask for refactors, bug fixes, or explanations inline. Pair it with your existing codebase by indexing your repo on first launch so the model understands project context. The tab-completion alone can cut boilerplate writing time by roughly 40%, according to user benchmarks on Efficient App. Try it &rarr;"
+            },
+            {
+              "headline": "Manus Agent: Delegate Multi-Step Research Tasks",
+              "text": "Manus operates as a general-purpose AI agent that can browse the web, read documents, write files, and chain actions together without manual prompting at each step. Try assigning it a competitive analysis: give it five competitor URLs and ask for a structured comparison table with pricing, features, and recent funding data. Review its output for hallucinations, but expect it to save two to three hours on tasks that require gathering and synthesizing scattered information. Try it &rarr;"
+            },
+            {
+              "headline": "Synthesia: Turn Scripts Into Presenter Videos in Minutes",
+              "text": "Synthesia generates AI avatar videos from text scripts, eliminating the need for cameras, studios, or on-screen talent. Use it for internal training modules, product walkthroughs, or multilingual customer support videos by selecting an avatar, pasting your script, and choosing from over 140 languages. Export in 1080p and embed directly into your LMS or help center. Try it &rarr;"
+            },
+            {
+              "headline": "eesel.ai: Build a Custom Knowledge Bot Over Your Docs",
+              "text": "eesel.ai connects to Confluence, Notion, Google Docs, and Slack to create a private AI assistant trained on your team's actual documentation. Deploy it as a Slack bot so teammates can ask questions like 'What is our refund policy for enterprise clients?' and get sourced answers in seconds. It reduces repetitive questions to support and ops teams while keeping proprietary data off public model servers. Try it &rarr;"
+            },
+            {
+              "headline": "The 80/20 Audit: Find Your Highest-Leverage AI Use Case",
+              "text": "Before adopting another tool, spend 30 minutes listing every recurring task you performed last week and estimating time spent on each. Identify the top three tasks that consume the most hours but require the least creative judgment. Those are your automation candidates. Match each one to a specific tool, such as Manus for research, Cursor for code, or Synthesia for video, and commit to a one-week trial with a measurable time-saved target."
+            }
+          ]
+        },
+        {
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,343.72 (-0.39%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "20,794.64 (-0.73%)"
+            },
+            {
+              "headline": "Bitcoin",
+              "text": "$66,092.18 (-0.90%)"
+            },
+            {
+              "headline": "Ethereum",
+              "text": "$2,017.56 (-0.33%)"
+            },
+            {
+              "headline": "Oil Brent",
+              "text": "$108.01 (+0.61%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "11 (Extreme Fear)"
+            }
+          ]
+        }
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-03-31.html"
+    },
     {
       "date": "2026-03-30",
       "sections": [
@@ -2207,6 +2384,60 @@
       ],
       "type": "digest",
       "file": "morning-briefing-koda-2026-03-21.html"
+    },
+    {
+      "date": "2026-03-31",
+      "type": "editorial",
+      "file": "editorial/2026-03-31-the-philippine-pesos-seventh-record-low-in-march-reveals-how.html",
+      "title": "The Philippine Peso's seventh record low in March reveals how emerging-market cu",
+      "tag": "Markets",
+      "sections": [
+        {
+          "title": "Introduction",
+          "items": [
+            {
+              "headline": "The Philippine Peso's seventh record low in March reveals how emerging-market cu",
+              "text": "That was its seventh record low in a single month. Not its seventh bad day. Its seventh worst day in history, packed into 31 calendar days. If you are building a product with a distributed team in Southeast Asia, this is not a currency story. It is a cost structure story. And most builders are not paying attention until the invoice lands. Southeast Asia hosts a massive share of the world's outsourced engineering talent. Cloud infrastructure spend across the region runs in USD. Contractor invoice"
+            }
+          ]
+        },
+        {
+          "title": "The FX Drag Coefficient",
+          "items": [
+            {
+              "headline": "The FX Drag Coefficient",
+              "text": "I am calling this the FX Drag Coefficient. Every distributed team has one. Most founders just never calculate it. The concept is simple. If your revenue comes in dollars but your costs touch a weakening local currency, you feel good. Your burn looks cheaper. But if your costs are priced in dollars (cloud hosting, SaaS tools, API calls) and your team invoices in local currency that is falling, the picture inverts. Your team's purchasing power drops. They ask for raises. Your vendor contracts, den"
+            }
+          ]
+        },
+        {
+          "title": "The Peso as a Leading Indicator for Regional Fragility",
+          "items": [
+            {
+              "headline": "The Peso as a Leading Indicator for Regional Fragility",
+              "text": "Here is where the strategic picture gets uncomfortable. The peso's collapse is not an isolated Philippine problem. It is a signal about the entire emerging-market currency stack in Southeast Asia. Start with the mechanism. Middle East conflict drives oil prices higher. The Philippines imports over 90% of its crude. Higher oil means higher diesel. A March 30 report flagged another double-digit diesel price hike that same week. Diesel moves everything: logistics, construction materials, generator "
+            }
+          ]
+        },
+        {
+          "title": "2031",
+          "items": [
+            {
+              "headline": "2031",
+              "text": "Five years from now, the builders who survive will be the ones who treated FX exposure as a first-class operational variable, not a finance team problem. The asymmetric bet looks like this. If you hedge your currency exposure and the peso stabilizes, you lose a small premium, maybe 3-5% on forward contracts. If you do not hedge and the peso hits 65, you lose a team member, a quarter of runway, or a pricing model. The downside of inaction is 10x the cost of action. That is textbook asymmetric ris"
+            }
+          ]
+        },
+        {
+          "title": "What to Build This Weekend",
+          "items": [
+            {
+              "headline": "What to Build This Weekend",
+              "text": "You do not need a finance degree to protect your startup from currency risk. You need a spreadsheet and 90 minutes. Step one. Open a new sheet. List every recurring cost that touches a non-USD currency. Contractor salaries, co-working space rent, local SaaS tools billed in pesos or baht. This is your exposure surface. Most founders have never seen it in one place. Step two. Use Manus Agent to research the 6-month forward rate for PHP/USD, THB/USD, and VND/USD. Manus can browse financial data sit"
+            }
+          ]
+        }
+      ]
     },
     {
       "date": "2026-03-30",

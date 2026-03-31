@@ -1,6 +1,35 @@
 {
-  "generated": "2026-03-31T01:55:20Z",
+  "generated": "2026-03-31T10:44:59Z",
   "digests": [
+    {
+      "date": "2026-03-31",
+      "dayOfWeek": "Tuesday",
+      "focusTopics": [
+        {
+          "title": "Kharg Island Threat Escalation",
+          "desc": "Trump's explicit threat to obliterate Iran's Kharg Island targets the chokepoint through which roughly 90% of Iranian crude exports flow. Destroying or blockading the island would send oil prices into a historic spike, rippling through every sector including energy-hungry AI data center operations. The confirmation of Iran's Revolutionary Guard Navy chief's death suggests kinetic operations are already underway."
+        },
+        {
+          "title": "NATO Cracks Over Iran",
+          "desc": "Spain's decision to close its airspace to U.S. military operations against Iran marks a significant break in allied solidarity. This is not a symbolic protest; it forces operational rerouting and signals that European partners may refuse to back Washington's Middle East posture. The precedent could extend to technology and intelligence-sharing agreements that underpin transatlantic AI and defense collaboration."
+        },
+        {
+          "title": "Cascading Global Instability",
+          "desc": "A magnitude 7 earthquake striking Vanuatu and the Philippine peso's seventh record low compound a picture of simultaneous systemic stress across geopolitical, geological, and financial domains. Markets registering Extreme Fear reflect not just one crisis but the convergence of several. For AI companies dependent on global supply chains and international capital flows, this environment raises the cost of everything from chips to cloud infrastructure."
+        }
+      ],
+      "kpis": {
+        "aiStories": "0",
+        "worldEvents": "8",
+        "marketMood": "Extreme Fear",
+        "toolsFeatured": "6"
+      },
+      "hasPodcast": true,
+      "hasInfographic": true,
+      "hasVideo": true,
+      "youtubeId": "W8qw0ZNT5oQ",
+      "file": "morning-briefing-koda-2026-03-31.html"
+    },
     {
       "date": "2026-03-30",
       "dayOfWeek": "Monday",
@@ -293,6 +322,12 @@
     }
   ],
   "editorials": [
+    {
+      "date": "2026-03-31",
+      "title": "The Philippine Peso's seventh record low in March reveals how emerging-market cu",
+      "tag": "Markets",
+      "file": "editorial/2026-03-31-the-philippine-pesos-seventh-record-low-in-march-reveals-how.html"
+    },
     {
       "date": "2026-03-30",
       "title": "The Compression Trap: When a $20K Drone Destroys a $500M Aircraft",
