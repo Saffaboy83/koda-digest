@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Amazon-OpenAI Stateful Runtime partnership signals that memory and tool-use  | Koda Editorial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%236366F1'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='system-ui' font-weight='800'>K</text></svg>">
+    <meta property="og:title" content="The Amazon-OpenAI Stateful Runtime partnership signals that memory and tool-use  | Koda Editorial">
+    <meta property="og:description" content="Amazon just committed $50 billion to OpenAI. Not for better models.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.koda.community/editorial/2026-03-31-the-amazon-openai-stateful-runtime-partnership-signals-that-.html">
+    <meta property="og:site_name" content="Koda Digest">
+    <meta name="description" content="Amazon just committed $50 billion to OpenAI. Not for better models.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Amazon-OpenAI Stateful Runtime partnership signals that memory and tool-use ",
+        "datePublished": "2026-03-31",
+        "description": "Amazon just committed $50 billion to OpenAI. Not for better models.",
+        "author": {"@type": "Organization", "name": "Koda Editorial"},
+        "publisher": {"@type": "Organization", "name": "Koda Intelligence", "url": "https://www.koda.community"},
+        "mainEntityOfPage": "https://www.koda.community/editorial/2026-03-31-the-amazon-openai-stateful-runtime-partnership-signals-that-.html",
+        "wordCount": "1416",
+        "timeRequired": "PT5M"
+    }
+    </script>
+    <style>
+
+/* ── Reset & Base ──────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.7;
+    color: #1a1a2e;
+    background: #fafbfe;
+}
+
+/* ── Dark Mode ─────────────────────────────────────────────────── */
+body.dark {
+    color: #dae2fd;
+    background: #0b1326;
+}
+body.dark .topbar { background: rgba(11, 19, 38, 0.92); border-color: rgba(255,255,255,0.06); }
+body.dark .article-card { background: rgba(23, 31, 51, 0.6); border-color: rgba(255,255,255,0.06); }
+body.dark .hero-section { background: linear-gradient(180deg, #0f1a33 0%, #0b1326 100%); }
+body.dark .pull-quote { background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.3); }
+body.dark .data-viz { background: rgba(23, 31, 51, 0.8); border-color: rgba(255,255,255,0.08); }
+body.dark .tag { background: rgba(99, 102, 241, 0.15); color: #a5b4fc; }
+body.dark h1, body.dark h2, body.dark h3 { color: #f1f5ff; }
+body.dark a { color: #818cf8; }
+
+/* ── Light Mode ────────────────────────────────────────────────── */
+.topbar { background: rgba(255,255,255,0.92); border-bottom: 1px solid rgba(0,0,0,0.06); }
+.article-card { background: white; border: 1px solid rgba(0,0,0,0.06); }
+.hero-section { background: linear-gradient(180deg, #f0f4ff 0%, #fafbfe 100%); }
+.pull-quote { background: rgba(99, 102, 241, 0.04); border-left: 4px solid #6366F1; }
+.data-viz { background: #f8fafc; border: 1px solid rgba(0,0,0,0.06); }
+.tag { background: rgba(99, 102, 241, 0.08); color: #4f46e5; }
+
+/* ── Topbar ────────────────────────────────────────────────────── */
+.topbar {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+    padding: 0 24px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.topbar-brand {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; color: inherit;
+}
+.topbar-brand-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 16px; color: white;
+}
+.topbar-brand-text { font-weight: 700; font-size: 15px; letter-spacing: -0.02em; }
+.topbar-nav { display: flex; align-items: center; gap: 12px; }
+.topbar-link {
+    font-size: 13px; font-weight: 500; text-decoration: none;
+    padding: 6px 12px; border-radius: 6px;
+    transition: all 0.2s;
+}
+.topbar-link:hover { background: rgba(99, 102, 241, 0.1); }
+.topbar-home {
+    background: linear-gradient(135deg, #3B82F6, #6366F1);
+    color: white !important; font-weight: 600;
+}
+.topbar-home:hover { opacity: 0.9; background: linear-gradient(135deg, #3B82F6, #6366F1); }
+
+/* ── Theme Toggle ──────────────────────────────────────────────── */
+.theme-toggle {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: transparent; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; transition: all 0.2s;
+}
+body.dark .theme-toggle { border-color: rgba(255,255,255,0.1); }
+
+/* ── Scroll Progress ───────────────────────────────────────────── */
+.scroll-progress {
+    position: fixed; top: 0; left: 0;
+    width: 0%; height: 3px;
+    background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+    z-index: 1001; transition: width 0.1s linear;
+    pointer-events: none;
+}
+
+/* ── Hero ───────────────────────────────────────────────────────── */
+.hero-section {
+    padding: 96px 24px 48px;
+    text-align: center;
+}
+.hero-inner { max-width: 720px; margin: 0 auto; }
+.hero-meta {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; margin-bottom: 20px;
+    font-size: 13px; font-weight: 500; opacity: 0.7;
+    font-family: 'JetBrains Mono', monospace;
+}
+.hero-title {
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 800; letter-spacing: -0.03em;
+    line-height: 1.15; margin-bottom: 16px;
+}
+.hero-subtitle {
+    font-size: 17px; line-height: 1.6;
+    opacity: 0.75; max-width: 600px; margin: 0 auto;
+}
+.tag {
+    display: inline-block; padding: 4px 12px;
+    border-radius: 20px; font-size: 12px;
+    font-weight: 600; letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+/* ── Hero Image ────────────────────────────────────────────────── */
+.hero-image {
+    max-width: 800px; margin: 32px auto 0;
+    border-radius: 16px; overflow: hidden;
+}
+.hero-image img {
+    width: 100%; height: auto; display: block;
+    border-radius: 16px;
+}
+
+/* ── Article Body ──────────────────────────────────────────────── */
+.article-body {
+    max-width: 720px; margin: 0 auto;
+    padding: 48px 24px 64px;
+}
+.article-body h2 {
+    font-size: 24px; font-weight: 800;
+    letter-spacing: -0.02em; margin: 48px 0 16px;
+    line-height: 1.2;
+}
+.article-body h3 {
+    font-size: 18px; font-weight: 700;
+    margin: 32px 0 12px; line-height: 1.3;
+}
+.article-body p {
+    font-size: 17px; line-height: 1.75;
+    margin-bottom: 20px;
+}
+.article-body a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ── Pull Quote ────────────────────────────────────────────────── */
+.pull-quote {
+    margin: 40px 0;
+    padding: 24px 28px;
+    border-radius: 12px;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.5;
+    font-style: italic;
+}
+.pull-quote-attribution {
+    display: block; margin-top: 12px;
+    font-size: 13px; font-weight: 600;
+    font-style: normal; opacity: 0.6;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── Data Visualization ────────────────────────────────────────── */
+.data-viz {
+    margin: 32px 0;
+    padding: 24px;
+    border-radius: 16px;
+}
+.data-viz-title {
+    font-size: 14px; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 16px; opacity: 0.6;
+}
+
+/* ── Comparison Table ──────────────────────────────────────────── */
+.comparison-table {
+    width: 100%; border-collapse: collapse;
+    margin: 24px 0; font-size: 15px;
+}
+.comparison-table th {
+    text-align: left; padding: 12px 16px;
+    font-size: 12px; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+}
+.comparison-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
+
+/* ── CTA Bar ───────────────────────────────────────────────────── */
+.cta-bar {
+    max-width: 720px; margin: 0 auto 48px;
+    padding: 32px 24px;
+    text-align: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.08));
+    border: 1px solid rgba(99,102,241,0.15);
+}
+.cta-bar p { font-size: 16px; margin-bottom: 16px; font-weight: 500; }
+.cta-btn {
+    display: inline-block; padding: 12px 28px;
+    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    color: white; font-weight: 700; font-size: 14px;
+    border-radius: 10px; text-decoration: none;
+    transition: all 0.2s;
+}
+.cta-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* ── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+    .hero-section { padding: 80px 16px 32px; }
+    .article-body { padding: 32px 16px 48px; }
+    .article-body p { font-size: 16px; }
+    .pull-quote { font-size: 17px; padding: 20px; }
+    .hero-meta { flex-direction: column; gap: 8px; }
+}
+
+/* ── Fade-in Animation ─────────────────────────────────────────── */
+.fade-in {
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+    
+    </style>
+</head>
+<body class="dark">
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<header class="fixed top-0 w-full z-50 bg-[#0b1326]/80 backdrop-blur-xl border-b border-white/[0.06]" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(11,19,38,0.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);">
+    <div style="max-width:1280px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;">
+        <a href="../index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;">
+            <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;">K</div>
+            <div>
+                <div style="font-size:14px;font-weight:700;color:#3B82F6;">Koda Editorial</div>
+                <div style="font-size:10px;color:#8c909f;">Daily Analysis</div>
+            </div>
+        </a>
+        <div style="display:flex;align-items:center;gap:8px;">
+            <button id="topbarSearchBtn" style="width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,0.05);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#8c909f;transition:all 0.2s;" title="Search (Ctrl+K)">
+                <span class="material-symbols-outlined" style="font-size:18px;">search</span>
+            </button>
+            <a class="topbar-nav-text" href="../archive/" style="font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:600;padding:6px 12px;border-radius:6px;background:rgba(255,255,255,0.05);color:#8c909f;text-decoration:none;">Archive</a>
+            <a class="topbar-nav-text" href="../morning-briefing-koda.html" style="font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:600;padding:6px 12px;border-radius:6px;background:rgba(255,255,255,0.05);color:#8c909f;text-decoration:none;">Today's Digest</a>
+            <a href="../index.html" style="font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:6px 12px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;text-decoration:none;">&larr; Home</a>
+        </div>
+    </div>
+</header>
+
+<header class="hero-section">
+    <div class="hero-inner">
+        <div class="hero-meta">
+            <span class="tag">Tools</span>
+            <span>31 March 2026</span>
+            <span>5 min read</span>
+        </div>
+        <h1 class="hero-title">The Amazon-OpenAI Stateful Runtime partnership signals that memory and tool-use </h1>
+        <p class="hero-subtitle">Amazon just committed $50 billion to OpenAI. Not for better models.</p>
+    </div>
+    <div class="hero-image fade-in" style="max-width:800px;max-height:420px;margin:32px auto 0;border-radius:16px;overflow:hidden;">
+        <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/editorial-hero-2026-03-31.jpg" alt="The Amazon-OpenAI Stateful Runtime partnership signals that memory and tool-use " loading="eager" style="width:100%;height:420px;object-fit:cover;object-position:center;display:block;border-radius:16px;">
+    </div>
+</header>
+
+<article class="article-body">
+    <p>Amazon just committed $50 billion to OpenAI. Not for better models. Not for faster inference. For memory.</p>
+    <p>The Stateful Runtime Environment, announced February 27, 2026, gives AI agents on Amazon Bedrock something they have never had: the ability to remember what they were doing, pick up where they left off, and use tools across sessions without a developer duct-taping context back together every single call. OpenAI is pledging 2 gigawatts of Amazon Trainium capacity over 8 years. AWS becomes the exclusive third-party cloud provider for OpenAI Frontier.</p>
+    <p>That is not a product launch. That is a declaration that the infrastructure layer underneath AI agents is now worth more than the models themselves. And most builders are still arguing about which LLM has the best vibes.</p>
+    <p>Here is why that is a problem, and what to do about it.</p>
+
+    <h2>The Plumbing Principle</h2>
+    <p>Every technology wave follows the same pattern. First, everyone races to build the flashiest thing on top. Then the real money flows to whoever owns the pipes underneath.</p>
+    <p>In Web 1.0, it was TCP/IP and DNS. In cloud, it was S3 and EC2. In AI, the first pipe was the model API. Stateless. Fire and forget. That pipe is now a commodity. Raw model capability is table stakes.</p>
+    <p>The next pipe is state. Memory. Tool connections. Permissions. Session persistence. I call this The Plumbing Principle: in any technology stack, the layer that manages continuity always becomes more valuable than the layer that generates output. The generator gets commoditized. The plumbing gets entrenched.</p>
+    <p>Amazon and OpenAI are not building a better model. They are building the plumbing for agents that actually work in production. If you are still architecting agents as stateless request-response loops, you are building on top of a pipe that is about to get replaced.</p>
+
+    <h2>Why Stateful Runtimes Are the 500 IQ Intern's Filing Cabinet</h2>
+    <p>Let me break this down in plain English, because the technical jargon around "stateful runtimes" makes this sound way more complicated than it is.</p>
+    <p>Right now, most AI agents are like that brilliant intern who has total amnesia every 30 seconds. You give them a task. They crush it. Then they forget everything. Next task? You have to re-explain who they are, what they were working on, what tools they have access to, and what the user already said. Every. Single. Time.</p>
+    <p>That is what stateless APIs do. Every call starts from zero. Developers hack around this by stuffing conversation history into the prompt, managing state in external databases, and writing glue code that would make a plumber cry. It works. Barely. And it gets expensive fast because you are paying for tokens to re-establish context that should just persist.</p>
+    <p>The Stateful Runtime Environment on Bedrock fixes this at the infrastructure level. Your agent's memory, tool connections, user permissions, and workflow progress all survive across calls. No developer-managed workarounds. The session just continues.</p>
+    <p>Think of it like this. Stateless is a sticky note. Stateful is a filing cabinet. You can run a lemonade stand with sticky notes. You cannot run a law firm.</p>
+    <p>Here is the 80/20 on what this actually changes for builders:</p>
+    <p><strong>Cost.</strong> Re-sending context on every call inflates token usage. Persistent state means you stop paying to remind your agent who it is. For agents running thousands of sessions, that is real money.</p>
+    <p><strong>Complexity.</strong> The glue code for managing state externally is where most agent projects die. I have seen teams spend 60% of their engineering time on state management instead of actual agent logic. The Stateful Runtime moves that burden to infrastructure.</p>
+    <p><strong>Reliability.</strong> When a workflow gets interrupted (and they always get interrupted), a stateless agent loses everything. A stateful agent picks up where it left off. That is the difference between a demo and a product.</p>
+    <p><strong>Tool use.</strong> This is the sick part. The runtime does not just remember conversations. It manages tool connections, meaning your agent can maintain authenticated sessions with external APIs, databases, and services across multiple steps. That is how you build agents that actually do things in the real world instead of just talking about doing things.</p>
+    <p>Now, I want to be honest about what is unclear. It is unclear whether the Microsoft legal dispute will delay the launch timeline. That could freeze things. Amazon has already told staff to say "powered by" instead of implying direct OpenAI model access, which tells you the compliance lines are blurry. My read on this: the legal noise is real, but the technical direction is irreversible. Even if this specific partnership hits speed bumps, Google Cloud, Anthropic, and every serious infrastructure player will ship their own version of stateful agent runtimes within 12 months. The pattern is set.</p>
+    <p>The builders who win are not the ones who pick the right cloud provider. They are the ones who architect for persistence now, regardless of which plumbing they plug into.</p>
+    <p>Don't make me think. Don't make your agent re-think either.</p>
+
+    <h2>2031</h2>
+    <p>Zoom out five years. Here is the asymmetric bet most people are missing.</p>
+    <p>In March 2026, we had a burst of model launches. GPT-5.4. DeepSeek V4. The model layer is in a commodity spiral. Prices drop every quarter. Capabilities converge. By 2031, the difference between the top 5 foundation models will be negligible for 90% of production use cases.</p>
+    <p>The infrastructure layer is going the opposite direction. It is consolidating. Whoever owns the stateful runtime, the memory layer, the tool orchestration, the permission management, that player becomes the operating system for AI agents. And operating systems create lock-in that lasts decades.</p>
+    <p>Think about it like the Nvidia near-bankruptcy story. In 1996, Nvidia almost died. They were making graphics chips nobody wanted. Then they realized the real value was not the chip. It was the CUDA ecosystem, the developer tools, the software layer that made their hardware irreplaceable. By the time competitors caught up on raw silicon, Nvidia owned the plumbing. That is what Amazon is doing with Bedrock right now.</p>
+    <p>The $50 billion investment at a $730 billion OpenAI valuation is not charity. It is Amazon buying a seat at the table of the next platform war. Salary buys furniture, equity buys your future. Amazon is buying equity in the agent infrastructure layer.</p>
+    <p>For individual builders and small teams, the compounding advantage here is architectural. If you build agents on stateful infrastructure now, every workflow you ship gets smarter over time because it retains context. If you build stateless, you are on a treadmill. Every session starts from scratch. The gap between these two approaches widens exponentially over 5 years.</p>
+    <p>I think the builders who treat state management as a first-class architectural decision in 2026 will have a 10x advantage by 2031. Not because of any single tool. Because persistent memory compounds.</p>
+
+    <h2>What to Build This Weekend</h2>
+    <p>You do not need $50 billion or a partnership with Amazon to start building stateful agent workflows. You need one afternoon and the right tools.</p>
+    <p><strong>Step 1: Pick a repeating workflow you currently do manually.</strong> Customer onboarding. Research synthesis. Weekly reporting. Something with multiple steps that requires remembering context from earlier steps.</p>
+    <p><strong>Step 2: Map the state.</strong> Write down what information needs to persist between steps. User preferences. Prior decisions. Tool outputs. This is your agent's filing cabinet. Keep it on a single page.</p>
+    <p><strong>Step 3: Build a prototype with existing tools.</strong> Zapier Central now chains AI agents across 8,000 apps with natural language instructions. That is your quickest path to a multi-step workflow with persistence. If you want more control, Cursor gives you inline AI pair programming to build custom state management in code. For research-heavy workflows, Manus deploys end-to-end research agents without you managing infrastructure. And for simple browser-based agent tasks, Comet Browser runs agentic workflows for free.</p>
+    <p><strong>Step 4: Test what breaks when you interrupt it.</strong> Kill the workflow mid-step. Can it resume? If not, that is the exact problem stateful runtimes solve. Document where it fails. That is your roadmap for what to fix next.</p>
+    <p><strong>Step 5: Learn in public.</strong> Share what you built. Share what broke. The builders who document their agent architecture decisions now will be the ones hiring teams in 2028.</p>
+    <p>You do not need a CS degree for this. You need one workflow, one tool, and the willingness to let it fail on a Saturday so it works on Monday. First the filing cabinet. Then the law firm.</p>
+    <p>The plumbing is not glamorous. It never is. But the plumbing is where the money flows.</p>
+
+</article>
+
+<section style="max-width:48rem;margin:0 auto;padding:64px 24px 16px;text-align:center;">
+    <div style="background:rgba(11,19,38,0.6);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:32px 40px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:128px;height:4px;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);border-radius:0 0 4px 4px;"></div>
+        <h3 style="font-size:20px;font-weight:700;color:white;margin-bottom:8px;">Want this every morning?</h3>
+        <p style="color:#c2c6d6;font-size:14px;margin-bottom:24px;">AI analysis, world news, markets, and tools. One briefing, delivered free.</p>
+        <form style="display:flex;gap:8px;max-width:28rem;margin:0 auto;padding:6px;border-radius:9999px;background:#171f33;border:1px solid rgba(255,255,255,0.06);" onsubmit="return kodaSubscribe(this)">
+            <input type="email" name="email" required style="background:transparent;border:none;outline:none;color:white;padding:0 20px;width:100%;font-size:14px;font-family:'Inter',system-ui,sans-serif;" placeholder="your@email.com">
+            <button type="submit" style="background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;padding:12px 24px;border-radius:9999px;font-weight:700;font-size:14px;white-space:nowrap;border:none;cursor:pointer;">Subscribe</button>
+        </form>
+        <p style="font-size:10px;color:#8c909f;margin-top:12px;">One email per day. No spam. Unsubscribe anytime.</p>
+    </div>
+</section>
+
+<script>
+function kodaSubscribe(form) {
+    var btn = form.querySelector('button');
+    var email = form.querySelector('input[name="email"]').value;
+    btn.textContent = 'Subscribing...'; btn.disabled = true;
+    fetch('/api/subscribe', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({email:email}) })
+    .then(function(r) { btn.textContent = r.ok ? 'Subscribed!' : 'Try again'; btn.disabled = false; })
+    .catch(function() { btn.textContent = 'Try again'; btn.disabled = false; });
+    return false;
+}
+</script>
+
+<script>
+window.addEventListener('scroll', function() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+    document.getElementById('scrollProgress').style.width = pct + '%';
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+<div id="searchOverlay" style="position:fixed;inset:0;z-index:2000;display:none;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);">
+    <div style="max-width:640px;margin:80px auto 0;padding:0 16px;">
+        <div style="background:#171f33;border:1px solid rgba(66,71,84,0.4);border-radius:16px;box-shadow:0 25px 50px rgba(0,0,0,0.5);overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.05);">
+                <span class="material-symbols-outlined" style="color:#adc6ff;font-size:20px;">search</span>
+                <input type="text" id="globalSearchInput" autocomplete="off" placeholder="Search digests and editorials..." style="flex:1;background:transparent;border:none;outline:none;font-size:16px;color:#dae2fd;font-family:Inter,system-ui,sans-serif;">
+                <kbd style="font-size:10px;font-family:'JetBrains Mono',monospace;color:#64748b;border:1px solid #475569;border-radius:4px;padding:2px 6px;">ESC</kbd>
+            </div>
+            <div id="globalSearchResults" style="max-height:60vh;overflow-y:auto;"></div>
+        </div>
+    </div>
+</div>
+<style>
+.koda-sr-item{padding:14px 18px;border-bottom:1px solid rgba(173,198,255,0.05);cursor:pointer;transition:background 0.15s;text-decoration:none;display:block;color:inherit;}
+.koda-sr-item:hover{background:rgba(99,102,241,0.1);}
+.koda-sr-meta{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.koda-sr-date{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#adc6ff;padding:2px 8px;background:rgba(173,198,255,0.12);border-radius:4px;}
+.koda-sr-section{font-size:11px;color:#c2c6d6;text-transform:uppercase;letter-spacing:0.5px;}
+.koda-sr-headline{font-size:14px;font-weight:600;color:#dae2fd;margin-bottom:4px;}
+.koda-sr-snippet{font-size:13px;color:#c2c6d6;line-height:1.5;}
+.koda-sr-snippet mark{background:rgba(173,198,255,0.25);color:#dae2fd;border-radius:2px;padding:0 2px;}
+.koda-sr-badge{display:inline-flex;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;padding:2px 7px;border-radius:4px;}
+.koda-sr-badge.digest{background:rgba(59,130,246,0.12);color:#60a5fa;}
+.koda-sr-badge.editorial{background:rgba(139,92,246,0.12);color:#a78bfa;}
+.koda-sr-empty{padding:20px;text-align:center;color:#c2c6d6;font-size:14px;}
+.topbar-nav-text { }
+@media (max-width: 640px) { .topbar-nav-text { display: none !important; } }
+</style>
+<script>
+(function(){
+    var overlay=document.getElementById('searchOverlay'),input=document.getElementById('globalSearchInput'),results=document.getElementById('globalSearchResults'),idx=null,timer=null;
+    function open(){overlay.style.display='block';input.value='';results.innerHTML='';setTimeout(function(){input.focus();},50);}
+    function close(){overlay.style.display='none';}
+    document.getElementById('topbarSearchBtn').addEventListener('click',open);
+    overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+    document.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();open();}if(e.key==='Escape'&&overlay.style.display!=='none')close();});
+    input.addEventListener('input',function(){clearTimeout(timer);var q=input.value.trim();if(q.length<2){results.innerHTML='';return;}timer=setTimeout(function(){search(q);},200);});
+    function search(q){if(!idx){fetch('../search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;run(q);}).catch(function(){results.innerHTML='<div class="koda-sr-empty">Search unavailable.</div>';});}else run(q);}
+    function run(q){
+        var terms=q.toLowerCase().split(/\s+/).filter(function(t){return t.length>0;});if(!terms.length){results.innerHTML='';return;}
+        var hits=[],entries=idx.entries||idx.days||[];
+        for(var i=0;i<entries.length;i++){var en=entries[i],tp=en.type||'digest',fl=en.file||('morning-briefing-koda-'+en.date+'.html'),secs=en.sections||[];
+            for(var j=0;j<secs.length;j++){var sec=secs[j],items=sec.items||[];
+                for(var k=0;k<items.length;k++){var it=items[k],hl=(it.headline||'').toLowerCase(),bt=(it.text||'').toLowerCase(),ft=hl+' '+bt,sc=0,mt=0;
+                    for(var t=0;t<terms.length;t++){var tm=terms[t];if(ft.indexOf(tm)!==-1){mt++;sc+=10;if(hl.indexOf(tm)!==-1)sc+=15;}else{var ws=ft.split(/[\s,.\-\/]+/);for(var w=0;w<ws.length;w++){if(ws[w].indexOf(tm)===0&&tm.length>=3){mt++;sc+=5;break;}}}}
+                    if(mt>0){if(mt===terms.length)sc+=20;sc-=i*2;hits.push({date:en.date,type:tp,section:sec.title,headline:it.headline,text:it.text,file:fl,score:sc});}
+                }}}
+        hits.sort(function(a,b){return a.date<b.date?1:a.date>b.date?-1:b.score-a.score;});hits=hits.slice(0,20);
+        if(!hits.length){results.innerHTML='<div class="koda-sr-empty">No results for "'+esc(q)+'"</div>';return;}
+        var h='';for(var r=0;r<hits.length;r++){var rs=hits[r],sn=snippet(rs.text,terms[0],80),sa=rs.type==='editorial'?'':slug(rs.section),href='../'+rs.file+(sa?'#'+sa:'');
+            h+='<a href="'+href+'" class="koda-sr-item"><div class="koda-sr-meta"><span class="koda-sr-badge '+rs.type+'">'+(rs.type==='editorial'?'Editorial':'Digest')+'</span><span class="koda-sr-date">'+fmtDate(rs.date)+'</span><span class="koda-sr-section">'+esc(rs.section)+'</span></div><div class="koda-sr-headline">'+hilight(esc(rs.headline),terms)+'</div><div class="koda-sr-snippet">'+hilight(sn,terms)+'</div></a>';}
+        results.innerHTML=h;
+    }
+    function snippet(t,tm,c){if(!t)return '';var l=t.toLowerCase(),i=l.indexOf(tm.toLowerCase());if(i===-1)return t.substring(0,c*2);var s=Math.max(0,i-c),e=Math.min(t.length,i+tm.length+c),r=t.substring(s,e);if(s>0)r='...'+r;if(e<t.length)r+='...';return r;}
+    function hilight(t,terms){for(var i=0;i<terms.length;i++){t=t.replace(new RegExp('('+terms[i].replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<mark>$1</mark>');}return t;}
+    function slug(t){return t.toLowerCase().replace(/['']/g,'').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');}
+    function fmtDate(d){var p=d.split('-'),m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];return m[parseInt(p[1])-1]+' '+parseInt(p[2])+', '+p[0];}
+    function esc(s){return s?s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):'';}
+})();
+</script>
+</body>
+</html>

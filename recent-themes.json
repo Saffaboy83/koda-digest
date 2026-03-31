@@ -1,20 +1,36 @@
 {
   "2026-03-31": {
-    "hook": "No major AI launches today; the Strait of Hormuz commands the world's full attention.",
+    "hook": "Google and NVIDIA both dropped flagship models today, yet gold's historic crash is drowning out the applause.",
     "top_themes": [
-      "Isfahan Strike Escalation Risks",
-      "Hormuz Chokepoint Under Threat",
-      "Gold Volatility Signals Confusion"
+      "Gemini 3 Deep Think Arrives",
+      "Isfahan Strike Escalates Conflict",
+      "Stateful AI Runtime Implications"
     ],
     "top_stories": [
-      "US Bombs Isfahan Amid Hormuz Tanker Strike",
-      "Iranian Drone Disables Tanker Near Hormuz Chokepoint",
-      "Gold Hits $4,554 but Posts Worst Monthly Drop",
-      "Trump Shares Unvetted Strike Video on Truth Social",
-      "Hormuz Disruptions Threaten Global Energy Supply Chains",
-      "US-Iran War Enters Fifth Week With No Diplomacy"
+      "Google Launches Gemini 3 Deep Think Model",
+      "OpenAI Expands Bug Bounties to AI Safety",
+      "Amazon and OpenAI Build Stateful AI Runtime",
+      "Google Ships Lyria 3 Music Generation Models",
+      "NVIDIA Nemotron 3 Super Hits 0.8 GPQA",
+      "Mistral Small 4 Posts 0.7 GPQA Score",
+      "OpenAI Model Spec Details Behavior Principles",
+      "Late March AI Release Pipeline Goes Quiet",
+      "Isfahan Uranium Site Hit by US Bunker Busters",
+      "Iranian Drone Strikes Oil Tanker Near Hormuz",
+      "Gold Nears $4,554 but Posts Historic Monthly Loss",
+      "Trump Posts Unverified Strike Footage on Truth Social",
+      "US-Iran War at Five Weeks With No Ceasefire",
+      "Hormuz Shipping Risk Intensifies After Tanker Attack"
     ],
     "source_urls": [
+      "https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-march-26-2026-direction-over-drama/",
+      "https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-march-26-2026-direction-over-drama/",
+      "https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-march-26-2026-direction-over-drama/",
+      "https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-march-26-2026-direction-over-drama/",
+      "https://llm-stats.com/llm-updates",
+      "https://llm-stats.com/llm-updates",
+      "https://radicaldatascience.wordpress.com/2026/03/26/ai-news-briefs-bulletin-board-for-march-2026/",
+      "https://blog.mean.ceo/new-ai-model-releases-news-march-2026/",
       "https://drydenwire.com/news/morning-headlines-tuesday-mar-31-2026/",
       "https://drydenwire.com/news/morning-headlines-tuesday-mar-31-2026/",
       "https://drydenwire.com/news/morning-headlines-tuesday-mar-31-2026/",
@@ -23,10 +39,10 @@
       "https://drydenwire.com/news/morning-headlines-tuesday-mar-31-2026/"
     ],
     "story_angles": [
-      "No significant AI developments surfaced today as global attention locked onto es",
-      "U.S. forces struck Isfahan, Iran, after an Iranian drone disabled a tanker near ",
-      "Extreme Fear dominates sentiment as gold hit $4,554 before posting its worst mon",
-      "Trump's decision to share an unvetted strike video on Truth Social before offici"
+      "Google launched Gemini 3 Deep Think, its most advanced reasoning model to date, ",
+      "U.S. bunker busters struck Iran's Isfahan uranium enrichment site as the conflic",
+      "Sentiment sits at Extreme Fear as gold approaches $4,554 per ounce yet records i",
+      "Amazon and OpenAI quietly unveiled a stateful AI runtime, a foundational shift t"
     ]
   },
   "2026-03-30": {

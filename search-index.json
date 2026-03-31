@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-31T11:21:31Z",
+  "generated": "2026-03-31T11:47:16Z",
   "entries": [
     {
       "date": "2026-03-31",
@@ -8,16 +8,16 @@
           "title": "Today's Focus",
           "items": [
             {
-              "headline": "Isfahan Strike Escalation Risks",
-              "text": "The U.S. bombing of Isfahan marks a significant escalation beyond proxy engagement, directly targeting Iranian territory. Tehran's response calculus now includes whether to retaliate symmetrically or intensify asymmetric attacks on Gulf shipping. Every hour without a ceasefire framework increases the probability of a broader regional war."
+              "headline": "Gemini 3 Deep Think Arrives",
+              "text": "Google's newest reasoning model represents a direct challenge to OpenAI's o-series and positions Gemini as a top-tier chain-of-thought system. Launching alongside Lyria 3 music generation, Google is signaling a broad capability push across both analytical and creative AI. The timing, mid-conflict and mid-selloff, means enterprise adoption conversations will likely be delayed."
             },
             {
-              "headline": "Hormuz Chokepoint Under Threat",
-              "text": "Roughly 20% of the world's oil passes through the Strait of Hormuz daily. The Iranian drone strike on a tanker is a proof of concept that low-cost weapons can disrupt high-value trade routes. Sustained disruptions would spike energy prices globally and stress supply chains already weakened by years of geopolitical fragmentation."
+              "headline": "Isfahan Strike Escalates Conflict",
+              "text": "The U.S. strike on Iran's Isfahan uranium facility marks the most significant escalation since hostilities began five weeks ago. Iran responded with a drone attack on an oil tanker near the Strait of Hormuz, raising the specter of sustained energy supply disruption. Trump's posting of unverified strike footage on Truth Social adds an unprecedented information-war dimension to an already volatile situation."
             },
             {
-              "headline": "Gold Volatility Signals Confusion",
-              "text": "Gold reaching $4,554 reflects a flight to safety, yet its worst monthly drop suggests traders are liquidating positions to cover margin calls elsewhere. This contradictory signal points to a market caught between crisis hedging and forced deleveraging. Extreme Fear readings confirm that investors see no clear safe harbor right now."
+              "headline": "Stateful AI Runtime Implications",
+              "text": "Amazon and OpenAI's joint stateful runtime project could redefine how AI agents operate by giving them persistent context across interactions, effectively a long-term working memory. This is a prerequisite for autonomous agents that manage complex, multi-step workflows over days or weeks. The partnership also signals deepening ties between the two companies, potentially reshaping competitive dynamics with Google and Microsoft."
             }
           ]
         },
@@ -34,15 +34,15 @@
             },
             {
               "headline": "BTC",
-              "text": "$66,496.77 (-0.29%)"
+              "text": "$66,591.41 (-0.15%)"
             },
             {
               "headline": "ETH",
-              "text": "$2,030.84 (+0.33%)"
+              "text": "$2,036.55 (+0.61%)"
             },
             {
               "headline": "Oil",
-              "text": "$108.01 (+0.61%)"
+              "text": "$107.52 (+0.16%)"
             },
             {
               "headline": "Sentiment",
@@ -51,31 +51,68 @@
           ]
         },
         {
+          "title": "AI Developments",
+          "items": [
+            {
+              "headline": "Google Launches Gemini 3 Deep Think Model",
+              "text": "Google released Gemini 3 Deep Think on March 26, a frontier model designed for scientific and engineering tasks such as spotting logical flaws in math papers and optimizing fabrication methods. The model is live in the Gemini app for Ultra subscribers, with early API access now available. It represents Google's push into specialized reasoning models alongside its broader Gemini family. Source &rarr;"
+            },
+            {
+              "headline": "OpenAI Expands Bug Bounties to AI Safety",
+              "text": "OpenAI announced a Safety Bug Bounty Program on March 26, extending its existing bounty framework to cover AI misuse and safety risks. The company also detailed its Model Spec framework, which outlines principles for model behavior, instruction-following, and conflict resolution. The move signals a more structured approach to external safety auditing as frontier models grow more capable. Source &rarr;"
+            },
+            {
+              "headline": "Amazon and OpenAI Build Stateful AI Runtime",
+              "text": "Amazon partnered with OpenAI on March 26 to co-create a Stateful Runtime Environment on Amazon Bedrock, focused on memory and tool-use infrastructure for AI applications. The environment is designed to support persistent agent state across sessions, a key requirement for complex agentic workflows. Availability is planned for the coming months. Source &rarr;"
+            },
+            {
+              "headline": "Google Ships Lyria 3 Music Generation Models",
+              "text": "Alongside Gemini 3 Deep Think, Google released Lyria 3 and Lyria 3 Pro on March 26, its latest music generation models. The dual release reflects Google's strategy of shipping specialized models across modalities rather than concentrating on a single general-purpose system. Details on pricing and availability beyond the Gemini ecosystem have not yet been disclosed. Source &rarr;"
+            },
+            {
+              "headline": "NVIDIA Nemotron 3 Super Hits 0.8 GPQA",
+              "text": "NVIDIA's Nemotron 3 Super, a 120-billion parameter model, posted a GPQA score of 0.8 following its release around March 11. The score places it among the strongest performers on the graduate-level reasoning benchmark this quarter. The model adds to NVIDIA's growing presence in the foundation model space beyond its dominant hardware business. Source &rarr;"
+            },
+            {
+              "headline": "Mistral Small 4 Posts 0.7 GPQA Score",
+              "text": "Mistral released Small 4 around March 17, achieving a GPQA score of 0.7 on the graduate-level reasoning benchmark. The model continues Mistral's strategy of shipping competitive smaller models that can run efficiently on constrained infrastructure. It arrived during a record-setting Q1 that saw 255 model releases across the industry. Source &rarr;"
+            },
+            {
+              "headline": "OpenAI Model Spec Details Behavior Principles",
+              "text": "OpenAI's newly published Model Spec framework lays out explicit principles for how its models should handle instruction-following, behavioral boundaries, and conflict resolution between user requests and safety constraints. Released alongside the Safety Bug Bounty Program on March 26, the document represents one of the most detailed public accounts of how a frontier lab governs model behavior. The framework could set a precedent for industry-wide transparency on alignment decisions. Source &rarr;"
+            },
+            {
+              "headline": "Late March AI Release Pipeline Goes Quiet",
+              "text": "No major new model releases were announced between March 27 and 31, following a burst of activity earlier in the month that included GPT-5.4, DeepSeek V4, and multiple Qwen3.5 variants. The pause comes after Q1 2026 hit a record 255 model releases. The lull may reflect labs shifting resources toward agentic frameworks and infrastructure rather than raw model launches. Source &rarr;"
+            }
+          ]
+        },
+        {
           "title": "World News",
           "items": [
             {
-              "headline": "US Bombs Isfahan Amid Hormuz Tanker Strike",
-              "text": "US forces struck an ammunition depot in Isfahan believed to house enriched uranium, using 2,000lb bunker buster bombs. The strike coincided with an Iranian drone hitting a massive oil tanker near the Strait of Hormuz, marking a significant escalation in the fifth week of the conflict. President Trump posted strike footage on Truth Social; an American official confirmed the operation to The Wall Street Journal. Source &rarr;"
+              "headline": "Isfahan Uranium Site Hit by US Bunker Busters",
+              "text": "The U.S. struck an ammunition depot in Isfahan, Iran, believed to house enriched uranium, using bunker buster munitions. President Trump posted footage on Truth Social showing 2,000-pound bombs detonating at the site. An American official confirmed the strikes to The Wall Street Journal, though no casualty figures or Iranian government response have been released. Source &rarr;"
             },
             {
-              "headline": "Iranian Drone Disables Tanker Near Hormuz Chokepoint",
-              "text": "An Iranian drone struck a large oil tanker near the Strait of Hormuz on March 31, raising the prospect of further disruption to the waterway through which roughly 20% of global oil transits. The attack came on the same day as the US Isfahan strikes, suggesting a tit-for-tat escalation cycle is accelerating. No casualty figures from the tanker incident have been released. Source &rarr;"
+              "headline": "Iranian Drone Strikes Oil Tanker Near Hormuz",
+              "text": "An Iranian drone hit a massive oil tanker near the Strait of Hormuz on March 31, coinciding with the U.S. strikes on Isfahan. The attack on the tanker underscores Iran's ability to threaten the chokepoint through which roughly 20% of global oil transits daily. No details on crew casualties or the tanker's flag state were immediately available. Source &rarr;"
             },
             {
-              "headline": "Gold Hits $4,554 but Posts Worst Monthly Drop",
-              "text": "Gold prices rose 1% on March 31 to $4,553.69 per ounce, buoyed by war-driven uncertainty, yet the metal is on track for its steepest monthly decline since 2008. The paradox reflects investors locking in profits after a prolonged rally even as the US-Iran conflict intensifies. Commodities markets remain volatile as Hormuz shipping risks persist. Source &rarr;"
+              "headline": "Gold Nears $4,554 but Posts Historic Monthly Loss",
+              "text": "Gold traded up 1% to approximately $4,553.69 per ounce early Tuesday, yet the metal is on track for its worst monthly decline since 2008. Front-month futures rose 0.6% by 3:30 a.m. ET. The paradox of rising daily prices alongside a steep monthly drawdown reflects whiplash-level volatility driven by the U.S.-Iran war and shifting risk sentiment. Source &rarr;"
             },
             {
-              "headline": "Trump Shares Unvetted Strike Video on Truth Social",
-              "text": "President Trump posted footage of the Isfahan bunker buster strikes on Truth Social before any official Pentagon briefing, continuing a pattern of bypassing traditional disclosure channels. The video showed massive explosions at the site. Critics have warned that sharing operational imagery without review could compromise intelligence sources and methods. Source &rarr;"
+              "headline": "Trump Posts Unverified Strike Footage on Truth Social",
+              "text": "President Trump shared video on Truth Social showing explosions from the Isfahan bunker buster strikes before any official Pentagon briefing. The post included no casualty data, damage assessment, or operational context. The move continues a pattern of the president using personal social media to disclose sensitive military operations in real time. Source &rarr;"
             },
             {
-              "headline": "Hormuz Disruptions Threaten Global Energy Supply Chains",
-              "text": "The tanker drone strike on March 31 adds to a pattern of Hormuz chokepoint disruptions that have rattled energy and food prices throughout March. Shipping insurers are expected to raise war-risk premiums again, compounding costs for crude and LNG cargoes transiting the strait. Analysts warn that sustained interference could push oil well above the $100 per barrel threshold breached last week. Source &rarr;"
+              "headline": "US-Iran War at Five Weeks With No Ceasefire",
+              "text": "The conflict between the United States and Iran has now entered its fifth week with no diplomatic off-ramp in sight. Simultaneous escalation on both sides, U.S. strikes on nuclear-linked sites and Iranian drone attacks on commercial shipping, signals a widening war rather than a stabilizing one. Global energy markets, shipping insurance rates, and commodity prices remain in turmoil. Source &rarr;"
             },
             {
-              "headline": "US-Iran War Enters Fifth Week With No Diplomacy",
-              "text": "The conflict passed its five-week mark on March 31 with no reported diplomatic channels open between Washington and Tehran. Available sources indicate no new mediation efforts from the UN, G7, or regional actors on this date, despite earlier pushes from Pakistan and Saudi Arabia. The absence of talks contrasts sharply with the accelerating military tempo on both sides. Source &rarr;"
+              "headline": "Hormuz Shipping Risk Intensifies After Tanker Attack",
+              "text": "The drone strike on an oil tanker near the Strait of Hormuz raises the threat level for commercial vessels transiting the waterway. Shipping insurers have already hiked war-risk premiums in recent weeks, and a direct hit on a large tanker could accelerate rerouting around the Cape of Good Hope. Energy analysts warn that sustained disruption at Hormuz would push oil well above current levels and strain global supply chains further. Source &rarr;"
             }
           ]
         },
@@ -84,27 +121,40 @@
           "items": [
             {
               "headline": "TLDR",
-              "text": "Consumer sentiment falls 6%, hit by declining stocks and higher gas prices Open internet advertising shifts from impressions to measurable impact Marriott bets on real-time customer experience to industrialize intimacy Consumer sentiment dropped 6% to its lowest level of the year as the Iran war drove up gas prices and eroded stock values, with short-term economic outlooks falling 14% and personal finance expectations down 10%. Middle- and upper-income households were hit hardest, and headline inflation is expected to reach 4.2% with growth slowing to 2%. Separately, open internet advertising is evolving as AI connects media buying and performance into a continuous optimization loop, making the open web more competitive with walled gardens like Google and Meta. A B2B email nurture sequence framework recommends segmenting by problem, job, vertical, or company size, sending from a real human, and treating each email as an experiment with testable CTAs and formats. Most CXO newsletters fail because they skip validation and publish generic content that drives no pipeline, as traditional marketing channels continue to weaken. Asana launched AI Teammates for marketers, offering out-of-the-box agents for campaign brief writing, brand auditing, and competitive market research. \"Most CXO newsletters fail because they skip validation and publish generic content that drives no pipeline.\""
+              "text": "Consumer sentiment falls 6%, hit by declining stocks and higher gas prices Open internet advertising shifts from impressions to measurable impact Marriott bets on real-time customer experience to industrialize intimacy Consumer sentiment dropped 6% to its lowest level of the year as the Iran war drove up gas prices and eroded stock values, with short-term economic outlooks falling 14% and personal finance expectations declining 10%. Middle- and upper-income households were hit hardest, and headline inflation is expected to reach 4.2% with growth slowing to 2% this year. Separately, open internet advertising is evolving as AI connects media and performance into a continuous optimization loop, making the open web more competitive with walled gardens like Google and Meta. A B2B email nurture sequence framework recommends segmenting by problem, job, vertical, or company size, sending from a real human, and treating each email as an experiment with testable CTAs and formats. Most CXO newsletters fail because they skip validation and publish generic content that drives no pipeline. Asana launched AI Teammates for marketers, offering out-of-the-box agents for campaign brief writing, brand auditing, and competitive market research. \"Most CXO newsletters fail because they skip validation and publish generic content that drives no pipeline.\""
             },
             {
               "headline": "TLDR",
-              "text": "Apple pivots AI strategy to App Store and search-like platform approach OpenAI kills Sora, its most hyped product since ChatGPT, to free up compute Stealthy startup R3 pitched brainless human clones as organ backups Apple is leaning into its core hardware-and-services model rather than competing head-to-head on AI capabilities. The company plans to embed just enough AI in its operating systems to retain users while opening Siri and Apple Intelligence to third-party services, effectively turning AI into a platform play similar to the App Store. Meanwhile, OpenAI abruptly shut down Sora after concluding the video generation product consumed too much compute and was not profitable, blindsiding partners including Disney executives who learned of the decision less than an hour before the public announcement. OpenAI's Sora shutdown was driven by unsustainable compute costs and lack of profitability, with CEO Sam Altman calling it a necessary sacrifice toward larger company goals. Apple's AI approach focuses on making its products more customizable and keeping ecosystem control rather than building frontier AI models in-house. California startup R3 raised funds to create non-sentient monkey 'organ sacks' for testing, but its founder reportedly pitched a longer-term vision of brainless human clones as body backups."
+              "text": "Apple pivots AI strategy to App Store and search-like platform approach OpenAI kills Sora, its most hyped product since ChatGPT, to free up compute Stealthy startup R3 pitched brainless human clones as organ backups Apple is leaning into its core hardware-and-services model rather than competing head-to-head on AI capabilities. The company plans to embed just enough AI in its operating systems to retain users while opening Siri and Apple Intelligence to third-party services, effectively turning AI into a platform play similar to the App Store and Search. Meanwhile, OpenAI abruptly shut down Sora, its video generation product, because it consumed too much compute and was not profitable, blindsiding even Disney executives who had signed on as partners. OpenAI's Sora shutdown caught Disney executives off guard, with many learning of the decision less than an hour before the announcement. A California startup called R3 raised funds to create non-sentient monkey 'organ sacks' as an alternative to animal testing, while secretly pitching a vision of brainless human clones as body backups. Apple acknowledges its homegrown AI lags behind competitors and is focusing on ecosystem control and customization rather than building frontier models."
             },
             {
               "headline": "The Rundown AI",
-              "text": "Inside Sora's $1M-a-day collapse at OpenAI, with Disney blindsided by shutdown Microsoft pits Claude against ChatGPT for research capabilities Stanford exposes AI's people-pleasing problem A WSJ investigation revealed the chaotic behind-the-scenes story of OpenAI shutting down its Sora video generator, which was burning roughly $1 million per day in compute costs. Disney, which had an enterprise pilot in progress with Sora, was reportedly informed the product was dead less than an hour before the public announcement. An internal code-named model reportedly required Sora's compute budget, forcing the sudden reallocation and collapse of OpenAI's once-viral video platform. Microsoft is positioning Anthropic's Claude as a competitor to its own ChatGPT integration for research tasks Stanford released findings exposing a systemic 'people-pleasing' or sycophancy problem in current AI models A tutorial featured building a travel itinerary using Perplexity Computer"
+              "text": "Inside Sora's $1M-a-day collapse at OpenAI, with Disney blindsided by sudden shutdown Microsoft pits Claude against ChatGPT for research capabilities Stanford exposes AI's people-pleasing problem A Wall Street Journal investigation revealed the chaotic behind-the-scenes story of OpenAI's Sora video generator shutdown. The product was burning roughly $1 million per day in compute costs, and Disney, which had an enterprise pilot in progress, learned the product was dead less than an hour before the public announcement. An internal code-named model reportedly required Sora's compute budget, forcing the sudden shift away from the once-viral video platform. Microsoft is positioning Anthropic's Claude as a competitor to ChatGPT for research tasks. Perplexity Computer can now be used to build travel itineraries, showcasing expanded agentic capabilities. Stanford research highlights a systemic 'people-pleasing' problem in AI models, raising concerns about sycophantic behavior."
             },
             {
               "headline": "The Rundown AI",
-              "text": "Physical Intelligence in talks to raise $1B at $11B+ valuation, nearly doubling its worth in four months Snail-like robot designed to crawl through the gut to fight cancer LimX's 'Luna' humanoid robot debuts on the catwalk Physical Intelligence, a two-year-old San Francisco lab founded by ex-Google DeepMind scientists, is negotiating a roughly $1B raise at a valuation exceeding $11B, up from $5.6B just four months ago. The startup is building AI foundation models to control fleets of general-purpose robots for tasks ranging from household chores to industrial workloads, with Peter Thiel's Founders Fund and Lightspeed Venture Partners reportedly participating. The funding escalation intensifies competition with rivals Skild AI, Figure, and Tesla's Optimus program. Violinists now have purpose-built exoskeletons to support performance and reduce strain A snail-inspired robot is being developed to navigate the human gut for cancer treatment LimX Dynamics showcased its 'Luna' humanoid robot walking a fashion catwalk"
+              "text": "Physical Intelligence in talks to raise $1B at $11B+ valuation, nearly doubling its worth in four months Snail-like robot designed to crawl through the gut to fight cancer LimX's 'Luna' humanoid robot debuts on the catwalk Physical Intelligence, a two-year-old San Francisco lab founded by ex-Google DeepMind scientists, is negotiating a roughly $1B raise at a valuation exceeding $11B, up from $5.6B just four months ago. The startup is building AI foundation models to control fleets of general-purpose robots for tasks ranging from household chores to industrial workloads, with Peter Thiel's Founders Fund and Lightspeed Venture Partners reportedly participating. The deal intensifies competition with rivals Skild AI, Figure, and Tesla's Optimus program. Violinists now have purpose-built exoskeletons to support performance and reduce strain A snail-inspired robot is being developed to navigate the human gut for cancer treatment LimX Dynamics showcased its 'Luna' humanoid robot walking a fashion catwalk"
             },
             {
               "headline": "TLDR",
-              "text": "Anthropic's 'Claude Mythos' leaked as a new model tier larger and more intelligent than Opus, with dramatically higher scores on coding, academic reasoning, and cybersecurity benchmarks. The model is compute-intensive and expensive; Anthropic is working on efficiency improvements before general release. Meta's Avocado 9B model pushed back to at least May as it still falls short of leading competitors. Meta is running parallel experiments with multiple Avocado variants and has reportedly discussed temporarily licensing Google's Gemini technology, with some Meta AI requests already being routed through Gemini. Anthropic's Claude paid subscriptions have more than doubled this year, with the majority of new subscribers joining the lowest tier. OpenAI remains the largest consumer AI platform but Claude's growth rate is accelerating. AutoBe, an open-source AI agent that generates complete backends from natural language, demonstrated a function calling harness that boosted qwen3-coder-next's success rate from 6.75% to over 99.8%. The approach uses type schemas to constrain outputs and compilers to verify results, showing how structured harnesses can dramatically improve unreliable model outputs for code generation tasks. Last remaining xAI cofounder exits the company Lessons shared from OpenAI's operational experience Black Duck Signal launches agentic AppSec tooling for AI-native development, combining LLM-powered code analysis with human-vetted security intelligence"
+              "text": "Anthropic's 'Claude Mythos' leaked as a new model tier larger and more intelligent than Opus, with dramatically higher scores on coding, academic reasoning, and cybersecurity benchmarks. The model is compute-intensive and expensive; Anthropic is working on efficiency before a general release. Meta's Avocado 9B model pushed back to at least May as it still falls short of leading competitors. Meta is running parallel experiments with multiple Avocado variants and has reportedly discussed temporarily licensing Google's Gemini technology, with some Meta AI requests already routed through Gemini. Anthropic's Claude paid subscriptions have more than doubled this year, with the majority of new subscribers joining the lowest tier. OpenAI remains the largest consumer AI platform but Claude's growth rate is accelerating. AutoBe, an open-source AI agent that generates complete backends from natural language, demonstrated a harness that boosted qwen3-coder-next's function calling success rate from 6.75% to over 99.8%. The approach uses type schemas to constrain outputs and compilers to verify results, showing how structured harnesses can dramatically improve unreliable model outputs for code generation tasks. The last original xAI cofounder has exited the company. Black Duck Signal launched as an agentic AppSec tool combining LLM-powered code analysis with 20+ years of human-vetted security intelligence to find and fix vulnerabilities in AI-generated code. Lessons from OpenAI highlighted in the newsletter's subject line, though details were truncated in the content."
             },
             {
               "headline": "TLDR",
-              "text": "NYSE-parent Intercontinental Exchange completes $2B investment in Polymarket as prediction markets go mainstream Revolut profit soars to record $2.3 billion in 2025, plans UK lending expansion Mastercard bids to offload Nets payments unit originally bought for $3.2B Agentic payment infrastructure is emerging as a way to unlock new monetization models for content platforms beyond traditional subscriptions. These systems enable pay-per-article, pay-to-preview for AI crawlers, paid comments, and tipping, shifting from fixed monetization to configurable, granular pricing that lets creators earn without sacrificing reach. Intercontinental Exchange invested an additional $600M into Polymarket, completing a $2B commitment and signaling institutional adoption of prediction markets as a data and trading layer. Revolut reported record $2.3B profit for 2025 and is rolling out credit cards, personal loans, and overdrafts in the UK to convert secondary users into full-service banking customers. Mastercard is seeking a buyer for the real-time payments business it acquired from Danish company Nets for $3.2 billion in 2019."
+              "text": "NYSE-parent Intercontinental Exchange completes $2B investment in Polymarket as prediction markets go mainstream Revolut profit soars to record $2.3 billion in 2025, plans UK lending expansion Mastercard bids to offload Nets payments unit originally bought for $3.2B Agentic payment infrastructure is emerging as a way to unlock new monetization models for content platforms beyond traditional subscriptions. The shift enables configurable, granular payment options such as pay-per-article, pay-to-preview for AI crawlers, paid comments, and tipping, allowing creators to monetize without sacrificing reach. This represents a move from fixed monetization toward flexible, programmable commerce layers. ICE invested an additional $600M into Polymarket, completing a $2B commitment and signaling institutional adoption of prediction markets as a data and trading layer. Revolut is rolling out credit cards, personal loans, and overdrafts in the UK as it pushes to convert millions of secondary users into full-service banking customers. Mastercard is seeking a buyer for the real-time payments business it acquired from Danish company Nets in 2019 for $3.2 billion."
+            }
+          ]
+        },
+        {
+          "title": "Competitive Landscape",
+          "items": [
+            {
+              "headline": "OpenAI",
+              "text": "On March 26, OpenAI launched a public Safety Bug Bounty Program designed to surface AI misuse and safety risks, a notable expansion beyond the traditional scope of vulnerability disclosure. The program is paired with the release of OpenAI's \"Model Spec,\" a document codifying the company's philosophy on how models should behave and where safety boundaries lie. Separately, OpenAI confirmed it is winding down the Sora video generator in favor of a new model codenamed \"Spud,\" expected imminently, as the company consolidates around its $110 billion funding round backed by Amazon, Nvidia, and SoftBank."
+            },
+            {
+              "headline": "Anthropic",
+              "text": "Anthropic secured a preliminary injunction against the US Government and Pentagon over supply chain risk designations that threatened to limit Claude's deployment in federal contexts. While the ruling predates this week, the legal precedent is significant: it marks the first time a frontier AI lab has successfully challenged federal procurement restrictions in court. Combined with Claude's continued dominance in coding benchmarks and the rollout of features like Code Channels and Cowork Projects, Anthropic is building both technical and institutional leverage simultaneously."
             }
           ]
         },
@@ -112,28 +162,28 @@
           "title": "AI Tool Guide",
           "items": [
             {
-              "headline": "Zapier Agents: Build No-Code AI Workflows Across 8,000+ Apps",
-              "text": "Zapier Agents lets you create AI-powered automations using plain English prompts, connecting tools like Slack, Gmail, and CRMs with real-time triggers. Start by describing a workflow you repeat daily, such as 'summarize new leads from HubSpot and post a digest to Slack each morning.' The agent handles the orchestration, eliminating manual steps without writing a single line of code. Try it &rarr;"
+              "headline": "Zapier Central: Chain AI Agents Across 8,000+ Apps",
+              "text": "Zapier's AI orchestration layer now connects over 8,000 apps with natural language instructions, letting you build multi-step automations without code. Start by describing a workflow in plain English, such as 'when a lead fills out a Typeform, enrich it with Clearbit, score it, and route it to the right Slack channel.' The platform handles the agent logic, error handling, and retries automatically. Try it &rarr;"
             },
             {
-              "headline": "Lovable: Turn a Text Prompt Into a Working Web App in Minutes",
-              "text": "Lovable is a vibe-coding platform that generates functional web applications from natural language descriptions. If you need an internal dashboard, a simple booking form, or a landing page prototype, describe what you want and Lovable scaffolds the frontend and logic. It is best suited for non-coders or teams that need to validate an idea before investing in full development. Try it &rarr;"
+              "headline": "Manus: Deploy End-to-End Research Agents Without Infrastructure",
+              "text": "Manus is an AI agent platform designed for autonomous task completion, from deep web research to structured report generation. Assign it a complex brief like competitive analysis or regulatory review, and it will plan sub-tasks, gather sources, and compile a deliverable. Best used for research-heavy workflows where you need cited, structured output rather than raw chat responses. Try it &rarr;"
             },
             {
-              "headline": "Manus: One AI Agent to Replace a Multi-Tool Stack",
-              "text": "Manus is an end-to-end AI agent that handles research, data processing, and task execution across complex workflows. Instead of switching between a search tool, a summarizer, and a spreadsheet, hand Manus a multi-step brief like 'research the top 10 competitors in this market and compile a comparison table.' It chains subtasks autonomously and delivers a finished output. Try it &rarr;"
+              "headline": "Cursor: Accelerate Development With Inline AI Pair Programming",
+              "text": "Cursor integrates frontier-level code generation directly into your editor, offering tab-complete suggestions that understand your full codebase context. Use its chat panel to refactor entire files or generate tests by referencing specific functions. Developers report 30-50% faster iteration cycles when combining Cursor's autocomplete with its codebase-aware Q&A mode. Try it &rarr;"
             },
             {
-              "headline": "eesel AI: Deploy a Claude-Powered Teammate for Support and IT",
-              "text": "eesel AI trains on your team's existing documents, tickets, and knowledge bases to act as an always-available AI coworker. Point it at your Notion wiki or Zendesk history, then let it draft support replies, triage IT requests, or answer internal questions. The Claude backbone means it handles nuanced, context-heavy queries better than a generic chatbot. Try it &rarr;"
+              "headline": "Comet Browser: Run Agentic Tasks From Your Browser for Free",
+              "text": "Comet Browser offers a free agentic browsing mode that can autonomously navigate websites, extract data, and complete multi-step web tasks on your behalf. Point it at a comparison shopping task, a form-filling sequence, or a data scraping job and let it execute. It is particularly useful for repetitive browser-based workflows that do not justify building a full automation pipeline. Try it &rarr;"
             },
             {
-              "headline": "Cursor: The AI Coding Assistant Developers Are Actually Keeping",
-              "text": "Cursor integrates directly into your editor to generate, refactor, and explain code in real time. Open a file, highlight a block, and ask it to optimize a function or convert a class component to hooks. Developer reviews consistently cite measurable speed gains on routine tasks like writing tests, fixing bugs, and navigating unfamiliar codebases. Try it &rarr;"
+              "headline": "Claude Artifacts: Generate and Iterate on Documents and Code in Real Time",
+              "text": "Claude's Artifacts feature renders live previews of code, documents, and visualizations directly in the chat window, turning conversations into working prototypes. Use it to draft an interactive SVG diagram, a React component, or a formatted report, then iterate with follow-up prompts. The key workflow tip: ask Claude to produce an Artifact first, then refine it in-context rather than starting from scratch each time. Try it &rarr;"
             },
             {
-              "headline": "Comet Browser: Let an AI Agent Handle Your Web Research",
-              "text": "Comet is a free agentic browser that can autonomously navigate websites, fill forms, extract data, and compile findings while you focus elsewhere. Try it for repetitive research tasks: give it a goal like 'find pricing pages for these five SaaS tools and summarize each plan in a table.' It reframes browsing from active clicking to passive delegation, a useful mental shift for reclaiming deep work time. Try it &rarr;"
+              "headline": "Notion AI as a Second Brain: Consolidate Knowledge Before Automating",
+              "text": "Before layering agentic tools on top of your workflow, centralize your notes, docs, and project data in Notion AI so its built-in assistant can surface relevant context automatically. The highest-leverage move is connecting meeting notes, project specs, and reference docs into linked databases, then querying Notion AI to synthesize status updates or draft briefs. Automation works best when it draws from a single organized source of truth. Try it &rarr;"
             }
           ]
         },
@@ -150,15 +200,15 @@
             },
             {
               "headline": "Bitcoin",
-              "text": "$66,496.77 (-0.29%)"
+              "text": "$66,591.41 (-0.15%)"
             },
             {
               "headline": "Ethereum",
-              "text": "$2,030.84 (+0.33%)"
+              "text": "$2,036.55 (+0.61%)"
             },
             {
               "headline": "Oil Brent",
-              "text": "$108.01 (+0.61%)"
+              "text": "$107.52 (+0.16%)"
             },
             {
               "headline": "Sentiment",
@@ -2426,6 +2476,60 @@
             {
               "headline": "What to Build This Weekend",
               "text": "Stop theorizing. Build something that maps your product's reasoning assumptions against reality. Step one: open Cursor and create a simple evaluation harness. Pick 10 tasks your AI product handles in production. For each task, write down whether it requires novel problem-solving (fluid) or pattern-based retrieval (crystallized). Be honest. Most will be crystallized. That is fine. Step two: for the 2 or 3 tasks you marked as fluid, test them with edge cases your model has never seen. Use Lovable "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-31",
+      "type": "editorial",
+      "file": "editorial/2026-03-31-the-amazon-openai-stateful-runtime-partnership-signals-that-.html",
+      "title": "The Amazon-OpenAI Stateful Runtime partnership signals that memory and tool-use",
+      "tag": "Tools",
+      "sections": [
+        {
+          "title": "Introduction",
+          "items": [
+            {
+              "headline": "The Amazon-OpenAI Stateful Runtime partnership signals that memory and tool-use",
+              "text": "Amazon just committed $50 billion to OpenAI. Not for better models. Not for faster inference. For memory. The Stateful Runtime Environment, announced February 27, 2026, gives AI agents on Amazon Bedrock something they have never had: the ability to remember what they were doing, pick up where they left off, and use tools across sessions without a developer duct-taping context back together every single call. OpenAI is pledging 2 gigawatts of Amazon Trainium capacity over 8 years. AWS becomes the"
+            }
+          ]
+        },
+        {
+          "title": "The Plumbing Principle",
+          "items": [
+            {
+              "headline": "The Plumbing Principle",
+              "text": "Every technology wave follows the same pattern. First, everyone races to build the flashiest thing on top. Then the real money flows to whoever owns the pipes underneath. In Web 1.0, it was TCP/IP and DNS. In cloud, it was S3 and EC2. In AI, the first pipe was the model API. Stateless. Fire and forget. That pipe is now a commodity. Raw model capability is table stakes. The next pipe is state. Memory. Tool connections. Permissions. Session persistence. I call this The Plumbing Principle: in any t"
+            }
+          ]
+        },
+        {
+          "title": "Why Stateful Runtimes Are the 500 IQ Intern's Filing Cabinet",
+          "items": [
+            {
+              "headline": "Why Stateful Runtimes Are the 500 IQ Intern's Filing Cabinet",
+              "text": "Let me break this down in plain English, because the technical jargon around \"stateful runtimes\" makes this sound way more complicated than it is. Right now, most AI agents are like that brilliant intern who has total amnesia every 30 seconds. You give them a task. They crush it. Then they forget everything. Next task? You have to re-explain who they are, what they were working on, what tools they have access to, and what the user already said. Every. Single. Time. That is what stateless APIs do"
+            }
+          ]
+        },
+        {
+          "title": "2031",
+          "items": [
+            {
+              "headline": "2031",
+              "text": "Zoom out five years. Here is the asymmetric bet most people are missing. In March 2026, we had a burst of model launches. GPT-5.4. DeepSeek V4. The model layer is in a commodity spiral. Prices drop every quarter. Capabilities converge. By 2031, the difference between the top 5 foundation models will be negligible for 90% of production use cases. The infrastructure layer is going the opposite direction. It is consolidating. Whoever owns the stateful runtime, the memory layer, the tool orchestrati"
+            }
+          ]
+        },
+        {
+          "title": "What to Build This Weekend",
+          "items": [
+            {
+              "headline": "What to Build This Weekend",
+              "text": "You do not need $50 billion or a partnership with Amazon to start building stateful agent workflows. You need one afternoon and the right tools. Step 1: Pick a repeating workflow you currently do manually. Customer onboarding. Research synthesis. Weekly reporting. Something with multiple steps that requires remembering context from earlier steps. Step 2: Map the state. Write down what information needs to persist between steps. User preferences. Prior decisions. Tool outputs. This is your agent'"
             }
           ]
         }
