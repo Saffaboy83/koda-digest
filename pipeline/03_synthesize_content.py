@@ -131,6 +131,12 @@ CITATIONS:
 {json.dumps(citations, indent=2)}
 {freshness_context}
 
+IMPORTANT: If the raw data says "no major announcements in the last 48 hours" but mentions
+developments from the past 3-5 days, INCLUDE those stories. Weekend gaps are normal.
+The goal is 8-12 AI stories per issue. Extract every substantive AI development mentioned,
+even if the source notes it happened a few days ago. Only skip stories already published
+in the last 5 days (listed above).
+
 Return a JSON array of story objects. Each story:
 {{
   "title": "Short headline (8 words max)",
@@ -140,7 +146,8 @@ Return a JSON array of story objects. Each story:
   "source_url": "URL from citations if available, otherwise empty string"
 }}
 
-Return 8-12 stories, ordered by significance. Prioritize FRESH stories over stale repeats."""
+Return 8-12 stories, ordered by significance. Prioritize FRESH stories over stale repeats.
+If fewer than 8 stories can be extracted, return what you have rather than padding with filler."""
     return llm_json(prompt, SYSTEM_PROMPT) or []
 
 

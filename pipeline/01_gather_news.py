@@ -67,8 +67,8 @@ def build_queries(date_label, month_year):
     """
     return {
         "ai_news": {
-            "query": f"AI model releases and major AI developments today {date_label}. Include specific model names, companies, benchmarks, and capabilities announced in the last 48 hours.",
-            "system": "You are an AI industry analyst. Report the most significant AI developments with specific details: model names, company names, key capabilities, and benchmark results. Focus ONLY on developments from the last 48 hours. Do NOT report on models launched more than a week ago unless there is new benchmark data or pricing news.",
+            "query": f"AI model releases and major AI developments this week {date_label}. Include specific model names, companies, benchmarks, and capabilities announced in the last 5 days.",
+            "system": "You are an AI industry analyst. Report the most significant AI developments with specific details: model names, company names, key capabilities, and benchmark results. Cover the last 5 days, prioritizing the most recent developments first. If nothing was announced in the last 48 hours (e.g., over a weekend), include the most notable stories from the past 5 days. Do NOT report on models launched more than 10 days ago unless there is new benchmark data or pricing news.",
         },
         "world_news": {
             "query": f"Top world news stories today {date_label}. Cover geopolitics, economy, conflicts, diplomacy, and major global events.",
@@ -79,8 +79,8 @@ def build_queries(date_label, month_year):
             "system": "You are a financial markets analyst. Provide exact closing prices, daily percentage changes, and brief sentiment analysis. Use numbers, not words.",
         },
         "competitive": {
-            "query": f"OpenAI Google DeepMind Anthropic Meta AI Mistral latest news announcements today {date_label}.",
-            "system": "You are a competitive intelligence analyst covering the AI industry. For each major company, report ONLY their most recent announcement from the last 48 hours. If a company has no new news today, say so rather than repeating old news.",
+            "query": f"OpenAI Google DeepMind Anthropic Meta AI Mistral latest news announcements this week {date_label}.",
+            "system": "You are a competitive intelligence analyst covering the AI industry. For each major company, report their most significant recent announcement from the last 5 days. Prioritize the newest developments. If a company has genuinely no news this week, briefly note their last known activity.",
         },
         "tools": {
             "query": f"New AI productivity tools coding assistants agentic workflow tools launched or updated this week {date_label}. Include tool names, what they do, and links.",
