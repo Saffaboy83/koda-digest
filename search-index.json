@@ -1,6 +1,175 @@
 {
-  "generated": "2026-03-31T01:55:20Z",
+  "generated": "2026-03-31T11:21:31Z",
   "entries": [
+    {
+      "date": "2026-03-31",
+      "sections": [
+        {
+          "title": "Today's Focus",
+          "items": [
+            {
+              "headline": "Isfahan Strike Escalation Risks",
+              "text": "The U.S. bombing of Isfahan marks a significant escalation beyond proxy engagement, directly targeting Iranian territory. Tehran's response calculus now includes whether to retaliate symmetrically or intensify asymmetric attacks on Gulf shipping. Every hour without a ceasefire framework increases the probability of a broader regional war."
+            },
+            {
+              "headline": "Hormuz Chokepoint Under Threat",
+              "text": "Roughly 20% of the world's oil passes through the Strait of Hormuz daily. The Iranian drone strike on a tanker is a proof of concept that low-cost weapons can disrupt high-value trade routes. Sustained disruptions would spike energy prices globally and stress supply chains already weakened by years of geopolitical fragmentation."
+            },
+            {
+              "headline": "Gold Volatility Signals Confusion",
+              "text": "Gold reaching $4,554 reflects a flight to safety, yet its worst monthly drop suggests traders are liquidating positions to cover margin calls elsewhere. This contradictory signal points to a market caught between crisis hedging and forced deleveraging. Extreme Fear readings confirm that investors see no clear safe harbor right now."
+            }
+          ]
+        },
+        {
+          "title": "Markets",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,343.72 (-0.39%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "20,794.64 (-0.73%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$66,496.77 (-0.29%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$2,030.84 (+0.33%)"
+            },
+            {
+              "headline": "Oil",
+              "text": "$108.01 (+0.61%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "11 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "World News",
+          "items": [
+            {
+              "headline": "US Bombs Isfahan Amid Hormuz Tanker Strike",
+              "text": "US forces struck an ammunition depot in Isfahan believed to house enriched uranium, using 2,000lb bunker buster bombs. The strike coincided with an Iranian drone hitting a massive oil tanker near the Strait of Hormuz, marking a significant escalation in the fifth week of the conflict. President Trump posted strike footage on Truth Social; an American official confirmed the operation to The Wall Street Journal. Source &rarr;"
+            },
+            {
+              "headline": "Iranian Drone Disables Tanker Near Hormuz Chokepoint",
+              "text": "An Iranian drone struck a large oil tanker near the Strait of Hormuz on March 31, raising the prospect of further disruption to the waterway through which roughly 20% of global oil transits. The attack came on the same day as the US Isfahan strikes, suggesting a tit-for-tat escalation cycle is accelerating. No casualty figures from the tanker incident have been released. Source &rarr;"
+            },
+            {
+              "headline": "Gold Hits $4,554 but Posts Worst Monthly Drop",
+              "text": "Gold prices rose 1% on March 31 to $4,553.69 per ounce, buoyed by war-driven uncertainty, yet the metal is on track for its steepest monthly decline since 2008. The paradox reflects investors locking in profits after a prolonged rally even as the US-Iran conflict intensifies. Commodities markets remain volatile as Hormuz shipping risks persist. Source &rarr;"
+            },
+            {
+              "headline": "Trump Shares Unvetted Strike Video on Truth Social",
+              "text": "President Trump posted footage of the Isfahan bunker buster strikes on Truth Social before any official Pentagon briefing, continuing a pattern of bypassing traditional disclosure channels. The video showed massive explosions at the site. Critics have warned that sharing operational imagery without review could compromise intelligence sources and methods. Source &rarr;"
+            },
+            {
+              "headline": "Hormuz Disruptions Threaten Global Energy Supply Chains",
+              "text": "The tanker drone strike on March 31 adds to a pattern of Hormuz chokepoint disruptions that have rattled energy and food prices throughout March. Shipping insurers are expected to raise war-risk premiums again, compounding costs for crude and LNG cargoes transiting the strait. Analysts warn that sustained interference could push oil well above the $100 per barrel threshold breached last week. Source &rarr;"
+            },
+            {
+              "headline": "US-Iran War Enters Fifth Week With No Diplomacy",
+              "text": "The conflict passed its five-week mark on March 31 with no reported diplomatic channels open between Washington and Tehran. Available sources indicate no new mediation efforts from the UN, G7, or regional actors on this date, despite earlier pushes from Pakistan and Saudi Arabia. The absence of talks contrasts sharply with the accelerating military tempo on both sides. Source &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "Featured Newsletters",
+          "items": [
+            {
+              "headline": "TLDR",
+              "text": "Consumer sentiment falls 6%, hit by declining stocks and higher gas prices Open internet advertising shifts from impressions to measurable impact Marriott bets on real-time customer experience to industrialize intimacy Consumer sentiment dropped 6% to its lowest level of the year as the Iran war drove up gas prices and eroded stock values, with short-term economic outlooks falling 14% and personal finance expectations down 10%. Middle- and upper-income households were hit hardest, and headline inflation is expected to reach 4.2% with growth slowing to 2%. Separately, open internet advertising is evolving as AI connects media buying and performance into a continuous optimization loop, making the open web more competitive with walled gardens like Google and Meta. A B2B email nurture sequence framework recommends segmenting by problem, job, vertical, or company size, sending from a real human, and treating each email as an experiment with testable CTAs and formats. Most CXO newsletters fail because they skip validation and publish generic content that drives no pipeline, as traditional marketing channels continue to weaken. Asana launched AI Teammates for marketers, offering out-of-the-box agents for campaign brief writing, brand auditing, and competitive market research. \"Most CXO newsletters fail because they skip validation and publish generic content that drives no pipeline.\""
+            },
+            {
+              "headline": "TLDR",
+              "text": "Apple pivots AI strategy to App Store and search-like platform approach OpenAI kills Sora, its most hyped product since ChatGPT, to free up compute Stealthy startup R3 pitched brainless human clones as organ backups Apple is leaning into its core hardware-and-services model rather than competing head-to-head on AI capabilities. The company plans to embed just enough AI in its operating systems to retain users while opening Siri and Apple Intelligence to third-party services, effectively turning AI into a platform play similar to the App Store. Meanwhile, OpenAI abruptly shut down Sora after concluding the video generation product consumed too much compute and was not profitable, blindsiding partners including Disney executives who learned of the decision less than an hour before the public announcement. OpenAI's Sora shutdown was driven by unsustainable compute costs and lack of profitability, with CEO Sam Altman calling it a necessary sacrifice toward larger company goals. Apple's AI approach focuses on making its products more customizable and keeping ecosystem control rather than building frontier AI models in-house. California startup R3 raised funds to create non-sentient monkey 'organ sacks' for testing, but its founder reportedly pitched a longer-term vision of brainless human clones as body backups."
+            },
+            {
+              "headline": "The Rundown AI",
+              "text": "Inside Sora's $1M-a-day collapse at OpenAI, with Disney blindsided by shutdown Microsoft pits Claude against ChatGPT for research capabilities Stanford exposes AI's people-pleasing problem A WSJ investigation revealed the chaotic behind-the-scenes story of OpenAI shutting down its Sora video generator, which was burning roughly $1 million per day in compute costs. Disney, which had an enterprise pilot in progress with Sora, was reportedly informed the product was dead less than an hour before the public announcement. An internal code-named model reportedly required Sora's compute budget, forcing the sudden reallocation and collapse of OpenAI's once-viral video platform. Microsoft is positioning Anthropic's Claude as a competitor to its own ChatGPT integration for research tasks Stanford released findings exposing a systemic 'people-pleasing' or sycophancy problem in current AI models A tutorial featured building a travel itinerary using Perplexity Computer"
+            },
+            {
+              "headline": "The Rundown AI",
+              "text": "Physical Intelligence in talks to raise $1B at $11B+ valuation, nearly doubling its worth in four months Snail-like robot designed to crawl through the gut to fight cancer LimX's 'Luna' humanoid robot debuts on the catwalk Physical Intelligence, a two-year-old San Francisco lab founded by ex-Google DeepMind scientists, is negotiating a roughly $1B raise at a valuation exceeding $11B, up from $5.6B just four months ago. The startup is building AI foundation models to control fleets of general-purpose robots for tasks ranging from household chores to industrial workloads, with Peter Thiel's Founders Fund and Lightspeed Venture Partners reportedly participating. The funding escalation intensifies competition with rivals Skild AI, Figure, and Tesla's Optimus program. Violinists now have purpose-built exoskeletons to support performance and reduce strain A snail-inspired robot is being developed to navigate the human gut for cancer treatment LimX Dynamics showcased its 'Luna' humanoid robot walking a fashion catwalk"
+            },
+            {
+              "headline": "TLDR",
+              "text": "Anthropic's 'Claude Mythos' leaked as a new model tier larger and more intelligent than Opus, with dramatically higher scores on coding, academic reasoning, and cybersecurity benchmarks. The model is compute-intensive and expensive; Anthropic is working on efficiency improvements before general release. Meta's Avocado 9B model pushed back to at least May as it still falls short of leading competitors. Meta is running parallel experiments with multiple Avocado variants and has reportedly discussed temporarily licensing Google's Gemini technology, with some Meta AI requests already being routed through Gemini. Anthropic's Claude paid subscriptions have more than doubled this year, with the majority of new subscribers joining the lowest tier. OpenAI remains the largest consumer AI platform but Claude's growth rate is accelerating. AutoBe, an open-source AI agent that generates complete backends from natural language, demonstrated a function calling harness that boosted qwen3-coder-next's success rate from 6.75% to over 99.8%. The approach uses type schemas to constrain outputs and compilers to verify results, showing how structured harnesses can dramatically improve unreliable model outputs for code generation tasks. Last remaining xAI cofounder exits the company Lessons shared from OpenAI's operational experience Black Duck Signal launches agentic AppSec tooling for AI-native development, combining LLM-powered code analysis with human-vetted security intelligence"
+            },
+            {
+              "headline": "TLDR",
+              "text": "NYSE-parent Intercontinental Exchange completes $2B investment in Polymarket as prediction markets go mainstream Revolut profit soars to record $2.3 billion in 2025, plans UK lending expansion Mastercard bids to offload Nets payments unit originally bought for $3.2B Agentic payment infrastructure is emerging as a way to unlock new monetization models for content platforms beyond traditional subscriptions. These systems enable pay-per-article, pay-to-preview for AI crawlers, paid comments, and tipping, shifting from fixed monetization to configurable, granular pricing that lets creators earn without sacrificing reach. Intercontinental Exchange invested an additional $600M into Polymarket, completing a $2B commitment and signaling institutional adoption of prediction markets as a data and trading layer. Revolut reported record $2.3B profit for 2025 and is rolling out credit cards, personal loans, and overdrafts in the UK to convert secondary users into full-service banking customers. Mastercard is seeking a buyer for the real-time payments business it acquired from Danish company Nets for $3.2 billion in 2019."
+            }
+          ]
+        },
+        {
+          "title": "AI Tool Guide",
+          "items": [
+            {
+              "headline": "Zapier Agents: Build No-Code AI Workflows Across 8,000+ Apps",
+              "text": "Zapier Agents lets you create AI-powered automations using plain English prompts, connecting tools like Slack, Gmail, and CRMs with real-time triggers. Start by describing a workflow you repeat daily, such as 'summarize new leads from HubSpot and post a digest to Slack each morning.' The agent handles the orchestration, eliminating manual steps without writing a single line of code. Try it &rarr;"
+            },
+            {
+              "headline": "Lovable: Turn a Text Prompt Into a Working Web App in Minutes",
+              "text": "Lovable is a vibe-coding platform that generates functional web applications from natural language descriptions. If you need an internal dashboard, a simple booking form, or a landing page prototype, describe what you want and Lovable scaffolds the frontend and logic. It is best suited for non-coders or teams that need to validate an idea before investing in full development. Try it &rarr;"
+            },
+            {
+              "headline": "Manus: One AI Agent to Replace a Multi-Tool Stack",
+              "text": "Manus is an end-to-end AI agent that handles research, data processing, and task execution across complex workflows. Instead of switching between a search tool, a summarizer, and a spreadsheet, hand Manus a multi-step brief like 'research the top 10 competitors in this market and compile a comparison table.' It chains subtasks autonomously and delivers a finished output. Try it &rarr;"
+            },
+            {
+              "headline": "eesel AI: Deploy a Claude-Powered Teammate for Support and IT",
+              "text": "eesel AI trains on your team's existing documents, tickets, and knowledge bases to act as an always-available AI coworker. Point it at your Notion wiki or Zendesk history, then let it draft support replies, triage IT requests, or answer internal questions. The Claude backbone means it handles nuanced, context-heavy queries better than a generic chatbot. Try it &rarr;"
+            },
+            {
+              "headline": "Cursor: The AI Coding Assistant Developers Are Actually Keeping",
+              "text": "Cursor integrates directly into your editor to generate, refactor, and explain code in real time. Open a file, highlight a block, and ask it to optimize a function or convert a class component to hooks. Developer reviews consistently cite measurable speed gains on routine tasks like writing tests, fixing bugs, and navigating unfamiliar codebases. Try it &rarr;"
+            },
+            {
+              "headline": "Comet Browser: Let an AI Agent Handle Your Web Research",
+              "text": "Comet is a free agentic browser that can autonomously navigate websites, fill forms, extract data, and compile findings while you focus elsewhere. Try it for repetitive research tasks: give it a goal like 'find pricing pages for these five SaaS tools and summarize each plan in a table.' It reframes browsing from active clicking to passive delegation, a useful mental shift for reclaiming deep work time. Try it &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,343.72 (-0.39%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "20,794.64 (-0.73%)"
+            },
+            {
+              "headline": "Bitcoin",
+              "text": "$66,496.77 (-0.29%)"
+            },
+            {
+              "headline": "Ethereum",
+              "text": "$2,030.84 (+0.33%)"
+            },
+            {
+              "headline": "Oil Brent",
+              "text": "$108.01 (+0.61%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "11 (Extreme Fear)"
+            }
+          ]
+        }
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-03-31.html"
+    },
     {
       "date": "2026-03-30",
       "sections": [
@@ -2207,6 +2376,60 @@
       ],
       "type": "digest",
       "file": "morning-briefing-koda-2026-03-21.html"
+    },
+    {
+      "date": "2026-03-31",
+      "type": "editorial",
+      "file": "editorial/2026-03-31-the-arc-agi-3-benchmark-reveals-frontier-ai-scores-below-1-a.html",
+      "title": "The ARC-AGI-3 benchmark reveals frontier AI scores below 1% against human perfec",
+      "tag": "Strategy",
+      "sections": [
+        {
+          "title": "Introduction",
+          "items": [
+            {
+              "headline": "The ARC-AGI-3 benchmark reveals frontier AI scores below 1% against human perfec",
+              "text": "Frontier AI models score below 1% on ARC-AGI-3. Humans score 100%. That is not a rounding error. That is a 99-point gap on a benchmark released March 24, 2026, by the ARC Prize Foundation. The gap persists despite every major lab shipping record-setting models in Q1 2025 and into 2026. OpenAI, Anthropic, Google, NVIDIA: none of their frontier systems cracked even 1% on the private evaluation set. This is the most important number in AI right now, and most builders are ignoring it. They are shipp"
+            }
+          ]
+        },
+        {
+          "title": "The Efficiency Illusion",
+          "items": [
+            {
+              "headline": "The Efficiency Illusion",
+              "text": "Name this pattern because you will see it everywhere: The Efficiency Illusion. The Efficiency Illusion is the belief that because AI performs well on familiar tasks, it reasons well on unfamiliar ones. Pattern matching looks like thinking until the pattern breaks. Here is the history in three numbers. ARC-AGI-1, released in 2019, held the field at bay until 2024 when test-time reasoning breakthroughs pushed the top score to 53.5%. ARC-AGI-2, launched March 2025, saw NVIDIA's NVARC team win with "
+            }
+          ]
+        },
+        {
+          "title": "Why 0.26% Is a Structural Number, Not a Temporary One",
+          "items": [
+            {
+              "headline": "Why 0.26% Is a Structural Number, Not a Temporary One",
+              "text": "Let me walk through why this gap is not just \"models need another training run.\" ARC-AGI-3 is fundamentally different from its predecessors. It is interactive. Turn-based. The AI must explore environments, infer goals without instructions, build a world model, and plan across long horizons. There is no prompt to follow. There is no instruction set. The agent drops into an unknown game and must figure out the rules, the objective, and the efficient path, all from scratch. Humans do this effortles"
+            }
+          ]
+        },
+        {
+          "title": "2031",
+          "items": [
+            {
+              "headline": "2031",
+              "text": "Pull the lens back five years. Where does ARC-AGI-3 sit in the arc of AI development? Three possible futures. In the first, architectural breakthroughs (neurosymbolic systems, world models, or something we have not named yet) crack the fluid reasoning problem by 2028 or 2029. The 0.26% score becomes a historical footnote, like ImageNet accuracy in 2012. In this future, the builders who understood the gap early will have designed modular systems ready to swap in new reasoning engines. They win. I"
+            }
+          ]
+        },
+        {
+          "title": "What to Build This Weekend",
+          "items": [
+            {
+              "headline": "What to Build This Weekend",
+              "text": "Stop theorizing. Build something that maps your product's reasoning assumptions against reality. Step one: open Cursor and create a simple evaluation harness. Pick 10 tasks your AI product handles in production. For each task, write down whether it requires novel problem-solving (fluid) or pattern-based retrieval (crystallized). Be honest. Most will be crystallized. That is fine. Step two: for the 2 or 3 tasks you marked as fluid, test them with edge cases your model has never seen. Use Lovable "
+            }
+          ]
+        }
+      ]
     },
     {
       "date": "2026-03-30",

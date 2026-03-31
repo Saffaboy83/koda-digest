@@ -1,6 +1,35 @@
 {
-  "generated": "2026-03-31T01:55:20Z",
+  "generated": "2026-03-31T11:21:31Z",
   "digests": [
+    {
+      "date": "2026-03-31",
+      "dayOfWeek": "Tuesday",
+      "focusTopics": [
+        {
+          "title": "Isfahan Strike Escalation Risks",
+          "desc": "The U.S. bombing of Isfahan marks a significant escalation beyond proxy engagement, directly targeting Iranian territory. Tehran's response calculus now includes whether to retaliate symmetrically or intensify asymmetric attacks on Gulf shipping. Every hour without a ceasefire framework increases the probability of a broader regional war."
+        },
+        {
+          "title": "Hormuz Chokepoint Under Threat",
+          "desc": "Roughly 20% of the world's oil passes through the Strait of Hormuz daily. The Iranian drone strike on a tanker is a proof of concept that low-cost weapons can disrupt high-value trade routes. Sustained disruptions would spike energy prices globally and stress supply chains already weakened by years of geopolitical fragmentation."
+        },
+        {
+          "title": "Gold Volatility Signals Confusion",
+          "desc": "Gold reaching $4,554 reflects a flight to safety, yet its worst monthly drop suggests traders are liquidating positions to cover margin calls elsewhere. This contradictory signal points to a market caught between crisis hedging and forced deleveraging. Extreme Fear readings confirm that investors see no clear safe harbor right now."
+        }
+      ],
+      "kpis": {
+        "aiStories": "0",
+        "worldEvents": "6",
+        "marketMood": "Extreme Fear",
+        "toolsFeatured": "6"
+      },
+      "hasPodcast": true,
+      "hasInfographic": true,
+      "hasVideo": true,
+      "youtubeId": "Ihdb6BJ-7fU",
+      "file": "morning-briefing-koda-2026-03-31.html"
+    },
     {
       "date": "2026-03-30",
       "dayOfWeek": "Monday",
@@ -293,6 +322,12 @@
     }
   ],
   "editorials": [
+    {
+      "date": "2026-03-31",
+      "title": "The ARC-AGI-3 benchmark reveals frontier AI scores below 1% against human perfec",
+      "tag": "Strategy",
+      "file": "editorial/2026-03-31-the-arc-agi-3-benchmark-reveals-frontier-ai-scores-below-1-a.html"
+    },
     {
       "date": "2026-03-30",
       "title": "The Compression Trap: When a $20K Drone Destroys a $500M Aircraft",
