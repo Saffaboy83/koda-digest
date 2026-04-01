@@ -1,6 +1,221 @@
 {
-  "generated": "2026-03-31T11:47:16Z",
+  "generated": "2026-04-01T10:49:31Z",
   "entries": [
+    {
+      "date": "2026-04-01",
+      "sections": [
+        {
+          "title": "Today's Focus",
+          "items": [
+            {
+              "headline": "Open-Weight Models Go Agentic",
+              "text": "This week's top open-weight releases are converging on agent and tool-use readiness as the key differentiator, not just raw benchmark scores. Moonshot AI's Chatbot Arena victory and the broader shift toward function-calling architectures suggest the open-source ecosystem is building for deployment, not just research. The competitive pressure on closed-source providers like OpenAI and Anthropic is now structural."
+            },
+            {
+              "headline": "Iran Widens the War",
+              "text": "Tehran's decision to strike UAE and Kuwait marks a deliberate expansion of its target list, pulling Gulf states that had sought neutrality into the conflict. Combined with Israeli strikes killing seven in Beirut and Khalde, the region faces its broadest multi-front escalation in decades. Trump's statement that the US will exit Iran operations soon adds a layer of strategic ambiguity that is rattling allies and markets alike."
+            },
+            {
+              "headline": "Benchmark Race Intensifies",
+              "text": "Gemini 3.1 Pro's 77% score on ARC-AGI-2 and Claude Sonnet 4.6 matching Opus at lower cost reflect a new phase where labs compete on efficiency as much as capability. Prediction markets tracking four April model drops indicate the industry expects another wave of leapfrogging within weeks. The practical question is shifting from 'which model is smartest' to 'which model delivers the most intelligence per dollar.'"
+            }
+          ]
+        },
+        {
+          "title": "Markets",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,528.52 (+2.91%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "21,590.63 (+3.83%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$68,645.66 (+0.64%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$2,136.83 (+1.57%)"
+            },
+            {
+              "headline": "Oil",
+              "text": "$103.27 (-1.85%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "8 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "AI Developments",
+          "items": [
+            {
+              "headline": "Prediction Markets Eye Four April Model Drops",
+              "text": "Prediction markets on Manifold give Gemma 4 a 67% probability of releasing in April 2026, followed by GPT-5.5 or variants at 66%, Minimax M3 at 65%, and DeepSeek V4 at 64%. None have been confirmed as publicly available via API, web, or download. The forecasts suggest a concentrated burst of releases after a notably quiet late March. Source &rarr;"
+            },
+            {
+              "headline": "Moonshot AI's Open-Weight Model Topped Chatbot Arena",
+              "text": "Moonshot AI's 1.04 trillion parameter mixture-of-experts model, released January 20, became the first open-weight model to reach number one on the LMSYS Chatbot Arena leaderboard. The milestone marked a turning point for open-weight competitiveness against proprietary systems. The model's success has accelerated a broader trend toward agent readiness and tool use in open releases. Source &rarr;"
+            },
+            {
+              "headline": "Open-Weight Models Prioritize Agent and Tool Readiness",
+              "text": "A growing trend across open-weight model releases in early 2026 emphasizes agent readiness, native tool use, and simplified deployment over raw benchmark scores. ByteByteGo's analysis identifies this shift as one of five defining trends for the year. Labs including Alibaba, Moonshot AI, and others are designing models specifically for autonomous workflows rather than chat-only use cases. Source &rarr;"
+            },
+            {
+              "headline": "Gemini 3.1 Pro Hit 77% on ARC-AGI-2",
+              "text": "Google DeepMind's Gemini 3.1 Pro, released February 19, scored 77.1% on ARC-AGI-2, 93.8% on MMLU, and 89.4% on MATH, with roughly 1 trillion mixture-of-experts parameters. The model introduced a Deep Think mode and claimed a 2x improvement in reasoning over its predecessor. Its multimodal understanding capabilities also received significant upgrades. Source &rarr;"
+            },
+            {
+              "headline": "Claude Sonnet 4.6 Matched Opus at Lower Cost",
+              "text": "Anthropic released Claude Sonnet 4.6 on February 17 with approximately 500 billion parameters, achieving near-Opus level performance while maintaining Sonnet-tier pricing. The model represented Anthropic's strategy of compressing frontier capability into more accessible price points. It remains one of the strongest mid-tier offerings heading into Q2 2026. Source &rarr;"
+            },
+            {
+              "headline": "Grok 4.20 Introduced Four Parallel AI Agents",
+              "text": "xAI released Grok 4.20 on February 17 featuring a new architecture that runs four parallel AI agents simultaneously. The design represents a departure from single-model inference, instead coordinating multiple specialized agents within a single system. Details on benchmark performance remain limited compared to competing February releases. Source &rarr;"
+            },
+            {
+              "headline": "AI Model Release Tsunami Strains Selection Decisions",
+              "text": "With Q1 2026 producing a record-setting pace of model releases, enterprises face mounting difficulty choosing which LLMs to adopt. Analysis from BuildMVPFast highlights that the sheer volume of competitive options, spanning proprietary and open-weight categories, has made model selection a strategic bottleneck. The guide recommends evaluating models on deployment ease and agent compatibility rather than benchmark rankings alone. Source &rarr;"
+            },
+            {
+              "headline": "Qwen 3.5 Narrowed Open-Source Gap on Benchmarks",
+              "text": "Alibaba's Qwen 3.5, released in February 2026, continued to close the performance gap between open-source and proprietary frontier models across major benchmarks. The release reinforced China's growing influence in the open-weight ecosystem alongside Moonshot AI and DeepSeek. Analysts note that Alibaba's multi-variant release strategy gives developers more deployment flexibility. Source &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "World News",
+          "items": [
+            {
+              "headline": "Iran Strikes UAE, Kuwait, Expanding Target List",
+              "text": "Iran escalated its regional offensive on April 1, striking targets in the UAE and Kuwait for the first time alongside continued barrages against Israel. A drone interception in Fujairah, UAE killed a Bangladeshi national via shrapnel, while a strike on Kuwait International Airport hit a fuel storage facility and sparked a major fire. Ten people were injured in Israel, including a girl in Bnei Brak who is in critical condition. Source &rarr;"
+            },
+            {
+              "headline": "Israeli Strikes Kill Seven in Beirut, Khalde",
+              "text": "Israeli airstrikes hit Beirut and the southern suburb of Khalde on April 1, killing seven people and wounding dozens. The strikes targeted a senior Hezbollah commander and another high-ranking member of the group, marking a continued Israeli campaign against Hezbollah leadership amid the broader Iran conflict. Source &rarr;"
+            },
+            {
+              "headline": "Trump Says US Will Exit Iran Operations Soon",
+              "text": "President Trump declared the US will conclude its military operations against Iran \"very soon,\" with or without a deal, stating \"We're finishing the job.\" The remarks underscore a growing divergence with Israeli Prime Minister Netanyahu, who is pushing for regime change in Tehran while Trump has framed the campaign narrowly around preventing Iran from developing nuclear weapons and securing commercial interests. Source &rarr;"
+            },
+            {
+              "headline": "Cambodia Extradites Huione Group Chair to China",
+              "text": "Cambodia extradited the former chairperson of Huione Group to China on charges of large-scale fraud and money laundering. The suspect is linked to crime leader Chen Zhi and connected to a sprawling network of online scam centers. Huione Group has been identified by investigators as a key node in Southeast Asia's cyber fraud ecosystem. Source &rarr;"
+            },
+            {
+              "headline": "French Far-Right Mayors Remove EU Flags",
+              "text": "Newly elected mayors from Marine Le Pen's party have begun removing EU flags from town halls across France, igniting a sovereignty debate. The move divided even nationalist ranks, with some allies questioning whether the symbolic gesture undermines France's diplomatic standing. The controversy reflects deepening tensions over European identity within France's political right. Source &rarr;"
+            },
+            {
+              "headline": "Macron, Japan Discuss Reciprocal Military Access Pact",
+              "text": "French President Macron's visit to Japan prompted defense experts to call for a formal reciprocal military access agreement between the two nations. The discussions, building on meetings held Tuesday, aim to deepen Franco-Japanese security cooperation amid rising threats in the Indo-Pacific. A pact would allow each country's forces to operate more freely on the other's territory. Source &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "Featured Newsletters",
+          "items": [
+            {
+              "headline": "The Rundown AI",
+              "text": "Rundown University launches live training: AI Growth Systems for Non-Technical Operators Pietro Montaldo to lead 3-session cohort starting April 15 on building autonomous AI agents Course covers competitor intelligence trackers and Reddit opportunity finders deployable without engineering teams The Rundown AI is promoting a new live training series inside Rundown University, led by instructor Pietro Montaldo, who has coached over 50 business operators across industries including real estate, universities, and wholesale. The three-session course, running Wednesdays at 2:00 PM ET on April 15, 22, and 29, teaches non-technical operators to build autonomous AI agents: a competitor organic GTM tracker that monitors competitor publishing activity and surfaces actionable signals, and a Reddit opportunity finder that identifies high-intent posts and drafts publishable responses. The course also covers logging and monitoring practices to keep agents functional over time. Sessions are accessible via a 14-day free trial, though only Pro members receive session recordings after the cohort ends. Pietro Montaldo's approach emphasizes zero jargon, no engineering team required, and same-day deployment of AI agents. The course targets growth teams frustrated with AI tools that function as 'glorified search engines' rather than operational systems. \"Most AI tools for growth teams are glorified search engines. You paste in a competitor's name. It summarizes their website. You close the tab and go back to what you were doing before. That's not a growth system. That's a demo.\""
+            },
+            {
+              "headline": "The Rundown AI",
+              "text": "California startup R3 Bio emerges from stealth with plan to grow brainless human clones as organ sources Space solar startup Aetherflux eyes $2B valuation Meta tests new paid tier for Instagram R3 Bio, a California biotech startup founded by John Schloendorn, has emerged from stealth pitching a radical longevity concept: growing nonsentient, headless human clones to serve as personalized organ and tissue replacements, or even as vessels for brain transplants. The company has raised funding initially targeting nonsentient monkey 'organ sacks' as an alternative to animal testing, but its longer-term vision extends to human clones. Bioethicists have pushed back sharply on the concept, though the startup has attracted longevity and tech investors, according to MIT Technology Review. Space solar startup Aetherflux is reportedly eyeing a $2 billion valuation Meta is testing a new paid subscription tier for Instagram Uber is acquiring luxury car service Blacklane to expand into the high-end rider market"
+            },
+            {
+              "headline": "TLDR",
+              "text": "Codex Plugin for Claude Code lets users integrate Codex reviews directly into their Claude Code workflow via the local Codex CLI and app server Qwen3.5-Omni launches as a full omnimodal LLM processing text, images, audio, and audio-visual content, supporting speech recognition in 113 languages and trained on over 100 million hours of audio-visual data Microsoft 365 Copilot adds Critique and Council modes: Critique uses a dual-model system that outperforms single-model solutions by 13.88% on the DRACO benchmark, while Council runs parallel reports from Anthropic and OpenAI models A proposed \"Mirror Test\" for LLMs evaluates self-awareness by challenging models to identify their own outputs without explicit cues. Early testing shows Anthropic's Opus 4.6 model demonstrates notable self-recognition capabilities, raising questions about the boundaries of LLM introspection. SonarSource report highlights that 96% of developers distrust AI-generated code output, with 61% reporting AI builds code that looks correct but is not reliable Teams are shifting from manual code review to automated, deterministic guardrails to handle the verification bottleneck created by AI-generated code Qwen3.5-Omni can process more than 10 hours of audio input and over 400 seconds of 720P audio-visual input at 1 FPS \"96% of devs distrust AI output; 61% report AI builds code that looks correct but isn't reliable.\""
+            },
+            {
+              "headline": "Superhuman",
+              "text": "Enrich Labs launches Helena, an autonomous AI agent that generates and executes marketing strategies from a single URL Microsoft releases Copilot Cowork and Critique, a multi-model deep research tool, via its Frontier Program Claude Code gains computer use capability, allowing it to test websites and applications it helps build Helena, from startup Enrich Labs, has gone viral with over 3 million views on its launch post. The agent takes a company URL, researches its positioning and competitors, then generates and posts marketing assets autonomously. Enrich Labs also offers companion agents for SEO/GEO, social listening, and email marketing. Meanwhile, Anthropic's Claude Code now has direct computer access on Mac for Pro and Max users, enabling it to autonomously test, debug, and optimize the websites and applications it designs. Microsoft's Copilot Cowork, an in-house counterpart to Claude Cowork, is now available through the Frontier Program for multi-step workflow automation Microsoft also unveiled Critique, a deep research tool that queries multiple AI models simultaneously for sharper results, announced by CEO Satya Nadella Claude Code's new computer use feature lets the coding agent identify and fix mistakes by testing its own work directly on a user's Mac"
+            },
+            {
+              "headline": "TLDR",
+              "text": "Critical Atlassian Jira XSS flaw enables full organization takeover via stored cross-site scripting Researchers demonstrate AI data exfiltration through DNS queries, bypassing traditional monitoring Cloud immaturity is blocking enterprise AI: only 14% of organizations have reached advanced cloud readiness A Swiss IT Head gave Claude AI SSH access to production infrastructure, where the agent audited Cisco and Palo Alto hardware, identified over 100 network findings in a single day, and automated Git-based documentation. Separately, analysis shows that most enterprises lack the cloud maturity needed to scale AI, with only roughly 14% at advanced levels, making infrastructure readiness, not model selection, the true bottleneck. A third piece argues that real delivery risk hides in structural signals like queue buildup, rework, and hidden capacity borrowing rather than in dashboards and status reports. WorkOS FGA positions authorization, not authentication, as the key barrier to enterprise AI agent deployment, offering resource-level permissions to scope agent access Coro launched MCP capabilities aimed at simplifying security operations (details truncated in source) Online advertising outside Google and Meta is shifting from impression-based buying to measurable outcome-driven models \"Every AI agent demo looks magical, but most hit a wall in enterprise deployment. It's not model quality or latency. It's authorization.\""
+            },
+            {
+              "headline": "TLDR",
+              "text": "Adobe Illustrator now lets you rotate 2D vectors in 3D space with Turntable feature Vibe-coding startup Lovable, valued at $6.6 billion, is actively hunting for acquisitions Pinterest launches 'Promote a Pin' feature to let users boost reach without complex ad campaigns Adobe Turntable, first previewed as Project Turntable at Adobe MAX 2024, is now fully available in Illustrator, generating up to 74 editable multi-angle views from a single vector illustration while preserving its 2D style. Lovable, an AI-powered app-building platform, has grown to $400 million in annual recurring revenue with over 200,000 new projects created daily, and is now seeking acquisition targets with founder-led teams despite fierce competition from Cursor, Replit, Bolt, OpenAI, and Anthropic. Pinterest's new Promote a Pin feature leverages its Taste Graph system to target likely converters among 619 million active users, arriving as the company navigates layoffs of 15% of staff in January and a $1 billion investment from activist investor Elliott. Adobe Turntable reduces character turnaround and concept art work from hours to seconds for animators and game designers Pinterest's Promote a Pin is rolling out to US users first, designed to simplify advertising without full campaign setup The newsletter highlights a growing business literacy gap in design leadership as a key industry challenge"
+            }
+          ]
+        },
+        {
+          "title": "Competitive Landscape",
+          "items": [
+            {
+              "headline": "OpenAI",
+              "text": "On March 31, OpenAI announced a $122 billion fundraise to accelerate its next phase of development, dwarfing previous rounds and signaling the company's intent to outspend rivals on compute and talent. Separately, the company is rolling out advertising in ChatGPT's free tier, opening a major new revenue stream beyond subscriptions and API fees. OpenAI also invested in a brain-computer interface startup, extending its reach beyond pure language models into neural hardware."
+            }
+          ]
+        },
+        {
+          "title": "AI Tool Guide",
+          "items": [
+            {
+              "headline": "Zapier Agents: Build No-Code AI Workflows That Act on Your Behalf",
+              "text": "Zapier's 2026 agent builder lets you create autonomous multi-step workflows that monitor triggers, make decisions, and execute actions across 7,000+ app integrations without writing code. Start by defining a goal in plain English, then assign the agent data sources and permitted actions. Use guardrails like approval checkpoints to keep the agent from taking irreversible steps until you trust its judgment. Try it &rarr;"
+            },
+            {
+              "headline": "Lovable: Turn Natural Language Prompts Into Deployable Web Apps",
+              "text": "Lovable is a vibe-coding tool that generates full-stack web applications from conversational prompts, handling frontend, backend, and database scaffolding in one pass. Describe your app's purpose, user flow, and data model in a few sentences, then iterate by chatting with the tool to refine components. It is especially useful for rapid prototyping: spin up an internal dashboard or landing page in under 30 minutes, then export clean code for production refinement. Try it &rarr;"
+            },
+            {
+              "headline": "Botpress: Design Stateful AI Agents With Visual Conversation Flows",
+              "text": "Botpress offers a visual drag-and-drop builder for creating AI agents that maintain state across multi-turn conversations, making it well suited for customer support, onboarding, and internal ops bots. Connect it to your knowledge base, define branching logic, and deploy to web, Slack, or WhatsApp in a single step. Its built-in analytics dashboard tracks resolution rates and drop-off points so you can tighten flows weekly. Try it &rarr;"
+            },
+            {
+              "headline": "Notion AI: Use Structured Databases to Supercharge AI Summarization",
+              "text": "Notion AI's 2026 edition can now query across linked databases, meaning you can ask it to summarize project status, surface blockers, or draft weekly updates by pulling from multiple tables at once. The key technique is structuring your workspace with consistent properties (status, owner, due date) so the AI has clean data to reason over. Try the prompt 'Summarize all tasks marked blocked this week and suggest next steps' to generate an instant standup brief. Try it &rarr;"
+            },
+            {
+              "headline": "Audit Your AI Tool Stack Quarterly to Cut Redundancy",
+              "text": "With AI tool adoption surging in 2026, many teams now run overlapping subscriptions for writing, coding, and workflow automation. Block 90 minutes this quarter to list every AI tool your team pays for, map each to a specific workflow, and flag any two tools serving the same function. Industry data shows the average knowledge worker uses 4.2 AI tools; trimming to 2 or 3 focused ones typically improves output quality and reduces context-switching costs. Try it &rarr;"
+            },
+            {
+              "headline": "Run Local AI Models on Apple Silicon With Optimized Quantization",
+              "text": "If you want to keep sensitive data off cloud APIs, Apple's M3 and M4 chips can run quantized open-weight models (like Qwen3.5 or Mistral Small 4) locally with surprisingly usable latency. Use a tool like Ollama or LM Studio to download 4-bit quantized versions, which fit in 8 to 16 GB of unified memory. This setup is ideal for code completion, document Q&A, and brainstorming where privacy matters more than peak benchmark performance."
+            }
+          ]
+        },
+        {
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,528.52 (+2.91%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "21,590.63 (+3.83%)"
+            },
+            {
+              "headline": "Bitcoin",
+              "text": "$68,645.66 (+0.64%)"
+            },
+            {
+              "headline": "Ethereum",
+              "text": "$2,136.83 (+1.57%)"
+            },
+            {
+              "headline": "Oil Brent",
+              "text": "$103.27 (-1.85%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "8 (Extreme Fear)"
+            }
+          ]
+        }
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-04-01.html"
+    },
     {
       "date": "2026-03-31",
       "sections": [
@@ -2426,6 +2641,114 @@
       ],
       "type": "digest",
       "file": "morning-briefing-koda-2026-03-21.html"
+    },
+    {
+      "date": "2026-04-01",
+      "type": "editorial",
+      "file": "editorial/2026-04-01-the-ai-model-release-tsunami-of-q1-2026-is-creating-a-parado.html",
+      "title": "The AI model release tsunami of Q1 2026 is creating a paradox of choice that par",
+      "tag": "Strategy",
+      "sections": [
+        {
+          "title": "Introduction",
+          "items": [
+            {
+              "headline": "The AI model release tsunami of Q1 2026 is creating a paradox of choice that par",
+              "text": "Eight major frontier models shipped in under 60 days during Q1 2026. Parameter counts ranged from 500 billion to 1.04 trillion. Each one claimed benchmark leadership. Prediction markets now assign 64 to 67 percent probability to four more major drops in April alone. Meanwhile, 78 percent of companies globally use AI in at least one business function. Only 15 percent of AI decision-makers reported an EBITDA lift in the past 12 months. Enterprises are delaying 25 percent of AI spend into 2027 as R"
+            }
+          ]
+        },
+        {
+          "title": "The Selection Tax",
+          "items": [
+            {
+              "headline": "The Selection Tax",
+              "text": "Here is the framework. Every week an enterprise delays a model decision because a newer release might be better, that delay compounds. Lost integration time. Stalled pilots. Deferred revenue from automation. I call this the Selection Tax: the invisible cost organizations pay when optionality becomes paralysis. The Selection Tax has three components. First, evaluation drag: the engineering hours spent benchmarking each new release against your specific use case. Second, commitment fear: the organ"
+            }
+          ]
+        },
+        {
+          "title": "The Convergence Paradox and Why Selection Still Matters",
+          "items": [
+            {
+              "headline": "The Convergence Paradox and Why Selection Still Matters",
+              "text": "Let me offer a contrarian frame. Leaders sit only a few months ahead of runners-up. Capabilities equalize. Models become commodities. If that is true, why does selection matter at all? Because convergence at the benchmark level masks divergence at the implementation level. Consider shoshin, the Zen concept of beginner's mind. When you approach model selection with fresh eyes, you notice that Claude Opus 4.6, GPT-5.3 Codex, Gemini 3.1 Pro, and Grok 4.20 are not interchangeable. They differ in inf"
+            }
+          ]
+        },
+        {
+          "title": "2031",
+          "items": [
+            {
+              "headline": "2031",
+              "text": "Zoom out five years. Three structural shifts are compounding. First, model release cadence will not slow down. It will accelerate. The 267 models tracked in March 2026 will look quaint by 2028. Open-source Chinese labs, European sovereign AI initiatives, and decentralized training networks will add supply. The Selection Tax will grow for organizations that have not systematized their evaluation process. Second, agentic AI changes the stakes. When a model is answering customer service tickets, th"
+            }
+          ]
+        },
+        {
+          "title": "What to Build This Weekend",
+          "items": [
+            {
+              "headline": "What to Build This Weekend",
+              "text": "You do not need a 50-person AI team to start reducing your Selection Tax. You need a system. Here is what to build in the next 48 hours. Step one: open Notion AI and create a linked database called \"Model Evaluation Tracker.\" Add fields for model name, release date, parameter count, inference cost per 1,000 tokens, primary use case, and a simple red/yellow/green status. Use Notion AI's cross-database query feature to summarize which models fit which internal workflows. This is your selection das"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-31",
+      "type": "editorial",
+      "file": "editorial/2026-03-31-the-philippine-pesos-seventh-record-low-in-march-reveals-how.html",
+      "title": "The Philippine Peso's seventh record low in March reveals how emerging-market cu",
+      "tag": "Markets",
+      "sections": [
+        {
+          "title": "Introduction",
+          "items": [
+            {
+              "headline": "The Philippine Peso's seventh record low in March reveals how emerging-market cu",
+              "text": "That was its seventh record low in a single month. Not its seventh bad day. Its seventh worst day in history, packed into 31 calendar days. If you are building a product with a distributed team in Southeast Asia, this is not a currency story. It is a cost structure story. And most builders are not paying attention until the invoice lands. Southeast Asia hosts a massive share of the world's outsourced engineering talent. Cloud infrastructure spend across the region runs in USD. Contractor invoice"
+            }
+          ]
+        },
+        {
+          "title": "The FX Drag Coefficient",
+          "items": [
+            {
+              "headline": "The FX Drag Coefficient",
+              "text": "I am calling this the FX Drag Coefficient. Every distributed team has one. Most founders just never calculate it. The concept is simple. If your revenue comes in dollars but your costs touch a weakening local currency, you feel good. Your burn looks cheaper. But if your costs are priced in dollars (cloud hosting, SaaS tools, API calls) and your team invoices in local currency that is falling, the picture inverts. Your team's purchasing power drops. They ask for raises. Your vendor contracts, den"
+            }
+          ]
+        },
+        {
+          "title": "The Peso as a Leading Indicator for Regional Fragility",
+          "items": [
+            {
+              "headline": "The Peso as a Leading Indicator for Regional Fragility",
+              "text": "Here is where the strategic picture gets uncomfortable. The peso's collapse is not an isolated Philippine problem. It is a signal about the entire emerging-market currency stack in Southeast Asia. Start with the mechanism. Middle East conflict drives oil prices higher. The Philippines imports over 90% of its crude. Higher oil means higher diesel. A March 30 report flagged another double-digit diesel price hike that same week. Diesel moves everything: logistics, construction materials, generator "
+            }
+          ]
+        },
+        {
+          "title": "2031",
+          "items": [
+            {
+              "headline": "2031",
+              "text": "Five years from now, the builders who survive will be the ones who treated FX exposure as a first-class operational variable, not a finance team problem. The asymmetric bet looks like this. If you hedge your currency exposure and the peso stabilizes, you lose a small premium, maybe 3-5% on forward contracts. If you do not hedge and the peso hits 65, you lose a team member, a quarter of runway, or a pricing model. The downside of inaction is 10x the cost of action. That is textbook asymmetric ris"
+            }
+          ]
+        },
+        {
+          "title": "What to Build This Weekend",
+          "items": [
+            {
+              "headline": "What to Build This Weekend",
+              "text": "You do not need a finance degree to protect your startup from currency risk. You need a spreadsheet and 90 minutes. Step one. Open a new sheet. List every recurring cost that touches a non-USD currency. Contractor salaries, co-working space rent, local SaaS tools billed in pesos or baht. This is your exposure surface. Most founders have never seen it in one place. Step two. Use Manus Agent to research the 6-month forward rate for PHP/USD, THB/USD, and VND/USD. Manus can browse financial data sit"
+            }
+          ]
+        }
+      ]
     },
     {
       "date": "2026-03-31",

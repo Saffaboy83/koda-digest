@@ -1,6 +1,35 @@
 {
-  "generated": "2026-03-31T11:47:16Z",
+  "generated": "2026-04-01T10:49:31Z",
   "digests": [
+    {
+      "date": "2026-04-01",
+      "dayOfWeek": "Wednesday",
+      "focusTopics": [
+        {
+          "title": "Open-Weight Models Go Agentic",
+          "desc": "This week's top open-weight releases are converging on agent and tool-use readiness as the key differentiator, not just raw benchmark scores. Moonshot AI's Chatbot Arena victory and the broader shift toward function-calling architectures suggest the open-source ecosystem is building for deployment, not just research. The competitive pressure on closed-source providers like OpenAI and Anthropic is now structural."
+        },
+        {
+          "title": "Iran Widens the War",
+          "desc": "Tehran's decision to strike UAE and Kuwait marks a deliberate expansion of its target list, pulling Gulf states that had sought neutrality into the conflict. Combined with Israeli strikes killing seven in Beirut and Khalde, the region faces its broadest multi-front escalation in decades. Trump's statement that the US will exit Iran operations soon adds a layer of strategic ambiguity that is rattling allies and markets alike."
+        },
+        {
+          "title": "Benchmark Race Intensifies",
+          "desc": "Gemini 3.1 Pro's 77% score on ARC-AGI-2 and Claude Sonnet 4.6 matching Opus at lower cost reflect a new phase where labs compete on efficiency as much as capability. Prediction markets tracking four April model drops indicate the industry expects another wave of leapfrogging within weeks. The practical question is shifting from 'which model is smartest' to 'which model delivers the most intelligence per dollar.'"
+        }
+      ],
+      "kpis": {
+        "aiStories": "8",
+        "worldEvents": "6",
+        "marketMood": "Extreme Fear",
+        "toolsFeatured": "6"
+      },
+      "hasPodcast": true,
+      "hasInfographic": true,
+      "hasVideo": true,
+      "youtubeId": "AFfI8TOWZsQ",
+      "file": "morning-briefing-koda-2026-04-01.html"
+    },
     {
       "date": "2026-03-31",
       "dayOfWeek": "Tuesday",
@@ -322,6 +351,18 @@
     }
   ],
   "editorials": [
+    {
+      "date": "2026-04-01",
+      "title": "The AI model release tsunami of Q1 2026 is creating a paradox of choice that par",
+      "tag": "Strategy",
+      "file": "editorial/2026-04-01-the-ai-model-release-tsunami-of-q1-2026-is-creating-a-parado.html"
+    },
+    {
+      "date": "2026-03-31",
+      "title": "The Philippine Peso's seventh record low in March reveals how emerging-market cu",
+      "tag": "Markets",
+      "file": "editorial/2026-03-31-the-philippine-pesos-seventh-record-low-in-march-reveals-how.html"
+    },
     {
       "date": "2026-03-31",
       "title": "The ARC-AGI-3 benchmark reveals frontier AI scores below 1% against human perfec",
