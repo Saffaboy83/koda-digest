@@ -216,7 +216,7 @@ def research_topic(topic: dict) -> dict:
 
     # Primary research
     primary = _perplexity_call(
-        f"Detailed analysis of: {topic_text}. Include specific numbers, dates, company names, and market data. March 2026."
+        f"Detailed analysis of: {topic_text}. Include specific numbers, dates, company names, and market data. {datetime.now().strftime('%B %Y')}."
     )
     if primary:
         research["primary"] = primary
@@ -232,7 +232,7 @@ def research_topic(topic: dict) -> dict:
 
     # Additional data points
     data = _perplexity_call(
-        f"Key statistics, benchmark numbers, market sizes, and adoption rates related to: {topic_text}. March 2026."
+        f"Key statistics, benchmark numbers, market sizes, and adoption rates related to: {topic_text}. {datetime.now().strftime('%B %Y')}."
     )
     if data:
         research["data"] = data
@@ -356,7 +356,7 @@ def fact_check_article(article: str) -> tuple[str, list[dict]]:
             continue
 
         result = _perplexity_call(
-            f'Fact-check this claim from a March 2026 AI article: "{claim}". '
+            f'Fact-check this claim from a {datetime.now().strftime("%B %Y")} AI article: "{claim}". '
             f"Is it accurate? If wrong, state the correct value. Reply in 2 sentences max."
         )
         if not result:
@@ -420,6 +420,53 @@ _TAG_SUBJECTS: dict[str, str] = {
 }
 
 
+def _generate_hero_prompt(article_text: str, topic: dict) -> str | None:
+    """Use Opus to generate a content-aware image prompt from the drafted article."""
+    tag = (topic.get("tag", "") or "").lower()
+    topic_stmt = (topic.get("topic", "") or "")[:200]
+
+    # Extract first paragraph for additional grounding
+    first_para = ""
+    paragraphs = [p.strip() for p in article_text.split("\n\n") if p.strip() and not p.strip().startswith("#")]
+    if paragraphs:
+        first_para = paragraphs[0][:500]
+
+    prompt = f"""You are an art director for Koda, a premium AI intelligence publication.
+Read this editorial article and generate a single image prompt for a hero image.
+
+ARTICLE TITLE: {topic_stmt}
+ARTICLE TAG: {tag}
+FIRST PARAGRAPH: {first_para}
+
+ARTICLE TEXT:
+{article_text[:3000]}
+
+REQUIREMENTS:
+1. FIRST: identify the ONE most concrete visual subject in this article (a specific technology, device, phenomenon, or metaphorical object)
+2. The image MUST depict that specific subject -- not a generic "tech" or "AI" visual
+3. Examples: If the article is about aircraft, show aircraft. If about semiconductor chips, show chip structures. If about a company's new product, show something representing THAT product specifically.
+4. Dark moody atmosphere with deep shadows and volumetric lighting
+5. Color palette: deep navy, electric blue, violet purple, subtle cyan accents
+6. Cinematic composition, photorealistic 3D render
+7. ABSOLUTELY NO text, words, labels, numbers, letters, or typography
+8. NO people, faces, bodies, or hands
+9. NO political figures or identifiable persons
+
+SELF-CHECK: Before outputting, verify your prompt references a SPECIFIC visual element from the article, not just "glowing nodes" or "abstract data streams."
+
+Output ONLY the image prompt (150-200 words). No preamble, no explanation."""
+
+    result = _llm_call(prompt, max_tokens=500, temperature=0.5)
+    if result:
+        # Strip any markdown fencing
+        cleaned = re.sub(r'^```\w*\s*', '', result.strip())
+        cleaned = re.sub(r'\s*```$', '', cleaned).strip()
+        print(f"  LLM hero prompt ({len(cleaned)} chars): {cleaned[:200]}...")
+        return cleaned
+    print("  WARNING: LLM hero prompt generation failed")
+    return None
+
+
 def _generate_hero_via_openrouter(image_prompt: str, hero_path: Path) -> bool:
     """Fallback: generate hero image via OpenRouter (DALL-E 3). Returns True on success."""
     if not OPENROUTER_API_KEY:
@@ -455,7 +502,7 @@ def _generate_hero_via_openrouter(image_prompt: str, hero_path: Path) -> bool:
         return False
 
 
-def generate_editorial_hero(topic: dict, date: str) -> str | None:
+def generate_editorial_hero(topic: dict, date: str, article_text: str | None = None) -> str | None:
     """Generate a hero image for the editorial. Primary: Leonardo.ai. Fallback: DALL-E via OpenRouter."""
     import time
 
@@ -470,30 +517,53 @@ def generate_editorial_hero(topic: dict, date: str) -> str | None:
     if hero_path.exists():
         print(f"  Hero image already exists: {hero_filename}")
     else:
-        tag = (topic.get("tag", "") or "").lower()
-        subject = _TAG_SUBJECTS.get(tag)
+        # Primary: LLM-generated content-aware prompt from the article
+        image_prompt = None
+        if article_text:
+            image_prompt = _generate_hero_prompt(article_text, topic)
+            # Validate: check if prompt references something specific from the article
+            if image_prompt:
+                topic_words = set((topic.get("topic", "") or "").lower().split())
+                topic_words -= {"the", "of", "and", "a", "an", "in", "to", "for", "is", "on",
+                                "at", "by", "with", "how", "why", "what", "this", "that", "its"}
+                prompt_lower = image_prompt.lower()
+                matches = sum(1 for w in topic_words if len(w) > 3 and re.search(rf'\b{re.escape(w)}\b', prompt_lower))
+                if matches < 2:
+                    print(f"  WARNING: Hero prompt may not match article (only {matches} topic words found) -- regenerating")
+                    retry_prompt = _generate_hero_prompt(article_text, topic)
+                    if retry_prompt:
+                        image_prompt = retry_prompt
 
-        # Fall back to keyword scan of the topic text
-        if not subject:
-            topic_text = (topic.get("topic", "") or "").lower()
-            for key, subj in _TAG_SUBJECTS.items():
-                if key in topic_text:
-                    subject = subj
-                    break
-        if not subject:
-            subject = _TAG_SUBJECTS["ai"]
+        # Fallback: tag-based prompt, but still article-aware
+        if not image_prompt:
+            print("  Falling back to tag-based hero prompt (LLM prompt failed)")
+            tag = (topic.get("tag", "") or "").lower()
+            subject = _TAG_SUBJECTS.get(tag)
 
-        # Build a context-aware visual from the actual topic, not just the tag
-        topic_text = (topic.get("topic", "") or "")[:120]
-        image_prompt = (
-            f"Cinematic digital art inspired by: {topic_text}. "
-            f"Visual approach: {subject}. "
-            f"Dark moody atmosphere, deep shadows, volumetric lighting, rich contrast. "
-            f"Color palette: deep navy, electric blue, violet purple, subtle cyan accents. "
-            f"Wide composition, no people, no faces, no bodies, no hands. "
-            f"Absolutely NO text, NO words, NO labels, NO numbers, NO letters, NO typography anywhere. "
-            f"Clean abstract visual only. Photorealistic 3D render, dramatic cinematic lighting."
-        )
+            if not subject:
+                topic_lower = (topic.get("topic", "") or "").lower()
+                for key, subj in _TAG_SUBJECTS.items():
+                    if key in topic_lower:
+                        subject = subj
+                        break
+            if not subject:
+                subject = _TAG_SUBJECTS["ai"]
+
+            topic_text = (topic.get("topic", "") or "")[:120]
+            # Include article context even in fallback for better relevance
+            article_hint = ""
+            if article_text:
+                article_hint = f" The article discusses: {article_text[:200].strip()}."
+
+            image_prompt = (
+                f"Cinematic digital art inspired by: {topic_text}.{article_hint} "
+                f"Visual approach: {subject}. "
+                f"Dark moody atmosphere, deep shadows, volumetric lighting, rich contrast. "
+                f"Color palette: deep navy, electric blue, violet purple, subtle cyan accents. "
+                f"Wide composition, no people, no faces, no bodies, no hands. "
+                f"Absolutely NO text, NO words, NO labels, NO numbers, NO letters, NO typography anywhere. "
+                f"Clean abstract visual only. Photorealistic 3D render, dramatic cinematic lighting."
+            )
 
         print(f"  Generating editorial hero via Leonardo.ai...")
 
@@ -905,7 +975,7 @@ def _excerpt(article_text: str, max_chars: int = 150) -> str:
 def _format_date_display(date_str: str) -> str:
     """Format YYYY-MM-DD as '29 March 2026'."""
     dt = datetime.strptime(date_str, "%Y-%m-%d")
-    return dt.strftime("%-d %B %Y") if hasattr(dt, 'strftime') else dt.strftime("%d %B %Y").lstrip("0")
+    return f"{dt.day} {dt.strftime('%B %Y')}"
 
 
 def _update_editorial_archive(
@@ -1061,7 +1131,7 @@ def main() -> None:
 
     # Step 05E: Hero image
     print("\n  Step 05E: Generating hero image...")
-    hero_url = generate_editorial_hero(topic, args.date)
+    hero_url = generate_editorial_hero(topic, args.date, article_text=article)
     if hero_url:
         print(f"  Hero URL: {hero_url}")
     else:

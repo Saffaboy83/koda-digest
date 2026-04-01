@@ -144,6 +144,11 @@ def main():
         "--output-json",
         help="Write result JSON to this path (for automation)",
     )
+    parser.add_argument(
+        "--date",
+        default=None,
+        help="Date stamp (YYYY-MM-DD) to include in result JSON for freshness validation",
+    )
     args = parser.parse_args()
 
     youtube = get_authenticated_service()
@@ -161,6 +166,8 @@ def main():
         "url": f"https://www.youtube.com/watch?v={video_id}",
         "embed_url": f"https://www.youtube.com/embed/{video_id}",
     }
+    if args.date:
+        result["date"] = args.date
 
     if args.output_json:
         with open(args.output_json, "w") as f:

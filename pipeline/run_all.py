@@ -98,6 +98,15 @@ def main():
     print(f"Date: {args.date}")
     print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
+    # Warn about missing critical env vars
+    _critical_vars = {
+        "PERPLEXITY_API_KEY": "step 01 (news gathering)",
+        "OPENROUTER_API_KEY": "steps 03/04E (LLM synthesis & editorial)",
+    }
+    for var, usage in _critical_vars.items():
+        if not os.environ.get(var):
+            print(f"  WARNING: {var} not set -- {usage} will fail")
+
     # Determine which steps to run
     skip_steps = set()
     if args.skip_media:

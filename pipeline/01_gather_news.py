@@ -12,6 +12,7 @@ import argparse
 import json
 import sys
 import os
+import time
 import httpx
 from datetime import datetime
 
@@ -25,8 +26,8 @@ PERPLEXITY_URL = "https://api.perplexity.ai/chat/completions"
 SONAR_MODEL = "sonar"
 
 
-def perplexity_search(query, system_prompt="Be precise and concise."):
-    """Search via Perplexity Sonar API. Returns text response."""
+def perplexity_search(query: str, system_prompt: str = "Be precise and concise.", max_retries: int = 2) -> dict | None:
+    """Search via Perplexity Sonar API. Returns text response. Retries on transient failures."""
     if not PERPLEXITY_API_KEY:
         return None
 
@@ -45,16 +46,30 @@ def perplexity_search(query, system_prompt="Be precise and concise."):
         "return_citations": True,
     }
 
-    try:
-        resp = httpx.post(PERPLEXITY_URL, json=payload, headers=headers, timeout=30)
-        resp.raise_for_status()
-        data = resp.json()
-        content = data["choices"][0]["message"]["content"]
-        citations = data.get("citations", [])
-        return {"content": content, "citations": citations}
-    except Exception as e:
-        print(f"  Perplexity error: {e}")
-        return None
+    for attempt in range(max_retries + 1):
+        try:
+            resp = httpx.post(PERPLEXITY_URL, json=payload, headers=headers, timeout=30)
+            resp.raise_for_status()
+            data = resp.json()
+            content = data["choices"][0]["message"]["content"]
+            citations = data.get("citations", [])
+            if not content.strip():
+                print(f"    Empty response (attempt {attempt + 1}/{max_retries + 1})")
+                if attempt < max_retries:
+                    time.sleep(2 ** attempt)
+                    continue
+                return None
+            return {"content": content, "citations": citations}
+        except (httpx.TimeoutException, httpx.HTTPStatusError) as e:
+            print(f"    Perplexity error (attempt {attempt + 1}/{max_retries + 1}): {e}")
+            if attempt < max_retries:
+                time.sleep(2 ** attempt)
+            else:
+                return None
+        except Exception as e:
+            print(f"    Perplexity unexpected error: {e}")
+            return None
+    return None
 
 
 # ── Query Definitions ────────────────────────────────────────────────────────
@@ -207,6 +222,16 @@ def main():
         else:
             results[key] = {"content": "", "citations": []}
             print(f"    FAILED — empty result")
+
+    # Check if we have enough data for a useful digest
+    successful = sum(1 for r in results.values() if r.get("content"))
+    if successful == 0:
+        print("  FATAL: All 5 queries returned empty -- no data to work with")
+        sys.exit(1)
+    elif successful < 3:
+        print(f"  WARNING: Only {successful}/5 queries returned data -- digest quality may be reduced")
+    else:
+        print(f"  {successful}/5 queries returned data")
 
     # Fetch live market data (replaces unreliable search-based market quotes)
     print(f"  Fetching live market data...")

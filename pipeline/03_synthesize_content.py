@@ -12,6 +12,7 @@ import argparse
 import json
 import sys
 import os
+import time
 import httpx
 from datetime import datetime
 
@@ -24,8 +25,8 @@ OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 LLM_MODEL = "anthropic/claude-opus-4-6"
 
 
-def llm_call(prompt, system="", model=LLM_MODEL, max_tokens=4000):
-    """Call OpenRouter API and return the text response."""
+def llm_call(prompt: str, system: str = "", model: str = LLM_MODEL, max_tokens: int = 4000, max_retries: int = 2) -> str | None:
+    """Call OpenRouter API and return the text response. Retries on transient failures."""
     if not OPENROUTER_API_KEY:
         return None
 
@@ -45,9 +46,20 @@ def llm_call(prompt, system="", model=LLM_MODEL, max_tokens=4000):
         "temperature": 0.3,
     }
 
-    resp = httpx.post(OPENROUTER_URL, json=payload, headers=headers, timeout=60)
-    resp.raise_for_status()
-    return resp.json()["choices"][0]["message"]["content"]
+    for attempt in range(max_retries + 1):
+        try:
+            resp = httpx.post(OPENROUTER_URL, json=payload, headers=headers, timeout=90)
+            resp.raise_for_status()
+            return resp.json()["choices"][0]["message"]["content"]
+        except (httpx.TimeoutException, httpx.HTTPStatusError) as e:
+            print(f"    LLM call error (attempt {attempt + 1}/{max_retries + 1}): {e}")
+            if attempt < max_retries:
+                time.sleep(2 ** attempt)
+            else:
+                raise
+        except Exception:
+            raise
+    return None
 
 
 def llm_json(prompt, system="", model=LLM_MODEL, max_tokens=4000):

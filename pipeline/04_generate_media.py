@@ -661,6 +661,7 @@ def upload_to_youtube(date, digest, media):
         "--description", description,
         "--privacy", "public",
         "--output-json", str(DIGEST_DIR / "youtube-result.json"),
+        "--date", date,
     ]
 
     try:
@@ -672,7 +673,7 @@ def upload_to_youtube(date, digest, media):
             if yt_result_path.exists():
                 with open(yt_result_path, "r") as f:
                     yt_data = json.load(f)
-                yt_data["date"] = args.date  # stamp so step 05 can validate freshness
+                yt_data["date"] = date  # stamp so step 05 can validate freshness
                 with open(yt_result_path, "w") as f:
                     json.dump(yt_data, f)
                 print(f"    Video ID: {yt_data.get('video_id', 'unknown')}")
