@@ -492,10 +492,14 @@
     
     <section class="section grid grid-cols-1 sm:grid-cols-2 gap-4">
         
-        <div class="p-5 bg-gradient-to-br from-[#0f1629] to-[#162040] border border-white/[0.06] rounded-xl text-center flex flex-col items-center gap-1.5 opacity-50">
-            <span class="material-symbols-outlined text-[#8c909f] text-2xl">headphones</span>
+        <div class="p-5 bg-gradient-to-br from-[#0f1629] to-[#162040] border border-[#6366F1]/20 rounded-xl text-center flex flex-col items-center gap-1.5">
+            <span class="material-symbols-outlined text-[#6366F1] text-2xl">headphones</span>
             <div class="text-sm font-bold">Daily Podcast</div>
-            <div class="text-[11px] text-white/40">Not available today</div>
+            <div class="text-[11px] text-white/40 mb-2">AI-generated deep-dive briefing</div>
+            <button class="podcast-btn media-btn" onclick="togglePodcast()" aria-expanded="false" aria-controls="podcastPlayer">&#9654; Listen Now</button>
+            <div class="podcast-player-wrap w-full md:max-w-[300px] mt-3" id="podcastPlayer">
+                <audio controls style="width:100%" preload="none" aria-label="Daily podcast"><source src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/podcast-2026-04-02.mp3" type="audio/mpeg"></audio>
+            </div>
         </div>
         
 

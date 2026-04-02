@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-02T10:45:07Z",
+  "generated": "2026-04-02T11:35:42Z",
   "digests": [
     {
       "date": "2026-04-02",
@@ -24,7 +24,7 @@
         "marketMood": "Extreme Fear",
         "toolsFeatured": "6"
       },
-      "hasPodcast": false,
+      "hasPodcast": true,
       "hasInfographic": true,
       "hasVideo": true,
       "youtubeId": "l9-oNkOD-7c",
