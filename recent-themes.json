@@ -1,4 +1,50 @@
 {
+  "2026-04-01": {
+    "hook": "Four major model drops in one month, and prediction markets are already pricing in the winners.",
+    "top_themes": [
+      "Open-Weight Models Go Agentic",
+      "Iran Widens the War",
+      "Benchmark Race Intensifies"
+    ],
+    "top_stories": [
+      "Prediction Markets Eye Four April Model Drops",
+      "Moonshot AI's Open-Weight Model Topped Chatbot Arena",
+      "Open-Weight Models Prioritize Agent and Tool Readiness",
+      "Gemini 3.1 Pro Hit 77% on ARC-AGI-2",
+      "Claude Sonnet 4.6 Matched Opus at Lower Cost",
+      "Grok 4.20 Introduced Four Parallel AI Agents",
+      "AI Model Release Tsunami Strains Selection Decisions",
+      "Qwen 3.5 Narrowed Open-Source Gap on Benchmarks",
+      "Iran Strikes UAE, Kuwait, Expanding Target List",
+      "Israeli Strikes Kill Seven in Beirut, Khalde",
+      "Trump Says US Will Exit Iran Operations Soon",
+      "Cambodia Extradites Huione Group Chair to China",
+      "French Far-Right Mayors Remove EU Flags",
+      "Macron, Japan Discuss Reciprocal Military Access Pact"
+    ],
+    "source_urls": [
+      "https://manifold.markets/prismatic/april-2026-ai-model-releases",
+      "https://aiflashreport.com/model-releases.html",
+      "https://blog.bytebytego.com/p/whats-next-in-ai-five-trends-to-watch",
+      "https://designforonline.com/the-best-ai-models-so-far-in-2026/",
+      "https://aiflashreport.com/model-releases.html",
+      "https://designforonline.com/the-best-ai-models-so-far-in-2026/",
+      "https://www.buildmvpfast.com/blog/ai-model-release-tsunami-how-to-choose-llm-2026",
+      "https://designforonline.com/the-best-ai-models-so-far-in-2026/",
+      "https://en.wikipedia.org/wiki/Portal:Current_events/2026_April_1",
+      "https://en.wikipedia.org/wiki/Portal:Current_events/2026_April_1",
+      "https://www.lemonde.fr/en/archives-du-monde/01-04-2026/",
+      "https://en.wikipedia.org/wiki/Portal:Current_events/2026_April_1",
+      "https://www.lemonde.fr/en/archives-du-monde/01-04-2026/",
+      "https://www.lemonde.fr/en/archives-du-monde/01-04-2026/"
+    ],
+    "story_angles": [
+      "Moonshot AI's open-weight model surged to the top of Chatbot Arena, signaling th",
+      "Iran expanded its strike targets to include UAE and Kuwait, a significant escala",
+      "Sentiment has cratered to Extreme Fear as widening Middle East hostilities and p",
+      "Cambodia's extradition of Huione Group's chair to China suggests Beijing is leve"
+    ]
+  },
   "2026-03-31": {
     "hook": "Google and NVIDIA both dropped flagship models today, yet gold's historic crash is drowning out the applause.",
     "top_themes": [
@@ -160,27 +206,6 @@
       "Iran struck a Saudi base injuring 12 US troops, prompting G7 coordination to sec",
       "Oil surged past $100 per barrel and the Dow shed 800 points as Middle East escal",
       "Seven of nine major text models released in March are open-source, suggesting th"
-    ]
-  },
-  "2026-03-27": {
-    "hook": "AI races ahead while the Middle East burns and markets brace for the worst.",
-    "top_themes": [
-      "Open-Weight Frontier Surge",
-      "Hormuz Conflict Escalation",
-      "AI Amid Geopolitical Chaos"
-    ],
-    "top_stories": [
-      "GPT-5.4 Tops Intelligence Index",
-      "Alibaba Qwen3.5 Nears Frontier",
-      "Q1 2026 Hits 255 Model Releases",
-      "US-Iran War Enters Day 26",
-      "G7 Convenes on Hormuz Crisis"
-    ],
-    "story_angles": [
-      "OpenAI's GPT-5.4 claimed the top spot on the Intelligence Index",
-      "The US-Iran war entered its 26th day with active strikes",
-      "Sentiment sits at Extreme Fear as prolonged Middle East conflict",
-      "New Zealand's active tracking of supply chain risks"
     ]
   }
 }
