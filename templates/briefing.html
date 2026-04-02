@@ -84,7 +84,11 @@
 
 {# ── Hero ────────────────────────────────────────────────────────────────── #}
 <section class="relative w-full pt-14 overflow-hidden">
-    {% if has_hero_image %}
+    {% if focus_hero_url %}
+    <div class="absolute inset-0 z-0">
+        <img src="{{ focus_hero_url }}" class="w-full h-full object-cover object-center opacity-50 scale-105" alt="" aria-hidden="true" onerror="this.parentElement.style.display='none'">
+    </div>
+    {% elif has_hero_image %}
     <div class="absolute inset-0 z-0">
         <img src="./hero-{{ date }}.jpg" class="w-full h-full object-cover object-center opacity-50 scale-105" alt="" aria-hidden="true">
     </div>
