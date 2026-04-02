@@ -492,43 +492,36 @@
             return;
         }
 
-        // Topic 1: Large featured card with image (left, 7 cols)
-        var t0 = typeof topics[0] === 'string' ? { title: topics[0], desc: '' } : topics[0];
-
         // Use email hero from Supabase if available, fall back to keyword-matched Unsplash
         var heroDate = latest.date || '';
+        var t0 = typeof topics[0] === 'string' ? { title: topics[0], desc: '' } : topics[0];
         var emailHeroUrl = heroDate ? 'https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/email-hero-' + heroDate + '.jpg' : '';
         var imgUrl = emailHeroUrl || pickImage(t0.title || '');
-        var desc0 = (t0.desc || '');
-        if (desc0.length > 200) desc0 = desc0.substring(0, 197) + '...';
 
-        var featured = '<a href="./' + digestFile + '#todays-focus" class="lg:col-span-7 bg-surface-container-low rounded-xl overflow-hidden no-underline block group">' +
-            '<div class="relative overflow-hidden bg-[#0d1424]" style="padding:16px">' +
-                '<img src="' + imgUrl + '" alt="" class="w-full rounded-lg transition-transform duration-700 group-hover:scale-[1.02] opacity-70" loading="lazy" style="display:block" onerror="this.src=\'' + pickImage(t0.title || '') + '\'">' +
-                '<div class="absolute inset-0 bg-gradient-to-t from-[#0b1326] via-[#0b1326]/40 to-transparent"></div>' +
-            '</div>' +
-            '<div class="p-8 -mt-20 relative z-10">' +
-                '<span class="' + colors[0] + ' font-bold text-3xl mb-4 block opacity-50">01</span>' +
-                '<h3 class="text-2xl md:text-3xl font-bold text-on-surface mb-4 leading-tight ' + hoverColors[0] + ' transition-colors">' + escapeHtml(t0.title || '') + '</h3>' +
-                (desc0 ? '<p class="text-on-surface-variant text-sm leading-relaxed mb-4">' + escapeHtml(desc0) + '</p>' : '') +
+        // Left: Hero image (5 cols)
+        var imageCol = '<a href="./' + digestFile + '" class="lg:col-span-5 rounded-2xl overflow-hidden no-underline block group" style="border:1px solid rgba(255,255,255,0.06);background:#0d1424">' +
+            '<div class="p-4">' +
+                '<img src="' + imgUrl + '" alt="Today\'s Focus" class="w-full rounded-xl transition-transform duration-700 group-hover:scale-[1.02]" loading="lazy" style="display:block" onerror="this.src=\'' + pickImage(t0.title || '') + '\'">' +
             '</div>' +
             '</a>';
 
-        // Topics 2-3: Smaller stacked cards (right, 5 cols)
-        var secondary = '<div class="lg:col-span-5 flex flex-col gap-6">';
-        for (var i = 1; i < Math.min(topics.length, 3); i++) {
+        // Right: All 3 topics stacked (7 cols)
+        var topicsCol = '<div class="lg:col-span-7 flex flex-col gap-4">';
+        for (var i = 0; i < Math.min(topics.length, 3); i++) {
             var t = typeof topics[i] === 'string' ? { title: topics[i], desc: '' } : topics[i];
             var desc = (t.desc || '');
-            if (desc.length > 120) desc = desc.substring(0, 117) + '...';
-            secondary += '<a href="./' + digestFile + '#todays-focus" class="bg-surface-container p-7 rounded-xl hover:bg-surface-container-high transition-colors no-underline block group flex-1">' +
-                '<span class="' + colors[i] + ' font-bold text-2xl mb-3 block opacity-50">' + String(i + 1).padStart(2, '0') + '</span>' +
-                '<h4 class="text-lg font-bold text-on-surface mb-2 ' + hoverColors[i] + ' transition-colors">' + escapeHtml(t.title || '') + '</h4>' +
-                (desc ? '<p class="text-on-surface-variant text-sm leading-relaxed">' + escapeHtml(desc) + '</p>' : '') +
+            if (desc.length > 160) desc = desc.substring(0, 157) + '...';
+            topicsCol += '<a href="./' + digestFile + '#todays-focus" class="bg-surface-container p-6 rounded-xl hover:bg-surface-container-high transition-colors no-underline block group flex-1" style="border-left:3px solid ' + ['#3B82F6','#8B5CF6','#10B981'][i] + '">' +
+                '<div class="flex items-baseline gap-4 mb-2">' +
+                    '<span class="' + colors[i] + ' font-bold text-xl opacity-50">' + String(i + 1).padStart(2, '0') + '</span>' +
+                    '<h4 class="text-base font-bold text-on-surface ' + hoverColors[i] + ' transition-colors">' + escapeHtml(t.title || '') + '</h4>' +
+                '</div>' +
+                (desc ? '<p class="text-on-surface-variant text-sm leading-relaxed pl-10">' + escapeHtml(desc) + '</p>' : '') +
                 '</a>';
         }
-        secondary += '</div>';
+        topicsCol += '</div>';
 
-        grid.innerHTML = featured + secondary;
+        grid.innerHTML = imageCol + topicsCol;
     }
 
     // ---- RENDER ARCHIVE ----
