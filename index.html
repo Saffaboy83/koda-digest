@@ -503,8 +503,8 @@
         if (desc0.length > 200) desc0 = desc0.substring(0, 197) + '...';
 
         var featured = '<a href="./' + digestFile + '#todays-focus" class="lg:col-span-7 bg-surface-container-low rounded-xl overflow-hidden no-underline block group">' +
-            '<div class="aspect-video relative overflow-hidden">' +
-                '<img src="' + imgUrl + '" alt="" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60" loading="lazy" onerror="this.src=\'' + pickImage(t0.title || '') + '\'">' +
+            '<div class="relative overflow-hidden" style="height:280px">' +
+                '<img src="' + imgUrl + '" alt="" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105 opacity-60" loading="lazy" onerror="this.src=\'' + pickImage(t0.title || '') + '\'">' +
                 '<div class="absolute inset-0 bg-gradient-to-t from-[#0b1326] via-[#0b1326]/40 to-transparent"></div>' +
             '</div>' +
             '<div class="p-8 -mt-20 relative z-10">' +
