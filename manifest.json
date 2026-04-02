@@ -1,21 +1,50 @@
 {
-  "generated": "2026-04-01T10:49:31Z",
+  "generated": "2026-04-02T10:45:07Z",
   "digests": [
+    {
+      "date": "2026-04-02",
+      "dayOfWeek": "Thursday",
+      "focusTopics": [
+        {
+          "title": "OpenAI's Record Capital Raise",
+          "desc": "At $122 billion, OpenAI's latest round is not just a fundraise; it is a statement of intent to outspend every competitor on compute, talent, and infrastructure simultaneously. The sheer scale suggests the company is pricing in a future where frontier model training costs reach hundreds of billions, and it wants to be the last one standing when they do."
+        },
+        {
+          "title": "Hormuz Strikes Shake Markets",
+          "desc": "U.S. and Israeli strikes on two piers in the Strait of Hormuz threaten the chokepoint through which roughly 20% of global oil transits daily. Combined with Iran and Hezbollah's coordinated attack on Israel, the escalation has triggered Extreme Fear across Asian and European markets. Paris truckers are already protesting surging fuel costs linked to the crisis, hinting at broader social fallout in the weeks ahead."
+        },
+        {
+          "title": "China's AI Chip Breakout",
+          "desc": "Huawei's 950PR chip drawing orders from ByteDance and Alibaba marks a turning point for China's semiconductor ambitions. If the chip delivers competitive inference performance, it could reduce Chinese AI labs' dependence on smuggled or stockpiled NVIDIA hardware. Washington's export control strategy faces its most concrete challenge yet."
+        }
+      ],
+      "kpis": {
+        "aiStories": "9",
+        "worldEvents": "8",
+        "marketMood": "Extreme Fear",
+        "toolsFeatured": "6"
+      },
+      "hasPodcast": false,
+      "hasInfographic": true,
+      "hasVideo": true,
+      "youtubeId": "l9-oNkOD-7c",
+      "file": "morning-briefing-koda-2026-04-02.html"
+    },
     {
       "date": "2026-04-01",
       "dayOfWeek": "Wednesday",
       "focusTopics": [
         {
-          "title": "Open-Weight Models Go Agentic",
-          "desc": "This week's top open-weight releases are converging on agent and tool-use readiness as the key differentiator, not just raw benchmark scores. Moonshot AI's Chatbot Arena victory and the broader shift toward function-calling architectures suggest the open-source ecosystem is building for deployment, not just research. The competitive pressure on closed-source providers like OpenAI and Anthropic is now structural."
+          "title": "OpenAI's $122B War Chest",
+          "desc": "The record raise resets the scale of AI competition entirely, likely exceeding the combined recent rounds of every major rival. With Amazon co-building a stateful AI runtime alongside OpenAI, the company is positioning itself not just as a model provider but as core infrastructure. The capital injection lands at a moment when geopolitical chaos could accelerate government demand for AI capabilities."
         },
         {
-          "title": "Iran Widens the War",
-          "desc": "Tehran's decision to strike UAE and Kuwait marks a deliberate expansion of its target list, pulling Gulf states that had sought neutrality into the conflict. Combined with Israeli strikes killing seven in Beirut and Khalde, the region faces its broadest multi-front escalation in decades. Trump's statement that the US will exit Iran operations soon adds a layer of strategic ambiguity that is rattling allies and markets alike."
+          "title": "Five Weeks, No Off-Ramp",
+          "desc": "US strikes on Isfahan's uranium depot mark a significant escalation, targeting Iran's nuclear infrastructure directly. Iran's retaliatory drone strike on an oil tanker near the Strait of Hormuz threatens global energy supply lines. Trump's posting of strike footage adds an unprecedented information warfare dimension, compressing the gap between military operations and public spectacle."
         },
         {
-          "title": "Benchmark Race Intensifies",
-          "desc": "Gemini 3.1 Pro's 77% score on ARC-AGI-2 and Claude Sonnet 4.6 matching Opus at lower cost reflect a new phase where labs compete on efficiency as much as capability. Prediction markets tracking four April model drops indicate the industry expects another wave of leapfrogging within weeks. The practical question is shifting from 'which model is smartest' to 'which model delivers the most intelligence per dollar.'"
+          "title": "AI Safety Under Dual Pressure",
+          "desc": "Anthropic's safety memorandum of understanding with Australia and OpenAI's new misuse-focused bug bounty suggest the industry is racing to build governance credibility before regulators impose it. These moves come as Mistral ships agentic tooling and Amazon builds persistent AI runtimes, capabilities that multiply both utility and risk. The safety conversation is no longer theoretical; it is being shaped by products already entering production."
         }
       ],
       "kpis": {
@@ -27,7 +56,7 @@
       "hasPodcast": true,
       "hasInfographic": true,
       "hasVideo": true,
-      "youtubeId": "AFfI8TOWZsQ",
+      "youtubeId": "Ihdb6BJ-7fU",
       "file": "morning-briefing-koda-2026-04-01.html"
     },
     {
@@ -351,6 +380,12 @@
     }
   ],
   "editorials": [
+    {
+      "date": "2026-04-02",
+      "title": "OpenAI Raises $122 Billion for AI Push",
+      "tag": "Strategy",
+      "file": "editorial/2026-04-02-openai-raises-122-billion-for-ai-push.html"
+    },
     {
       "date": "2026-04-01",
       "title": "The AI model release tsunami of Q1 2026 is creating a paradox of choice that par",

@@ -1,4 +1,56 @@
 {
+  "2026-04-02": {
+    "hook": "OpenAI's $122 billion war chest lands on the same day real wars are draining everyone else's.",
+    "top_themes": [
+      "OpenAI's Record Capital Raise",
+      "Hormuz Strikes Shake Markets",
+      "China's AI Chip Breakout"
+    ],
+    "top_stories": [
+      "OpenAI Raises $122 Billion for AI Push",
+      "Huawei 950PR Chip Draws ByteDance, Alibaba Orders",
+      "Anthropic Signs AI Safety MOU With Australia",
+      "GPT-4o Retires Fully After April 3",
+      "Meta Ships Four MTIA Chips in Two Years",
+      "Prediction Markets Price Five April Model Launches",
+      "Hugging Face Maps Open Source AI Spring 2026",
+      "Meta Launches Vibes for AI Video Creation",
+      "China's AI Ecosystem Pivots Toward Inference Deployment",
+      "Trump Vows to Finish Iran Operations Soon",
+      "Iran, Hezbollah Launch Double Strike on Israel",
+      "US, Israel Strike Two Piers in Hormuz",
+      "Asian Markets Plunge on Iran War Fears",
+      "Paris Truckers Protest Surging Iran-Linked Fuel Costs",
+      "IEA, IMF, World Bank Form Iran Crisis Group",
+      "Artemis II Launches Four Astronauts Toward Moon",
+      "7.4 Earthquake Hits Indonesia's Molucca Sea"
+    ],
+    "source_urls": [
+      "https://openai.com/index/accelerating-the-next-phase-ai/",
+      "https://blog.mean.ceo/ai-product-launches-news-april-2026/",
+      "https://www.anthropic.com/news/australia-MOU",
+      "https://blog.mean.ceo/new-ai-model-releases-news-april-2026/",
+      "https://ai.meta.com/blog/meta-mtia-scale-ai-chips-for-billions/",
+      "https://manifold.markets/prismatic/april-2026-ai-model-releases",
+      "https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026",
+      "https://ai.meta.com/meta-ai/",
+      "https://blog.mean.ceo/ai-product-launches-news-april-2026/",
+      "https://www.aa.com.tr/en/world/morning-briefing-april-2-2026/3888811",
+      "https://www.aa.com.tr/en/world/morning-briefing-april-2-2026/3888811",
+      "https://www.aa.com.tr/en/world/morning-briefing-april-2-2026/3888811",
+      "https://www.wsls.com/business/2026/04/02/oil-rises-and-asian-stocks-fall-after-trump-says-us-will-hit-iran-hard-and-finish-the-job/",
+      "https://www.youtube.com/watch?v=sm-TgzNjG5Q",
+      "https://www.aa.com.tr/en/world/morning-briefing-april-2-2026/3888811",
+      "https://www.youtube.com/watch?v=sm-TgzNjG5Q",
+      "https://www.aa.com.tr/en/world/morning-briefing-april-2-2026/3888811"
+    ],
+    "story_angles": [
+      "OpenAI closed a record $122 billion raise to accelerate its AI infrastructure bu",
+      "Iran and Hezbollah launched coordinated strikes on Israel while U.S. and Israeli",
+      "Asian markets plunged overnight on Iran war fears, with sentiment locked at Extr",
+      "Huawei's 950PR chip is quietly pulling orders from ByteDance and Alibaba, signal"
+    ]
+  },
   "2026-04-01": {
     "hook": "Four major model drops in one month, and prediction markets are already pricing in the winners.",
     "top_themes": [
@@ -185,27 +237,6 @@
       "Trump's 10-day extension on the Iran Strait deadline buys limited time as 59% of",
       "The Dow has officially entered correction territory, down 10% from its high, wit",
       "Three separate labs, Anthropic, Meta, and DeepSeek, are converging on agent self"
-    ]
-  },
-  "2026-03-28": {
-    "hook": "AI labs race to release as geopolitical crisis sends markets into freefall.",
-    "top_themes": [
-      "Open-Source AI Surge",
-      "Hormuz Crisis and Oil",
-      "AI Amid Market Chaos"
-    ],
-    "top_stories": [
-      "OpenAI Launches GPT-5.4 With Million-Token Context",
-      "DeepSeek V4 Debuts With 1 Trillion Parameters",
-      "Alibaba Ships Eight Qwen3.5 Variants Open-Weight",
-      "Iran Strikes Saudi Base, Injures 12 US Troops",
-      "Oil Tops $100, Dow Drops 800 Points"
-    ],
-    "story_angles": [
-      "OpenAI launched GPT-5.4 with a million-token context window, while DeepSeek V4 d",
-      "Iran struck a Saudi base injuring 12 US troops, prompting G7 coordination to sec",
-      "Oil surged past $100 per barrel and the Dow shed 800 points as Middle East escal",
-      "Seven of nine major text models released in March are open-source, suggesting th"
     ]
   }
 }
