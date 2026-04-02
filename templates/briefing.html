@@ -263,6 +263,11 @@
             <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
         </button>
         <div class="expandable-content hidden mt-4 lg:mt-0">
+        {% if focus_hero_url %}
+        <div class="mb-4 rounded-2xl overflow-hidden" style="border:1px solid rgba(255,255,255,0.06)">
+            <img src="{{ focus_hero_url }}" alt="Today's Focus" loading="lazy" onerror="this.parentElement.style.display='none'" style="width:100%;height:auto;display:block;max-height:340px;object-fit:cover">
+        </div>
+        {% endif %}
         <div class="space-y-3">
             {% set focus_colors = ["#3B82F6", "#8B5CF6", "#10B981"] %}
             {% for topic in focus_topics %}

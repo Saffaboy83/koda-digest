@@ -29,6 +29,7 @@ from pipeline.config import DIGEST_DIR, today_str, ensure_data_dir, write_json, 
 
 STEPS = [
     ("01",  "Gather News",          "01_gather_news.py"),
+    ("01B", "Discover Tools & Blogs", "01b_discover_tools.py"),
     ("02",  "Gather Newsletters",   "02_gather_newsletters.py"),
     ("03",  "Synthesize Content",   "03_synthesize_content.py"),
     ("03B", "Verify Stats",         "03b_verify_stats.py"),
@@ -148,7 +149,7 @@ def main():
         if not success:
             all_passed = False
             # Non-critical steps: stat verification, media, editorial, email
-            if step_id in ("03B", "04", "04E", "07"):
+            if step_id in ("01B", "03B", "04", "04E", "07"):
                 print(f"  Non-critical step {step_id} failed — continuing...")
             else:
                 print(f"\n  Critical step {step_id} failed. Pipeline stopped.")

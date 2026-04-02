@@ -131,9 +131,27 @@ Never use em dashes. Use commas, colons, semicolons, or separate sentences inste
 This is a public-facing briefing, not a personal newsletter. No personal data."""
 
 
-def synthesize_ai_news(raw_content, citations):
+def synthesize_ai_news(raw_content, citations, blog_discoveries=None):
     """Transform raw AI news into structured story cards."""
     freshness_context = load_recent_stories()
+
+    blog_context = ""
+    if blog_discoveries:
+        blog_lines = []
+        for post in blog_discoveries[:12]:
+            company = post.get("company", "")
+            title = post.get("title", "")
+            summary = post.get("summary", "")
+            url = post.get("url", "")
+            blog_lines.append(f"  - [{company}] {title}: {summary} ({url})")
+        if blog_lines:
+            blog_context = (
+                "\n\nPRIMARY SOURCE ANNOUNCEMENTS (scraped directly from company blogs today):\n"
+                + "\n".join(blog_lines)
+                + "\n\nCross-reference these primary-source announcements with the Perplexity data. "
+                "Prefer details from primary sources when they conflict with search summaries.\n"
+            )
+
     prompt = f"""Analyze this raw AI news data and extract 8-12 distinct stories.
 
 RAW DATA:
@@ -141,7 +159,7 @@ RAW DATA:
 
 CITATIONS:
 {json.dumps(citations, indent=2)}
-{freshness_context}
+{blog_context}{freshness_context}
 
 IMPORTANT: If the raw data says "no major announcements in the last 48 hours" but mentions
 developments from the past 3-5 days, INCLUDE those stories. Weekend gaps are normal.
@@ -210,9 +228,29 @@ Use exact numbers from the data. If a value is unavailable, use "N/A"."""
     return llm_json(prompt, SYSTEM_PROMPT, model=LLM_MODEL) or {}
 
 
-def synthesize_competitive(raw_content, citations):
+def synthesize_competitive(raw_content, citations, competitive_discoveries=None):
     """Transform competitive landscape data into company cards."""
     freshness_context = load_recent_stories()
+
+    primary_context = ""
+    if competitive_discoveries:
+        intel_lines = []
+        for item in competitive_discoveries:
+            company = item.get("company", "")
+            atype = item.get("announcement_type", "")
+            title = item.get("title", "")
+            detail = item.get("key_detail", "")
+            url = item.get("url", "")
+            intel_lines.append(f"  - [{company}] ({atype}) {title}: {detail} ({url})")
+        if intel_lines:
+            primary_context = (
+                "\n\nDIRECT FROM COMPANY BLOGS (primary-source announcements scraped today):\n"
+                + "\n".join(intel_lines)
+                + "\n\nUse these primary-source announcements as the authoritative facts. "
+                "They come directly from the companies' own blogs and are more reliable "
+                "than search engine summaries.\n"
+            )
+
     prompt = f"""Analyze this competitive intelligence data for major AI companies.
 
 RAW DATA:
@@ -220,7 +258,7 @@ RAW DATA:
 
 CITATIONS:
 {json.dumps(citations, indent=2)}
-{freshness_context}
+{primary_context}{freshness_context}
 
 Return a JSON array of company objects. ONLY include companies that have verifiable recent news with a source URL. If there is no concrete news for a company today, OMIT it entirely. Do NOT generate filler text like "no significant announcements" or "coverage will be updated."
 
@@ -237,9 +275,27 @@ Only include those with real, sourced news today. Skip companies whose only news
     return llm_json(prompt, SYSTEM_PROMPT) or []
 
 
-def synthesize_tools(raw_content, citations):
+def synthesize_tools(raw_content, citations, discovered_tools=None):
     """Transform AI tools data into tip cards."""
     freshness_context = load_recent_stories()
+
+    discovery_context = ""
+    if discovered_tools:
+        tool_lines = []
+        for t in discovered_tools[:15]:
+            name = t.get("name", "")
+            tagline = t.get("tagline", "")
+            url = t.get("url", "")
+            source = t.get("source", "")
+            tool_lines.append(f"  - {name}: {tagline} ({url}) [from {source}]")
+        if tool_lines:
+            discovery_context = (
+                "\n\nFRESH TOOL DISCOVERIES (scraped from Product Hunt, TAAFT, FutureTools today):\n"
+                + "\n".join(tool_lines)
+                + "\n\nPRIORITIZE these fresh discoveries over well-known tools like ChatGPT, Cursor, "
+                "Zapier, Notion, etc. Readers want to discover NEW tools they haven't heard of.\n"
+            )
+
     prompt = f"""Analyze this AI tools data and create 6 actionable tip cards.
 
 RAW DATA:
@@ -247,7 +303,7 @@ RAW DATA:
 
 CITATIONS:
 {json.dumps(citations, indent=2)}
-{freshness_context}
+{discovery_context}{freshness_context}
 
 Return a JSON array of 6 tip objects:
 {{
@@ -257,7 +313,8 @@ Return a JSON array of 6 tip objects:
   "url": "Official URL if available, otherwise empty string"
 }}
 
-Prioritize tools NOT featured in recent days. Rotate recommendations for variety."""
+Prioritize tools NOT featured in recent days. Feature fresh discoveries from Product Hunt
+and tool directories over established tools. Rotate recommendations for variety."""
     return llm_json(prompt, SYSTEM_PROMPT) or []
 
 
@@ -381,11 +438,26 @@ def main():
 
     results = raw_data.get("results", {})
 
+    # Load Firecrawl discoveries (from Step 01B, if available)
+    firecrawl = raw_data.get("firecrawl", {})
+    if not firecrawl:
+        fc_standalone = read_json("firecrawl-discoveries.json")
+        if fc_standalone:
+            firecrawl = fc_standalone
+    if firecrawl:
+        fc_tools = len(firecrawl.get("tools", []))
+        fc_blogs = len(firecrawl.get("ai_news", []))
+        fc_comp = len(firecrawl.get("competitive", []))
+        print(f"  Firecrawl data: {fc_tools} tools, {fc_blogs} blog posts, {fc_comp} competitive items")
+    else:
+        print("  No Firecrawl data available -- using Perplexity only")
+
     # Synthesize each section
     print("  Synthesizing AI news...")
     ai_news = synthesize_ai_news(
         results.get("ai_news", {}).get("content", ""),
         results.get("ai_news", {}).get("citations", []),
+        blog_discoveries=firecrawl.get("ai_news"),
     )
     print(f"    {len(ai_news)} stories")
 
@@ -400,7 +472,7 @@ def main():
     live_markets = raw_data.get("live_markets")
     if live_markets:
         markets = live_markets
-        print(f"    Using live market data — {len(markets)} tickers")
+        print(f"    Using live market data -- {len(markets)} tickers")
     else:
         markets = synthesize_markets(
             results.get("markets", {}).get("content", ""),
@@ -411,6 +483,7 @@ def main():
     competitive = synthesize_competitive(
         results.get("competitive", {}).get("content", ""),
         results.get("competitive", {}).get("citations", []),
+        competitive_discoveries=firecrawl.get("competitive"),
     )
     print(f"    {len(competitive)} companies")
 
@@ -418,6 +491,7 @@ def main():
     tools = synthesize_tools(
         results.get("tools", {}).get("content", ""),
         results.get("tools", {}).get("citations", []),
+        discovered_tools=firecrawl.get("tools"),
     )
     print(f"    {len(tools)} tools")
 

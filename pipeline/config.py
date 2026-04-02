@@ -37,6 +37,7 @@ SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
 LEONARDO_API_KEY = os.environ.get("LEONARDO_API_KEY", "")
 BEEHIIV_API_KEY = os.environ.get("BEEHIIV_API_KEY", "")
 BEEHIIV_PUBLICATION_ID = os.environ.get("BEEHIIV_PUBLICATION_ID", "")
+FIRECRAWL_API_KEY = os.environ.get("FIRECRAWL_API_KEY", "")
 
 # ── Constants ────────────────────────────────────────────────────────────────
 
