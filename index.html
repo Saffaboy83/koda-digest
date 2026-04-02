@@ -495,14 +495,16 @@
         // Topic 1: Large featured card with image (left, 7 cols)
         var t0 = typeof topics[0] === 'string' ? { title: topics[0], desc: '' } : topics[0];
 
-        // Pick image based on topic content for daily variety
-        var imgUrl = pickImage(t0.title || '');
+        // Use email hero from Supabase if available, fall back to keyword-matched Unsplash
+        var heroDate = latest.date || '';
+        var emailHeroUrl = heroDate ? 'https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/email-hero-' + heroDate + '.jpg' : '';
+        var imgUrl = emailHeroUrl || pickImage(t0.title || '');
         var desc0 = (t0.desc || '');
         if (desc0.length > 200) desc0 = desc0.substring(0, 197) + '...';
 
         var featured = '<a href="./' + digestFile + '#todays-focus" class="lg:col-span-7 bg-surface-container-low rounded-xl overflow-hidden no-underline block group">' +
             '<div class="aspect-video relative overflow-hidden">' +
-                '<img src="' + imgUrl + '" alt="" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60" loading="lazy">' +
+                '<img src="' + imgUrl + '" alt="" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60" loading="lazy" onerror="this.src=\'' + pickImage(t0.title || '') + '\'">' +
                 '<div class="absolute inset-0 bg-gradient-to-t from-[#0b1326] via-[#0b1326]/40 to-transparent"></div>' +
             '</div>' +
             '<div class="p-8 -mt-20 relative z-10">' +
