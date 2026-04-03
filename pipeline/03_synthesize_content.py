@@ -499,6 +499,25 @@ def main():
     else:
         print("  No Firecrawl data available -- using Perplexity only")
 
+    # Load cross-referenced newsletter URLs (from Step 02)
+    cross_refs = newsletters_data.get("cross_references", {}) if newsletters_data else {}
+    cross_ref_context = ""
+    if cross_refs.get("scraped"):
+        cr_lines = []
+        for cr in cross_refs["scraped"]:
+            mentions = cr.get("mention_count", 0)
+            sources = ", ".join(cr.get("mentioned_in", []))
+            url = cr.get("url", "")
+            text = cr.get("text", "")[:1500]
+            cr_lines.append(f"  [{mentions} newsletters: {sources}] {url}\n  {text}\n")
+        if cr_lines:
+            cross_ref_context = (
+                "\n\nCROSS-REFERENCED STORIES (mentioned in multiple newsletters today):\n"
+                + "\n".join(cr_lines[:5])
+                + "\nStories mentioned by 2+ newsletters are HIGH SIGNAL. Prioritize these.\n"
+            )
+            print(f"  Cross-reference context: {len(cr_lines)} stories from newsletters")
+
     # Synthesize each section
     if verified_sources:
         vs_count = sum(len(v) for v in verified_sources.values())
@@ -506,7 +525,7 @@ def main():
 
     print("  Synthesizing AI news...")
     ai_news = synthesize_ai_news(
-        results.get("ai_news", {}).get("content", ""),
+        results.get("ai_news", {}).get("content", "") + cross_ref_context,
         results.get("ai_news", {}).get("citations", []),
         blog_discoveries=firecrawl.get("ai_news"),
         verified_sources=verified_sources.get("ai_news"),

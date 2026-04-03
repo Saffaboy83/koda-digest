@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Benchmark Dashboard | Koda Intelligence</title>
+<meta name="description" content="Live AI model benchmark rankings across 3 leaderboards. Updated daily by Koda Intelligence.">
+<meta property="og:title" content="AI Benchmark Dashboard | Koda Intelligence">
+<meta property="og:url" content="https://www.koda.community/benchmarks/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0b1326;color:#dae2fd;min-height:100vh;overflow-x:hidden}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;display:inline-block;vertical-align:middle}
+.scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,#3B82F6,#8B5CF6);z-index:1001;transition:width 0.1s linear;pointer-events:none}
+.topbar{position:fixed;top:0;width:100%;z-index:50;background:rgba(11,19,38,0.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.topbar-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px}
+.brand-text{font-size:14px;font-weight:700;color:#3B82F6}
+.brand-sub{font-size:10px;color:#8c909f;display:none}
+@media(min-width:640px){.brand-sub{display:block}}
+.nav-links{display:flex;align-items:center;gap:8px}
+.nav-link{font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:6px 12px;border-radius:8px;text-decoration:none;transition:all 0.2s}
+.nav-link-home{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white}
+.nav-link-home:hover{box-shadow:0 4px 16px rgba(59,130,246,0.3)}
+.nav-link-secondary{color:#8c909f;background:rgba(255,255,255,0.04)}
+.nav-link-secondary:hover{color:#dae2fd;background:rgba(255,255,255,0.08)}
+.hero{padding:100px 24px 40px;text-align:center;background:radial-gradient(ellipse 80% 50% at 20% 60%,rgba(59,130,246,0.12) 0%,transparent 100%),radial-gradient(ellipse 60% 40% at 80% 30%,rgba(139,92,246,0.08) 0%,transparent 100%)}
+.hero h1{font-size:clamp(28px,5vw,48px);font-weight:900;background:linear-gradient(135deg,#3B82F6 0%,#8B5CF6 50%,#EC4899 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;letter-spacing:-0.02em}
+.hero p{color:#c2c6d6;font-size:15px;max-width:600px;margin:0 auto}
+.hero .badge{display:inline-block;padding:4px 14px;border-radius:9999px;border:1px solid rgba(173,198,255,0.2);background:rgba(173,198,255,0.05);color:#adc6ff;font-size:10px;text-transform:uppercase;letter-spacing:0.2em;font-weight:700;margin-bottom:16px}
+.stats{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;padding:0 24px;margin-bottom:32px}
+.stat{background:rgba(23,31,51,0.4);backdrop-filter:blur(20px);border:1px solid rgba(173,198,255,0.1);border-radius:12px;padding:16px 24px;text-align:center;min-width:120px}
+.stat-value{font-size:24px;font-weight:800;color:#dae2fd}
+.stat-label{font-size:11px;color:#8c909f;margin-top:2px;text-transform:uppercase;letter-spacing:0.05em}
+.container{max-width:1280px;margin:0 auto;padding:0 24px 64px}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;margin-top:40px;flex-wrap:wrap}
+.section-header h2{font-size:20px;font-weight:900;text-transform:uppercase;letter-spacing:-0.01em;white-space:nowrap}
+.section-header .line{height:1px;flex-grow:1;background:rgba(255,255,255,0.06)}
+.source-link{font-size:11px;color:#adc6ff;text-decoration:none;font-weight:600;white-space:nowrap}
+.source-link:hover{color:white}
+.leaders{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:32px}
+.table-wrap{border-radius:16px;border:1px solid rgba(255,255,255,0.06);overflow:hidden;background:rgba(23,31,51,0.3);backdrop-filter:blur(12px)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+thead th{text-align:left;padding:14px 16px;color:#8c909f;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;background:rgba(11,19,38,0.6);border-bottom:1px solid rgba(255,255,255,0.06)}
+tbody tr{border-bottom:1px solid rgba(255,255,255,0.03);transition:background 0.15s}
+tbody tr:hover{background:rgba(59,130,246,0.05)}
+tbody td{padding:12px 16px}
+.font-mono{font-family:'JetBrains Mono',monospace}
+.bench-section{margin-bottom:48px}
+footer{background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto}
+footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;padding:32px 24px;gap:12px;text-align:center}
+@media(min-width:768px){footer .inner{flex-direction:row;justify-content:space-between;text-align:left}}
+.animate-in{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.animate-in.visible{opacity:1;transform:translateY(0)}
+.back-to-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:rgba(23,31,51,0.9);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.08);color:#dae2fd;font-size:18px;cursor:pointer;z-index:999;opacity:0;transform:translateY(12px);transition:opacity 0.3s,transform 0.3s,background 0.2s;pointer-events:none;display:flex;align-items:center;justify-content:center}
+.back-to-top.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.back-to-top:hover{background:#6366F1;color:white}
+@media(max-width:768px){
+  .stats{gap:8px}.stat{padding:12px 16px;min-width:100px}.stat-value{font-size:18px}
+  table{font-size:12px}thead th,tbody td{padding:8px 10px}
+  .leaders{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.leaders{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<header class="topbar">
+<div class="topbar-inner">
+    <a href="../index.html" class="brand"><div class="brand-icon">K</div><div><div class="brand-text">Koda Intelligence</div><div class="brand-sub">AI Benchmarks</div></div></a>
+    <div class="nav-links">
+        <a href="../morning-briefing-koda.html" class="nav-link nav-link-secondary">Digest</a>
+        <a href="../pricing/" class="nav-link nav-link-secondary">Pricing</a>
+        <a href="../index.html" class="nav-link nav-link-home">&larr; Home</a>
+    </div>
+</div>
+</header>
+<section class="hero animate-in">
+    <div class="badge">Live Leaderboards</div>
+    <h1>AI Benchmark Dashboard</h1>
+    <p>3 leaderboards, 54 model rankings. Who's winning the AI race right now.</p>
+</section>
+<div class="stats animate-in">
+    <div class="stat"><div class="stat-value">3</div><div class="stat-label">Benchmarks</div></div>
+    <div class="stat"><div class="stat-value">54</div><div class="stat-label">Rankings</div></div>
+    <div class="stat"><div class="stat-value">April 03, 2026</div><div class="stat-label">Last Scraped</div></div>
+</div>
+<div class="container">
+    <div class="section-header animate-in">
+        <span class="material-symbols-outlined" style="color:#F59E0B">emoji_events</span>
+        <h2>Current Leaders</h2>
+        <div class="line"></div>
+    </div>
+    <div class="leaders animate-in">
+            <div class="p-4 bg-[#131b2e] border border-white/[0.06] rounded-xl hover:bg-[#171f33] transition-colors duration-300">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-lg" style="color:#3B82F6">forum</span>
+                    <span class="text-[10px] uppercase tracking-wider font-bold" style="color:#3B82F6">Chatbot Arena</span>
+                </div>
+                <div class="text-sm font-bold text-[#dae2fd]">&#129351; Model A</div>
+                <div class="text-xs text-[#8c909f] mt-0.5">Provider 1</div>
+                <div class="text-lg font-black mt-2" style="color:#3B82F6">2800</div>
+            </div>
+            <div class="p-4 bg-[#131b2e] border border-white/[0.06] rounded-xl hover:bg-[#171f33] transition-colors duration-300">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-lg" style="color:#8B5CF6">psychology</span>
+                    <span class="text-[10px] uppercase tracking-wider font-bold" style="color:#8B5CF6">LiveBench</span>
+                </div>
+                <div class="text-sm font-bold text-[#dae2fd]">&#129351; GPT-5.4 Thinking xHigh Effort</div>
+                <div class="text-xs text-[#8c909f] mt-0.5">OpenAI</div>
+                <div class="text-lg font-black mt-2" style="color:#8B5CF6">80.28</div>
+            </div>
+            <div class="p-4 bg-[#131b2e] border border-white/[0.06] rounded-xl hover:bg-[#171f33] transition-colors duration-300">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-lg" style="color:#10B981">code</span>
+                    <span class="text-[10px] uppercase tracking-wider font-bold" style="color:#10B981">SWE-Bench Verified</span>
+                </div>
+                <div class="text-sm font-bold text-[#dae2fd]">&#129351; Claude 4.5 Opus (high reasoning)</div>
+                <div class="text-xs text-[#8c909f] mt-0.5">Anthropic</div>
+                <div class="text-lg font-black mt-2" style="color:#10B981">76.8</div>
+            </div></div>
+    
+    <div class="bench-section animate-in">
+        <div class="section-header">
+            <span class="material-symbols-outlined" style="color:#3B82F6">forum</span>
+            <h2>Chatbot Arena (LMSYS)</h2>
+            <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">General</span>
+            <div class="line"></div>
+            <a href="https://lmarena.ai/?leaderboard" target="_blank" rel="noopener" class="source-link">Source &nearr;</a>
+        </div>
+        <p style="color:#8c909f;font-size:13px;margin-bottom:16px">Human preference rankings from blind A/B comparisons</p>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="text-align:center;width:60px">Rank</th>
+                        <th>Model</th>
+                        <th>Provider</th>
+                        <th style="text-align:right">Score</th>
+                    </tr>
+                </thead>
+                <tbody><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6"><span style="margin-right:4px">&#129351;</span>1</td>
+<td class="font-mono text-[13px]">Model A</td>
+<td style="color:#8c909f">Provider 1</td>
+<td style="text-align:right;font-weight:600">2800</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6"><span style="margin-right:4px">&#129352;</span>2</td>
+<td class="font-mono text-[13px]">Model B</td>
+<td style="color:#8c909f">Provider 2</td>
+<td style="text-align:right;font-weight:600">2750</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6"><span style="margin-right:4px">&#129353;</span>3</td>
+<td class="font-mono text-[13px]">Model C</td>
+<td style="color:#8c909f">Provider 3</td>
+<td style="text-align:right;font-weight:600">2700</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6">4</td>
+<td class="font-mono text-[13px]">Model D</td>
+<td style="color:#8c909f">Provider 4</td>
+<td style="text-align:right;font-weight:600">2650</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6">5</td>
+<td class="font-mono text-[13px]">Model E</td>
+<td style="color:#8c909f">Provider 5</td>
+<td style="text-align:right;font-weight:600">2600</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6">6</td>
+<td class="font-mono text-[13px]">Model F</td>
+<td style="color:#8c909f">Provider 6</td>
+<td style="text-align:right;font-weight:600">2550</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6">7</td>
+<td class="font-mono text-[13px]">Model G</td>
+<td style="color:#8c909f">Provider 7</td>
+<td style="text-align:right;font-weight:600">2500</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6">8</td>
+<td class="font-mono text-[13px]">Model H</td>
+<td style="color:#8c909f">Provider 8</td>
+<td style="text-align:right;font-weight:600">2450</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6">9</td>
+<td class="font-mono text-[13px]">Model I</td>
+<td style="color:#8c909f">Provider 9</td>
+<td style="text-align:right;font-weight:600">2400</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6">10</td>
+<td class="font-mono text-[13px]">Model J</td>
+<td style="color:#8c909f">Provider 10</td>
+<td style="text-align:right;font-weight:600">2350</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6">11</td>
+<td class="font-mono text-[13px]">Model K</td>
+<td style="color:#8c909f">Provider 11</td>
+<td style="text-align:right;font-weight:600">2300</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6">12</td>
+<td class="font-mono text-[13px]">Model L</td>
+<td style="color:#8c909f">Provider 12</td>
+<td style="text-align:right;font-weight:600">2250</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6">13</td>
+<td class="font-mono text-[13px]">Model M</td>
+<td style="color:#8c909f">Provider 13</td>
+<td style="text-align:right;font-weight:600">2200</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6">14</td>
+<td class="font-mono text-[13px]">Model N</td>
+<td style="color:#8c909f">Provider 14</td>
+<td style="text-align:right;font-weight:600">2150</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6">15</td>
+<td class="font-mono text-[13px]">Model O</td>
+<td style="color:#8c909f">Provider 15</td>
+<td style="text-align:right;font-weight:600">2100</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6">16</td>
+<td class="font-mono text-[13px]">Model P</td>
+<td style="color:#8c909f">Provider 16</td>
+<td style="text-align:right;font-weight:600">2050</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6">17</td>
+<td class="font-mono text-[13px]">Model Q</td>
+<td style="color:#8c909f">Provider 17</td>
+<td style="text-align:right;font-weight:600">2000</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6">18</td>
+<td class="font-mono text-[13px]">Model R</td>
+<td style="color:#8c909f">Provider 18</td>
+<td style="text-align:right;font-weight:600">1950</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6">19</td>
+<td class="font-mono text-[13px]">Model S</td>
+<td style="color:#8c909f">Provider 19</td>
+<td style="text-align:right;font-weight:600">1900</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#3B82F6">20</td>
+<td class="font-mono text-[13px]">Model T</td>
+<td style="color:#8c909f">Provider 20</td>
+<td style="text-align:right;font-weight:600">1850</td>
+</tr></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="bench-section animate-in">
+        <div class="section-header">
+            <span class="material-symbols-outlined" style="color:#8B5CF6">psychology</span>
+            <h2>LiveBench</h2>
+            <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#8B5CF6;background:#8B5CF615">Reasoning</span>
+            <div class="line"></div>
+            <a href="https://livebench.ai/" target="_blank" rel="noopener" class="source-link">Source &nearr;</a>
+        </div>
+        <p style="color:#8c909f;font-size:13px;margin-bottom:16px">Contamination-free benchmark with monthly-refreshed questions</p>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="text-align:center;width:60px">Rank</th>
+                        <th>Model</th>
+                        <th>Provider</th>
+                        <th style="text-align:right">Score</th>
+                    </tr>
+                </thead>
+                <tbody><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6"><span style="margin-right:4px">&#129351;</span>1</td>
+<td class="font-mono text-[13px]">GPT-5.4 Thinking xHigh Effort</td>
+<td style="color:#8c909f">OpenAI</td>
+<td style="text-align:right;font-weight:600">80.28</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6"><span style="margin-right:4px">&#129352;</span>2</td>
+<td class="font-mono text-[13px]">Gemini 3.1 Pro Preview High*</td>
+<td style="color:#8c909f">Google</td>
+<td style="text-align:right;font-weight:600">79.93</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6"><span style="margin-right:4px">&#129353;</span>3</td>
+<td class="font-mono text-[13px]">Claude 4.6 Opus Thinking High Effort</td>
+<td style="color:#8c909f">Anthropic</td>
+<td style="text-align:right;font-weight:600">76.33</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6">4</td>
+<td class="font-mono text-[13px]">Claude 4.5 Opus Thinking High Effort</td>
+<td style="color:#8c909f">Anthropic</td>
+<td style="text-align:right;font-weight:600">75.96</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6">5</td>
+<td class="font-mono text-[13px]">Claude 4.6 Sonnet Thinking Medium Effort</td>
+<td style="color:#8c909f">Anthropic</td>
+<td style="text-align:right;font-weight:600">75.47</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6">6</td>
+<td class="font-mono text-[13px]">GPT-5.2 High</td>
+<td style="color:#8c909f">OpenAI</td>
+<td style="text-align:right;font-weight:600">74.84</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6">7</td>
+<td class="font-mono text-[13px]">GPT-5.2 Codex</td>
+<td style="color:#8c909f">OpenAI</td>
+<td style="text-align:right;font-weight:600">74.3</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6">8</td>
+<td class="font-mono text-[13px]">GPT-5.1 Codex Max High</td>
+<td style="color:#8c909f">OpenAI</td>
+<td style="text-align:right;font-weight:600">73.98</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6">9</td>
+<td class="font-mono text-[13px]">Gemini 3 Pro Preview High</td>
+<td style="color:#8c909f">Google</td>
+<td style="text-align:right;font-weight:600">73.39</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6">10</td>
+<td class="font-mono text-[13px]">GPT-5.3 Codex High</td>
+<td style="color:#8c909f">OpenAI</td>
+<td style="text-align:right;font-weight:600">72.76</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6">11</td>
+<td class="font-mono text-[13px]">Gemini 3 Flash Preview High</td>
+<td style="color:#8c909f">Google</td>
+<td style="text-align:right;font-weight:600">72.4</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6">12</td>
+<td class="font-mono text-[13px]">GPT-5.1 High</td>
+<td style="color:#8c909f">OpenAI</td>
+<td style="text-align:right;font-weight:600">72.04</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6">13</td>
+<td class="font-mono text-[13px]">GPT-5 Pro</td>
+<td style="color:#8c909f">OpenAI</td>
+<td style="text-align:right;font-weight:600">70.48</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6">14</td>
+<td class="font-mono text-[13px]">GPT-5.4 Nano xHigh</td>
+<td style="color:#8c909f">OpenAI</td>
+<td style="text-align:right;font-weight:600">70.13</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6">15</td>
+<td class="font-mono text-[13px]">Kimi K2.5 Thinking</td>
+<td style="color:#8c909f">Moonshot AI</td>
+<td style="text-align:right;font-weight:600">69.07</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6">16</td>
+<td class="font-mono text-[13px]">GLM 5</td>
+<td style="color:#8c909f">Z.AI</td>
+<td style="text-align:right;font-weight:600">68.85</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6">17</td>
+<td class="font-mono text-[13px]">GPT-5.1 Codex</td>
+<td style="color:#8c909f">OpenAI</td>
+<td style="text-align:right;font-weight:600">68.61</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6">18</td>
+<td class="font-mono text-[13px]">Claude Sonnet 4.5 Thinking</td>
+<td style="color:#8c909f">Anthropic</td>
+<td style="text-align:right;font-weight:600">68.19</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6">19</td>
+<td class="font-mono text-[13px]">Grok 4.20 Beta</td>
+<td style="color:#8c909f">xAI</td>
+<td style="text-align:right;font-weight:600">67.96</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#8B5CF6">20</td>
+<td class="font-mono text-[13px]">GPT-5.4 Mini xHigh</td>
+<td style="color:#8c909f">OpenAI</td>
+<td style="text-align:right;font-weight:600">67.54</td>
+</tr></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="bench-section animate-in">
+        <div class="section-header">
+            <span class="material-symbols-outlined" style="color:#10B981">code</span>
+            <h2>SWE-Bench Verified</h2>
+            <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#10B981;background:#10B98115">Coding</span>
+            <div class="line"></div>
+            <a href="https://www.swebench.com/" target="_blank" rel="noopener" class="source-link">Source &nearr;</a>
+        </div>
+        <p style="color:#8c909f;font-size:13px;margin-bottom:16px">Real-world software engineering task completion</p>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="text-align:center;width:60px">Rank</th>
+                        <th>Model</th>
+                        <th>Provider</th>
+                        <th style="text-align:right">Score</th>
+                    </tr>
+                </thead>
+                <tbody><tr>
+<td style="text-align:center;font-weight:700;color:#10B981"><span style="margin-right:4px">&#129351;</span>1</td>
+<td class="font-mono text-[13px]">Claude 4.5 Opus (high reasoning)</td>
+<td style="color:#8c909f">Anthropic</td>
+<td style="text-align:right;font-weight:600">76.8</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#10B981"><span style="margin-right:4px">&#129352;</span>2</td>
+<td class="font-mono text-[13px]">Gemini 3 Flash (high reasoning)</td>
+<td style="color:#8c909f">Google</td>
+<td style="text-align:right;font-weight:600">75.8</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#10B981"><span style="margin-right:4px">&#129353;</span>3</td>
+<td class="font-mono text-[13px]">MiniMax M2.5 (high reasoning)</td>
+<td style="color:#8c909f">Minimax</td>
+<td style="text-align:right;font-weight:600">75.8</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#10B981">4</td>
+<td class="font-mono text-[13px]">Claude Opus 4.6</td>
+<td style="color:#8c909f">Anthropic</td>
+<td style="text-align:right;font-weight:600">75.6</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#10B981">5</td>
+<td class="font-mono text-[13px]">GPT-5-2 Codex</td>
+<td style="color:#8c909f">OpenAI</td>
+<td style="text-align:right;font-weight:600">72.8</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#10B981">6</td>
+<td class="font-mono text-[13px]">GLM-5 (high reasoning)</td>
+<td style="color:#8c909f">Z-AI</td>
+<td style="text-align:right;font-weight:600">72.8</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#10B981">7</td>
+<td class="font-mono text-[13px]">GPT-5-2 (high reasoning)</td>
+<td style="color:#8c909f">OpenAI</td>
+<td style="text-align:right;font-weight:600">72.8</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#10B981">8</td>
+<td class="font-mono text-[13px]">GPT 5.2 Codex</td>
+<td style="color:#8c909f">OpenAI</td>
+<td style="text-align:right;font-weight:600">72.8</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#10B981">9</td>
+<td class="font-mono text-[13px]">Claude 4.5 Sonnet (high reasoning)</td>
+<td style="color:#8c909f">Anthropic</td>
+<td style="text-align:right;font-weight:600">71.4</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#10B981">10</td>
+<td class="font-mono text-[13px]">Kimi K2.5 (high reasoning)</td>
+<td style="color:#8c909f">Moonshot AI</td>
+<td style="text-align:right;font-weight:600">70.8</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#10B981">11</td>
+<td class="font-mono text-[13px]">DeepSeek V3.2 (high reasoning)</td>
+<td style="color:#8c909f">DeepSeek</td>
+<td style="text-align:right;font-weight:600">70</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#10B981">12</td>
+<td class="font-mono text-[13px]">Gemini 3 Pro</td>
+<td style="color:#8c909f">Google</td>
+<td style="text-align:right;font-weight:600">69.6</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#10B981">13</td>
+<td class="font-mono text-[13px]">Claude 4.5 Haiku (high reasoning)</td>
+<td style="color:#8c909f">Anthropic</td>
+<td style="text-align:right;font-weight:600">66.6</td>
+</tr><tr>
+<td style="text-align:center;font-weight:700;color:#10B981">14</td>
+<td class="font-mono text-[13px]">GPT-5 Mini</td>
+<td style="color:#8c909f">OpenAI</td>
+<td style="text-align:right;font-weight:600">56.2</td>
+</tr></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<footer><div class="inner">
+    <div><span style="font-size:14px;font-weight:700;color:#3B82F6">Koda Intelligence</span>
+    <p style="font-size:11px;color:#c2c6d6;margin-top:4px">Rankings scraped from official leaderboard pages via Firecrawl.</p></div>
+    <div style="display:flex;gap:24px;font-size:11px;text-transform:uppercase;letter-spacing:0.08em">
+        <a href="../index.html" style="color:#c2c6d6;text-decoration:none">Home</a>
+        <a href="../pricing/" style="color:#c2c6d6;text-decoration:none">Pricing</a>
+        <span style="color:#64748B">&copy; 2026 Koda Intelligence</span>
+    </div>
+</div></footer>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+    <span class="material-symbols-outlined">arrow_upward</span>
+</button>
+<script>
+window.addEventListener('scroll',function(){
+  var h=document.documentElement;
+  var pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('scrollProgress').style.width=pct+'%';
+  var btn=document.getElementById('backToTop');
+  if(h.scrollTop>400)btn.classList.add('visible');else btn.classList.remove('visible');
+});
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.1});
+document.querySelectorAll('.animate-in').forEach(function(el){obs.observe(el)});
+</script>
+</body>
+</html>

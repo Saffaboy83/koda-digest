@@ -1,0 +1,361 @@
+{
+  "generated_at": "2026-04-03T03:11:17.213208+00:00",
+  "benchmark_count": 3,
+  "total_models": 54,
+  "benchmarks": [
+    {
+      "benchmark": "Chatbot Arena (LMSYS)",
+      "category": "General",
+      "description": "Human preference rankings from blind A/B comparisons",
+      "source_url": "https://lmarena.ai/?leaderboard",
+      "scraped_at": "2026-04-03T03:10:51.269937+00:00",
+      "model_count": 20,
+      "models": [
+        {
+          "rank": 1,
+          "model_name": "Model A",
+          "elo_score": 2800,
+          "provider": "Provider 1"
+        },
+        {
+          "rank": 2,
+          "model_name": "Model B",
+          "elo_score": 2750,
+          "provider": "Provider 2"
+        },
+        {
+          "rank": 3,
+          "model_name": "Model C",
+          "elo_score": 2700,
+          "provider": "Provider 3"
+        },
+        {
+          "rank": 4,
+          "model_name": "Model D",
+          "elo_score": 2650,
+          "provider": "Provider 4"
+        },
+        {
+          "rank": 5,
+          "model_name": "Model E",
+          "elo_score": 2600,
+          "provider": "Provider 5"
+        },
+        {
+          "rank": 6,
+          "model_name": "Model F",
+          "elo_score": 2550,
+          "provider": "Provider 6"
+        },
+        {
+          "rank": 7,
+          "model_name": "Model G",
+          "elo_score": 2500,
+          "provider": "Provider 7"
+        },
+        {
+          "rank": 8,
+          "model_name": "Model H",
+          "elo_score": 2450,
+          "provider": "Provider 8"
+        },
+        {
+          "rank": 9,
+          "model_name": "Model I",
+          "elo_score": 2400,
+          "provider": "Provider 9"
+        },
+        {
+          "rank": 10,
+          "model_name": "Model J",
+          "elo_score": 2350,
+          "provider": "Provider 10"
+        },
+        {
+          "rank": 11,
+          "model_name": "Model K",
+          "elo_score": 2300,
+          "provider": "Provider 11"
+        },
+        {
+          "rank": 12,
+          "model_name": "Model L",
+          "elo_score": 2250,
+          "provider": "Provider 12"
+        },
+        {
+          "rank": 13,
+          "model_name": "Model M",
+          "elo_score": 2200,
+          "provider": "Provider 13"
+        },
+        {
+          "rank": 14,
+          "model_name": "Model N",
+          "elo_score": 2150,
+          "provider": "Provider 14"
+        },
+        {
+          "rank": 15,
+          "model_name": "Model O",
+          "elo_score": 2100,
+          "provider": "Provider 15"
+        },
+        {
+          "rank": 16,
+          "model_name": "Model P",
+          "elo_score": 2050,
+          "provider": "Provider 16"
+        },
+        {
+          "rank": 17,
+          "model_name": "Model Q",
+          "elo_score": 2000,
+          "provider": "Provider 17"
+        },
+        {
+          "rank": 18,
+          "model_name": "Model R",
+          "elo_score": 1950,
+          "provider": "Provider 18"
+        },
+        {
+          "rank": 19,
+          "model_name": "Model S",
+          "elo_score": 1900,
+          "provider": "Provider 19"
+        },
+        {
+          "rank": 20,
+          "model_name": "Model T",
+          "elo_score": 1850,
+          "provider": "Provider 20"
+        }
+      ]
+    },
+    {
+      "benchmark": "LiveBench",
+      "category": "Reasoning",
+      "description": "Contamination-free benchmark with monthly-refreshed questions",
+      "source_url": "https://livebench.ai/",
+      "scraped_at": "2026-04-03T03:11:08.013949+00:00",
+      "model_count": 20,
+      "models": [
+        {
+          "rank": 1,
+          "model_name": "GPT-5.4 Thinking xHigh Effort",
+          "score": 80.28,
+          "provider": "OpenAI"
+        },
+        {
+          "rank": 2,
+          "model_name": "Gemini 3.1 Pro Preview High*",
+          "score": 79.93,
+          "provider": "Google"
+        },
+        {
+          "rank": 3,
+          "model_name": "Claude 4.6 Opus Thinking High Effort",
+          "score": 76.33,
+          "provider": "Anthropic"
+        },
+        {
+          "rank": 4,
+          "model_name": "Claude 4.5 Opus Thinking High Effort",
+          "score": 75.96,
+          "provider": "Anthropic"
+        },
+        {
+          "rank": 5,
+          "model_name": "Claude 4.6 Sonnet Thinking Medium Effort",
+          "score": 75.47,
+          "provider": "Anthropic"
+        },
+        {
+          "rank": 6,
+          "model_name": "GPT-5.2 High",
+          "score": 74.84,
+          "provider": "OpenAI"
+        },
+        {
+          "rank": 7,
+          "model_name": "GPT-5.2 Codex",
+          "score": 74.3,
+          "provider": "OpenAI"
+        },
+        {
+          "rank": 8,
+          "model_name": "GPT-5.1 Codex Max High",
+          "score": 73.98,
+          "provider": "OpenAI"
+        },
+        {
+          "rank": 9,
+          "model_name": "Gemini 3 Pro Preview High",
+          "score": 73.39,
+          "provider": "Google"
+        },
+        {
+          "rank": 10,
+          "model_name": "GPT-5.3 Codex High",
+          "score": 72.76,
+          "provider": "OpenAI"
+        },
+        {
+          "rank": 11,
+          "model_name": "Gemini 3 Flash Preview High",
+          "score": 72.4,
+          "provider": "Google"
+        },
+        {
+          "rank": 12,
+          "model_name": "GPT-5.1 High",
+          "score": 72.04,
+          "provider": "OpenAI"
+        },
+        {
+          "rank": 13,
+          "model_name": "GPT-5 Pro",
+          "score": 70.48,
+          "provider": "OpenAI"
+        },
+        {
+          "rank": 14,
+          "model_name": "GPT-5.4 Nano xHigh",
+          "score": 70.13,
+          "provider": "OpenAI"
+        },
+        {
+          "rank": 15,
+          "model_name": "Kimi K2.5 Thinking",
+          "score": 69.07,
+          "provider": "Moonshot AI"
+        },
+        {
+          "rank": 16,
+          "model_name": "GLM 5",
+          "score": 68.85,
+          "provider": "Z.AI"
+        },
+        {
+          "rank": 17,
+          "model_name": "GPT-5.1 Codex",
+          "score": 68.61,
+          "provider": "OpenAI"
+        },
+        {
+          "rank": 18,
+          "model_name": "Claude Sonnet 4.5 Thinking",
+          "score": 68.19,
+          "provider": "Anthropic"
+        },
+        {
+          "rank": 19,
+          "model_name": "Grok 4.20 Beta",
+          "score": 67.96,
+          "provider": "xAI"
+        },
+        {
+          "rank": 20,
+          "model_name": "GPT-5.4 Mini xHigh",
+          "score": 67.54,
+          "provider": "OpenAI"
+        }
+      ]
+    },
+    {
+      "benchmark": "SWE-Bench Verified",
+      "category": "Coding",
+      "description": "Real-world software engineering task completion",
+      "source_url": "https://www.swebench.com/",
+      "scraped_at": "2026-04-03T03:11:17.213208+00:00",
+      "model_count": 14,
+      "models": [
+        {
+          "rank": 1,
+          "model_name": "Claude 4.5 Opus (high reasoning)",
+          "score": 76.8,
+          "provider": "Anthropic"
+        },
+        {
+          "rank": 2,
+          "model_name": "Gemini 3 Flash (high reasoning)",
+          "score": 75.8,
+          "provider": "Google"
+        },
+        {
+          "rank": 3,
+          "model_name": "MiniMax M2.5 (high reasoning)",
+          "score": 75.8,
+          "provider": "Minimax"
+        },
+        {
+          "rank": 4,
+          "model_name": "Claude Opus 4.6",
+          "score": 75.6,
+          "provider": "Anthropic"
+        },
+        {
+          "rank": 5,
+          "model_name": "GPT-5-2 Codex",
+          "score": 72.8,
+          "provider": "OpenAI"
+        },
+        {
+          "rank": 6,
+          "model_name": "GLM-5 (high reasoning)",
+          "score": 72.8,
+          "provider": "Z-AI"
+        },
+        {
+          "rank": 7,
+          "model_name": "GPT-5-2 (high reasoning)",
+          "score": 72.8,
+          "provider": "OpenAI"
+        },
+        {
+          "rank": 8,
+          "model_name": "GPT 5.2 Codex",
+          "score": 72.8,
+          "provider": "OpenAI"
+        },
+        {
+          "rank": 9,
+          "model_name": "Claude 4.5 Sonnet (high reasoning)",
+          "score": 71.4,
+          "provider": "Anthropic"
+        },
+        {
+          "rank": 10,
+          "model_name": "Kimi K2.5 (high reasoning)",
+          "score": 70.8,
+          "provider": "Moonshot AI"
+        },
+        {
+          "rank": 11,
+          "model_name": "DeepSeek V3.2 (high reasoning)",
+          "score": 70,
+          "provider": "DeepSeek"
+        },
+        {
+          "rank": 12,
+          "model_name": "Gemini 3 Pro",
+          "score": 69.6,
+          "provider": "Google"
+        },
+        {
+          "rank": 13,
+          "model_name": "Claude 4.5 Haiku (high reasoning)",
+          "score": 66.6,
+          "provider": "Anthropic"
+        },
+        {
+          "rank": 14,
+          "model_name": "GPT-5 Mini",
+          "score": 56.2,
+          "provider": "OpenAI"
+        }
+      ]
+    }
+  ]
+}
