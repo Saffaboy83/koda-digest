@@ -64,6 +64,26 @@ TOOL_EXTRACTION_SCHEMA: dict[str, Any] = {
     },
 }
 
+TOOL_ENRICHMENT_SCHEMA: dict[str, Any] = {
+    "type": "object",
+    "properties": {
+        "name": {"type": "string", "description": "Tool or product name"},
+        "description": {"type": "string", "description": "One-paragraph description of what the tool does"},
+        "pricing": {"type": "string", "description": "Pricing summary, e.g. 'Free', 'Freemium', '$19/mo', 'Enterprise only'"},
+        "key_features": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Top 3-5 features or capabilities",
+        },
+        "use_cases": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Top 2-3 use cases or target audiences",
+        },
+        "company": {"type": "string", "description": "Company or team behind the tool"},
+    },
+}
+
 BLOG_EXTRACTION_SCHEMA: dict[str, Any] = {
     "type": "object",
     "properties": {
@@ -164,6 +184,35 @@ def firecrawl_scrape_json(url: str, schema: dict, prompt: str = "",
             print(f"    Firecrawl scrape unexpected error for {url}: {e}")
             return None
     return None
+
+
+# ── Tool Landing Page Enrichment ───────────────────────────────────────────
+
+def enrich_tools_from_landing_pages(tools: list[dict], max_tools: int = 8) -> list[dict]:
+    """Scrape tool landing pages to extract pricing, features, and use cases.
+
+    Enriches each tool dict in-place with a 'landing_page' key containing
+    structured data from the tool's website. Skips tools without URLs.
+    """
+    enriched_count = 0
+    for tool in tools[:max_tools]:
+        url = tool.get("url", "")
+        if not url or not url.startswith("http"):
+            continue
+
+        data = firecrawl_scrape_json(
+            url,
+            schema=TOOL_ENRICHMENT_SCHEMA,
+            prompt="Extract the product name, description, pricing, top features, use cases, and company from this landing page.",
+        )
+        if data:
+            tool["landing_page"] = data
+            enriched_count += 1
+            pricing = data.get("pricing", "Unknown")
+            features_n = len(data.get("key_features", []))
+            print(f"      {tool.get('name', 'Unknown')}: pricing={pricing}, {features_n} features")
+
+    return tools
 
 
 # ── Track 1: Tool Discovery ────────────────────────────────────────────────
@@ -396,6 +445,12 @@ def main():
 
     deduped_tools = deduplicate_tools(all_tools)
     print(f"      After dedup: {len(deduped_tools)} tools (from {len(all_tools)} raw)")
+
+    # Enrich top tools with landing page data (pricing, features, use cases)
+    print("    Enriching tool landing pages...")
+    deduped_tools = enrich_tools_from_landing_pages(deduped_tools)
+    enriched_n = sum(1 for t in deduped_tools if t.get("landing_page"))
+    print(f"      Enriched: {enriched_n}/{len(deduped_tools)} tools")
 
     # ── Track 2: AI News from Primary Blogs ──────────────────────────────
     print("  Track 2: AI News Blogs")

@@ -319,13 +319,27 @@ def synthesize_tools(raw_content, citations, discovered_tools=None):
             tagline = t.get("tagline", "")
             url = t.get("url", "")
             source = t.get("source", "")
-            tool_lines.append(f"  - {name}: {tagline} ({url}) [from {source}]")
+            lp = t.get("landing_page", {})
+
+            line = f"  - {name}: {tagline} ({url}) [from {source}]"
+            if lp:
+                pricing = lp.get("pricing", "")
+                features = lp.get("key_features", [])
+                use_cases = lp.get("use_cases", [])
+                if pricing:
+                    line += f"\n    Pricing: {pricing}"
+                if features:
+                    line += f"\n    Features: {', '.join(features[:3])}"
+                if use_cases:
+                    line += f"\n    Use cases: {', '.join(use_cases[:2])}"
+            tool_lines.append(line)
         if tool_lines:
             discovery_context = (
                 "\n\nFRESH TOOL DISCOVERIES (scraped from Product Hunt, TAAFT, FutureTools today):\n"
                 + "\n".join(tool_lines)
                 + "\n\nPRIORITIZE these fresh discoveries over well-known tools like ChatGPT, Cursor, "
                 "Zapier, Notion, etc. Readers want to discover NEW tools they haven't heard of.\n"
+                "Use the scraped pricing, features, and use cases to write richer descriptions.\n"
             )
 
     prompt = f"""Analyze this AI tools data and create 6 actionable tip cards.
