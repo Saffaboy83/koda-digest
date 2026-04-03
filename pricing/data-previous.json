@@ -1,55 +1,41 @@
 {
-  "generated_at": "2026-04-03T02:42:55.257047Z",
+  "generated_at": "2026-04-03T02:51:17.231411+00:00",
   "provider_count": 9,
-  "total_models": 80,
+  "total_models": 85,
   "providers": [
     {
       "provider": "OpenAI",
       "source_url": "https://openai.com/api/pricing/",
-      "scraped_at": "2026-04-03T02:39:36.517070Z",
-      "model_count": 5,
+      "scraped_at": "2026-04-03T02:49:04.545280+00:00",
+      "model_count": 3,
       "models": [
         {
           "model_name": "GPT-5.4",
           "input_price_per_1m_tokens": 2.5,
           "output_price_per_1m_tokens": 15,
           "context_window": "270K",
-          "model_type": "flagship"
+          "model_type": "chat"
         },
         {
           "model_name": "GPT-5.4 mini",
           "input_price_per_1m_tokens": 0.75,
           "output_price_per_1m_tokens": 4.5,
           "context_window": "270K",
-          "model_type": "flagship"
+          "model_type": "chat"
         },
         {
           "model_name": "GPT-5.4 nano",
           "input_price_per_1m_tokens": 0.2,
           "output_price_per_1m_tokens": 1.25,
           "context_window": "270K",
-          "model_type": "flagship"
-        },
-        {
-          "model_name": "GPT-realtime-1.5",
-          "input_price_per_1m_tokens": 4,
-          "output_price_per_1m_tokens": 16,
-          "context_window": "real-time",
-          "model_type": "multimodal"
-        },
-        {
-          "model_name": "GPT-image-1.5",
-          "input_price_per_1m_tokens": 5,
-          "output_price_per_1m_tokens": 10,
-          "context_window": "image",
-          "model_type": "multimodal"
+          "model_type": "chat"
         }
       ]
     },
     {
       "provider": "Anthropic",
       "source_url": "https://docs.anthropic.com/en/docs/about-claude/models",
-      "scraped_at": "2026-04-03T02:39:39.546116Z",
+      "scraped_at": "2026-04-03T02:49:08.763835+00:00",
       "model_count": 3,
       "models": [
         {
@@ -57,106 +43,127 @@
           "input_price_per_1m_tokens": 5,
           "output_price_per_1m_tokens": 25,
           "context_window": "1M tokens",
-          "model_type": "text"
+          "model_type": "chat"
         },
         {
           "model_name": "Claude Sonnet 4.6",
           "input_price_per_1m_tokens": 3,
           "output_price_per_1m_tokens": 15,
           "context_window": "1M tokens",
-          "model_type": "text"
+          "model_type": "chat"
         },
         {
           "model_name": "Claude Haiku 4.5",
           "input_price_per_1m_tokens": 1,
           "output_price_per_1m_tokens": 5,
           "context_window": "200k tokens",
-          "model_type": "text"
+          "model_type": "chat"
         }
       ]
     },
     {
       "provider": "Google Gemini",
       "source_url": "https://ai.google.dev/gemini-api/docs/pricing",
-      "scraped_at": "2026-04-03T02:40:08.299387Z",
-      "model_count": 10,
+      "scraped_at": "2026-04-03T02:49:25.433400+00:00",
+      "model_count": 13,
       "models": [
         {
-          "model_name": "gemini-3.1-pro-preview",
-          "input_price_per_1m_tokens": 2000,
-          "output_price_per_1m_tokens": 12000,
+          "model_name": "Gemini 3.1 Pro Preview",
+          "input_price_per_1m_tokens": 2,
+          "output_price_per_1m_tokens": 12,
           "context_window": "200K",
           "model_type": "chat"
         },
         {
-          "model_name": "gemini-3.1-flash-lite-preview",
-          "input_price_per_1m_tokens": 250,
-          "output_price_per_1m_tokens": 1500,
+          "model_name": "Gemini 3.1 Flash-Lite Preview",
+          "input_price_per_1m_tokens": 0.25,
+          "output_price_per_1m_tokens": 1.5,
           "context_window": "1M",
           "model_type": "chat"
         },
         {
-          "model_name": "gemini-3.1-flash-live-preview",
-          "input_price_per_1m_tokens": 750,
-          "output_price_per_1m_tokens": 4500,
+          "model_name": "Gemini 3.1 Flash Live Preview",
+          "input_price_per_1m_tokens": 0.75,
+          "output_price_per_1m_tokens": 4.5,
           "context_window": "1M",
           "model_type": "audio"
         },
         {
-          "model_name": "gemini-3.1-flash-image-preview",
-          "input_price_per_1m_tokens": 500,
-          "output_price_per_1m_tokens": 30000,
+          "model_name": "Gemini 3.1 Flash Image Preview",
+          "input_price_per_1m_tokens": 0.5,
+          "output_price_per_1m_tokens": 60,
           "context_window": "1M",
           "model_type": "image"
         },
         {
-          "model_name": "gemini-2.5-pro",
-          "input_price_per_1m_tokens": 1250,
-          "output_price_per_1m_tokens": 10000,
+          "model_name": "Gemini 3 Flash Preview",
+          "input_price_per_1m_tokens": 0.5,
+          "output_price_per_1m_tokens": 3,
+          "context_window": "1M",
+          "model_type": "chat"
+        },
+        {
+          "model_name": "Gemini 2.5 Pro",
+          "input_price_per_1m_tokens": 1.25,
+          "output_price_per_1m_tokens": 10,
           "context_window": "200K",
           "model_type": "chat"
         },
         {
-          "model_name": "gemini-2.5-flash",
-          "input_price_per_1m_tokens": 300,
-          "output_price_per_1m_tokens": 2500,
+          "model_name": "Gemini 2.5 Flash",
+          "input_price_per_1m_tokens": 0.3,
+          "output_price_per_1m_tokens": 2.5,
           "context_window": "1M",
           "model_type": "chat"
         },
         {
-          "model_name": "gemini-2.5-flash-lite",
-          "input_price_per_1m_tokens": 100,
-          "output_price_per_1m_tokens": 400,
+          "model_name": "Gemini 2.5 Flash-Lite",
+          "input_price_per_1m_tokens": 0.1,
+          "output_price_per_1m_tokens": 0.4,
           "context_window": "1M",
           "model_type": "chat"
         },
         {
-          "model_name": "gemini-2.5-flash-native-audio",
-          "input_price_per_1m_tokens": 500,
-          "output_price_per_1m_tokens": 2000,
+          "model_name": "Gemini 2.5 Flash Native Audio",
+          "input_price_per_1m_tokens": 0.5,
+          "output_price_per_1m_tokens": 12,
           "context_window": "1M",
           "model_type": "audio"
         },
         {
-          "model_name": "gemini-embedding-2-preview",
-          "input_price_per_1m_tokens": 200,
-          "output_price_per_1m_tokens": 0,
+          "model_name": "Gemini 2.5 Flash Image",
+          "input_price_per_1m_tokens": 0.3,
+          "output_price_per_1m_tokens": 0.039,
           "context_window": "1M",
-          "model_type": "embedding"
+          "model_type": "image"
         },
         {
-          "model_name": "gemini-embedding",
-          "input_price_per_1m_tokens": 150,
-          "output_price_per_1m_tokens": 0,
+          "model_name": "Gemini 2.5 Computer Use Preview",
+          "input_price_per_1m_tokens": 1.25,
+          "output_price_per_1m_tokens": 10,
+          "context_window": "200K",
+          "model_type": "chat"
+        },
+        {
+          "model_name": "Gemini Robotics-ER 1.5 Preview",
+          "input_price_per_1m_tokens": 0.3,
+          "output_price_per_1m_tokens": 2.5,
           "context_window": "1M",
-          "model_type": "embedding"
+          "model_type": "chat"
+        },
+        {
+          "model_name": "Gemini 2.0 Flash",
+          "input_price_per_1m_tokens": 0.1,
+          "output_price_per_1m_tokens": 0.4,
+          "context_window": "1M",
+          "model_type": "chat"
         }
       ]
     },
     {
       "provider": "Groq",
       "source_url": "https://groq.com/pricing/",
-      "scraped_at": "2026-04-03T02:40:30.556538Z",
+      "scraped_at": "2026-04-03T02:49:46.434425+00:00",
       "model_count": 7,
       "models": [
         {
@@ -213,113 +220,113 @@
     {
       "provider": "Together AI",
       "source_url": "https://www.together.ai/pricing",
-      "scraped_at": "2026-04-03T02:41:00.404906Z",
+      "scraped_at": "2026-04-03T02:50:16.091100+00:00",
       "model_count": 14,
       "models": [
         {
           "model_name": "MiniMax M2.5",
           "input_price_per_1m_tokens": 0.3,
           "output_price_per_1m_tokens": 1.2,
-          "context_window": "N/A",
-          "model_type": "Inference"
+          "context_window": "",
+          "model_type": "chat"
         },
         {
           "model_name": "Kimi K2.5",
           "input_price_per_1m_tokens": 0.5,
           "output_price_per_1m_tokens": 2.8,
-          "context_window": "N/A",
-          "model_type": "Inference"
+          "context_window": "",
+          "model_type": "chat"
         },
         {
           "model_name": "GLM-5",
           "input_price_per_1m_tokens": 1,
           "output_price_per_1m_tokens": 3.2,
-          "context_window": "N/A",
-          "model_type": "Inference"
+          "context_window": "128K",
+          "model_type": "chat"
         },
         {
           "model_name": "Llama 3.3 70B",
           "input_price_per_1m_tokens": 0.88,
           "output_price_per_1m_tokens": 0.88,
-          "context_window": "N/A",
-          "model_type": "Inference"
+          "context_window": "128K",
+          "model_type": "chat"
         },
         {
           "model_name": "Llama 3 8B Instruct Lite",
           "input_price_per_1m_tokens": 0.1,
           "output_price_per_1m_tokens": 0.1,
-          "context_window": "N/A",
-          "model_type": "Inference"
+          "context_window": "128K",
+          "model_type": "chat"
         },
         {
           "model_name": "DeepSeek-R1-0528",
           "input_price_per_1m_tokens": 3,
           "output_price_per_1m_tokens": 7,
-          "context_window": "N/A",
-          "model_type": "Inference"
+          "context_window": "128K",
+          "model_type": "chat"
         },
         {
           "model_name": "DeepSeek-V3.1",
           "input_price_per_1m_tokens": 0.6,
           "output_price_per_1m_tokens": 1.7,
-          "context_window": "N/A",
-          "model_type": "Inference"
+          "context_window": "128K",
+          "model_type": "chat"
         },
         {
           "model_name": "gpt-oss-120B",
           "input_price_per_1m_tokens": 0.15,
           "output_price_per_1m_tokens": 0.6,
-          "context_window": "N/A",
-          "model_type": "Inference"
+          "context_window": "",
+          "model_type": "chat"
         },
         {
           "model_name": "Qwen2.5 7B Instruct Turbo",
           "input_price_per_1m_tokens": 0.3,
           "output_price_per_1m_tokens": 0.3,
-          "context_window": "N/A",
-          "model_type": "Inference"
+          "context_window": "128K",
+          "model_type": "chat"
         },
         {
           "model_name": "Kimi K2 Instruct",
           "input_price_per_1m_tokens": 1,
           "output_price_per_1m_tokens": 3,
-          "context_window": "N/A",
-          "model_type": "Inference"
+          "context_window": "",
+          "model_type": "chat"
         },
         {
           "model_name": "Mistral (7B) Instruct v0.2",
           "input_price_per_1m_tokens": 0.2,
           "output_price_per_1m_tokens": 0.2,
-          "context_window": "N/A",
-          "model_type": "Inference"
+          "context_window": "32K",
+          "model_type": "chat"
         },
         {
           "model_name": "Mistral Small 3",
           "input_price_per_1m_tokens": 0.1,
           "output_price_per_1m_tokens": 0.3,
-          "context_window": "N/A",
-          "model_type": "Inference"
+          "context_window": "32K",
+          "model_type": "chat"
         },
         {
           "model_name": "Gemma 3n E4B Instruct",
           "input_price_per_1m_tokens": 0.02,
           "output_price_per_1m_tokens": 0.04,
-          "context_window": "N/A",
-          "model_type": "Inference"
+          "context_window": "",
+          "model_type": "chat"
         },
         {
           "model_name": "Qwen3.5 9B",
           "input_price_per_1m_tokens": 0.1,
           "output_price_per_1m_tokens": 0.15,
-          "context_window": "N/A",
-          "model_type": "Inference"
+          "context_window": "128K",
+          "model_type": "chat"
         }
       ]
     },
     {
       "provider": "xAI",
       "source_url": "https://x.ai/api",
-      "scraped_at": "2026-04-03T02:41:04.915096Z",
+      "scraped_at": "2026-04-03T02:50:22.195997+00:00",
       "model_count": 4,
       "models": [
         {
@@ -355,63 +362,63 @@
     {
       "provider": "Perplexity",
       "source_url": "https://docs.perplexity.ai/guides/pricing",
-      "scraped_at": "2026-04-03T02:41:16.695714Z",
+      "scraped_at": "2026-04-03T02:50:43.043114+00:00",
       "model_count": 8,
       "models": [
         {
           "model_name": "Sonar",
           "input_price_per_1m_tokens": 1,
           "output_price_per_1m_tokens": 1,
-          "context_window": "Not specified",
+          "context_window": "",
           "model_type": "reasoning"
         },
         {
           "model_name": "Sonar Pro",
           "input_price_per_1m_tokens": 3,
           "output_price_per_1m_tokens": 15,
-          "context_window": "Not specified",
+          "context_window": "",
           "model_type": "reasoning"
         },
         {
           "model_name": "Sonar Reasoning Pro",
           "input_price_per_1m_tokens": 2,
           "output_price_per_1m_tokens": 8,
-          "context_window": "Not specified",
+          "context_window": "",
           "model_type": "reasoning"
         },
         {
           "model_name": "Sonar Deep Research",
           "input_price_per_1m_tokens": 2,
           "output_price_per_1m_tokens": 8,
-          "context_window": "Not specified",
+          "context_window": "",
           "model_type": "reasoning"
         },
         {
           "model_name": "pplx-embed-v1-0.6b",
-          "input_price_per_1m_tokens": 4,
+          "input_price_per_1m_tokens": 0.004,
           "output_price_per_1m_tokens": 0,
-          "context_window": "Not specified",
+          "context_window": "",
           "model_type": "embedding"
         },
         {
           "model_name": "pplx-embed-v1-4b",
-          "input_price_per_1m_tokens": 30,
+          "input_price_per_1m_tokens": 0.03,
           "output_price_per_1m_tokens": 0,
-          "context_window": "Not specified",
+          "context_window": "",
           "model_type": "embedding"
         },
         {
           "model_name": "pplx-embed-context-v1-0.6b",
-          "input_price_per_1m_tokens": 8,
+          "input_price_per_1m_tokens": 0.008,
           "output_price_per_1m_tokens": 0,
-          "context_window": "Not specified",
+          "context_window": "",
           "model_type": "embedding"
         },
         {
           "model_name": "pplx-embed-context-v1-4b",
-          "input_price_per_1m_tokens": 50,
+          "input_price_per_1m_tokens": 0.05,
           "output_price_per_1m_tokens": 0,
-          "context_window": "Not specified",
+          "context_window": "",
           "model_type": "embedding"
         }
       ]
@@ -419,219 +426,247 @@
     {
       "provider": "Cohere",
       "source_url": "https://cohere.com/pricing",
-      "scraped_at": "2026-04-03T02:41:24.264585Z",
+      "scraped_at": "2026-04-03T02:50:53.926849+00:00",
       "model_count": 7,
       "models": [
         {
           "model_name": "Command",
           "input_price_per_1m_tokens": 1,
           "output_price_per_1m_tokens": 2,
-          "context_window": "N/A",
-          "model_type": "reasoning"
+          "context_window": "4K",
+          "model_type": "legacy"
         },
         {
           "model_name": "Command-light",
           "input_price_per_1m_tokens": 0.3,
           "output_price_per_1m_tokens": 0.6,
-          "context_window": "N/A",
-          "model_type": "reasoning"
+          "context_window": "4K",
+          "model_type": "legacy"
         },
         {
           "model_name": "Command R 03-2024",
           "input_price_per_1m_tokens": 0.5,
           "output_price_per_1m_tokens": 1.5,
-          "context_window": "N/A",
-          "model_type": "reasoning"
+          "context_window": "128K",
+          "model_type": "legacy"
         },
         {
           "model_name": "Command R+ 04-2024",
           "input_price_per_1m_tokens": 3,
           "output_price_per_1m_tokens": 15,
-          "context_window": "N/A",
-          "model_type": "reasoning"
+          "context_window": "128K",
+          "model_type": "legacy"
         },
         {
           "model_name": "Command R+ 08-2024",
           "input_price_per_1m_tokens": 2.5,
           "output_price_per_1m_tokens": 10,
-          "context_window": "N/A",
-          "model_type": "reasoning"
+          "context_window": "128K",
+          "model_type": "legacy"
         },
         {
           "model_name": "Aya Expanse 8B",
           "input_price_per_1m_tokens": 0.5,
           "output_price_per_1m_tokens": 1.5,
-          "context_window": "N/A",
-          "model_type": "reasoning"
+          "context_window": "8K",
+          "model_type": "research"
         },
         {
           "model_name": "Aya Expanse 32B",
           "input_price_per_1m_tokens": 0.5,
           "output_price_per_1m_tokens": 1.5,
-          "context_window": "N/A",
-          "model_type": "reasoning"
+          "context_window": "8K",
+          "model_type": "research"
         }
       ]
     },
     {
       "provider": "AWS Bedrock",
       "source_url": "https://aws.amazon.com/bedrock/pricing/",
-      "scraped_at": "2026-04-03T02:42:55.257047Z",
-      "model_count": 22,
+      "scraped_at": "2026-04-03T02:51:17.231411+00:00",
+      "model_count": 26,
       "models": [
         {
           "model_name": "Jamba 1.5 Large",
           "input_price_per_1m_tokens": 2,
           "output_price_per_1m_tokens": 8,
-          "context_window": "N/A",
-          "model_type": "chat"
+          "context_window": "256K",
+          "model_type": "batch"
         },
         {
           "model_name": "Jamba 1.5 Mini",
           "input_price_per_1m_tokens": 0.2,
           "output_price_per_1m_tokens": 0.4,
-          "context_window": "N/A",
-          "model_type": "chat"
+          "context_window": "256K",
+          "model_type": "batch"
         },
         {
           "model_name": "Jurassic-2 Mid",
           "input_price_per_1m_tokens": 12.5,
           "output_price_per_1m_tokens": 12.5,
-          "context_window": "N/A",
-          "model_type": "chat"
+          "context_window": "8K",
+          "model_type": "batch"
         },
         {
           "model_name": "Jurassic-2 Ultra",
           "input_price_per_1m_tokens": 18.8,
           "output_price_per_1m_tokens": 18.8,
-          "context_window": "N/A",
-          "model_type": "chat"
+          "context_window": "8K",
+          "model_type": "batch"
         },
         {
           "model_name": "Jamba-Instruct",
           "input_price_per_1m_tokens": 0.5,
           "output_price_per_1m_tokens": 0.7,
-          "context_window": "N/A",
-          "model_type": "chat"
+          "context_window": "256K",
+          "model_type": "batch"
         },
         {
           "model_name": "Amazon Nova 2 Lite",
           "input_price_per_1m_tokens": 0.3,
           "output_price_per_1m_tokens": 2.5,
-          "context_window": "N/A",
-          "model_type": "multi-modal"
+          "context_window": "128K",
+          "model_type": "batch"
         },
         {
           "model_name": "Amazon Nova 2 Omni (Preview)",
           "input_price_per_1m_tokens": 0.3,
           "output_price_per_1m_tokens": 40,
-          "context_window": "N/A",
-          "model_type": "multi-modal"
+          "context_window": "128K",
+          "model_type": "batch"
         },
         {
           "model_name": "Amazon Nova 2 Pro (Preview)",
           "input_price_per_1m_tokens": 1.25,
           "output_price_per_1m_tokens": 10,
-          "context_window": "N/A",
-          "model_type": "multi-modal"
-        },
-        {
-          "model_name": "Amazon Nova Micro",
-          "input_price_per_1m_tokens": 0.035,
-          "output_price_per_1m_tokens": 0.14,
-          "context_window": "N/A",
-          "model_type": "multi-modal"
-        },
-        {
-          "model_name": "Amazon Nova Lite",
-          "input_price_per_1m_tokens": 0.06,
-          "output_price_per_1m_tokens": 0.24,
-          "context_window": "N/A",
-          "model_type": "multi-modal"
-        },
-        {
-          "model_name": "Amazon Nova Pro",
-          "input_price_per_1m_tokens": 0.8,
-          "output_price_per_1m_tokens": 3.2,
-          "context_window": "N/A",
-          "model_type": "multi-modal"
+          "context_window": "128K",
+          "model_type": "batch"
         },
         {
           "model_name": "Claude Sonnet 4.6",
           "input_price_per_1m_tokens": 3,
           "output_price_per_1m_tokens": 15,
-          "context_window": "N/A",
-          "model_type": "chat"
+          "context_window": "200K",
+          "model_type": "batch"
         },
         {
           "model_name": "Claude Opus 4.6",
           "input_price_per_1m_tokens": 5,
           "output_price_per_1m_tokens": 25,
-          "context_window": "N/A",
-          "model_type": "chat"
-        },
-        {
-          "model_name": "Claude Haiku 4.5",
-          "input_price_per_1m_tokens": 1,
-          "output_price_per_1m_tokens": 5,
-          "context_window": "N/A",
-          "model_type": "chat"
+          "context_window": "200K",
+          "model_type": "batch"
         },
         {
           "model_name": "Amazon Nova Sonic",
           "input_price_per_1m_tokens": 3.4,
           "output_price_per_1m_tokens": 13.6,
-          "context_window": "N/A",
-          "model_type": "speech"
+          "context_window": "128K",
+          "model_type": "batch"
         },
         {
-          "model_name": "Amazon Titan Text Embeddings V2",
-          "input_price_per_1m_tokens": 0.02,
-          "output_price_per_1m_tokens": 0,
-          "context_window": "N/A",
-          "model_type": "embedding"
+          "model_name": "Amazon Nova 2 Sonic",
+          "input_price_per_1m_tokens": 3,
+          "output_price_per_1m_tokens": 12,
+          "context_window": "128K",
+          "model_type": "batch"
         },
         {
-          "model_name": "NVIDIA Nemotron Nano 2",
-          "input_price_per_1m_tokens": 0.06,
-          "output_price_per_1m_tokens": 0.23,
-          "context_window": "N/A",
-          "model_type": "N/A"
+          "model_name": "Gemma 3 4B",
+          "input_price_per_1m_tokens": 0.04,
+          "output_price_per_1m_tokens": 0.08,
+          "context_window": "",
+          "model_type": "batch"
         },
         {
-          "model_name": "NVIDIA Nemotron Nano 2 VL",
-          "input_price_per_1m_tokens": 0.2,
-          "output_price_per_1m_tokens": 0.6,
-          "context_window": "N/A",
-          "model_type": "N/A"
-        },
-        {
-          "model_name": "NVIDIA Nemotron 3 Nano 30B A3B",
-          "input_price_per_1m_tokens": 0.06,
-          "output_price_per_1m_tokens": 0.24,
-          "context_window": "N/A",
-          "model_type": "N/A"
+          "model_name": "Gemma 3 12B",
+          "input_price_per_1m_tokens": 0.09,
+          "output_price_per_1m_tokens": 0.29,
+          "context_window": "",
+          "model_type": "batch"
         },
         {
           "model_name": "NVIDIA Nemotron 3 Super 120B A12B",
           "input_price_per_1m_tokens": 0.15,
           "output_price_per_1m_tokens": 0.65,
-          "context_window": "N/A",
-          "model_type": "N/A"
+          "context_window": "128K",
+          "model_type": "batch"
+        },
+        {
+          "model_name": "Llama 4 Maverick 17B",
+          "input_price_per_1m_tokens": 0.24,
+          "output_price_per_1m_tokens": 0.97,
+          "context_window": "",
+          "model_type": "batch"
+        },
+        {
+          "model_name": "Llama 4 Scout 17B",
+          "input_price_per_1m_tokens": 0.17,
+          "output_price_per_1m_tokens": 0.66,
+          "context_window": "",
+          "model_type": "batch"
+        },
+        {
+          "model_name": "DeepSeek-R1",
+          "input_price_per_1m_tokens": 1.35,
+          "output_price_per_1m_tokens": 5.4,
+          "context_window": "128K",
+          "model_type": "batch"
+        },
+        {
+          "model_name": "DeepSeek-V3.1",
+          "input_price_per_1m_tokens": 0.58,
+          "output_price_per_1m_tokens": 1.68,
+          "context_window": "128K",
+          "model_type": "batch"
+        },
+        {
+          "model_name": "Pixtral Large (25.02)",
+          "input_price_per_1m_tokens": 2,
+          "output_price_per_1m_tokens": 6,
+          "context_window": "",
+          "model_type": "batch"
+        },
+        {
+          "model_name": "Palmyra X4",
+          "input_price_per_1m_tokens": 2.5,
+          "output_price_per_1m_tokens": 10,
+          "context_window": "",
+          "model_type": "batch"
+        },
+        {
+          "model_name": "Palmyra X5",
+          "input_price_per_1m_tokens": 0.6,
+          "output_price_per_1m_tokens": 6,
+          "context_window": "",
+          "model_type": "batch"
+        },
+        {
+          "model_name": "Palmyra Vision 7B",
+          "input_price_per_1m_tokens": 0.15,
+          "output_price_per_1m_tokens": 0.6,
+          "context_window": "",
+          "model_type": "batch"
         },
         {
           "model_name": "GLM 5",
           "input_price_per_1m_tokens": 1,
           "output_price_per_1m_tokens": 3.2,
-          "context_window": "N/A",
-          "model_type": "N/A"
+          "context_window": "128K",
+          "model_type": "batch"
         },
         {
           "model_name": "GLM 4.7",
           "input_price_per_1m_tokens": 0.6,
           "output_price_per_1m_tokens": 2.2,
-          "context_window": "N/A",
-          "model_type": "N/A"
+          "context_window": "128K",
+          "model_type": "batch"
+        },
+        {
+          "model_name": "GLM 4.7 Flash",
+          "input_price_per_1m_tokens": 0.07,
+          "output_price_per_1m_tokens": 0.4,
+          "context_window": "128K",
+          "model_type": "batch"
         }
       ]
     }

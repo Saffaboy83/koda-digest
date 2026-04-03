@@ -75,6 +75,45 @@ PRICING_SCHEMA: dict[str, Any] = {
 }
 
 
+# Well-known context windows for models whose pricing pages don't list them
+KNOWN_CONTEXT_WINDOWS: dict[str, str] = {
+    # Anthropic
+    "claude": "200K",
+    # Cohere
+    "command r": "128K", "command-r": "128K", "command r+": "128K",
+    "command": "4K", "command-light": "4K",
+    "aya": "8K",
+    # Meta / Llama
+    "llama 3.3": "128K", "llama 3 8b": "128K", "llama 3": "128K",
+    # DeepSeek
+    "deepseek": "128K",
+    # AWS Bedrock common
+    "nova micro": "128K", "nova lite": "300K", "nova pro": "300K",
+    "nova 2": "128K", "nova sonic": "128K",
+    "titan": "8K", "jamba": "256K", "jurassic": "8K",
+    "nemotron": "128K",
+    # Mistral
+    "mistral": "32K", "mistral small": "32K",
+    # Qwen
+    "qwen": "128K",
+    # GLM
+    "glm": "128K",
+}
+
+
+def _fill_context_window(model: dict) -> dict:
+    """Fill missing context_window from well-known lookup."""
+    ctx = model.get("context_window")
+    if ctx and ctx != "N/A":
+        return model
+    name_lower = model.get("model_name", "").lower()
+    for pattern, window in KNOWN_CONTEXT_WINDOWS.items():
+        if pattern in name_lower:
+            model["context_window"] = window
+            return model
+    return model
+
+
 def scrape_provider_pricing(provider: dict[str, str]) -> dict[str, Any] | None:
     """Scrape a single provider's pricing page and return normalized data."""
     name = provider["name"]
@@ -92,9 +131,12 @@ def scrape_provider_pricing(provider: dict[str, str]) -> dict[str, Any] | None:
             "schema": PRICING_SCHEMA,
             "prompt": (
                 f"Extract ALL available AI model pricing from this {name} pricing page. "
-                "For each model, extract the model name, input price per 1 million tokens (USD), "
-                "output price per 1 million tokens (USD), context window size, and model type. "
-                "If prices are per 1K tokens, multiply by 1000 to normalize to per 1M. "
+                "For each model, extract: model name, input price, output price, context window, and type. "
+                "CRITICAL: Return prices as the EXACT dollar amounts shown on the page per 1 million tokens. "
+                "For example, if the page shows '$2.50 per 1M tokens', return 2.5 (not 2500). "
+                "If the page shows '$0.003 per 1K tokens', convert to per-1M by multiplying by 1000 (= $3.00). "
+                "Most pages already show per-1M pricing -- do NOT multiply those. "
+                "Also extract context window if shown (e.g. '128K', '200K', '1M'). "
                 "Only include models with visible pricing. Skip deprecated models."
             ),
         },
@@ -116,10 +158,12 @@ def scrape_provider_pricing(provider: dict[str, str]) -> dict[str, Any] | None:
             models = extracted.get("models", [])
 
             if models:
+                # Fill missing context windows from well-known lookup
+                models = [_fill_context_window(m) for m in models]
                 return {
                     "provider": name,
                     "source_url": url,
-                    "scraped_at": datetime.utcnow().isoformat() + "Z",
+                    "scraped_at": datetime.now(tz=__import__('datetime').timezone.utc).isoformat(),
                     "model_count": len(models),
                     "models": models,
                 }
@@ -166,7 +210,7 @@ def main() -> None:
             print("FAILED")
 
     output = {
-        "generated_at": datetime.utcnow().isoformat() + "Z",
+        "generated_at": datetime.now(tz=__import__('datetime').timezone.utc).isoformat(),
         "provider_count": len(all_providers),
         "total_models": total_models,
         "providers": all_providers,

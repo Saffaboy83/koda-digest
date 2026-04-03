@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AI API Pricing Tracker - Koda</title>
-<meta name="description" content="Live comparison of AI API pricing across 9 providers and 80 models. Updated weekly.">
+<meta name="description" content="Live comparison of AI API pricing across 9 providers and 85 models. Updated weekly.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -41,11 +41,11 @@ thead th,tbody td{padding:8px}
 <span style="color:#64748B;font-size:12px">Updated: April 03, 2026</span>
 </div>
 <h1>AI API Pricing Tracker</h1>
-<p class="subtitle">9 providers, 80 models -- sorted by input cost (cheapest first)</p>
+<p class="subtitle">9 providers, 85 models -- sorted by input cost (cheapest first)</p>
 
 <div class="stats">
 <div class="stat"><div class="stat-value">9</div><div class="stat-label">Providers</div></div>
-<div class="stat"><div class="stat-value">80</div><div class="stat-label">Models</div></div>
+<div class="stat"><div class="stat-value">85</div><div class="stat-label">Models</div></div>
 <div class="stat"><div class="stat-value">April 03, 2026</div><div class="stat-label">Last Updated</div></div>
 </div>
 
@@ -64,26 +64,40 @@ thead th,tbody td{padding:8px}
 </thead>
 <tbody>
 <tr>
+<td><span style="color:#06B6D4;font-weight:600">Perplexity</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">pplx-embed-v1-0.6b</td>
+<td style="text-align:right">$0.0040</td>
+<td style="text-align:right">Free</td>
+<td style="text-align:center;color:#94A3B8">N/A</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">embedding</span></td>
+</tr><tr>
+<td><span style="color:#06B6D4;font-weight:600">Perplexity</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">pplx-embed-context-v1-0.6b</td>
+<td style="text-align:right">$0.0080</td>
+<td style="text-align:right">Free</td>
+<td style="text-align:center;color:#94A3B8">N/A</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">embedding</span></td>
+</tr><tr>
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Gemma 3n E4B Instruct</td>
 <td style="text-align:right">$0.02</td>
 <td style="text-align:right">$0.04</td>
 <td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">Inference</span></td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Amazon Titan Text Embeddings V2</td>
-<td style="text-align:right">$0.02</td>
+<td><span style="color:#06B6D4;font-weight:600">Perplexity</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">pplx-embed-v1-4b</td>
+<td style="text-align:right">$0.03</td>
 <td style="text-align:right">Free</td>
 <td style="text-align:center;color:#94A3B8">N/A</td>
 <td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">embedding</span></td>
 </tr><tr>
 <td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Amazon Nova Micro</td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Gemma 3 4B</td>
 <td style="text-align:right">$0.04</td>
-<td style="text-align:right">$0.14</td>
+<td style="text-align:right">$0.08</td>
 <td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">multi-modal</span></td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
 </tr><tr>
 <td><span style="color:#EC4899;font-weight:600">Groq</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Llama 3.1 8B Instant 128k</td>
@@ -92,26 +106,19 @@ thead th,tbody td{padding:8px}
 <td style="text-align:center;color:#94A3B8">128k</td>
 <td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Amazon Nova Lite</td>
-<td style="text-align:right">$0.06</td>
-<td style="text-align:right">$0.24</td>
+<td><span style="color:#06B6D4;font-weight:600">Perplexity</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">pplx-embed-context-v1-4b</td>
+<td style="text-align:right">$0.05</td>
+<td style="text-align:right">Free</td>
 <td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">multi-modal</span></td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">embedding</span></td>
 </tr><tr>
 <td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">NVIDIA Nemotron Nano 2</td>
-<td style="text-align:right">$0.06</td>
-<td style="text-align:right">$0.23</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">N/A</span></td>
-</tr><tr>
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">NVIDIA Nemotron 3 Nano 30B A3B</td>
-<td style="text-align:right">$0.06</td>
-<td style="text-align:right">$0.24</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">N/A</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">GLM 4.7 Flash</td>
+<td style="text-align:right">$0.07</td>
+<td style="text-align:right">$0.40</td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
 </tr><tr>
 <td><span style="color:#EC4899;font-weight:600">Groq</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">GPT OSS 20B 128k</td>
@@ -127,26 +134,47 @@ thead th,tbody td{padding:8px}
 <td style="text-align:center;color:#94A3B8">128k</td>
 <td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
+<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Gemma 3 12B</td>
+<td style="text-align:right">$0.09</td>
+<td style="text-align:right">$0.29</td>
+<td style="text-align:center;color:#94A3B8">N/A</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
+</tr><tr>
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Gemini 2.5 Flash-Lite</td>
+<td style="text-align:right">$0.10</td>
+<td style="text-align:right">$0.40</td>
+<td style="text-align:center;color:#94A3B8">1M</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
+</tr><tr>
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Gemini 2.0 Flash</td>
+<td style="text-align:right">$0.10</td>
+<td style="text-align:right">$0.40</td>
+<td style="text-align:center;color:#94A3B8">1M</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
+</tr><tr>
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Llama 3 8B Instruct Lite</td>
 <td style="text-align:right">$0.10</td>
 <td style="text-align:right">$0.10</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">Inference</span></td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Mistral Small 3</td>
 <td style="text-align:right">$0.10</td>
 <td style="text-align:right">$0.30</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">Inference</span></td>
+<td style="text-align:center;color:#94A3B8">32K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Qwen3.5 9B</td>
 <td style="text-align:right">$0.10</td>
 <td style="text-align:right">$0.15</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">Inference</span></td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#EC4899;font-weight:600">Groq</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Llama 4 Scout (17Bx16E) 128k</td>
@@ -167,28 +195,42 @@ thead th,tbody td{padding:8px}
 <td style="text-align:right">$0.15</td>
 <td style="text-align:right">$0.60</td>
 <td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">Inference</span></td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">NVIDIA Nemotron 3 Super 120B A12B</td>
 <td style="text-align:right">$0.15</td>
 <td style="text-align:right">$0.65</td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
+</tr><tr>
+<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Palmyra Vision 7B</td>
+<td style="text-align:right">$0.15</td>
+<td style="text-align:right">$0.60</td>
 <td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">N/A</span></td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
+</tr><tr>
+<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Llama 4 Scout 17B</td>
+<td style="text-align:right">$0.17</td>
+<td style="text-align:right">$0.66</td>
+<td style="text-align:center;color:#94A3B8">N/A</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
 </tr><tr>
 <td><span style="color:#10B981;font-weight:600">OpenAI</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">GPT-5.4 nano</td>
 <td style="text-align:right">$0.20</td>
 <td style="text-align:right">$1.25</td>
 <td style="text-align:center;color:#94A3B8">270K</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">flagship</span></td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Mistral (7B) Instruct v0.2</td>
 <td style="text-align:right">$0.20</td>
 <td style="text-align:right">$0.20</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">Inference</span></td>
+<td style="text-align:center;color:#94A3B8">32K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#6366F1;font-weight:600">xAI</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">grok-4-1-fast-reasoning</td>
@@ -208,15 +250,22 @@ thead th,tbody td{padding:8px}
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Jamba 1.5 Mini</td>
 <td style="text-align:right">$0.20</td>
 <td style="text-align:right">$0.40</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
+<td style="text-align:center;color:#94A3B8">256K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
 </tr><tr>
 <td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">NVIDIA Nemotron Nano 2 VL</td>
-<td style="text-align:right">$0.20</td>
-<td style="text-align:right">$0.60</td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Llama 4 Maverick 17B</td>
+<td style="text-align:right">$0.24</td>
+<td style="text-align:right">$0.97</td>
 <td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">N/A</span></td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
+</tr><tr>
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Gemini 3.1 Flash-Lite Preview</td>
+<td style="text-align:right">$0.25</td>
+<td style="text-align:right">$1.50</td>
+<td style="text-align:center;color:#94A3B8">1M</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#EC4899;font-weight:600">Groq</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Qwen3 32B 131k</td>
@@ -225,75 +274,124 @@ thead th,tbody td{padding:8px}
 <td style="text-align:center;color:#94A3B8">131k</td>
 <td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Gemini 2.5 Flash</td>
+<td style="text-align:right">$0.30</td>
+<td style="text-align:right">$2.50</td>
+<td style="text-align:center;color:#94A3B8">1M</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
+</tr><tr>
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Gemini 2.5 Flash Image</td>
+<td style="text-align:right">$0.30</td>
+<td style="text-align:right">$0.04</td>
+<td style="text-align:center;color:#94A3B8">1M</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">image</span></td>
+</tr><tr>
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Gemini Robotics-ER 1.5 Preview</td>
+<td style="text-align:right">$0.30</td>
+<td style="text-align:right">$2.50</td>
+<td style="text-align:center;color:#94A3B8">1M</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
+</tr><tr>
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">MiniMax M2.5</td>
 <td style="text-align:right">$0.30</td>
 <td style="text-align:right">$1.20</td>
 <td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">Inference</span></td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Qwen2.5 7B Instruct Turbo</td>
 <td style="text-align:right">$0.30</td>
 <td style="text-align:right">$0.30</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">Inference</span></td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#EF4444;font-weight:600">Cohere</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Command-light</td>
 <td style="text-align:right">$0.30</td>
 <td style="text-align:right">$0.60</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">reasoning</span></td>
+<td style="text-align:center;color:#94A3B8">4K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">legacy</span></td>
 </tr><tr>
 <td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Amazon Nova 2 Lite</td>
 <td style="text-align:right">$0.30</td>
 <td style="text-align:right">$2.50</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">multi-modal</span></td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
 </tr><tr>
 <td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Amazon Nova 2 Omni (Preview)</td>
 <td style="text-align:right">$0.30</td>
 <td style="text-align:right">$40.00</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">multi-modal</span></td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
+</tr><tr>
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Gemini 3.1 Flash Image Preview</td>
+<td style="text-align:right">$0.50</td>
+<td style="text-align:right">$60.00</td>
+<td style="text-align:center;color:#94A3B8">1M</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">image</span></td>
+</tr><tr>
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Gemini 3 Flash Preview</td>
+<td style="text-align:right">$0.50</td>
+<td style="text-align:right">$3.00</td>
+<td style="text-align:center;color:#94A3B8">1M</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
+</tr><tr>
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Gemini 2.5 Flash Native Audio</td>
+<td style="text-align:right">$0.50</td>
+<td style="text-align:right">$12.00</td>
+<td style="text-align:center;color:#94A3B8">1M</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">audio</span></td>
 </tr><tr>
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Kimi K2.5</td>
 <td style="text-align:right">$0.50</td>
 <td style="text-align:right">$2.80</td>
 <td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">Inference</span></td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#EF4444;font-weight:600">Cohere</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Command R 03-2024</td>
 <td style="text-align:right">$0.50</td>
 <td style="text-align:right">$1.50</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">reasoning</span></td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">legacy</span></td>
 </tr><tr>
 <td><span style="color:#EF4444;font-weight:600">Cohere</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Aya Expanse 8B</td>
 <td style="text-align:right">$0.50</td>
 <td style="text-align:right">$1.50</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">reasoning</span></td>
+<td style="text-align:center;color:#94A3B8">8K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">research</span></td>
 </tr><tr>
 <td><span style="color:#EF4444;font-weight:600">Cohere</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Aya Expanse 32B</td>
 <td style="text-align:right">$0.50</td>
 <td style="text-align:right">$1.50</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">reasoning</span></td>
+<td style="text-align:center;color:#94A3B8">8K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">research</span></td>
 </tr><tr>
 <td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Jamba-Instruct</td>
 <td style="text-align:right">$0.50</td>
 <td style="text-align:right">$0.70</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
+<td style="text-align:center;color:#94A3B8">256K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
+</tr><tr>
+<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">DeepSeek-V3.1</td>
+<td style="text-align:right">$0.58</td>
+<td style="text-align:right">$1.68</td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
 </tr><tr>
 <td><span style="color:#EC4899;font-weight:600">Groq</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Llama 3.3 70B Versatile 128k</td>
@@ -306,92 +404,120 @@ thead th,tbody td{padding:8px}
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">DeepSeek-V3.1</td>
 <td style="text-align:right">$0.60</td>
 <td style="text-align:right">$1.70</td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
+</tr><tr>
+<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Palmyra X5</td>
+<td style="text-align:right">$0.60</td>
+<td style="text-align:right">$6.00</td>
 <td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">Inference</span></td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
 </tr><tr>
 <td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">GLM 4.7</td>
 <td style="text-align:right">$0.60</td>
 <td style="text-align:right">$2.20</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">N/A</span></td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
 </tr><tr>
 <td><span style="color:#10B981;font-weight:600">OpenAI</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">GPT-5.4 mini</td>
 <td style="text-align:right">$0.75</td>
 <td style="text-align:right">$4.50</td>
 <td style="text-align:center;color:#94A3B8">270K</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">flagship</span></td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Amazon Nova Pro</td>
-<td style="text-align:right">$0.80</td>
-<td style="text-align:right">$3.20</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">multi-modal</span></td>
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Gemini 3.1 Flash Live Preview</td>
+<td style="text-align:right">$0.75</td>
+<td style="text-align:right">$4.50</td>
+<td style="text-align:center;color:#94A3B8">1M</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">audio</span></td>
 </tr><tr>
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Llama 3.3 70B</td>
 <td style="text-align:right">$0.88</td>
 <td style="text-align:right">$0.88</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">Inference</span></td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#D97706;font-weight:600">Anthropic</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Claude Haiku 4.5</td>
 <td style="text-align:right">$1.00</td>
 <td style="text-align:right">$5.00</td>
 <td style="text-align:center;color:#94A3B8">200k tokens</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">text</span></td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">GLM-5</td>
 <td style="text-align:right">$1.00</td>
 <td style="text-align:right">$3.20</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">Inference</span></td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Kimi K2 Instruct</td>
 <td style="text-align:right">$1.00</td>
 <td style="text-align:right">$3.00</td>
 <td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">Inference</span></td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#06B6D4;font-weight:600">Perplexity</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Sonar</td>
 <td style="text-align:right">$1.00</td>
 <td style="text-align:right">$1.00</td>
-<td style="text-align:center;color:#94A3B8">Not specified</td>
+<td style="text-align:center;color:#94A3B8">N/A</td>
 <td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">reasoning</span></td>
 </tr><tr>
 <td><span style="color:#EF4444;font-weight:600">Cohere</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Command</td>
 <td style="text-align:right">$1.00</td>
 <td style="text-align:right">$2.00</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">reasoning</span></td>
-</tr><tr>
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Claude Haiku 4.5</td>
-<td style="text-align:right">$1.00</td>
-<td style="text-align:right">$5.00</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
+<td style="text-align:center;color:#94A3B8">4K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">legacy</span></td>
 </tr><tr>
 <td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">GLM 5</td>
 <td style="text-align:right">$1.00</td>
 <td style="text-align:right">$3.20</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">N/A</span></td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
+</tr><tr>
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Gemini 2.5 Pro</td>
+<td style="text-align:right">$1.25</td>
+<td style="text-align:right">$10.00</td>
+<td style="text-align:center;color:#94A3B8">200K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
+</tr><tr>
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Gemini 2.5 Computer Use Preview</td>
+<td style="text-align:right">$1.25</td>
+<td style="text-align:right">$10.00</td>
+<td style="text-align:center;color:#94A3B8">200K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Amazon Nova 2 Pro (Preview)</td>
 <td style="text-align:right">$1.25</td>
 <td style="text-align:right">$10.00</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">multi-modal</span></td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
+</tr><tr>
+<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">DeepSeek-R1</td>
+<td style="text-align:right">$1.35</td>
+<td style="text-align:right">$5.40</td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
+</tr><tr>
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Gemini 3.1 Pro Preview</td>
+<td style="text-align:right">$2.00</td>
+<td style="text-align:right">$12.00</td>
+<td style="text-align:center;color:#94A3B8">200K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#6366F1;font-weight:600">xAI</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">grok-4.20-reasoning</td>
@@ -411,218 +537,127 @@ thead th,tbody td{padding:8px}
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Sonar Reasoning Pro</td>
 <td style="text-align:right">$2.00</td>
 <td style="text-align:right">$8.00</td>
-<td style="text-align:center;color:#94A3B8">Not specified</td>
+<td style="text-align:center;color:#94A3B8">N/A</td>
 <td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">reasoning</span></td>
 </tr><tr>
 <td><span style="color:#06B6D4;font-weight:600">Perplexity</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Sonar Deep Research</td>
 <td style="text-align:right">$2.00</td>
 <td style="text-align:right">$8.00</td>
-<td style="text-align:center;color:#94A3B8">Not specified</td>
+<td style="text-align:center;color:#94A3B8">N/A</td>
 <td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">reasoning</span></td>
 </tr><tr>
 <td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Jamba 1.5 Large</td>
 <td style="text-align:right">$2.00</td>
 <td style="text-align:right">$8.00</td>
+<td style="text-align:center;color:#94A3B8">256K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
+</tr><tr>
+<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Pixtral Large (25.02)</td>
+<td style="text-align:right">$2.00</td>
+<td style="text-align:right">$6.00</td>
 <td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
 </tr><tr>
 <td><span style="color:#10B981;font-weight:600">OpenAI</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">GPT-5.4</td>
 <td style="text-align:right">$2.50</td>
 <td style="text-align:right">$15.00</td>
 <td style="text-align:center;color:#94A3B8">270K</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">flagship</span></td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#EF4444;font-weight:600">Cohere</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Command R+ 08-2024</td>
 <td style="text-align:right">$2.50</td>
 <td style="text-align:right">$10.00</td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">legacy</span></td>
+</tr><tr>
+<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Palmyra X4</td>
+<td style="text-align:right">$2.50</td>
+<td style="text-align:right">$10.00</td>
 <td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">reasoning</span></td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
 </tr><tr>
 <td><span style="color:#D97706;font-weight:600">Anthropic</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Claude Sonnet 4.6</td>
 <td style="text-align:right">$3.00</td>
 <td style="text-align:right">$15.00</td>
 <td style="text-align:center;color:#94A3B8">1M tokens</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">text</span></td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">DeepSeek-R1-0528</td>
 <td style="text-align:right">$3.00</td>
 <td style="text-align:right">$7.00</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">Inference</span></td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#06B6D4;font-weight:600">Perplexity</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Sonar Pro</td>
 <td style="text-align:right">$3.00</td>
 <td style="text-align:right">$15.00</td>
-<td style="text-align:center;color:#94A3B8">Not specified</td>
+<td style="text-align:center;color:#94A3B8">N/A</td>
 <td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">reasoning</span></td>
 </tr><tr>
 <td><span style="color:#EF4444;font-weight:600">Cohere</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Command R+ 04-2024</td>
 <td style="text-align:right">$3.00</td>
 <td style="text-align:right">$15.00</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">reasoning</span></td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">legacy</span></td>
 </tr><tr>
 <td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Claude Sonnet 4.6</td>
 <td style="text-align:right">$3.00</td>
 <td style="text-align:right">$15.00</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
+<td style="text-align:center;color:#94A3B8">200K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
+</tr><tr>
+<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:13px">Amazon Nova 2 Sonic</td>
+<td style="text-align:right">$3.00</td>
+<td style="text-align:right">$12.00</td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
 </tr><tr>
 <td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Amazon Nova Sonic</td>
 <td style="text-align:right">$3.40</td>
 <td style="text-align:right">$13.60</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">speech</span></td>
-</tr><tr>
-<td><span style="color:#10B981;font-weight:600">OpenAI</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">GPT-realtime-1.5</td>
-<td style="text-align:right">$4.00</td>
-<td style="text-align:right">$16.00</td>
-<td style="text-align:center;color:#94A3B8">real-time</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">multimodal</span></td>
-</tr><tr>
-<td><span style="color:#06B6D4;font-weight:600">Perplexity</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">pplx-embed-v1-0.6b</td>
-<td style="text-align:right">$4.00</td>
-<td style="text-align:right">Free</td>
-<td style="text-align:center;color:#94A3B8">Not specified</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">embedding</span></td>
-</tr><tr>
-<td><span style="color:#10B981;font-weight:600">OpenAI</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">GPT-image-1.5</td>
-<td style="text-align:right">$5.00</td>
-<td style="text-align:right">$10.00</td>
-<td style="text-align:center;color:#94A3B8">image</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">multimodal</span></td>
+<td style="text-align:center;color:#94A3B8">128K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
 </tr><tr>
 <td><span style="color:#D97706;font-weight:600">Anthropic</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Claude Opus 4.6</td>
 <td style="text-align:right">$5.00</td>
 <td style="text-align:right">$25.00</td>
 <td style="text-align:center;color:#94A3B8">1M tokens</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">text</span></td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
 </tr><tr>
 <td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Claude Opus 4.6</td>
 <td style="text-align:right">$5.00</td>
 <td style="text-align:right">$25.00</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
-</tr><tr>
-<td><span style="color:#06B6D4;font-weight:600">Perplexity</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">pplx-embed-context-v1-0.6b</td>
-<td style="text-align:right">$8.00</td>
-<td style="text-align:right">Free</td>
-<td style="text-align:center;color:#94A3B8">Not specified</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">embedding</span></td>
+<td style="text-align:center;color:#94A3B8">200K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
 </tr><tr>
 <td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Jurassic-2 Mid</td>
 <td style="text-align:right">$12.50</td>
 <td style="text-align:right">$12.50</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
+<td style="text-align:center;color:#94A3B8">8K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
 </tr><tr>
 <td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
 <td style="font-family:'JetBrains Mono',monospace;font-size:13px">Jurassic-2 Ultra</td>
 <td style="text-align:right">$18.80</td>
 <td style="text-align:right">$18.80</td>
-<td style="text-align:center;color:#94A3B8">N/A</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
-</tr><tr>
-<td><span style="color:#06B6D4;font-weight:600">Perplexity</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">pplx-embed-v1-4b</td>
-<td style="text-align:right">$30.00</td>
-<td style="text-align:right">Free</td>
-<td style="text-align:center;color:#94A3B8">Not specified</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">embedding</span></td>
-</tr><tr>
-<td><span style="color:#06B6D4;font-weight:600">Perplexity</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">pplx-embed-context-v1-4b</td>
-<td style="text-align:right">$50.00</td>
-<td style="text-align:right">Free</td>
-<td style="text-align:center;color:#94A3B8">Not specified</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">embedding</span></td>
-</tr><tr>
-<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">gemini-2.5-flash-lite</td>
-<td style="text-align:right">$100.00</td>
-<td style="text-align:right">$400.00</td>
-<td style="text-align:center;color:#94A3B8">1M</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
-</tr><tr>
-<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">gemini-embedding</td>
-<td style="text-align:right">$150.00</td>
-<td style="text-align:right">Free</td>
-<td style="text-align:center;color:#94A3B8">1M</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">embedding</span></td>
-</tr><tr>
-<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">gemini-embedding-2-preview</td>
-<td style="text-align:right">$200.00</td>
-<td style="text-align:right">Free</td>
-<td style="text-align:center;color:#94A3B8">1M</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">embedding</span></td>
-</tr><tr>
-<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">gemini-3.1-flash-lite-preview</td>
-<td style="text-align:right">$250.00</td>
-<td style="text-align:right">$1,500.00</td>
-<td style="text-align:center;color:#94A3B8">1M</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
-</tr><tr>
-<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">gemini-2.5-flash</td>
-<td style="text-align:right">$300.00</td>
-<td style="text-align:right">$2,500.00</td>
-<td style="text-align:center;color:#94A3B8">1M</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
-</tr><tr>
-<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">gemini-3.1-flash-image-preview</td>
-<td style="text-align:right">$500.00</td>
-<td style="text-align:right">$30,000.00</td>
-<td style="text-align:center;color:#94A3B8">1M</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">image</span></td>
-</tr><tr>
-<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">gemini-2.5-flash-native-audio</td>
-<td style="text-align:right">$500.00</td>
-<td style="text-align:right">$2,000.00</td>
-<td style="text-align:center;color:#94A3B8">1M</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">audio</span></td>
-</tr><tr>
-<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">gemini-3.1-flash-live-preview</td>
-<td style="text-align:right">$750.00</td>
-<td style="text-align:right">$4,500.00</td>
-<td style="text-align:center;color:#94A3B8">1M</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">audio</span></td>
-</tr><tr>
-<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">gemini-2.5-pro</td>
-<td style="text-align:right">$1,250.00</td>
-<td style="text-align:right">$10,000.00</td>
-<td style="text-align:center;color:#94A3B8">200K</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
-</tr><tr>
-<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
-<td style="font-family:'JetBrains Mono',monospace;font-size:13px">gemini-3.1-pro-preview</td>
-<td style="text-align:right">$2,000.00</td>
-<td style="text-align:right">$12,000.00</td>
-<td style="text-align:center;color:#94A3B8">200K</td>
-<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">chat</span></td>
+<td style="text-align:center;color:#94A3B8">8K</td>
+<td style="text-align:center"><span style="background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;font-size:11px">batch</span></td>
 </tr>
 </tbody>
 </table>
