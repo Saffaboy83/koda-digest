@@ -43,8 +43,8 @@ def build_html(data: dict) -> str:
     benchmark_count = data.get("benchmark_count", 0)
     total_models = data.get("total_models", 0)
 
-    # Build leaderboard sections
-    sections_html = ""
+    # Build leaderboard columns (side by side on desktop)
+    bench_cards = []
     for bench in data.get("benchmarks", []):
         name = bench.get("benchmark", "")
         category = bench.get("category", "General")
@@ -53,55 +53,55 @@ def build_html(data: dict) -> str:
         icon = CATEGORY_ICONS.get(category, "leaderboard")
         models = bench.get("models", [])
         source_url = bench.get("source_url", "")
+        score_label = "Elo" if "arena" in name.lower() else "Score"
 
         rows = ""
-        for m in models[:20]:
+        for m in models[:15]:
             rank = m.get("rank", "")
             model_name = m.get("model_name", "")
             score = m.get("score") or m.get("elo_score") or ""
             provider = m.get("provider", "")
 
-            # Medal for top 3
             medal = ""
             if rank == 1:
-                medal = '<span style="margin-right:4px">&#129351;</span>'
+                medal = '&#129351; '
             elif rank == 2:
-                medal = '<span style="margin-right:4px">&#129352;</span>'
+                medal = '&#129352; '
             elif rank == 3:
-                medal = '<span style="margin-right:4px">&#129353;</span>'
+                medal = '&#129353; '
 
+            rank_style = f'color:{color};font-weight:700' if rank <= 3 else 'color:#8c909f'
             score_display = f"{score}" if score else "N/A"
+
             rows += f'''<tr>
-<td style="text-align:center;font-weight:700;color:{color}">{medal}{rank}</td>
-<td class="font-mono text-[13px]">{model_name}</td>
-<td style="color:#8c909f">{provider}</td>
-<td style="text-align:right;font-weight:600">{score_display}</td>
+<td style="text-align:center;{rank_style};width:44px">{medal}{rank}</td>
+<td><span class="font-mono text-[12px]">{model_name}</span><br><span style="font-size:10px;color:#64748B">{provider}</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">{score_display}</td>
 </tr>'''
 
-        sections_html += f'''
-    <div class="bench-section animate-in">
-        <div class="section-header">
-            <span class="material-symbols-outlined" style="color:{color}">{icon}</span>
-            <h2>{name}</h2>
-            <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:{color};background:{color}15">{category}</span>
-            <div class="line"></div>
-            <a href="{source_url}" target="_blank" rel="noopener" class="source-link">Source &nearr;</a>
-        </div>
-        <p style="color:#8c909f;font-size:13px;margin-bottom:16px">{description}</p>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th style="text-align:center;width:60px">Rank</th>
+        bench_cards.append(f'''
+        <div class="bench-card animate-in">
+            <div class="bench-card-header" style="border-bottom-color:{color}30">
+                <div style="display:flex;align-items:center;gap:8px">
+                    <span class="material-symbols-outlined" style="color:{color}">{icon}</span>
+                    <h3 style="font-size:16px;font-weight:800">{name}</h3>
+                </div>
+                <a href="{source_url}" target="_blank" rel="noopener" class="source-link">{score_label} &nearr;</a>
+            </div>
+            <p style="color:#8c909f;font-size:11px;padding:8px 16px 0;line-height:1.4">{description}</p>
+            <div class="bench-card-table">
+                <table>
+                    <thead><tr>
+                        <th style="text-align:center;width:44px">#</th>
                         <th>Model</th>
-                        <th>Provider</th>
-                        <th style="text-align:right">Score</th>
-                    </tr>
-                </thead>
-                <tbody>{rows}</tbody>
-            </table>
-        </div>
-    </div>'''
+                        <th style="text-align:right">{score_label}</th>
+                    </tr></thead>
+                    <tbody>{rows}</tbody>
+                </table>
+            </div>
+        </div>''')
+
+    sections_html = '<div class="bench-grid">' + ''.join(bench_cards) + '</div>'
 
     # Top 3 across all benchmarks for hero cards
     hero_cards = ""
@@ -177,7 +177,16 @@ tbody tr{{border-bottom:1px solid rgba(255,255,255,0.03);transition:background 0
 tbody tr:hover{{background:rgba(59,130,246,0.05)}}
 tbody td{{padding:12px 16px}}
 .font-mono{{font-family:'JetBrains Mono',monospace}}
-.bench-section{{margin-bottom:48px}}
+.bench-grid{{display:grid;grid-template-columns:1fr;gap:20px;margin-top:32px}}
+@media(min-width:1024px){{.bench-grid{{grid-template-columns:repeat(3,1fr)}}}}
+@media(min-width:768px) and (max-width:1023px){{.bench-grid{{grid-template-columns:1fr 1fr}}}}
+.bench-card{{border-radius:16px;border:1px solid rgba(255,255,255,0.06);background:rgba(23,31,51,0.3);backdrop-filter:blur(12px);overflow:hidden;display:flex;flex-direction:column}}
+.bench-card-header{{display:flex;justify-content:space-between;align-items:center;padding:16px;border-bottom:2px solid rgba(255,255,255,0.06)}}
+.bench-card-table{{flex:1;overflow-y:auto;max-height:600px}}
+.bench-card-table table{{font-size:13px}}
+.bench-card-table thead th{{position:sticky;top:0;background:rgba(11,19,38,0.9);padding:10px 12px;font-size:10px}}
+.bench-card-table tbody td{{padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.03)}}
+.bench-card-table tbody tr:hover{{background:rgba(59,130,246,0.05)}}
 footer{{background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto}}
 footer .inner{{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;padding:32px 24px;gap:12px;text-align:center}}
 @media(min-width:768px){{footer .inner{{flex-direction:row;justify-content:space-between;text-align:left}}}}

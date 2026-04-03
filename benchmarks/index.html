@@ -50,7 +50,16 @@ tbody tr{border-bottom:1px solid rgba(255,255,255,0.03);transition:background 0.
 tbody tr:hover{background:rgba(59,130,246,0.05)}
 tbody td{padding:12px 16px}
 .font-mono{font-family:'JetBrains Mono',monospace}
-.bench-section{margin-bottom:48px}
+.bench-grid{display:grid;grid-template-columns:1fr;gap:20px;margin-top:32px}
+@media(min-width:1024px){.bench-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:768px) and (max-width:1023px){.bench-grid{grid-template-columns:1fr 1fr}}
+.bench-card{border-radius:16px;border:1px solid rgba(255,255,255,0.06);background:rgba(23,31,51,0.3);backdrop-filter:blur(12px);overflow:hidden;display:flex;flex-direction:column}
+.bench-card-header{display:flex;justify-content:space-between;align-items:center;padding:16px;border-bottom:2px solid rgba(255,255,255,0.06)}
+.bench-card-table{flex:1;overflow-y:auto;max-height:600px}
+.bench-card-table table{font-size:13px}
+.bench-card-table thead th{position:sticky;top:0;background:rgba(11,19,38,0.9);padding:10px 12px;font-size:10px}
+.bench-card-table tbody td{padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.03)}
+.bench-card-table tbody tr:hover{background:rgba(59,130,246,0.05)}
 footer{background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto}
 footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;padding:32px 24px;gap:12px;text-align:center}
 @media(min-width:768px){footer .inner{flex-direction:row;justify-content:space-between;text-align:left}}
@@ -101,9 +110,9 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
                     <span class="material-symbols-outlined text-lg" style="color:#3B82F6">forum</span>
                     <span class="text-[10px] uppercase tracking-wider font-bold" style="color:#3B82F6">Chatbot Arena</span>
                 </div>
-                <div class="text-sm font-bold text-[#dae2fd]">&#129351; Model A</div>
-                <div class="text-xs text-[#8c909f] mt-0.5">Provider 1</div>
-                <div class="text-lg font-black mt-2" style="color:#3B82F6">2800</div>
+                <div class="text-sm font-bold text-[#dae2fd]">&#129351; claude-opus-4-6-thinking</div>
+                <div class="text-xs text-[#8c909f] mt-0.5">Anthropic</div>
+                <div class="text-lg font-black mt-2" style="color:#3B82F6">1504</div>
             </div>
             <div class="p-4 bg-[#131b2e] border border-white/[0.06] rounded-xl hover:bg-[#171f33] transition-colors duration-300">
                 <div class="flex items-center gap-2 mb-2">
@@ -123,346 +132,243 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
                 <div class="text-xs text-[#8c909f] mt-0.5">Anthropic</div>
                 <div class="text-lg font-black mt-2" style="color:#10B981">76.8</div>
             </div></div>
-    
-    <div class="bench-section animate-in">
-        <div class="section-header">
-            <span class="material-symbols-outlined" style="color:#3B82F6">forum</span>
-            <h2>Chatbot Arena (LMSYS)</h2>
-            <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">General</span>
-            <div class="line"></div>
-            <a href="https://lmarena.ai/?leaderboard" target="_blank" rel="noopener" class="source-link">Source &nearr;</a>
-        </div>
-        <p style="color:#8c909f;font-size:13px;margin-bottom:16px">Human preference rankings from blind A/B comparisons</p>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th style="text-align:center;width:60px">Rank</th>
+    <div class="bench-grid">
+        <div class="bench-card animate-in">
+            <div class="bench-card-header" style="border-bottom-color:#3B82F630">
+                <div style="display:flex;align-items:center;gap:8px">
+                    <span class="material-symbols-outlined" style="color:#3B82F6">forum</span>
+                    <h3 style="font-size:16px;font-weight:800">Chatbot Arena</h3>
+                </div>
+                <a href="https://arena.ai/leaderboard/text" target="_blank" rel="noopener" class="source-link">Elo &nearr;</a>
+            </div>
+            <p style="color:#8c909f;font-size:11px;padding:8px 16px 0;line-height:1.4">Human preference rankings from blind A/B comparisons (5.7M+ votes)</p>
+            <div class="bench-card-table">
+                <table>
+                    <thead><tr>
+                        <th style="text-align:center;width:44px">#</th>
                         <th>Model</th>
-                        <th>Provider</th>
-                        <th style="text-align:right">Score</th>
-                    </tr>
-                </thead>
-                <tbody><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6"><span style="margin-right:4px">&#129351;</span>1</td>
-<td class="font-mono text-[13px]">Model A</td>
-<td style="color:#8c909f">Provider 1</td>
-<td style="text-align:right;font-weight:600">2800</td>
+                        <th style="text-align:right">Elo</th>
+                    </tr></thead>
+                    <tbody><tr>
+<td style="text-align:center;color:#3B82F6;font-weight:700;width:44px">&#129351; 1</td>
+<td><span class="font-mono text-[12px]">claude-opus-4-6-thinking</span><br><span style="font-size:10px;color:#64748B">Anthropic</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">1504</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6"><span style="margin-right:4px">&#129352;</span>2</td>
-<td class="font-mono text-[13px]">Model B</td>
-<td style="color:#8c909f">Provider 2</td>
-<td style="text-align:right;font-weight:600">2750</td>
+<td style="text-align:center;color:#3B82F6;font-weight:700;width:44px">&#129352; 2</td>
+<td><span class="font-mono text-[12px]">claude-opus-4-6</span><br><span style="font-size:10px;color:#64748B">Anthropic</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">1499</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6"><span style="margin-right:4px">&#129353;</span>3</td>
-<td class="font-mono text-[13px]">Model C</td>
-<td style="color:#8c909f">Provider 3</td>
-<td style="text-align:right;font-weight:600">2700</td>
+<td style="text-align:center;color:#3B82F6;font-weight:700;width:44px">&#129353; 3</td>
+<td><span class="font-mono text-[12px]">gemini-3.1-pro-preview</span><br><span style="font-size:10px;color:#64748B">Google</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">1494</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6">4</td>
-<td class="font-mono text-[13px]">Model D</td>
-<td style="color:#8c909f">Provider 4</td>
-<td style="text-align:right;font-weight:600">2650</td>
+<td style="text-align:center;color:#8c909f;width:44px">4</td>
+<td><span class="font-mono text-[12px]">grok-4.20-beta1</span><br><span style="font-size:10px;color:#64748B">xAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">1491</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6">5</td>
-<td class="font-mono text-[13px]">Model E</td>
-<td style="color:#8c909f">Provider 5</td>
-<td style="text-align:right;font-weight:600">2600</td>
+<td style="text-align:center;color:#8c909f;width:44px">5</td>
+<td><span class="font-mono text-[12px]">gemini-3-pro</span><br><span style="font-size:10px;color:#64748B">Google</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">1486</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6">6</td>
-<td class="font-mono text-[13px]">Model F</td>
-<td style="color:#8c909f">Provider 6</td>
-<td style="text-align:right;font-weight:600">2550</td>
+<td style="text-align:center;color:#8c909f;width:44px">6</td>
+<td><span class="font-mono text-[12px]">gpt-5.4-high</span><br><span style="font-size:10px;color:#64748B">OpenAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">1484</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6">7</td>
-<td class="font-mono text-[13px]">Model G</td>
-<td style="color:#8c909f">Provider 7</td>
-<td style="text-align:right;font-weight:600">2500</td>
+<td style="text-align:center;color:#8c909f;width:44px">7</td>
+<td><span class="font-mono text-[12px]">grok-4.20-beta-0309-reasoning</span><br><span style="font-size:10px;color:#64748B">xAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">1481</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6">8</td>
-<td class="font-mono text-[13px]">Model H</td>
-<td style="color:#8c909f">Provider 8</td>
-<td style="text-align:right;font-weight:600">2450</td>
+<td style="text-align:center;color:#8c909f;width:44px">8</td>
+<td><span class="font-mono text-[12px]">gpt-5.2-chat-latest-20260210</span><br><span style="font-size:10px;color:#64748B">OpenAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">1478</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6">9</td>
-<td class="font-mono text-[13px]">Model I</td>
-<td style="color:#8c909f">Provider 9</td>
-<td style="text-align:right;font-weight:600">2400</td>
+<td style="text-align:center;color:#8c909f;width:44px">9</td>
+<td><span class="font-mono text-[12px]">gemini-3-flash</span><br><span style="font-size:10px;color:#64748B">Google</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">1474</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6">10</td>
-<td class="font-mono text-[13px]">Model J</td>
-<td style="color:#8c909f">Provider 10</td>
-<td style="text-align:right;font-weight:600">2350</td>
+<td style="text-align:center;color:#8c909f;width:44px">10</td>
+<td><span class="font-mono text-[12px]">grok-4.20-multi-agent-beta-0309</span><br><span style="font-size:10px;color:#64748B">xAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">1474</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6">11</td>
-<td class="font-mono text-[13px]">Model K</td>
-<td style="color:#8c909f">Provider 11</td>
-<td style="text-align:right;font-weight:600">2300</td>
+<td style="text-align:center;color:#8c909f;width:44px">11</td>
+<td><span class="font-mono text-[12px]">claude-opus-4-5-20251101-thinking-32k</span><br><span style="font-size:10px;color:#64748B">Anthropic</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">1474</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6">12</td>
-<td class="font-mono text-[13px]">Model L</td>
-<td style="color:#8c909f">Provider 12</td>
-<td style="text-align:right;font-weight:600">2250</td>
+<td style="text-align:center;color:#8c909f;width:44px">12</td>
+<td><span class="font-mono text-[12px]">grok-4.1-thinking</span><br><span style="font-size:10px;color:#64748B">xAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">1471</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6">13</td>
-<td class="font-mono text-[13px]">Model M</td>
-<td style="color:#8c909f">Provider 13</td>
-<td style="text-align:right;font-weight:600">2200</td>
+<td style="text-align:center;color:#8c909f;width:44px">13</td>
+<td><span class="font-mono text-[12px]">claude-opus-4-5-20251101</span><br><span style="font-size:10px;color:#64748B">Anthropic</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">1468</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6">14</td>
-<td class="font-mono text-[13px]">Model N</td>
-<td style="color:#8c909f">Provider 14</td>
-<td style="text-align:right;font-weight:600">2150</td>
+<td style="text-align:center;color:#8c909f;width:44px">14</td>
+<td><span class="font-mono text-[12px]">qwen3.5-max-preview</span><br><span style="font-size:10px;color:#64748B">Alibaba</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">1467</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6">15</td>
-<td class="font-mono text-[13px]">Model O</td>
-<td style="color:#8c909f">Provider 15</td>
-<td style="text-align:right;font-weight:600">2100</td>
-</tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6">16</td>
-<td class="font-mono text-[13px]">Model P</td>
-<td style="color:#8c909f">Provider 16</td>
-<td style="text-align:right;font-weight:600">2050</td>
-</tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6">17</td>
-<td class="font-mono text-[13px]">Model Q</td>
-<td style="color:#8c909f">Provider 17</td>
-<td style="text-align:right;font-weight:600">2000</td>
-</tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6">18</td>
-<td class="font-mono text-[13px]">Model R</td>
-<td style="color:#8c909f">Provider 18</td>
-<td style="text-align:right;font-weight:600">1950</td>
-</tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6">19</td>
-<td class="font-mono text-[13px]">Model S</td>
-<td style="color:#8c909f">Provider 19</td>
-<td style="text-align:right;font-weight:600">1900</td>
-</tr><tr>
-<td style="text-align:center;font-weight:700;color:#3B82F6">20</td>
-<td class="font-mono text-[13px]">Model T</td>
-<td style="color:#8c909f">Provider 20</td>
-<td style="text-align:right;font-weight:600">1850</td>
+<td style="text-align:center;color:#8c909f;width:44px">15</td>
+<td><span class="font-mono text-[12px]">gpt-5.4</span><br><span style="font-size:10px;color:#64748B">OpenAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">1464</td>
 </tr></tbody>
-            </table>
+                </table>
+            </div>
         </div>
-    </div>
-    <div class="bench-section animate-in">
-        <div class="section-header">
-            <span class="material-symbols-outlined" style="color:#8B5CF6">psychology</span>
-            <h2>LiveBench</h2>
-            <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#8B5CF6;background:#8B5CF615">Reasoning</span>
-            <div class="line"></div>
-            <a href="https://livebench.ai/" target="_blank" rel="noopener" class="source-link">Source &nearr;</a>
-        </div>
-        <p style="color:#8c909f;font-size:13px;margin-bottom:16px">Contamination-free benchmark with monthly-refreshed questions</p>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th style="text-align:center;width:60px">Rank</th>
+        <div class="bench-card animate-in">
+            <div class="bench-card-header" style="border-bottom-color:#8B5CF630">
+                <div style="display:flex;align-items:center;gap:8px">
+                    <span class="material-symbols-outlined" style="color:#8B5CF6">psychology</span>
+                    <h3 style="font-size:16px;font-weight:800">LiveBench</h3>
+                </div>
+                <a href="https://livebench.ai/" target="_blank" rel="noopener" class="source-link">Score &nearr;</a>
+            </div>
+            <p style="color:#8c909f;font-size:11px;padding:8px 16px 0;line-height:1.4">Contamination-free benchmark with monthly-refreshed questions</p>
+            <div class="bench-card-table">
+                <table>
+                    <thead><tr>
+                        <th style="text-align:center;width:44px">#</th>
                         <th>Model</th>
-                        <th>Provider</th>
                         <th style="text-align:right">Score</th>
-                    </tr>
-                </thead>
-                <tbody><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6"><span style="margin-right:4px">&#129351;</span>1</td>
-<td class="font-mono text-[13px]">GPT-5.4 Thinking xHigh Effort</td>
-<td style="color:#8c909f">OpenAI</td>
-<td style="text-align:right;font-weight:600">80.28</td>
+                    </tr></thead>
+                    <tbody><tr>
+<td style="text-align:center;color:#8B5CF6;font-weight:700;width:44px">&#129351; 1</td>
+<td><span class="font-mono text-[12px]">GPT-5.4 Thinking xHigh Effort</span><br><span style="font-size:10px;color:#64748B">OpenAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">80.28</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6"><span style="margin-right:4px">&#129352;</span>2</td>
-<td class="font-mono text-[13px]">Gemini 3.1 Pro Preview High*</td>
-<td style="color:#8c909f">Google</td>
-<td style="text-align:right;font-weight:600">79.93</td>
+<td style="text-align:center;color:#8B5CF6;font-weight:700;width:44px">&#129352; 2</td>
+<td><span class="font-mono text-[12px]">Gemini 3.1 Pro Preview High*</span><br><span style="font-size:10px;color:#64748B">Google</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">79.93</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6"><span style="margin-right:4px">&#129353;</span>3</td>
-<td class="font-mono text-[13px]">Claude 4.6 Opus Thinking High Effort</td>
-<td style="color:#8c909f">Anthropic</td>
-<td style="text-align:right;font-weight:600">76.33</td>
+<td style="text-align:center;color:#8B5CF6;font-weight:700;width:44px">&#129353; 3</td>
+<td><span class="font-mono text-[12px]">Claude 4.6 Opus Thinking High Effort</span><br><span style="font-size:10px;color:#64748B">Anthropic</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">76.33</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6">4</td>
-<td class="font-mono text-[13px]">Claude 4.5 Opus Thinking High Effort</td>
-<td style="color:#8c909f">Anthropic</td>
-<td style="text-align:right;font-weight:600">75.96</td>
+<td style="text-align:center;color:#8c909f;width:44px">4</td>
+<td><span class="font-mono text-[12px]">Claude 4.5 Opus Thinking High Effort</span><br><span style="font-size:10px;color:#64748B">Anthropic</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">75.96</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6">5</td>
-<td class="font-mono text-[13px]">Claude 4.6 Sonnet Thinking Medium Effort</td>
-<td style="color:#8c909f">Anthropic</td>
-<td style="text-align:right;font-weight:600">75.47</td>
+<td style="text-align:center;color:#8c909f;width:44px">5</td>
+<td><span class="font-mono text-[12px]">Claude 4.6 Sonnet Thinking Medium Effort</span><br><span style="font-size:10px;color:#64748B">Anthropic</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">75.47</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6">6</td>
-<td class="font-mono text-[13px]">GPT-5.2 High</td>
-<td style="color:#8c909f">OpenAI</td>
-<td style="text-align:right;font-weight:600">74.84</td>
+<td style="text-align:center;color:#8c909f;width:44px">6</td>
+<td><span class="font-mono text-[12px]">GPT-5.2 High</span><br><span style="font-size:10px;color:#64748B">OpenAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">74.84</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6">7</td>
-<td class="font-mono text-[13px]">GPT-5.2 Codex</td>
-<td style="color:#8c909f">OpenAI</td>
-<td style="text-align:right;font-weight:600">74.3</td>
+<td style="text-align:center;color:#8c909f;width:44px">7</td>
+<td><span class="font-mono text-[12px]">GPT-5.2 Codex</span><br><span style="font-size:10px;color:#64748B">OpenAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">74.3</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6">8</td>
-<td class="font-mono text-[13px]">GPT-5.1 Codex Max High</td>
-<td style="color:#8c909f">OpenAI</td>
-<td style="text-align:right;font-weight:600">73.98</td>
+<td style="text-align:center;color:#8c909f;width:44px">8</td>
+<td><span class="font-mono text-[12px]">GPT-5.1 Codex Max High</span><br><span style="font-size:10px;color:#64748B">OpenAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">73.98</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6">9</td>
-<td class="font-mono text-[13px]">Gemini 3 Pro Preview High</td>
-<td style="color:#8c909f">Google</td>
-<td style="text-align:right;font-weight:600">73.39</td>
+<td style="text-align:center;color:#8c909f;width:44px">9</td>
+<td><span class="font-mono text-[12px]">Gemini 3 Pro Preview High</span><br><span style="font-size:10px;color:#64748B">Google</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">73.39</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6">10</td>
-<td class="font-mono text-[13px]">GPT-5.3 Codex High</td>
-<td style="color:#8c909f">OpenAI</td>
-<td style="text-align:right;font-weight:600">72.76</td>
+<td style="text-align:center;color:#8c909f;width:44px">10</td>
+<td><span class="font-mono text-[12px]">GPT-5.3 Codex High</span><br><span style="font-size:10px;color:#64748B">OpenAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">72.76</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6">11</td>
-<td class="font-mono text-[13px]">Gemini 3 Flash Preview High</td>
-<td style="color:#8c909f">Google</td>
-<td style="text-align:right;font-weight:600">72.4</td>
+<td style="text-align:center;color:#8c909f;width:44px">11</td>
+<td><span class="font-mono text-[12px]">Gemini 3 Flash Preview High</span><br><span style="font-size:10px;color:#64748B">Google</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">72.4</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6">12</td>
-<td class="font-mono text-[13px]">GPT-5.1 High</td>
-<td style="color:#8c909f">OpenAI</td>
-<td style="text-align:right;font-weight:600">72.04</td>
+<td style="text-align:center;color:#8c909f;width:44px">12</td>
+<td><span class="font-mono text-[12px]">GPT-5.1 High</span><br><span style="font-size:10px;color:#64748B">OpenAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">72.04</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6">13</td>
-<td class="font-mono text-[13px]">GPT-5 Pro</td>
-<td style="color:#8c909f">OpenAI</td>
-<td style="text-align:right;font-weight:600">70.48</td>
+<td style="text-align:center;color:#8c909f;width:44px">13</td>
+<td><span class="font-mono text-[12px]">GPT-5 Pro</span><br><span style="font-size:10px;color:#64748B">OpenAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">70.48</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6">14</td>
-<td class="font-mono text-[13px]">GPT-5.4 Nano xHigh</td>
-<td style="color:#8c909f">OpenAI</td>
-<td style="text-align:right;font-weight:600">70.13</td>
+<td style="text-align:center;color:#8c909f;width:44px">14</td>
+<td><span class="font-mono text-[12px]">GPT-5.4 Nano xHigh</span><br><span style="font-size:10px;color:#64748B">OpenAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">70.13</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6">15</td>
-<td class="font-mono text-[13px]">Kimi K2.5 Thinking</td>
-<td style="color:#8c909f">Moonshot AI</td>
-<td style="text-align:right;font-weight:600">69.07</td>
-</tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6">16</td>
-<td class="font-mono text-[13px]">GLM 5</td>
-<td style="color:#8c909f">Z.AI</td>
-<td style="text-align:right;font-weight:600">68.85</td>
-</tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6">17</td>
-<td class="font-mono text-[13px]">GPT-5.1 Codex</td>
-<td style="color:#8c909f">OpenAI</td>
-<td style="text-align:right;font-weight:600">68.61</td>
-</tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6">18</td>
-<td class="font-mono text-[13px]">Claude Sonnet 4.5 Thinking</td>
-<td style="color:#8c909f">Anthropic</td>
-<td style="text-align:right;font-weight:600">68.19</td>
-</tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6">19</td>
-<td class="font-mono text-[13px]">Grok 4.20 Beta</td>
-<td style="color:#8c909f">xAI</td>
-<td style="text-align:right;font-weight:600">67.96</td>
-</tr><tr>
-<td style="text-align:center;font-weight:700;color:#8B5CF6">20</td>
-<td class="font-mono text-[13px]">GPT-5.4 Mini xHigh</td>
-<td style="color:#8c909f">OpenAI</td>
-<td style="text-align:right;font-weight:600">67.54</td>
+<td style="text-align:center;color:#8c909f;width:44px">15</td>
+<td><span class="font-mono text-[12px]">Kimi K2.5 Thinking</span><br><span style="font-size:10px;color:#64748B">Moonshot AI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">69.07</td>
 </tr></tbody>
-            </table>
+                </table>
+            </div>
         </div>
-    </div>
-    <div class="bench-section animate-in">
-        <div class="section-header">
-            <span class="material-symbols-outlined" style="color:#10B981">code</span>
-            <h2>SWE-Bench Verified</h2>
-            <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#10B981;background:#10B98115">Coding</span>
-            <div class="line"></div>
-            <a href="https://www.swebench.com/" target="_blank" rel="noopener" class="source-link">Source &nearr;</a>
-        </div>
-        <p style="color:#8c909f;font-size:13px;margin-bottom:16px">Real-world software engineering task completion</p>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th style="text-align:center;width:60px">Rank</th>
+        <div class="bench-card animate-in">
+            <div class="bench-card-header" style="border-bottom-color:#10B98130">
+                <div style="display:flex;align-items:center;gap:8px">
+                    <span class="material-symbols-outlined" style="color:#10B981">code</span>
+                    <h3 style="font-size:16px;font-weight:800">SWE-Bench Verified</h3>
+                </div>
+                <a href="https://www.swebench.com/" target="_blank" rel="noopener" class="source-link">Score &nearr;</a>
+            </div>
+            <p style="color:#8c909f;font-size:11px;padding:8px 16px 0;line-height:1.4">Real-world software engineering task completion</p>
+            <div class="bench-card-table">
+                <table>
+                    <thead><tr>
+                        <th style="text-align:center;width:44px">#</th>
                         <th>Model</th>
-                        <th>Provider</th>
                         <th style="text-align:right">Score</th>
-                    </tr>
-                </thead>
-                <tbody><tr>
-<td style="text-align:center;font-weight:700;color:#10B981"><span style="margin-right:4px">&#129351;</span>1</td>
-<td class="font-mono text-[13px]">Claude 4.5 Opus (high reasoning)</td>
-<td style="color:#8c909f">Anthropic</td>
-<td style="text-align:right;font-weight:600">76.8</td>
+                    </tr></thead>
+                    <tbody><tr>
+<td style="text-align:center;color:#10B981;font-weight:700;width:44px">&#129351; 1</td>
+<td><span class="font-mono text-[12px]">Claude 4.5 Opus (high reasoning)</span><br><span style="font-size:10px;color:#64748B">Anthropic</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">76.8</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#10B981"><span style="margin-right:4px">&#129352;</span>2</td>
-<td class="font-mono text-[13px]">Gemini 3 Flash (high reasoning)</td>
-<td style="color:#8c909f">Google</td>
-<td style="text-align:right;font-weight:600">75.8</td>
+<td style="text-align:center;color:#10B981;font-weight:700;width:44px">&#129352; 2</td>
+<td><span class="font-mono text-[12px]">Gemini 3 Flash (high reasoning)</span><br><span style="font-size:10px;color:#64748B">Google</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">75.8</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#10B981"><span style="margin-right:4px">&#129353;</span>3</td>
-<td class="font-mono text-[13px]">MiniMax M2.5 (high reasoning)</td>
-<td style="color:#8c909f">Minimax</td>
-<td style="text-align:right;font-weight:600">75.8</td>
+<td style="text-align:center;color:#10B981;font-weight:700;width:44px">&#129353; 3</td>
+<td><span class="font-mono text-[12px]">MiniMax M2.5 (high reasoning)</span><br><span style="font-size:10px;color:#64748B">Minimax</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">75.8</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#10B981">4</td>
-<td class="font-mono text-[13px]">Claude Opus 4.6</td>
-<td style="color:#8c909f">Anthropic</td>
-<td style="text-align:right;font-weight:600">75.6</td>
+<td style="text-align:center;color:#8c909f;width:44px">4</td>
+<td><span class="font-mono text-[12px]">Claude Opus 4.6</span><br><span style="font-size:10px;color:#64748B">Anthropic</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">75.6</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#10B981">5</td>
-<td class="font-mono text-[13px]">GPT-5-2 Codex</td>
-<td style="color:#8c909f">OpenAI</td>
-<td style="text-align:right;font-weight:600">72.8</td>
+<td style="text-align:center;color:#8c909f;width:44px">5</td>
+<td><span class="font-mono text-[12px]">GPT-5-2 Codex</span><br><span style="font-size:10px;color:#64748B">OpenAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">72.8</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#10B981">6</td>
-<td class="font-mono text-[13px]">GLM-5 (high reasoning)</td>
-<td style="color:#8c909f">Z-AI</td>
-<td style="text-align:right;font-weight:600">72.8</td>
+<td style="text-align:center;color:#8c909f;width:44px">6</td>
+<td><span class="font-mono text-[12px]">GLM-5 (high reasoning)</span><br><span style="font-size:10px;color:#64748B">Z-AI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">72.8</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#10B981">7</td>
-<td class="font-mono text-[13px]">GPT-5-2 (high reasoning)</td>
-<td style="color:#8c909f">OpenAI</td>
-<td style="text-align:right;font-weight:600">72.8</td>
+<td style="text-align:center;color:#8c909f;width:44px">7</td>
+<td><span class="font-mono text-[12px]">GPT-5-2 (high reasoning)</span><br><span style="font-size:10px;color:#64748B">OpenAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">72.8</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#10B981">8</td>
-<td class="font-mono text-[13px]">GPT 5.2 Codex</td>
-<td style="color:#8c909f">OpenAI</td>
-<td style="text-align:right;font-weight:600">72.8</td>
+<td style="text-align:center;color:#8c909f;width:44px">8</td>
+<td><span class="font-mono text-[12px]">GPT 5.2 Codex</span><br><span style="font-size:10px;color:#64748B">OpenAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">72.8</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#10B981">9</td>
-<td class="font-mono text-[13px]">Claude 4.5 Sonnet (high reasoning)</td>
-<td style="color:#8c909f">Anthropic</td>
-<td style="text-align:right;font-weight:600">71.4</td>
+<td style="text-align:center;color:#8c909f;width:44px">9</td>
+<td><span class="font-mono text-[12px]">Claude 4.5 Sonnet (high reasoning)</span><br><span style="font-size:10px;color:#64748B">Anthropic</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">71.4</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#10B981">10</td>
-<td class="font-mono text-[13px]">Kimi K2.5 (high reasoning)</td>
-<td style="color:#8c909f">Moonshot AI</td>
-<td style="text-align:right;font-weight:600">70.8</td>
+<td style="text-align:center;color:#8c909f;width:44px">10</td>
+<td><span class="font-mono text-[12px]">Kimi K2.5 (high reasoning)</span><br><span style="font-size:10px;color:#64748B">Kimi</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">70.8</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#10B981">11</td>
-<td class="font-mono text-[13px]">DeepSeek V3.2 (high reasoning)</td>
-<td style="color:#8c909f">DeepSeek</td>
-<td style="text-align:right;font-weight:600">70</td>
+<td style="text-align:center;color:#8c909f;width:44px">11</td>
+<td><span class="font-mono text-[12px]">DeepSeek V3.2 (high reasoning)</span><br><span style="font-size:10px;color:#64748B">DeepSeek</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">70</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#10B981">12</td>
-<td class="font-mono text-[13px]">Gemini 3 Pro</td>
-<td style="color:#8c909f">Google</td>
-<td style="text-align:right;font-weight:600">69.6</td>
+<td style="text-align:center;color:#8c909f;width:44px">12</td>
+<td><span class="font-mono text-[12px]">Gemini 3 Pro</span><br><span style="font-size:10px;color:#64748B">Google</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">69.6</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#10B981">13</td>
-<td class="font-mono text-[13px]">Claude 4.5 Haiku (high reasoning)</td>
-<td style="color:#8c909f">Anthropic</td>
-<td style="text-align:right;font-weight:600">66.6</td>
+<td style="text-align:center;color:#8c909f;width:44px">13</td>
+<td><span class="font-mono text-[12px]">Claude 4.5 Haiku (high reasoning)</span><br><span style="font-size:10px;color:#64748B">Anthropic</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">66.6</td>
 </tr><tr>
-<td style="text-align:center;font-weight:700;color:#10B981">14</td>
-<td class="font-mono text-[13px]">GPT-5 Mini</td>
-<td style="color:#8c909f">OpenAI</td>
-<td style="text-align:right;font-weight:600">56.2</td>
+<td style="text-align:center;color:#8c909f;width:44px">14</td>
+<td><span class="font-mono text-[12px]">GPT-5 Mini</span><br><span style="font-size:10px;color:#64748B">OpenAI</span></td>
+<td style="text-align:right;font-weight:600;font-size:13px">56.2</td>
 </tr></tbody>
-            </table>
-        </div>
-    </div>
+                </table>
+            </div>
+        </div></div>
 </div>
 <footer><div class="inner">
     <div><span style="font-size:14px;font-weight:700;color:#3B82F6">Koda Intelligence</span>

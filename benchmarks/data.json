@@ -1,135 +1,155 @@
 {
-  "generated_at": "2026-04-03T03:11:17.213208+00:00",
+  "generated_at": "2026-04-03T03:17:23.278917+00:00",
   "benchmark_count": 3,
   "total_models": 54,
   "benchmarks": [
     {
-      "benchmark": "Chatbot Arena (LMSYS)",
+      "benchmark": "Chatbot Arena",
       "category": "General",
-      "description": "Human preference rankings from blind A/B comparisons",
-      "source_url": "https://lmarena.ai/?leaderboard",
-      "scraped_at": "2026-04-03T03:10:51.269937+00:00",
+      "description": "Human preference rankings from blind A/B comparisons (5.7M+ votes)",
+      "source_url": "https://arena.ai/leaderboard/text",
+      "scraped_at": "2026-04-03T03:17:04.833120+00:00",
       "model_count": 20,
       "models": [
         {
           "rank": 1,
-          "model_name": "Model A",
-          "elo_score": 2800,
-          "provider": "Provider 1"
+          "model_name": "claude-opus-4-6-thinking",
+          "elo_score": 1504,
+          "provider": "Anthropic",
+          "context_window": "1M"
         },
         {
           "rank": 2,
-          "model_name": "Model B",
-          "elo_score": 2750,
-          "provider": "Provider 2"
+          "model_name": "claude-opus-4-6",
+          "elo_score": 1499,
+          "provider": "Anthropic",
+          "context_window": "1M"
         },
         {
           "rank": 3,
-          "model_name": "Model C",
-          "elo_score": 2700,
-          "provider": "Provider 3"
+          "model_name": "gemini-3.1-pro-preview",
+          "elo_score": 1494,
+          "provider": "Google",
+          "context_window": "1M"
         },
         {
           "rank": 4,
-          "model_name": "Model D",
-          "elo_score": 2650,
-          "provider": "Provider 4"
+          "model_name": "grok-4.20-beta1",
+          "elo_score": 1491,
+          "provider": "xAI",
+          "context_window": "N/A"
         },
         {
           "rank": 5,
-          "model_name": "Model E",
-          "elo_score": 2600,
-          "provider": "Provider 5"
+          "model_name": "gemini-3-pro",
+          "elo_score": 1486,
+          "provider": "Google",
+          "context_window": "1M"
         },
         {
           "rank": 6,
-          "model_name": "Model F",
-          "elo_score": 2550,
-          "provider": "Provider 6"
+          "model_name": "gpt-5.4-high",
+          "elo_score": 1484,
+          "provider": "OpenAI",
+          "context_window": "1.1M"
         },
         {
           "rank": 7,
-          "model_name": "Model G",
-          "elo_score": 2500,
-          "provider": "Provider 7"
+          "model_name": "grok-4.20-beta-0309-reasoning",
+          "elo_score": 1481,
+          "provider": "xAI",
+          "context_window": "2M"
         },
         {
           "rank": 8,
-          "model_name": "Model H",
-          "elo_score": 2450,
-          "provider": "Provider 8"
+          "model_name": "gpt-5.2-chat-latest-20260210",
+          "elo_score": 1478,
+          "provider": "OpenAI",
+          "context_window": "128K"
         },
         {
           "rank": 9,
-          "model_name": "Model I",
-          "elo_score": 2400,
-          "provider": "Provider 9"
+          "model_name": "gemini-3-flash",
+          "elo_score": 1474,
+          "provider": "Google",
+          "context_window": "1M"
         },
         {
           "rank": 10,
-          "model_name": "Model J",
-          "elo_score": 2350,
-          "provider": "Provider 10"
+          "model_name": "grok-4.20-multi-agent-beta-0309",
+          "elo_score": 1474,
+          "provider": "xAI",
+          "context_window": "2M"
         },
         {
           "rank": 11,
-          "model_name": "Model K",
-          "elo_score": 2300,
-          "provider": "Provider 11"
+          "model_name": "claude-opus-4-5-20251101-thinking-32k",
+          "elo_score": 1474,
+          "provider": "Anthropic",
+          "context_window": "200K"
         },
         {
           "rank": 12,
-          "model_name": "Model L",
-          "elo_score": 2250,
-          "provider": "Provider 12"
+          "model_name": "grok-4.1-thinking",
+          "elo_score": 1471,
+          "provider": "xAI",
+          "context_window": "N/A"
         },
         {
           "rank": 13,
-          "model_name": "Model M",
-          "elo_score": 2200,
-          "provider": "Provider 13"
+          "model_name": "claude-opus-4-5-20251101",
+          "elo_score": 1468,
+          "provider": "Anthropic",
+          "context_window": "200K"
         },
         {
           "rank": 14,
-          "model_name": "Model N",
-          "elo_score": 2150,
-          "provider": "Provider 14"
+          "model_name": "qwen3.5-max-preview",
+          "elo_score": 1467,
+          "provider": "Alibaba",
+          "context_window": "N/A"
         },
         {
           "rank": 15,
-          "model_name": "Model O",
-          "elo_score": 2100,
-          "provider": "Provider 15"
+          "model_name": "gpt-5.4",
+          "elo_score": 1464,
+          "provider": "OpenAI",
+          "context_window": "1.1M"
         },
         {
           "rank": 16,
-          "model_name": "Model P",
-          "elo_score": 2050,
-          "provider": "Provider 16"
+          "model_name": "gemini-3-flash (thinking-minimal)",
+          "elo_score": 1463,
+          "provider": "Google",
+          "context_window": "1M"
         },
         {
           "rank": 17,
-          "model_name": "Model Q",
-          "elo_score": 2000,
-          "provider": "Provider 17"
+          "model_name": "claude-sonnet-4-6",
+          "elo_score": 1462,
+          "provider": "Anthropic",
+          "context_window": "1M"
         },
         {
           "rank": 18,
-          "model_name": "Model R",
-          "elo_score": 1950,
-          "provider": "Provider 18"
+          "model_name": "dola-seed-2.0-preview",
+          "elo_score": 1462,
+          "provider": "Bytedance",
+          "context_window": "N/A"
         },
         {
           "rank": 19,
-          "model_name": "Model S",
-          "elo_score": 1900,
-          "provider": "Provider 19"
+          "model_name": "grok-4.1",
+          "elo_score": 1461,
+          "provider": "xAI",
+          "context_window": "N/A"
         },
         {
           "rank": 20,
-          "model_name": "Model T",
-          "elo_score": 1850,
-          "provider": "Provider 20"
+          "model_name": "gpt-5.3-chat-latest",
+          "elo_score": 1461,
+          "provider": "OpenAI",
+          "context_window": "128K"
         }
       ]
     },
@@ -138,7 +158,7 @@
       "category": "Reasoning",
       "description": "Contamination-free benchmark with monthly-refreshed questions",
       "source_url": "https://livebench.ai/",
-      "scraped_at": "2026-04-03T03:11:08.013949+00:00",
+      "scraped_at": "2026-04-03T03:17:16.238352+00:00",
       "model_count": 20,
       "models": [
         {
@@ -268,7 +288,7 @@
       "category": "Coding",
       "description": "Real-world software engineering task completion",
       "source_url": "https://www.swebench.com/",
-      "scraped_at": "2026-04-03T03:11:17.213208+00:00",
+      "scraped_at": "2026-04-03T03:17:23.278917+00:00",
       "model_count": 14,
       "models": [
         {
@@ -329,7 +349,7 @@
           "rank": 10,
           "model_name": "Kimi K2.5 (high reasoning)",
           "score": 70.8,
-          "provider": "Moonshot AI"
+          "provider": "Kimi"
         },
         {
           "rank": 11,

@@ -28,10 +28,10 @@ FIRECRAWL_API_URL = "https://api.firecrawl.dev/v1"
 
 BENCHMARKS: list[dict[str, Any]] = [
     {
-        "name": "Chatbot Arena (LMSYS)",
-        "url": "https://lmarena.ai/?leaderboard",
+        "name": "Chatbot Arena",
+        "url": "https://arena.ai/leaderboard/text",
         "category": "General",
-        "description": "Human preference rankings from blind A/B comparisons",
+        "description": "Human preference rankings from blind A/B comparisons (5.7M+ votes)",
         "schema": {
             "type": "object",
             "properties": {
@@ -42,16 +42,17 @@ BENCHMARKS: list[dict[str, Any]] = [
                         "properties": {
                             "rank": {"type": "integer"},
                             "model_name": {"type": "string"},
-                            "elo_score": {"type": "number", "description": "Arena Elo / score"},
+                            "elo_score": {"type": "number", "description": "Arena score"},
                             "provider": {"type": "string"},
+                            "context_window": {"type": "string"},
                         },
                         "required": ["model_name"],
                     },
                 },
             },
         },
-        "prompt": "Extract the top 20 models from the Chatbot Arena leaderboard. Include rank, model name, Elo/Arena score, and provider/organization. Sort by rank (highest score first).",
-        "wait": 8000,
+        "prompt": "Extract the top 20 models from the Text Arena leaderboard table. For each row extract: rank number, exact model name (e.g. 'claude-opus-4-6-thinking'), Arena score (the number like 1504), provider/organization (e.g. 'Anthropic', 'Google', 'xAI'), and context window if shown. Use the EXACT model names from the table, not generic placeholders.",
+        "wait": 10000,
     },
     {
         "name": "LiveBench",
