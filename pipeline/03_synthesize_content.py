@@ -260,9 +260,27 @@ Use exact numbers from the data. If a value is unavailable, use "N/A"."""
     return llm_json(prompt, SYSTEM_PROMPT, model=LLM_MODEL) or {}
 
 
-def synthesize_competitive(raw_content, citations, competitive_discoveries=None):
+def synthesize_competitive(raw_content, citations, competitive_discoveries=None, tracked_changes=None):
     """Transform competitive landscape data into company cards."""
     freshness_context = load_recent_stories()
+
+    # Change tracking context from Step 01C
+    changes_context = ""
+    if tracked_changes:
+        change_lines = []
+        for c in tracked_changes[:10]:
+            company = c.get("company", "")
+            title = c.get("title", "")
+            summary = c.get("summary", "")
+            page_type = c.get("page_type", "")
+            change_lines.append(f"  - [{company}] ({page_type}) {title}: {summary}")
+        if change_lines:
+            changes_context = (
+                "\n\nCHANGE TRACKING (new content detected on company pages since yesterday):\n"
+                + "\n".join(change_lines)
+                + "\n\nThese changes were detected by automated monitoring. "
+                "Incorporate them as they represent FRESH developments.\n"
+            )
 
     primary_context = ""
     if competitive_discoveries:
@@ -290,7 +308,7 @@ RAW DATA:
 
 CITATIONS:
 {json.dumps(citations, indent=2)}
-{primary_context}{freshness_context}
+{primary_context}{changes_context}{freshness_context}
 
 Return a JSON array of company objects. ONLY include companies that have verifiable recent news with a source URL. If there is no concrete news for a company today, OMIT it entirely. Do NOT generate filler text like "no significant announcements" or "coverage will be updated."
 
@@ -551,11 +569,18 @@ def main():
         )
         print(f"    {len(markets)} tickers (from search fallback)")
 
+    # Load competitive changes from Step 01C
+    comp_changes_data = read_json("competitive-changes.json")
+    tracked_changes = comp_changes_data.get("changes", []) if comp_changes_data else []
+    if tracked_changes:
+        print(f"  Competitive changes detected: {len(tracked_changes)} new items")
+
     print("  Synthesizing competitive landscape...")
     competitive = synthesize_competitive(
         results.get("competitive", {}).get("content", ""),
         results.get("competitive", {}).get("citations", []),
         competitive_discoveries=firecrawl.get("competitive"),
+        tracked_changes=tracked_changes,
     )
     print(f"    {len(competitive)} companies")
 

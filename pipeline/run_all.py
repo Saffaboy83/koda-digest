@@ -30,6 +30,7 @@ from pipeline.config import DIGEST_DIR, today_str, ensure_data_dir, write_json, 
 STEPS = [
     ("01",  "Gather News",          "01_gather_news.py"),
     ("01B", "Discover Tools & Blogs", "01b_discover_tools.py"),
+    ("01C", "Competitive Monitor",  "01c_competitive_monitor.py"),
     ("02",  "Gather Newsletters",   "02_gather_newsletters.py"),
     ("03",  "Synthesize Content",   "03_synthesize_content.py"),
     ("03B", "Verify Stats",         "03b_verify_stats.py"),

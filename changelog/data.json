@@ -1,0 +1,295 @@
+{
+  "generated_at": "2026-04-03T03:30:31.385232+00:00",
+  "company_count": 10,
+  "new_posts": 32,
+  "entries": [
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://openai.com/blog/openai-scholars-spring-2020-final-projects/",
+      "title": "OpenAI Scholars 2020: Final projects",
+      "summary": "The third class of OpenAI Scholars presented their final projects during a virtual Demo Day, showcasing research on various topics, including GPT-2's grammar representation and predicting epileptic seizures from brain recordings. The program aims to support individuals from underrepresented groups in machine learning through stipends and mentorship.",
+      "date": "July 9, 2020",
+      "category": "Research"
+    },
+    {
+      "company": "Anthropic",
+      "color": "#D97706",
+      "url": "https://www.anthropic.com/news/sydney-fourth-office-asia-pacific",
+      "title": "Sydney will become Anthropic’s fourth office in Asia-Pacific",
+      "summary": "Anthropic is expanding to Australia and New Zealand by opening a new office in Sydney, marking its fourth location in the Asia-Pacific region. This expansion aims to meet the increasing demand for AI solutions in Australia and New Zealand and to foster partnerships that address national interests and priority sectors.",
+      "date": "Mar 10, 2026",
+      "category": "Partnership"
+    },
+    {
+      "company": "Anthropic",
+      "color": "#D97706",
+      "url": "https://www.anthropic.com/news/anthropic-appoints-irina-ghose-as-managing-director-of-india",
+      "title": "Anthropic appoints Irina Ghose as Managing Director of India ahead of Bengaluru office opening",
+      "summary": "Irina Ghose has been appointed as the Managing Director of India for Anthropic, coinciding with the opening of their first office in the country. With over three decades of experience in technology, she aims to drive applied AI initiatives in India, ensuring that technology empowers diverse communities and addresses local challenges.",
+      "date": "Jan 16, 2026",
+      "category": "Partnership"
+    },
+    {
+      "company": "Anthropic",
+      "color": "#D97706",
+      "url": "https://www.anthropic.com/news/claude-partner-network",
+      "title": "Anthropic invests $100 million into the Claude Partner Network",
+      "summary": "Anthropic announces the launch of the Claude Partner Network, dedicating an initial $100 million to support partner organizations in helping enterprises adopt their AI model, Claude. This initiative includes training courses, technical support, and market development, aimed at enhancing collaboration with various firms to ensure successful adoption of Claude across industries.",
+      "date": "Mar 12, 2026",
+      "category": "Partnership"
+    },
+    {
+      "company": "Anthropic",
+      "color": "#D97706",
+      "url": "https://www.anthropic.com/news/claude-for-financial-services",
+      "title": "Claude for Financial Services",
+      "summary": "Today, we're introducing a comprehensive solution for financial analysis that revolutionizes how finance professionals analyze markets and make investment decisions. By unifying critical financial data into a single interface, Claude enhances efficiency and provides instant access to verified information, ensuring analysts can conduct complex evaluations with unprecedented speed and accuracy.",
+      "date": "Jul 15, 2025",
+      "category": "Feature"
+    },
+    {
+      "company": "Anthropic",
+      "color": "#D97706",
+      "url": "https://www.anthropic.com/news/anthropic-expands-global-leadership-in-enterprise-ai-naming-chris-ciauri-as-managing-director-of",
+      "title": "Anthropic expands global leadership in enterprise AI, naming Chris Ciauri as Managing Director of International",
+      "summary": "Anthropic announces its expansion with the appointment of Chris Ciauri as Managing Director of International,  reflecting growth and rising global demand for its AI model, Claude. The company reports a significant revenue increase, fueled by partnerships and an expanding customer base across diverse industries.",
+      "date": "Sep 26, 2025",
+      "category": "Partnership"
+    },
+    {
+      "company": "Mistral",
+      "color": "#F97316",
+      "url": "https://mistral.ai/news/mixtral-of-experts",
+      "title": "Mixtral of experts",
+      "summary": "Mistral AI has released Mixtral 8x7B, a high-quality sparse mixture of experts model that significantly outperforms Llama 2 70B and achieves 6x faster inference. The model is designed to efficiently handle multiple languages and excels in code generation, making it a top choice for developers seeking cost-effective AI solutions.",
+      "date": "Dec 11, 2023",
+      "category": "Research"
+    },
+    {
+      "company": "Mistral",
+      "color": "#F97316",
+      "url": "https://mistral.ai/news/la-plateforme",
+      "title": "La Plateforme",
+      "summary": "Mistral AI introduces its first AI endpoints available for early access, providing developers with powerful generative models and tools for deployment. The platform features chat endpoints for text generation and an embedding endpoint designed for efficient use in production settings.",
+      "date": "Dec 11, 2023",
+      "category": "Infrastructure"
+    },
+    {
+      "company": "Mistral",
+      "color": "#F97316",
+      "url": "https://mistral.ai/news/leanstral",
+      "title": "Leanstral: Open-Source foundation for trustworthy vibe-coding",
+      "summary": "Mistral AI has introduced Leanstral, the first open-source code agent for Lean 4, aiming to enhance coding efficiency and reliability in high-stakes environments. With a focus on formal proofs and mathematical precision, Leanstral leverages cutting-edge architecture to outperform traditional models in various technical benchmarks.",
+      "date": "Mar 16, 2026",
+      "category": "Research"
+    },
+    {
+      "company": "Mistral",
+      "color": "#F97316",
+      "url": "https://mistral.ai/news/mistral-large-2407",
+      "title": "Large Enough",
+      "summary": "Today, Mistral AI announced the release of Mistral Large 2, a significantly upgraded version of their flagship model that enhances capabilities in code generation, mathematics, and reasoning. With a 128k context window and support for multiple languages, the new model aims to push boundaries in performance and cost efficiency, making it ideal for innovative AI applications.",
+      "date": "Jul 24, 2024",
+      "category": "Research"
+    },
+    {
+      "company": "Mistral",
+      "color": "#F97316",
+      "url": "https://mistral.ai/news/devstral-2-vibe-cli",
+      "title": "Introducing Devstral 2 and Mistral Vibe CLI",
+      "summary": "Mistral has launched Devstral 2, a next-generation coding model available in two sizes, which is designed for enhanced code automation. The open-source models aim to set a new standard in terms of efficiency and usability for developers, while Mistral Vibe CLI offers a powerful tool for exploring and modifying codebases.",
+      "date": "",
+      "category": "Feature"
+    },
+    {
+      "company": "Meta AI",
+      "color": "#6366F1",
+      "url": "https://ai.meta.com/blog/wav2vec-unsupervised-speech-recognition-without-supervision",
+      "title": "High-performance speech recognition with no supervision at all",
+      "summary": "Meta AI has developed wav2vec Unsupervised (wav2vec-U), a novel approach to speech recognition that eliminates the need for transcribed data, enabling high-performance models for languages with limited resources. This technology aims to make speech recognition accessible to more languages and dialects by relying solely on untranscribed audio.",
+      "date": "May 21, 2021",
+      "category": "Research"
+    },
+    {
+      "company": "Meta AI",
+      "color": "#6366F1",
+      "url": "https://ai.meta.com/blog/llamacon-llama-news",
+      "title": "Everything we announced at our first-ever LlamaCon",
+      "summary": "LlamaCon, Meta's inaugural event, celebrates the release of new tools for building with Llama, such as the Llama API and Llama Protection Tools. Additionally, the event highlights the Llama Impact Grants, awarding over $1.5 million to international recipients for innovative AI projects.",
+      "date": "April 29, 2025",
+      "category": "Feature"
+    },
+    {
+      "company": "Meta AI",
+      "color": "#6366F1",
+      "url": "https://ai.meta.com/blog/nllb-200-high-quality-machine-translation",
+      "title": "200 languages within a single AI model: A breakthrough in high-quality machine translation",
+      "summary": "Meta AI has developed NLLB-200, an AI model capable of translating 200 different languages with state-of-the-art quality, validated through extensive evaluations. This innovation aims to provide better access to digital content for speakers of underrepresented languages, particularly in Africa and Asia.",
+      "date": "",
+      "category": "Research"
+    },
+    {
+      "company": "Meta AI",
+      "color": "#6366F1",
+      "url": "https://ai.meta.com/blog/meta-llama-3-meta-ai-responsibility",
+      "title": "Our responsible approach to Meta AI and Meta Llama 3",
+      "summary": "Meta has introduced its new Meta AI, built upon the advanced Llama 3 model, emphasizing a commitment to responsible AI development. This includes enhanced training data, safety evaluations, and collaborative measures with developers and partners to establish industry standards and promote safe AI practices.",
+      "date": "April 18, 2024",
+      "category": "Feature"
+    },
+    {
+      "company": "Meta AI",
+      "color": "#6366F1",
+      "url": "https://ai.meta.com/blog/nllb-200-high-quality-machine-translation/es",
+      "title": "200 idiomas en un modelo único de IA: Un hito en la traducción automática de alta calidad",
+      "summary": "Meta AI ha desarrollado NLLB-200, un modelo de inteligencia artificial capaz de traducir 200 idiomas a un nivel de calidad superior, mejorando la eficacia de traducción en más de un 44%. Este avance está acompañado por la creación del conjunto de datos FLORES-200 para evaluar el rendimiento en todas las lenguas, ampliando el acceso a herramientas de traducción de alta calidad para comunidades lingüísticas en todo el mundo.",
+      "date": "",
+      "category": "Research"
+    },
+    {
+      "company": "xAI",
+      "color": "#8B5CF6",
+      "url": "https://x.ai/blog/grok-3",
+      "title": "Grok 3 Beta — The Age of Reasoning Agents",
+      "summary": "The blog post introduces Grok 3, xAI's most advanced model, showcasing its enhanced reasoning capabilities and extensive pretraining knowledge. With significant improvements in various tasks such as mathematics and coding, Grok 3 promises to redefine AI performance across academic and real-world applications.",
+      "date": "February 19, 2025",
+      "category": "Feature"
+    },
+    {
+      "company": "Cohere",
+      "color": "#EF4444",
+      "url": "https://cohere.com/blog/ai-hallucination",
+      "title": "Understanding AI Hallucination",
+      "summary": "AI hallucinations occur when AI models produce outputs that are confidently stated but incorrect, impacting trust in generative AI systems. This post explores the causes of these hallucinations, their implications across various industries, and provides insights on how to manage and mitigate them effectively.",
+      "date": "May 19, 2025",
+      "category": "Research"
+    },
+    {
+      "company": "Cohere",
+      "color": "#EF4444",
+      "url": "https://cohere.com/blog/authors/neeral-beladia",
+      "title": "Cohere Transcribe: the most accurate speech recognition model to date.",
+      "summary": "Cohere Transcribe is highlighted as the most accurate speech recognition model available today, showcasing advancements in speech technology. The model aims to improve users' transcription experiences across various applications.",
+      "date": "Mar 31, 2026",
+      "category": "Feature"
+    },
+    {
+      "company": "Cohere",
+      "color": "#EF4444",
+      "url": "https://cohere.com/blog/tool-use-llmu",
+      "title": "Learn Workflow Automation with Our New LLM University Module on Tool Use",
+      "summary": "This post introduces a new module on tool use within the LLM University, designed to help users automate tasks and workflows using Command R+. It emphasizes the journey of mastering large language models, offering practical insights and a redesigned educational platform for easier navigation.",
+      "date": "Jul 29, 2024",
+      "category": "Feature"
+    },
+    {
+      "company": "Cohere",
+      "color": "#EF4444",
+      "url": "https://cohere.com/blog/august-2025-funding-round",
+      "title": "Cohere raises $500M at $6.8B valuation to accelerate enterprise efficiency with agentic AI",
+      "summary": "Cohere announces a significant funding round, raising $500 million at a $6.8 billion valuation to enhance enterprise and sovereign AI solutions. This investment aims to streamline business operations while prioritizing data security, as the company expands its leadership team with key industry experts.",
+      "date": "Aug 14, 2025",
+      "category": "Partnership"
+    },
+    {
+      "company": "Cohere",
+      "color": "#EF4444",
+      "url": "https://cohere.com/blog/generative-ai-for-sales",
+      "title": "How to use generative AI for sales: A 2025 business guide",
+      "summary": "This guide explores how generative AI can enhance sales and marketing efforts by driving leads, personalizing outreach, and improving sales strategies. It highlights various applications, including customer relationship management and predictive forecasting, demonstrating how organizations can leverage this technology to boost efficiency and effectiveness in sales processes.",
+      "date": "Jan 03, 2025",
+      "category": "Feature"
+    },
+    {
+      "company": "Together AI",
+      "color": "#EC4899",
+      "url": "https://www.together.ai/blog/rag-tutorial-llamaindex",
+      "title": "Building your own RAG application using Together AI and LlamaIndex",
+      "summary": "This blog post introduces the process of building a Retrieval Augmented Generation (RAG) application utilizing Together AI's tools along with LlamaIndex. It discusses how RAG enhances AI performance by integrating up-to-date data and outlines the steps necessary to create an effective RAG application.",
+      "date": "1/11/2024",
+      "category": "Feature"
+    },
+    {
+      "company": "Together AI",
+      "color": "#EC4899",
+      "url": "https://www.together.ai/blog/redpajama-data-v2",
+      "title": "RedPajama-Data-v2: An open dataset with 30 trillion tokens for training large language models",
+      "summary": "Together AI has released RedPajama-Data-v2, a vast open dataset comprising 30 trillion filtered tokens from CommonCrawl, aiming to accelerate training for large language models (LLMs). This version also includes over 40 pre-computed data quality annotations to ensure a high quality and usable dataset for developers and researchers alike.",
+      "date": "10/30/2023",
+      "category": "Research"
+    },
+    {
+      "company": "Together AI",
+      "color": "#EC4899",
+      "url": "https://www.together.ai/blog/together-ai-acquires-refuel-ai",
+      "title": "Together AI acquires Refuel.ai to unlock data for developers and businesses building production-grade AI applications",
+      "summary": "Together AI announces its acquisition of Refuel.ai, aimed at enhancing AI application development by addressing data structure challenges. This collaboration is set to integrate specialized models and platforms, facilitating access to clean data for various enterprises.",
+      "date": "5/15/2025",
+      "category": "Partnership"
+    },
+    {
+      "company": "Together AI",
+      "color": "#EC4899",
+      "url": "https://www.together.ai/blog/what-llms-think",
+      "title": "What do LLMs think when you don't tell them what to think about?",
+      "summary": "This study explores the behavior of large language models (LLMs) when they receive minimal prompts. The findings reveal distinct topical preferences among different model families, indicating that their responses are not random but systematically biased based on the prompts provided.",
+      "date": "2/6/2026",
+      "category": "Research"
+    },
+    {
+      "company": "Together AI",
+      "color": "#EC4899",
+      "url": "https://www.together.ai/blog/openais-new-open-gpt-oss-models-vs-o4-mini-a-real-world-comparison",
+      "title": "OpenAI's New Open gpt-oss Models vs o4-mini: A Real-World Comparison",
+      "summary": "This blog post discusses OpenAI's new open-source gpt-oss models and compares their performance against the o4-mini model in various practical tests. It highlights the advantages of open-source AI and showcases the results of direct comparisons in tasks such as game development, SVG generation, and advanced instruction following.",
+      "date": "8/11/2025",
+      "category": "Research"
+    },
+    {
+      "company": "Perplexity",
+      "color": "#F59E0B",
+      "url": "https://www.perplexity.ai/hub/blog/introducing-perplexity-health",
+      "title": "Introducing Perplexity Health",
+      "summary": "Perplexity Health is a new suite of connectors that centralizes personal health data to provide accurate health information and answers. With integrations from various health platforms and a personalized dashboard, users can access insights derived from their medical records and wearable devices for improved health management.",
+      "date": "Mar 19, 2026",
+      "category": "Research"
+    },
+    {
+      "company": "Perplexity",
+      "color": "#F59E0B",
+      "url": "https://www.perplexity.ai/hub/blog/introducing-the-sonar-pro-api",
+      "title": "Introducing the Sonar Pro API",
+      "summary": "The Sonar Pro API enables developers to build generative search capabilities with real-time, web-wide research and trusted sources. It offers features like enhanced citations and customizable sources, catering to enterprises with complex query needs while maintaining affordability and speed.",
+      "date": "Jan 21, 2025",
+      "category": "Research"
+    },
+    {
+      "company": "Perplexity",
+      "color": "#F59E0B",
+      "url": "https://www.perplexity.ai/hub/blog/announcing-the-secure-intelligence-institute",
+      "title": "Announcing the Secure Intelligence Institute",
+      "summary": "Perplexity is launching the Secure Intelligence Institute (SII), a flagship research center aimed at enhancing security, privacy, and trust in frontier AI. This initiative builds on previous research efforts and emphasizes collaboration across academia and industry to address AI security challenges.",
+      "date": "Mar 31, 2026",
+      "category": "Research"
+    },
+    {
+      "company": "Perplexity",
+      "color": "#F59E0B",
+      "url": "https://www.perplexity.ai/hub/careers",
+      "title": "Perplexity Careers",
+      "summary": "Perplexity is dedicated to enhancing user experience through accurate AI solutions. Our mission is to craft tools that empower curiosity and progress by focusing on craftsmanship, ownership, and partnership.",
+      "date": "",
+      "category": "Feature"
+    },
+    {
+      "company": "Perplexity",
+      "color": "#F59E0B",
+      "url": "https://www.perplexity.ai/hub/blog/introducing-the-perplexity-health-advisory-board",
+      "title": "Introducing the Perplexity Health Advisory Board",
+      "summary": "Perplexity has launched the Health Advisory Board, comprising practicing physicians, researchers, and health technology leaders aiming to ensure that future product decisions align with evidence-based medicine. This initiative seeks to enhance the quality of health information provided by AI and to support the clinician-patient relationship.",
+      "date": "Mar 19, 2026",
+      "category": "Research"
+    }
+  ]
+}
