@@ -92,6 +92,21 @@ def map_blog_urls(blog_url: str) -> list[str]:
         return []
 
 
+def is_recent(date_str: str, max_days: int = 30) -> bool:
+    """Check if a date string is within the last N days. Returns True if undated."""
+    if not date_str or not date_str.strip():
+        return False  # Skip undated posts
+    from dateutil import parser as dateparser
+    try:
+        dt = dateparser.parse(date_str)
+        if dt is None:
+            return False
+        age = (datetime.now(tz=timezone.utc) - dt.replace(tzinfo=timezone.utc)).days
+        return age <= max_days
+    except Exception:
+        return False
+
+
 def scrape_new_post(url: str) -> dict[str, Any] | None:
     """Scrape a single new blog post for title, summary, date, category."""
     headers = {
@@ -165,21 +180,27 @@ def main() -> None:
 
         print(f"{len(current_urls)} URLs, {len(new_urls)} new")
 
-        # Scrape up to 5 new posts per company
-        for post_url in new_urls[:5]:
+        # Scrape up to 8 new posts per company, keep only recent ones
+        scraped = 0
+        for post_url in new_urls[:8]:
             data = scrape_new_post(post_url)
-            if data and data.get("title"):
-                entry = {
-                    "company": company,
-                    "color": color,
-                    "url": post_url,
-                    "title": data.get("title", ""),
-                    "summary": data.get("summary", ""),
-                    "date": data.get("date", ""),
-                    "category": data.get("category", ""),
-                }
-                all_entries.append(entry)
-                print(f"      [{entry['category'] or '?'}] {entry['title'][:60]}")
+            if not data or not data.get("title"):
+                continue
+            post_date = data.get("date", "")
+            if not is_recent(post_date, max_days=30):
+                continue
+            entry = {
+                "company": company,
+                "color": color,
+                "url": post_url,
+                "title": data.get("title", ""),
+                "summary": data.get("summary", ""),
+                "date": post_date,
+                "category": data.get("category", ""),
+            }
+            all_entries.append(entry)
+            scraped += 1
+            print(f"      [{entry['category'] or '?'}] {post_date} - {entry['title'][:50]}")
 
     # Save changelog data
     output = {

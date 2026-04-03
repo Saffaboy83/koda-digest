@@ -47,11 +47,31 @@ def build_html(data: dict) -> str:
     entries = data.get("entries", [])
     new_posts = data.get("new_posts", 0)
 
+    # Parse and sort entries by date (newest first)
+    for e in entries:
+        raw_date = e.get("date", "")
+        try:
+            from dateutil import parser as dateparser
+            dt = dateparser.parse(raw_date)
+            e["_sort_key"] = dt.isoformat() if dt else "1970-01-01"
+        except Exception:
+            e["_sort_key"] = "1970-01-01"
+    entries.sort(key=lambda x: x["_sort_key"], reverse=True)
+
     # Group entries by company
     by_company: dict[str, list[dict]] = {}
     for e in entries:
         company = e.get("company", "Unknown")
         by_company.setdefault(company, []).append(e)
+
+    # Build company filter buttons
+    company_colors = {e.get("company", ""): e.get("color", "#3B82F6") for e in entries}
+
+    # Build company filter buttons
+    filter_buttons = '<button class="filter-btn active" onclick="filterCompany(this,\'all\')">All</button>\n'
+    for company in sorted(by_company.keys()):
+        color = company_colors.get(company, "#3B82F6")
+        filter_buttons += f'<button class="filter-btn" style="--btn-color:{color}" onclick="filterCompany(this,\'{company}\')">{company}</button>\n'
 
     # Build timeline entries
     timeline_html = ""
@@ -86,7 +106,7 @@ def build_html(data: dict) -> str:
                 </div>'''
 
             timeline_html += f'''
-        <div class="company-section animate-in">
+        <div class="company-section animate-in" data-company="{company}">
             <div class="company-header">
                 <div class="company-dot" style="background:{color}"></div>
                 <h3 style="font-size:18px;font-weight:800">{company}</h3>
@@ -138,6 +158,11 @@ body{{font-family:'Inter',sans-serif;background:#0b1326;color:#dae2fd;min-height
 .changelog-cards{{display:flex;flex-direction:column;gap:10px;padding-left:22px;border-left:2px solid rgba(255,255,255,0.06);margin-left:4px}}
 .changelog-card{{background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:14px 16px;transition:background 0.2s}}
 .changelog-card:hover{{background:rgba(23,31,51,0.7)}}
+.filter-bar{{margin-bottom:28px}}
+.filter-pills{{display:flex;flex-wrap:wrap;gap:6px}}
+.filter-btn{{font-size:11px;font-weight:600;padding:5px 12px;border-radius:9999px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);color:#c2c6d6;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif}}
+.filter-btn:hover{{background:rgba(255,255,255,0.08);color:#dae2fd}}
+.filter-btn.active{{background:var(--btn-color,#3B82F6);color:white;border-color:var(--btn-color,#3B82F6)}}
 .empty-state{{text-align:center;padding:60px 24px}}
 footer{{background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto}}
 footer .inner{{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;padding:32px 24px;gap:12px;text-align:center}}
@@ -173,6 +198,13 @@ footer .inner{{max-width:1280px;margin:0 auto;display:flex;flex-direction:column
     <div class="stat"><div class="stat-value">{date_label}</div><div class="stat-label">Last Scanned</div></div>
 </div>
 <div class="container">
+    <div class="filter-bar animate-in">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+            <span class="material-symbols-outlined" style="color:#3B82F6;font-size:18px">filter_alt</span>
+            <span style="font-size:11px;color:#8c909f;text-transform:uppercase;letter-spacing:0.1em;font-weight:600">Filter by Company</span>
+        </div>
+        <div class="filter-pills">{filter_buttons}</div>
+    </div>
     {timeline_html}
 </div>
 <footer><div class="inner">
@@ -192,9 +224,16 @@ window.addEventListener('scroll',function(){{
   var btn=document.getElementById('backToTop');
   if(h.scrollTop>400)btn.classList.add('visible');else btn.classList.remove('visible');
 }});
-new IntersectionObserver(function(e){{e.forEach(function(x){{if(x.isIntersecting)x.target.classList.add('visible')}})}},{{threshold:0.1}}).observe(document.querySelectorAll('.animate-in').forEach(function(el){{
-  new IntersectionObserver(function(e){{e.forEach(function(x){{if(x.isIntersecting)x.target.classList.add('visible')}})}},{{threshold:0.1}}).observe(el);
-}})||document.body);
+var obs=new IntersectionObserver(function(e){{e.forEach(function(x){{if(x.isIntersecting)x.target.classList.add('visible')}});}},{{threshold:0.1}});
+document.querySelectorAll('.animate-in').forEach(function(el){{obs.observe(el);}});
+
+function filterCompany(btn, company) {{
+  document.querySelectorAll('.filter-btn').forEach(function(b){{b.classList.remove('active')}});
+  btn.classList.add('active');
+  document.querySelectorAll('.company-section').forEach(function(s){{
+    s.style.display = (company === 'all' || s.dataset.company === company) ? '' : 'none';
+  }});
+}}
 </script>
 </body>
 </html>'''
