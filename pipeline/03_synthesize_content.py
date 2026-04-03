@@ -131,9 +131,25 @@ Never use em dashes. Use commas, colons, semicolons, or separate sentences inste
 This is a public-facing briefing, not a personal newsletter. No personal data."""
 
 
-def synthesize_ai_news(raw_content, citations, blog_discoveries=None):
+def synthesize_ai_news(raw_content, citations, blog_discoveries=None, verified_sources=None):
     """Transform raw AI news into structured story cards."""
     freshness_context = load_recent_stories()
+
+    # Build verified source context from Firecrawl-scraped article text
+    source_context = ""
+    if verified_sources:
+        source_lines = []
+        for src in verified_sources[:5]:
+            url = src.get("url", "")
+            text = src.get("text", "")[:2000]
+            source_lines.append(f"  SOURCE [{url}]:\n  {text}\n")
+        if source_lines:
+            source_context = (
+                "\n\nVERIFIED SOURCE TEXT (scraped directly from cited articles):\n"
+                + "\n".join(source_lines)
+                + "\nUse these verified texts for exact quotes, stats, and claims. "
+                "If the Perplexity summary contradicts the actual source text, trust the source.\n"
+            )
 
     blog_context = ""
     if blog_discoveries:
@@ -159,7 +175,7 @@ RAW DATA:
 
 CITATIONS:
 {json.dumps(citations, indent=2)}
-{blog_context}{freshness_context}
+{blog_context}{source_context}{freshness_context}
 
 IMPORTANT: If the raw data says "no major announcements in the last 48 hours" but mentions
 developments from the past 3-5 days, INCLUDE those stories. Weekend gaps are normal.
@@ -181,9 +197,25 @@ If fewer than 8 stories can be extracted, return what you have rather than paddi
     return llm_json(prompt, SYSTEM_PROMPT) or []
 
 
-def synthesize_world_news(raw_content, citations):
+def synthesize_world_news(raw_content, citations, verified_sources=None):
     """Transform raw world news into structured story cards."""
     freshness_context = load_recent_stories()
+
+    source_context = ""
+    if verified_sources:
+        source_lines = []
+        for src in verified_sources[:5]:
+            url = src.get("url", "")
+            text = src.get("text", "")[:2000]
+            source_lines.append(f"  SOURCE [{url}]:\n  {text}\n")
+        if source_lines:
+            source_context = (
+                "\n\nVERIFIED SOURCE TEXT (scraped directly from cited articles):\n"
+                + "\n".join(source_lines)
+                + "\nUse these verified texts for exact quotes, stats, and claims. "
+                "Trust the source over the Perplexity summary if they conflict.\n"
+            )
+
     prompt = f"""Analyze this raw world news data and extract 6-8 distinct stories.
 
 RAW DATA:
@@ -191,7 +223,7 @@ RAW DATA:
 
 CITATIONS:
 {json.dumps(citations, indent=2)}
-{freshness_context}
+{source_context}{freshness_context}
 
 Return a JSON array of story objects:
 {{
@@ -437,6 +469,7 @@ def main():
         sys.exit(1)
 
     results = raw_data.get("results", {})
+    verified_sources = raw_data.get("verified_sources", {})
 
     # Load Firecrawl discoveries (from Step 01B, if available)
     firecrawl = raw_data.get("firecrawl", {})
@@ -453,11 +486,16 @@ def main():
         print("  No Firecrawl data available -- using Perplexity only")
 
     # Synthesize each section
+    if verified_sources:
+        vs_count = sum(len(v) for v in verified_sources.values())
+        print(f"  Verified sources available: {vs_count} across {len(verified_sources)} queries")
+
     print("  Synthesizing AI news...")
     ai_news = synthesize_ai_news(
         results.get("ai_news", {}).get("content", ""),
         results.get("ai_news", {}).get("citations", []),
         blog_discoveries=firecrawl.get("ai_news"),
+        verified_sources=verified_sources.get("ai_news"),
     )
     print(f"    {len(ai_news)} stories")
 
@@ -465,6 +503,7 @@ def main():
     world_news = synthesize_world_news(
         results.get("world_news", {}).get("content", ""),
         results.get("world_news", {}).get("citations", []),
+        verified_sources=verified_sources.get("world_news"),
     )
     print(f"    {len(world_news)} stories")
 

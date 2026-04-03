@@ -17,8 +17,8 @@ import httpx
 from datetime import datetime
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from pipeline.config import (PERPLEXITY_API_KEY, today_str, today_label,
-                              write_json, read_json)
+from pipeline.config import (PERPLEXITY_API_KEY, FIRECRAWL_API_KEY, today_str,
+                              today_label, write_json, read_json)
 
 # ── Perplexity Sonar API ─────────────────────────────────────────────────────
 
@@ -70,6 +70,101 @@ def perplexity_search(query: str, system_prompt: str = "Be precise and concise."
             print(f"    Perplexity unexpected error: {e}")
             return None
     return None
+
+
+# ── Firecrawl Source Verification ────────────────────────────────────────────
+
+FIRECRAWL_API_URL = "https://api.firecrawl.dev/v1"
+MAX_SOURCE_TEXT = 3000  # chars per source to keep token usage reasonable
+
+
+def firecrawl_scrape_markdown(url: str, timeout: int = 20) -> str | None:
+    """Scrape a URL with Firecrawl and return clean markdown content."""
+    if not FIRECRAWL_API_KEY:
+        return None
+
+    headers = {
+        "Authorization": f"Bearer {FIRECRAWL_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    payload = {
+        "url": url,
+        "formats": ["markdown"],
+        "onlyMainContent": True,
+        "timeout": 15000,
+    }
+
+    try:
+        resp = httpx.post(
+            f"{FIRECRAWL_API_URL}/scrape",
+            json=payload,
+            headers=headers,
+            timeout=timeout,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        markdown = data.get("data", {}).get("markdown", "")
+        return markdown[:MAX_SOURCE_TEXT] if markdown else None
+    except Exception as e:
+        print(f"      Firecrawl scrape failed for {url}: {e}")
+        return None
+
+
+def verify_sources(results: dict[str, dict], max_per_query: int = 3) -> dict[str, list[dict]]:
+    """Scrape top citation URLs from Perplexity results for source verification.
+
+    Returns dict mapping query key -> list of {url, text} verified sources.
+    Only scrapes URLs that look like article pages (not homepages, search results, etc.).
+    """
+    if not FIRECRAWL_API_KEY:
+        print("  Source verification skipped (no FIRECRAWL_API_KEY)")
+        return {}
+
+    print("  Verifying sources via Firecrawl...")
+
+    skip_domains = {
+        "google.com", "youtube.com", "twitter.com", "x.com", "reddit.com",
+        "facebook.com", "instagram.com", "linkedin.com", "wikipedia.org",
+    }
+
+    verified: dict[str, list[dict]] = {}
+    seen_urls: set[str] = set()
+    total_scraped = 0
+
+    for key, result in results.items():
+        citations = result.get("citations", [])
+        if not citations:
+            continue
+
+        verified[key] = []
+        scraped_for_key = 0
+
+        for url in citations:
+            if scraped_for_key >= max_per_query:
+                break
+            if url in seen_urls:
+                continue
+
+            # Skip non-article domains
+            from urllib.parse import urlparse
+            domain = urlparse(url).netloc.lower().replace("www.", "")
+            if domain in skip_domains:
+                continue
+            # Skip homepages (path is just "/" or empty)
+            path = urlparse(url).path.strip("/")
+            if not path or path.count("/") == 0 and len(path) < 5:
+                continue
+
+            seen_urls.add(url)
+            text = firecrawl_scrape_markdown(url)
+            if text and len(text) > 200:
+                verified[key].append({"url": url, "text": text})
+                scraped_for_key += 1
+                total_scraped += 1
+                print(f"    [{key}] {domain}: {len(text)} chars")
+
+    print(f"  Verified {total_scraped} sources across {len(verified)} queries")
+    return verified
 
 
 # ── Query Definitions ────────────────────────────────────────────────────────
@@ -233,6 +328,9 @@ def main():
     else:
         print(f"  {successful}/5 queries returned data")
 
+    # Verify sources by scraping actual citation URLs
+    verified_sources = verify_sources(results)
+
     # Fetch live market data (replaces unreliable search-based market quotes)
     print(f"  Fetching live market data...")
     live_markets = fetch_live_markets()
@@ -249,6 +347,7 @@ def main():
         "source": "perplexity_sonar",
         "queries": {k: q["query"] for k, q in queries.items()},
         "results": results,
+        "verified_sources": verified_sources,
         "live_markets": live_markets,
     }
 
