@@ -1,6 +1,249 @@
 {
-  "generated": "2026-04-02T11:35:42Z",
+  "generated": "2026-04-03T10:43:27Z",
   "entries": [
+    {
+      "date": "2026-04-03",
+      "sections": [
+        {
+          "title": "Today's Focus",
+          "items": [
+            {
+              "headline": "Gemma 4 and Open-Weight Strategy",
+              "text": "Google's Gemma 4 release lands alongside Hugging Face shipping TRL v1.0, a mature training library that lowers the barrier for fine-tuning open models. Together, these moves consolidate an open-weight ecosystem that competes directly with OpenAI's closed API model. The timing is strategic: OpenAI's acquisition of TBPN and new Codex team pricing suggest it is doubling down on proprietary lock-in, making the philosophical split in AI distribution sharper than ever."
+            },
+            {
+              "headline": "Hormuz Strait Escalation Risk",
+              "text": "Iran's multi-front missile strikes and the U.S. naval response near Sri Lanka represent the most dangerous escalation in the Persian Gulf since 2019. Oil at $111.54 reflects not just current disruption but the market pricing in a possible Hormuz closure, which would threaten roughly 20% of global crude transit. For AI companies running power-hungry data centers, sustained energy price spikes could materially increase inference and training costs within weeks."
+            },
+            {
+              "headline": "Alliance Fractures Under Pressure",
+              "text": "Spain's denial of U.S. base access, combined with escalating anti-American protests across Pakistan, reveals a widening gap between Washington's strategic demands and allied willingness to comply. Trump's immediate pivot to trade threats underscores a coercive posture that risks accelerating, not reversing, the trend. These fractures matter for tech supply chains: semiconductor logistics, cloud infrastructure agreements, and cross-border data flows all depend on stable alliance frameworks now under visible strain."
+            }
+          ]
+        },
+        {
+          "title": "Markets",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,582.69 (+0.11%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "21,879.18 (+0.18%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$66,784.10 (-0.16%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$2,059.00 (+0.11%)"
+            },
+            {
+              "headline": "Oil",
+              "text": "$109.03 (+2.04%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "9 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "AI Developments",
+          "items": [
+            {
+              "headline": "Google Releases Gemma 4 Open Models",
+              "text": "Google launched Gemma 4 on April 2, 2026, calling it the most intelligent open model family it has produced. The release emphasizes advanced reasoning and agentic workflows with what Google describes as unprecedented intelligence-per-parameter efficiency. Hugging Face quickly stood up a Gemma 4 Playground on Spaces with ZeroGPU access, signaling immediate community adoption. Source &rarr;"
+            },
+            {
+              "headline": "OpenAI Acquires TBPN in Expansion Push",
+              "text": "OpenAI announced it has successfully acquired TBPN, a deal the company says will enhance its capabilities in AI and machine learning applications. Details on TBPN's technology stack and deal terms have not been disclosed. The acquisition follows OpenAI's record $122 billion fundraise and signals continued aggressive expansion beyond model development. Source &rarr;"
+            },
+            {
+              "headline": "Codex Gets Pay-as-You-Go Team Pricing",
+              "text": "OpenAI introduced flexible, usage-based pricing for its Codex coding platform, replacing fixed-tier plans for teams. The pay-as-you-go model is designed to lower the barrier for smaller developer teams and organizations that do not need always-on capacity. No specific per-token or per-request rates were disclosed in the announcement. Source &rarr;"
+            },
+            {
+              "headline": "April Prediction Markets Show Crowded Pipeline",
+              "text": "Manifold prediction markets now price Gemma 4 at 98.8% resolved for April, with five other models above 55%: MiniMax M3 (65%), Kimi K3 (63%), GPT-5.5 or variant (62%), DeepSeek V4 (58%), and Gemini 3.1 Flash (57%). Claude variants trail at 27% to 35%, while GPT-6 sits at just 10%. The data suggests April could rival March's nine-model output. Source &rarr;"
+            },
+            {
+              "headline": "Hugging Face Ships TRL v1.0 Training Library",
+              "text": "Hugging Face released TRL v1.0, marking a major overhaul of its post-training library for large language models. The team described the release as a shift from research codebase to production-grade library, built to keep pace with rapidly evolving fine-tuning and alignment techniques. TRL supports reinforcement learning from human feedback and related post-training workflows. Source &rarr;"
+            },
+            {
+              "headline": "GPT-5.4 Matched Gemini 3.1 Pro at Top",
+              "text": "A detailed March retrospective from WhatLLM confirmed GPT-5.4 (xhigh) scored 57.17 on the Intelligence Index, just 0.01 points behind Gemini 3.1 Pro Preview's 57.18. The report noted nine text models shipped in March, seven of them open-weight, with three using mixture-of-experts architectures. The near-tie at the top received surprisingly little industry attention. Source &rarr;"
+            },
+            {
+              "headline": "Pentagon Labels Anthropic a Supply-Chain Risk",
+              "text": "Multiple U.S. agencies began phasing out Claude models over a six-month transition after Anthropic refused to loosen restrictions on autonomous weapons use, according to WhatLLM's March roundup. Anthropic received a \"supply-chain risk\" designation, a label normally reserved for foreign adversaries. OpenAI moved quickly to secure a new Department of Defense agreement in the wake of the decision. Source &rarr;"
+            },
+            {
+              "headline": "Coder Raises $90M Series C From KKR",
+              "text": "Coder, the enterprise development environment platform, closed a $90 million Series C round led by KKR to advance secure enterprise AI development. The funding reflects growing investor appetite for infrastructure that governs how developers interact with AI coding tools inside corporate environments. No valuation was disclosed. Source &rarr;"
+            },
+            {
+              "headline": "March Shipped Seven Open-Weight Models in One Month",
+              "text": "Of the nine text models released in March 2026, seven were open-weight, continuing a decisive shift toward accessible model distribution. Alibaba's Qwen 3.5 series spanned 0.8B to 397B parameters across multiple MoE configurations, while the large variant scored 45 on the Intelligence Index. The open-weight dominance is reshaping the competitive landscape from the middle of the leaderboard upward. Source &rarr;"
+            },
+            {
+              "headline": "NVIDIA Nemotron Coalition Backs Open Frontier Models",
+              "text": "At GTC 2026 in mid-March, NVIDIA announced the Nemotron Coalition with partners including Mistral, Perplexity, and Cursor to develop open frontier models. Jensen Huang also revealed over $1 trillion in infrastructure orders in the pipeline and debuted the Vera Rubin AI platform, which claims roughly 10x training cost reduction for trillion-parameter models. New dedicated inference chips and an open Agent Toolkit were also unveiled. Source &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "World News",
+          "items": [
+            {
+              "headline": "Iran Fires Missiles at Israel and Gulf States",
+              "text": "Iran launched a new wave of missile strikes targeting Israel and Gulf state energy infrastructure on April 3, as explosions were reported around Tehran and Isfahan from ongoing U.S. and Israeli counterstrikes. The attacks mark a significant escalation in the fifth day of open warfare, with President Trump claiming most targeted Iranian leaders are now dead and signaling further operations. Source &rarr;"
+            },
+            {
+              "headline": "Oil Surges 11.4% to $111.54 on Hormuz Threat",
+              "text": "U.S. crude closed at $111.54 per barrel on April 3, posting an 11.4% single-day gain, the largest since April 2020. The spike was driven by Iran's attacks on Gulf energy infrastructure and its tightening control over the Strait of Hormuz, through which roughly a fifth of global oil transits. Source &rarr;"
+            },
+            {
+              "headline": "U.S. Sinks Iranian Warship Off Sri Lanka",
+              "text": "The U.S. military sank the Iranian naval vessel IRIS Dena in the Indian Ocean off Sri Lanka's coast. Sri Lanka's navy recovered 87 bodies and rescued 32 survivors from the wreckage, marking one of the deadliest single naval engagements of the conflict so far. Source &rarr;"
+            },
+            {
+              "headline": "Spain Refuses U.S. Base Access, Trump Threatens Trade",
+              "text": "Spanish Prime Minister Pedro Sanchez demanded an immediate end to the U.S.-Israeli military campaign against Iran, calling it a \"disaster,\" and denied the U.S. access to Spanish military bases. President Trump responded by threatening a full trade cutoff with Spain, opening a new rift within the Western alliance. Source &rarr;"
+            },
+            {
+              "headline": "Anti-U.S. Protests Escalate Across Pakistan",
+              "text": "Violent protests continued across Pakistan after U.S. Marines killed 10 demonstrators who stormed the American consulate in Karachi on Sunday. The State Department ordered the evacuation of consular staff from both Karachi and Lahore, citing deteriorating security conditions in the country. Source &rarr;"
+            },
+            {
+              "headline": "Israel Passes Death Penalty for Palestinian Attackers",
+              "text": "The Knesset voted 62 to 48 to enact a death penalty law targeting Palestinians convicted of intentionally killing Israelis to deny the state's existence. Far-right National Security Minister Itamar Ben-Gvir celebrated the passage with champagne. The law drew immediate international condemnation from human rights organizations. Source &rarr;"
+            },
+            {
+              "headline": "Bangladesh Imposes Austerity Amid Fuel Crisis",
+              "text": "Bangladesh announced sweeping energy austerity measures including shortened office hours, mall closures, a 30% cut to government fuel spending, and bans on decorative lighting. The country, which imports 95% of its fuel, is seeking $2.5 billion in emergency financing as the Iran conflict disrupts global energy supply chains. Source &rarr;"
+            },
+            {
+              "headline": "U.S. Deploys Special Forces to Ecuador",
+              "text": "The United States deployed special operations forces to Ecuador, expanding its military footprint in Latin America. The move comes as Washington juggles a widening Middle East conflict with ongoing security partnerships in the Western Hemisphere, though specific mission details remain undisclosed. Source &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "Featured Newsletters",
+          "items": [
+            {
+              "headline": "The Rundown AI",
+              "text": "AI turns solo founder into $1.8B operator: Medvi's Matthew Gallagher scales telehealth startup from $20K to $1.8B in projected annual sales OpenAI acquires TBPN in first media deal Google launches powerful new open-source model family Matthew Gallagher launched Medvi, a telehealth startup selling GLP-1 drugs online, from his house in LA with $20K and a stack of AI tools. In roughly 18 months, the company reached $1.8B in projected annual sales by outsourcing doctors and prescriptions to platforms like CareValidate and OpenLoop, while using ChatGPT, Claude, Grok, Midjourney, Runway, and ElevenLabs to handle code, ad creatives, and customer service. The New York Times reported the story as one of the first real validations of Sam Altman's 2024 prediction that AI would make the solo billion-dollar company possible. OpenAI completed its first media acquisition, purchasing TBPN in an undisclosed deal Google released a new open-source AI model family described as its most powerful yet A new tool enables users to turn any flat image into a fully editable design \"Sam Altman predicted in 2024 that AI would make the solo billion-dollar company possible. Gallagher may have just delivered the proof, not by building AI himself, but by using it to move fast and replace an entire corporate workforce.\""
+            },
+            {
+              "headline": "The Rundown AI",
+              "text": "Waymo hits 500K paid robotaxi rides per week across 10 U.S. cities, a 10x increase in under two years Drones are learning to fly like bats using new bio-inspired navigation techniques Europe's biggest industrial bet is a humanoid robot Alphabet's Waymo now completes 500,000 paid robotaxi rides per week using a fleet of roughly 3,000 vehicles equipped with its 5th-generation self-driving system, according to NHTSA filings. The company expanded from 3 cities at the start of 2025 to 10 U.S. markets after launching in Dallas, Houston, San Antonio, and Orlando in February. Despite the milestone, Waymo's volume remains a fraction of Uber's scale, which completed 13.5 billion trips in 2025, and the company was among seven AV firms that refused to disclose how often their vehicles require remote human assistance. Baidu is investigating a Wuhan outage that stalled 100 Apollo Go autonomous vehicles mid-traffic Tesla's robotaxi service remains limited to Austin Zoox still has not started charging passengers for rides A bicycle robot capable of jumping and popping wheelies was demonstrated"
+            },
+            {
+              "headline": "TLDR",
+              "text": "Moonshot AI's Kimi lab runs with a flat org, no KPIs, and small autonomous teams obsessed with model progress Arcee releases Trinity-Large-Thinking, a frontier open source reasoning model for complex agent tasks under Apache 2.0 Cognichip raises $60M to build deep learning models that help engineers design computer chips faster and cheaper A deep look inside Moonshot AI reveals an AI-native lab structure where elite, often unconventional hires work in small teams with tight feedback loops between training, product, and data, creating rapid iteration cycles. The company exemplifies a broader organizational shift where AI tools compress hierarchy, turning teams into 'agent swarms' with model capability as the core driver of both product and org design. Arcee's Trinity-Large-Thinking model targets real-world agent reliability: multi-turn tool calling, instruction following under constraint, and coherence across long-horizon tasks. Cognichip claims its AI-driven chip design technology could cut development costs by over 75% and timelines by more than half, though no completed chip designs or named customers have been disclosed yet Trinity-Large-Thinking is described as likely the strongest open model released outside of China, with weights available on Hugging Face Granola, an AI meeting notes tool that works on-device without bot notetakers, is used by teams at Brex, Replit, Vercel, and PostHog"
+            },
+            {
+              "headline": "TLDR",
+              "text": "Plaid says it can wait for the right IPO window, citing 40% ARR growth to over $500 million and full-year adjusted EBITDA profitability Federal prosecutors in Manhattan probe whether prediction market bets on platforms like Polymarket violate insider trading and fraud laws Crypto enters the mortgage market as Better Home and Coinbase launch FNMA-eligible loans backed by Bitcoin or USDC Redpoint argues the current AI cycle is fundamentally different from the dotcom bubble, noting that demand is already pulling infrastructure forward and AI is expanding software's addressable market from copilots to full workflow agents. Separately, a survey found that 78% of Americans now use AI tools regularly and over half apply them to financial management, yet only 18% trust AI to make financial decisions on their behalf. Plaid CFO Seun Sodipo confirmed IPO preparations are underway but stressed the company has the financial flexibility to choose its timing The Manhattan prediction market probe marks a regulatory escalation for platforms handling bets tied to elections, sports, and geopolitics Better Home and Coinbase structured their crypto mortgage product as a second loan alongside a standard conforming mortgage, bundled into a single payment"
+            },
+            {
+              "headline": "Superhuman",
+              "text": "Oumi lets any company build a custom AI model in hours using just a few sentences Public reveals the first agentic brokerage, letting users design AI agents that invest on their behalf Slack announces 30 new AI-powered features for Slackbot, including reusable skills and cross-session memory Oumi, a new startup, positions itself as an alternative to expensive frontier models like GPT, Claude, and Gemini, arguing that using those models for niche tasks is like cracking a walnut with a sledgehammer. The platform lets companies build customizable AI models tailored to specific needs in hours rather than months. Meanwhile, Public launched what it calls the first agentic brokerage, where AI agents autonomously monitor markets, execute trades, and manage money on behalf of investors, all running on financial-grade infrastructure with full transaction history logging. Oumi's launch demo racked up 1.3 million views on X, highlighting demand for lightweight, task-specific AI models outside the frontier ecosystem. Public's AI agent launch video hit 2.3 million views; users define investment tasks, answer follow-up questions, then let agents run autonomously with ongoing monitoring. Salesforce announced 30 new AI features for Slack's agentic assistant, including reusable cross-team skills, structured post-meeting summaries, and adjustable-permission context memory, rolling out over the coming months. \"Using a frontier AI model is like cracking a walnut with a sledgehammer: effective, but inefficient.\""
+            },
+            {
+              "headline": "TLDR",
+              "text": "Salesforce rolls out 30 new AI features for Slack, transforming it from a chat app into an AI agent execution layer Oracle NetSuite adopts Model Context Protocol to integrate external AI models like Claude and ChatGPT with ERP data across 43,000 customers RSAC 2026 ships five agent identity frameworks but leaves three critical gaps open around identity binding, lifecycle management, and visibility Enterprise AI agent deployments are failing not because of model quality but because of disconnected systems, brittle workflows, and poor operational infrastructure. The core question is shifting from which model to buy to which internal systems, permissions, and process boundaries are actually blocking deployment. Meanwhile, RSAC 2026 analysis revealed that traditional IAM models are fundamentally inadequate for autonomous AI agents, forcing enterprises to rethink identity, access, and accountability from the ground up. Oracle NetSuite released 100+ financial prompt templates and MCP Apps for model-agnostic AI workflows on top of ERP data Slack governance, admin controls, and workflow ownership are becoming critical as the platform evolves into an agent surface IBM Granite 4.0 3B mentioned as a new launch, though details were truncated in the newsletter"
+            }
+          ]
+        },
+        {
+          "title": "Competitive Landscape",
+          "items": [
+            {
+              "headline": "OpenAI",
+              "text": "OpenAI announced the acquisition of TBPN, describing it as a milestone in its expansion of AI and machine learning capabilities. Details on TBPN's technology and how it integrates into OpenAI's product stack remain sparse, but the deal signals continued aggressive M&A following the company's record $122 billion raise disclosed earlier this week. Separately, OpenAI introduced flexible pay-as-you-go pricing for Codex, its coding assistant platform, lowering the barrier for smaller development teams that previously faced fixed-tier commitments."
+            },
+            {
+              "headline": "Google DeepMind",
+              "text": "Google DeepMind released Gemma 4 in E2B, E4B, 26B MoE, and 31B Dense variants, making it the company's most capable open-weight lineup to date. The models target advanced reasoning and agentic workflows, directly challenging Meta's Llama and Mistral's open offerings. Hugging Face has already stood up a Gemma 4 Playground on Spaces with ZeroGPU, giving developers instant access and accelerating community benchmarking."
+            },
+            {
+              "headline": "Anthropic",
+              "text": "Anthropic unveiled Claude Mythos 5, a 10-trillion-parameter frontier model that the company says excels in cybersecurity, coding, and academic reasoning benchmarks. Alongside it, the more accessible Capabara model targets cost-sensitive enterprise deployments, giving Anthropic a two-tier product strategy similar to OpenAI's GPT line. The sheer parameter count of Mythos 5 raises immediate questions about inference cost and latency, but positions Anthropic at the frontier of raw model scale."
+            },
+            {
+              "headline": "Hugging Face",
+              "text": "Hugging Face released TRL v1.0, graduating its Transformer Reinforcement Learning library from a research codebase into what the team calls a dependable, production-ready toolkit for post-training workflows including RLHF and DPO. The release lands at a moment when open-weight model proliferation, documented in Hugging Face's own Spring 2026 State of Open Source report, is driving surging demand for standardized fine-tuning infrastructure. TRL v1.0 could become the default post-training layer for the wave of new models from Google, Mistral, and Chinese labs."
+            }
+          ]
+        },
+        {
+          "title": "AI Tool Guide",
+          "items": [
+            {
+              "headline": "Solid: Ship Production-Grade Full-Stack Apps, Not Prototypes",
+              "text": "Unlike Lovable and similar prototyping tools, Solid generates real full-stack web apps using Node.js, React, and TypeScript that are designed to scale and maintain in production. Describe your app in plain language and get deployable, production-grade code rather than throwaway demos. Try it when you need a working MVP, not a clickable mockup. Try it &rarr;"
+            },
+            {
+              "headline": "Fabricate v2.0: From Prompt to Deployed App in One Step",
+              "text": "Fabricate turns a single text prompt into a fully working web application with frontend, backend, database, and hosting all wired together and deployed automatically. Use it to validate product ideas in minutes instead of days. It is especially useful for solo founders who want to test demand before writing any code themselves. Try it &rarr;"
+            },
+            {
+              "headline": "Intent by Augment Code: Agentic Git From Spec to Merged PR",
+              "text": "Intent handles the full git workflow autonomously, from reading a spec to opening a pull request and coordinating changes across multiple services in large enterprise repos. Its Context Engine understands cross-service dependencies, so multi-repo refactors that used to take a full sprint can collapse into a single agentic session. Point it at a Jira ticket or spec doc and let it draft the PR for your review. Try it &rarr;"
+            },
+            {
+              "headline": "Aera Browser: Turn Repetitive Browser Tasks Into AI Agents",
+              "text": "Aera Browser, a new Product Hunt launch, converts routine browser workflows into AI-powered automations you can trigger on demand. Instead of recording brittle macros, describe the task in natural language and Aera handles navigation, form filling, and data extraction. Use it to automate competitor price checks, lead scraping, or any multi-step browser routine you repeat weekly. Try it &rarr;"
+            },
+            {
+              "headline": "SOLAYA: Generate AR-Ready Product Shots From a Single Photo",
+              "text": "SOLAYA is a new generative media tool that creates augmented-reality-ready product images from a single reference photo, eliminating the need for expensive 3D modeling or studio shoots. Upload one product image, and it generates multiple angles and AR-compatible assets you can embed in e-commerce listings or social ads. Ideal for DTC brands and small teams that cannot afford traditional product photography at scale. Try it &rarr;"
+            },
+            {
+              "headline": "SeaOcean: Free 75-Point SEO Audit in Under 30 Seconds",
+              "text": "SeaOcean is a free AI-powered SEO audit tool that runs over 75 checks on any website in less than 30 seconds, covering technical SEO, performance, and content quality. Use it as a quick diagnostic before committing to a paid tool like Ahrefs or Semrush. Run it on your site weekly to catch crawl errors, broken links, and missing meta tags before they hurt rankings. Try it &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,582.69 (+0.11%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "21,879.18 (+0.18%)"
+            },
+            {
+              "headline": "Bitcoin",
+              "text": "$66,784.10 (-0.16%)"
+            },
+            {
+              "headline": "Ethereum",
+              "text": "$2,059.00 (+0.11%)"
+            },
+            {
+              "headline": "Oil Brent",
+              "text": "$109.03 (+2.04%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "9 (Extreme Fear)"
+            }
+          ]
+        }
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-04-03.html"
+    },
     {
       "date": "2026-04-02",
       "sections": [
@@ -2892,6 +3135,60 @@
       ],
       "type": "digest",
       "file": "morning-briefing-koda-2026-03-21.html"
+    },
+    {
+      "date": "2026-04-03",
+      "type": "editorial",
+      "file": "editorial/2026-04-03-the-shift-to-pay-as-you-go-pricing-for-ai-coding-tools-signa.html",
+      "title": "The shift to pay-as-you-go pricing for AI coding tools signals a structural chan",
+      "tag": "Monetization",
+      "sections": [
+        {
+          "title": "Introduction",
+          "items": [
+            {
+              "headline": "The shift to pay-as-you-go pricing for AI coding tools signals a structural chan",
+              "text": "The same week, Coder raised $90 million in Series C funding from KKR. And 95% of developers now report using AI tools weekly, with the average power user stacking 2.3 tools at once. That is three data points from one week. They tell the same story. The way developer teams pay for AI is changing structurally, and most teams are not ready for what that means for their budgets or their freedom to switch tools later. Here is why, and what to do about it."
+            }
+          ]
+        },
+        {
+          "title": "The $20 Trap",
+          "items": [
+            {
+              "headline": "The $20 Trap",
+              "text": "Here is the framework. I call it The $20 Trap. Every major AI coding tool has converged on the same price: $20 per month. Cursor Pro, Windsurf Pro, Claude Code Pro, v0 Premium. All twenty bucks. GitHub Copilot undercuts them at $10 per month with 300 premium requests. The entry point looks cheap. That is the trap. The $20 Trap works in three stages: Stage 1: The Welcome Mat. Low monthly cost removes all friction. A solo developer or a two-person team can say yes without a procurement meeting. No"
+            }
+          ]
+        },
+        {
+          "title": "The Lazy Way to Spend $2,847 a Month on AI Coding Tools",
+          "items": [
+            {
+              "headline": "The Lazy Way to Spend $2,847 a Month on AI Coding Tools",
+              "text": "Let me show you exactly how this plays out in real dollars, because the numbers are kind of mind-blowing. A team of 10 developers using a layered AI coding approach spends approximately $1,160 per month. That is the moderate scenario. Scale to 50 people and you are looking at $8,000 to $13,500 per month depending on whether you go Microsoft-first or best-of-breed. One documented case hit $2,847 per month from a single user running unchecked agent sessions. That is not a team. That is one person."
+            }
+          ]
+        },
+        {
+          "title": "2031",
+          "items": [
+            {
+              "headline": "2031",
+              "text": "Pull back to the six-year view. Where does this pricing shift land by 2031? Gartner predicts a 20% to 50% increase in developer output by 2027 from AI tooling alone. If that holds, the developer who matters in 2031 is not the one who writes the most code. It is the one who reviews, architects, and directs AI agents most effectively. Salary buys furniture, equity buys your future. And the equity play here is learning to manage AI-generated output, not just consume it. The asymmetric risk is real."
+            }
+          ]
+        },
+        {
+          "title": "What to Build This Weekend",
+          "items": [
+            {
+              "headline": "What to Build This Weekend",
+              "text": "You do not need to solve vendor lock-in this weekend. You need to understand your actual exposure. Here is a three-step exercise anyone can do. Step 1: Audit your AI tool spend. Open your credit card statement. List every AI coding tool subscription. Write down the monthly cost and your estimated usage percentage. Remember, 42% average utilization means you are probably paying for tools you forgot you signed up for. Cancel what you do not use. This takes 20 minutes. Step 2: Test a portable workf"
+            }
+          ]
+        }
+      ]
     },
     {
       "date": "2026-04-02",

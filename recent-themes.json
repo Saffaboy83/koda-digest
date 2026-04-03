@@ -1,4 +1,58 @@
 {
+  "2026-04-03": {
+    "hook": "Google's Gemma 4 drops open weights into a world where oil just spiked 11% and fear rules everything.",
+    "top_themes": [
+      "Gemma 4 and Open-Weight Strategy",
+      "Hormuz Strait Escalation Risk",
+      "Alliance Fractures Under Pressure"
+    ],
+    "top_stories": [
+      "Google Releases Gemma 4 Open Models",
+      "OpenAI Acquires TBPN in Expansion Push",
+      "Codex Gets Pay-as-You-Go Team Pricing",
+      "April Prediction Markets Show Crowded Pipeline",
+      "Hugging Face Ships TRL v1.0 Training Library",
+      "GPT-5.4 Matched Gemini 3.1 Pro at Top",
+      "Pentagon Labels Anthropic a Supply-Chain Risk",
+      "Coder Raises $90M Series C From KKR",
+      "March Shipped Seven Open-Weight Models in One Month",
+      "NVIDIA Nemotron Coalition Backs Open Frontier Models",
+      "Iran Fires Missiles at Israel and Gulf States",
+      "Oil Surges 11.4% to $111.54 on Hormuz Threat",
+      "U.S. Sinks Iranian Warship Off Sri Lanka",
+      "Spain Refuses U.S. Base Access, Trump Threatens Trade",
+      "Anti-U.S. Protests Escalate Across Pakistan",
+      "Israel Passes Death Penalty for Palestinian Attackers",
+      "Bangladesh Imposes Austerity Amid Fuel Crisis",
+      "U.S. Deploys Special Forces to Ecuador"
+    ],
+    "source_urls": [
+      "https://radicaldatascience.wordpress.com/2026/04/02/ai-news-briefs-bulletin-board-for-april-2026/",
+      "https://openai.com/index/openai-acquires-tbpn/",
+      "https://openai.com/index/codex-flexible-pricing-for-teams/",
+      "https://manifold.markets/prismatic/april-2026-ai-model-releases",
+      "https://huggingface.co/blog/trl-v1",
+      "https://whatllm.org/blog/llm-releases-march-2026",
+      "https://whatllm.org/blog/llm-releases-march-2026",
+      "https://radicaldatascience.wordpress.com/2026/04/02/ai-news-briefs-bulletin-board-for-april-2026/",
+      "https://whatllm.org/blog/llm-releases-march-2026",
+      "https://whatllm.org/blog/llm-releases-march-2026",
+      "https://www.ksat.com/news/world/2026/04/03/the-latest-iran-launches-missiles-at-israel-and-gulf-states-as-explosions-heard-around-tehran/",
+      "https://www.golocalprov.com/news/5-big-news-stories-overnight-friday-april-3-2026",
+      "https://www.euronews.com/2026/03/04",
+      "https://www.democracynow.org/2026/3/4/headlines",
+      "https://www.democracynow.org/2026/3/4/headlines",
+      "https://www.golocalprov.com/news/5-big-news-stories-overnight-friday-april-3-2026",
+      "https://www.ksat.com/news/world/2026/04/03/the-latest-iran-launches-missiles-at-israel-and-gulf-states-as-explosions-heard-around-tehran/",
+      "https://www.democracynow.org/2026/3/4/headlines"
+    ],
+    "story_angles": [
+      "Google released Gemma 4, its latest open-weight model family, intensifying the r",
+      "Iran launched missile strikes against Israel and Gulf states, prompting the U.S.",
+      "Oil surged 11.4% to $111.54 per barrel on fears of a Strait of Hormuz closure, p",
+      "Spain's refusal to grant U.S. base access, met with trade threats from Trump, si"
+    ]
+  },
   "2026-04-02": {
     "hook": "OpenAI's $122 billion war chest lands on the same day real wars are draining everyone else's.",
     "top_themes": [
@@ -189,54 +243,6 @@
       "Iran launched major retaliatory strikes against Israel, prompting UN warnings of",
       "Sentiment has cratered to Extreme Fear as Strait of Hormuz disruptions ripple th",
       "ByteDance's DeerFlow 2.0 quietly shipped an isolated agent architecture this wee"
-    ]
-  },
-  "2026-03-29": {
-    "hook": "Self-modifying AI agents arrive at the worst possible moment for human confidence in anything.",
-    "top_themes": [
-      "Agents That Rewrite Themselves",
-      "DeepSeek's Engram Architecture Gambit",
-      "Shutdown Meets Correction Territory"
-    ],
-    "top_stories": [
-      "Google Gemini 3.1 Ultra Ships 2M Context",
-      "Anthropic AutoDream Lets Claude Self-Modify Behavior",
-      "Microsoft MAI-Image-2 Enters Text-to-Image Race",
-      "DeepSeek Unveils Engram as New Architecture",
-      "Meta Hyperagents Explore Agent Self-Modification Frontier",
-      "Self-Modifying AI Systems Emerge at Multiple Labs",
-      "Late March Model Pipeline Slows After Record Q1",
-      "MiniMax M2.7 Targets Autonomous Debugging Workflows",
-      "Trump Extends Iran Strait Deadline by 10 Days",
-      "59% of Americans Say Iran Action Went Too Far",
-      "Israel Says It Killed Iran's Navy Chief",
-      "Dow Enters Correction, Down 10% From High",
-      "Government Shutdown Hits Day 41, Recess Looms",
-      "Modi Convenes Chief Ministers on West Asia Crisis",
-      "Nepal Probes Political Leaders' Assets Over 35 Years"
-    ],
-    "source_urls": [
-      "https://blog.mean.ceo/new-ai-model-releases-news-march-2026/",
-      "https://blog.mean.ceo/new-ai-model-releases-news-march-2026/",
-      "https://blog.mean.ceo/new-ai-model-releases-news-march-2026/",
-      "https://blog.mean.ceo/new-ai-model-releases-news-march-2026/",
-      "https://blog.mean.ceo/new-ai-model-releases-news-march-2026/",
-      "https://radicaldatascience.wordpress.com/2026/03/26/ai-news-briefs-bulletin-board-for-march-2026/",
-      "https://llm-stats.com/llm-updates",
-      "https://radicaldatascience.wordpress.com/2026/03/26/ai-news-briefs-bulletin-board-for-march-2026/",
-      "https://www.youtube.com/watch?v=my14qqg8Of4",
-      "https://www.youtube.com/watch?v=-VH5da4xqKE",
-      "https://www.youtube.com/watch?v=my14qqg8Of4",
-      "https://www.youtube.com/watch?v=9v5WY_-nJKs",
-      "https://www.youtube.com/watch?v=my14qqg8Of4",
-      "https://www.youtube.com/watch?v=I8HujXB3hW0",
-      "https://www.youtube.com/watch?v=I8HujXB3hW0"
-    ],
-    "story_angles": [
-      "Anthropic's AutoDream framework and Meta's Hyperagents both cross the same thres",
-      "Trump's 10-day extension on the Iran Strait deadline buys limited time as 59% of",
-      "The Dow has officially entered correction territory, down 10% from its high, wit",
-      "Three separate labs, Anthropic, Meta, and DeepSeek, are converging on agent self"
     ]
   }
 }

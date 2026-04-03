@@ -1,6 +1,35 @@
 {
-  "generated": "2026-04-02T11:35:42Z",
+  "generated": "2026-04-03T10:43:27Z",
   "digests": [
+    {
+      "date": "2026-04-03",
+      "dayOfWeek": "Friday",
+      "focusTopics": [
+        {
+          "title": "Gemma 4 and Open-Weight Strategy",
+          "desc": "Google's Gemma 4 release lands alongside Hugging Face shipping TRL v1.0, a mature training library that lowers the barrier for fine-tuning open models. Together, these moves consolidate an open-weight ecosystem that competes directly with OpenAI's closed API model. The timing is strategic: OpenAI's acquisition of TBPN and new Codex team pricing suggest it is doubling down on proprietary lock-in, making the philosophical split in AI distribution sharper than ever."
+        },
+        {
+          "title": "Hormuz Strait Escalation Risk",
+          "desc": "Iran's multi-front missile strikes and the U.S. naval response near Sri Lanka represent the most dangerous escalation in the Persian Gulf since 2019. Oil at $111.54 reflects not just current disruption but the market pricing in a possible Hormuz closure, which would threaten roughly 20% of global crude transit. For AI companies running power-hungry data centers, sustained energy price spikes could materially increase inference and training costs within weeks."
+        },
+        {
+          "title": "Alliance Fractures Under Pressure",
+          "desc": "Spain's denial of U.S. base access, combined with escalating anti-American protests across Pakistan, reveals a widening gap between Washington's strategic demands and allied willingness to comply. Trump's immediate pivot to trade threats underscores a coercive posture that risks accelerating, not reversing, the trend. These fractures matter for tech supply chains: semiconductor logistics, cloud infrastructure agreements, and cross-border data flows all depend on stable alliance frameworks now under visible strain."
+        }
+      ],
+      "kpis": {
+        "aiStories": "10",
+        "worldEvents": "8",
+        "marketMood": "Extreme Fear",
+        "toolsFeatured": "6"
+      },
+      "hasPodcast": true,
+      "hasInfographic": true,
+      "hasVideo": true,
+      "youtubeId": "Ta3IwZPSWVk",
+      "file": "morning-briefing-koda-2026-04-03.html"
+    },
     {
       "date": "2026-04-02",
       "dayOfWeek": "Thursday",
@@ -380,6 +409,12 @@
     }
   ],
   "editorials": [
+    {
+      "date": "2026-04-03",
+      "title": "The shift to pay-as-you-go pricing for AI coding tools signals a structural chan",
+      "tag": "Monetization",
+      "file": "editorial/2026-04-03-the-shift-to-pay-as-you-go-pricing-for-ai-coding-tools-signa.html"
+    },
     {
       "date": "2026-04-02",
       "title": "OpenAI Raises $122 Billion for AI Push",
