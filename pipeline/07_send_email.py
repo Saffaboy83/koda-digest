@@ -210,10 +210,10 @@ CAT_COLORS = {
 }
 
 
-def build_email_html(digest: dict, media_status: dict | None, hero_url: str | None = None) -> str:
+def build_email_html(digest: dict, media_status: dict | None, hero_url: str | None = None, send_date: str | None = None) -> str:
     """Generate Rundown AI-inspired newsletter: full stories, not a dashboard teaser."""
     date_label = digest.get("date_label", digest["date"])
-    date = digest.get("date", "")
+    date = send_date or digest.get("date", "")
     summary = digest.get("summary", {})
     hook = summary.get("hook", "Your daily AI intelligence briefing is ready.")
     markets = digest.get("markets", {})
@@ -242,7 +242,12 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
     # --- Lead story hero image (passed in from generate_email_hero) ---
     lead_hero_html = ""
     if hero_url:
-        lead_hero_html = f'<tr><td style="padding:16px 24px 0"><img src="{hero_url}" alt="" width="552" style="width:100%;max-width:552px;height:auto;display:block;border-radius:8px;border:1px solid #1E293B;max-height:280px;object-fit:cover"></td></tr>'
+        lead_hero_html = (
+            f'<tr><td style="padding:16px 24px 0">'
+            f'<div style="max-width:552px;margin:0 auto;overflow:hidden;border-radius:8px;border:1px solid #1E293B">'
+            f'<img src="{hero_url}" alt="" width="552" style="width:100%;height:auto;display:block">'
+            f'</div></td></tr>'
+        )
 
     # --- Main stories (full body, Rundown format) ---
     main_stories = ai_news[:3] + world_news[:2]
@@ -707,7 +712,7 @@ def main():
     hero_url = generate_email_hero(digest, args.date)
 
     subject = build_email_subject(digest)
-    html_body = build_email_html(digest, media_status, hero_url=hero_url)
+    html_body = build_email_html(digest, media_status, hero_url=hero_url, send_date=args.date)
 
     # Fetch subscribers from Beehiiv (dynamic list)
     print("  Fetching subscriber list from Beehiiv...")

@@ -25,17 +25,18 @@ if [ -n "$GIT_TOKEN" ]; then
     fi
 fi
 
-# Hard timeout: 75 minutes max to prevent zombie containers
-# Cinematic video (Veo 3) alone takes 30-45 min, plus download + upload + HTML + git + email
+# Hard timeout: 120 minutes max to prevent zombie containers
+# Media generation runs all three (audio, infographic, video) in parallel -- Veo 3 cinematic
+# takes 30-45 min, and Steps 01-03 + 05-07 need ~25 min total on top of that.
 # PYTHONUNBUFFERED ensures all print output reaches Railway logs immediately
 export PYTHONUNBUFFERED=1
-TIMEOUT=4500
-echo "[entrypoint] Launching pipeline (timeout: ${TIMEOUT}s / 75min)..."
+TIMEOUT=7200
+echo "[entrypoint] Launching pipeline (timeout: ${TIMEOUT}s / 120min)..."
 timeout $TIMEOUT python -u -m pipeline.run_all "$@"
 EXIT_CODE=$?
 
 if [ $EXIT_CODE -eq 124 ]; then
-    echo "[entrypoint] TIMEOUT: Pipeline exceeded ${TIMEOUT}s limit"
+    echo "[entrypoint] TIMEOUT: Pipeline exceeded ${TIMEOUT}s (120min) limit"
 fi
 
 echo "[entrypoint] Pipeline exited with code $EXIT_CODE at $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
