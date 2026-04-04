@@ -40,6 +40,9 @@ PERPLEXITY_URL = "https://api.perplexity.ai/chat/completions"
 PERPLEXITY_MODEL = "sonar-pro"
 PERPLEXITY_API_KEY = os.environ.get("PERPLEXITY_API_KEY", "")
 
+FIRECRAWL_API_KEY = os.environ.get("FIRECRAWL_API_KEY", "")
+FIRECRAWL_API_URL = "https://api.firecrawl.dev/v1"
+
 LEONARDO_API_KEY = os.environ.get("LEONARDO_API_KEY", "")
 SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
 SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
@@ -137,6 +140,124 @@ def _perplexity_call(query: str) -> dict | None:
     except Exception as e:
         print(f"  WARNING: Perplexity call failed: {type(e).__name__}: {e}")
         return None
+
+
+# ── Firecrawl Deep Research ─────────────────────────────────────────────────
+
+NOISE_DOMAINS = {
+    "google.com", "youtube.com", "twitter.com", "x.com", "reddit.com",
+    "facebook.com", "instagram.com", "linkedin.com", "wikipedia.org",
+    "tiktok.com", "pinterest.com", "medium.com", "github.com",
+}
+MAX_SOURCE_TEXT = 3000
+
+
+def _firecrawl_scrape(url: str, timeout: int = 20) -> str | None:
+    """Scrape a URL with Firecrawl and return clean markdown content."""
+    if not FIRECRAWL_API_KEY:
+        return None
+    try:
+        resp = httpx.post(
+            f"{FIRECRAWL_API_URL}/scrape",
+            json={"url": url, "formats": ["markdown"], "onlyMainContent": True, "timeout": 15000},
+            headers={"Authorization": f"Bearer {FIRECRAWL_API_KEY}", "Content-Type": "application/json"},
+            timeout=timeout,
+        )
+        resp.raise_for_status()
+        markdown = resp.json().get("data", {}).get("markdown", "")
+        return markdown[:MAX_SOURCE_TEXT] if markdown else None
+    except Exception as e:
+        print(f"      Firecrawl scrape failed for {url}: {e}")
+        return None
+
+
+def _firecrawl_search(query: str, limit: int = 6) -> list[dict]:
+    """Search via Firecrawl. Returns list of {url, title, description}."""
+    if not FIRECRAWL_API_KEY:
+        return []
+    try:
+        resp = httpx.post(
+            f"{FIRECRAWL_API_URL}/search",
+            json={"query": query, "limit": limit},
+            headers={"Authorization": f"Bearer {FIRECRAWL_API_KEY}", "Content-Type": "application/json"},
+            timeout=20,
+        )
+        resp.raise_for_status()
+        return [
+            {"title": r.get("title", ""), "url": r.get("url", ""), "description": r.get("description", "")}
+            for r in resp.json().get("data", [])
+            if r.get("title")
+        ]
+    except Exception as e:
+        print(f"      Firecrawl search failed: {e}")
+        return []
+
+
+def _enrich_research_with_firecrawl(research: dict[str, Any], topic_text: str) -> None:
+    """Enrich editorial research by scraping Perplexity citations + independent Firecrawl search.
+
+    Adds research["sources"] (scraped citations) and research["firecrawl_sources"] (independent search).
+    Modifies research dict in place. Non-critical: failures are logged and skipped.
+    """
+    if not FIRECRAWL_API_KEY:
+        print("    Firecrawl enrichment skipped (no FIRECRAWL_API_KEY)")
+        return
+
+    from urllib.parse import urlparse
+
+    print("    Enriching research via Firecrawl...")
+
+    # Step A: Scrape Perplexity citation URLs
+    all_citations: list[str] = []
+    for key in ("primary", "contrarian", "data"):
+        entry = research.get(key)
+        if entry and isinstance(entry, dict):
+            all_citations.extend(entry.get("citations", []))
+
+    # Deduplicate and filter
+    seen: set[str] = set()
+    filtered_urls: list[str] = []
+    for url in all_citations:
+        if url in seen:
+            continue
+        seen.add(url)
+        domain = urlparse(url).netloc.lower().replace("www.", "")
+        if domain in NOISE_DOMAINS:
+            continue
+        path = urlparse(url).path.strip("/")
+        if not path or (path.count("/") == 0 and len(path) < 5):
+            continue
+        filtered_urls.append(url)
+
+    sources: list[dict] = []
+    for url in filtered_urls[:6]:
+        text = _firecrawl_scrape(url)
+        if text and len(text) > 200:
+            domain = urlparse(url).netloc.lower().replace("www.", "")
+            sources.append({"url": url, "text": text})
+            print(f"      Citation: {domain} ({len(text)} chars)")
+    research["sources"] = sources
+    print(f"    Scraped {len(sources)} citation sources")
+
+    # Step B: Independent Firecrawl search for the topic
+    search_results = _firecrawl_search(topic_text)
+    firecrawl_sources: list[dict] = []
+    for r in search_results:
+        url = r.get("url", "")
+        if url in seen:
+            continue
+        seen.add(url)
+        domain = urlparse(url).netloc.lower().replace("www.", "")
+        if domain in NOISE_DOMAINS:
+            continue
+        text = _firecrawl_scrape(url)
+        if text and len(text) > 200:
+            firecrawl_sources.append({"url": url, "title": r.get("title", ""), "text": text})
+            print(f"      Search: {domain} ({len(text)} chars)")
+        if len(firecrawl_sources) >= 3:
+            break
+    research["firecrawl_sources"] = firecrawl_sources
+    print(f"    Found {len(firecrawl_sources)} additional sources via search")
 
 
 # ── Step 01E: Topic Selection ────────────────────────────────────────────────
@@ -238,6 +359,12 @@ def research_topic(topic: dict) -> dict:
         research["data"] = data
         print(f"    Data: {len(data['content'])} chars")
 
+    # Firecrawl deep research: scrape citations + independent search
+    try:
+        _enrich_research_with_firecrawl(research, topic_text)
+    except Exception as e:
+        print(f"    WARNING: Firecrawl enrichment failed (non-critical): {e}")
+
     return research
 
 
@@ -253,6 +380,27 @@ def draft_article(topic: dict, research: dict, voice_guide: str, digest: dict) -
         research_text += f"\n\nCONTRARIAN PERSPECTIVES:\n{research['contrarian']['content']}"
     if research.get("data"):
         research_text += f"\n\nADDITIONAL DATA:\n{research['data']['content']}"
+
+    # Add Firecrawl-scraped primary sources (actual article text)
+    source_lines = []
+    for src in research.get("sources", []):
+        url = src.get("url", "")
+        text = src.get("text", "")[:2000]
+        if text:
+            source_lines.append(f"  [{url}]\n  {text}\n")
+    for src in research.get("firecrawl_sources", []):
+        url = src.get("url", "")
+        title = src.get("title", "")
+        text = src.get("text", "")[:2000]
+        if text:
+            source_lines.append(f"  [{title}] {url}\n  {text}\n")
+    if source_lines:
+        research_text += (
+            "\n\nPRIMARY SOURCE ARTICLES (scraped directly, not AI-summarized):\n"
+            + "\n".join(source_lines[:8])
+            + "\nUse these for specific quotes, stats, and details. "
+            "Prefer primary source text over summaries when they conflict.\n"
+        )
 
     # Build digest context (tools for the "Build" section)
     tools_text = ""

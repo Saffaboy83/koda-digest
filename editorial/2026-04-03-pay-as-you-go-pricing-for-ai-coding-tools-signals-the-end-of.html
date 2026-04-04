@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay-as-you-go pricing for AI coding tools signals the end of seat-based SaaS and | Koda Deep Dive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%236366F1'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='system-ui' font-weight='800'>K</text></svg>">
+    <meta property="og:title" content="Pay-as-you-go pricing for AI coding tools signals the end of seat-based SaaS and | Koda Deep Dive">
+    <meta property="og:description" content="# The Seat Is Dead. The Meter Is Hungry.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.koda.community/editorial/2026-04-03-pay-as-you-go-pricing-for-ai-coding-tools-signals-the-end-of.html">
+    <meta property="og:site_name" content="Koda Digest">
+    <meta name="description" content="# The Seat Is Dead. The Meter Is Hungry.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Pay-as-you-go pricing for AI coding tools signals the end of seat-based SaaS and",
+        "datePublished": "2026-04-03",
+        "description": "# The Seat Is Dead. The Meter Is Hungry.",
+        "author": {"@type": "Organization", "name": "Koda Deep Dive"},
+        "publisher": {"@type": "Organization", "name": "Koda Intelligence", "url": "https://www.koda.community"},
+        "mainEntityOfPage": "https://www.koda.community/editorial/2026-04-03-pay-as-you-go-pricing-for-ai-coding-tools-signals-the-end-of.html",
+        "wordCount": "1672",
+        "timeRequired": "PT6M"
+    }
+    </script>
+    <style>
+
+/* ── Reset & Base ──────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.7;
+    color: #1a1a2e;
+    background: #fafbfe;
+}
+
+/* ── Dark Mode ─────────────────────────────────────────────────── */
+body.dark {
+    color: #dae2fd;
+    background: #0b1326;
+}
+body.dark .topbar { background: rgba(11, 19, 38, 0.92); border-color: rgba(255,255,255,0.06); }
+body.dark .article-card { background: rgba(23, 31, 51, 0.6); border-color: rgba(255,255,255,0.06); }
+body.dark .hero-section { background: linear-gradient(180deg, #0f1a33 0%, #0b1326 100%); }
+body.dark .pull-quote { background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.3); }
+body.dark .data-viz { background: rgba(23, 31, 51, 0.8); border-color: rgba(255,255,255,0.08); }
+body.dark .tag { background: rgba(99, 102, 241, 0.15); color: #a5b4fc; }
+body.dark h1, body.dark h2, body.dark h3 { color: #f1f5ff; }
+body.dark a { color: #818cf8; }
+
+/* ── Light Mode ────────────────────────────────────────────────── */
+.topbar { background: rgba(255,255,255,0.92); border-bottom: 1px solid rgba(0,0,0,0.06); }
+.article-card { background: white; border: 1px solid rgba(0,0,0,0.06); }
+.hero-section { background: linear-gradient(180deg, #f0f4ff 0%, #fafbfe 100%); }
+.pull-quote { background: rgba(99, 102, 241, 0.04); border-left: 4px solid #6366F1; }
+.data-viz { background: #f8fafc; border: 1px solid rgba(0,0,0,0.06); }
+.tag { background: rgba(99, 102, 241, 0.08); color: #4f46e5; }
+
+/* ── Topbar ────────────────────────────────────────────────────── */
+.topbar {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+    padding: 0 24px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.topbar-brand {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; color: inherit;
+}
+.topbar-brand-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 16px; color: white;
+}
+.topbar-brand-text { font-weight: 700; font-size: 15px; letter-spacing: -0.02em; }
+.topbar-nav { display: flex; align-items: center; gap: 12px; }
+.topbar-link {
+    font-size: 13px; font-weight: 500; text-decoration: none;
+    padding: 6px 12px; border-radius: 6px;
+    transition: all 0.2s;
+}
+.topbar-link:hover { background: rgba(99, 102, 241, 0.1); }
+.topbar-home {
+    background: linear-gradient(135deg, #3B82F6, #6366F1);
+    color: white !important; font-weight: 600;
+}
+.topbar-home:hover { opacity: 0.9; background: linear-gradient(135deg, #3B82F6, #6366F1); }
+.topbar-social { width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #8c909f; transition: all 0.2s; border: none; cursor: pointer; text-decoration: none; }
+.topbar-social:hover { background: rgba(59,130,246,0.2); color: #3B82F6; }
+
+/* ── Theme Toggle ──────────────────────────────────────────────── */
+.theme-toggle {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: transparent; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; transition: all 0.2s;
+}
+body.dark .theme-toggle { border-color: rgba(255,255,255,0.1); }
+
+/* ── Scroll Progress ───────────────────────────────────────────── */
+.scroll-progress {
+    position: fixed; top: 0; left: 0;
+    width: 0%; height: 3px;
+    background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+    z-index: 1001; transition: width 0.1s linear;
+    pointer-events: none;
+}
+
+/* ── Hero ───────────────────────────────────────────────────────── */
+.hero-section {
+    padding: 96px 24px 48px;
+    text-align: center;
+}
+.hero-inner { max-width: 720px; margin: 0 auto; }
+.hero-meta {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; margin-bottom: 20px;
+    font-size: 13px; font-weight: 500; opacity: 0.7;
+    font-family: 'JetBrains Mono', monospace;
+}
+.hero-title {
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 800; letter-spacing: -0.03em;
+    line-height: 1.15; margin-bottom: 16px;
+}
+.hero-subtitle {
+    font-size: 17px; line-height: 1.6;
+    opacity: 0.75; max-width: 600px; margin: 0 auto;
+}
+.tag {
+    display: inline-block; padding: 4px 12px;
+    border-radius: 20px; font-size: 12px;
+    font-weight: 600; letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+/* ── Hero Image ────────────────────────────────────────────────── */
+.hero-image {
+    max-width: 800px; margin: 32px auto 0;
+    border-radius: 16px; overflow: hidden;
+}
+.hero-image img {
+    width: 100%; height: auto; display: block;
+    border-radius: 16px;
+}
+
+/* ── Article Body ──────────────────────────────────────────────── */
+.article-body {
+    max-width: 720px; margin: 0 auto;
+    padding: 48px 24px 64px;
+}
+.article-body h2 {
+    font-size: 24px; font-weight: 800;
+    letter-spacing: -0.02em; margin: 48px 0 16px;
+    line-height: 1.2;
+}
+.article-body h3 {
+    font-size: 18px; font-weight: 700;
+    margin: 32px 0 12px; line-height: 1.3;
+}
+.article-body p {
+    font-size: 17px; line-height: 1.75;
+    margin-bottom: 20px;
+}
+.article-body a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ── Pull Quote ────────────────────────────────────────────────── */
+.pull-quote {
+    margin: 40px 0;
+    padding: 24px 28px;
+    border-radius: 12px;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.5;
+    font-style: italic;
+}
+.pull-quote-attribution {
+    display: block; margin-top: 12px;
+    font-size: 13px; font-weight: 600;
+    font-style: normal; opacity: 0.6;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── Data Visualization ────────────────────────────────────────── */
+.data-viz {
+    margin: 32px 0;
+    padding: 24px;
+    border-radius: 16px;
+}
+.data-viz-title {
+    font-size: 14px; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 16px; opacity: 0.6;
+}
+
+/* ── Comparison Table ──────────────────────────────────────────── */
+.comparison-table {
+    width: 100%; border-collapse: collapse;
+    margin: 24px 0; font-size: 15px;
+}
+.comparison-table th {
+    text-align: left; padding: 12px 16px;
+    font-size: 12px; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+}
+.comparison-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
+
+/* ── CTA Bar ───────────────────────────────────────────────────── */
+.cta-bar {
+    max-width: 720px; margin: 0 auto 48px;
+    padding: 32px 24px;
+    text-align: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.08));
+    border: 1px solid rgba(99,102,241,0.15);
+}
+.cta-bar p { font-size: 16px; margin-bottom: 16px; font-weight: 500; }
+.cta-btn {
+    display: inline-block; padding: 12px 28px;
+    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    color: white; font-weight: 700; font-size: 14px;
+    border-radius: 10px; text-decoration: none;
+    transition: all 0.2s;
+}
+.cta-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* ── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+    .hero-section { padding: 80px 16px 32px; }
+    .article-body { padding: 32px 16px 48px; }
+    .article-body p { font-size: 16px; }
+    .pull-quote { font-size: 17px; padding: 20px; }
+    .hero-meta { flex-direction: column; gap: 8px; }
+}
+
+/* ── Fade-in Animation ─────────────────────────────────────────── */
+.fade-in {
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+    
+    </style>
+</head>
+<body class="dark">
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<header class="fixed top-0 w-full z-50 bg-[#0b1326]/80 backdrop-blur-xl border-b border-white/[0.06]" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(11,19,38,0.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);">
+    <div style="max-width:1280px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;">
+        <a href="../index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;">
+            <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;">K</div>
+            <div>
+                <div style="font-size:14px;font-weight:700;color:#3B82F6;"><span class="material-symbols-outlined" style="font-size:14px;vertical-align:-2px;margin-right:3px">explore</span>Deep Dive</div>
+                <div style="font-size:10px;color:#8c909f;">Daily Analysis</div>
+            </div>
+        </a>
+        <div style="display:flex;align-items:center;gap:8px;">
+            <button id="topbarSearchBtn" style="width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,0.05);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#8c909f;transition:all 0.2s;" title="Search (Ctrl+K)">
+                <span class="material-symbols-outlined" style="font-size:18px;">search</span>
+            </button>
+            <a class="topbar-nav-text" href="../archive/" style="font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:600;padding:6px 12px;border-radius:6px;background:rgba(255,255,255,0.05);color:#8c909f;text-decoration:none;"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
+            <a class="topbar-nav-text" href="../morning-briefing-koda.html" style="font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:600;padding:6px 12px;border-radius:6px;background:rgba(255,255,255,0.05);color:#8c909f;text-decoration:none;"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+            <a href="../index.html" style="font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:6px 12px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;text-decoration:none;">&larr; Home</a>
+        </div>
+    </div>
+</header>
+
+<header class="hero-section">
+    <div class="hero-inner">
+        <div class="hero-meta">
+            <span class="tag">Monetization</span>
+            <span>03 April 2026</span>
+            <span>6 min read</span>
+        </div>
+        <h1 class="hero-title">Pay-as-you-go pricing for AI coding tools signals the end of seat-based SaaS and</h1>
+        <p class="hero-subtitle"># The Seat Is Dead. The Meter Is Hungry.</p>
+    </div>
+    <div class="hero-image fade-in" style="max-width:800px;max-height:420px;margin:32px auto 0;border-radius:16px;overflow:hidden;">
+        <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/editorial-hero-2026-04-03.jpg" alt="Pay-as-you-go pricing for AI coding tools signals the end of seat-based SaaS and" loading="eager" style="width:100%;height:420px;object-fit:cover;object-position:center;display:block;border-radius:16px;">
+    </div>
+</header>
+
+<article class="article-body">
+    <p># The Seat Is Dead. The Meter Is Hungry.</p>
+    <p>OpenAI just killed fixed-tier pricing for Codex teams. Cursor switched to credit-based billing in June 2025. Augment Code charges $15 per 24,000-credit top-up, billed in arrears. Seven of nine text models released in March 2026 were open-weight, which means the model itself is no longer the moat. The pricing model is.</p>
+    <p>Here is the math that should scare every engineering leader. According to Cledara, monthly spending on AI coding tools grew from $217,000 in January 2025 to $670,000 by March 2026. That is a 200% increase in 14 months for a single budget category. Companies did not cut other tools to make room. They stacked these on top. One developer profiled in recent research allocates $1,100 per month across Cursor Ultra, Claude Max, and supporting tools. That is $13,200 a year. For one person. With no cap.</p>
+    <p>Seat-based SaaS gave you a number you could put in a spreadsheet. Pay-as-you-go gives you a number that changes every month based on how hard your team thinks. And most teams are budgeting for it the same way they budget for office snacks.</p>
+
+    <h2>The Meter Trap</h2>
+    <p>Here is the framework. I call it The Meter Trap. It works like this.</p>
+    <p>Every pay-as-you-go tool has three layers of cost. Layer one is the sticker price. Cursor Teams at $40 per user per month. These look like seat prices. They are not. They are floor prices. Layer two is the overage. Cursor charges $0.25 per million tokens beyond your allocation. GitHub Copilot charges $0.04 per premium request past your monthly cap of 300 to 1,000. Layer three is the stack tax. You do not use one tool. You use three or four. CodeRabbit for review at $12 per user per month. An LLM API for agentic workflows. Maybe a vector database for RAG.</p>
+    <p>The Meter Trap is what happens when you budget for layer one and get invoiced for all three. A 50-developer team on Cursor Teams looks like $24,000 per year on paper. The real number, according to comparative pricing research, lands closer to $240,000 when you account for overages and daily agent usage patterns. That is a 10x gap between the number in the procurement deck and the number on the invoice.</p>
+    <p>The trap is not that usage-based pricing is bad. The trap is that it disguises variable cost as fixed cost until the bill arrives.</p>
+
+    <h2>The Golden Goose Has a Gas Meter</h2>
+    <p>This is where the offer economics get interesting. And where most people get it wrong.</p>
+    <p>In any business, you have golden geese and golden eggs. The goose is the asset. The eggs are the output. Seat-based SaaS was a goose business. You bought the goose (the license), and it laid eggs (productivity) at a predictable rate. Your CFO could model it. Your procurement team could negotiate it. Barclays locked in GitHub Copilot at $30 per seat for 100,000 licenses. That is a goose deal.</p>
+    <p>Pay-as-you-go is an egg business. You pay per egg. The problem is that nobody knows how many eggs their developers will need next month. And the vendors like it that way.</p>
+    <p>Let me be blunt about what is happening. Vendors are shifting risk from their balance sheet to yours. When OpenAI replaces fixed tiers with usage-based pricing for Codex teams, they are not being generous by "lowering the entry barrier for smaller developer groups." They are making their revenue uncapped on the upside while making your costs unpredictable on the downside. That is not a partnership. That is an asymmetric bet, and you are on the wrong side of it.</p>
+    <p>The damaging admission here: this model is genuinely better for some teams. A three-person startup that codes 10 hours a week should not pay the same as a 200-person enterprise running agentic workflows 24/7. Usage-based pricing is fairer at the extremes. The problem lives in the middle, where 80% of teams sit.</p>
+    <p>Baseline annual cost: $114,000. Add premium request overages at moderate usage, and you are closer to $150,000. Stack on CodeRabbit at $12 per user per month ($7,200 per year) and Claude API costs for complex tasks ($5 to $25 per million tokens for Opus 4.6). A conservative all-in estimate lands between $180,000 and $250,000.</p>
+    <p>Cursor Teams: $40 per user per month. Baseline annual cost: $240,000. Daily agent users average $60 to $100 per month in effective cost. Heavy users blow past that. Add the stack tax and you are looking at $300,000 to $400,000.</p>
+    <p>Now compare that to what the same team spent 14 months ago. Probably $50,000 to $80,000 on JetBrains licenses and a handful of linters. The category has grown 3x to 5x, and the variance between light months and heavy months can swing 40% or more.</p>
+    <p>It is unclear whether most engineering organizations have updated their budgeting processes to handle this variance. The evidence from Cledara suggests they have not. They are adding AI coding tools on top of existing budgets, not restructuring how they forecast.</p>
+    <p>The lipstick-on-a-pig problem is real here too. Some vendors slap a "per seat" label on what is functionally a metered product. Run out, and the auto top-up kicks in at $15 per 24,000 credits. That is not a seat. That is a meter with a monthly minimum.</p>
+    <p>The honest framing: business is just hard, boring work. The exciting part is not picking the cheapest tool. The exciting part is building an internal system that tracks usage, forecasts spend, and renegotiates quarterly. Nobody wants to do that. That is exactly why you should.</p>
+    <p>Coder raising $90 million in Series C funding from KKR tells you where the smart money is going. Not into models. Into the platform layer that sits between developers and models, the layer that can flex with usage and give enterprises the control surface they need. The model is the commodity. The metering and management layer is the product.</p>
+
+    <h2>2031</h2>
+    <p>Pull back five years and the picture clarifies.</p>
+    <p>Seven of nine text models released in March 2026 were open-weight. That trend does not reverse. By 2031, the base capability of code generation will be effectively free. Not cheap. Free. The marginal cost of running an open-weight model on your own infrastructure will approach the cost of electricity and compute, which enterprises already budget for.</p>
+    <p>This means the pricing war happening right now is a transitional phenomenon. Proprietary vendors like OpenAI and Anthropic are racing to extract maximum revenue during the window where their models still hold a capability edge. Once open-weight models close that gap (and they are closing it faster than anyone expected), the entire value proposition shifts from "our model is smarter" to "our platform is stickier."</p>
+    <p>Salary buys furniture, equity buys your future. The same logic applies to tooling budgets. Teams that lock into proprietary, usage-based pricing today are buying furniture. Teams that invest in understanding their own usage patterns, building internal tooling around open-weight models, and negotiating enterprise agreements with pooled allocations are buying equity.</p>
+    <p>The asymmetric bet for engineering leaders is this: spend 20% more time on procurement and usage analytics now, and you save 40% on AI tooling costs over three years. The compounding effect of understanding your own consumption data is enormous. Most teams do not even know which developers are burning through credits and which ones barely touch the tool.</p>
+    <p>My read on this: the winners in 2031 will not be the teams with the best AI tools. They will be the teams with the best AI budgeting systems. The flywheel is measurement, then optimization, then negotiation, then reinvestment. The teams that start spinning that flywheel today have a five-year head start.</p>
+    <p>There is a beginner's mind problem here too. Most engineering leaders approach AI tooling the way they approached SaaS in 2015. Pick a vendor, roll it out, review annually. That cadence is too slow for a category where pricing models change quarterly and new competitors launch monthly. Impermanence is the defining feature of this market. Plan accordingly.</p>
+
+    <h2>What to Build This Weekend</h2>
+    <p>You do not need a finance degree to get ahead of The Meter Trap. You need a spreadsheet and 90 minutes.</p>
+    <p>Step one: audit your current AI coding tool spend. Log into your billing dashboards for every tool your team uses. Cursor, Copilot, Claude API, CodeRabbit, whatever. Pull the last three months of invoices. Write down the actual number, not the per-seat number from the pricing page.</p>
+    <p>Step two: calculate your effective cost per developer per month. Take total spend, divide by number of developers, divide by three months. Compare that number to the sticker price. If the gap is more than 30%, you have a Meter Trap problem.</p>
+    <p>Step three: identify your top 10% and bottom 10% of users by consumption. Most tools have usage dashboards. If yours does not, that is a red flag. The top 10% are probably driving 50% or more of your overages. The bottom 10% might not be using the tool at all. Both groups need a conversation.</p>
+    <p>Step four: set a monthly spend alert. Every billing dashboard has this. Set it at 120% of your average monthly spend. When it triggers, investigate before the invoice arrives.</p>
+    <p>Step five: evaluate one open-weight alternative. Tools like Aider and Cline run on pure API costs with no seat fee. For your bottom 50% of users (the ones who use AI coding tools lightly), an open-weight option at $0.25 per million tokens might cost 80% less than a $40 per month seat they barely touch.</p>
+    <p>This is not about switching tools. This is about knowing your numbers. The teams that know their numbers negotiate better deals, catch runaway spend early, and make informed decisions about when to upgrade and when to downgrade.</p>
+    <p>You can do this without a CS degree. You can do this without a CFO. First the audit, then the alerts, then the optimization. Build one tiny thing at a time. Your future self, staring at a Q3 invoice that makes sense, will thank you.</p>
+
+</article>
+
+<section style="max-width:48rem;margin:0 auto;padding:64px 24px 16px;text-align:center;">
+    <div style="background:rgba(11,19,38,0.6);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:32px 40px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:128px;height:4px;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);border-radius:0 0 4px 4px;"></div>
+        <h3 style="font-size:20px;font-weight:700;color:white;margin-bottom:8px;">Want this every morning?</h3>
+        <p style="color:#c2c6d6;font-size:14px;margin-bottom:24px;">AI analysis, world news, markets, and tools. One briefing, delivered free.</p>
+        <form style="display:flex;gap:8px;max-width:28rem;margin:0 auto;padding:6px;border-radius:9999px;background:#171f33;border:1px solid rgba(255,255,255,0.06);" onsubmit="return kodaSubscribe(this)">
+            <input type="email" name="email" required style="background:transparent;border:none;outline:none;color:white;padding:0 20px;width:100%;font-size:14px;font-family:'Inter',system-ui,sans-serif;" placeholder="your@email.com">
+            <button type="submit" style="background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;padding:12px 24px;border-radius:9999px;font-weight:700;font-size:14px;white-space:nowrap;border:none;cursor:pointer;">Subscribe</button>
+        </form>
+        <p style="font-size:10px;color:#8c909f;margin-top:12px;">One email per day. No spam. Unsubscribe anytime.</p>
+    </div>
+</section>
+
+<script>
+function kodaSubscribe(form) {
+    var btn = form.querySelector('button');
+    var email = form.querySelector('input[name="email"]').value;
+    btn.textContent = 'Subscribing...'; btn.disabled = true;
+    fetch('/api/subscribe', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({email:email}) })
+    .then(function(r) { btn.textContent = r.ok ? 'Subscribed!' : 'Try again'; btn.disabled = false; })
+    .catch(function() { btn.textContent = 'Try again'; btn.disabled = false; });
+    return false;
+}
+</script>
+
+<script>
+window.addEventListener('scroll', function() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+    document.getElementById('scrollProgress').style.width = pct + '%';
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+<div id="searchOverlay" style="position:fixed;inset:0;z-index:2000;display:none;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);">
+    <div style="max-width:640px;margin:80px auto 0;padding:0 16px;">
+        <div style="background:#171f33;border:1px solid rgba(66,71,84,0.4);border-radius:16px;box-shadow:0 25px 50px rgba(0,0,0,0.5);overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.05);">
+                <span class="material-symbols-outlined" style="color:#adc6ff;font-size:20px;">search</span>
+                <input type="text" id="globalSearchInput" autocomplete="off" placeholder="Search digests and editorials..." style="flex:1;background:transparent;border:none;outline:none;font-size:16px;color:#dae2fd;font-family:Inter,system-ui,sans-serif;">
+                <kbd style="font-size:10px;font-family:'JetBrains Mono',monospace;color:#64748b;border:1px solid #475569;border-radius:4px;padding:2px 6px;">ESC</kbd>
+            </div>
+            <div id="globalSearchResults" style="max-height:60vh;overflow-y:auto;"></div>
+        </div>
+    </div>
+</div>
+<style>
+.koda-sr-item{padding:14px 18px;border-bottom:1px solid rgba(173,198,255,0.05);cursor:pointer;transition:background 0.15s;text-decoration:none;display:block;color:inherit;}
+.koda-sr-item:hover{background:rgba(99,102,241,0.1);}
+.koda-sr-meta{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.koda-sr-date{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#adc6ff;padding:2px 8px;background:rgba(173,198,255,0.12);border-radius:4px;}
+.koda-sr-section{font-size:11px;color:#c2c6d6;text-transform:uppercase;letter-spacing:0.5px;}
+.koda-sr-headline{font-size:14px;font-weight:600;color:#dae2fd;margin-bottom:4px;}
+.koda-sr-snippet{font-size:13px;color:#c2c6d6;line-height:1.5;}
+.koda-sr-snippet mark{background:rgba(173,198,255,0.25);color:#dae2fd;border-radius:2px;padding:0 2px;}
+.koda-sr-badge{display:inline-flex;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;padding:2px 7px;border-radius:4px;}
+.koda-sr-badge.digest{background:rgba(59,130,246,0.12);color:#60a5fa;}
+.koda-sr-badge.editorial{background:rgba(139,92,246,0.12);color:#a78bfa;}
+.koda-sr-empty{padding:20px;text-align:center;color:#c2c6d6;font-size:14px;}
+.topbar-nav-text { }
+@media (max-width: 640px) { .topbar-nav-text { display: none !important; } }
+</style>
+<script>
+(function(){
+    var overlay=document.getElementById('searchOverlay'),input=document.getElementById('globalSearchInput'),results=document.getElementById('globalSearchResults'),idx=null,timer=null;
+    function open(){overlay.style.display='block';input.value='';results.innerHTML='';setTimeout(function(){input.focus();},50);}
+    function close(){overlay.style.display='none';}
+    document.getElementById('topbarSearchBtn').addEventListener('click',open);
+    overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+    document.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();open();}if(e.key==='Escape'&&overlay.style.display!=='none')close();});
+    input.addEventListener('input',function(){clearTimeout(timer);var q=input.value.trim();if(q.length<2){results.innerHTML='';return;}timer=setTimeout(function(){search(q);},200);});
+    function search(q){if(!idx){fetch('../search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;run(q);}).catch(function(){results.innerHTML='<div class="koda-sr-empty">Search unavailable.</div>';});}else run(q);}
+    function run(q){
+        var terms=q.toLowerCase().split(/\s+/).filter(function(t){return t.length>0;});if(!terms.length){results.innerHTML='';return;}
+        var hits=[],entries=idx.entries||idx.days||[];
+        for(var i=0;i<entries.length;i++){var en=entries[i],tp=en.type||'digest',fl=en.file||('morning-briefing-koda-'+en.date+'.html'),secs=en.sections||[];
+            for(var j=0;j<secs.length;j++){var sec=secs[j],items=sec.items||[];
+                for(var k=0;k<items.length;k++){var it=items[k],hl=(it.headline||'').toLowerCase(),bt=(it.text||'').toLowerCase(),ft=hl+' '+bt,sc=0,mt=0;
+                    for(var t=0;t<terms.length;t++){var tm=terms[t];if(ft.indexOf(tm)!==-1){mt++;sc+=10;if(hl.indexOf(tm)!==-1)sc+=15;}else{var ws=ft.split(/[\s,.\-\/]+/);for(var w=0;w<ws.length;w++){if(ws[w].indexOf(tm)===0&&tm.length>=3){mt++;sc+=5;break;}}}}
+                    if(mt>0){if(mt===terms.length)sc+=20;sc-=i*2;hits.push({date:en.date,type:tp,section:sec.title,headline:it.headline,text:it.text,file:fl,score:sc});}
+                }}}
+        hits.sort(function(a,b){return a.date<b.date?1:a.date>b.date?-1:b.score-a.score;});hits=hits.slice(0,20);
+        if(!hits.length){results.innerHTML='<div class="koda-sr-empty">No results for "'+esc(q)+'"</div>';return;}
+        var h='';for(var r=0;r<hits.length;r++){var rs=hits[r],sn=snippet(rs.text,terms[0],80),sa=rs.type==='editorial'?'':slug(rs.section),href='../'+rs.file+(sa?'#'+sa:'');
+            h+='<a href="'+href+'" class="koda-sr-item"><div class="koda-sr-meta"><span class="koda-sr-badge '+rs.type+'">'+(rs.type==='editorial'?'Deep Dive':'The Signal')+'</span><span class="koda-sr-date">'+fmtDate(rs.date)+'</span><span class="koda-sr-section">'+esc(rs.section)+'</span></div><div class="koda-sr-headline">'+hilight(esc(rs.headline),terms)+'</div><div class="koda-sr-snippet">'+hilight(sn,terms)+'</div></a>';}
+        results.innerHTML=h;
+    }
+    function snippet(t,tm,c){if(!t)return '';var l=t.toLowerCase(),i=l.indexOf(tm.toLowerCase());if(i===-1)return t.substring(0,c*2);var s=Math.max(0,i-c),e=Math.min(t.length,i+tm.length+c),r=t.substring(s,e);if(s>0)r='...'+r;if(e<t.length)r+='...';return r;}
+    function hilight(t,terms){for(var i=0;i<terms.length;i++){t=t.replace(new RegExp('('+terms[i].replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<mark>$1</mark>');}return t;}
+    function slug(t){return t.toLowerCase().replace(/['']/g,'').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');}
+    function fmtDate(d){var p=d.split('-'),m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];return m[parseInt(p[1])-1]+' '+parseInt(p[2])+', '+p[0];}
+    function esc(s){return s?s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):'';}
+})();
+</script>
+</body>
+</html>
