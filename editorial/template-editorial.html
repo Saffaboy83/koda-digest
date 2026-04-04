@@ -243,6 +243,105 @@ body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Media Strip ──────────────────────────────────────────────── */
+.media-strip { max-width: 900px; margin: 32px auto; padding: 0 24px; }
+.media-strip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+.media-card {
+    padding: 24px;
+    background: linear-gradient(135deg, #0f1629, #162040);
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.media-card--audio { border: 1px solid rgba(99, 102, 241, 0.2); }
+.media-card--video { border: 1px solid rgba(236, 72, 153, 0.2); }
+.media-card__icon { font-size: 28px; display: block; margin-bottom: 8px; }
+.media-card__icon--audio { color: #6366F1; }
+.media-card__icon--video { color: #EC4899; }
+.media-card__title { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+.media-card__subtitle { font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+
+/* Media buttons */
+.media-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 8px 20px; border-radius: 9999px; font-size: 12px;
+    font-weight: 700; cursor: pointer; transition: all 0.25s;
+    border: none; font-family: 'Inter', sans-serif;
+}
+.media-btn--podcast { background: linear-gradient(135deg, #6366F1, #8B5CF6); color: white; }
+.media-btn--podcast:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4); }
+.media-btn--video { background: linear-gradient(135deg, #EC4899, #8B5CF6); color: white; }
+.media-btn--video:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4); }
+.media-btn:active { transform: scale(0.97); }
+
+/* Podcast player smooth reveal */
+.ed-podcast-wrap {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.4s ease;
+    margin-top: 0;
+}
+.ed-podcast-wrap.active {
+    max-height: 120px;
+    opacity: 1;
+    margin-top: 12px;
+}
+.ed-podcast-wrap audio {
+    width: 100%; max-width: 300px;
+    display: block; margin: 0 auto;
+}
+
+/* YouTube fallback link */
+.media-yt-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    margin-top: 8px; font-size: 11px;
+    color: rgba(255,255,255,0.35); text-decoration: none;
+    transition: color 0.2s;
+}
+.media-yt-link:hover { color: rgba(255,255,255,0.6); }
+
+/* Video overlay */
+.video-overlay {
+    display: none; position: fixed; inset: 0;
+    z-index: 9999; background: rgba(0, 0, 0, 0.92);
+    align-items: center; justify-content: center; padding: 16px;
+}
+.video-overlay.active { display: flex; }
+.video-overlay-inner { width: 100%; max-width: 1100px; position: relative; }
+.video-overlay-close {
+    position: absolute; top: -44px; right: 0;
+    background: none; border: none; color: white;
+    font-size: 32px; cursor: pointer; padding: 8px;
+    opacity: 0.7; transition: opacity 0.2s;
+    min-width: 44px; min-height: 44px;
+    display: flex; align-items: center; justify-content: center;
+}
+.video-overlay-close:hover { opacity: 1; }
+
+/* ── Media Strip Responsive ───────────────────────────────────── */
+@media (min-width: 768px) {
+    .media-btn { padding: 12px 28px; font-size: 13px; min-height: 44px; }
+    .video-overlay { padding: 32px; }
+    .video-overlay-inner { max-width: min(1100px, calc(100vw - 64px)); }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .media-strip { max-width: min(900px, calc(100vw - 48px)); padding: 0 32px; }
+    .media-strip-grid { gap: 20px; }
+    .media-card { padding: 28px 24px; }
+}
+@media (max-width: 640px) {
+    .media-strip { padding: 0 16px; margin: 24px auto; }
+    .media-strip-grid { grid-template-columns: 1fr; gap: 12px; }
+    .media-card { padding: 20px 16px; }
+}
     </style>
 </head>
 <body>
@@ -285,24 +384,31 @@ body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
 </header>
 
 <!-- MEDIA_STRIP_START -->
-<section style="max-width:800px; margin:32px auto; padding:0 24px;">
-  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px;">
+<section class="media-strip fade-in">
+  <div class="media-strip-grid">
     <!-- Audio card -->
-    <div style="padding:20px; background:linear-gradient(135deg, #0f1629, #162040); border:1px solid rgba(99,102,241,0.2); border-radius:12px; text-align:center;">
-      <span class="material-symbols-outlined" style="color:#6366F1; font-size:28px; display:block; margin-bottom:8px;">headphones</span>
-      <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Deep Dive Audio</div>
-      <div style="font-size:11px; color:rgba(255,255,255,0.4); margin-bottom:12px;">Brief overview (~5 min)</div>
-      <button class="media-btn podcast-btn" onclick="toggleEditorialPodcast()" aria-expanded="false" aria-controls="editorialPodcastPlayer" style="background:linear-gradient(135deg,#6366F1,#8B5CF6); color:white; padding:8px 20px; border-radius:999px; font-size:12px; font-weight:700; border:none; cursor:pointer;">&#9654; Listen Now</button>
-      <div class="podcast-player-wrap" id="editorialPodcastPlayer" style="display:none; margin-top:12px;">
-        <audio controls style="width:100%" preload="none"><source src="{{EDITORIAL_PODCAST_URL}}" type="audio/mpeg"></audio>
+    <div class="media-card media-card--audio">
+      <span class="material-symbols-outlined media-card__icon media-card__icon--audio">headphones</span>
+      <div class="media-card__title">Deep Dive Audio</div>
+      <div class="media-card__subtitle">Brief overview (~5 min)</div>
+      <button class="media-btn media-btn--podcast" id="edPodBtn" onclick="toggleEditorialPodcast()" aria-expanded="false" aria-controls="editorialPodcastPlayer">&#9654; Listen Now</button>
+      <div class="ed-podcast-wrap" id="editorialPodcastPlayer">
+        <audio controls preload="none"><source src="{{EDITORIAL_PODCAST_URL}}" type="audio/mpeg"></audio>
       </div>
     </div>
     <!-- Video card -->
-    <div style="padding:20px; background:linear-gradient(135deg, #0f1629, #162040); border:1px solid rgba(236,72,153,0.2); border-radius:12px; text-align:center;">
-      <span class="material-symbols-outlined" style="color:#EC4899; font-size:28px; display:block; margin-bottom:8px;">smart_display</span>
-      <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Anime Brief</div>
-      <div style="font-size:11px; color:rgba(255,255,255,0.4); margin-bottom:12px;">Visual deep dive (~2 min)</div>
-      <a href="https://www.youtube.com/watch?v={{EDITORIAL_YOUTUBE_ID}}" target="_blank" rel="noopener" class="media-btn video-btn" style="display:inline-block; text-decoration:none; background:linear-gradient(135deg,#EC4899,#8B5CF6); color:white; padding:8px 20px; border-radius:999px; font-size:12px; font-weight:700;">&#9654; Watch on YouTube</a>
+    <div class="media-card media-card--video">
+      <span class="material-symbols-outlined media-card__icon media-card__icon--video">smart_display</span>
+      <div class="media-card__title">Anime Brief</div>
+      <div class="media-card__subtitle">Visual deep dive (~2 min)</div>
+      <button class="media-btn media-btn--video" onclick="toggleVideo()">&#9654; Play Video</button>
+      <a href="https://www.youtube.com/watch?v={{EDITORIAL_YOUTUBE_ID}}" target="_blank" rel="noopener" class="media-yt-link">or watch on YouTube &rarr;</a>
+      <div class="video-overlay" id="videoOverlay" role="dialog" aria-modal="true" aria-label="Video player" onclick="if(event.target===this)toggleVideo()">
+        <div class="video-overlay-inner">
+          <button class="video-overlay-close" onclick="toggleVideo()" aria-label="Close video">&times;</button>
+          <iframe id="videoFrame" width="100%" style="aspect-ratio:16/9;border:none;border-radius:12px" allowfullscreen title="Editorial video"></iframe>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -430,23 +536,52 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// Toggle editorial podcast player
+// Toggle editorial podcast player (smooth reveal)
 function toggleEditorialPodcast() {
     var player = document.getElementById('editorialPodcastPlayer');
-    var btn = document.querySelector('.podcast-btn');
+    var btn = document.getElementById('edPodBtn');
     if (!player || !btn) return;
-    var isHidden = player.style.display === 'none';
-    player.style.display = isHidden ? 'block' : 'none';
-    btn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
-    btn.innerHTML = isHidden ? '&#9646;&#9646; Playing' : '&#9654; Listen Now';
-    if (isHidden) {
-        var audio = player.querySelector('audio');
-        if (audio) audio.play();
-    } else {
+    var isActive = player.classList.contains('active');
+    if (isActive) {
+        player.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.innerHTML = '&#9654; Listen Now';
         var audio = player.querySelector('audio');
         if (audio) audio.pause();
+    } else {
+        player.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.innerHTML = '&#9646;&#9646; Playing';
+        var audio = player.querySelector('audio');
+        if (audio) audio.play();
     }
 }
+
+// Toggle video overlay
+function toggleVideo() {
+    var o = document.getElementById('videoOverlay'), f = document.getElementById('videoFrame');
+    if (!o) return;
+    if (o.classList.contains('active')) {
+        o.classList.remove('active');
+        document.body.style.overflow = '';
+        if (f) f.src = '';
+    } else {
+        o.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        var ytId = document.body.getAttribute('data-youtube-id');
+        if (f && ytId && /^[A-Za-z0-9_-]{11}$/.test(ytId)) {
+            f.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1';
+        }
+        var c = o.querySelector('.video-overlay-close');
+        if (c) c.focus();
+    }
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        var o = document.getElementById('videoOverlay');
+        if (o && o.classList.contains('active')) toggleVideo();
+    }
+})
 
 function kodaSubscribe(form){var btn=form.querySelector('button'),email=form.querySelector('input[name="email"]').value;btn.textContent='Subscribing...';btn.disabled=true;fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email})}).then(function(r){if(r.ok){btn.textContent='Subscribed!';btn.style.background='#10B981';form.querySelector('input[name="email"]').value=''}else{btn.textContent='Try again';btn.disabled=false}}).catch(function(){btn.textContent='Try again';btn.disabled=false});return false}
 </script>
