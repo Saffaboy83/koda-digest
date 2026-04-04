@@ -1615,6 +1615,23 @@ function kodaSubscribe(form) {
     return false;
 }
 </script>
+<script>// Date picker navigation
+(function() {
+    var btn = document.getElementById('datePickerBtn');
+    var picker = document.getElementById('datePicker');
+    if (!btn || !picker) return;
+    btn.addEventListener('click', function() { picker.showPicker ? picker.showPicker() : picker.click(); });
+    picker.addEventListener('change', function() {
+        var v = picker.value;
+        if (!v) return;
+        var file = 'morning-briefing-koda-' + v + '.html';
+        fetch(file, {method: 'HEAD'}).then(function(r) {
+            if (r.ok) { window.location.href = file; }
+            else { alert('No digest available for ' + v); picker.value = document.body.getAttribute('data-digest-date'); }
+        }).catch(function() { alert('No digest available for ' + v); picker.value = document.body.getAttribute('data-digest-date'); });
+    });
+})();
+</script>
 <!-- koda-nav-v2-js-start -->
 <script>
 (function(){
