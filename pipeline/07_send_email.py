@@ -160,14 +160,50 @@ def _upload_hero_to_supabase(hero_path: Path, date: str) -> str | None:
     return f"{SUPABASE_URL}/storage/v1/object/public/koda-media/{filename}"
 
 
+SUBJECT_EMOJIS: dict[str, str] = {
+    "Model Release": "\U0001f680",  # rocket
+    "Benchmark": "\U0001f4ca",      # bar chart
+    "Agents": "\U0001f916",         # robot
+    "Hardware": "\U0001f4bb",       # laptop
+    "Enterprise": "\U0001f3e2",     # office
+    "Policy": "\U0001f4dc",         # scroll
+    "Open Source": "\U0001f513",    # unlock
+    "China": "\U0001f30f",          # globe
+    "Biotech": "\U0001f9ec",        # DNA
+    "Conflict": "\u26a1",           # zap
+    "Economy": "\U0001f4b0",        # money bag
+    "Trend": "\U0001f525",          # fire
+    "Diplomacy": "\U0001f91d",      # handshake
+    "Technology": "\U0001f4a1",     # light bulb
+}
+
+
 def build_email_subject(digest: dict) -> str:
-    """Generate a hook-only email subject line. Brand comes from sender name."""
+    """Generate emoji + hook subject line matching Rundown AI / TLDR style."""
     summary = digest.get("summary", {})
     hook = summary.get("hook", "Your daily AI intelligence briefing is ready.")
-    # Keep it punchy -- trim to ~80 chars for mobile preview
-    if len(hook) > 80:
-        hook = hook[:77] + "..."
-    return hook
+    # Pick emoji from top story category
+    ai_news = digest.get("ai_news", [])
+    top_cat = ai_news[0].get("category", "") if ai_news else ""
+    emoji = SUBJECT_EMOJIS.get(top_cat, "\U0001f4a1")
+    # Trim hook to ~65 chars to leave room for emoji
+    if len(hook) > 65:
+        hook = hook[:62] + "..."
+    return f"{emoji} {hook}"
+
+
+def build_email_preheader(digest: dict) -> str:
+    """Generate hidden preview text from stories 2-3 (shown in inbox preview)."""
+    ai_news = digest.get("ai_news", [])
+    world_news = digest.get("world_news", [])
+    titles = []
+    for s in (ai_news[1:3] + world_news[:1]):
+        t = s.get("title", "")
+        if t:
+            titles.append(t)
+    if titles:
+        return "PLUS: " + " | ".join(titles)
+    return "AI developments, markets, tools, and more"
 
 
 def _get_editorial_teaser(date: str) -> dict | None:
@@ -194,9 +230,78 @@ def _get_editorial_teaser(date: str) -> dict | None:
 
 
 def _section_divider() -> str:
-    """Thin line divider between email sections."""
-    return """<tr><td style="padding:0 24px"><table width="100%" cellpadding="0" cellspacing="0"><tr>
-    <td style="height:1px;background:#1E293B"></td></tr></table></td></tr>"""
+    """Gradient accent bar divider between email sections."""
+    return """<tr><td style="padding:12px 24px"><table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <td style="height:3px;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);border-radius:2px"></td></tr></table></td></tr>"""
+
+
+def _section_header(title: str) -> str:
+    """Named section header with branded styling."""
+    return f"""<tr><td style="padding:20px 24px 8px">
+    <p style="margin:0;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#6366F1">{title}</p>
+  </td></tr>"""
+
+
+def _cat_badge(cat: str) -> str:
+    """Render a category as a filled pill badge."""
+    color = CAT_COLORS.get(cat, "#3B82F6")
+    return f'<span style="display:inline-block;background:{color};color:white;padding:2px 10px;border-radius:12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px">{cat}</span>'
+
+
+def _fetch_live_markets() -> dict:
+    """Fetch live market data from free APIs when digest markets are empty."""
+    result: dict = {}
+    try:
+        # Yahoo Finance v8 API (no key needed)
+        symbols = {
+            "^GSPC": "sp500",
+            "^IXIC": "nasdaq",
+            "BTC-USD": "btc",
+            "CL=F": "oil",
+        }
+        for symbol, key in symbols.items():
+            try:
+                url = f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}?range=1d&interval=1d"
+                resp = httpx.get(url, timeout=8, headers={"User-Agent": "Mozilla/5.0"})
+                if resp.status_code == 200:
+                    data = resp.json()
+                    meta = data["chart"]["result"][0]["meta"]
+                    price = meta["regularMarketPrice"]
+                    prev = meta.get("chartPreviousClose", meta.get("previousClose", price))
+                    pct = ((price - prev) / prev * 100) if prev else 0
+                    direction = "up" if pct > 0 else "down" if pct < 0 else "neutral"
+                    # Format price
+                    if key == "btc":
+                        price_str = f"${price:,.0f}"
+                    elif key == "oil":
+                        price_str = f"${price:.2f}"
+                    else:
+                        price_str = f"{price:,.2f}"
+                    result[key] = {
+                        "price": price_str,
+                        "change": f"{pct:+.2f}%",
+                        "direction": direction,
+                    }
+            except Exception:
+                pass
+
+        # Fear & Greed Index
+        try:
+            fg_resp = httpx.get("https://api.alternative.me/fng/?limit=1", timeout=5)
+            if fg_resp.status_code == 200:
+                fg = fg_resp.json()["data"][0]
+                val = int(fg["value"])
+                label = fg["value_classification"]
+                direction = "up" if val > 50 else "down"
+                result["sentiment"] = {"value": str(val), "label": label, "direction": direction}
+        except Exception:
+            pass
+
+        if result:
+            print(f"  Live market data fetched: {list(result.keys())}")
+    except Exception as e:
+        print(f"  WARNING: Live market fetch failed: {e}")
+    return result
 
 
 CAT_COLORS = {
@@ -211,7 +316,7 @@ CAT_COLORS = {
 
 
 def build_email_html(digest: dict, media_status: dict | None, hero_url: str | None = None, send_date: str | None = None) -> str:
-    """Generate Rundown AI-inspired newsletter: full stories, not a dashboard teaser."""
+    """Generate best-in-class light-mode newsletter inspired by Rundown AI, TLDR, Superhuman."""
     date_label = digest.get("date_label", digest["date"])
     date = send_date or digest.get("date", "")
     summary = digest.get("summary", {})
@@ -222,77 +327,105 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
     world_news = digest.get("world_news", [])
     tools = digest.get("tools", [])
     digest_url = f"https://www.koda.community/morning-briefing-koda-{date}.html"
+    preheader = build_email_preheader(digest)
 
-    # --- Preview bullets from top stories ---
-    preview_items = []
+    # --- TODAY'S RUNDOWN (TOC with emoji markers) ---
     category_emojis = {
         "Model Release": "&#129302;", "Benchmark": "&#128202;", "Agents": "&#129302;",
         "Hardware": "&#128187;", "Enterprise": "&#127970;", "Policy": "&#128220;",
         "Open Source": "&#128275;", "China": "&#127464;&#127475;", "Biotech": "&#129516;",
-        "Conflict": "&#127988;", "Diplomacy": "&#129309;", "Economy": "&#128176;",
+        "Conflict": "&#9889;", "Diplomacy": "&#129309;", "Economy": "&#128176;",
+        "Trend": "&#128293;", "Technology": "&#128161;",
     }
-    for story in (ai_news[:3] + world_news[:2]):
+    toc_html = ""
+    for i, story in enumerate((ai_news[:3] + world_news[:2])[:5]):
         emoji = category_emojis.get(story.get("category", ""), "&#128313;")
-        preview_items.append(f"{emoji} {story.get('title', '')}")
+        toc_html += f'<tr><td style="padding:3px 0;font-size:14px;color:#334155;line-height:1.5">{emoji} {story.get("title", "")}</td></tr>\n'
 
-    preview_html = ""
-    for item in preview_items[:5]:
-        preview_html += f'<tr><td style="padding:2px 0;font-size:14px;color:#C2C6D6;line-height:1.5">{item}</td></tr>\n'
-
-    # --- Lead story hero image (passed in from generate_email_hero) ---
-    lead_hero_html = ""
+    # --- HERO IMAGE ---
+    # Wrapped in a fixed-height container with overflow:hidden for email client
+    # compatibility. Bare max-height + object-fit is stripped by Gmail/Outlook.
+    hero_html = ""
     if hero_url:
-        lead_hero_html = (
+        hero_html = (
             f'<tr><td style="padding:16px 24px 0">'
-            f'<div style="max-width:552px;margin:0 auto;overflow:hidden;border-radius:8px;border:1px solid #1E293B">'
-            f'<img src="{hero_url}" alt="" width="552" style="width:100%;height:auto;display:block">'
-            f'</div></td></tr>'
+            f'<!--[if mso]><table width="552" cellpadding="0" cellspacing="0"><tr><td style="height:280px;overflow:hidden"><![endif]-->'
+            f'<div style="max-width:552px;max-height:280px;overflow:hidden;border-radius:10px;border:1px solid #E2E8F0">'
+            f'<img src="{hero_url}" alt="Today\'s AI digest visual" width="552" '
+            f'style="width:100%;max-width:552px;height:auto;display:block">'
+            f'</div>'
+            f'<!--[if mso]></td></tr></table><![endif]-->'
+            f'</td></tr>'
         )
 
-    # --- Main stories (full body, Rundown format) ---
+    # --- AI FRONTLINE (main stories, tight format: lead + max 3 bullets) ---
     main_stories = ai_news[:3] + world_news[:2]
     stories_html = ""
     for i, story in enumerate(main_stories):
         cat = story.get("category", "")
-        color = CAT_COLORS.get(cat, "#3B82F6")
         title = story.get("title", "")
         body = story.get("body", "")
         source_name = story.get("source_name", "")
         source_url = story.get("source_url", "")
+        color = CAT_COLORS.get(cat, "#3B82F6")
 
+        # Insert hero before first story
+        if i == 0:
+            stories_html += hero_html
+
+        # Source link
         source_link = ""
         if source_url and source_name:
-            source_link = f"""<p style="margin:8px 0 0"><a href="{source_url}" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;text-decoration:none;color:{color}" target="_blank">Source: {source_name} &rarr;</a></p>"""
-        elif source_name:
-            source_link = f'<p style="margin:8px 0 0;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#64748B">Source: {source_name}</p>'
+            source_link = f'<p style="margin:8px 0 0"><a href="{source_url}" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;text-decoration:none;color:{color}" target="_blank">{source_name} &#8594;</a></p>'
 
-        # Insert lead hero image before the first story
-        hero_insert = lead_hero_html if i == 0 else ""
+        # Tight format: 1 lead sentence + max 3 bullet points (no "why it matters" block)
+        sentences = [s.strip() for s in body.split(". ") if s.strip()]
+        if len(sentences) >= 3:
+            lead = sentences[0] + "."
+            bullets = ""
+            for s in sentences[1:4]:  # max 3 bullets
+                clean = s.rstrip(".")
+                bullets += f'<li style="margin:0 0 3px;font-size:13px;color:#475569;line-height:1.5">{clean}.</li>'
+            body_html = (
+                f'<p style="margin:8px 0 6px;font-size:14px;color:#334155;line-height:1.55">{lead}</p>'
+                f'<ul style="margin:0;padding-left:18px">{bullets}</ul>'
+            )
+        elif len(sentences) == 2:
+            body_html = f'<p style="margin:8px 0 0;font-size:14px;color:#334155;line-height:1.55">{sentences[0]}. {sentences[1]}.</p>'
+        else:
+            body_html = f'<p style="margin:8px 0 0;font-size:14px;color:#475569;line-height:1.55">{body}</p>'
 
-        stories_html += f"""{hero_insert}<tr><td style="padding:20px 24px 0">
-          <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:{color}">{cat}</span>
-          <p style="margin:8px 0 0;font-size:17px;font-weight:800;color:#E2E8F0;line-height:1.3">{title}</p>
-          <p style="margin:12px 0 0;font-size:14px;color:#C2C6D6;line-height:1.65">{body}</p>
+        # Separator between stories (not before first)
+        sep = '<tr><td style="padding:0 24px"><table width="100%" cellpadding="0" cellspacing="0"><tr><td style="height:1px;background:#E2E8F0"></td></tr></table></td></tr>' if i > 0 else ""
+
+        stories_html += f"""{sep}<tr><td style="padding:16px 24px 0">
+          {_cat_badge(cat)}
+          <p style="margin:8px 0 0;font-size:17px;font-weight:800;color:#0F172A;line-height:1.3">{title}</p>
+          {body_html}
           {source_link}
         </td></tr>"""
 
-    # --- Market snapshot (compact single row) ---
+    # --- MARKET PULSE (compact row, light background) ---
+    # If markets dict is empty, try to fetch live data
+    if not markets:
+        markets = _fetch_live_markets()
+
     ticker_map = {"sp500": "S&P", "nasdaq": "NDX", "btc": "BTC", "oil": "Oil", "sentiment": "Mood"}
     market_cells = ""
     for key, label in ticker_map.items():
         data = markets.get(key, {})
-        if isinstance(data, dict):
+        if isinstance(data, dict) and data:
             price = data.get("price", data.get("value", "N/A"))
             change = data.get("change", data.get("label", ""))
             direction = data.get("direction", "neutral")
             color = "#10B981" if direction == "up" else "#EF4444" if direction == "down" else "#F59E0B"
-            market_cells += f"""<td style="padding:8px 2px;text-align:center;width:20%;background:#131B2E">
-              <span style="display:block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#8C909F">{label}</span>
-              <span style="display:block;font-size:12px;font-weight:700;color:#E2E8F0;font-family:'Courier New',monospace">{price}</span>
+            market_cells += f"""<td style="padding:8px 2px;text-align:center;width:20%;background:#F1F5F9;border-radius:6px">
+              <span style="display:block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#64748B">{label}</span>
+              <span style="display:block;font-size:12px;font-weight:700;color:#0F172A;font-family:'Courier New',monospace">{price}</span>
               <span style="display:block;font-size:10px;font-family:'Courier New',monospace;color:{color}">{change}</span>
             </td>"""
 
-    # --- Quick hits (remaining stories, fuller summaries) ---
+    # --- SPEED ROUND (remaining stories, brief) ---
     quick_hit_stories = ai_news[3:7] + world_news[2:4]
     quick_hits_html = ""
     for story in quick_hit_stories[:5]:
@@ -302,36 +435,34 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
         body = story.get("body", "")
         source_name = story.get("source_name", "")
         source_url = story.get("source_url", "")
+        # First sentence only for speed round
+        short_body = body.split(". ")[0] + "." if ". " in body else body
 
         src = ""
         if source_url and source_name:
-            src = f' <a href="{source_url}" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;text-decoration:none;color:{color}" target="_blank">Source: {source_name} &rarr;</a>'
-        elif source_name:
-            src = f' <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#64748B">Source: {source_name}</span>'
+            src = f' <a href="{source_url}" style="font-size:11px;font-weight:700;text-decoration:none;color:{color}" target="_blank">{source_name} &#8594;</a>'
 
-        quick_hits_html += f"""<tr><td style="padding:10px 0;border-bottom:1px solid #1a2235">
-          <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:{color}">{cat}</span>
-          <p style="margin:4px 0 0;font-size:15px;font-weight:700;color:#E2E8F0;line-height:1.3">{title}</p>
-          <p style="margin:6px 0 0;font-size:13px;color:#C2C6D6;line-height:1.55">{body}</p>
-          <p style="margin:6px 0 0">{src}</p>
+        quick_hits_html += f"""<tr><td style="padding:10px 0;border-bottom:1px solid #E2E8F0">
+          {_cat_badge(cat)}
+          <p style="margin:6px 0 0;font-size:15px;font-weight:700;color:#0F172A;line-height:1.3">{title}</p>
+          <p style="margin:4px 0 0;font-size:13px;color:#475569;line-height:1.5">{short_body}{src}</p>
         </td></tr>"""
 
-    # --- Tool spotlight ---
+    # --- TOOL DROP (emoji + name + one-liner) ---
+    tool_emojis = ["&#128640;", "&#9889;", "&#128161;", "&#128295;", "&#127775;"]
     tools_html = ""
-    for tool in tools[:3]:
+    for i, tool in enumerate(tools[:3]):
         name = tool.get("title", "")
         desc = tool.get("body", "")
         url = tool.get("url", "")
-        cat = tool.get("category", "")
-        cat_label = f'<span style="color:#8B5CF6;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px">{cat}</span><br>' if cat else ""
-        name_html = f'<a href="{url}" style="color:#E2E8F0;text-decoration:underline;font-weight:700" target="_blank">{name}</a>' if url else f'<span style="color:#E2E8F0;font-weight:700">{name}</span>'
-        # First sentence of description
+        emoji = tool_emojis[i % len(tool_emojis)]
         short_desc = desc.split(". ")[0] + "." if ". " in desc else desc
-        tools_html += f"""<tr><td style="padding:6px 0">
-          <p style="margin:0;font-size:14px;color:#C2C6D6;line-height:1.5">{cat_label}{name_html} -- {short_desc}</p>
+        name_html = f'<a href="{url}" style="color:#0F172A;text-decoration:underline;font-weight:700" target="_blank">{name}</a>' if url else f'<strong style="color:#0F172A">{name}</strong>'
+        tools_html += f"""<tr><td style="padding:8px 0">
+          <p style="margin:0;font-size:14px;color:#475569;line-height:1.5">{emoji} {name_html} -- {short_desc}</p>
         </td></tr>"""
 
-    # --- Media section (video thumbnail, podcast button, infographic thumbnail) ---
+    # --- LISTEN & WATCH (media section) ---
     podcast_url = ""
     yt_url = ""
     yt_video_id = ""
@@ -343,7 +474,6 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
         try:
             vr = json.loads(video_result_path.read_text(encoding="utf-8"))
             stamped_date = vr.get("date", "")
-            # Only use video if it was uploaded today (prevent stale embeds)
             if date and (not stamped_date or stamped_date != date):
                 print(f"  INFO: youtube-result.json is from {stamped_date or 'unknown'}, not {date} -- skipping stale video in email")
             else:
@@ -356,38 +486,36 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
     has_media = podcast_url or (yt_url and yt_video_id)
 
     if has_media:
-        # Side-by-side layout: video thumbnail left, podcast button right
         video_cell = ""
         podcast_cell = ""
 
         if yt_url and yt_video_id:
             yt_thumb = f"https://img.youtube.com/vi/{yt_video_id}/maxresdefault.jpg"
             video_cell = f"""<td style="padding:0 4px 0 0;width:50%;vertical-align:top">
-              <table width="100%" cellpadding="0" cellspacing="0" style="border-radius:8px;overflow:hidden;border:1px solid #1E293B">
-                <tr><td style="height:140px;background:#131B2E;padding:0;vertical-align:middle;text-align:center">
+              <table width="100%" cellpadding="0" cellspacing="0" style="border-radius:10px;overflow:hidden;border:1px solid #E2E8F0">
+                <tr><td style="height:140px;background:#F1F5F9;padding:0;vertical-align:middle;text-align:center">
                   <a href="{yt_url}" target="_blank"><img src="{yt_thumb}" alt="Watch video" width="264" style="width:100%;height:140px;object-fit:cover;display:block"></a>
                 </td></tr>
                 <tr><td style="padding:0">
-                  <a href="{yt_url}" style="display:block;padding:12px 8px;background:#EC4899;color:white;text-decoration:none;text-align:center;font-weight:700;font-size:12px" target="_blank">&#9654; Watch Video</a>
+                  <a href="{yt_url}" style="display:block;padding:12px 8px;background:linear-gradient(135deg,#EC4899,#8B5CF6);color:white;text-decoration:none;text-align:center;font-weight:700;font-size:12px" target="_blank">&#9654; Watch Video</a>
                 </td></tr>
               </table>
             </td>"""
 
         if podcast_url:
             podcast_cell = f"""<td style="padding:0 0 0 4px;width:50%;vertical-align:top">
-              <table width="100%" cellpadding="0" cellspacing="0" style="border-radius:8px;overflow:hidden;border:1px solid #1E293B">
-                <tr><td style="height:140px;background:#131B2E;padding:0;text-align:center;vertical-align:middle">
+              <table width="100%" cellpadding="0" cellspacing="0" style="border-radius:10px;overflow:hidden;border:1px solid #E2E8F0">
+                <tr><td style="height:140px;background:#F1F5F9;padding:0;text-align:center;vertical-align:middle">
                   <p style="margin:0 0 8px;font-size:36px;line-height:1">&#127911;</p>
-                  <p style="margin:0 0 4px;font-size:14px;font-weight:800;color:#E2E8F0">Daily Podcast</p>
-                  <p style="margin:0;font-size:11px;color:#94A3B8">~22 min deep dive</p>
+                  <p style="margin:0 0 4px;font-size:14px;font-weight:800;color:#0F172A">Daily Podcast</p>
+                  <p style="margin:0;font-size:11px;color:#64748B">~22 min deep dive</p>
                 </td></tr>
                 <tr><td style="padding:0">
-                  <a href="{podcast_url}" style="display:block;padding:12px 8px;background:#6366F1;color:white;text-decoration:none;text-align:center;font-weight:700;font-size:12px" target="_blank">&#9654; Listen Now</a>
+                  <a href="{podcast_url}" style="display:block;padding:12px 8px;background:linear-gradient(135deg,#6366F1,#3B82F6);color:white;text-decoration:none;text-align:center;font-weight:700;font-size:12px" target="_blank">&#9654; Listen Now</a>
                 </td></tr>
               </table>
             </td>"""
 
-        # If only one is available, it gets full width
         if video_cell and podcast_cell:
             cells = video_cell + podcast_cell
         elif video_cell:
@@ -395,93 +523,116 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
         else:
             cells = podcast_cell.replace("width:50%", "width:100%")
 
-        media_html = f"""<tr><td style="padding:20px 24px 0">
-          <p style="margin:0 0 12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#8C909F">Today's Media</p>
+        media_html = f"""{_section_header("Listen & Watch")}
+        <tr><td style="padding:0 24px">
           <table width="100%" cellpadding="0" cellspacing="0"><tr>{cells}</tr></table>
         </td></tr>"""
 
-    # --- Editorial teaser with hero image ---
+    # --- DEEP DIVE (editorial teaser) ---
     editorial = _get_editorial_teaser(date)
     editorial_html = ""
     if editorial:
-        # Try to find the editorial hero image on Supabase
         editorial_hero_img = ""
         editorial_hero_url = f"{SUPABASE_URL}/storage/v1/object/public/koda-media/editorial-hero-{date}.jpg" if SUPABASE_URL else ""
         editorial_hero_local = Path(__file__).parent.parent / "editorial" / f"editorial-hero-{date}.jpg"
         if editorial_hero_local.exists() and editorial_hero_url:
-            editorial_hero_img = f'<a href="{editorial["url"]}" target="_blank"><img src="{editorial_hero_url}" alt="" width="520" style="width:100%;max-width:520px;height:140px;object-fit:cover;display:block;border-radius:6px 6px 0 0;border:1px solid #1E293B;border-bottom:none"></a>'
+            editorial_hero_img = f'<a href="{editorial["url"]}" target="_blank"><img src="{editorial_hero_url}" alt="" width="520" style="width:100%;max-width:520px;height:140px;object-fit:cover;display:block;border-radius:10px 10px 0 0"></a>'
 
         editorial_html = f"""
-    {_section_divider()}
-    <tr><td style="padding:20px 24px">
-      <p style="margin:0 0 10px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#8C909F">Today's Editorial</p>
-      <table width="100%" cellpadding="0" cellspacing="0" style="background:#131B2E;border-left:3px solid #6366F1">
+    {_section_header("Deep Dive")}
+    <tr><td style="padding:0 24px">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden">
         <tr><td style="padding:0">{editorial_hero_img}</td></tr>
         <tr><td style="padding:16px">
-          <p style="margin:0 0 6px;font-size:16px;font-weight:800;color:#E2E8F0;line-height:1.3">{editorial['title']}</p>
-          <p style="margin:0 0 12px;font-size:13px;color:#94A3B8;line-height:1.5">{editorial['description']}</p>
+          <p style="margin:0 0 6px;font-size:16px;font-weight:800;color:#0F172A;line-height:1.3">{editorial['title']}</p>
+          <p style="margin:0 0 12px;font-size:13px;color:#64748B;line-height:1.5">{editorial['description']}</p>
           <a href="{editorial['url']}" style="color:#6366F1;font-size:13px;font-weight:700;text-decoration:none" target="_blank">Read the full analysis &#8594;</a>
         </td></tr>
       </table>
     </td></tr>"""
 
+    # --- RATE THIS ISSUE (1-click emoji poll) ---
+    rate_base = f"{digest_url}?utm_source=email&utm_medium=rating&rating="
+    rating_html = f"""<tr><td style="padding:24px 24px 0;text-align:center">
+      <p style="margin:0 0 10px;font-size:13px;font-weight:700;color:#334155">How was today's digest?</p>
+      <table cellpadding="0" cellspacing="0" style="margin:0 auto"><tr>
+        <td style="padding:0 12px"><a href="{rate_base}great" style="text-decoration:none;font-size:28px" target="_blank">&#128293;</a><br><span style="font-size:11px;color:#64748B">Great</span></td>
+        <td style="padding:0 12px"><a href="{rate_base}good" style="text-decoration:none;font-size:28px" target="_blank">&#128077;</a><br><span style="font-size:11px;color:#64748B">Good</span></td>
+        <td style="padding:0 12px"><a href="{rate_base}meh" style="text-decoration:none;font-size:28px" target="_blank">&#128528;</a><br><span style="font-size:11px;color:#64748B">Meh</span></td>
+      </tr></table>
+    </td></tr>"""
+
     # ========== ASSEMBLE EMAIL ==========
     html = f"""<!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="color-scheme" content="dark"><meta name="supported-color-schemes" content="dark">
-<title>Koda Daily Digest | {date_label}</title></head>
-<body style="margin:0;padding:0;background:#0B1326;font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased">
+<meta name="color-scheme" content="light dark"><meta name="supported-color-schemes" content="light dark">
+<title>Koda Daily Digest | {date_label}</title>
+<style>@media (prefers-color-scheme:dark){{.email-body{{background:#1a1a2e!important}}.email-container{{background:#16213e!important}}.text-primary{{color:#E2E8F0!important}}.text-secondary{{color:#94A3B8!important}}.market-cell{{background:#1E293B!important}}.card-bg{{background:#1E293B!important;border-color:#334155!important}}}}</style>
+</head>
+<body style="margin:0;padding:0;background:#F8FAFC;font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased">
+<!--[if mso]><style>table{{border-collapse:collapse}}</style><![endif]-->
+<!-- Preheader text (hidden, shows in inbox preview) -->
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all">{preheader}</div>
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all">&#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;</div>
 
-<table width="100%" cellpadding="0" cellspacing="0" style="background:#0B1326">
+<table width="100%" cellpadding="0" cellspacing="0" class="email-body" style="background:#F8FAFC">
 <tr><td align="center" style="padding:16px 12px">
 
-<table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#0F172A">
+<table width="600" cellpadding="0" cellspacing="0" class="email-container" style="max-width:600px;width:100%;background:#FFFFFF;border-radius:12px;overflow:hidden;border:1px solid #E2E8F0">
 
-  <!-- Header -->
-  <tr><td style="padding:28px 24px 24px;text-align:center;background:linear-gradient(135deg,#1E293B 0%,#312E81 50%,#1E293B 100%)">
-    <table cellpadding="0" cellspacing="0" style="margin:0 auto 12px"><tr>
-      <td style="width:36px;height:36px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);text-align:center;line-height:36px;color:white;font-weight:900;font-size:16px">K</td>
-    </tr></table>
-    <h1 style="margin:0;color:white;font-size:22px;font-weight:800;letter-spacing:-0.5px">Koda Daily Digest</h1>
-    <p style="margin:6px 0 0;color:#94A3B8;font-size:12px;text-transform:uppercase;letter-spacing:2px">{date_label}</p>
-  </td></tr>
-
-  <!-- Accent line -->
+  <!-- Header: gradient bar + logo + date -->
   <tr><td style="padding:0"><table width="100%" cellpadding="0" cellspacing="0"><tr>
-    <td style="height:2px;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899)"></td>
+    <td style="height:4px;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899)"></td>
   </tr></table></td></tr>
-
-  <!-- Opening hook -->
-  <tr><td style="padding:24px 24px 0">
-    <p style="margin:0 0 16px;color:#E2E8F0;font-size:18px;font-weight:800;line-height:1.35">{hook}</p>
+  <tr><td style="padding:24px 24px 20px">
+    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+      <td style="vertical-align:middle">
+        <table cellpadding="0" cellspacing="0"><tr>
+          <td style="width:40px;height:40px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);border-radius:10px;text-align:center;line-height:40px;color:white;font-weight:900;font-size:18px">K</td>
+          <td style="padding-left:12px">
+            <p style="margin:0;font-size:18px;font-weight:800;color:#0F172A;letter-spacing:-0.3px">Koda Daily</p>
+          </td>
+        </tr></table>
+      </td>
+      <td style="text-align:right;vertical-align:middle">
+        <p style="margin:0;font-size:12px;color:#94A3B8;text-transform:uppercase;letter-spacing:1.5px">{date_label}</p>
+      </td>
+    </tr></table>
   </td></tr>
 
-  <!-- In today's digest -->
+  <!-- THE SIGNAL: Opening hook -->
   <tr><td style="padding:0 24px 20px">
-    <p style="margin:0 0 8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#64748B">In today's digest:</p>
+    <p class="text-primary" style="margin:0;color:#0F172A;font-size:20px;font-weight:800;line-height:1.35">{hook}</p>
+  </td></tr>
+
+  <!-- TODAY'S RUNDOWN (TOC) -->
+  <tr><td style="padding:0 24px 16px">
+    <p style="margin:0 0 8px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#6366F1">Today's Rundown</p>
     <table width="100%" cellpadding="0" cellspacing="0">
-      {preview_html}
+      {toc_html}
     </table>
   </td></tr>
 
-  <!-- Market snapshot -->
-  <tr><td style="padding:16px 24px 0">
-    <p style="margin:0 0 10px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#8C909F">Market Snapshot</p>
+  {_section_divider() if market_cells else ""}
+
+  {"" if not market_cells else _section_header("Market Pulse") + '''
+  <tr><td style="padding:0 24px">
     <table width="100%" cellpadding="0" cellspacing="4" style="border-spacing:4px">
-      <tr>{market_cells}</tr>
+      <tr>''' + market_cells + '''</tr>
     </table>
-  </td></tr>
+  </td></tr>'''}
 
   {_section_divider()}
 
-  <!-- Main stories -->
+  <!-- AI FRONTLINE + BEYOND AI -->
+  {_section_header("AI Frontline")}
   {stories_html}
 
   {_section_divider()}
 
-  <!-- Quick hits -->
-  <tr><td style="padding:20px 24px 0">
-    <p style="margin:0 0 10px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#8C909F">Everything Else in AI Today</p>
+  <!-- SPEED ROUND -->
+  {_section_header("Speed Round")}
+  <tr><td style="padding:0 24px">
     <table width="100%" cellpadding="0" cellspacing="0">
       {quick_hits_html}
     </table>
@@ -489,37 +640,43 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
 
   {_section_divider()}
 
-  <!-- Tool spotlight -->
-  <tr><td style="padding:20px 24px 0">
-    <p style="margin:0 0 10px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#8C909F">Tools Worth Trying</p>
+  <!-- TOOL DROP -->
+  {_section_header("Tool Drop")}
+  <tr><td style="padding:0 24px">
     <table width="100%" cellpadding="0" cellspacing="0">
       {tools_html}
     </table>
   </td></tr>
 
-  <!-- Media buttons -->
+  <!-- LISTEN & WATCH -->
   {media_html}
 
-  <!-- Editorial teaser -->
+  <!-- DEEP DIVE (editorial) -->
   {editorial_html}
 
   {_section_divider()}
 
   <!-- CTA -->
-  <tr><td style="padding:24px 24px 28px;text-align:center">
+  <tr><td style="padding:24px 24px 0;text-align:center">
     <a href="{digest_url}"
-      style="display:inline-block;padding:16px 40px;background:#3B82F6;color:white;text-decoration:none;font-weight:800;font-size:15px;letter-spacing:0.5px;border-radius:4px" target="_blank">READ THE FULL DIGEST</a>
-    <p style="margin:12px 0 0;font-size:12px;color:#64748B">Includes competitive landscape, newsletter intelligence, and more</p>
+      style="display:inline-block;padding:16px 40px;background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;text-decoration:none;font-weight:800;font-size:15px;letter-spacing:0.5px;border-radius:8px" target="_blank">READ THE FULL DIGEST</a>
+    <p style="margin:10px 0 0;font-size:12px;color:#94A3B8">Competitive landscape, newsletter intel, changelog, and more</p>
   </td></tr>
 
-  <!-- Footer -->
-  <tr><td style="padding:20px 24px;border-top:1px solid #1E293B;text-align:center">
-    <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#3B82F6">Koda Intelligence</p>
-    <p style="margin:0 0 8px;font-size:11px;color:#64748B">
-      <a href="https://www.koda.community" style="color:#64748B;text-decoration:none">koda.community</a>
+  <!-- RATE THIS ISSUE -->
+  {rating_html}
+
+  <!-- FOOTER -->
+  <tr><td style="padding:24px;border-top:1px solid #E2E8F0;text-align:center">
+    <p style="margin:0 0 8px;font-size:13px;color:#334155">Until tomorrow -- the <strong>Koda Intelligence</strong> team</p>
+    <p style="margin:0 0 12px;font-size:12px;color:#94A3B8">
+      <a href="https://www.koda.community" style="color:#6366F1;text-decoration:none;font-weight:600" target="_blank">koda.community</a> &nbsp;&#183;&nbsp;
+      <a href="https://www.koda.community/archive/" style="color:#6366F1;text-decoration:none;font-weight:600" target="_blank">The Vault</a> &nbsp;&#183;&nbsp;
+      <a href="https://www.koda.community/editorial/" style="color:#6366F1;text-decoration:none;font-weight:600" target="_blank">Deep Dive</a>
     </p>
-    <p style="margin:0;font-size:10px;color:#475569">
-      <a href="{{{{UNSUBSCRIBE_URL}}}}" style="color:#475569;text-decoration:underline">Unsubscribe</a>
+    <p style="margin:0;font-size:10px;color:#94A3B8">
+      <a href="{{{{UNSUBSCRIBE_URL}}}}" style="color:#94A3B8;text-decoration:underline">Unsubscribe</a> &nbsp;&#183;&nbsp;
+      Delivered by Koda Intelligence
     </p>
   </td></tr>
 

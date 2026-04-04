@@ -134,9 +134,9 @@ def build_html(data: dict) -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI API Pricing Tracker | Koda Intelligence</title>
+<title>Token Tracker | Koda Intelligence</title>
 <meta name="description" content="Live comparison of AI API pricing across {provider_count} providers and {total_models} models. Updated weekly by Koda Intelligence.">
-<meta property="og:title" content="AI API Pricing Tracker | Koda Intelligence">
+<meta property="og:title" content="Token Tracker | Koda Intelligence">
 <meta property="og:description" content="{provider_count} providers, {total_models} models compared. Updated {date_label}.">
 <meta property="og:url" content="https://www.koda.community/pricing/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -253,12 +253,12 @@ footer .inner{{max-width:1280px;margin:0 auto;display:flex;flex-direction:column
         <div class="brand-icon">K</div>
         <div>
             <div class="brand-text">Koda Intelligence</div>
-            <div class="brand-sub">AI API Pricing</div>
+            <div class="brand-sub"><span class="material-symbols-outlined" style="font-size:11px;vertical-align:-1px;margin-right:2px">monitoring</span>Token Tracker</div>
         </div>
     </a>
     <div class="nav-links">
-        <a href="../morning-briefing-koda.html" class="nav-link nav-link-secondary">Today's Digest</a>
-        <a href="../editorial/" class="nav-link nav-link-secondary" style="display:none">Editorial</a>
+        <a href="../morning-briefing-koda.html" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+        <a href="../editorial/" class="nav-link nav-link-secondary" style="display:none"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">explore</span>Deep Dive</a>
         <a href="../index.html" class="nav-link nav-link-home">&larr; Home</a>
     </div>
 </div>
@@ -267,7 +267,7 @@ footer .inner{{max-width:1280px;margin:0 auto;display:flex;flex-direction:column
 <!-- ── Hero ── -->
 <section class="hero animate-in">
     <div class="badge">Updated Weekly</div>
-    <h1>AI API Pricing Tracker</h1>
+    <h1><span class="material-symbols-outlined" style="font-size:0.7em;vertical-align:-0.04em;margin-right:8px">monitoring</span>Token Tracker</h1>
     <p>{provider_count} providers, {total_models} models compared side by side. Sorted by cost. Updated {date_label}.</p>
 </section>
 
@@ -358,7 +358,7 @@ footer .inner{{max-width:1280px;margin:0 auto;display:flex;flex-direction:column
     </div>
     <div style="display:flex;gap:24px;font-size:11px;text-transform:uppercase;letter-spacing:0.08em">
         <a href="../index.html" style="color:#c2c6d6;text-decoration:none">Home</a>
-        <a href="../morning-briefing-koda.html" style="color:#c2c6d6;text-decoration:none">Digest</a>
+        <a href="../morning-briefing-koda.html" style="color:#c2c6d6;text-decoration:none">The Signal</a>
         <span style="color:#64748B">&copy; 2026 Koda Intelligence</span>
     </div>
 </div>

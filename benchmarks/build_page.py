@@ -130,9 +130,9 @@ def build_html(data: dict) -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI Benchmark Dashboard | Koda Intelligence</title>
+<title>Leaderboard | Koda Intelligence</title>
 <meta name="description" content="Live AI model benchmark rankings across {benchmark_count} leaderboards. Updated daily by Koda Intelligence.">
-<meta property="og:title" content="AI Benchmark Dashboard | Koda Intelligence">
+<meta property="og:title" content="Leaderboard | Koda Intelligence">
 <meta property="og:url" content="https://www.koda.community/benchmarks/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -207,17 +207,17 @@ footer .inner{{max-width:1280px;margin:0 auto;display:flex;flex-direction:column
 <div class="scroll-progress" id="scrollProgress"></div>
 <header class="topbar">
 <div class="topbar-inner">
-    <a href="../index.html" class="brand"><div class="brand-icon">K</div><div><div class="brand-text">Koda Intelligence</div><div class="brand-sub">AI Benchmarks</div></div></a>
+    <a href="../index.html" class="brand"><div class="brand-icon">K</div><div><div class="brand-text">Koda Intelligence</div><div class="brand-sub"><span class="material-symbols-outlined" style="font-size:11px;vertical-align:-1px;margin-right:2px">trophy</span>Leaderboard</div></div></a>
     <div class="nav-links">
-        <a href="../morning-briefing-koda.html" class="nav-link nav-link-secondary">Digest</a>
-        <a href="../pricing/" class="nav-link nav-link-secondary">Pricing</a>
+        <a href="../morning-briefing-koda.html" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+        <a href="../pricing/" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">monitoring</span>Token Tracker</a>
         <a href="../index.html" class="nav-link nav-link-home">&larr; Home</a>
     </div>
 </div>
 </header>
 <section class="hero animate-in">
     <div class="badge">Live Leaderboards</div>
-    <h1>AI Benchmark Dashboard</h1>
+    <h1><span class="material-symbols-outlined" style="font-size:0.7em;vertical-align:-0.04em;margin-right:8px">trophy</span>Leaderboard</h1>
     <p>{benchmark_count} leaderboards, {total_models} model rankings. Who's winning the AI race right now.</p>
 </section>
 <div class="stats animate-in">
@@ -239,7 +239,7 @@ footer .inner{{max-width:1280px;margin:0 auto;display:flex;flex-direction:column
     <p style="font-size:11px;color:#c2c6d6;margin-top:4px">Rankings scraped from official leaderboard pages via Firecrawl.</p></div>
     <div style="display:flex;gap:24px;font-size:11px;text-transform:uppercase;letter-spacing:0.08em">
         <a href="../index.html" style="color:#c2c6d6;text-decoration:none">Home</a>
-        <a href="../pricing/" style="color:#c2c6d6;text-decoration:none">Pricing</a>
+        <a href="../pricing/" style="color:#c2c6d6;text-decoration:none">Token Tracker</a>
         <span style="color:#64748B">&copy; 2026 Koda Intelligence</span>
     </div>
 </div></footer>

@@ -18,22 +18,43 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 CATEGORY_COLORS: dict[str, str] = {
     "Model Release": "#8B5CF6",
     "Feature": "#3B82F6",
+    "API Update": "#14B8A6",
+    "SDK Release": "#22D3EE",
+    "Developer Tools": "#A78BFA",
     "Pricing": "#10B981",
     "Policy": "#F59E0B",
     "Partnership": "#06B6D4",
     "Research": "#EC4899",
     "Infrastructure": "#6366F1",
+    "Open Source": "#84CC16",
+    "Acquisition": "#F97316",
+    "Safety": "#EF4444",
 }
 
 CATEGORY_ICONS: dict[str, str] = {
     "Model Release": "rocket_launch",
     "Feature": "new_releases",
+    "API Update": "api",
+    "SDK Release": "code",
+    "Developer Tools": "build",
     "Pricing": "payments",
     "Policy": "gavel",
     "Partnership": "handshake",
     "Research": "science",
     "Infrastructure": "dns",
+    "Open Source": "lock_open",
+    "Acquisition": "merge_type",
+    "Safety": "shield",
 }
+
+
+def format_display_date(iso_date: str) -> str:
+    """Convert YYYY-MM-DD to human-readable format."""
+    try:
+        dt = datetime.strptime(iso_date, "%Y-%m-%d")
+        return dt.strftime("%b %d, %Y")
+    except Exception:
+        return iso_date
 
 
 def build_html(data: dict) -> str:
@@ -45,19 +66,11 @@ def build_html(data: dict) -> str:
         date_label = generated_at[:10] if generated_at else "Unknown"
 
     entries = data.get("entries", [])
-    new_posts = data.get("new_posts", 0)
+    total_entries = data.get("total_entries", len(entries))
+    new_today = data.get("new_today", 0)
+    companies_with_posts = data.get("companies_with_posts", 0)
 
-    # Parse and sort entries by date (newest first)
-    for e in entries:
-        raw_date = e.get("date", "")
-        try:
-            from dateutil import parser as dateparser
-            dt = dateparser.parse(raw_date)
-            e["_sort_key"] = dt.isoformat() if dt else "1970-01-01"
-        except Exception:
-            e["_sort_key"] = "1970-01-01"
-    entries.sort(key=lambda x: x["_sort_key"], reverse=True)
-
+    # Entries are already sorted newest-first from the scraper
     # Group entries by company
     by_company: dict[str, list[dict]] = {}
     for e in entries:
@@ -67,7 +80,6 @@ def build_html(data: dict) -> str:
     # Build company filter buttons
     company_colors = {e.get("company", ""): e.get("color", "#3B82F6") for e in entries}
 
-    # Build company filter buttons
     filter_buttons = '<button class="filter-btn active" onclick="filterCompany(this,\'all\')">All</button>\n'
     for company in sorted(by_company.keys()):
         color = company_colors.get(company, "#3B82F6")
@@ -76,7 +88,7 @@ def build_html(data: dict) -> str:
     # Build timeline entries
     timeline_html = ""
     if not entries:
-        timeline_html = '<div class="empty-state animate-in"><span class="material-symbols-outlined" style="font-size:48px;color:#64748B">inbox</span><p style="color:#8c909f;margin-top:12px">No new releases detected this week. Check back after the next scan.</p></div>'
+        timeline_html = '<div class="empty-state animate-in"><span class="material-symbols-outlined" style="font-size:48px;color:#64748B">inbox</span><p style="color:#8c909f;margin-top:12px">No releases detected. Check back after the next scan.</p></div>'
     else:
         for company, posts in sorted(by_company.items()):
             color = posts[0].get("color", "#3B82F6")
@@ -88,10 +100,11 @@ def build_html(data: dict) -> str:
                 title = p.get("title", "")
                 summary = p.get("summary", "")
                 url = p.get("url", "")
-                date = p.get("date", "")
+                raw_date = p.get("date", "")
+                display_date = format_display_date(raw_date)
 
                 link_html = f'<a href="{url}" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a>' if url else ""
-                date_html = f'<span style="color:#64748B;font-size:11px">{date}</span>' if date else ""
+                date_html = f'<span style="color:#64748B;font-size:11px">{display_date}</span>' if display_date else ""
 
                 cards += f'''
                 <div class="changelog-card">
@@ -122,7 +135,7 @@ def build_html(data: dict) -> str:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Who Shipped What | Koda Intelligence</title>
-<meta name="description" content="Weekly AI company release tracker. {new_posts} new releases across {len(by_company)} companies.">
+<meta name="description" content="Daily AI company release tracker. {total_entries} releases across {companies_with_posts} companies in the last 30 days.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
@@ -178,23 +191,24 @@ footer .inner{{max-width:1280px;margin:0 auto;display:flex;flex-direction:column
 <div class="scroll-progress" id="scrollProgress"></div>
 <header class="topbar">
 <div class="topbar-inner">
-    <a href="../index.html" class="brand"><div class="brand-icon">K</div><div><div class="brand-text">Koda Intelligence</div><div class="brand-sub">AI Changelog</div></div></a>
+    <a href="../index.html" class="brand"><div class="brand-icon">K</div><div><div class="brand-text">Koda Intelligence</div><div class="brand-sub"><span class="material-symbols-outlined" style="font-size:11px;vertical-align:-1px;margin-right:2px">pulse_alert</span>Pulse</div></div></a>
     <div class="nav-links">
-        <a href="../morning-briefing-koda.html" class="nav-link nav-link-secondary">Digest</a>
-        <a href="../pricing/" class="nav-link nav-link-secondary">Pricing</a>
-        <a href="../benchmarks/" class="nav-link nav-link-secondary">Benchmarks</a>
+        <a href="../morning-briefing-koda.html" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+        <a href="../pricing/" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">monitoring</span>Token Tracker</a>
+        <a href="../benchmarks/" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">trophy</span>Leaderboard</a>
         <a href="../index.html" class="nav-link nav-link-home">&larr; Home</a>
     </div>
 </div>
 </header>
 <section class="hero animate-in">
-    <div class="badge">Weekly Release Tracker</div>
+    <div class="badge">Daily Release Tracker</div>
     <h1>Who Shipped What</h1>
-    <p>Every AI company release tracked automatically. New blog posts, model launches, pricing changes, and partnerships.</p>
+    <p>Every AI company release tracked daily. Model launches, API updates, pricing changes, partnerships, and more across 25 companies.</p>
 </section>
 <div class="stats animate-in">
-    <div class="stat"><div class="stat-value">{new_posts}</div><div class="stat-label">New Releases</div></div>
-    <div class="stat"><div class="stat-value">{len(by_company)}</div><div class="stat-label">Companies</div></div>
+    <div class="stat"><div class="stat-value">{total_entries}</div><div class="stat-label">Releases (30 days)</div></div>
+    <div class="stat"><div class="stat-value">{companies_with_posts}</div><div class="stat-label">Companies</div></div>
+    <div class="stat"><div class="stat-value">{new_today}</div><div class="stat-label">New Today</div></div>
     <div class="stat"><div class="stat-value">{date_label}</div><div class="stat-label">Last Scanned</div></div>
 </div>
 <div class="container">
@@ -209,10 +223,10 @@ footer .inner{{max-width:1280px;margin:0 auto;display:flex;flex-direction:column
 </div>
 <footer><div class="inner">
     <div><span style="font-size:14px;font-weight:700;color:#3B82F6">Koda Intelligence</span>
-    <p style="font-size:11px;color:#c2c6d6;margin-top:4px">Blog URLs mapped and diffed weekly via Firecrawl. New posts scraped for summaries.</p></div>
+    <p style="font-size:11px;color:#c2c6d6;margin-top:4px">Blog URLs mapped and diffed daily via Firecrawl. New posts scraped for summaries.</p></div>
     <div style="display:flex;gap:24px;font-size:11px;text-transform:uppercase;letter-spacing:0.08em">
         <a href="../index.html" style="color:#c2c6d6;text-decoration:none">Home</a>
-        <a href="../pricing/" style="color:#c2c6d6;text-decoration:none">Pricing</a>
+        <a href="../pricing/" style="color:#c2c6d6;text-decoration:none">Token Tracker</a>
         <span style="color:#64748B">&copy; 2026 Koda Intelligence</span>
     </div>
 </div></footer>
