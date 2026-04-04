@@ -96,21 +96,21 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Day navigation
+// Date picker navigation
 (function() {
-    var d = document.body.getAttribute('data-digest-date');
-    if (!d) return;
-    var dt = new Date(d + 'T12:00:00');
-    var prev = new Date(dt); prev.setDate(prev.getDate() - 1);
-    var next = new Date(dt); next.setDate(next.getDate() + 1);
-    var fmt = function(d2) {
-        return d2.getFullYear() + '-' + String(d2.getMonth() + 1).padStart(2, '0') + '-' + String(d2.getDate()).padStart(2, '0');
-    };
-    var pf = 'morning-briefing-koda-' + fmt(prev) + '.html';
-    var nf = 'morning-briefing-koda-' + fmt(next) + '.html';
-    var pb = document.getElementById('prevBtn'), nb = document.getElementById('nextBtn');
-    fetch(pf, {method: 'HEAD'}).then(function(r) { if (r.ok && pb) { pb.href = pf; pb.classList.remove('disabled'); } }).catch(function() {});
-    fetch(nf, {method: 'HEAD'}).then(function(r) { if (r.ok && nb) { nb.href = nf; nb.classList.remove('disabled'); } }).catch(function() {});
+    var btn = document.getElementById('datePickerBtn');
+    var picker = document.getElementById('datePicker');
+    if (!btn || !picker) return;
+    btn.addEventListener('click', function() { picker.showPicker ? picker.showPicker() : picker.click(); });
+    picker.addEventListener('change', function() {
+        var v = picker.value;
+        if (!v) return;
+        var file = 'morning-briefing-koda-' + v + '.html';
+        fetch(file, {method: 'HEAD'}).then(function(r) {
+            if (r.ok) { window.location.href = file; }
+            else { alert('No digest available for ' + v); picker.value = document.body.getAttribute('data-digest-date'); }
+        }).catch(function() { alert('No digest available for ' + v); picker.value = document.body.getAttribute('data-digest-date'); });
+    });
 })();
 
 // Scroll-in animations (respects reduced motion)
