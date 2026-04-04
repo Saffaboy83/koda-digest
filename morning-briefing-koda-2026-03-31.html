@@ -292,9 +292,14 @@
             </div>
         </a>
         <div class="hidden md:flex items-center gap-2" id="dayNav">
-            <a id="prevBtn" class="day-nav-btn disabled" href="#" aria-label="Previous day">&larr; Yesterday</a>
-            <span class="font-mono text-[11px] font-bold text-[#3B82F6] px-2 py-1 bg-[#3B82F6]/10 rounded">2026-03-31</span>
-            <a id="nextBtn" class="day-nav-btn disabled" href="#" aria-label="Next day">Tomorrow &rarr;</a>
+            <div class="relative">
+                <button id="datePickerBtn" class="flex items-center gap-2 font-mono text-[11px] font-bold text-[#3B82F6] px-3 py-1.5 bg-[#3B82F6]/10 rounded-lg hover:bg-[#3B82F6]/20 transition-all cursor-pointer border-none" title="Jump to date">
+                    <span class="material-symbols-outlined text-sm">calendar_month</span>
+                    <span id="dateLabel">2026-03-31</span>
+                    <span class="material-symbols-outlined text-xs opacity-50">expand_more</span>
+                </button>
+                <input type="date" id="datePicker" class="absolute top-full left-0 mt-1 opacity-0 pointer-events-none w-0 h-0" value="2026-03-31" min="2026-03-21">
+            </div>
         </div>
         <div class="flex items-center gap-2">
             <button onclick="shareDigest('x')" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-[#3B82F6]/20 flex items-center justify-center text-[#8c909f] hover:text-[#3B82F6] transition-all" title="Share on X">
@@ -1377,21 +1382,21 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Day navigation
+// Date picker navigation
 (function() {
-    var d = document.body.getAttribute('data-digest-date');
-    if (!d) return;
-    var dt = new Date(d + 'T12:00:00');
-    var prev = new Date(dt); prev.setDate(prev.getDate() - 1);
-    var next = new Date(dt); next.setDate(next.getDate() + 1);
-    var fmt = function(d2) {
-        return d2.getFullYear() + '-' + String(d2.getMonth() + 1).padStart(2, '0') + '-' + String(d2.getDate()).padStart(2, '0');
-    };
-    var pf = 'morning-briefing-koda-' + fmt(prev) + '.html';
-    var nf = 'morning-briefing-koda-' + fmt(next) + '.html';
-    var pb = document.getElementById('prevBtn'), nb = document.getElementById('nextBtn');
-    fetch(pf, {method: 'HEAD'}).then(function(r) { if (r.ok && pb) { pb.href = pf; pb.classList.remove('disabled'); } }).catch(function() {});
-    fetch(nf, {method: 'HEAD'}).then(function(r) { if (r.ok && nb) { nb.href = nf; nb.classList.remove('disabled'); } }).catch(function() {});
+    var btn = document.getElementById('datePickerBtn');
+    var picker = document.getElementById('datePicker');
+    if (!btn || !picker) return;
+    btn.addEventListener('click', function() { picker.showPicker ? picker.showPicker() : picker.click(); });
+    picker.addEventListener('change', function() {
+        var v = picker.value;
+        if (!v) return;
+        var file = 'morning-briefing-koda-' + v + '.html';
+        fetch(file, {method: 'HEAD'}).then(function(r) {
+            if (r.ok) { window.location.href = file; }
+            else { alert('No digest available for ' + v); picker.value = document.body.getAttribute('data-digest-date'); }
+        }).catch(function() { alert('No digest available for ' + v); picker.value = document.body.getAttribute('data-digest-date'); });
+    });
 })();
 
 // Scroll-in animations (respects reduced motion)
