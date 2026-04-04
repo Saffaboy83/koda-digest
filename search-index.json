@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-04T10:30:32Z",
+  "generated": "2026-04-04T20:07:12Z",
   "entries": [
     {
       "date": "2026-04-04",
@@ -3978,6 +3978,2028 @@
             {
               "headline": "What to Build This Weekend",
               "text": "Stop reading about open-weight models. Start using one. Here is your weekend plan: 1. Pick one model and run it locally. Download Qwen3.5-7B or Mistral Small 4 via Ollama. This takes 15 minutes. You now have a model running on your laptop with zero API costs and zero data leaving your machine. 2. Fine-tune it on your domain. Use Unsloth or Axolotl to fine-tune on 500 examples from your industry. Customer support tickets, internal docs, sales emails. Whatever your team touches daily. Three hours "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "review",
+      "file": "reviews/2026-04-04-superhuman39s-ai-triage-cuts-email-to-decision-only.html",
+      "title": "Superhuman's AI Triage Cuts Email to Decision-Only",
+      "sections": [
+        {
+          "title": "Verdict",
+          "anchor": "verdict",
+          "items": [
+            {
+              "headline": "Superhuman's AI Triage Cuts Email to Decision-Only",
+              "text": "Superhuman is the best email client for professionals who receive 100+ emails daily and need to protect deep work time. The AI triage is genuinely useful; it correctly routes newsletters, notifications, and low-priority threads out of your primary view, leaving only messages that demand your judgment. At $30/month, it is expensive compared to free alternatives like Gmail's native filters, but the time savings are real if email volume is your bottleneck. If you get fewer than 50 emails a day, the"
+            }
+          ]
+        },
+        {
+          "title": "Pricing",
+          "anchor": "pricing",
+          "items": [
+            {
+              "headline": "Free",
+              "text": "$0"
+            },
+            {
+              "headline": "Pro",
+              "text": "$30 /month"
+            }
+          ]
+        },
+        {
+          "title": "Key Features",
+          "anchor": "features",
+          "items": [
+            {
+              "headline": "AI Email Triage",
+              "text": "The core feature. Superhuman's AI classifies incoming mail and routes newsletters, notifications, and FYI threads into separate split inbox views. Your primary inbox shows only messages that need a decision or reply. Set this up on day one."
+            },
+            {
+              "headline": "AI Draft Replies",
+              "text": "Generates contextual reply drafts based on the email thread. You review, edit, and send. It handles routine acknowledgments well. Complex negotiations still need your voice, but the first draft saves real time."
+            },
+            {
+              "headline": "Follow-Up Reminders",
+              "text": "Surfaces emails where you are waiting on a reply. No more manually tracking who owes you a response. The system detects unanswered threads and nudges you at configurable intervals."
+            },
+            {
+              "headline": "Keyboard-First Design",
+              "text": "Every action has a shortcut. Power users can process their entire inbox without touching the mouse. The learning curve is about a week, but the speed gains compound daily."
+            },
+            {
+              "headline": "Calendar Integration",
+              "text": "Google Calendar lives inside the sidebar. You can check availability and schedule meetings without leaving the email client. Reduces context switching between tabs."
+            },
+            {
+              "headline": "Read Receipts and Tracking",
+              "text": "Pro tier only. See when recipients open your emails. Useful for sales follow-ups and time-sensitive outreach. Some people find this creepy; others find it essential. Your call."
+            },
+            {
+              "headline": "Mobile App",
+              "text": "Full-featured iOS and Android apps that mirror the desktop experience. The split inbox and AI triage work identically on mobile, which matters when you are triaging on the go."
+            },
+            {
+              "headline": "Advanced Analytics",
+              "text": "Pro tier. Tracks your response times, email volume trends, and productivity patterns. Useful for managers who want to quantify communication overhead across their team."
+            }
+          ]
+        },
+        {
+          "title": "Integrations",
+          "anchor": "integrations",
+          "items": [
+            {
+              "headline": "Integrations",
+              "text": "Connects to the tools most teams already use."
+            }
+          ]
+        },
+        {
+          "title": "Use Cases",
+          "anchor": "usecases",
+          "items": [
+            {
+              "headline": "Use Cases",
+              "text": "Superhuman is not for everyone. Here is where it delivers the most value. If you receive 150+ emails daily and need to protect blocks of deep work, the AI triage alone justifies the cost. Route everything non-essential out of sight automatically. Read receipts, follow-up reminders, and fast reply drafting make this a strong fit for outbound sales workflows. Know exactly when a prospect opens your proposal. When you are wearing every hat, email can eat your entire morning. The split inbox and key"
+            }
+          ]
+        },
+        {
+          "title": "Limitations",
+          "anchor": "limitations",
+          "items": [
+            {
+              "headline": "Limitations",
+              "text": "No tool is perfect. Here is what you should know before committing. Superhuman does one thing. It does not replace Slack, your project management tool, or your CRM. If you need a unified communication hub, this is not it. You are paying $30/month for an email client, and nothing else. The calendar sidebar, Slack notifications, and Zoom scheduling only work if you connect those services. Out of the box, Superhuman is a fast email client. The \"productivity platform\" experience requires setup and t"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "review",
+      "file": "reviews/2026-04-04-noiz-ai-text-to-voice-to-story-in-one-flow.html",
+      "title": "Noiz AI: Text to Voice to Story in One Flow",
+      "sections": [
+        {
+          "title": "Verdict",
+          "anchor": "verdict",
+          "items": [
+            {
+              "headline": "Noiz AI: Text to Voice to Story in One Flow",
+              "text": "Noiz AI is built for content creators who are tired of stitching together three or four separate tools to get from a rough idea to a finished narrated piece. If you produce podcast intros, short audio stories, narrated explainers, or educational content, the unified pipeline genuinely saves time and reduces friction. At $19/month for the Pro tier, it is competitively priced against running separate subscriptions for a writing assistant, a TTS service, and an audio editor. The free plan is useful"
+            }
+          ]
+        },
+        {
+          "title": "Pricing",
+          "anchor": "pricing",
+          "items": [
+            {
+              "headline": "Free",
+              "text": "$0"
+            },
+            {
+              "headline": "Pro",
+              "text": "$19/month"
+            },
+            {
+              "headline": "Enterprise",
+              "text": "Custom"
+            }
+          ]
+        },
+        {
+          "title": "Key Features",
+          "anchor": "features",
+          "items": [
+            {
+              "headline": "Seamless Text-to-Voice Conversion",
+              "text": "Feed in raw text and get natural-sounding voice output without leaving the app. The synthesis engine handles pacing, emphasis, and tone automatically based on context."
+            },
+            {
+              "headline": "Complete Story Crafting Workflow",
+              "text": "Noiz structures your content into a narrative arc. You provide an outline or bullet points; it returns a coherent story with intro, body, and conclusion ready for narration."
+            },
+            {
+              "headline": "User-Friendly Interface",
+              "text": "The pipeline is linear and visual. Each stage (text, structure, voice) is a clear step in the UI. No hidden menus, no confusing modal stacks. You see your content evolve in real time."
+            },
+            {
+              "headline": "Multi-Language Support",
+              "text": "Generate and narrate stories in multiple languages. Useful for creators targeting international audiences or producing localized versions of the same content."
+            },
+            {
+              "headline": "Integration Capabilities",
+              "text": "Connects to Google Drive, Dropbox, Slack, Zapier, and WordPress. Export finished audio directly to your CMS or trigger story generation from a Zap."
+            },
+            {
+              "headline": "Advanced Voice Controls (Pro)",
+              "text": "Pro users get granular control over voice speed, pitch, emotional tone, and pauses. This is where Noiz separates itself from basic TTS tools that offer a single flat reading."
+            },
+            {
+              "headline": "Story Templates",
+              "text": "Pre-built templates for podcast intros, explainer scripts, fiction shorts, and marketing narratives. Good starting points that save 10 to 15 minutes of structural work per piece."
+            },
+            {
+              "headline": "Single Pipeline Execution",
+              "text": "The core value proposition: text generation, narrative structuring, and voice synthesis happen in one continuous flow. No exporting between tools, no copy-pasting, no format conversion headaches."
+            }
+          ]
+        },
+        {
+          "title": "Integrations",
+          "anchor": "integrations",
+          "items": [
+            {
+              "headline": "Integrations",
+              "text": "Where Noiz AI plugs into your existing workflow."
+            }
+          ]
+        },
+        {
+          "title": "Use Cases",
+          "anchor": "usecases",
+          "items": [
+            {
+              "headline": "Use Cases",
+              "text": "Specific audiences and why Noiz fits their workflow. Generate scripted intros, outros, and segment transitions with consistent voice quality. Particularly useful for solo podcasters who want a polished sound without hiring voice talent for every episode. Turn blog posts, newsletters, or social media threads into narrated audio content. Repurpose written material into a new format without the overhead of recording and editing. Create narrated lesson summaries, audio study guides, or story-based l"
+            }
+          ]
+        },
+        {
+          "title": "Limitations",
+          "anchor": "limitations",
+          "items": [
+            {
+              "headline": "Limitations",
+              "text": "Where Noiz AI falls short. No sugarcoating. The free tier gives you basic TTS and template access, but the voice options are sparse. You will hit the ceiling fast. It works as a demo, not as a production tool. Expect to upgrade within a week if you are serious. Everything runs in the cloud. If you are on a flight, in a low-connectivity area, or simply prefer local processing for privacy reasons, Noiz will not work. There is no desktop app or offline mode on the roadmap as of April 2026. Voice cu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "review",
+      "file": "reviews/2026-04-04-luzo-open-source-visual-debugger-for-multi-step-api-workflows.html",
+      "title": "Luzo: Open-Source Visual Debugger for Multi-Step API Workflows",
+      "sections": [
+        {
+          "title": "Pricing",
+          "anchor": "pricing",
+          "items": [
+            {
+              "headline": "Free",
+              "text": "$0 forever"
+            }
+          ]
+        },
+        {
+          "title": "Key Features",
+          "anchor": "features",
+          "items": [
+            {
+              "headline": "Dependency-Aware Flow Design",
+              "text": "Define explicit dependencies between API steps. Luzo understands which calls must complete before others fire, preventing race conditions and making execution order transparent on the canvas."
+            },
+            {
+              "headline": "Variable Passing Between Steps",
+              "text": "Extract values from one response and inject them into the next request. No more copying tokens or IDs by hand. Variables flow through the chain automatically."
+            },
+            {
+              "headline": "Live Timeline Execution Inspector",
+              "text": "Watch every step execute in real time on a visual timeline. See request/response pairs, status codes, latency, and payload data as each step completes or fails."
+            },
+            {
+              "headline": "Retry from Failure Point",
+              "text": "When a step fails, you do not have to re-run the entire workflow. Retry from the exact failure point, preserving all prior state. This alone can save significant debugging time."
+            },
+            {
+              "headline": "Visual Canvas Builder",
+              "text": "Drag and drop API steps onto a canvas, draw connections, and see your entire workflow at a glance. Much easier to reason about than a flat list of requests in a collection."
+            },
+            {
+              "headline": "Open-Source and Extensible",
+              "text": "The full source code is available. You can audit it, fork it, contribute to it, or customize it for your team's specific needs. No vendor lock-in."
+            }
+          ]
+        },
+        {
+          "title": "Use Cases",
+          "anchor": "usecases",
+          "items": [
+            {
+              "headline": "Use Cases",
+              "text": "If your system relies on chained webhooks (payment provider to order service to notification service), Luzo lets you model and test the entire chain visually. You can see exactly where a webhook fails to deliver the expected payload. Teams building or maintaining microservice architectures can use Luzo to test cross-service API flows without writing throwaway scripts. Model the auth call, the data fetch, the transformation, and the write-back in one visual workflow. QA engineers can build reprod"
+            }
+          ]
+        },
+        {
+          "title": "Limitations",
+          "anchor": "limitations",
+          "items": [
+            {
+              "headline": "Limitations",
+              "text": "info Desktop-only. There is no web-based or cloud-hosted version. Every team member needs to install the desktop app. This makes collaboration harder, especially for distributed teams who want to share workflows without exporting files. info No third-party integrations. As of this review, Luzo does not integrate with CI/CD pipelines, monitoring tools, or API gateways. You cannot trigger a Luzo workflow from GitHub Actions or pipe results into Datadog. For now, it is a standalone debugging tool. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-03",
+      "type": "pricing",
+      "file": "pricing/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "GPT-5.4",
+              "text": "Input: $2.5/1M | Output: $15/1M | Context: 270K"
+            },
+            {
+              "headline": "GPT-5.4 mini",
+              "text": "Input: $0.75/1M | Output: $4.5/1M | Context: 270K"
+            },
+            {
+              "headline": "GPT-5.4 nano",
+              "text": "Input: $0.2/1M | Output: $1.25/1M | Context: 270K"
+            }
+          ]
+        },
+        {
+          "title": "Anthropic",
+          "items": [
+            {
+              "headline": "Claude Opus 4.6",
+              "text": "Input: $5/1M | Output: $25/1M | Context: 1M tokens"
+            },
+            {
+              "headline": "Claude Sonnet 4.6",
+              "text": "Input: $3/1M | Output: $15/1M | Context: 1M tokens"
+            },
+            {
+              "headline": "Claude Haiku 4.5",
+              "text": "Input: $1/1M | Output: $5/1M | Context: 200k tokens"
+            }
+          ]
+        },
+        {
+          "title": "Google Gemini",
+          "items": [
+            {
+              "headline": "Gemini 3.1 Pro Preview",
+              "text": "Input: $2/1M | Output: $12/1M | Context: 200K"
+            },
+            {
+              "headline": "Gemini 3.1 Flash-Lite Preview",
+              "text": "Input: $0.25/1M | Output: $1.5/1M | Context: 1M"
+            },
+            {
+              "headline": "Gemini 3.1 Flash Live Preview",
+              "text": "Input: $0.75/1M | Output: $4.5/1M | Context: 1M"
+            },
+            {
+              "headline": "Gemini 3.1 Flash Image Preview",
+              "text": "Input: $0.5/1M | Output: $60/1M | Context: 1M"
+            },
+            {
+              "headline": "Gemini 3 Flash Preview",
+              "text": "Input: $0.5/1M | Output: $3/1M | Context: 1M"
+            },
+            {
+              "headline": "Gemini 2.5 Pro",
+              "text": "Input: $1.25/1M | Output: $10/1M | Context: 200K"
+            },
+            {
+              "headline": "Gemini 2.5 Flash",
+              "text": "Input: $0.3/1M | Output: $2.5/1M | Context: 1M"
+            },
+            {
+              "headline": "Gemini 2.5 Flash-Lite",
+              "text": "Input: $0.1/1M | Output: $0.4/1M | Context: 1M"
+            },
+            {
+              "headline": "Gemini 2.5 Flash Native Audio",
+              "text": "Input: $0.5/1M | Output: $12/1M | Context: 1M"
+            },
+            {
+              "headline": "Gemini 2.5 Flash Image",
+              "text": "Input: $0.3/1M | Output: $0.039/1M | Context: 1M"
+            },
+            {
+              "headline": "Gemini 2.5 Computer Use Preview",
+              "text": "Input: $1.25/1M | Output: $10/1M | Context: 200K"
+            },
+            {
+              "headline": "Gemini Robotics-ER 1.5 Preview",
+              "text": "Input: $0.3/1M | Output: $2.5/1M | Context: 1M"
+            },
+            {
+              "headline": "Gemini 2.0 Flash",
+              "text": "Input: $0.1/1M | Output: $0.4/1M | Context: 1M"
+            }
+          ]
+        },
+        {
+          "title": "Groq",
+          "items": [
+            {
+              "headline": "GPT OSS 20B 128k",
+              "text": "Input: $0.075/1M | Output: $0.3/1M | Context: 128k"
+            },
+            {
+              "headline": "GPT OSS Safeguard 20B",
+              "text": "Input: $0.075/1M | Output: $0.3/1M | Context: 128k"
+            },
+            {
+              "headline": "GPT OSS 120B 128k",
+              "text": "Input: $0.15/1M | Output: $0.6/1M | Context: 128k"
+            },
+            {
+              "headline": "Llama 4 Scout (17Bx16E) 128k",
+              "text": "Input: $0.11/1M | Output: $0.34/1M | Context: 128k"
+            },
+            {
+              "headline": "Qwen3 32B 131k",
+              "text": "Input: $0.29/1M | Output: $0.59/1M | Context: 131k"
+            },
+            {
+              "headline": "Llama 3.3 70B Versatile 128k",
+              "text": "Input: $0.59/1M | Output: $0.79/1M | Context: 128k"
+            },
+            {
+              "headline": "Llama 3.1 8B Instant 128k",
+              "text": "Input: $0.05/1M | Output: $0.08/1M | Context: 128k"
+            }
+          ]
+        },
+        {
+          "title": "Together AI",
+          "items": [
+            {
+              "headline": "MiniMax M2.5",
+              "text": "Input: $0.3/1M | Output: $1.2/1M | Context: "
+            },
+            {
+              "headline": "Kimi K2.5",
+              "text": "Input: $0.5/1M | Output: $2.8/1M | Context: "
+            },
+            {
+              "headline": "GLM-5",
+              "text": "Input: $1/1M | Output: $3.2/1M | Context: 128K"
+            },
+            {
+              "headline": "Llama 3.3 70B",
+              "text": "Input: $0.88/1M | Output: $0.88/1M | Context: 128K"
+            },
+            {
+              "headline": "Llama 3 8B Instruct Lite",
+              "text": "Input: $0.1/1M | Output: $0.1/1M | Context: 128K"
+            },
+            {
+              "headline": "DeepSeek-R1-0528",
+              "text": "Input: $3/1M | Output: $7/1M | Context: 128K"
+            },
+            {
+              "headline": "DeepSeek-V3.1",
+              "text": "Input: $0.6/1M | Output: $1.7/1M | Context: 128K"
+            },
+            {
+              "headline": "gpt-oss-120B",
+              "text": "Input: $0.15/1M | Output: $0.6/1M | Context: "
+            },
+            {
+              "headline": "Qwen2.5 7B Instruct Turbo",
+              "text": "Input: $0.3/1M | Output: $0.3/1M | Context: 128K"
+            },
+            {
+              "headline": "Kimi K2 Instruct",
+              "text": "Input: $1/1M | Output: $3/1M | Context: "
+            },
+            {
+              "headline": "Mistral (7B) Instruct v0.2",
+              "text": "Input: $0.2/1M | Output: $0.2/1M | Context: 32K"
+            },
+            {
+              "headline": "Mistral Small 3",
+              "text": "Input: $0.1/1M | Output: $0.3/1M | Context: 32K"
+            },
+            {
+              "headline": "Gemma 3n E4B Instruct",
+              "text": "Input: $0.02/1M | Output: $0.04/1M | Context: "
+            },
+            {
+              "headline": "Qwen3.5 9B",
+              "text": "Input: $0.1/1M | Output: $0.15/1M | Context: 128K"
+            }
+          ]
+        },
+        {
+          "title": "xAI",
+          "items": [
+            {
+              "headline": "grok-4.20-reasoning",
+              "text": "Input: $2/1M | Output: $6/1M | Context: 2M"
+            },
+            {
+              "headline": "grok-4.20-non-reasoning",
+              "text": "Input: $2/1M | Output: $6/1M | Context: 2M"
+            },
+            {
+              "headline": "grok-4-1-fast-reasoning",
+              "text": "Input: $0.2/1M | Output: $0.5/1M | Context: 2M"
+            },
+            {
+              "headline": "grok-4-1-fast-non-reasoning",
+              "text": "Input: $0.2/1M | Output: $0.5/1M | Context: 2M"
+            }
+          ]
+        },
+        {
+          "title": "Perplexity",
+          "items": [
+            {
+              "headline": "Sonar",
+              "text": "Input: $1/1M | Output: $1/1M | Context: "
+            },
+            {
+              "headline": "Sonar Pro",
+              "text": "Input: $3/1M | Output: $15/1M | Context: "
+            },
+            {
+              "headline": "Sonar Reasoning Pro",
+              "text": "Input: $2/1M | Output: $8/1M | Context: "
+            },
+            {
+              "headline": "Sonar Deep Research",
+              "text": "Input: $2/1M | Output: $8/1M | Context: "
+            },
+            {
+              "headline": "pplx-embed-v1-0.6b",
+              "text": "Input: $0.004/1M | Output: $0/1M | Context: "
+            },
+            {
+              "headline": "pplx-embed-v1-4b",
+              "text": "Input: $0.03/1M | Output: $0/1M | Context: "
+            },
+            {
+              "headline": "pplx-embed-context-v1-0.6b",
+              "text": "Input: $0.008/1M | Output: $0/1M | Context: "
+            },
+            {
+              "headline": "pplx-embed-context-v1-4b",
+              "text": "Input: $0.05/1M | Output: $0/1M | Context: "
+            }
+          ]
+        },
+        {
+          "title": "Cohere",
+          "items": [
+            {
+              "headline": "Command",
+              "text": "Input: $1/1M | Output: $2/1M | Context: 4K"
+            },
+            {
+              "headline": "Command-light",
+              "text": "Input: $0.3/1M | Output: $0.6/1M | Context: 4K"
+            },
+            {
+              "headline": "Command R 03-2024",
+              "text": "Input: $0.5/1M | Output: $1.5/1M | Context: 128K"
+            },
+            {
+              "headline": "Command R+ 04-2024",
+              "text": "Input: $3/1M | Output: $15/1M | Context: 128K"
+            },
+            {
+              "headline": "Command R+ 08-2024",
+              "text": "Input: $2.5/1M | Output: $10/1M | Context: 128K"
+            },
+            {
+              "headline": "Aya Expanse 8B",
+              "text": "Input: $0.5/1M | Output: $1.5/1M | Context: 8K"
+            },
+            {
+              "headline": "Aya Expanse 32B",
+              "text": "Input: $0.5/1M | Output: $1.5/1M | Context: 8K"
+            }
+          ]
+        },
+        {
+          "title": "AWS Bedrock",
+          "items": [
+            {
+              "headline": "Jamba 1.5 Large",
+              "text": "Input: $2/1M | Output: $8/1M | Context: 256K"
+            },
+            {
+              "headline": "Jamba 1.5 Mini",
+              "text": "Input: $0.2/1M | Output: $0.4/1M | Context: 256K"
+            },
+            {
+              "headline": "Jurassic-2 Mid",
+              "text": "Input: $12.5/1M | Output: $12.5/1M | Context: 8K"
+            },
+            {
+              "headline": "Jurassic-2 Ultra",
+              "text": "Input: $18.8/1M | Output: $18.8/1M | Context: 8K"
+            },
+            {
+              "headline": "Jamba-Instruct",
+              "text": "Input: $0.5/1M | Output: $0.7/1M | Context: 256K"
+            },
+            {
+              "headline": "Amazon Nova 2 Lite",
+              "text": "Input: $0.3/1M | Output: $2.5/1M | Context: 128K"
+            },
+            {
+              "headline": "Amazon Nova 2 Omni (Preview)",
+              "text": "Input: $0.3/1M | Output: $40/1M | Context: 128K"
+            },
+            {
+              "headline": "Amazon Nova 2 Pro (Preview)",
+              "text": "Input: $1.25/1M | Output: $10/1M | Context: 128K"
+            },
+            {
+              "headline": "Claude Sonnet 4.6",
+              "text": "Input: $3/1M | Output: $15/1M | Context: 200K"
+            },
+            {
+              "headline": "Claude Opus 4.6",
+              "text": "Input: $5/1M | Output: $25/1M | Context: 200K"
+            },
+            {
+              "headline": "Amazon Nova Sonic",
+              "text": "Input: $3.4/1M | Output: $13.6/1M | Context: 128K"
+            },
+            {
+              "headline": "Amazon Nova 2 Sonic",
+              "text": "Input: $3/1M | Output: $12/1M | Context: 128K"
+            },
+            {
+              "headline": "Gemma 3 4B",
+              "text": "Input: $0.04/1M | Output: $0.08/1M | Context: "
+            },
+            {
+              "headline": "Gemma 3 12B",
+              "text": "Input: $0.09/1M | Output: $0.29/1M | Context: "
+            },
+            {
+              "headline": "NVIDIA Nemotron 3 Super 120B A12B",
+              "text": "Input: $0.15/1M | Output: $0.65/1M | Context: 128K"
+            },
+            {
+              "headline": "Llama 4 Maverick 17B",
+              "text": "Input: $0.24/1M | Output: $0.97/1M | Context: "
+            },
+            {
+              "headline": "Llama 4 Scout 17B",
+              "text": "Input: $0.17/1M | Output: $0.66/1M | Context: "
+            },
+            {
+              "headline": "DeepSeek-R1",
+              "text": "Input: $1.35/1M | Output: $5.4/1M | Context: 128K"
+            },
+            {
+              "headline": "DeepSeek-V3.1",
+              "text": "Input: $0.58/1M | Output: $1.68/1M | Context: 128K"
+            },
+            {
+              "headline": "Pixtral Large (25.02)",
+              "text": "Input: $2/1M | Output: $6/1M | Context: "
+            },
+            {
+              "headline": "Palmyra X4",
+              "text": "Input: $2.5/1M | Output: $10/1M | Context: "
+            },
+            {
+              "headline": "Palmyra X5",
+              "text": "Input: $0.6/1M | Output: $6/1M | Context: "
+            },
+            {
+              "headline": "Palmyra Vision 7B",
+              "text": "Input: $0.15/1M | Output: $0.6/1M | Context: "
+            },
+            {
+              "headline": "GLM 5",
+              "text": "Input: $1/1M | Output: $3.2/1M | Context: 128K"
+            },
+            {
+              "headline": "GLM 4.7",
+              "text": "Input: $0.6/1M | Output: $2.2/1M | Context: 128K"
+            },
+            {
+              "headline": "GLM 4.7 Flash",
+              "text": "Input: $0.07/1M | Output: $0.4/1M | Context: 128K"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-03",
+      "type": "benchmark",
+      "file": "benchmarks/index.html",
+      "sections": [
+        {
+          "title": "Chatbot Arena",
+          "items": [
+            {
+              "headline": "claude-opus-4-6-thinking",
+              "text": "#1 | Anthropic | Score: 1504 | Context: 1M"
+            },
+            {
+              "headline": "claude-opus-4-6",
+              "text": "#2 | Anthropic | Score: 1499 | Context: 1M"
+            },
+            {
+              "headline": "gemini-3.1-pro-preview",
+              "text": "#3 | Google | Score: 1494 | Context: 1M"
+            },
+            {
+              "headline": "grok-4.20-beta1",
+              "text": "#4 | xAI | Score: 1491 | Context: N/A"
+            },
+            {
+              "headline": "gemini-3-pro",
+              "text": "#5 | Google | Score: 1486 | Context: 1M"
+            },
+            {
+              "headline": "gpt-5.4-high",
+              "text": "#6 | OpenAI | Score: 1484 | Context: 1.1M"
+            },
+            {
+              "headline": "grok-4.20-beta-0309-reasoning",
+              "text": "#7 | xAI | Score: 1481 | Context: 2M"
+            },
+            {
+              "headline": "gpt-5.2-chat-latest-20260210",
+              "text": "#8 | OpenAI | Score: 1478 | Context: 128K"
+            },
+            {
+              "headline": "gemini-3-flash",
+              "text": "#9 | Google | Score: 1474 | Context: 1M"
+            },
+            {
+              "headline": "grok-4.20-multi-agent-beta-0309",
+              "text": "#10 | xAI | Score: 1474 | Context: 2M"
+            },
+            {
+              "headline": "claude-opus-4-5-20251101-thinking-32k",
+              "text": "#11 | Anthropic | Score: 1474 | Context: 200K"
+            },
+            {
+              "headline": "grok-4.1-thinking",
+              "text": "#12 | xAI | Score: 1471 | Context: N/A"
+            },
+            {
+              "headline": "claude-opus-4-5-20251101",
+              "text": "#13 | Anthropic | Score: 1468 | Context: 200K"
+            },
+            {
+              "headline": "qwen3.5-max-preview",
+              "text": "#14 | Alibaba | Score: 1467 | Context: N/A"
+            },
+            {
+              "headline": "gpt-5.4",
+              "text": "#15 | OpenAI | Score: 1464 | Context: 1.1M"
+            },
+            {
+              "headline": "gemini-3-flash (thinking-minimal)",
+              "text": "#16 | Google | Score: 1463 | Context: 1M"
+            },
+            {
+              "headline": "claude-sonnet-4-6",
+              "text": "#17 | Anthropic | Score: 1462 | Context: 1M"
+            },
+            {
+              "headline": "dola-seed-2.0-preview",
+              "text": "#18 | Bytedance | Score: 1462 | Context: N/A"
+            },
+            {
+              "headline": "grok-4.1",
+              "text": "#19 | xAI | Score: 1461 | Context: N/A"
+            },
+            {
+              "headline": "gpt-5.3-chat-latest",
+              "text": "#20 | OpenAI | Score: 1461 | Context: 128K"
+            }
+          ]
+        },
+        {
+          "title": "LiveBench",
+          "items": [
+            {
+              "headline": "GPT-5.4 Thinking xHigh Effort",
+              "text": "#1 | OpenAI | Score: 80.28"
+            },
+            {
+              "headline": "Gemini 3.1 Pro Preview High*",
+              "text": "#2 | Google | Score: 79.93"
+            },
+            {
+              "headline": "Claude 4.6 Opus Thinking High Effort",
+              "text": "#3 | Anthropic | Score: 76.33"
+            },
+            {
+              "headline": "Claude 4.5 Opus Thinking High Effort",
+              "text": "#4 | Anthropic | Score: 75.96"
+            },
+            {
+              "headline": "Claude 4.6 Sonnet Thinking Medium Effort",
+              "text": "#5 | Anthropic | Score: 75.47"
+            },
+            {
+              "headline": "GPT-5.2 High",
+              "text": "#6 | OpenAI | Score: 74.84"
+            },
+            {
+              "headline": "GPT-5.2 Codex",
+              "text": "#7 | OpenAI | Score: 74.3"
+            },
+            {
+              "headline": "GPT-5.1 Codex Max High",
+              "text": "#8 | OpenAI | Score: 73.98"
+            },
+            {
+              "headline": "Gemini 3 Pro Preview High",
+              "text": "#9 | Google | Score: 73.39"
+            },
+            {
+              "headline": "GPT-5.3 Codex High",
+              "text": "#10 | OpenAI | Score: 72.76"
+            },
+            {
+              "headline": "Gemini 3 Flash Preview High",
+              "text": "#11 | Google | Score: 72.4"
+            },
+            {
+              "headline": "GPT-5.1 High",
+              "text": "#12 | OpenAI | Score: 72.04"
+            },
+            {
+              "headline": "GPT-5 Pro",
+              "text": "#13 | OpenAI | Score: 70.48"
+            },
+            {
+              "headline": "GPT-5.4 Nano xHigh",
+              "text": "#14 | OpenAI | Score: 70.13"
+            },
+            {
+              "headline": "Kimi K2.5 Thinking",
+              "text": "#15 | Moonshot AI | Score: 69.07"
+            },
+            {
+              "headline": "GLM 5",
+              "text": "#16 | Z.AI | Score: 68.85"
+            },
+            {
+              "headline": "GPT-5.1 Codex",
+              "text": "#17 | OpenAI | Score: 68.61"
+            },
+            {
+              "headline": "Claude Sonnet 4.5 Thinking",
+              "text": "#18 | Anthropic | Score: 68.19"
+            },
+            {
+              "headline": "Grok 4.20 Beta",
+              "text": "#19 | xAI | Score: 67.96"
+            },
+            {
+              "headline": "GPT-5.4 Mini xHigh",
+              "text": "#20 | OpenAI | Score: 67.54"
+            }
+          ]
+        },
+        {
+          "title": "SWE-Bench Verified",
+          "items": [
+            {
+              "headline": "Claude 4.5 Opus (high reasoning)",
+              "text": "#1 | Anthropic | Score: 76.8"
+            },
+            {
+              "headline": "Gemini 3 Flash (high reasoning)",
+              "text": "#2 | Google | Score: 75.8"
+            },
+            {
+              "headline": "MiniMax M2.5 (high reasoning)",
+              "text": "#3 | Minimax | Score: 75.8"
+            },
+            {
+              "headline": "Claude Opus 4.6",
+              "text": "#4 | Anthropic | Score: 75.6"
+            },
+            {
+              "headline": "GPT-5-2 Codex",
+              "text": "#5 | OpenAI | Score: 72.8"
+            },
+            {
+              "headline": "GLM-5 (high reasoning)",
+              "text": "#6 | Z-AI | Score: 72.8"
+            },
+            {
+              "headline": "GPT-5-2 (high reasoning)",
+              "text": "#7 | OpenAI | Score: 72.8"
+            },
+            {
+              "headline": "GPT 5.2 Codex",
+              "text": "#8 | OpenAI | Score: 72.8"
+            },
+            {
+              "headline": "Claude 4.5 Sonnet (high reasoning)",
+              "text": "#9 | Anthropic | Score: 71.4"
+            },
+            {
+              "headline": "Kimi K2.5 (high reasoning)",
+              "text": "#10 | Kimi | Score: 70.8"
+            },
+            {
+              "headline": "DeepSeek V3.2 (high reasoning)",
+              "text": "#11 | DeepSeek | Score: 70"
+            },
+            {
+              "headline": "Gemini 3 Pro",
+              "text": "#12 | Google | Score: 69.6"
+            },
+            {
+              "headline": "Claude 4.5 Haiku (high reasoning)",
+              "text": "#13 | Anthropic | Score: 66.6"
+            },
+            {
+              "headline": "GPT-5 Mini",
+              "text": "#14 | OpenAI | Score: 56.2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-06-11",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Runway",
+          "items": [
+            {
+              "headline": "AIF 2026",
+              "text": "[Feature] Runway's fourth annual AI Festival celebrates the intersection of art and technology. Showcasing AI films and creative works, it highlights how today's creatives are using advanced tools to reshape artistic expression across various fields."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "Codex now offers pay-as-you-go pricing for teams",
+              "text": "[Pricing] OpenAI has introduced a flexible pay-as-you-go pricing model for Codex, aimed at enhancing accessibility for teams. This new pricing structure allows users to tailor their usage according to their budget and project needs."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Databricks",
+          "items": [
+            {
+              "headline": "Databricks Runtime maintenance updates (04/02)",
+              "text": "[API Update] New maintenance updates for supported Databricks Runtime versions have been released, featuring bug fixes, security patches, and performance enhancements. The updates include improvements for multiple runtime versions, ensuring better functionality and security for users."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Adobe",
+          "items": [
+            {
+              "headline": "26.001.21367 Planned update, Apr 02, 2026",
+              "text": "[API Update] This is a planned update for the Acrobat product family, introducing different tracks for both Acrobat and Reader. The update includes installers for both Windows and Macintosh platforms, along with new features and bug fixes addressing ongoing issues."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Cursor",
+          "items": [
+            {
+              "headline": "Meet the new Cursor",
+              "text": "[Feature] Cursor has launched a significant update, introducing exciting new features and enhancements. This blog post details the improvements and what users can expect from the new Cursor experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "ChatGPT — Release Notes",
+              "text": "[Feature] This article provides a comprehensive overview of the latest updates and release notes for ChatGPT, detailing improvements and new features across various functionalities such as user interface, integrations, and model enhancements. Key highlights include the introduction of ChatGPT in Apple CarPlay, updates to existing apps, and enhancements in mobile experiences."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "OpenAI acquires TBPN",
+              "text": "[Acquisition] OpenAI announces the acquisition of TBPN, marking a significant expansion of its capabilities and resources. This move is expected to enhance the company's position in the AI landscape."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Google",
+          "items": [
+            {
+              "headline": "Bring state-of-the-art agentic skills to the edge with Gemma 4",
+              "text": "[Feature] Google DeepMind has launched Gemma 4, a family of advanced open models that empower developers to create agentic and autonomous AI solutions directly on their devices. With capabilities such as multi-step planning and support for over 140 languages, Gemma 4 marks a significant leap in on-device AI development, making complex workflows and applications more accessible."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-01",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Together AI",
+          "items": [
+            {
+              "headline": "Inside the Together AI kernels team",
+              "text": "[Research] This post explores the innovative work of the Together AI kernels team, which is focused on optimizing GPUs for AI applications. It discusses the challenges they face and the breakthroughs they've achieved, including significant performance improvements that enhance the efficiency of AI-native applications."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-01",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Google",
+          "items": [
+            {
+              "headline": "The latest AI news we announced in March 2026",
+              "text": "[Feature] In March 2026, Google released significant updates to its AI offerings, emphasizing the enhancement of the Gemini platform. Key features included an expansion of Search Live, better context understanding for personal tasks, and upgraded capabilities for Google Maps and other productivity tools."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-01",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Databricks",
+          "items": [
+            {
+              "headline": "AI/BI Features and Improvements Released in 2026",
+              "text": "[Feature] This post outlines the key AI/BI features and enhancements from Databricks that were released throughout 2026, highlighting significant updates across various functionalities such as dashboards, Genie enhancements, and Databricks One improvements. Key features include new user-friendly display options, API availability, and improved navigation capabilities."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-01",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Databricks",
+          "items": [
+            {
+              "headline": "Databricks Release Notes - March 2026",
+              "text": "[Feature] This document outlines the latest features and improvements released on the Databricks platform in March 2026, including new functionalities for various tools and integrations. Key highlights include updates to the Databricks Connector for Google Sheets, the introduction of AI Runtime in Public Preview, and enhancements to the Databricks SQL editor."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-01",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Databricks",
+          "items": [
+            {
+              "headline": "April 2026 Release Notes",
+              "text": "[Feature] The April 2026 release includes multiple enhancements for dashboards, Genie, and Databricks One. Key improvements feature clearer filter management, new visual capabilities, and general availability of the Genie Conversation API."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-01",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Adobe",
+          "items": [
+            {
+              "headline": "Second Quarter 2026 release overview",
+              "text": "[Feature] The Second Quarter 2026 release overview details the new functionalities and enhancements scheduled for April 2026, including AI Collaborators, document enhancements, and updates to enterprise operations. These improvements are designed to optimize user experience and operational efficiency in Adobe Workfront."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-01",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Adobe",
+          "items": [
+            {
+              "headline": "Release Notes 2026",
+              "text": "[Feature] The 2026 release notes for Journey Optimizer detail new capabilities and improvements, including journey arbitration, action activities, wave sending for campaigns, and integration of web push notifications. The release outlines various enhancements aimed at enhancing user experience and efficiency for both users and organizations."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-31",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "ElevenLabs",
+          "items": [
+            {
+              "headline": "Cascaded vs Fused Models: How architecture determines whether your voice agent is enterprise-ready",
+              "text": "[Feature] This article explores the differing architectures of voice agents, focusing on the trade-offs between cascaded and fused designs. It discusses how these architectures affect conversation quality, configurability, and reliability, with insights into selecting the right model for specific applications."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-31",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Google",
+          "items": [
+            {
+              "headline": "Build with Veo 3.1 Lite, our most cost-effective video generation model",
+              "text": "[Feature] Google has introduced Veo 3.1 Lite, the most affordable video generation model available, which allows developers to create high-volume video applications at a reduced cost. This model supports various video formats and resolutions and is now accessible through the Gemini API and Google AI Studio."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-31",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Amazon AWS",
+          "items": [
+            {
+              "headline": "Build reliable AI agents with Amazon Bedrock AgentCore Evaluations",
+              "text": "[Feature] The post discusses the challenges of AI agent evaluations, particularly for large language models (LLMs), and introduces Amazon Bedrock AgentCore Evaluations, a managed service designed to assess AI agent performance throughout the development lifecycle. It outlines the evaluation methods, principles for effective assessment, and the continuous improvement process to enhance AI agent reliability in production environments."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-31",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Cohere",
+          "items": [
+            {
+              "headline": "Ensemble and Cohere building the first RCM‑native healthcare LLM",
+              "text": "[Research] This blog post discusses the collaboration between Ensemble and Cohere to create a healthcare language model tailored for revenue cycle management. It highlights the innovative approaches being implemented to enhance accuracy and efficiency in healthcare settings."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-31",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Perplexity",
+          "items": [
+            {
+              "headline": "Announcing the Secure Intelligence Institute",
+              "text": "[Research] Perplexity has launched the Secure Intelligence Institute (SII), which will serve as a flagship research center focused on advancing security, privacy, and trust in frontier AI. This initiative strengthens ongoing efforts in AI security, promoting collaboration with the broader community to enhance safety in AI systems."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-31",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Databricks",
+          "items": [
+            {
+              "headline": "Databricks Announces $850M UK Investment to Accelerate Enterprise Data + AI Adoption",
+              "text": "[Partnership] Databricks plans to invest over $850 million in the UK over the next three years, expanding its office footprint and workforce, while enhancing its AI capabilities with products like Lakebase and Genie. The investment aims to attract top AI talent and train 100,000 individuals in data and AI skills by 2028."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-31",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Runway",
+          "items": [
+            {
+              "headline": "Introducing Runway Fund",
+              "text": "[Partnership] Runway Fund is an investment vehicle launching to support the next generation of companies in AI, media, and world simulation. With initial commitments of up to $10M, the fund aims to invest in pre-seed and seed stage companies focusing on AI research, new applications, and innovative media and content."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-31",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Runway",
+          "items": [
+            {
+              "headline": "Introducing Runway Builders",
+              "text": "[Partnership] Runway Builders is a program aimed at Seed to Series C startups, providing them with complimentary API credits and early access to build using Runway Characters. This initiative supports innovative projects in generative video and conversational AI by offering direct partnership with the Runway team."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-31",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "OpenAI raises $122 billion to accelerate the next phase of AI",
+              "text": "[Feature] OpenAI has successfully closed its latest funding round, securing $122 billion in committed capital at a valuation of $852 billion. This funding will enable the company to continue enhancing its AI infrastructure and capabilities, driving productivity, scientific discovery, and expanding opportunities for businesses globally."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-30",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Hugging Face",
+          "items": [
+            {
+              "headline": "Accelerating LLM Inference: Fused INT8 Weight-Only Quantization in Pallas",
+              "text": "[Feature] This article discusses the bottlenecks in Large Language Model (LLM) inference and introduces the concept of Weight-Only Quantization to enhance memory bandwidth efficiency. By using jax's Pallas extension to implement a custom kernel, it highlights how to optimize the data movement in memory, crucial for improving performance in LLMs."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-30",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Adobe",
+          "items": [
+            {
+              "headline": "Adobe Illustrator on Desktop Release Notes",
+              "text": "[Feature] This post details the latest updates, new features, and bug fixes for Adobe Illustrator. The most recent update as of March 2026 includes enhancements such as the Turntable feature for generating views, improved font handling, and direct export options for Adobe Cloud storage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-30",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Adobe",
+          "items": [
+            {
+              "headline": "What’s new in Adobe Illustrator on desktop",
+              "text": "[Feature] This post highlights the latest features and enhancements introduced in Adobe Illustrator version 30.3, released on March 30, 2026. Key improvements include the Turntable feature for viewing objects from multiple angles, Auto Select for generating variations, and enhanced export capabilities to Adobe cloud storage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-29",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "Helping disaster response teams turn AI into action across Asia",
+              "text": "[Partnership] This blog post discusses the collaboration between OpenAI and various disaster response teams in Asia to leverage artificial intelligence for disaster management. The initiative aims to improve the effectiveness of responses to natural disasters through advanced AI solutions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-27",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "ElevenLabs",
+          "items": [
+            {
+              "headline": "The state of AI Audio in publishing and news",
+              "text": "[Feature] This blog post discusses how AI audio technology is transforming the news industry by enhancing engagement and accessibility through narrated articles and podcasts. It highlights the shift from traditional reading to immersive audio experiences and the growing demand for multilingual content, showcasing the potential benefits of integrating AI-driven audio solutions into publishing strategies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-27",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "ChatGPT Business - Release Notes",
+              "text": "[API Update] This article provides a comprehensive changelog of the latest updates for the ChatGPT Business plan, detailing enhancements and new features added to various applications such as Box, Notion, and Google Drive, alongside the introduction of plugins and updates on Microsoft app scopes. Each update includes information on how these features impact workspace administration and user interactions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-27",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Google",
+          "items": [
+            {
+              "headline": "Find out what’s new in the Gemini app in March's Gemini Drop",
+              "text": "[Feature] March's Gemini Drop introduces a range of new features aimed at enhancing user experience, such as transferring AI chat history, free personalized help across Google apps, and upgrades to Gemini Live for more intuitive conversations. Notable additions include the Lyria 3 Pro for composing longer tracks and enhanced visual answers on Google TV."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-26",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Databricks",
+          "items": [
+            {
+              "headline": "Databricks SQL version 2026.10 is now available in Preview",
+              "text": "[Feature] The Databricks SQL version 2026.10 has been released in the Preview channel, introducing significant new features and bug fixes. Notable enhancements include improvements to observation metrics, optimized writes for Unity Catalog, support for filter clauses in aggregate functions, and enhanced geospatial functions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-26",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Google",
+          "items": [
+            {
+              "headline": "Upgrade your creative performance with March’s Demand Gen Drop.",
+              "text": "[Feature] March’s Demand Gen drop introduces new AI-powered features and creator partnerships that help you achieve creative excellence and scale authentic creator content for better results. By leveraging tools like Veo in Google Ads and optimizing for follow-on views on YouTube, you can significantly enhance your campaign effectiveness."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-25",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "Introducing the OpenAI Safety Bug Bounty program",
+              "text": "[Safety] The OpenAI Safety Bug Bounty program is launched to empower the community in identifying and resolving safety issues in AI systems. This initiative aims to enhance the overall safety of OpenAI's technologies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-25",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "Inside our approach to the Model Spec",
+              "text": "[Research] This post delves into OpenAI's innovative strategies for developing and sharing model specifications. It highlights the key principles guiding their approach to transparency and collaboration in AI research."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "Update on the OpenAI Foundation",
+              "text": "[Partnership] The OpenAI Foundation is initiating significant efforts to harness AI for the benefit of humanity, focusing on life sciences, job impact, AI resilience, and community support. With an initial investment of at least $1 billion, they aim to tackle challenges in healthcare, economic impact, and safety in AI advancements."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Google",
+          "items": [
+            {
+              "headline": "3 new Gemini features are coming to Google TV",
+              "text": "[Feature] Google TV is introducing three new Gemini features that enhance the viewing experience with richer visual answers, narrated deep dives, and timely sports updates. These features make it easier for users to explore topics of interest on their screens."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Databricks",
+          "items": [
+            {
+              "headline": "Announcing the 2026 Built-On Databricks Startup Challenge",
+              "text": "[Partnership] The 2026 Built-On Databricks Startup Challenge is a global competition for early-stage B2B startups building core products on the Databricks platform, offering over $1 million in prizes and potential venture investment. Sponsored by Databricks Ventures and Databricks for Startups, this initiative connects innovative startups with vital resources and mentorship to accelerate their growth."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-21",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Midjourney",
+          "items": [
+            {
+              "headline": "Introducing the V8 Model: Early Access and Features",
+              "text": "[Feature] Today, we are excited to let the community test an early version of our V8 model, which excels in following detailed directions and generating coherent images at a much faster rate. With improved web interfaces and new features like multiple aspect ratios and HD mode, we encourage user feedback to enhance the model further."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-20",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Midjourney",
+          "items": [
+            {
+              "headline": "Relax mode for V8 Alpha",
+              "text": "[Feature] The Relax mode for V8 Alpha is now available for Standard, Pro, and Mega subscribers, allowing specific commands while maintaining efficiency. Additionally, there's a new version of SREF/Moodboards that is faster and more cost-effective, with ongoing improvements promised for the V8 model based on user feedback."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-19",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Perplexity",
+          "items": [
+            {
+              "headline": "Introducing Perplexity Health",
+              "text": "[Feature] Perplexity Health is a new suite of tools designed to connect personal health data, offering users comprehensive answers to health-related queries. With integrations from various health platforms, Perplexity Health aims to streamline access to medical records, lab results, and fitness data, while ensuring high-quality information backed by credible sources."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-18",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "Model Release Notes",
+              "text": "[Model Release] This update details the rollout of GPT-5.4 mini and various model updates for GPT-5.3 and GPT-5.1, highlighting improvements in reasoning, coding capabilities, and user experience. The release also notes the retirement and changes to several existing models, alongside enhancements to the thinking time and response styles in ChatGPT."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-17",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Midjourney",
+          "items": [
+            {
+              "headline": "Explore and switch between Midjourney versions using the version parameter: `--version` or `--v`",
+              "text": "[Feature] This blog post discusses the various versions of Midjourney, highlighting changes and features in versions V6, V7, and V8 Alpha. Users are guided on setting default versions and understanding the impact of these versions on their image generation results."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-17",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "GPT-5.4 Release Note",
+              "text": "[Feature] The GPT-5.4 mini and nano models were recently released for the Chat Completions and Responses API, enhancing performance and efficiency for high-volume workloads. These models bring significant improvements to speed and are optimized for simpler tasks and high-volume usage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-17",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "Changelog",
+              "text": "[Feature] This is a detailed changelog of the OpenAI API updates, features, model releases, and fixes dating back to January 2024. Key updates include the release of GPT-5.4 mini and nano models, enhancements in the Responses API, and various features aimed at optimizing performance and user experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-16",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Mistral",
+          "items": [
+            {
+              "headline": "Leanstral: Open-Source foundation for trustworthy vibe-coding",
+              "text": "[Research] Mistral AI has introduced Leanstral, the first open-source code agent for Lean 4, aimed at enhancing coding efficiency through formal proof. This innovative tool strives to automate proof engineering tasks and improve verification accuracy in code generation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-16",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Databricks",
+          "items": [
+            {
+              "headline": "Databricks Release Notes",
+              "text": "[Feature] This page provides organized release notes for Databricks, including details on Databricks Runtime releases, platform features, and feature-specific notes. It is updated regularly to reflect the latest developments and improvements in the Databricks ecosystem."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-15",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "xAI",
+          "items": [
+            {
+              "headline": "Batch API supports Image and Video generation",
+              "text": "[API Update] The Batch API has expanded its capabilities to include image generation and video generation alongside chat completions. Both server-side and client-side tools are now supported in batch requests, with URLs for image and video results expiring after one hour."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-14",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "ElevenLabs",
+          "items": [
+            {
+              "headline": "How to monetize your voice with ElevenLabs Voice Library and create a passive income",
+              "text": "[Feature] This blog post discusses how voice actors can generate passive income using the ElevenLabs Voice Library, outlining steps to create a voice clone and sell audio. The guide details the potential earnings through a system that pays per 1,000 characters generated, emphasizing the ease of entry into voice monetization."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-14",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "ElevenLabs",
+          "items": [
+            {
+              "headline": "How to extract voices from music",
+              "text": "[Feature] The blog discusses the challenges of isolating vocals from background music in audio recordings and introduces the ElevenLabs Voice Isolator tool as an efficient solution. This AI-driven tool simplifies the process, allowing users to quickly extract clean dialogue and enhance audio quality without extensive manual intervention."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-14",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "ElevenLabs",
+          "items": [
+            {
+              "headline": "Text to Speech API - Up To 40% Faster Globally",
+              "text": "[API Update] ElevenLabs has introduced multi-region serving for its Text to Speech API, allowing requests to route automatically to the nearest backend. This upgrade leads to significant reductions in latency, enhancing responsiveness and user experience for voice agents and real-time applications."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-14",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "ElevenLabs",
+          "items": [
+            {
+              "headline": "How to make an audiobook using AI in 2026 our ultimate guide",
+              "text": "[Feature] This blog post provides a comprehensive guide on creating audiobooks using AI technology. It highlights the advantages of AI over traditional methods, including cost-effectiveness and efficiency, while outlining various aspects of audiobook production such as preparation, voice customization, and marketing strategies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-14",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "ElevenLabs",
+          "items": [
+            {
+              "headline": "Text to Speech vs Speech to Text: What is the Difference?",
+              "text": "[Feature] This blog post explores the differences between text to speech (TTS) and speech to text (STT) technologies, detailing their functionalities, applications, and the technological approaches they utilize. Both technologies have unique roles in enhancing accessibility and efficiency across various industries."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-14",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "ElevenLabs",
+          "items": [
+            {
+              "headline": "Meet Flash",
+              "text": "[Feature] Meet Flash, our newest model that generates speech in just 75ms, making it ideal for low-latency conversational voice agents. Integrated within our Conversational AI platform, Flash supports 32 languages and offers a competitive edge in ultra-low-latency applications, despite slightly lower quality compared to Turbo models."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-14",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "ElevenLabs",
+          "items": [
+            {
+              "headline": "Generate high-quality Indian accent Text to Speech",
+              "text": "[Feature] This blog post discusses how to create realistic Indian accent text-to-speech using ElevenLabs' platform. It provides guidance on selecting voices, models, and adjusting text parameters to enhance audio quality, and emphasizes the tool's applications in storytelling, marketing, and education."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-14",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "ElevenLabs",
+          "items": [
+            {
+              "headline": "Voicemail Detection now available in Conversational AI",
+              "text": "[Feature] Voicemail detection automatically identifies voicemail systems, allowing voice agents to avoid wasting time and credits. It offers strategies for handling voicemails intelligently, ultimately reducing costs and improving operational efficiency."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-14",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "ElevenLabs",
+          "items": [
+            {
+              "headline": "How to generate speech in multiple languages?",
+              "text": "[Feature] This post explores how advancements in AI and machine learning have made it possible to generate synthetic speech in various languages. It discusses the benefits of multilingual text-to-speech technology, voice cloning, and the ethical considerations surrounding its use."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-13",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "Sora 1 Sunset for US users on March 13, 2026",
+              "text": "[Policy] Sora 1 will no longer be available for users in the United States starting March 13, 2026. Users are advised to export their data before this date, as all images and videos associated with Sora 1 will be removed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-12",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Runway",
+          "items": [
+            {
+              "headline": "Building Interactive AI Characters Responsibly",
+              "text": "[Feature] Runway has launched Runway Characters, a real-time video agent API that allows the creation of conversational characters from a single image. This technology poses important questions about consent, representation, and the ethical implications of AI avatars in digital interactions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-11",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "From model to agent: Equipping the Responses API with a computer environment",
+              "text": "[Feature] This post discusses the enhancements made to the Responses API by integrating a computer environment, facilitating more efficient processing. The article outlines key features and technical insights about the upgrades."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-11",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Runway",
+          "items": [
+            {
+              "headline": "Introducing Runway Labs",
+              "text": "[Feature] Runway Labs is an internal incubator launched to explore the next generation of applications for generative video, focusing on how AI can transform various industries. Led by Co-Founder Alejandro Matamala Ortiz, the initiative aims to prototype bold new products and experiences that harness the power of AI video and General World Models."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-10",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Hugging Face",
+          "items": [
+            {
+              "headline": "Introducing Storage Buckets on the Hugging Face Hub",
+              "text": "[Feature] Hugging Face has launched Storage Buckets, a flexible S3-like object storage solution tailored for machine learning artifacts. This feature allows seamless management of mutable storage for datasets, checkpoints, and other intermediate files, optimizing efficiency and speed for ML workflows."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-10",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Adobe",
+          "items": [
+            {
+              "headline": "Adobe Express: 2026 Updates",
+              "text": "[Feature] Adobe Express has introduced numerous enhancements aimed at improving workflows in creation, video editing, and brand management. Key features include faster presentation generation, improved video editing capabilities, new export options, and better support for various image formats."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-10",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Adobe",
+          "items": [
+            {
+              "headline": "Security Updates Available for Adobe Illustrator | APSB26-18",
+              "text": "[Safety] Adobe has released an update for Adobe Illustrator to address important and critical vulnerabilities that could potentially lead to arbitrary code execution and memory exposure. There are no known exploits in the wild for the issues resolved in this update."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-10",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "ChatGPT Atlas - Release Notes",
+              "text": "[Feature] This post outlines the latest updates and features included in the ChatGPT Atlas browser, released on various dates in early 2026. Notable enhancements include multiple ChatGPT logins, improved tab searching, and functionalities such as Save Prompts and Agent Mode that allow for smarter interactions and better user experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-09",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Runway",
+          "items": [
+            {
+              "headline": "New updates and improvements to Runway",
+              "text": "[Feature] Runway has introduced multiple updates across its platform, including the launch of Runway Characters, advanced image generation models, and improved audio features. Users can now enjoy real-time avatars, new video models, and enhanced workflows to streamline their creative processes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-09",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Runway",
+          "items": [
+            {
+              "headline": "Introducing Runway Characters",
+              "text": "[Feature] Runway has launched Runway Characters, a real-time video agent API enabling the creation of fully custom conversational characters from a single image. These characters can adapt in appearance and style, offering extensive customization in voice, personality, and actions, paving the way for a new era in online interactions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-05",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "Introducing GPT-5.4",
+              "text": "[Feature] OpenAI announced the release of GPT-5.4, a significant upgrade to its language model offering improved capabilities. This new version aims to enhance user interactions and performance across various applications."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-05",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "The five AI value models driving business reinvention",
+              "text": "[Feature] This post discusses five key AI value models that are transforming how businesses operate and innovate. It highlights the importance of integrating AI into business strategies for enhanced efficiency and competitiveness."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-05",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Adobe",
+          "items": [
+            {
+              "headline": "2026 Adobe Analytics Release Notes",
+              "text": "[Feature] The 2026 release notes for Adobe Analytics outline new features and improvements, including enhanced data feeds and API guides. Significant updates also focus on the user experience and managing templates, while several bug fixes are documented for accuracy and reliability."
             }
           ]
         }

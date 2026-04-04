@@ -95,6 +95,10 @@
         .sr-badge { display: inline-flex; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 7px; border-radius: 4px; }
         .sr-badge.digest { background: rgba(59,130,246,0.12); color: #60a5fa; }
         .sr-badge.editorial { background: rgba(139,92,246,0.12); color: #a78bfa; }
+        .sr-badge.review { background: rgba(236,72,153,0.12); color: #f472b6; }
+        .sr-badge.pricing { background: rgba(16,185,129,0.12); color: #34d399; }
+        .sr-badge.benchmark { background: rgba(245,158,11,0.12); color: #fbbf24; }
+        .sr-badge.changelog { background: rgba(244,63,94,0.12); color: #fb7185; }
         .sr-empty { padding: 20px; text-align: center; color: #c2c6d6; font-size: 14px; }
     
 /* -- Canonical Nav -- */
@@ -293,13 +297,13 @@
             for (var j = 0; j < secs.length; j++) {
                 var sec = secs[j], items = sec.items || [];
                 for (var k = 0; k < items.length; k++) {
-                    var it = items[k], hl = (it.headline || '').toLowerCase(), bt = (it.text || '').toLowerCase(), ft = hl + ' ' + bt, sc = 0, mt = 0;
+                    var it = items[k], hl = (it.headline || '').toLowerCase(), bt = (it.text || '').toLowerCase(), st = (sec.title || '').toLowerCase(), ft = st + ' ' + hl + ' ' + bt, sc = 0, mt = 0;
                     for (var t = 0; t < terms.length; t++) {
                         var tm = terms[t];
                         if (ft.indexOf(tm) !== -1) { mt++; sc += 10; if (hl.indexOf(tm) !== -1) sc += 15; }
                         else { var ws = ft.split(/[\s,.\-\/]+/); for (var w = 0; w < ws.length; w++) { if (ws[w].indexOf(tm) === 0 && tm.length >= 3) { mt++; sc += 5; break; } } }
                     }
-                    if (mt > 0) { if (mt === terms.length) sc += 20; sc -= i * 2; hits.push({ date: en.date, type: tp, section: sec.title, headline: it.headline, text: it.text, file: fl, score: sc }); }
+                    if (mt > 0) { if (mt === terms.length) sc += 20; hits.push({ date: en.date, type: tp, section: sec.title, headline: it.headline, text: it.text, file: fl, anchor: sec.anchor || '', score: sc }); }
                 }
             }
         }
@@ -308,8 +312,9 @@
         if (!hits.length) { searchResults.innerHTML = '<div class="sr-empty">No results for "' + esc(q) + '"</div>'; return; }
         var h = '';
         for (var r = 0; r < hits.length; r++) {
-            var rs = hits[r], sn = snippet(rs.text, terms[0], 80), sa = rs.type === 'editorial' ? '' : slug(rs.section), href = '../' + rs.file + (sa ? '#' + sa : '');
-            h += '<a href="' + href + '" class="sr-item" onclick="closeSearch()"><div class="sr-meta"><span class="sr-badge ' + rs.type + '">' + (rs.type === 'editorial' ? 'Deep Dive' : 'The Signal') + '</span><span class="sr-date">' + fmtDate(rs.date) + '</span><span class="sr-section">' + esc(rs.section) + '</span></div><div class="sr-headline">' + hilight(esc(rs.headline), terms) + '</div><div class="sr-snippet">' + hilight(sn, terms) + '</div></a>';
+            var rs = hits[r], sn = snippet(rs.text, terms[0], 80), sa = rs.anchor ? rs.anchor : (rs.type === 'digest' ? slug(rs.section) : ''), href = '../' + rs.file + (sa ? '#' + sa : '');
+            var TL = { digest: 'The Signal', editorial: 'Deep Dive', review: 'The Lab', pricing: 'Token Tracker', benchmark: 'Leaderboard', changelog: 'Pulse' };
+            h += '<a href="' + href + '" class="sr-item" onclick="closeSearch()"><div class="sr-meta"><span class="sr-badge ' + rs.type + '">' + (TL[rs.type] || rs.type) + '</span><span class="sr-date">' + fmtDate(rs.date) + '</span><span class="sr-section">' + esc(rs.section) + '</span></div><div class="sr-headline">' + hilight(esc(rs.headline), terms) + '</div><div class="sr-snippet">' + hilight(sn, terms) + '</div></a>';
         }
         searchResults.innerHTML = h;
     }

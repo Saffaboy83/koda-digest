@@ -417,6 +417,199 @@ def parse_editorial_file(filepath: str) -> dict | None:
     }
 
 
+def parse_review_file(filepath: str) -> dict | None:
+    """Parse a Lab review HTML file and return a search entry with type='review'."""
+    basename = os.path.basename(filepath)
+    if basename == "index.html":
+        return None
+
+    with open(filepath, "r", encoding="utf-8") as f:
+        html = f.read()
+
+    # Extract date from filename
+    date_match = re.search(r"(\d{4}-\d{2}-\d{2})", basename)
+    if not date_match:
+        return None
+    date_str = date_match.group(1)
+
+    # Extract title from <h1>
+    title_match = re.search(r"<h1[^>]*>(.*?)</h1>", html, re.DOTALL)
+    title = strip_html(title_match.group(1)) if title_match else ""
+
+    # Extract sections by known section IDs
+    known_sections = [
+        ("verdict", "Verdict"),
+        ("pricing", "Pricing"),
+        ("features", "Key Features"),
+        ("integrations", "Integrations"),
+        ("usecases", "Use Cases"),
+        ("limitations", "Limitations"),
+    ]
+
+    sections: list[dict] = []
+    for section_id, section_label in known_sections:
+        # Find <section ... id="section_id">
+        pattern = re.compile(
+            rf'<section[^>]*\bid="{section_id}"[^>]*>(.*?)</section>',
+            re.DOTALL,
+        )
+        match = pattern.search(html)
+        if not match:
+            continue
+
+        section_html = match.group(1)
+        items: list[dict] = []
+
+        if section_id == "verdict":
+            # Verdict card paragraph
+            for p in re.finditer(r"<p[^>]*>(.*?)</p>", section_html, re.DOTALL):
+                text = strip_html(p.group(1))
+                if text:
+                    items.append({"headline": title, "text": text[:500]})
+                    break
+        elif section_id == "pricing":
+            # Pricing plans: pricing-plan + pricing-price
+            for m in re.finditer(
+                r'class="pricing-plan"[^>]*>(.*?)</div>.*?'
+                r'class="pricing-price"[^>]*>(.*?)</div>',
+                section_html, re.DOTALL,
+            ):
+                plan = strip_html(m.group(1))
+                price = strip_html(m.group(2))
+                items.append({"headline": plan, "text": price})
+        elif section_id == "features":
+            # Feature cards: h3 + p
+            for m in re.finditer(
+                r"<h3[^>]*>(.*?)</h3>\s*<p[^>]*>(.*?)</p>",
+                section_html, re.DOTALL,
+            ):
+                items.append({"headline": strip_html(m.group(1)), "text": strip_html(m.group(2))[:300]})
+        else:
+            # integrations, usecases, limitations: extract paragraphs and list items
+            texts = []
+            for p in re.finditer(r"<p[^>]*>(.*?)</p>", section_html, re.DOTALL):
+                t = strip_html(p.group(1))
+                if t:
+                    texts.append(t)
+            for li in re.finditer(r"<li[^>]*>(.*?)</li>", section_html, re.DOTALL):
+                t = strip_html(li.group(1))
+                if t:
+                    texts.append(t)
+            if texts:
+                items.append({"headline": section_label, "text": " ".join(texts)[:500]})
+
+        if items:
+            sections.append({"title": section_label, "anchor": section_id, "items": items})
+
+    if not sections:
+        return None
+
+    return {
+        "date": date_str,
+        "type": "review",
+        "file": "reviews/" + basename,
+        "title": title,
+        "sections": sections,
+    }
+
+
+def build_pricing_entries(filepath: str) -> list[dict]:
+    """Build search entries from pricing/data.json."""
+    with open(filepath, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    date_str = data.get("generated_at", "")[:10]
+    sections: list[dict] = []
+
+    for provider in data.get("providers", []):
+        items: list[dict] = []
+        for model in provider.get("models", []):
+            name = model.get("model_name", "")
+            inp = model.get("input_price_per_1m_tokens", "")
+            out = model.get("output_price_per_1m_tokens", "")
+            ctx = model.get("context_window", "")
+            text = f"Input: ${inp}/1M | Output: ${out}/1M | Context: {ctx}"
+            items.append({"headline": name, "text": text})
+        if items:
+            sections.append({"title": provider.get("provider", ""), "items": items})
+
+    if not sections:
+        return []
+
+    return [{
+        "date": date_str,
+        "type": "pricing",
+        "file": "pricing/index.html",
+        "sections": sections,
+    }]
+
+
+def build_benchmark_entries(filepath: str) -> list[dict]:
+    """Build search entries from benchmarks/data.json."""
+    with open(filepath, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    date_str = data.get("generated_at", "")[:10]
+    sections: list[dict] = []
+
+    for bench in data.get("benchmarks", []):
+        items: list[dict] = []
+        for model in bench.get("models", []):
+            name = model.get("model_name", "")
+            rank = model.get("rank", "")
+            provider = model.get("provider", "")
+            score = model.get("elo_score", model.get("score", ""))
+            ctx = model.get("context_window", "")
+            text = f"#{rank} | {provider} | Score: {score}"
+            if ctx:
+                text += f" | Context: {ctx}"
+            items.append({"headline": name, "text": text})
+        if items:
+            sections.append({"title": bench.get("benchmark", ""), "items": items})
+
+    if not sections:
+        return []
+
+    return [{
+        "date": date_str,
+        "type": "benchmark",
+        "file": "benchmarks/index.html",
+        "sections": sections,
+    }]
+
+
+def build_changelog_entries(filepath: str) -> list[dict]:
+    """Build search entries from changelog/data.json -- one entry per changelog item."""
+    with open(filepath, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    entries: list[dict] = []
+    for item in data.get("entries", []):
+        company = item.get("company", "")
+        title = item.get("title", "")
+        summary = item.get("summary", "")
+        date_str = item.get("date", "")
+        category = item.get("category", "")
+
+        if not title or not date_str:
+            continue
+
+        text = summary
+        if category:
+            text = f"[{category}] {summary}"
+
+        entries.append({
+            "date": date_str,
+            "type": "changelog",
+            "file": "changelog/index.html",
+            "sections": [
+                {"title": company, "items": [{"headline": title, "text": text[:500]}]}
+            ],
+        })
+
+    return entries
+
+
 def main():
     base_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -459,6 +652,51 @@ def main():
                 "file": entry["file"],
             })
 
+    # --- Reviews (The Lab) ---
+    review_dir = os.path.join(base_dir, "reviews")
+    review_count = 0
+    if os.path.isdir(review_dir):
+        review_files = sorted(
+            glob.glob(os.path.join(review_dir, "????-??-??-*.html")), reverse=True
+        )
+        print(f"Found {len(review_files)} review file(s)")
+        for filepath in review_files:
+            print(f"  Parsing reviews/{os.path.basename(filepath)}...")
+            entry = parse_review_file(filepath)
+            if entry:
+                search_entries.append(entry)
+                review_count += 1
+
+    # --- Pricing (Token Tracker) ---
+    pricing_path = os.path.join(base_dir, "pricing", "data.json")
+    pricing_count = 0
+    if os.path.exists(pricing_path):
+        print("Parsing pricing/data.json...")
+        pricing_entries = build_pricing_entries(pricing_path)
+        search_entries.extend(pricing_entries)
+        pricing_count = sum(len(e["sections"]) for e in pricing_entries)
+        print(f"  {pricing_count} provider sections")
+
+    # --- Benchmarks (Leaderboard) ---
+    benchmarks_path = os.path.join(base_dir, "benchmarks", "data.json")
+    benchmark_count = 0
+    if os.path.exists(benchmarks_path):
+        print("Parsing benchmarks/data.json...")
+        benchmark_entries = build_benchmark_entries(benchmarks_path)
+        search_entries.extend(benchmark_entries)
+        benchmark_count = sum(len(e["sections"]) for e in benchmark_entries)
+        print(f"  {benchmark_count} benchmark sections")
+
+    # --- Changelog (Pulse) ---
+    changelog_path = os.path.join(base_dir, "changelog", "data.json")
+    changelog_count = 0
+    if os.path.exists(changelog_path):
+        print("Parsing changelog/data.json...")
+        changelog_entries = build_changelog_entries(changelog_path)
+        search_entries.extend(changelog_entries)
+        changelog_count = len(changelog_entries)
+        print(f"  {changelog_count} changelog entries")
+
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     # Write manifest.json (digests + editorials)
@@ -477,7 +715,10 @@ def main():
     search_path = os.path.join(base_dir, "search-index.json")
     with open(search_path, "w", encoding="utf-8") as f:
         json.dump(search_index, f, indent=2, ensure_ascii=False)
-    print(f"Wrote {search_path} ({len(search_entries)} entries)")
+    print(f"Wrote {search_path} ({len(search_entries)} entries: "
+          f"{len(manifest_entries)} digests, {len(editorial_entries)} editorials, "
+          f"{review_count} reviews, {pricing_count} pricing providers, "
+          f"{benchmark_count} benchmarks, {changelog_count} changelog)")
 
 
 if __name__ == "__main__":

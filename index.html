@@ -118,6 +118,10 @@
         .search-type-badge { display: inline-flex; align-items: center; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 7px; border-radius: 4px; }
         .search-type-badge.digest { background: rgba(59,130,246,0.12); color: #60a5fa; }
         .search-type-badge.editorial { background: rgba(139,92,246,0.12); color: #a78bfa; }
+        .search-type-badge.review { background: rgba(236,72,153,0.12); color: #f472b6; }
+        .search-type-badge.pricing { background: rgba(16,185,129,0.12); color: #34d399; }
+        .search-type-badge.benchmark { background: rgba(245,158,11,0.12); color: #fbbf24; }
+        .search-type-badge.changelog { background: rgba(244,63,94,0.12); color: #fb7185; }
 
         /* Archive badges */
         .archive-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 9px; font-weight: 700; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px; }
@@ -669,7 +673,8 @@
                     var item = items[k];
                     var headline = (item.headline || '').toLowerCase();
                     var bodyText = (item.text || '').toLowerCase();
-                    var fullText = headline + ' ' + bodyText;
+                    var sectionTitle = (section.title || '').toLowerCase();
+                    var fullText = sectionTitle + ' ' + headline + ' ' + bodyText;
 
                     var score = 0;
                     var matchedTerms = 0;
@@ -694,8 +699,7 @@
 
                     if (matchedTerms > 0) {
                         if (matchedTerms === terms.length) score += 20;
-                        score -= i * 2;
-                        results.push({ date: entry.date, type: entryType, section: section.title, headline: item.headline, text: item.text, file: entryFile, score: score });
+                        results.push({ date: entry.date, type: entryType, section: section.title, headline: item.headline, text: item.text, file: entryFile, anchor: section.anchor || '', score: score });
                     }
                 }
             }
@@ -713,9 +717,10 @@
                 var snippet = extractSnippet(res.text, terms[0], 80);
                 snippet = highlightTerms(snippet, terms);
                 var headlineHl = highlightTerms(escapeHtml(res.headline), terms);
-                var sectionAnchor = res.type === 'editorial' ? '' : slugify(res.section);
+                var sectionAnchor = res.anchor ? res.anchor : (res.type === 'digest' ? slugify(res.section) : '');
                 var href = './' + res.file + (sectionAnchor ? '#' + sectionAnchor : '');
-                var typeBadge = '<span class="search-type-badge ' + res.type + '">' + (res.type === 'editorial' ? 'Deep Dive' : 'The Signal') + '</span>';
+                var TYPE_LABELS = { digest: 'The Signal', editorial: 'Deep Dive', review: 'The Lab', pricing: 'Token Tracker', benchmark: 'Leaderboard', changelog: 'Pulse' };
+                var typeBadge = '<span class="search-type-badge ' + res.type + '">' + (TYPE_LABELS[res.type] || res.type) + '</span>';
                 html += '<a href="' + href + '" class="search-result-item" ' + (isOverlay ? 'onclick="closeSearch()"' : '') + '>' +
                     '<div class="search-result-meta">' + typeBadge + '<span class="search-result-date">' + formatDate(res.date) + '</span><span class="search-result-section">' + escapeHtml(res.section) + '</span></div>' +
                     '<div class="search-result-headline">' + headlineHl + '</div>' +
