@@ -303,6 +303,28 @@ body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
     </div>
 </header>
 
+<!-- MEDIA_STRIP_START -->
+<section style="max-width:800px; margin:32px auto; padding:0 24px;">
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px;">
+    <div style="padding:20px; background:linear-gradient(135deg, #0f1629, #162040); border:1px solid rgba(99,102,241,0.2); border-radius:12px; text-align:center;">
+      <span class="material-symbols-outlined" style="color:#6366F1; font-size:28px; display:block; margin-bottom:8px;">headphones</span>
+      <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Deep Dive Audio</div>
+      <div style="font-size:11px; color:rgba(255,255,255,0.4); margin-bottom:12px;">Brief overview (~22 min)</div>
+      <button id="edPodBtn" onclick="(function(){var w=document.getElementById('edPod');var b=document.getElementById('edPodBtn');if(!w)return;if(w.style.display==='none'){w.style.display='block';b.textContent='\u25A0 Hide Player'}else{w.style.display='none';b.textContent='\u25B6 Listen Now'}})()" style="display:inline-block;padding:8px 20px;background:linear-gradient(135deg,#6366F1,#8B5CF6);color:white;border-radius:999px;font-size:12px;font-weight:700;border:none;cursor:pointer;font-family:Inter,sans-serif;">&#9654; Listen Now</button>
+      <div id="edPod" style="display:none;margin-top:12px;">
+        <audio controls style="width:100%" preload="none"><source src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/editorial-podcast-2026-04-04.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+    <div style="padding:20px; background:linear-gradient(135deg, #0f1629, #162040); border:1px solid rgba(236,72,153,0.2); border-radius:12px; text-align:center;">
+      <span class="material-symbols-outlined" style="color:#EC4899; font-size:28px; display:block; margin-bottom:8px;">smart_display</span>
+      <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Anime Brief</div>
+      <div style="font-size:11px; color:rgba(255,255,255,0.4); margin-bottom:12px;">Visual deep dive (~2 min)</div>
+      <a href="https://www.youtube.com/watch?v=ct9FKgEdMpY" target="_blank" rel="noopener" style="display:inline-block;padding:8px 20px;background:linear-gradient(135deg,#EC4899,#8B5CF6);color:white;border-radius:999px;font-size:12px;font-weight:700;text-decoration:none;font-family:Inter,sans-serif;">&#9654; Watch on YouTube</a>
+    </div>
+  </div>
+</section>
+<!-- MEDIA_STRIP_END -->
+
 <article class="article-body">
     <p>DeepSeek just trained a 1-trillion-parameter model for $5.2 million. Comparable Western frontier models cost north of $100 million. That is a 20x difference. It ships with open weights under Apache 2.0. Anyone can download it. Anyone can run it. And it needs 40% less GPU memory than models of similar scale.</p>
     <p>Meanwhile, Q1 2026 AI venture funding hit $267.2 billion. Capital is concentrating at the top while the cost floor collapses underneath it. That contradiction is the story. Not the model itself. The economics around the model.</p>
