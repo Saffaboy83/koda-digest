@@ -91,7 +91,7 @@ def generate_email_hero(digest: dict, date: str) -> str | None:
             print(f"  Infographic generation started (task: {status.task_id})")
 
             await client.artifacts.wait_for_completion(
-                NOTEBOOK_ID, status.task_id, timeout=300.0
+                NOTEBOOK_ID, status.task_id, timeout=120.0
             )
 
             # Download the infographic
@@ -620,10 +620,22 @@ def get_gmail_credentials():
                 f.write(creds.to_json())
         except Exception as e:
             print(f"  Token refresh failed: {e}")
+            print("  This usually means the refresh token was revoked. Re-authorize locally.")
             creds = None
 
     if not creds or not creds.valid:
-        # Reuse the YouTube OAuth client credentials
+        # Detect headless/CI environments where interactive OAuth would hang
+        is_headless = (
+            os.environ.get("RAILWAY_ENVIRONMENT")
+            or os.environ.get("CI")
+            or (not os.environ.get("DISPLAY") and sys.platform != "win32")
+        )
+        if is_headless:
+            print("  ERROR: Gmail token expired/invalid and interactive OAuth not available in headless env.")
+            print("  ACTION: Refresh .gmail_token.json locally, re-encode to GMAIL_TOKEN_B64, update Railway env var.")
+            return None
+
+        # Reuse the YouTube OAuth client credentials (local dev only)
         yt_token_path = DIGEST_DIR / ".youtube_token.json"
         if not yt_token_path.exists():
             print("  No YouTube token found to extract OAuth client from.")
@@ -705,6 +717,11 @@ def main():
 
     if not digest:
         print("  ERROR: digest-content.json not found. Run 03_synthesize_content.py first.")
+        sys.exit(1)
+
+    digest_date = digest.get("date", "")
+    if digest_date != args.date:
+        print(f"  ERROR: digest-content.json date={digest_date} but --date={args.date}. Stale content, aborting.")
         sys.exit(1)
 
     # Generate fresh hero image for the email
