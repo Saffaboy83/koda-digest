@@ -1,0 +1,16 @@
+{
+  "date": "2026-04-04",
+  "generated_at": "2026-04-04T20:55:00.000000+00:00",
+  "exit_code": 0,
+  "editorial_audio": {
+    "success": true,
+    "path": "editorial-podcast-2026-04-04.mp3",
+    "url": "https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/editorial-podcast-2026-04-04.mp3"
+  },
+  "editorial_video": {
+    "success": true,
+    "path": "editorial-video-2026-04-04.mp4",
+    "youtube_id": "gwsJeEbkcbU",
+    "youtube_url": "https://www.youtube.com/watch?v=gwsJeEbkcbU"
+  }
+}

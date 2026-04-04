@@ -652,7 +652,7 @@ async def run_editorial_pipeline(
     media_paths: dict[str, str] = {}
     notebook_id = existing_notebook_id or NOTEBOOK_ID
 
-    client_cm = NotebookLMClient()
+    client_cm = await NotebookLMClient.from_storage()
     try:
         client = await client_cm.__aenter__()
         print(f"\n[Editorial] Authenticated with NotebookLM")
@@ -821,6 +821,12 @@ async def run_editorial_pipeline(
         async def complete_editorial_video():
             if not video_status:
                 return
+            # Remove stale files so download_video rename doesn't fail on Windows
+            for stale in (editorial_video_path, Path(str(editorial_video_path) + ".tmp")):
+                try:
+                    stale.unlink()
+                except OSError:
+                    pass
             # Brief videos are typically fast (~5 min); use shorter timeout
             try:
                 await client.artifacts.wait_for_completion(
@@ -847,6 +853,12 @@ async def run_editorial_pipeline(
             while time.monotonic() - start < 900.0:  # 15 min max for brief
                 attempt += 1
                 elapsed = time.monotonic() - start
+                # Clean stale files before each retry (Windows rename compat)
+                for stale in (editorial_video_path, Path(str(editorial_video_path) + ".tmp")):
+                    try:
+                        stale.unlink()
+                    except OSError:
+                        pass
                 try:
                     await client.artifacts.download_video(
                         notebook_id, str(editorial_video_path)

@@ -280,9 +280,14 @@ body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
 .koda-nav-secondary:hover{color:#dae2fd;background:rgba(255,255,255,0.08)}
 .koda-nav-active{color:#3B82F6;background:rgba(59,130,246,0.12);border-bottom:2px solid #3B82F6}
 @media(max-width:768px){.koda-nav-link:not(.koda-nav-home):not(.koda-nav-active){display:none}}
+.video-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;padding:16px}
+.video-overlay.active{display:flex}
+.video-overlay-inner{width:100%;max-width:1100px;position:relative}
+.video-overlay-close{position:absolute;top:-44px;right:0;background:none;border:none;color:white;font-size:32px;cursor:pointer;padding:8px;opacity:0.7;transition:opacity 0.2s;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
+.video-overlay-close:hover{opacity:1}
 </style>
 </head>
-<body class="dark">
+<body class="dark" data-youtube-id="gwsJeEbkcbU">
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <header class="topbar" id="kodaTopbar">
@@ -321,8 +326,8 @@ body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
   <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px;">
     <div style="padding:20px; background:linear-gradient(135deg, #0f1629, #162040); border:1px solid rgba(99,102,241,0.2); border-radius:12px; text-align:center;">
       <span class="material-symbols-outlined" style="color:#6366F1; font-size:28px; display:block; margin-bottom:8px;">headphones</span>
-      <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Deep Dive Audio</div>
-      <div style="font-size:11px; color:rgba(255,255,255,0.4); margin-bottom:12px;">Brief overview (~22 min)</div>
+      <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Expert Analysis</div>
+      <div style="font-size:11px; color:rgba(255,255,255,0.4); margin-bottom:12px;">Two-minute conversation (~2 min)</div>
       <button id="edPodBtn" onclick="(function(){var w=document.getElementById('edPod');var b=document.getElementById('edPodBtn');if(!w)return;if(w.style.display==='none'){w.style.display='block';b.textContent='\u25A0 Hide Player'}else{w.style.display='none';b.textContent='\u25B6 Listen Now'}})()" style="display:inline-block;padding:8px 20px;background:linear-gradient(135deg,#6366F1,#8B5CF6);color:white;border-radius:999px;font-size:12px;font-weight:700;border:none;cursor:pointer;font-family:Inter,sans-serif;">&#9654; Listen Now</button>
       <div id="edPod" style="display:none;margin-top:12px;">
         <audio controls style="width:100%" preload="none"><source src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/editorial-podcast-2026-04-04.mp3" type="audio/mpeg"></audio>
@@ -330,9 +335,16 @@ body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
     </div>
     <div style="padding:20px; background:linear-gradient(135deg, #0f1629, #162040); border:1px solid rgba(236,72,153,0.2); border-radius:12px; text-align:center;">
       <span class="material-symbols-outlined" style="color:#EC4899; font-size:28px; display:block; margin-bottom:8px;">smart_display</span>
-      <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Anime Brief</div>
-      <div style="font-size:11px; color:rgba(255,255,255,0.4); margin-bottom:12px;">Visual deep dive (~2 min)</div>
-      <a href="https://www.youtube.com/watch?v=ct9FKgEdMpY" target="_blank" rel="noopener" style="display:inline-block;padding:8px 20px;background:linear-gradient(135deg,#EC4899,#8B5CF6);color:white;border-radius:999px;font-size:12px;font-weight:700;text-decoration:none;font-family:Inter,sans-serif;">&#9654; Watch on YouTube</a>
+      <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Visual Narrative</div>
+      <div style="font-size:11px; color:rgba(255,255,255,0.4); margin-bottom:12px;">Animated story breakdown (~2 min)</div>
+      <a href="https://www.youtube.com/watch?v=gwsJeEbkcbU" target="_blank" rel="noopener" style="display:inline-block;padding:8px 20px;background:linear-gradient(135deg,#EC4899,#8B5CF6);color:white;border-radius:999px;font-size:12px;font-weight:700;text-decoration:none;font-family:Inter,sans-serif;">&#9654; Watch on YouTube</a>
+      <button onclick="toggleVideo()" style="display:inline-block;padding:8px 20px;background:rgba(236,72,153,0.15);color:#EC4899;border:1px solid rgba(236,72,153,0.3);border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;font-family:Inter,sans-serif;margin-top:8px;">&#9654; Watch Inline</button>
+      <div class="video-overlay" id="videoOverlay" role="dialog" aria-modal="true" aria-label="Video player" onclick="if(event.target===this)toggleVideo()">
+        <div class="video-overlay-inner">
+          <button class="video-overlay-close" onclick="toggleVideo()" aria-label="Close video">&times;</button>
+          <iframe id="videoFrame" width="100%" style="aspect-ratio:16/9;border:none;border-radius:12px" allowfullscreen title="Editorial video"></iframe>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -484,6 +496,10 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     function fmtDate(d){var p=d.split('-'),m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];return m[parseInt(p[1])-1]+' '+parseInt(p[2])+', '+p[0];}
     function esc(s){return s?s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):'';}
 })();
+</script>
+<script>
+function toggleVideo(){var o=document.getElementById('videoOverlay'),f=document.getElementById('videoFrame');if(!o)return;if(o.classList.contains('active')){o.classList.remove('active');document.body.style.overflow='';if(f)f.src=''}else{o.classList.add('active');document.body.style.overflow='hidden';var ytId=document.body.getAttribute('data-youtube-id');if(f&&ytId&&/^[A-Za-z0-9_-]{11}$/.test(ytId)){f.src='https://www.youtube.com/embed/'+ytId+'?autoplay=1'}var c=o.querySelector('.video-overlay-close');if(c)c.focus()}}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){var o=document.getElementById('videoOverlay');if(o&&o.classList.contains('active'))toggleVideo()}});
 </script>
 <footer style="background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:64px">
     <div style="max-width:40rem;margin:0 auto;text-align:center;padding:64px 24px;position:relative">
