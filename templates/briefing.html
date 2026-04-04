@@ -448,7 +448,7 @@
                 {% for tool in tools %}
                 <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
                     <strong class="tool-title block text-[14px] font-bold mb-1.5">{{ (tool.title or "") | no_em_dash }}</strong>
-                    <span class="tool-body text-[13px] text-[#c2c6d6] leading-relaxed">{{ (tool.body or "") | no_em_dash }}{% if tool.url %} <a href="{{ tool.url | safe_url }}" target="_blank" class="text-[#3B82F6] no-underline text-[11px] hover:underline">Try it &rarr;</a>{% endif %}</span>
+                    <span class="tool-body text-[13px] text-[#c2c6d6] leading-relaxed">{{ (tool.body or "") | no_em_dash }}{% if tool.url %} <a href="{{ tool.url | safe_url }}" target="_blank" class="text-[#3B82F6] no-underline text-[11px] hover:underline">Try it &rarr;</a>{% endif %}{% if tool.review_url %} <a href="{{ tool.review_url }}" target="_blank" class="text-[#8B5CF6] no-underline text-[11px] hover:underline ml-2">Lab Report &rarr;</a>{% endif %}</span>
                 </div>
                 {% endfor %}
             </div>

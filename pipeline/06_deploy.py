@@ -66,6 +66,15 @@ def main():
         "changelog/data.json",
     ]
 
+    # Add any review HTML files generated for today
+    reviews_dir = DIGEST_DIR / "reviews"
+    if reviews_dir.exists():
+        for review_file in sorted(reviews_dir.glob(f"{args.date}-*.html")):
+            files_to_stage.append(f"reviews/{review_file.name}")
+        review_index = reviews_dir / "index.html"
+        if review_index.exists():
+            files_to_stage.append("reviews/index.html")
+
     # Add any editorial HTML files and hero images generated for today
     editorial_dir = DIGEST_DIR / "editorial"
     for editorial_file in sorted(editorial_dir.glob(f"{args.date}-*.html")):

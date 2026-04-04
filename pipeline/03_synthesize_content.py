@@ -117,8 +117,38 @@ def load_recent_stories(days: int = 5) -> str:
         "include it but lead with what changed TODAY.\n"
         "- A model release (e.g., GPT-5.4) can appear on launch day + 1 follow-up MAX. After that, "
         "only include if there is new benchmark data, pricing, or adoption news.\n"
-        "- Tools should rotate: skip any tool that appeared in the last 3 days.\n"
         "- Prefer stories that are genuinely NEW over stories that are merely important.\n"
+    )
+
+
+def load_recent_tools(days: int = 14) -> str:
+    """Load recently featured tool names from recent-themes.json for tool dedup."""
+    ledger_path = DIGEST_DIR / "recent-themes.json"
+    if not ledger_path.exists():
+        return ""
+
+    try:
+        with open(ledger_path, "r", encoding="utf-8") as f:
+            ledger = json.load(f)
+    except Exception:
+        return ""
+
+    lines = []
+    for date in sorted(ledger.keys(), reverse=True)[:days]:
+        tools = ledger[date].get("featured_tools", [])
+        if tools:
+            lines.append(f"  {date}: {', '.join(tools)}")
+
+    if not lines:
+        return ""
+
+    return (
+        "\n\nRECENTLY FEATURED TOOLS (do NOT repeat any of these — readers want fresh discoveries):\n"
+        + "\n".join(lines)
+        + "\n\nTOOL FRESHNESS RULES:\n"
+        "- NEVER repeat a tool that appeared in the last 14 days.\n"
+        "- If a tool has a major update (new version, pricing change), it may return after 14 days.\n"
+        "- There are thousands of AI tools — always find fresh ones.\n"
     )
 
 
@@ -356,6 +386,7 @@ Only include those with real, sourced news today. Skip companies whose only news
 def synthesize_tools(raw_content, citations, discovered_tools=None, direct_search=None):
     """Transform AI tools data into tip cards."""
     freshness_context = load_recent_stories()
+    tool_freshness = load_recent_tools()
 
     discovery_context = ""
     if discovered_tools:
@@ -397,7 +428,7 @@ RAW DATA:
 
 CITATIONS:
 {json.dumps(citations, indent=2)}
-{discovery_context}{direct_context}{freshness_context}
+{discovery_context}{direct_context}{freshness_context}{tool_freshness}
 
 Return a JSON array of 6 tip objects:
 {{
@@ -668,11 +699,11 @@ def main():
 
     # ── Save rolling theme ledger for cross-day differentiation ────────
     print("  Updating theme ledger...")
-    update_theme_ledger(args.date, summary, ai_news, world_news)
+    update_theme_ledger(args.date, summary, ai_news, world_news, tools=tools)
 
 
-def update_theme_ledger(date, summary, ai_news, world_news):
-    """Extract today's themes and append to the rolling ledger (last 5 days).
+def update_theme_ledger(date, summary, ai_news, world_news, tools=None):
+    """Extract today's themes and append to the rolling ledger (last 14 days).
 
     Saves to DIGEST_DIR/recent-themes.json (repo root, committed to git)
     so the ledger persists across Railway container runs.
@@ -688,10 +719,17 @@ def update_theme_ledger(date, summary, ai_news, world_news):
         for t in summary.get("focus_topics", [])
     ] if summary else []
 
+    featured_tools = [
+        t.get("title", "").strip()
+        for t in (tools or [])
+        if t.get("title")
+    ]
+
     today_entry = {
         "hook": hook,
         "top_themes": focus_topics[:3],
         "top_stories": ai_titles + world_titles,
+        "featured_tools": featured_tools,
         "source_urls": ai_urls + world_urls,
         "story_angles": [
             b.get("text", "")[:80]
@@ -699,7 +737,7 @@ def update_theme_ledger(date, summary, ai_news, world_news):
         ] if summary else [],
     }
 
-    # Load existing ledger from repo root, add today, trim to 5 days
+    # Load existing ledger from repo root, add today, trim to 14 days
     ledger_path = DIGEST_DIR / "recent-themes.json"
     ledger = {}
     if ledger_path.exists():
@@ -709,7 +747,7 @@ def update_theme_ledger(date, summary, ai_news, world_news):
     ledger[date] = today_entry
 
     sorted_dates = sorted(ledger.keys(), reverse=True)
-    trimmed = {d: ledger[d] for d in sorted_dates[:5]}
+    trimmed = {d: ledger[d] for d in sorted_dates[:14]}
 
     with open(ledger_path, "w", encoding="utf-8") as f:
         json.dump(trimmed, f, indent=2, ensure_ascii=False)

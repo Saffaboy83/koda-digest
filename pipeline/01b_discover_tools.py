@@ -373,9 +373,9 @@ def deduplicate_tools(tools: list[dict]) -> list[dict]:
         try:
             with open(ledger_path, "r", encoding="utf-8") as f:
                 ledger = json.load(f)
-            for date in sorted(ledger.keys(), reverse=True)[:3]:
-                for title in ledger[date].get("top_stories", []):
-                    recent_names.add(title.lower())
+            for date in sorted(ledger.keys(), reverse=True)[:14]:
+                for tool_name in ledger[date].get("featured_tools", []):
+                    recent_names.add(tool_name.lower())
         except Exception:
             pass
 

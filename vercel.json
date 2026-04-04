@@ -1,7 +1,9 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
-    { "source": "/today", "destination": "/morning-briefing-koda.html" }
+    { "source": "/today", "destination": "/morning-briefing-koda.html" },
+    { "source": "/reviews", "destination": "/reviews/index.html" },
+    { "source": "/reviews/", "destination": "/reviews/index.html" }
   ],
   "headers": [
     {

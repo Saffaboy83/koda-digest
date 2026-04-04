@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Lab | Koda Intelligence</title>
+<meta name="description" content="Hands-on AI tool deep dives with pricing, features, and honest verdicts from the Koda Intelligence team.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0b1326;color:#dae2fd;min-height:100vh;overflow-x:hidden}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;display:inline-block;vertical-align:middle}
+.scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,#3B82F6,#8B5CF6);z-index:1001;transition:width 0.1s linear;pointer-events:none}
+.topbar{position:fixed;top:0;width:100%;z-index:50;background:rgba(11,19,38,0.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.topbar-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px}
+.brand-text{font-size:14px;font-weight:700;color:#3B82F6}
+.brand-sub{font-size:10px;color:#8c909f;display:none}
+@media(min-width:640px){.brand-sub{display:block}}
+.nav-links{display:flex;align-items:center;gap:8px}
+.nav-link{font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:6px 12px;border-radius:8px;text-decoration:none;transition:all 0.2s}
+.nav-link-home{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white}
+.nav-link-secondary{color:#8c909f;background:rgba(255,255,255,0.04)}
+.nav-link-secondary:hover{color:#dae2fd;background:rgba(255,255,255,0.08)}
+.hero{padding:100px 24px 40px;text-align:center;background:radial-gradient(ellipse 80% 50% at 20% 60%,rgba(139,92,246,0.12) 0%,transparent 100%),radial-gradient(ellipse 60% 40% at 80% 30%,rgba(59,130,246,0.08) 0%,transparent 100%)}
+.hero h1{font-size:clamp(28px,5vw,48px);font-weight:900;background:linear-gradient(135deg,#8B5CF6 0%,#3B82F6 50%,#EC4899 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;letter-spacing:-0.02em}
+.hero p{color:#c2c6d6;font-size:15px;max-width:600px;margin:0 auto}
+.hero .badge{display:inline-block;padding:4px 14px;border-radius:9999px;border:1px solid rgba(139,92,246,0.2);background:rgba(139,92,246,0.05);color:#a78bfa;font-size:10px;text-transform:uppercase;letter-spacing:0.2em;font-weight:700;margin-bottom:16px}
+.stats{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;padding:0 24px;margin-bottom:32px}
+.stat{background:rgba(23,31,51,0.4);backdrop-filter:blur(20px);border:1px solid rgba(173,198,255,0.1);border-radius:12px;padding:16px 24px;text-align:center;min-width:120px}
+.stat-value{font-size:24px;font-weight:800;color:#dae2fd}
+.stat-label{font-size:11px;color:#8c909f;margin-top:2px;text-transform:uppercase;letter-spacing:0.05em}
+.container{max-width:900px;margin:0 auto;padding:0 24px 64px}
+.review-card{display:block;background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:18px 20px;margin-bottom:10px;transition:all 0.2s}
+.review-card:hover{background:rgba(23,31,51,0.7);border-color:rgba(139,92,246,0.3)}
+.empty-state{text-align:center;padding:60px 24px}
+footer{background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto}
+footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;padding:32px 24px;gap:12px;text-align:center}
+@media(min-width:768px){footer .inner{flex-direction:row;justify-content:space-between;text-align:left}}
+.animate-in{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.animate-in.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<header class="topbar">
+<div class="topbar-inner">
+    <a href="../index.html" class="brand"><div class="brand-icon">K</div><div><div class="brand-text">Koda Intelligence</div><div class="brand-sub"><span class="material-symbols-outlined" style="font-size:11px;vertical-align:-1px;margin-right:2px">science</span>The Lab</div></div></a>
+    <div class="nav-links">
+        <a href="../morning-briefing-koda.html" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+        <a href="../editorial/" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">explore</span>Deep Dive</a>
+        <a href="../changelog/" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">pulse_alert</span>Pulse</a>
+        <a href="../index.html" class="nav-link nav-link-home">&larr; Home</a>
+    </div>
+</div>
+</header>
+<section class="hero animate-in">
+    <div class="badge">Hands-On Tool Intelligence</div>
+    <h1>The Lab</h1>
+    <p>We scrape, test, and break down the AI tools everyone is talking about. Pricing, features, and honest verdicts so you do not have to guess.</p>
+</section>
+<div class="stats animate-in">
+    <div class="stat"><div class="stat-value">0</div><div class="stat-label">Lab Reports</div></div>
+    <div class="stat"><div class="stat-value">3</div><div class="stat-label">New Per Day</div></div>
+</div>
+<div class="container">
+    <div class="empty-state animate-in"><span class="material-symbols-outlined" style="font-size:48px;color:#3B82F6;margin-bottom:16px;display:block">science</span><p style="color:#8c909f;font-size:15px">No lab reports yet. First reviews drop with tomorrow's digest.</p></div>
+</div>
+<footer>
+    <div class="inner">
+        <div>
+            <div style="font-weight:700;font-size:14px;color:#dae2fd;margin-bottom:4px">Koda Intelligence</div>
+            <div style="font-size:12px;color:#8c909f">AI-powered daily intelligence for builders and operators.</div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:center">
+            <a href="../index.html" style="color:#8c909f;text-decoration:none;font-size:12px">Home</a>
+            <a href="../morning-briefing-koda.html" style="color:#8c909f;text-decoration:none;font-size:12px">The Signal</a>
+            <a href="../editorial/" style="color:#8c909f;text-decoration:none;font-size:12px">Deep Dive</a>
+        </div>
+    </div>
+</footer>
+<script>
+// Scroll progress
+window.addEventListener('scroll',function(){var p=document.getElementById('scrollProgress');if(p){var h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=h>0?(window.scrollY/h*100)+'%':'0%'}});
+// Animate in
+var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add('visible')});},{threshold:0.1});
+document.querySelectorAll('.animate-in').forEach(function(el){obs.observe(el)});
+</script>
+</body>
+</html>

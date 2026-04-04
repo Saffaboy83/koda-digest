@@ -37,6 +37,7 @@ STEPS = [
     ("03B", "Verify Stats",         "03b_verify_stats.py"),
     ("04",  "Generate Media",       "04_generate_media.py"),
     ("04E", "Generate Editorial",   "08_generate_editorial.py"),
+    ("04R", "Generate Reviews",     "05b_generate_reviews.py"),
     ("05",  "Generate HTML",        "05_generate_html.py"),
     ("06",  "Deploy",               "06_deploy.py"),
     ("07",  "Send Email",           "07_send_email.py"),
@@ -64,7 +65,7 @@ def run_step(step_id, name, script, date, extra_args=None):
     try:
         # Media generation (step 04) needs longer timeout for cinematic video (Veo 3: 30-45 min)
         # Editorial (04E) needs moderate timeout for LLM calls + image gen
-        step_timeout = 3600 if step_id == "04" else 600 if step_id in ("04E", "01D") else 900
+        step_timeout = 3600 if step_id == "04" else 600 if step_id in ("04E", "04R", "01D") else 900
         result = subprocess.run(
             cmd, env=env, timeout=step_timeout,
             cwd=str(DIGEST_DIR),
@@ -151,7 +152,7 @@ def main():
         if not success:
             all_passed = False
             # Non-critical steps: stat verification, media, editorial, email
-            if step_id in ("01B", "01D", "03B", "04", "04E", "07"):
+            if step_id in ("01B", "01D", "03B", "04", "04E", "04R", "07"):
                 print(f"  Non-critical step {step_id} failed — continuing...")
             else:
                 print(f"\n  Critical step {step_id} failed. Pipeline stopped.")
