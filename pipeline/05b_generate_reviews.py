@@ -27,6 +27,10 @@ from pipeline.config import (
     DIGEST_DIR, FIRECRAWL_API_KEY, OPENROUTER_API_KEY,
     today_str, write_json, read_json, ensure_data_dir,
 )
+from nav_component import NAV_CSS_V2, build_nav_v2
+
+# Escape CSS braces for f-string usage
+NAV_CSS_V2_ESCAPED = NAV_CSS_V2.replace("{", "{{").replace("}", "}}")
 
 # ── Config ─────────────────────────────────────────────────────────────────
 
@@ -41,6 +45,49 @@ WELL_KNOWN_TOOLS = {
     "zapier", "notion", "manus", "perplexity", "midjourney", "dall-e",
     "stable diffusion", "hugging face", "replicate", "vercel", "supabase",
 }
+
+def _extract_verdict(html: str) -> str:
+    """Extract the first sentence from the verdict-card section of a review HTML."""
+    match = re.search(r'class="verdict-card"[^>]*>(.*?)</(?:div|section)', html, re.DOTALL)
+    if match:
+        text = re.sub(r'<[^>]+>', ' ', match.group(1)).strip()
+        # Remove leading emoji/icon names like "gavel Verdict"
+        text = re.sub(r'^[\w\s]{0,20}Verdict\s*', '', text, flags=re.IGNORECASE).strip()
+        sentences = [s.strip() for s in text.split('. ') if len(s.strip()) > 20]
+        if sentences:
+            return sentences[0].rstrip('.') + '.'
+    # Fallback: search for any paragraph after "verdict" heading
+    match2 = re.search(r'(?:verdict|Verdict).*?<p[^>]*>(.*?)</p>', html, re.DOTALL | re.IGNORECASE)
+    if match2:
+        text = re.sub(r'<[^>]+>', '', match2.group(1)).strip()
+        first = text.split('. ')[0].rstrip('.') + '.'
+        if len(first) > 20:
+            return first
+    return ""
+
+
+def _extract_pricing(html: str) -> str:
+    """Extract a short pricing summary from review HTML (e.g. 'Free', 'From $10/mo')."""
+    text = re.sub(r'<[^>]+>', ' ', html)
+    # Prefer specific dollar amounts over "free" (tools may have both free + paid tiers)
+    price_match = re.search(r'\$\d+(?:\.\d{2})?(?:/mo(?:nth)?|/yr|/year|/user)', text, re.IGNORECASE)
+    if price_match:
+        return f"From {price_match.group(0)}"
+    price_match2 = re.search(r'\$\d+(?:\.\d{2})?\s*/\s*(?:mo|month|year|yr)', text, re.IGNORECASE)
+    if price_match2:
+        return f"From {price_match2.group(0)}"
+    # Simple "$X" near "pricing" or "plan"
+    pricing_section = re.search(r'(?:pric|plan|cost).*?\$(\d+)', text, re.IGNORECASE)
+    if pricing_section:
+        return f"From ${pricing_section.group(1)}/mo"
+    # Check for "open source"
+    if re.search(r'\bopen[- ]source\b', text, re.IGNORECASE):
+        return "Free / Open Source"
+    # Only fall back to "Free" if no paid pricing found
+    if re.search(r'\bfree\s+(?:plan|tier|forever|to use)\b', text, re.IGNORECASE):
+        return "Free"
+    return ""
+
 
 REVIEW_EXTRACTION_SCHEMA: dict[str, Any] = {
     "type": "object",
@@ -362,6 +409,13 @@ def update_review_index(reviews_dir: Path) -> None:
 
 def _build_review_index_html(entries: list[dict]) -> str:
     """Build the reviews archive index page matching site design system."""
+    _css, reviews_nav_html, reviews_nav_js = build_nav_v2(
+        current_page="reviews",
+        url_prefix="../",
+        page_subtitle="The Lab",
+        page_icon="science",
+        share_url="https://www.koda.community/reviews/",
+    )
     cards = ""
     for e in entries:
         cards += f"""
@@ -395,18 +449,8 @@ def _build_review_index_html(entries: list[dict]) -> str:
 body{{font-family:'Inter',sans-serif;background:#0b1326;color:#dae2fd;min-height:100vh;overflow-x:hidden}}
 .material-symbols-outlined{{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;display:inline-block;vertical-align:middle}}
 .scroll-progress{{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,#3B82F6,#8B5CF6);z-index:1001;transition:width 0.1s linear;pointer-events:none}}
-.topbar{{position:fixed;top:0;width:100%;z-index:50;background:rgba(11,19,38,0.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}}
-.topbar-inner{{max-width:1280px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}}
-.brand{{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}}
-.brand-icon{{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px}}
-.brand-text{{font-size:14px;font-weight:700;color:#3B82F6}}
-.brand-sub{{font-size:10px;color:#8c909f;display:none}}
-@media(min-width:640px){{.brand-sub{{display:block}}}}
-.nav-links{{display:flex;align-items:center;gap:8px}}
-.nav-link{{font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:6px 12px;border-radius:8px;text-decoration:none;transition:all 0.2s}}
-.nav-link-home{{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white}}
-.nav-link-secondary{{color:#8c909f;background:rgba(255,255,255,0.04)}}
-.nav-link-secondary:hover{{color:#dae2fd;background:rgba(255,255,255,0.08)}}
+{NAV_CSS_V2_ESCAPED}
+/* -- End Koda Nav V2 -- */
 .hero{{padding:100px 24px 40px;text-align:center;background:radial-gradient(ellipse 80% 50% at 20% 60%,rgba(139,92,246,0.12) 0%,transparent 100%),radial-gradient(ellipse 60% 40% at 80% 30%,rgba(59,130,246,0.08) 0%,transparent 100%)}}
 .hero h1{{font-size:clamp(28px,5vw,48px);font-weight:900;background:linear-gradient(135deg,#8B5CF6 0%,#3B82F6 50%,#EC4899 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;letter-spacing:-0.02em}}
 .hero p{{color:#c2c6d6;font-size:15px;max-width:600px;margin:0 auto}}
@@ -428,17 +472,7 @@ footer .inner{{max-width:1280px;margin:0 auto;display:flex;flex-direction:column
 </head>
 <body>
 <div class="scroll-progress" id="scrollProgress"></div>
-<header class="topbar">
-<div class="topbar-inner">
-    <a href="../index.html" class="brand"><div class="brand-icon">K</div><div><div class="brand-text">Koda Intelligence</div><div class="brand-sub"><span class="material-symbols-outlined" style="font-size:11px;vertical-align:-1px;margin-right:2px">science</span>The Lab</div></div></a>
-    <div class="nav-links">
-        <a href="../morning-briefing-koda.html" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
-        <a href="../editorial/" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">explore</span>Deep Dive</a>
-        <a href="../changelog/" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">pulse_alert</span>Pulse</a>
-        <a href="../index.html" class="nav-link nav-link-home">&larr; Home</a>
-    </div>
-</div>
-</header>
+{reviews_nav_html}
 <section class="hero animate-in">
     <div class="badge">Hands-On Tool Intelligence</div>
     <h1>The Lab</h1>
@@ -471,6 +505,7 @@ window.addEventListener('scroll',function(){{var p=document.getElementById('scro
 var obs=new IntersectionObserver(function(e){{e.forEach(function(en){{if(en.isIntersecting)en.target.classList.add('visible')}});}},{{threshold:0.1}});
 document.querySelectorAll('.animate-in').forEach(function(el){{obs.observe(el)}});
 </script>
+{reviews_nav_js}
 </body>
 </html>"""
 
@@ -574,12 +609,20 @@ def main():
         filepath.write_text(html, encoding="utf-8")
         print(f"    Saved: reviews/{filename}")
 
+        # Extract verdict + pricing from generated HTML for email enrichment
+        review_verdict = _extract_verdict(html)
+        review_pricing = _extract_pricing(html)
+        review_hero_url = scrape_data.get("hero_url", "")
+
         review_results.append({
             "tool": title,
             "slug": slug,
             "url": url,
             "file": filename,
             "review_url": f"/reviews/{filename}",
+            "review_verdict": review_verdict,
+            "review_pricing": review_pricing,
+            "review_hero_url": review_hero_url,
             "success": True,
         })
 
@@ -587,17 +630,25 @@ def main():
     print(f"\n  Updating review archive index...")
     update_review_index(REVIEWS_DIR)
 
-    # Inject review_url back into digest-content.json so step 05 can render links
-    successful_reviews = {r["tool"]: r["review_url"] for r in review_results if r.get("success")}
+    # Inject review metadata back into digest-content.json so email can render rich cards
+    successful_reviews = {
+        r["tool"]: {
+            "review_url": r["review_url"],
+            "review_verdict": r.get("review_verdict", ""),
+            "review_pricing": r.get("review_pricing", ""),
+            "review_hero_url": r.get("review_hero_url", ""),
+        }
+        for r in review_results if r.get("success")
+    }
     if successful_reviews:
         updated_tools = [
-            {**t, "review_url": successful_reviews[t.get("title", "")]}
+            {**t, **successful_reviews[t.get("title", "")]}
             if t.get("title", "") in successful_reviews else t
             for t in digest.get("tools", [])
         ]
         updated_digest = {**digest, "tools": updated_tools}
         write_json("digest-content.json", updated_digest)
-        print(f"    Injected {len(successful_reviews)} review URLs into digest-content.json")
+        print(f"    Injected {len(successful_reviews)} review URLs + metadata into digest-content.json")
 
     # Save status
     status = {

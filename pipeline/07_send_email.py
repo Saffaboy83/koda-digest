@@ -448,27 +448,41 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
           <p style="margin:4px 0 0;font-size:13px;color:#475569;line-height:1.5">{short_body}{src}</p>
         </td></tr>"""
 
-    # --- TOOL DROP (emoji + name + description + Lab Report link) ---
-    tool_emojis = ["&#128640;", "&#9889;", "&#128161;", "&#128295;", "&#127775;"]
+    # --- THE LAB (all tools: reviewed ones get verdict + pricing + Lab Report link) ---
     tools_html = ""
-    for i, tool in enumerate(tools[:3]):
+    for tool in tools[:6]:
         name = tool.get("title", "")
         desc = tool.get("body", "")
         url = tool.get("url", "")
         review_url = tool.get("review_url", "")
-        emoji = tool_emojis[i % len(tool_emojis)]
-        # Use first two sentences instead of one
-        sentences = desc.split(". ")
-        short_desc = ". ".join(sentences[:2]) + "." if len(sentences) > 1 else desc
-        name_html = f'<a href="{url}" style="color:#0F172A;text-decoration:underline;font-weight:700" target="_blank">{name}</a>' if url else f'<strong style="color:#0F172A">{name}</strong>'
-        review_link = ""
+        verdict = tool.get("review_verdict", "")
+        pricing = tool.get("review_pricing", "")
+
+        # "Try It" link for all tools
+        try_link = f'<a href="{url}" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;text-decoration:none;color:#3B82F6" target="_blank">TRY IT &#8594;</a>' if url else ""
+
         if review_url:
+            # Reviewed tool: name + verdict + pricing + Try It + Lab Report CTA
             full_review_url = f"https://www.koda.community{review_url}"
-            review_link = f' <a href="{full_review_url}" style="color:#6366F1;font-size:12px;font-weight:600;text-decoration:underline" target="_blank">Lab Report &rarr;</a>'
-        tools_html += f"""<tr><td style="padding:8px 0">
-          <p style="margin:0;font-size:14px;color:#475569;line-height:1.5">{emoji} {name_html} -- {short_desc}</p>
-          {f'<p style="margin:4px 0 0">{review_link}</p>' if review_link else ''}
-        </td></tr>"""
+            verdict_html = f'<p style="margin:4px 0 0;font-size:13px;color:#475569;line-height:1.45">{verdict}</p>' if verdict else ""
+            pricing_html = f'<span style="font-size:11px;font-weight:700;color:#10B981">{pricing}</span> &nbsp;' if pricing else ""
+            lab_link = f'<a href="{full_review_url}" style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;text-decoration:none;color:#8B5CF6" target="_blank">LAB REPORT &#8594;</a>'
+            separator = ' &nbsp;&#183;&nbsp; ' if try_link else ""
+
+            tools_html += f"""<tr><td style="padding:10px 0;border-bottom:1px solid #E2E8F0">
+              <p style="margin:0;font-size:15px;font-weight:800;color:#0F172A;line-height:1.3">{name}</p>
+              {verdict_html}
+              <p style="margin:6px 0 0">{pricing_html}{try_link}{separator}{lab_link}</p>
+            </td></tr>"""
+        else:
+            # Non-reviewed tool: name + short description + Try It
+            sentences = desc.split(". ")
+            short_desc = ". ".join(sentences[:2]) + "." if len(sentences) > 1 else desc
+            tools_html += f"""<tr><td style="padding:8px 0;border-bottom:1px solid #E2E8F0">
+              <p style="margin:0;font-size:14px;font-weight:700;color:#0F172A;line-height:1.3">{name}</p>
+              <p style="margin:3px 0 0;font-size:13px;color:#475569;line-height:1.5">{short_desc}</p>
+              {"<p style='margin:6px 0 0'>" + try_link + "</p>" if try_link else ""}
+            </td></tr>"""
 
     # --- LISTEN & WATCH (media section) ---
     podcast_url = ""
@@ -541,7 +555,9 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
     editorial_html = ""
 
     # --- DEEP DIVE MEDIA (editorial audio + anime video) ---
-    editorial_media_status = read_json("editorial-media-status.json")
+    # editorial-media-status.json lives in the project root, not pipeline/data/
+    _ed_status_path = Path(__file__).parent.parent / "editorial-media-status.json"
+    editorial_media_status = json.loads(_ed_status_path.read_text(encoding="utf-8")) if _ed_status_path.exists() else None
     editorial_media_html = ""
     if editorial:
         editorial_hero_img = ""
@@ -567,52 +583,53 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
     if editorial_media_status:
         ed_audio = editorial_media_status.get("editorial_audio", {})
         ed_video = editorial_media_status.get("editorial_video", {})
-        ed_audio_url = ed_audio.get("path", "") if isinstance(ed_audio, dict) else ""
-        ed_yt_id = ed_video.get("youtube_id", "") if isinstance(ed_video, dict) else ""
+        # Build full Supabase URL from local path (e.g. "editorial-podcast-2026-04-04.mp3")
+        ed_audio_path = ed_audio.get("path", "") if isinstance(ed_audio, dict) and ed_audio.get("success") else ""
+        ed_audio_url = f"{SUPABASE_URL}/storage/v1/object/public/koda-media/{ed_audio_path}" if ed_audio_path and SUPABASE_URL else ed_audio_path
+        ed_yt_id = ed_video.get("youtube_id", "") if isinstance(ed_video, dict) and ed_video.get("success") else ""
 
         has_ed_media = bool(ed_audio_url) or bool(ed_yt_id)
         if has_ed_media:
-            ed_audio_cell = ""
             ed_video_cell = ""
+            ed_audio_cell = ""
 
-            if ed_audio_url:
-                ed_audio_cell = f"""<td style="padding:0 4px 0 0;width:50%;vertical-align:top">
-                  <table width="100%" cellpadding="0" cellspacing="0" style="border-radius:10px;overflow:hidden;border:1px solid #E2E8F0">
-                    <tr><td style="height:100px;background:#F1F5F9;padding:0;text-align:center;vertical-align:middle">
-                      <p style="margin:0 0 4px;font-size:28px;line-height:1">&#127911;</p>
-                      <p style="margin:0 0 4px;font-size:13px;font-weight:800;color:#0F172A">Deep Dive Audio</p>
-                      <p style="margin:0;font-size:10px;color:#64748B">~5 min brief</p>
-                    </td></tr>
-                    <tr><td style="padding:0">
-                      <a href="{ed_audio_url}" style="display:block;padding:10px 8px;background:linear-gradient(135deg,#6366F1,#3B82F6);color:white;text-decoration:none;text-align:center;font-weight:700;font-size:11px" target="_blank">&#9654; Listen Now</a>
-                    </td></tr>
-                  </table>
-                </td>"""
-
+            # Video tile (LEFT) -- same format as digest video: YouTube thumbnail + Watch button
             if ed_yt_id:
-                ed_video_cell = f"""<td style="padding:0 0 0 4px;width:50%;vertical-align:top">
+                ed_yt_thumb = f"https://img.youtube.com/vi/{ed_yt_id}/maxresdefault.jpg"
+                ed_video_cell = f"""<td style="padding:0 4px 0 0;width:50%;vertical-align:top">
                   <table width="100%" cellpadding="0" cellspacing="0" style="border-radius:10px;overflow:hidden;border:1px solid #E2E8F0">
-                    <tr><td style="height:100px;background:#F1F5F9;padding:0;text-align:center;vertical-align:middle">
-                      <p style="margin:0 0 4px;font-size:28px;line-height:1">&#127916;</p>
-                      <p style="margin:0 0 4px;font-size:13px;font-weight:800;color:#0F172A">Anime Brief</p>
-                      <p style="margin:0;font-size:10px;color:#64748B">~2 min visual dive</p>
+                    <tr><td style="height:140px;background:#F1F5F9;padding:0;vertical-align:middle;text-align:center">
+                      <a href="https://www.youtube.com/watch?v={ed_yt_id}" target="_blank"><img src="{ed_yt_thumb}" alt="Watch deep dive" width="264" style="width:100%;height:140px;object-fit:cover;display:block"></a>
                     </td></tr>
                     <tr><td style="padding:0">
-                      <a href="https://www.youtube.com/watch?v={ed_yt_id}" style="display:block;padding:10px 8px;background:linear-gradient(135deg,#EC4899,#8B5CF6);color:white;text-decoration:none;text-align:center;font-weight:700;font-size:11px" target="_blank">&#9654; Watch Video</a>
+                      <a href="https://www.youtube.com/watch?v={ed_yt_id}" style="display:block;padding:12px 8px;background:linear-gradient(135deg,#EC4899,#8B5CF6);color:white;text-decoration:none;text-align:center;font-weight:700;font-size:12px" target="_blank">&#9654; Watch Deep Dive</a>
                     </td></tr>
                   </table>
                 </td>"""
 
-            if ed_audio_cell and ed_video_cell:
-                ed_cells = ed_audio_cell + ed_video_cell
-            elif ed_audio_cell:
-                ed_cells = ed_audio_cell.replace("width:50%", "width:100%")
-            else:
-                ed_cells = ed_video_cell.replace("width:50%", "width:100%")
+            # Audio tile (RIGHT) -- same format as digest podcast: emoji + label + Listen button
+            if ed_audio_url:
+                ed_audio_cell = f"""<td style="padding:0 0 0 4px;width:50%;vertical-align:top">
+                  <table width="100%" cellpadding="0" cellspacing="0" style="border-radius:10px;overflow:hidden;border:1px solid #E2E8F0">
+                    <tr><td style="height:140px;background:#F1F5F9;padding:0;text-align:center;vertical-align:middle">
+                      <p style="margin:0 0 8px;font-size:36px;line-height:1">&#127911;</p>
+                      <p style="margin:0 0 4px;font-size:14px;font-weight:800;color:#0F172A">Deep Dive Audio</p>
+                      <p style="margin:0;font-size:11px;color:#64748B">~5 min brief</p>
+                    </td></tr>
+                    <tr><td style="padding:0">
+                      <a href="{ed_audio_url}" style="display:block;padding:12px 8px;background:linear-gradient(135deg,#6366F1,#3B82F6);color:white;text-decoration:none;text-align:center;font-weight:700;font-size:12px" target="_blank">&#9654; Listen Now</a>
+                    </td></tr>
+                  </table>
+                </td>"""
 
-            editorial_media_html = f"""<tr><td style="padding:16px 24px 0">
-      <p style="margin:0 0 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#8B5CF6">DEEP DIVE MEDIA</p>
-    </td></tr>
+            if ed_video_cell and ed_audio_cell:
+                ed_cells = ed_video_cell + ed_audio_cell
+            elif ed_video_cell:
+                ed_cells = ed_video_cell.replace("width:50%", "width:100%")
+            else:
+                ed_cells = ed_audio_cell.replace("width:50%", "width:100%").replace("padding:0 0 0 4px", "padding:0")
+
+            editorial_media_html = f"""{_section_header("Deep Dive Media")}
     <tr><td style="padding:0 24px">
       <table width="100%" cellpadding="0" cellspacing="0"><tr>{ed_cells}</tr></table>
     </td></tr>"""
@@ -682,6 +699,9 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
     </table>
   </td></tr>
 
+  <!-- LISTEN & WATCH (moved up for quick access) -->
+  {media_html}
+
   {_section_divider() if market_cells else ""}
 
   {"" if not market_cells else _section_header("Market Pulse") + '''
@@ -709,16 +729,13 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
 
   {_section_divider()}
 
-  <!-- TOOL DROP -->
-  {_section_header("Tool Drop")}
+  <!-- THE LAB -->
+  {_section_header("The Lab")}
   <tr><td style="padding:0 24px">
     <table width="100%" cellpadding="0" cellspacing="0">
       {tools_html}
     </table>
   </td></tr>
-
-  <!-- LISTEN & WATCH -->
-  {media_html}
 
   <!-- DEEP DIVE (editorial) -->
   {editorial_html}
@@ -743,8 +760,9 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
     <p style="margin:0 0 8px;font-size:13px;color:#334155">Until tomorrow -- the <strong>Koda Intelligence</strong> team</p>
     <p style="margin:0 0 12px;font-size:12px;color:#94A3B8">
       <a href="https://www.koda.community" style="color:#6366F1;text-decoration:none;font-weight:600" target="_blank">koda.community</a> &nbsp;&#183;&nbsp;
-      <a href="https://www.koda.community/archive/" style="color:#6366F1;text-decoration:none;font-weight:600" target="_blank">The Vault</a> &nbsp;&#183;&nbsp;
-      <a href="https://www.koda.community/editorial/" style="color:#6366F1;text-decoration:none;font-weight:600" target="_blank">Deep Dive</a>
+      <a href="https://www.koda.community/reviews/" style="color:#6366F1;text-decoration:none;font-weight:600" target="_blank">The Lab</a> &nbsp;&#183;&nbsp;
+      <a href="https://www.koda.community/editorial/" style="color:#6366F1;text-decoration:none;font-weight:600" target="_blank">Deep Dive</a> &nbsp;&#183;&nbsp;
+      <a href="https://www.koda.community/archive/" style="color:#6366F1;text-decoration:none;font-weight:600" target="_blank">The Vault</a>
     </p>
     <p style="margin:0;font-size:10px;color:#94A3B8">
       <a href="{{{{UNSUBSCRIBE_URL}}}}" style="color:#94A3B8;text-decoration:underline">Unsubscribe</a> &nbsp;&#183;&nbsp;

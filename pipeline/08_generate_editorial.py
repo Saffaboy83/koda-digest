@@ -30,6 +30,7 @@ import httpx
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from pipeline.config import DIGEST_DIR, today_str, read_json, write_json
+from nav_component import NAV_CSS_V2, build_nav_v2
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 OPUS_MODEL = "anthropic/claude-opus-4-6"
@@ -955,27 +956,15 @@ def render_html(article: str, topic: dict, date: str, hero_url: str | None = Non
     # Scroll progress bar
     html += '<div class="scroll-progress" id="scrollProgress"></div>\n'
 
-    # Topbar
-    html += f"""
-<header class="fixed top-0 w-full z-50 bg-[#0b1326]/80 backdrop-blur-xl border-b border-white/[0.06]" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(11,19,38,0.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);">
-    <div style="max-width:1280px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;">
-        <a href="../index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;">
-            <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;">K</div>
-            <div>
-                <div style="font-size:14px;font-weight:700;color:#3B82F6;"><span class="material-symbols-outlined" style="font-size:14px;vertical-align:-2px;margin-right:3px">explore</span>Deep Dive</div>
-                <div style="font-size:10px;color:#8c909f;">Daily Analysis</div>
-            </div>
-        </a>
-        <div style="display:flex;align-items:center;gap:8px;">
-            <button id="topbarSearchBtn" style="width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,0.05);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#8c909f;transition:all 0.2s;" title="Search (Ctrl+K)">
-                <span class="material-symbols-outlined" style="font-size:18px;">search</span>
-            </button>
-            <a class="topbar-nav-text" href="../archive/" style="font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:600;padding:6px 12px;border-radius:6px;background:rgba(255,255,255,0.05);color:#8c909f;text-decoration:none;"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
-            <a class="topbar-nav-text" href="../morning-briefing-koda.html" style="font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:600;padding:6px 12px;border-radius:6px;background:rgba(255,255,255,0.05);color:#8c909f;text-decoration:none;"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
-            <a href="../index.html" style="font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:6px 12px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;text-decoration:none;">&larr; Home</a>
-        </div>
-    </div>
-</header>
+    # Topbar (V2 with hamburger drawer)
+    _nav_css, nav_html, _nav_js = build_nav_v2(
+        current_page="editorial",
+        url_prefix="../",
+        page_subtitle="Deep Dive",
+        page_icon="explore",
+        share_url="https://www.koda.community/editorial/",
+    )
+    html += nav_html
 
 <header class="hero-section">
     <div class="hero-inner">
@@ -1068,15 +1057,14 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 .koda-sr-badge.digest{background:rgba(59,130,246,0.12);color:#60a5fa;}
 .koda-sr-badge.editorial{background:rgba(139,92,246,0.12);color:#a78bfa;}
 .koda-sr-empty{padding:20px;text-align:center;color:#c2c6d6;font-size:14px;}
-.topbar-nav-text { }
-@media (max-width: 640px) { .topbar-nav-text { display: none !important; } }
+""" + NAV_CSS_V2 + """/* -- End Koda Nav V2 -- */
 </style>
 <script>
 (function(){
     var overlay=document.getElementById('searchOverlay'),input=document.getElementById('globalSearchInput'),results=document.getElementById('globalSearchResults'),idx=null,timer=null;
     function open(){overlay.style.display='block';input.value='';results.innerHTML='';setTimeout(function(){input.focus();},50);}
     function close(){overlay.style.display='none';}
-    document.getElementById('topbarSearchBtn').addEventListener('click',open);
+    var tsb=document.getElementById('topbarSearchBtn')||document.getElementById('knSearchBtn');if(tsb)tsb.addEventListener('click',open);
     overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
     document.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();open();}if(e.key==='Escape'&&overlay.style.display!=='none')close();});
     input.addEventListener('input',function(){clearTimeout(timer);var q=input.value.trim();if(q.length<2){results.innerHTML='';return;}timer=setTimeout(function(){search(q);},200);});
@@ -1103,6 +1091,7 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     function esc(s){return s?s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):'';}
 })();
 </script>
+""" + _nav_js + """
 </body>
 </html>"""
 

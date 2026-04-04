@@ -1,6 +1,6 @@
 {
-  "date": "2026-04-03",
-  "date_label": "Thursday, April 3, 2026",
+  "date": "2026-04-05",
+  "date_label": "Saturday, April 5, 2026",
   "summary": {
     "hook": "Google's Gemma 4 drops open weights into a world where oil just spiked 11% and fear rules everything."
   },
@@ -134,6 +134,55 @@
       "source_url": "https://www.democracynow.org/2026/3/4/headlines"
     }
   ],
-  "tools": [],
+  "tools": [
+    {
+      "category": "",
+      "title": "Fabricate v2.0: Prompt to Deployed App in One Shot",
+      "body": "Fabricate v2.0 turns a single text prompt into a fully working, deployed web application with frontend, backend, database, and hosting included. Skip the boilerplate entirely: describe your app idea in plain English and get a live URL back. Ideal for rapid prototyping, hackathons, or validating a product concept before committing engineering time.",
+      "url": "https://theresanaiforthat.com/ai/fabricate/"
+    },
+    {
+      "category": "",
+      "title": "Luzo: Open-Source Visual Debugger for Multi-Step API Workflows",
+      "body": "Luzo is a free, desktop-first, open-source tool for building, running, and debugging multi-step API workflows visually. It supports dependency-aware flows and a live timeline execution inspector, so you can trace exactly where a chained API call fails. If your team spends hours debugging webhook sequences or microservice integrations, replace Postman chains with Luzo&#39;s visual canvas.",
+      "url": "https://www.producthunt.com/products/luzo/alternatives",
+      "review_url": "/reviews/2026-04-04-luzo-open-source-visual-debugger-for-multi-step-api-workflows.html",
+      "review_verdict": "Luzo fills a real gap for developers and QA engineers who spend too much time tracing failures across chained API calls, webhook sequences, and microservice integrations.",
+      "review_pricing": "Free / Open Source",
+      "review_hero_url": "https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/review-hero-2026-04-04-luzo-open-source-visual-debugger-for-multi-step-api-workflows.jpg"
+    },
+    {
+      "category": "",
+      "title": "Superhuman&#39;s AI Triage Cuts Email to Decision-Only",
+      "body": "Superhuman, now at $30 per month, uses AI to auto-triage your inbox, draft replies, and surface follow-up reminders so you only touch emails that require a decision. With a Fortune report showing time spent emailing doubled in 2026 while deep focus work fell, aggressive inbox filtering is no longer optional. Set up its split inbox feature to route newsletters, notifications, and FYI threads out of your primary view on day one.",
+      "url": "https://www.producthunt.com/categories/ai-software",
+      "review_url": "/reviews/2026-04-04-superhuman39s-ai-triage-cuts-email-to-decision-only.html",
+      "review_verdict": "Superhuman uses AI to auto-triage your inbox, draft replies, and surface follow-up reminders so you only touch emails that require a decision.",
+      "review_pricing": "From $30/month",
+      "review_hero_url": "https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/review-hero-2026-04-04-superhuman39s-ai-triage-cuts-email-to-decision-only.jpg"
+    },
+    {
+      "category": "",
+      "title": "Blink.new: Describe an App, Get a Full-Stack Build",
+      "body": "Blink.new is an AI-powered full-stack app builder that generates mobile and web applications from a natural language description. It handles both frontend and backend scaffolding, letting non-engineers or solo founders ship functional prototypes without writing code. Use it to test user flows before investing in a custom codebase.",
+      "url": "https://theresanaiforthat.com/ai/blink-new/"
+    },
+    {
+      "category": "",
+      "title": "Noiz AI: Text to Voice to Story in One Flow",
+      "body": "Noiz AI, the top-ranked Product Hunt product for April 2026, chains text generation, voice synthesis, and narrative structuring into a single pipeline. Content creators can go from a rough outline to a narrated audio story without switching between separate writing, TTS, and editing tools. Try it for podcast intros, short-form audio content, or narrated explainers.",
+      "url": "https://www.producthunt.com/products",
+      "review_url": "/reviews/2026-04-04-noiz-ai-text-to-voice-to-story-in-one-flow.html",
+      "review_verdict": "From text to voice to story, all in one flow.",
+      "review_pricing": "From $19/month",
+      "review_hero_url": "https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/review-hero-2026-04-04-noiz-ai-text-to-voice-to-story-in-one-flow.jpg"
+    },
+    {
+      "category": "",
+      "title": "SeaOcean: Free 75-Point SEO Audit in Under 30 Seconds",
+      "body": "SeaOcean is a free AI-powered SEO audit tool that runs 75+ checks on any website in under 30 seconds, covering technical SEO, performance, and content gaps. Instead of paying for a Semrush or Ahrefs subscription to run a quick site health check, use SeaOcean for instant diagnostics. Bookmark it as your first stop before any site migration or content overhaul.",
+      "url": "https://theresanaiforthat.com/ai/seaocean/"
+    }
+  ],
   "markets": {}
 }
