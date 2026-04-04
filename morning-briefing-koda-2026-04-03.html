@@ -260,6 +260,7 @@
 
 
 
+
 /* -- Koda Nav V2 -- */
 .kn-topbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(11,19,38,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
 .kn-topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:8px}
@@ -362,6 +363,7 @@ body.kn-locked{overflow:hidden}
         <a href="./index.html" class="kn-home">&larr; Home</a>
     </div>
     <div class="kn-actions">
+        <div class="hidden md:flex items-center" id="dayNav"><div class="relative"><button id="datePickerBtn" class="flex items-center gap-1 font-mono text-[10px] font-bold text-[#3B82F6] px-2 py-1 bg-[#3B82F6]/10 rounded-md hover:bg-[#3B82F6]/20 transition-all cursor-pointer border-none" title="Jump to date"><span class="material-symbols-outlined" style="font-size:14px">calendar_month</span><span id="dateLabel">2026-04-03</span></button><input type="date" id="datePicker" class="absolute top-full left-0 mt-1 opacity-0 pointer-events-none w-0 h-0" value="2026-04-03" min="2026-03-24"></div></div>
         <div class="kn-desktop-social">
             <a href="https://x.com/intent/tweet?url=https://www.koda.community/morning-briefing-koda-2026-04-03.html" target="_blank" rel="noopener" class="kn-action-btn" title="Share on X">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -1558,10 +1560,23 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     });
 }
 
-// Hash scrolling
+// Hash scrolling with auto-expand for collapsed sections
 if (window.location.hash) {
-    var el = document.querySelector(window.location.hash);
-    if (el) setTimeout(function() { el.scrollIntoView({behavior: 'smooth'}); }, 300);
+    var hashTarget = document.querySelector(window.location.hash);
+    if (hashTarget) {
+        var expandable = hashTarget.querySelector('.expandable-content');
+        if (expandable && (expandable.classList.contains('hidden') || expandable.style.display === 'none')) {
+            expandable.classList.remove('hidden');
+            expandable.style.display = '';
+            var btn = expandable.previousElementSibling;
+            if (btn && btn.classList.contains('expandable-header')) {
+                btn.setAttribute('aria-expanded', 'true');
+                var chev = btn.querySelector('.expand-chevron');
+                if (chev) chev.style.transform = 'rotate(180deg)';
+            }
+        }
+        setTimeout(function() { hashTarget.scrollIntoView({behavior: 'smooth'}); }, 300);
+    }
 }
 
 // Scroll progress bar + back-to-top

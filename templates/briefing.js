@@ -132,10 +132,23 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     });
 }
 
-// Hash scrolling
+// Hash scrolling with auto-expand for collapsed sections
 if (window.location.hash) {
-    var el = document.querySelector(window.location.hash);
-    if (el) setTimeout(function() { el.scrollIntoView({behavior: 'smooth'}); }, 300);
+    var hashTarget = document.querySelector(window.location.hash);
+    if (hashTarget) {
+        var expandable = hashTarget.querySelector('.expandable-content');
+        if (expandable && (expandable.classList.contains('hidden') || expandable.style.display === 'none')) {
+            expandable.classList.remove('hidden');
+            expandable.style.display = '';
+            var btn = expandable.previousElementSibling;
+            if (btn && btn.classList.contains('expandable-header')) {
+                btn.setAttribute('aria-expanded', 'true');
+                var chev = btn.querySelector('.expand-chevron');
+                if (chev) chev.style.transform = 'rotate(180deg)';
+            }
+        }
+        setTimeout(function() { hashTarget.scrollIntoView({behavior: 'smooth'}); }, 300);
+    }
 }
 
 // Scroll progress bar + back-to-top
