@@ -1,87 +1,161 @@
 {
-  "generated_at": "2026-04-03T03:42:35.289801+00:00",
-  "company_count": 10,
-  "new_posts": 11,
+  "generated_at": "2026-04-04T02:36:14.299855+00:00",
+  "company_count": 25,
+  "companies_with_posts": 14,
+  "total_entries": 61,
+  "new_today": 54,
   "entries": [
     {
-      "company": "Anthropic",
-      "color": "#D97706",
-      "url": "https://www.anthropic.com/news/sydney-fourth-office-asia-pacific",
-      "title": "Sydney will become Anthropic’s fourth office in Asia-Pacific",
-      "summary": "Anthropic is expanding into Australia and New Zealand by opening an office in Sydney, its fourth in the Asia-Pacific region. This move is driven by the demand from local businesses and aims to enhance collaborations with Australian institutions, focusing on areas like AI applications and national priorities.",
-      "date": "Mar 10, 2026",
-      "category": "Partnership"
+      "company": "Runway",
+      "color": "#00E5FF",
+      "url": "https://aif.runwayml.com/",
+      "title": "AIF 2026",
+      "summary": "Runway's fourth annual AI Festival celebrates the intersection of art and technology. Showcasing AI films and creative works, it highlights how today's creatives are using advanced tools to reshape artistic expression across various fields.",
+      "date": "2026-06-11",
+      "category": "Feature"
     },
     {
-      "company": "Anthropic",
-      "color": "#D97706",
-      "url": "https://www.anthropic.com/news/claude-partner-network",
-      "title": "Anthropic invests $100 million into the Claude Partner Network",
-      "summary": "Anthropic is launching the Claude Partner Network, committing an initial $100 million to support partners that help enterprises adopt Claude. This initiative will provide training, technical support, and joint market development, ensuring that partners are equipped to facilitate successful AI deployments.",
-      "date": "Mar 12, 2026",
-      "category": "Partnership"
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://openai.com/news/product-releases/",
+      "title": "Codex now offers pay-as-you-go pricing for teams",
+      "summary": "OpenAI has introduced a flexible pay-as-you-go pricing model for Codex, aimed at enhancing accessibility for teams. This new pricing structure allows users to tailor their usage according to their budget and project needs.",
+      "date": "2026-04-02",
+      "category": "Pricing"
     },
     {
-      "company": "Anthropic",
-      "color": "#D97706",
-      "url": "https://www.anthropic.com/news/the-anthropic-institute",
-      "title": "Introducing The Anthropic Institute",
-      "summary": "The Anthropic Institute is being launched to tackle the significant challenges posed by powerful AI systems. It aims to provide insights to researchers and the public while fostering partnerships to mitigate the risks associated with advancing AI technology.",
-      "date": "Mar 11, 2026",
-      "category": "Research"
+      "company": "Databricks",
+      "color": "#FF3621",
+      "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/april",
+      "title": "Databricks Runtime maintenance updates (04/02)",
+      "summary": "New maintenance updates for supported Databricks Runtime versions have been released, featuring bug fixes, security patches, and performance enhancements. The updates include improvements for multiple runtime versions, ensuring better functionality and security for users.",
+      "date": "2026-04-02",
+      "category": "API Update"
     },
     {
-      "company": "Mistral",
-      "color": "#F97316",
-      "url": "https://mistral.ai/news/leanstral",
-      "title": "Leanstral: Open-Source foundation for trustworthy vibe-coding",
-      "summary": "Mistral AI introduces Leanstral, the first open-source code agent for Lean 4, designed to improve efficiency in formal proofs and software specifications. This innovative tool allows users to dictate their needs while Leanstral effectively carries out coding tasks and formally verifies implementations.",
-      "date": "Mar 16, 2026",
-      "category": "Research"
+      "company": "Adobe",
+      "color": "#FF0000",
+      "url": "https://www.adobe.com/devnet-docs/acrobatetk/tools/ReleaseNotesDC/continuous/dccontinuousmarch2026qfe.html",
+      "title": "26.001.21367 Planned update, Apr 02, 2026",
+      "summary": "This is a planned update for the Acrobat product family, introducing different tracks for both Acrobat and Reader. The update includes installers for both Windows and Macintosh platforms, along with new features and bug fixes addressing ongoing issues.",
+      "date": "2026-04-02",
+      "category": "API Update"
     },
     {
-      "company": "Mistral",
-      "color": "#F97316",
-      "url": "https://mistral.ai/news/mistral-ai-and-nvidia-partner-to-accelerate-open-frontier-models",
-      "title": "Mistral AI partners with NVIDIA to accelerate open frontier models",
-      "summary": "Mistral AI has joined the NVIDIA Nemotron Coalition as a founding member to enhance large-scale model development and multimodal capabilities. This partnership aims to co-develop open-source AI models, leveraging both companies' technologies for a collaborative and accessible future in artificial intelligence.",
-      "date": "Mar 16, 2026",
-      "category": "Partnership"
+      "company": "Cursor",
+      "color": "#7DD3FC",
+      "url": "https://cursor.com/blog/topic/product",
+      "title": "Meet the new Cursor",
+      "summary": "Cursor has launched a significant update, introducing exciting new features and enhancements. This blog post details the improvements and what users can expect from the new Cursor experience.",
+      "date": "2026-04-02",
+      "category": "Feature"
     },
     {
-      "company": "Meta AI",
-      "color": "#6366F1",
-      "url": "https://ai.meta.com/blog/world-resources-institute-dino-canopy-height-maps-v2",
-      "title": "Mapping the World's Forests with Greater Precision: Introducing Canopy Height Maps v2",
-      "summary": "Meta, in partnership with the World Resources Institute, has launched Canopy Height Maps v2 (CHMv2), a global open-source model designed to enhance forest mapping and biodiversity efforts. By leveraging advanced AI technology, CHMv2 aims to provide higher accuracy in forest measurements, crucial for environmental monitoring and conservation strategies.",
-      "date": "March 10, 2026",
-      "category": "Research"
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes?ref=thelgtm.dev",
+      "title": "ChatGPT — Release Notes",
+      "summary": "This article provides a comprehensive overview of the latest updates and release notes for ChatGPT, detailing improvements and new features across various functionalities such as user interface, integrations, and model enhancements. Key highlights include the introduction of ChatGPT in Apple CarPlay, updates to existing apps, and enhancements in mobile experiences.",
+      "date": "2026-04-02",
+      "category": "Feature"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://openai.com/news/",
+      "title": "OpenAI acquires TBPN",
+      "summary": "OpenAI announces the acquisition of TBPN, marking a significant expansion of its capabilities and resources. This move is expected to enhance the company's position in the AI landscape.",
+      "date": "2026-04-02",
+      "category": "Acquisition"
+    },
+    {
+      "company": "Google",
+      "color": "#3B82F6",
+      "url": "https://developers.googleblog.com/en/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4",
+      "title": "Bring state-of-the-art agentic skills to the edge with Gemma 4",
+      "summary": "Google DeepMind has launched Gemma 4, a family of advanced open models that empower developers to create agentic and autonomous AI solutions directly on their devices. With capabilities such as multi-step planning and support for over 140 languages, Gemma 4 marks a significant leap in on-device AI development, making complex workflows and applications more accessible.",
+      "date": "2026-04-02",
+      "category": "Feature"
+    },
+    {
+      "company": "Google",
+      "color": "#3B82F6",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-march-2026/",
+      "title": "The latest AI news we announced in March 2026",
+      "summary": "In March 2026, Google released significant updates to its AI offerings, emphasizing the enhancement of the Gemini platform. Key features included an expansion of Search Live, better context understanding for personal tasks, and upgraded capabilities for Google Maps and other productivity tools.",
+      "date": "2026-04-01",
+      "category": "Feature"
+    },
+    {
+      "company": "Databricks",
+      "color": "#FF3621",
+      "url": "https://docs.databricks.com/aws/en/ai-bi/release-notes/2026",
+      "title": "AI/BI Features and Improvements Released in 2026",
+      "summary": "This post outlines the key AI/BI features and enhancements from Databricks that were released throughout 2026, highlighting significant updates across various functionalities such as dashboards, Genie enhancements, and Databricks One improvements. Key features include new user-friendly display options, API availability, and improved navigation capabilities.",
+      "date": "2026-04-01",
+      "category": "Feature"
+    },
+    {
+      "company": "Databricks",
+      "color": "#FF3621",
+      "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/march",
+      "title": "Databricks Release Notes - March 2026",
+      "summary": "This document outlines the latest features and improvements released on the Databricks platform in March 2026, including new functionalities for various tools and integrations. Key highlights include updates to the Databricks Connector for Google Sheets, the introduction of AI Runtime in Public Preview, and enhancements to the Databricks SQL editor.",
+      "date": "2026-04-01",
+      "category": "Feature"
+    },
+    {
+      "company": "Databricks",
+      "color": "#FF3621",
+      "url": "https://docs.databricks.com/gcp/en/ai-bi/release-notes/2026",
+      "title": "April 2026 Release Notes",
+      "summary": "The April 2026 release includes multiple enhancements for dashboards, Genie, and Databricks One. Key improvements feature clearer filter management, new visual capabilities, and general availability of the Genie Conversation API.",
+      "date": "2026-04-01",
+      "category": "Feature"
+    },
+    {
+      "company": "Adobe",
+      "color": "#FF0000",
+      "url": "https://experienceleague.adobe.com/en/docs/workfront/using/product-announcements/product-releases/release-26-q2/26-q2-release-overview",
+      "title": "Second Quarter 2026 release overview",
+      "summary": "The Second Quarter 2026 release overview details the new functionalities and enhancements scheduled for April 2026, including AI Collaborators, document enhancements, and updates to enterprise operations. These improvements are designed to optimize user experience and operational efficiency in Adobe Workfront.",
+      "date": "2026-04-01",
+      "category": "Feature"
+    },
+    {
+      "company": "Adobe",
+      "color": "#FF0000",
+      "url": "https://experienceleague.adobe.com/en/docs/journey-optimizer/using/whats-new/previous-rn-new/release-notes-2026",
+      "title": "Release Notes 2026",
+      "summary": "The 2026 release notes for Journey Optimizer detail new capabilities and improvements, including journey arbitration, action activities, wave sending for campaigns, and integration of web push notifications. The release outlines various enhancements aimed at enhancing user experience and efficiency for both users and organizations.",
+      "date": "2026-04-01",
+      "category": "Feature"
+    },
+    {
+      "company": "Google",
+      "color": "#3B82F6",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/veo-3-1-lite/",
+      "title": "Build with Veo 3.1 Lite, our most cost-effective video generation model",
+      "summary": "Google has introduced Veo 3.1 Lite, the most affordable video generation model available, which allows developers to create high-volume video applications at a reduced cost. This model supports various video formats and resolutions and is now accessible through the Gemini API and Google AI Studio.",
+      "date": "2026-03-31",
+      "category": "Feature"
+    },
+    {
+      "company": "Amazon AWS",
+      "color": "#FF9900",
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-reliable-ai-agents-with-amazon-bedrock-agentcore-evaluations",
+      "title": "Build reliable AI agents with Amazon Bedrock AgentCore Evaluations",
+      "summary": "The post discusses the challenges of AI agent evaluations, particularly for large language models (LLMs), and introduces Amazon Bedrock AgentCore Evaluations, a managed service designed to assess AI agent performance throughout the development lifecycle. It outlines the evaluation methods, principles for effective assessment, and the continuous improvement process to enhance AI agent reliability in production environments.",
+      "date": "2026-03-31",
+      "category": "Feature"
     },
     {
       "company": "Cohere",
       "color": "#EF4444",
       "url": "https://cohere.com/blog/authors/neeral-beladia",
       "title": "Ensemble and Cohere building the first RCM‑native healthcare LLM",
-      "summary": "This article discusses the collaboration between Ensemble and Cohere to create the first healthcare language model specifically designed for revenue cycle management (RCM). It highlights the innovative approaches being implemented to enhance healthcare services through advanced AI technologies.",
-      "date": "Mar 31, 2026",
-      "category": "Research"
-    },
-    {
-      "company": "Cohere",
-      "color": "#EF4444",
-      "url": "https://cohere.com/blog/ensemble-cohere-custom-healthcare-llm-for-rcm",
-      "title": "Ensemble and Cohere building the first RCM‑native healthcare LLM",
-      "summary": "Cohere and Ensemble are collaborating to develop the first revenue cycle management (RCM)-native large language model for healthcare. This custom model addresses the complexities of the healthcare payments ecosystem by incorporating operational insights and expertise, aiming to improve accuracy and reduce overhead in revenue cycle management processes.",
-      "date": "Mar 31, 2026",
-      "category": "Partnership"
-    },
-    {
-      "company": "Perplexity",
-      "color": "#F59E0B",
-      "url": "https://www.perplexity.ai/hub/blog/introducing-perplexity-health",
-      "title": "Introducing Perplexity Health",
-      "summary": "Perplexity Health is launched to provide accurate health information by connecting personal health data from various sources. It offers a personalized dashboard to answer health questions by integrating lab results, medical records, and wearable data.",
-      "date": "Mar 19, 2026",
+      "summary": "This blog post discusses the collaboration between Ensemble and Cohere to create a healthcare language model tailored for revenue cycle management. It highlights the innovative approaches being implemented to enhance accuracy and efficiency in healthcare settings.",
+      "date": "2026-03-31",
       "category": "Research"
     },
     {
@@ -89,18 +163,396 @@
       "color": "#F59E0B",
       "url": "https://www.perplexity.ai/hub/blog/announcing-the-secure-intelligence-institute",
       "title": "Announcing the Secure Intelligence Institute",
-      "summary": "Perplexity is launching the Secure Intelligence Institute (SII), a flagship research center focused on advancing security, privacy, and trust in frontier AI. This initiative builds on notable previous research and engineering work to address security questions in AI systems and foster collaboration across academia and industry.",
-      "date": "Mar 31, 2026",
+      "summary": "Perplexity has launched the Secure Intelligence Institute (SII), which will serve as a flagship research center focused on advancing security, privacy, and trust in frontier AI. This initiative strengthens ongoing efforts in AI security, promoting collaboration with the broader community to enhance safety in AI systems.",
+      "date": "2026-03-31",
       "category": "Research"
+    },
+    {
+      "company": "Databricks",
+      "color": "#FF3621",
+      "url": "https://www.databricks.com/company/newsroom/press-releases/databricks-announces-850m-uk-investment-accelerate-enterprise-data",
+      "title": "Databricks Announces $850M UK Investment to Accelerate Enterprise Data + AI Adoption",
+      "summary": "Databricks plans to invest over $850 million in the UK over the next three years, expanding its office footprint and workforce, while enhancing its AI capabilities with products like Lakebase and Genie. The investment aims to attract top AI talent and train 100,000 individuals in data and AI skills by 2028.",
+      "date": "2026-03-31",
+      "category": "Partnership"
+    },
+    {
+      "company": "Runway",
+      "color": "#00E5FF",
+      "url": "https://runwayml.com/news/introducing-runway-fund",
+      "title": "Introducing Runway Fund",
+      "summary": "Runway Fund is an investment vehicle launching to support the next generation of companies in AI, media, and world simulation. With initial commitments of up to $10M, the fund aims to invest in pre-seed and seed stage companies focusing on AI research, new applications, and innovative media and content.",
+      "date": "2026-03-31",
+      "category": "Partnership"
+    },
+    {
+      "company": "Runway",
+      "color": "#00E5FF",
+      "url": "https://runwayml.com/news/introducing-runway-builders",
+      "title": "Introducing Runway Builders",
+      "summary": "Runway Builders is a program aimed at Seed to Series C startups, providing them with complimentary API credits and early access to build using Runway Characters. This initiative supports innovative projects in generative video and conversational AI by offering direct partnership with the Runway team.",
+      "date": "2026-03-31",
+      "category": "Partnership"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://openai.com/index/accelerating-the-next-phase-ai/",
+      "title": "OpenAI raises $122 billion to accelerate the next phase of AI",
+      "summary": "OpenAI has successfully closed its latest funding round, securing $122 billion in committed capital at a valuation of $852 billion. This funding will enable the company to continue enhancing its AI infrastructure and capabilities, driving productivity, scientific discovery, and expanding opportunities for businesses globally.",
+      "date": "2026-03-31",
+      "category": "Feature"
+    },
+    {
+      "company": "Hugging Face",
+      "color": "#FFD21E",
+      "url": "https://huggingface.co/blog/rishiraj/fused-int8-weight-only-quantization-in-pallas",
+      "title": "Accelerating LLM Inference: Fused INT8 Weight-Only Quantization in Pallas",
+      "summary": "This article discusses the bottlenecks in Large Language Model (LLM) inference and introduces the concept of Weight-Only Quantization to enhance memory bandwidth efficiency. By using jax's Pallas extension to implement a custom kernel, it highlights how to optimize the data movement in memory, crucial for improving performance in LLMs.",
+      "date": "2026-03-30",
+      "category": "Feature"
+    },
+    {
+      "company": "Adobe",
+      "color": "#FF0000",
+      "url": "https://helpx.adobe.com/illustrator/desktop/new-features/release-notes.html",
+      "title": "Adobe Illustrator on Desktop Release Notes",
+      "summary": "This post details the latest updates, new features, and bug fixes for Adobe Illustrator. The most recent update as of March 2026 includes enhancements such as the Turntable feature for generating views, improved font handling, and direct export options for Adobe Cloud storage.",
+      "date": "2026-03-30",
+      "category": "Feature"
+    },
+    {
+      "company": "Adobe",
+      "color": "#FF0000",
+      "url": "https://helpx.adobe.com/illustrator/desktop/new-features/whats-new.html",
+      "title": "What’s new in Adobe Illustrator on desktop",
+      "summary": "This post highlights the latest features and enhancements introduced in Adobe Illustrator version 30.3, released on March 30, 2026. Key improvements include the Turntable feature for viewing objects from multiple angles, Auto Select for generating variations, and enhanced export capabilities to Adobe cloud storage.",
+      "date": "2026-03-30",
+      "category": "Feature"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://openai.com/news/global-affairs",
+      "title": "Helping disaster response teams turn AI into action across Asia",
+      "summary": "This blog post discusses the collaboration between OpenAI and various disaster response teams in Asia to leverage artificial intelligence for disaster management. The initiative aims to improve the effectiveness of responses to natural disasters through advanced AI solutions.",
+      "date": "2026-03-29",
+      "category": "Partnership"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://help.openai.com/zh-hant-hk/articles/11391654-chatgpt-business-release-notes",
+      "title": "ChatGPT Business - Release Notes",
+      "summary": "This article provides a comprehensive changelog of the latest updates for the ChatGPT Business plan, detailing enhancements and new features added to various applications such as Box, Notion, and Google Drive, alongside the introduction of plugins and updates on Microsoft app scopes. Each update includes information on how these features impact workspace administration and user interactions.",
+      "date": "2026-03-27",
+      "category": "API Update"
+    },
+    {
+      "company": "Google",
+      "color": "#3B82F6",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-updates-march-2026/",
+      "title": "Find out what’s new in the Gemini app in March's Gemini Drop",
+      "summary": "March's Gemini Drop introduces a range of new features aimed at enhancing user experience, such as transferring AI chat history, free personalized help across Google apps, and upgrades to Gemini Live for more intuitive conversations. Notable additions include the Lyria 3 Pro for composing longer tracks and enhanced visual answers on Google TV.",
+      "date": "2026-03-27",
+      "category": "Feature"
+    },
+    {
+      "company": "Databricks",
+      "color": "#FF3621",
+      "url": "https://docs.databricks.com/aws/en/sql/release-notes/2026",
+      "title": "Databricks SQL version 2026.10 is now available in Preview",
+      "summary": "The Databricks SQL version 2026.10 has been released in the Preview channel, introducing significant new features and bug fixes. Notable enhancements include improvements to observation metrics, optimized writes for Unity Catalog, support for filter clauses in aggregate functions, and enhanced geospatial functions.",
+      "date": "2026-03-26",
+      "category": "Feature"
+    },
+    {
+      "company": "Google",
+      "color": "#3B82F6",
+      "url": "https://blog.google/products/ads-commerce/demand-gen-drop-march-2026/",
+      "title": "Upgrade your creative performance with March’s Demand Gen Drop.",
+      "summary": "March’s Demand Gen drop introduces new AI-powered features and creator partnerships that help you achieve creative excellence and scale authentic creator content for better results. By leveraging tools like Veo in Google Ads and optimizing for follow-on views on YouTube, you can significantly enhance your campaign effectiveness.",
+      "date": "2026-03-26",
+      "category": "Feature"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://openai.com/news/safety-alignment",
+      "title": "Introducing the OpenAI Safety Bug Bounty program",
+      "summary": "The OpenAI Safety Bug Bounty program is launched to empower the community in identifying and resolving safety issues in AI systems. This initiative aims to enhance the overall safety of OpenAI's technologies.",
+      "date": "2026-03-25",
+      "category": "Safety"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://openai.com/news/research",
+      "title": "Inside our approach to the Model Spec",
+      "summary": "This post delves into OpenAI's innovative strategies for developing and sharing model specifications. It highlights the key principles guiding their approach to transparency and collaboration in AI research.",
+      "date": "2026-03-25",
+      "category": "Research"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://openai.com/index/update-on-the-openai-foundation/",
+      "title": "Update on the OpenAI Foundation",
+      "summary": "The OpenAI Foundation is initiating significant efforts to harness AI for the benefit of humanity, focusing on life sciences, job impact, AI resilience, and community support. With an initial investment of at least $1 billion, they aim to tackle challenges in healthcare, economic impact, and safety in AI advancements.",
+      "date": "2026-03-24",
+      "category": "Partnership"
+    },
+    {
+      "company": "Google",
+      "color": "#3B82F6",
+      "url": "https://blog.google/products-and-platforms/platforms/google-tv/new-gemini-features-march-2026/",
+      "title": "3 new Gemini features are coming to Google TV",
+      "summary": "Google TV is introducing three new Gemini features that enhance the viewing experience with richer visual answers, narrated deep dives, and timely sports updates. These features make it easier for users to explore topics of interest on their screens.",
+      "date": "2026-03-24",
+      "category": "Feature"
+    },
+    {
+      "company": "Databricks",
+      "color": "#FF3621",
+      "url": "https://www.databricks.com/blog/announcing-2026-built-databricks-startup-challenge",
+      "title": "Announcing the 2026 Built-On Databricks Startup Challenge",
+      "summary": "The 2026 Built-On Databricks Startup Challenge is a global competition for early-stage B2B startups building core products on the Databricks platform, offering over $1 million in prizes and potential venture investment. Sponsored by Databricks Ventures and Databricks for Startups, this initiative connects innovative startups with vital resources and mentorship to accelerate their growth.",
+      "date": "2026-03-23",
+      "category": "Partnership"
+    },
+    {
+      "company": "Midjourney",
+      "color": "#FBBF24",
+      "url": "https://updates.midjourney.com/v8-alpha/",
+      "title": "Introducing the V8 Model: Early Access and Features",
+      "summary": "Today, we are excited to let the community test an early version of our V8 model, which excels in following detailed directions and generating coherent images at a much faster rate. With improved web interfaces and new features like multiple aspect ratios and HD mode, we encourage user feedback to enhance the model further.",
+      "date": "2026-03-21",
+      "category": "Feature"
+    },
+    {
+      "company": "Midjourney",
+      "color": "#FBBF24",
+      "url": "https://www.midjourney.com/updates",
+      "title": "Relax mode for V8 Alpha",
+      "summary": "The Relax mode for V8 Alpha is now available for Standard, Pro, and Mega subscribers, allowing specific commands while maintaining efficiency. Additionally, there's a new version of SREF/Moodboards that is faster and more cost-effective, with ongoing improvements promised for the V8 model based on user feedback.",
+      "date": "2026-03-20",
+      "category": "Feature"
     },
     {
       "company": "Perplexity",
       "color": "#F59E0B",
-      "url": "https://www.perplexity.ai/hub/blog/introducing-the-perplexity-health-advisory-board",
-      "title": "Introducing the Perplexity Health Advisory Board",
-      "summary": "Perplexity announces the creation of the Health Advisory Board, consisting of physicians, researchers, and health technology leaders, to enhance the quality of health information and support patient-clinician interactions. This initiative aims to ensure that future product decisions reflect evidence-based medicine and clinical rigor.",
-      "date": "Mar 19, 2026",
+      "url": "https://www.perplexity.ai/hub/blog/introducing-perplexity-health",
+      "title": "Introducing Perplexity Health",
+      "summary": "Perplexity Health is a new suite of tools designed to connect personal health data, offering users comprehensive answers to health-related queries. With integrations from various health platforms, Perplexity Health aims to streamline access to medical records, lab results, and fitness data, while ensuring high-quality information backed by credible sources.",
+      "date": "2026-03-19",
+      "category": "Feature"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
+      "title": "Model Release Notes",
+      "summary": "This update details the rollout of GPT-5.4 mini and various model updates for GPT-5.3 and GPT-5.1, highlighting improvements in reasoning, coding capabilities, and user experience. The release also notes the retirement and changes to several existing models, alongside enhancements to the thinking time and response styles in ChatGPT.",
+      "date": "2026-03-18",
+      "category": "Model Release"
+    },
+    {
+      "company": "Midjourney",
+      "color": "#FBBF24",
+      "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+      "title": "Explore and switch between Midjourney versions using the version parameter: `--version` or `--v`",
+      "summary": "This blog post discusses the various versions of Midjourney, highlighting changes and features in versions V6, V7, and V8 Alpha. Users are guided on setting default versions and understanding the impact of these versions on their image generation results.",
+      "date": "2026-03-17",
+      "category": "Feature"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://platform.openai.com/docs/changelog",
+      "title": "GPT-5.4 Release Note",
+      "summary": "The GPT-5.4 mini and nano models were recently released for the Chat Completions and Responses API, enhancing performance and efficiency for high-volume workloads. These models bring significant improvements to speed and are optimized for simpler tasks and high-volume usage.",
+      "date": "2026-03-17",
+      "category": "Feature"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://developers.openai.com/api/docs/changelog/",
+      "title": "Changelog",
+      "summary": "This is a detailed changelog of the OpenAI API updates, features, model releases, and fixes dating back to January 2024. Key updates include the release of GPT-5.4 mini and nano models, enhancements in the Responses API, and various features aimed at optimizing performance and user experience.",
+      "date": "2026-03-17",
+      "category": "Feature"
+    },
+    {
+      "company": "Mistral",
+      "color": "#F97316",
+      "url": "https://mistral.ai/news/leanstral",
+      "title": "Leanstral: Open-Source foundation for trustworthy vibe-coding",
+      "summary": "Mistral AI has introduced Leanstral, the first open-source code agent for Lean 4, aimed at enhancing coding efficiency through formal proof. This innovative tool strives to automate proof engineering tasks and improve verification accuracy in code generation.",
+      "date": "2026-03-16",
       "category": "Research"
+    },
+    {
+      "company": "Databricks",
+      "color": "#FF3621",
+      "url": "https://docs.databricks.com/aws/en/release-notes/",
+      "title": "Databricks Release Notes",
+      "summary": "This page provides organized release notes for Databricks, including details on Databricks Runtime releases, platform features, and feature-specific notes. It is updated regularly to reflect the latest developments and improvements in the Databricks ecosystem.",
+      "date": "2026-03-16",
+      "category": "Feature"
+    },
+    {
+      "company": "xAI",
+      "color": "#8B5CF6",
+      "url": "https://docs.x.ai/developers/release-notes",
+      "title": "Batch API supports Image and Video generation",
+      "summary": "The Batch API has expanded its capabilities to include image generation and video generation alongside chat completions. Both server-side and client-side tools are now supported in batch requests, with URLs for image and video results expiring after one hour.",
+      "date": "2026-03-15",
+      "category": "API Update"
+    },
+    {
+      "company": "ElevenLabs",
+      "color": "#F472B6",
+      "url": "https://elevenlabs.io/blog/meet-flash",
+      "title": "Meet Flash",
+      "summary": "Meet Flash, our newest model that generates speech in just 75ms, making it ideal for low-latency conversational voice agents. Integrated within our Conversational AI platform, Flash supports 32 languages and offers a competitive edge in ultra-low-latency applications, despite slightly lower quality compared to Turbo models.",
+      "date": "2026-03-14",
+      "category": "Feature"
+    },
+    {
+      "company": "ElevenLabs",
+      "color": "#F472B6",
+      "url": "https://elevenlabs.io/blog/generate-high-quality-indian-accent-text-to-speech",
+      "title": "Generate high-quality Indian accent Text to Speech",
+      "summary": "This blog post discusses how to create realistic Indian accent text-to-speech using ElevenLabs' platform. It provides guidance on selecting voices, models, and adjusting text parameters to enhance audio quality, and emphasizes the tool's applications in storytelling, marketing, and education.",
+      "date": "2026-03-14",
+      "category": "Feature"
+    },
+    {
+      "company": "ElevenLabs",
+      "color": "#F472B6",
+      "url": "https://elevenlabs.io/blog/voicemail-detection",
+      "title": "Voicemail Detection now available in Conversational AI",
+      "summary": "Voicemail detection automatically identifies voicemail systems, allowing voice agents to avoid wasting time and credits. It offers strategies for handling voicemails intelligently, ultimately reducing costs and improving operational efficiency.",
+      "date": "2026-03-14",
+      "category": "Feature"
+    },
+    {
+      "company": "ElevenLabs",
+      "color": "#F472B6",
+      "url": "https://elevenlabs.io/blog/how-to-generate-speech-in-multiple-languages",
+      "title": "How to generate speech in multiple languages?",
+      "summary": "This post explores how advancements in AI and machine learning have made it possible to generate synthetic speech in various languages. It discusses the benefits of multilingual text-to-speech technology, voice cloning, and the ethical considerations surrounding its use.",
+      "date": "2026-03-14",
+      "category": "Feature"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://community.openai.com/t/sora-1-sunset-for-us-users-on-march-13-2026/1375322",
+      "title": "Sora 1 Sunset for US users on March 13, 2026",
+      "summary": "Sora 1 will no longer be available for users in the United States starting March 13, 2026. Users are advised to export their data before this date, as all images and videos associated with Sora 1 will be removed.",
+      "date": "2026-03-13",
+      "category": "Policy"
+    },
+    {
+      "company": "Runway",
+      "color": "#00E5FF",
+      "url": "https://runwayml.com/news/building-interactive-ai-characters-responsibly",
+      "title": "Building Interactive AI Characters Responsibly",
+      "summary": "Runway has launched Runway Characters, a real-time video agent API that allows the creation of conversational characters from a single image. This technology poses important questions about consent, representation, and the ethical implications of AI avatars in digital interactions.",
+      "date": "2026-03-12",
+      "category": "Feature"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://openai.com/news/engineering",
+      "title": "From model to agent: Equipping the Responses API with a computer environment",
+      "summary": "This post discusses the enhancements made to the Responses API by integrating a computer environment, facilitating more efficient processing. The article outlines key features and technical insights about the upgrades.",
+      "date": "2026-03-11",
+      "category": "Feature"
+    },
+    {
+      "company": "Runway",
+      "color": "#00E5FF",
+      "url": "https://runwayml.com/news/introducing-runway-labs",
+      "title": "Introducing Runway Labs",
+      "summary": "Runway Labs is an internal incubator launched to explore the next generation of applications for generative video, focusing on how AI can transform various industries. Led by Co-Founder Alejandro Matamala Ortiz, the initiative aims to prototype bold new products and experiences that harness the power of AI video and General World Models.",
+      "date": "2026-03-11",
+      "category": "Feature"
+    },
+    {
+      "company": "Adobe",
+      "color": "#FF0000",
+      "url": "https://community.adobe.com/announcements-327/adobe-express-2026-updates-1553068",
+      "title": "Adobe Express: 2026 Updates",
+      "summary": "Adobe Express has introduced numerous enhancements aimed at improving workflows in creation, video editing, and brand management. Key features include faster presentation generation, improved video editing capabilities, new export options, and better support for various image formats.",
+      "date": "2026-03-10",
+      "category": "Feature"
+    },
+    {
+      "company": "Adobe",
+      "color": "#FF0000",
+      "url": "https://helpx.adobe.com/security/products/illustrator/apsb26-18.html",
+      "title": "Security Updates Available for Adobe Illustrator | APSB26-18",
+      "summary": "Adobe has released an update for Adobe Illustrator to address important and critical vulnerabilities that could potentially lead to arbitrary code execution and memory exposure. There are no known exploits in the wild for the issues resolved in this update.",
+      "date": "2026-03-10",
+      "category": "Safety"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://help.openai.com/zh-hant-hk/articles/12591856-chatgpt-atlas-release-notes",
+      "title": "ChatGPT Atlas - Release Notes",
+      "summary": "This post outlines the latest updates and features included in the ChatGPT Atlas browser, released on various dates in early 2026. Notable enhancements include multiple ChatGPT logins, improved tab searching, and functionalities such as Save Prompts and Agent Mode that allow for smarter interactions and better user experience.",
+      "date": "2026-03-10",
+      "category": "Feature"
+    },
+    {
+      "company": "Runway",
+      "color": "#00E5FF",
+      "url": "https://runwayml.com/changelog",
+      "title": "New updates and improvements to Runway",
+      "summary": "Runway has introduced multiple updates across its platform, including the launch of Runway Characters, advanced image generation models, and improved audio features. Users can now enjoy real-time avatars, new video models, and enhanced workflows to streamline their creative processes.",
+      "date": "2026-03-09",
+      "category": "Feature"
+    },
+    {
+      "company": "Runway",
+      "color": "#00E5FF",
+      "url": "https://runwayml.com/news/introducing-runway-characters",
+      "title": "Introducing Runway Characters",
+      "summary": "Runway has launched Runway Characters, a real-time video agent API enabling the creation of fully custom conversational characters from a single image. These characters can adapt in appearance and style, offering extensive customization in voice, personality, and actions, paving the way for a new era in online interactions.",
+      "date": "2026-03-09",
+      "category": "Feature"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://openai.com/news/company-announcements",
+      "title": "Introducing GPT-5.4",
+      "summary": "OpenAI announced the release of GPT-5.4, a significant upgrade to its language model offering improved capabilities. This new version aims to enhance user interactions and performance across various applications.",
+      "date": "2026-03-05",
+      "category": "Feature"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://openai.com/news/ai-adoption",
+      "title": "The five AI value models driving business reinvention",
+      "summary": "This post discusses five key AI value models that are transforming how businesses operate and innovate. It highlights the importance of integrating AI into business strategies for enhanced efficiency and competitiveness.",
+      "date": "2026-03-05",
+      "category": "Feature"
+    },
+    {
+      "company": "Adobe",
+      "color": "#FF0000",
+      "url": "https://experienceleague.adobe.com/en/docs/analytics/release-notes/previous/2026",
+      "title": "2026 Adobe Analytics Release Notes",
+      "summary": "The 2026 release notes for Adobe Analytics outline new features and improvements, including enhanced data feeds and API guides. Significant updates also focus on the user experience and managing templates, while several bug fixes are documented for accuracy and reliability.",
+      "date": "2026-03-05",
+      "category": "Feature"
     }
   ]
 }

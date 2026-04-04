@@ -1,413 +1,139 @@
 {
-  "date": "2026-04-01",
-  "date_label": "31 March 2026",
-  "synthesized_at": "2026-04-01T21:22:28.620984",
+  "date": "2026-04-03",
+  "date_label": "Thursday, April 3, 2026",
   "summary": {
-    "hook": "$122 billion for OpenAI, bunker busters over Isfahan: the future and its destruction are being funded simultaneously.",
-    "briefs": [
-      {
-        "icon": "ai",
-        "label": "AI",
-        "text": "OpenAI closed a record $122 billion funding round, dwarfing all previous AI raises and signaling investor conviction even as global instability deepens."
-      },
-      {
-        "icon": "world",
-        "label": "World",
-        "text": "US bunker-busting munitions struck Iran's Isfahan uranium depot as the conflict enters its fifth week with no ceasefire in sight."
-      },
-      {
-        "icon": "markets",
-        "label": "Markets",
-        "text": "Extreme fear dominates sentiment as gold approaches $4,554 per ounce yet posts a historic monthly decline, reflecting chaotic hedging behavior amid wartime uncertainty."
-      },
-      {
-        "icon": "wildcard",
-        "label": "Wild Card",
-        "text": "OpenAI simultaneously raised the largest private round in history and launched a safety bug bounty targeting AI misuse, a pairing that captures the industry's split personality between growth at all costs and existential caution."
-      }
-    ],
-    "focus_topics": [
-      {
-        "number": 1,
-        "title": "OpenAI's $122B War Chest",
-        "description": "The record raise resets the scale of AI competition entirely, likely exceeding the combined recent rounds of every major rival. With Amazon co-building a stateful AI runtime alongside OpenAI, the company is positioning itself not just as a model provider but as core infrastructure. The capital injection lands at a moment when geopolitical chaos could accelerate government demand for AI capabilities."
-      },
-      {
-        "number": 2,
-        "title": "Five Weeks, No Off-Ramp",
-        "description": "US strikes on Isfahan's uranium depot mark a significant escalation, targeting Iran's nuclear infrastructure directly. Iran's retaliatory drone strike on an oil tanker near the Strait of Hormuz threatens global energy supply lines. Trump's posting of strike footage adds an unprecedented information warfare dimension, compressing the gap between military operations and public spectacle."
-      },
-      {
-        "number": 3,
-        "title": "AI Safety Under Dual Pressure",
-        "description": "Anthropic's safety memorandum of understanding with Australia and OpenAI's new misuse-focused bug bounty suggest the industry is racing to build governance credibility before regulators impose it. These moves come as Mistral ships agentic tooling and Amazon builds persistent AI runtimes, capabilities that multiply both utility and risk. The safety conversation is no longer theoretical; it is being shaped by products already entering production."
-      }
-    ],
-    "kpis": {
-      "ai_stories": 8,
-      "world_events": 6,
-      "market_mood": "Extreme Fear",
-      "tools_featured": 6
-    }
+    "hook": "Google's Gemma 4 drops open weights into a world where oil just spiked 11% and fear rules everything."
   },
   "ai_news": [
     {
-      "title": "OpenAI Raises $122 Billion in Record Round",
-      "body": "OpenAI has secured $122 billion in funding to accelerate the next phase of AI development. The investment, announced on the company's official blog, represents the largest single fundraise in AI history and will fund infrastructure buildout and frontier model research. No specific valuation or lead investors were named in the initial announcement.",
-      "category": "Enterprise",
-      "source_name": "OpenAI Blog",
-      "source_url": "https://openai.com/index/accelerating-the-next-phase-ai/"
-    },
-    {
-      "title": "Anthropic Signs AI Safety MOU With Australia",
-      "body": "Anthropic and the Australian government have signed a Memorandum of Understanding focused on AI safety and research collaboration. The partnership aims to enhance safety practices and promote responsible AI development, marking one of the first formal bilateral agreements between a frontier AI lab and a national government. Details on specific research programs or funding commitments were not disclosed.",
-      "category": "Policy",
-      "source_name": "Anthropic Blog",
-      "source_url": "https://www.anthropic.com/news/australia-MOU"
-    },
-    {
-      "title": "Mistral Launches Spaces CLI for Agents",
-      "body": "Mistral has released Spaces, a command-line interface designed for both human developers and AI agents. The company says the process of designing for agent workflows forced it to build better tooling for everyone, resulting in a CLI that streamlines user-agent interactions. Spaces represents Mistral's growing investment in agentic infrastructure beyond pure model releases.",
-      "category": "Agents",
-      "source_name": "Mistral Blog",
-      "source_url": "https://mistral.ai/news/spaces"
-    },
-    {
-      "title": "OpenAI Safety Bug Bounty Targets AI Misuse",
-      "body": "OpenAI expanded its bug bounty program on March 26 to cover AI safety and misuse risks, moving beyond traditional software vulnerabilities. The new Safety Bug Bounty Program rewards researchers who identify ways models can be manipulated for harmful outputs. Alongside it, OpenAI published its Model Spec framework detailing principles for model behavior, instruction-following, and conflict resolution.",
-      "category": "Policy",
-      "source_name": "Labla.org",
-      "source_url": "https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-march-26-2026-direction-over-drama/"
-    },
-    {
-      "title": "Amazon and OpenAI Build Stateful AI Runtime",
-      "body": "Amazon and OpenAI announced a partnership on March 26 to co-develop a Stateful Runtime Environment on Amazon Bedrock. The system emphasizes persistent memory and tool-use infrastructure, enabling AI agents to maintain context across sessions and interact with external services. Availability is planned for the coming months, positioning Bedrock as a key platform for agentic applications.",
-      "category": "Enterprise",
-      "source_name": "Labla.org",
-      "source_url": "https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-march-26-2026-direction-over-drama/"
-    },
-    {
-      "title": "Google Ships Gemini 3 Deep Think Model",
-      "body": "Google launched Gemini 3 Deep Think on March 26, targeting scientific and engineering tasks such as identifying logical flaws in math papers and optimizing fabrication methods. The model is live in the Gemini app for Ultra subscribers with early API access available. It launched alongside Lyria 3 and Lyria 3 Pro music generation models as part of Google's expanding specialized model family.",
       "category": "Model Release",
-      "source_name": "Labla.org",
-      "source_url": "https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-march-26-2026-direction-over-drama/"
+      "title": "Google Releases Gemma 4 Open Models",
+      "body": "Google launched Gemma 4 on April 2, 2026, calling it the most intelligent open model family it has produced. The release emphasizes advanced reasoning and agentic workflows with what Google describes as unprecedented intelligence-per-parameter efficiency. Hugging Face quickly stood up a Gemma 4 Playground on Spaces with ZeroGPU access, signaling immediate community adoption.",
+      "source_name": "radicaldatascience.wordpress.com",
+      "source_url": "https://radicaldatascience.wordpress.com/2026/04/02/ai-news-briefs-bulletin-board-for-april-2026/"
     },
     {
-      "title": "Q1 2026 Release Pace Cools After Record Surge",
-      "body": "After hitting 255 model releases in Q1 2026, the final days of March saw a notable slowdown with no major new model launches between March 27 and 31. The quiet stretch follows a concentrated burst of activity earlier in the month, including GPT-5.4 on March 5, Mistral Small 4 around March 17, and NVIDIA Nemotron 3 Super near March 11. The pattern suggests labs are shifting resources toward infrastructure and agentic tooling rather than raw model releases.",
+      "category": "Enterprise",
+      "title": "OpenAI Acquires TBPN in Expansion Push",
+      "body": "OpenAI announced it has successfully acquired TBPN, a deal the company says will enhance its capabilities in AI and machine learning applications. Details on TBPN's technology stack and deal terms have not been disclosed. The acquisition follows OpenAI's record $122 billion fundraise and signals continued aggressive expansion beyond model development.",
+      "source_name": "openai.com",
+      "source_url": "https://openai.com/index/openai-acquires-tbpn/"
+    },
+    {
+      "category": "Enterprise",
+      "title": "Codex Gets Pay-as-You-Go Team Pricing",
+      "body": "OpenAI introduced flexible, usage-based pricing for its Codex coding platform, replacing fixed-tier plans for teams. The pay-as-you-go model is designed to lower the barrier for smaller developer teams and organizations that do not need always-on capacity. No specific per-token or per-request rates were disclosed in the announcement.",
+      "source_name": "openai.com",
+      "source_url": "https://openai.com/index/codex-flexible-pricing-for-teams/"
+    },
+    {
       "category": "Trend",
-      "source_name": "LLM Stats",
-      "source_url": "https://llm-stats.com/llm-updates"
+      "title": "April Prediction Markets Show Crowded Pipeline",
+      "body": "Manifold prediction markets now price Gemma 4 at 98.8% resolved for April, with five other models above 55%: MiniMax M3 (65%), Kimi K3 (63%), GPT-5.5 or variant (62%), DeepSeek V4 (58%), and Gemini 3.1 Flash (57%). Claude variants trail at 27% to 35%, while GPT-6 sits at just 10%. The data suggests April could rival March's nine-model output.",
+      "source_name": "manifold.markets",
+      "source_url": "https://manifold.markets/prismatic/april-2026-ai-model-releases"
     },
     {
-      "title": "Google Lyria 3 Pro Targets Music Generation",
-      "body": "Google released Lyria 3 and Lyria 3 Pro on March 26 as dedicated music generation models within its expanding Gemini ecosystem. The Pro variant targets higher-fidelity output for professional and creative workflows. The launch signals Google's push into specialized generative media alongside its reasoning-focused Deep Think model.",
-      "category": "Model Release",
-      "source_name": "Labla.org",
-      "source_url": "https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-march-26-2026-direction-over-drama/"
+      "category": "Open Source",
+      "title": "Hugging Face Ships TRL v1.0 Training Library",
+      "body": "Hugging Face released TRL v1.0, marking a major overhaul of its post-training library for large language models. The team described the release as a shift from research codebase to production-grade library, built to keep pace with rapidly evolving fine-tuning and alignment techniques. TRL supports reinforcement learning from human feedback and related post-training workflows.",
+      "source_name": "huggingface.co",
+      "source_url": "https://huggingface.co/blog/trl-v1"
+    },
+    {
+      "category": "Benchmark",
+      "title": "GPT-5.4 Matched Gemini 3.1 Pro at Top",
+      "body": "A detailed March retrospective from WhatLLM confirmed GPT-5.4 (xhigh) scored 57.17 on the Intelligence Index, just 0.01 points behind Gemini 3.1 Pro Preview's 57.18. The report noted nine text models shipped in March, seven of them open-weight, with three using mixture-of-experts architectures. The near-tie at the top received surprisingly little industry attention.",
+      "source_name": "whatllm.org",
+      "source_url": "https://whatllm.org/blog/llm-releases-march-2026"
+    },
+    {
+      "category": "Policy",
+      "title": "Pentagon Labels Anthropic a Supply-Chain Risk",
+      "body": "Multiple U.S. agencies began phasing out Claude models over a six-month transition after Anthropic refused to loosen restrictions on autonomous weapons use, according to WhatLLM's March roundup. Anthropic received a \"supply-chain risk\" designation, a label normally reserved for foreign adversaries. OpenAI moved quickly to secure a new Department of Defense agreement in the wake of the decision.",
+      "source_name": "whatllm.org",
+      "source_url": "https://whatllm.org/blog/llm-releases-march-2026"
+    },
+    {
+      "category": "Enterprise",
+      "title": "Coder Raises $90M Series C From KKR",
+      "body": "Coder, the enterprise development environment platform, closed a $90 million Series C round led by KKR to advance secure enterprise AI development. The funding reflects growing investor appetite for infrastructure that governs how developers interact with AI coding tools inside corporate environments. No valuation was disclosed.",
+      "source_name": "radicaldatascience.wordpress.com",
+      "source_url": "https://radicaldatascience.wordpress.com/2026/04/02/ai-news-briefs-bulletin-board-for-april-2026/"
+    },
+    {
+      "category": "Open Source",
+      "title": "March Shipped Seven Open-Weight Models in One Month",
+      "body": "Of the nine text models released in March 2026, seven were open-weight, continuing a decisive shift toward accessible model distribution. Alibaba's Qwen 3.5 series spanned 0.8B to 397B parameters across multiple MoE configurations, while the large variant scored 45 on the Intelligence Index. The open-weight dominance is reshaping the competitive landscape from the middle of the leaderboard upward.",
+      "source_name": "whatllm.org",
+      "source_url": "https://whatllm.org/blog/llm-releases-march-2026"
+    },
+    {
+      "category": "Hardware",
+      "title": "NVIDIA Nemotron Coalition Backs Open Frontier Models",
+      "body": "At GTC 2026 in mid-March, NVIDIA announced the Nemotron Coalition with partners including Mistral, Perplexity, and Cursor to develop open frontier models. Jensen Huang also revealed over $1 trillion in infrastructure orders in the pipeline and debuted the Vera Rubin AI platform, which claims roughly 10x training cost reduction for trillion-parameter models. New dedicated inference chips and an open Agent Toolkit were also unveiled.",
+      "source_name": "whatllm.org",
+      "source_url": "https://whatllm.org/blog/llm-releases-march-2026"
     }
   ],
   "world_news": [
     {
-      "title": "US Bunker Busters Hit Isfahan Uranium Depot",
-      "body": "The U.S. struck an ammunition depot in Isfahan, Iran, believed to house enriched uranium, using 2,000-pound bunker buster bombs. President Trump posted footage of the explosions on Truth Social, and an American official confirmed the strikes to The Wall Street Journal. No casualty figures or details on Iran's immediate response have been released.",
       "category": "Conflict",
-      "source_name": "Dryden Wire",
-      "source_url": "https://drydenwire.com/news/morning-headlines-tuesday-mar-31-2026/"
+      "title": "Iran Fires Missiles at Israel and Gulf States",
+      "body": "Iran launched a new wave of missile strikes targeting Israel and Gulf state energy infrastructure on April 3, as explosions were reported around Tehran and Isfahan from ongoing U.S. and Israeli counterstrikes. The attacks mark a significant escalation in the fifth day of open warfare, with President Trump claiming most targeted Iranian leaders are now dead and signaling further operations.",
+      "source_name": "ksat.com",
+      "source_url": "https://www.ksat.com/news/world/2026/04/03/the-latest-iran-launches-missiles-at-israel-and-gulf-states-as-explosions-heard-around-tehran/"
     },
     {
-      "title": "Iranian Drone Hits Oil Tanker Near Hormuz",
-      "body": "An Iranian drone struck a massive oil tanker near the Strait of Hormuz, coinciding with the U.S. strikes on Isfahan. The attack underscores the growing threat to one of the world's most critical shipping chokepoints as the U.S.-Iran war enters its fifth week. Energy markets remain on edge with no ceasefire in sight.",
-      "category": "Conflict",
-      "source_name": "Dryden Wire",
-      "source_url": "https://drydenwire.com/news/morning-headlines-tuesday-mar-31-2026/"
-    },
-    {
-      "title": "Trump Posts Strike Footage, Officials Confirm Hits",
-      "body": "President Trump shared video on Truth Social showing 2,000-pound bombs detonating at the Isfahan site, marking an unusual real-time disclosure of a military operation by a sitting president. A U.S. official subsequently confirmed the strikes to The Wall Street Journal. The post included no information on casualties or operational details beyond the footage itself.",
-      "category": "Policy",
-      "source_name": "Dryden Wire",
-      "source_url": "https://drydenwire.com/news/morning-headlines-tuesday-mar-31-2026/"
-    },
-    {
-      "title": "Gold Nears $4,554 but Posts Historic Monthly Drop",
-      "body": "Gold traded up roughly 1% to around $4,553.69 per ounce early Tuesday, yet remains on track for its largest monthly decline since 2008. Front-month futures rose 0.6% by 3:30 a.m. ET. The paradox of rising daily prices against a steep monthly loss reflects extreme war-driven volatility whipsawing commodity markets throughout March.",
       "category": "Economy",
-      "source_name": "Dryden Wire",
-      "source_url": "https://drydenwire.com/news/morning-headlines-tuesday-mar-31-2026/"
+      "title": "Oil Surges 11.4% to $111.54 on Hormuz Threat",
+      "body": "U.S. crude closed at $111.54 per barrel on April 3, posting an 11.4% single-day gain, the largest since April 2020. The spike was driven by Iran's attacks on Gulf energy infrastructure and its tightening control over the Strait of Hormuz, through which roughly a fifth of global oil transits.",
+      "source_name": "golocalprov.com",
+      "source_url": "https://www.golocalprov.com/news/5-big-news-stories-overnight-friday-april-3-2026"
     },
     {
-      "title": "US-Iran War at Five Weeks, No Ceasefire",
-      "body": "The conflict between the United States and Iran has now entered its fifth week with no diplomatic off-ramp in sight. Simultaneous escalations on March 31, including the Isfahan strike and the Hormuz tanker attack, signal both sides are intensifying operations rather than moving toward talks. Global energy and security implications continue to mount around the Strait of Hormuz chokepoint.",
       "category": "Conflict",
-      "source_name": "Dryden Wire",
-      "source_url": "https://drydenwire.com/news/morning-headlines-tuesday-mar-31-2026/"
+      "title": "U.S. Sinks Iranian Warship Off Sri Lanka",
+      "body": "The U.S. military sank the Iranian naval vessel IRIS Dena in the Indian Ocean off Sri Lanka's coast. Sri Lanka's navy recovered 87 bodies and rescued 32 survivors from the wreckage, marking one of the deadliest single naval engagements of the conflict so far.",
+      "source_name": "euronews.com",
+      "source_url": "https://www.euronews.com/2026/03/04"
     },
     {
-      "title": "Hormuz Shipping Risk Escalates After Dual Strikes",
-      "body": "The simultaneous U.S. strike on Isfahan and Iranian drone attack on a tanker near the Strait of Hormuz have raised the threat level for commercial shipping through the waterway, which handles roughly 20% of global oil transit. Insurers and shipping firms face mounting pressure as both military and economic risks converge in the narrow passage. Energy markets are pricing in sustained disruption through at least mid-April.",
-      "category": "Infrastructure",
-      "source_name": "Dryden Wire",
-      "source_url": "https://drydenwire.com/news/morning-headlines-tuesday-mar-31-2026/"
+      "category": "Diplomacy",
+      "title": "Spain Refuses U.S. Base Access, Trump Threatens Trade",
+      "body": "Spanish Prime Minister Pedro Sanchez demanded an immediate end to the U.S.-Israeli military campaign against Iran, calling it a \"disaster,\" and denied the U.S. access to Spanish military bases. President Trump responded by threatening a full trade cutoff with Spain, opening a new rift within the Western alliance.",
+      "source_name": "democracynow.org",
+      "source_url": "https://www.democracynow.org/2026/3/4/headlines"
+    },
+    {
+      "category": "Humanitarian",
+      "title": "Anti-U.S. Protests Escalate Across Pakistan",
+      "body": "Violent protests continued across Pakistan after U.S. Marines killed 10 demonstrators who stormed the American consulate in Karachi on Sunday. The State Department ordered the evacuation of consular staff from both Karachi and Lahore, citing deteriorating security conditions in the country.",
+      "source_name": "democracynow.org",
+      "source_url": "https://www.democracynow.org/2026/3/4/headlines"
+    },
+    {
+      "category": "Policy",
+      "title": "Israel Passes Death Penalty for Palestinian Attackers",
+      "body": "The Knesset voted 62 to 48 to enact a death penalty law targeting Palestinians convicted of intentionally killing Israelis to deny the state's existence. Far-right National Security Minister Itamar Ben-Gvir celebrated the passage with champagne. The law drew immediate international condemnation from human rights organizations.",
+      "source_name": "golocalprov.com",
+      "source_url": "https://www.golocalprov.com/news/5-big-news-stories-overnight-friday-april-3-2026"
+    },
+    {
+      "category": "Economy",
+      "title": "Bangladesh Imposes Austerity Amid Fuel Crisis",
+      "body": "Bangladesh announced sweeping energy austerity measures including shortened office hours, mall closures, a 30% cut to government fuel spending, and bans on decorative lighting. The country, which imports 95% of its fuel, is seeking $2.5 billion in emergency financing as the Iran conflict disrupts global energy supply chains.",
+      "source_name": "ksat.com",
+      "source_url": "https://www.ksat.com/news/world/2026/04/03/the-latest-iran-launches-missiles-at-israel-and-gulf-states-as-explosions-heard-around-tehran/"
+    },
+    {
+      "category": "Conflict",
+      "title": "U.S. Deploys Special Forces to Ecuador",
+      "body": "The United States deployed special operations forces to Ecuador, expanding its military footprint in Latin America. The move comes as Washington juggles a widening Middle East conflict with ongoing security partnerships in the Western Hemisphere, though specific mission details remain undisclosed.",
+      "source_name": "democracynow.org",
+      "source_url": "https://www.democracynow.org/2026/3/4/headlines"
     }
   ],
-  "markets": {
-    "sp500": {
-      "price": "6,343.72",
-      "change": "-0.39%",
-      "direction": "down",
-      "sparkline": [
-        6506.48,
-        6581.0,
-        6556.37,
-        6591.9,
-        6477.16,
-        6368.85,
-        6343.72
-      ]
-    },
-    "nasdaq": {
-      "price": "20,794.64",
-      "change": "-0.73%",
-      "direction": "down",
-      "sparkline": [
-        21647.61,
-        21946.76,
-        21761.89,
-        21929.82,
-        21408.08,
-        20948.36,
-        20794.64
-      ]
-    },
-    "btc": {
-      "price": "$66,591.41",
-      "change": "-0.15%",
-      "direction": "down",
-      "sparkline": [
-        71309.88,
-        68791.62,
-        66338.38,
-        66319.7,
-        65954.92,
-        66691.45,
-        66591.41
-      ]
-    },
-    "eth": {
-      "price": "$2,036.55",
-      "change": "+0.61%",
-      "direction": "up",
-      "sparkline": [
-        2168.02,
-        2059.58,
-        1991.27,
-        1992.69,
-        1982.56,
-        2023.51,
-        2036.55
-      ]
-    },
-    "oil": {
-      "price": "$107.52",
-      "change": "+0.16%",
-      "direction": "up",
-      "sparkline": [
-        104.49,
-        102.22,
-        108.01,
-        112.57,
-        112.78,
-        107.52
-      ]
-    },
-    "sentiment": {
-      "value": "11",
-      "label": "Extreme Fear",
-      "direction": "down"
-    }
-  },
-  "competitive": [
-    {
-      "name": "OpenAI",
-      "status": "Confirms $122 billion raise, the largest single funding round in tech history.",
-      "body": "OpenAI's own blog now confirms a $122 billion funding round to \"accelerate the next phase of AI,\" resolving weeks of conflicting reports that placed the figure anywhere from $40 billion to $110 billion. The final number dwarfs earlier estimates and cements backing from Amazon, Nvidia, and SoftBank as the defining capital event of 2026 so far. At this scale, OpenAI is signaling it intends to fund not just model training but full-stack infrastructure buildout, likely including custom silicon and datacenter expansion.",
-      "source_url": "https://openai.com/index/accelerating-the-next-phase-ai/"
-    },
-    {
-      "name": "Anthropic",
-      "status": "Signs AI safety MOU with Australian government, expanding sovereign partnerships.",
-      "body": "Anthropic and the Australian government have signed a Memorandum of Understanding focused on AI safety and research collaboration. The deal extends Anthropic's pattern of courting government relationships on safety-first terms, following its earlier legal win against the Pentagon over supply chain risk. Australia becomes a notable addition to Anthropic's growing list of sovereign partners, positioning the company as the preferred safety-aligned vendor for allied democracies.",
-      "source_url": "https://www.anthropic.com/news/australia-MOU"
-    },
-    {
-      "name": "Mistral",
-      "status": "Launches Spaces CLI designed for both human developers and autonomous agents.",
-      "body": "Mistral has released Spaces, a command-line interface built to serve human users and AI agents equally. The company says designing for agents forced it to rethink developer tooling from scratch, resulting in features that streamline human-agent interaction patterns. The release signals Mistral's strategic pivot beyond model weights toward developer infrastructure, a layer where margins are higher and lock-in is stronger.",
-      "source_url": "https://mistral.ai/news/spaces"
-    }
-  ],
-  "tools": [
-    {
-      "category": "Productivity",
-      "title": "Slack's New AI Teammate: Beyond Simple Chatbots",
-      "body": "Slack just launched a revamped AI teammate feature that topped Product Hunt on April 1, 2026. Instead of a passive assistant, it acts as an active collaborator inside channels: summarizing threads, drafting replies, and surfacing action items from conversations you missed. Try tagging it in a busy project channel and asking it to compile a daily standup summary from the last 24 hours of messages.",
-      "url": "https://www.producthunt.com/leaderboard/daily/2026/4/1"
-    },
-    {
-      "category": "Build",
-      "title": "Stitch 2.0 by Google: Top Product of April 2026",
-      "body": "Stitch 2.0 from Google is already the number one product of April 2026 on Product Hunt. It appears designed for stitching together multi-step AI workflows with a visual interface. If you are building pipelines that chain LLM calls, data lookups, and API actions, check whether Stitch 2.0 can replace your custom orchestration scripts before you invest more engineering time.",
-      "url": "https://www.producthunt.com/products"
-    },
-    {
-      "category": "Creativity",
-      "title": "SOLAYA: AR-Ready Product Shots From a Single Prompt",
-      "body": "SOLAYA is a new launch in Product Hunt's generative media category that creates AR-ready product photography from text prompts. If you run an e-commerce store or design portfolio, upload a product reference and generate studio-quality shots with realistic lighting and spatial depth, no 3D modeling skills required. This could cut product photography costs significantly for small teams.",
-      "url": "https://www.producthunt.com/categories/ai-generative-media"
-    },
-    {
-      "category": "Coding",
-      "title": "Kilo Code: The Model-Agnostic Coding Agent to Watch",
-      "body": "Kilo Code is surfacing alongside Cursor and Zed in Product Hunt's 2026 coding agent rankings, but with a key differentiator: it lets you swap between any new model the week it drops. If you want to test whether Gemini 3 Deep Think or DeepSeek V4 writes better code for your stack, Kilo Code lets you A/B test models inside the same editor session without reconfiguring your toolchain.",
-      "url": "https://www.producthunt.com/categories/ai-coding-agents"
-    },
-    {
-      "category": "Productivity",
-      "title": "T-Rex Label: Speed Up Vision Data Annotation",
-      "body": "T-Rex Label is a newly launched tool highlighted in Product Hunt's AI software category that accelerates labeling for computer vision datasets. If you are training custom object detection or image classification models, try it to cut annotation time. It uses AI-assisted pre-labeling so you correct suggestions rather than draw bounding boxes from scratch.",
-      "url": "https://www.producthunt.com/categories/ai-software"
-    },
-    {
-      "category": "Mindset",
-      "title": "Wispr Flow: Replace Typing With Dictation Everywhere",
-      "body": "Wispr Flow, featured among the best products of April 2026, is a system-wide dictation tool that works across every app on your machine. Instead of reserving voice input for quick notes, try using it for full drafts of emails, Slack messages, and even code comments. The trick is to dictate in short, structured bursts and then do a single editing pass, which many users report is 2 to 3 times faster than typing from scratch.",
-      "url": "https://www.producthunt.com/products"
-    }
-  ],
-  "newsletters": [
-    {
-      "name": "TLDR",
-      "date_badge": "Tue, 31 Mar 2026 11:06:45 +0000",
-      "headlines": [
-        "Consumer sentiment falls 6%, hit by declining stocks and higher gas prices",
-        "Open internet advertising shifts from impressions to measurable impact",
-        "Marriott bets on real-time customer experience to industrialize intimacy"
-      ],
-      "deep_dives": "Consumer sentiment dropped 6% to its lowest level of the year as the Iran conflict drove up gas prices and eroded stock values, with short-term economic outlooks falling 14% and personal finance expectations declining 10%. Headline inflation is now expected to reach 4.2% with growth slowing to 2% this year. Meanwhile, open internet advertising is evolving beyond impression-based buying toward outcome-driven optimization, with AI connecting media and creative performance into continuous feedback loops that make the open web more competitive with walled gardens like Google and Meta.",
-      "quick_hits": [
-        "Middle- and upper-income households are hardest hit by gasoline price increases and stock market losses",
-        "B2B email nurture sequences should segment by problem, job, vertical, or company size and treat each email as an experiment",
-        "Creative engagement data is becoming a key performance signal in programmatic advertising, shifting optimization upstream before auctions"
-      ],
-      "tools": [
-        "Asana AI Teammates: out-of-the-box AI agents for marketers including Campaign Brief Writer, Brand Auditor, and Competitive Market Researcher"
-      ],
-      "quote": "Most CXO newsletters fail because they skip validation and publish generic content that drives no pipeline.",
-      "source_link": "https://tldr.tech"
-    },
-    {
-      "name": "TLDR",
-      "date_badge": "Mon, 31 Mar 2026",
-      "headlines": [
-        "Apple pivots AI strategy to App Store and search-like platform approach",
-        "OpenAI kills Sora, its most hyped product since ChatGPT, to free up compute",
-        "Stealthy startup R3 pitched brainless human clones as organ backups"
-      ],
-      "deep_dives": "Apple is acknowledging that its homegrown AI lags behind competitors and is recommitting to its core hardware-and-services business model. Rather than competing head-to-head on AI capabilities, Apple plans to embed just enough AI in its operating systems to retain users while opening Siri and Apple Intelligence to third-party services, leveraging its ecosystem control. Meanwhile, OpenAI abruptly shut down Sora after determining the video generation product consumed too much compute and was not profitable, blindsiding partners including Disney executives who learned of the decision less than an hour before the public announcement.",
-      "quick_hits": [
-        "OpenAI's Sora was canceled because it consumed too many computing resources and was not profitable, with CEO Sam Altman calling it a necessary sacrifice toward larger company goals.",
-        "Apple is opening Siri and Apple Intelligence to third-party services, adopting a platform approach similar to the App Store and Search.",
-        "California startup R3 raised funds to create non-sentient monkey 'organ sacks' as an alternative to animal testing, but its founder reportedly pitched a secret vision involving brainless human clones as body backups."
-      ],
-      "tools": [
-        "Wispr Flow: voice-to-text tool that turns speech into clean, sendable text across all apps and devices, claiming 4x faster than typing with 89% of messages sent with zero edits"
-      ],
-      "quote": "",
-      "source_link": "https://tldr.tech"
-    },
-    {
-      "name": "The Rundown AI",
-      "date_badge": "Tue, 31 Mar 2026 10:04:28 +0000 (UTC)",
-      "headlines": [
-        "Inside Sora's $1M-a-day collapse at OpenAI, with Disney blindsided by shutdown",
-        "Microsoft pits Claude against ChatGPT for research capabilities",
-        "Stanford exposes AI's people-pleasing problem"
-      ],
-      "deep_dives": "A WSJ investigation revealed the chaotic behind-the-scenes story of OpenAI's Sora video generator shutdown. The platform was burning roughly $1 million per day in compute costs, and Disney, which had an enterprise pilot in progress, learned the product was dead less than an hour before the public announcement. An internal code-named model reportedly required Sora's compute budget, forcing the sudden shift away from the once-viral video generation platform.",
-      "quick_hits": [
-        "Microsoft is positioning Anthropic's Claude as a competitor to ChatGPT for research use cases.",
-        "Stanford released findings exposing a systemic 'people-pleasing' or sycophancy problem in AI models.",
-        "A tutorial featured building a travel itinerary using Perplexity Computer."
-      ],
-      "tools": [
-        "Perplexity Computer (featured in a travel itinerary building tutorial)",
-        "You.com (sponsor, promoting AI grounding resources)",
-        "4 additional new AI tools mentioned but not detailed in the truncated content"
-      ],
-      "quote": "",
-      "source_link": "https://www.therundown.ai"
-    },
-    {
-      "name": "The Rundown AI",
-      "date_badge": "Mon, 30 Mar 2026 14:31:06 +0000 (UTC)",
-      "headlines": [
-        "Physical Intelligence in talks to raise $1B at $11B+ valuation, nearly doubling its worth in four months",
-        "Violinists get purpose-built exoskeletons to support performance",
-        "Snail-like robot designed to crawl through the gut to fight cancer"
-      ],
-      "deep_dives": "Physical Intelligence, a two-year-old San Francisco lab founded by ex-Google DeepMind scientists, is negotiating a roughly $1B raise at a valuation exceeding $11B, up from $5.6B just four months ago. The startup is building AI foundation models to control general-purpose robots across household and industrial tasks, with Peter Thiel's Founders Fund and Lightspeed Venture Partners reportedly participating. The round intensifies competition with Skild AI, Figure, and Tesla's Optimus program in the race to build a universal robot brain.",
-      "quick_hits": [
-        "LimX's humanoid robot 'Luna' debuted on the catwalk, showcasing bipedal locomotion in a fashion context",
-        "A snail-inspired soft robot is being developed to navigate the human gut for targeted cancer treatment",
-        "Violinist-specific exoskeletons are now in development to reduce strain and injury for musicians"
-      ],
-      "tools": [],
-      "quote": "",
-      "source_link": "https://www.therundown.ai"
-    },
-    {
-      "name": "TLDR",
-      "date_badge": "Mon, 30 Mar 2026 13:57:12 +0000",
-      "headlines": [
-        "Anthropic's 'Claude Mythos' leaked as a new model tier larger and more intelligent than Opus, with dramatically higher scores on coding, academic reasoning, and cybersecurity benchmarks. The model is compute-intensive and expensive; Anthropic is working on efficiency improvements before general release.",
-        "Meta's Avocado 9B model pushed back to at least May as it still falls short of leading competitors. Meta is running parallel experiments with multiple Avocado variants and has reportedly discussed temporarily licensing Google's Gemini technology, with some Meta AI requests already being routed through Gemini.",
-        "Anthropic's Claude paid subscriptions have more than doubled this year, with the majority of new subscribers joining the lowest tier. OpenAI remains the largest consumer AI platform but Claude is gaining ground at record pace."
-      ],
-      "deep_dives": "AutoBe, an open-source AI agent that generates complete backends from natural language, demonstrated a function calling harness that boosted qwen3-coder-next's success rate from 6.75% to over 99.8%. The approach uses type schemas to constrain outputs and compilers to verify results, showing how structured harnesses can dramatically improve unreliable model outputs for practical code generation tasks.",
-      "quick_hits": [
-        "Last remaining xAI cofounder has exited the company.",
-        "Black Duck Signal launched as an agentic AppSec tool combining LLM-powered code analysis with 20+ years of human-vetted security intelligence to find and fix vulnerabilities in AI-generated code.",
-        "Lessons from OpenAI highlighted in the newsletter's featured content."
-      ],
-      "tools": [
-        "Black Duck Signal: agentic application security tool for AI-native development that analyzes and fixes vulnerabilities in AI-generated code using natural language prompts in IDEs",
-        "AutoBe: open-source AI agent that generates complete backends from a single natural language conversation, with a function calling harness that dramatically improves model reliability"
-      ],
-      "quote": "",
-      "source_link": "https://tldr.tech"
-    },
-    {
-      "name": "TLDR",
-      "date_badge": "Mon, 30 Mar 2026 13:08:44 +0000",
-      "headlines": [
-        "NYSE-parent Intercontinental Exchange completes $2B investment in Polymarket as prediction markets go mainstream",
-        "Revolut profit soars to record $2.3 billion in 2025, plans UK lending expansion",
-        "Mastercard bids to offload Nets payments unit originally bought for $3.2B"
-      ],
-      "deep_dives": "Agentic payment infrastructure is emerging as a way to unlock new monetization models for content platforms beyond traditional subscriptions. These systems enable pay-per-article, pay-to-preview for AI crawlers, paid comments, and tipping, shifting from fixed monetization to configurable, flexible approaches that let creators earn without sacrificing reach.",
-      "quick_hits": [
-        "Intercontinental Exchange invested an additional $600M into Polymarket, completing a $2B commitment and signaling institutional adoption of prediction markets as a data and trading layer.",
-        "Revolut is converting secondary users into full-service banking customers by rolling out credit cards, personal loans, and overdrafts in the UK.",
-        "Mastercard is seeking a buyer for the real-time payments business it acquired from Danish company Nets in 2019 for $3.2 billion."
-      ],
-      "tools": [
-        "Persona: KYC compliance platform offering a playbook for fintechs to streamline onboarding, assess AML risk, and build fraud prevention strategies across multiple jurisdictions.",
-        "Polymarket: Prediction market platform now backed by $2B from ICE, providing real-time sentiment data integrated with traditional financial infrastructure."
-      ],
-      "quote": "",
-      "source_link": "https://tldr.tech"
-    }
-  ]
+  "tools": [],
+  "markets": {}
 }

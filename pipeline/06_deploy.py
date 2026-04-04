@@ -62,6 +62,8 @@ def main():
         "index.html",
         "vercel.json",
         ".gitignore",
+        "changelog/index.html",
+        "changelog/data.json",
     ]
 
     # Add any editorial HTML files and hero images generated for today

@@ -199,6 +199,126 @@ def build_queries(date_label, month_year):
     }
 
 
+# ── Firecrawl Direct News Search ────────────────────────────────────────────
+
+NOISE_DOMAINS = {
+    "google.com", "youtube.com", "twitter.com", "x.com", "reddit.com",
+    "facebook.com", "instagram.com", "linkedin.com", "wikipedia.org",
+    "tiktok.com", "pinterest.com", "medium.com", "github.com",
+}
+
+
+def firecrawl_search(query: str, limit: int = 8, max_retries: int = 2) -> list[dict]:
+    """Search via Firecrawl and return list of {url, title, description}."""
+    if not FIRECRAWL_API_KEY:
+        return []
+
+    headers = {
+        "Authorization": f"Bearer {FIRECRAWL_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    payload = {"query": query, "limit": limit}
+
+    for attempt in range(max_retries + 1):
+        try:
+            resp = httpx.post(
+                f"{FIRECRAWL_API_URL}/search",
+                json=payload,
+                headers=headers,
+                timeout=20,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            return [
+                {
+                    "title": r.get("title", ""),
+                    "url": r.get("url", ""),
+                    "description": r.get("description", ""),
+                }
+                for r in data.get("data", [])
+                if r.get("title")
+            ]
+        except (httpx.TimeoutException, httpx.HTTPStatusError) as e:
+            print(f"    Firecrawl search error (attempt {attempt + 1}/{max_retries + 1}): {e}")
+            if attempt < max_retries:
+                time.sleep(2 ** attempt)
+        except Exception as e:
+            print(f"    Firecrawl search unexpected error: {e}")
+            return []
+    return []
+
+
+def firecrawl_direct_search(date_label: str, existing_citations: set[str]) -> dict[str, list[dict]]:
+    """Run direct web searches via Firecrawl to supplement Perplexity.
+
+    Searches for AI news, world news, and tool launches independently.
+    Deduplicates against Perplexity citations and scrapes unique URLs.
+
+    Returns dict: {"ai": [...], "world": [...], "tools": [...]}
+    Each item: {"url", "title", "snippet", "text"}
+    """
+    if not FIRECRAWL_API_KEY:
+        print("  Direct search skipped (no FIRECRAWL_API_KEY)")
+        return {}
+
+    print("  Running Firecrawl direct news search...")
+
+    queries = {
+        "ai": f"AI model release announcement {date_label}",
+        "world": f"major world news today {date_label}",
+        "tools": f"new AI tool launch startup {date_label}",
+    }
+
+    from urllib.parse import urlparse
+
+    result: dict[str, list[dict]] = {}
+    total_scraped = 0
+
+    for key, query in queries.items():
+        print(f"    Searching: {key}...")
+        raw_results = firecrawl_search(query, limit=8)
+        if not raw_results:
+            print(f"      No results")
+            continue
+
+        # Filter out duplicates and noise
+        unique = []
+        for r in raw_results:
+            url = r.get("url", "")
+            if not url or url in existing_citations:
+                continue
+            domain = urlparse(url).netloc.lower().replace("www.", "")
+            if domain in NOISE_DOMAINS:
+                continue
+            path = urlparse(url).path.strip("/")
+            if not path or (path.count("/") == 0 and len(path) < 5):
+                continue
+            unique.append(r)
+
+        print(f"      {len(raw_results)} results, {len(unique)} unique after dedup")
+
+        # Scrape top 4 unique URLs for full text
+        items = []
+        for r in unique[:4]:
+            url = r["url"]
+            text = firecrawl_scrape_markdown(url)
+            items.append({
+                "url": url,
+                "title": r.get("title", ""),
+                "snippet": r.get("description", ""),
+                "text": text[:MAX_SOURCE_TEXT] if text and len(text) > 200 else "",
+            })
+            if text and len(text) > 200:
+                total_scraped += 1
+                domain = urlparse(url).netloc.lower().replace("www.", "")
+                print(f"      [{key}] {domain}: {len(text)} chars")
+
+        result[key] = items
+
+    print(f"  Direct search: {total_scraped} articles scraped across {len(result)} tracks")
+    return result
+
+
 # ── Live Market Data ─────────────────────────────────────────────────────────
 
 def fetch_live_markets():
@@ -331,6 +451,19 @@ def main():
     # Verify sources by scraping actual citation URLs
     verified_sources = verify_sources(results)
 
+    # Direct news search via Firecrawl (supplements Perplexity)
+    all_citations = set()
+    for r in results.values():
+        all_citations.update(r.get("citations", []))
+    for vs_list in verified_sources.values():
+        all_citations.update(s.get("url", "") for s in vs_list)
+
+    firecrawl_search_results = {}
+    try:
+        firecrawl_search_results = firecrawl_direct_search(date_label, all_citations)
+    except Exception as e:
+        print(f"  WARNING: Direct search failed (non-critical): {e}")
+
     # Fetch live market data (replaces unreliable search-based market quotes)
     print(f"  Fetching live market data...")
     live_markets = fetch_live_markets()
@@ -348,6 +481,7 @@ def main():
         "queries": {k: q["query"] for k, q in queries.items()},
         "results": results,
         "verified_sources": verified_sources,
+        "firecrawl_search": firecrawl_search_results,
         "live_markets": live_markets,
     }
 

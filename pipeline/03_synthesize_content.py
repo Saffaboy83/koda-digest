@@ -131,7 +131,31 @@ Never use em dashes. Use commas, colons, semicolons, or separate sentences inste
 This is a public-facing briefing, not a personal newsletter. No personal data."""
 
 
-def synthesize_ai_news(raw_content, citations, blog_discoveries=None, verified_sources=None):
+def _build_direct_search_context(items: list[dict] | None) -> str:
+    """Build context block from Firecrawl direct search results."""
+    if not items:
+        return ""
+    lines = []
+    for item in items:
+        url = item.get("url", "")
+        title = item.get("title", "")
+        snippet = item.get("snippet", "")
+        text = item.get("text", "")
+        if text:
+            lines.append(f"  [{title}] {url}\n  {text[:1500]}\n")
+        elif snippet:
+            lines.append(f"  [{title}] {url}\n  {snippet}\n")
+    if not lines:
+        return ""
+    return (
+        "\n\nDIRECT WEB SEARCH RESULTS (raw sources, not AI-summarized):\n"
+        + "\n".join(lines)
+        + "\nUse these to catch stories not covered by the main search, "
+        "cross-reference claims, and find specific stats or details.\n"
+    )
+
+
+def synthesize_ai_news(raw_content, citations, blog_discoveries=None, verified_sources=None, direct_search=None):
     """Transform raw AI news into structured story cards."""
     freshness_context = load_recent_stories()
 
@@ -168,6 +192,8 @@ def synthesize_ai_news(raw_content, citations, blog_discoveries=None, verified_s
                 "Prefer details from primary sources when they conflict with search summaries.\n"
             )
 
+    direct_context = _build_direct_search_context(direct_search)
+
     prompt = f"""Analyze this raw AI news data and extract 8-12 distinct stories.
 
 RAW DATA:
@@ -175,7 +201,7 @@ RAW DATA:
 
 CITATIONS:
 {json.dumps(citations, indent=2)}
-{blog_context}{source_context}{freshness_context}
+{blog_context}{source_context}{direct_context}{freshness_context}
 
 IMPORTANT: If the raw data says "no major announcements in the last 48 hours" but mentions
 developments from the past 3-5 days, INCLUDE those stories. Weekend gaps are normal.
@@ -197,7 +223,7 @@ If fewer than 8 stories can be extracted, return what you have rather than paddi
     return llm_json(prompt, SYSTEM_PROMPT) or []
 
 
-def synthesize_world_news(raw_content, citations, verified_sources=None):
+def synthesize_world_news(raw_content, citations, verified_sources=None, direct_search=None):
     """Transform raw world news into structured story cards."""
     freshness_context = load_recent_stories()
 
@@ -216,6 +242,8 @@ def synthesize_world_news(raw_content, citations, verified_sources=None):
                 "Trust the source over the Perplexity summary if they conflict.\n"
             )
 
+    direct_context = _build_direct_search_context(direct_search)
+
     prompt = f"""Analyze this raw world news data and extract 6-8 distinct stories.
 
 RAW DATA:
@@ -223,7 +251,7 @@ RAW DATA:
 
 CITATIONS:
 {json.dumps(citations, indent=2)}
-{source_context}{freshness_context}
+{source_context}{direct_context}{freshness_context}
 
 Return a JSON array of story objects:
 {{
@@ -325,7 +353,7 @@ Only include those with real, sourced news today. Skip companies whose only news
     return llm_json(prompt, SYSTEM_PROMPT) or []
 
 
-def synthesize_tools(raw_content, citations, discovered_tools=None):
+def synthesize_tools(raw_content, citations, discovered_tools=None, direct_search=None):
     """Transform AI tools data into tip cards."""
     freshness_context = load_recent_stories()
 
@@ -360,6 +388,8 @@ def synthesize_tools(raw_content, citations, discovered_tools=None):
                 "Use the scraped pricing, features, and use cases to write richer descriptions.\n"
             )
 
+    direct_context = _build_direct_search_context(direct_search)
+
     prompt = f"""Analyze this AI tools data and create 6 actionable tip cards.
 
 RAW DATA:
@@ -367,7 +397,7 @@ RAW DATA:
 
 CITATIONS:
 {json.dumps(citations, indent=2)}
-{discovery_context}{freshness_context}
+{discovery_context}{direct_context}{freshness_context}
 
 Return a JSON array of 6 tip objects:
 {{
@@ -517,6 +547,14 @@ def main():
     else:
         print("  No Firecrawl data available -- using Perplexity only")
 
+    # Load Firecrawl direct search results (from Step 01, Phase 5)
+    fc_search = raw_data.get("firecrawl_search", {})
+    if fc_search:
+        fc_ai = len(fc_search.get("ai", []))
+        fc_world = len(fc_search.get("world", []))
+        fc_tools_s = len(fc_search.get("tools", []))
+        print(f"  Firecrawl direct search: {fc_ai} AI, {fc_world} world, {fc_tools_s} tools")
+
     # Load cross-referenced newsletter URLs (from Step 02)
     cross_refs = newsletters_data.get("cross_references", {}) if newsletters_data else {}
     cross_ref_context = ""
@@ -547,6 +585,7 @@ def main():
         results.get("ai_news", {}).get("citations", []),
         blog_discoveries=firecrawl.get("ai_news"),
         verified_sources=verified_sources.get("ai_news"),
+        direct_search=fc_search.get("ai"),
     )
     print(f"    {len(ai_news)} stories")
 
@@ -555,6 +594,7 @@ def main():
         results.get("world_news", {}).get("content", ""),
         results.get("world_news", {}).get("citations", []),
         verified_sources=verified_sources.get("world_news"),
+        direct_search=fc_search.get("world"),
     )
     print(f"    {len(world_news)} stories")
 
@@ -589,6 +629,7 @@ def main():
         results.get("tools", {}).get("content", ""),
         results.get("tools", {}).get("citations", []),
         discovered_tools=firecrawl.get("tools"),
+        direct_search=fc_search.get("tools"),
     )
     print(f"    {len(tools)} tools")
 

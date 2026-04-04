@@ -343,18 +343,18 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
         toc_html += f'<tr><td style="padding:3px 0;font-size:14px;color:#334155;line-height:1.5">{emoji} {story.get("title", "")}</td></tr>\n'
 
     # --- HERO IMAGE ---
-    # Wrapped in a fixed-height container with overflow:hidden for email client
-    # compatibility. Bare max-height + object-fit is stripped by Gmail/Outlook.
+    # Fixed-height img with object-fit:cover crops the square infographic to a
+    # landscape banner. object-fit is supported in Apple Mail, Gmail app, Yahoo
+    # app, and all modern webmail. Outlook desktop ignores it but still shows
+    # the image (just uncropped). The height values give a clean 16:9ish crop
+    # that works at any width.
     hero_html = ""
     if hero_url:
         hero_html = (
-            f'<tr><td style="padding:16px 24px 0">'
-            f'<!--[if mso]><table width="552" cellpadding="0" cellspacing="0"><tr><td style="height:280px;overflow:hidden"><![endif]-->'
-            f'<div style="max-width:552px;max-height:280px;overflow:hidden;border-radius:10px;border:1px solid #E2E8F0">'
-            f'<img src="{hero_url}" alt="Today\'s AI digest visual" width="552" '
-            f'style="width:100%;max-width:552px;height:auto;display:block">'
-            f'</div>'
-            f'<!--[if mso]></td></tr></table><![endif]-->'
+            f'<tr><td style="padding:16px 24px 0;line-height:0;font-size:0">'
+            f'<img class="hero-img" src="{hero_url}" alt="Today\'s AI digest visual" width="552" height="240" '
+            f'style="width:100%;max-width:552px;height:240px;object-fit:cover;object-position:top center;'
+            f'display:block;border-radius:10px;border:1px solid #E2E8F0">'
             f'</td></tr>'
         )
 
@@ -567,7 +567,10 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="color-scheme" content="light dark"><meta name="supported-color-schemes" content="light dark">
 <title>Koda Daily Digest | {date_label}</title>
-<style>@media (prefers-color-scheme:dark){{.email-body{{background:#1a1a2e!important}}.email-container{{background:#16213e!important}}.text-primary{{color:#E2E8F0!important}}.text-secondary{{color:#94A3B8!important}}.market-cell{{background:#1E293B!important}}.card-bg{{background:#1E293B!important;border-color:#334155!important}}}}</style>
+<style>
+@media screen and (max-width:480px){{.hero-img{{height:180px!important}}}}
+@media (prefers-color-scheme:dark){{.email-body{{background:#1a1a2e!important}}.email-container{{background:#16213e!important}}.text-primary{{color:#E2E8F0!important}}.text-secondary{{color:#94A3B8!important}}.market-cell{{background:#1E293B!important}}.card-bg{{background:#1E293B!important;border-color:#334155!important}}}}
+</style>
 </head>
 <body style="margin:0;padding:0;background:#F8FAFC;font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased">
 <!--[if mso]><style>table{{border-collapse:collapse}}</style><![endif]-->
