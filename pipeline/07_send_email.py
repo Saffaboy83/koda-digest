@@ -531,6 +531,10 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
     # --- DEEP DIVE (editorial teaser) ---
     editorial = _get_editorial_teaser(date)
     editorial_html = ""
+
+    # --- DEEP DIVE MEDIA (editorial audio + anime video) ---
+    editorial_media_status = read_json("editorial-media-status.json")
+    editorial_media_html = ""
     if editorial:
         editorial_hero_img = ""
         editorial_hero_url = f"{SUPABASE_URL}/storage/v1/object/public/koda-media/editorial-hero-{date}.jpg" if SUPABASE_URL else ""
@@ -549,6 +553,60 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
           <a href="{editorial['url']}" style="color:#6366F1;font-size:13px;font-weight:700;text-decoration:none" target="_blank">Read the full analysis &#8594;</a>
         </td></tr>
       </table>
+    </td></tr>"""
+
+    # Build Deep Dive Media strip if editorial media was generated
+    if editorial_media_status:
+        ed_audio = editorial_media_status.get("editorial_audio", {})
+        ed_video = editorial_media_status.get("editorial_video", {})
+        ed_audio_url = ed_audio.get("path", "") if isinstance(ed_audio, dict) else ""
+        ed_yt_id = ed_video.get("youtube_id", "") if isinstance(ed_video, dict) else ""
+
+        has_ed_media = bool(ed_audio_url) or bool(ed_yt_id)
+        if has_ed_media:
+            ed_audio_cell = ""
+            ed_video_cell = ""
+
+            if ed_audio_url:
+                ed_audio_cell = f"""<td style="padding:0 4px 0 0;width:50%;vertical-align:top">
+                  <table width="100%" cellpadding="0" cellspacing="0" style="border-radius:10px;overflow:hidden;border:1px solid #E2E8F0">
+                    <tr><td style="height:100px;background:#F1F5F9;padding:0;text-align:center;vertical-align:middle">
+                      <p style="margin:0 0 4px;font-size:28px;line-height:1">&#127911;</p>
+                      <p style="margin:0 0 4px;font-size:13px;font-weight:800;color:#0F172A">Deep Dive Audio</p>
+                      <p style="margin:0;font-size:10px;color:#64748B">~5 min brief</p>
+                    </td></tr>
+                    <tr><td style="padding:0">
+                      <a href="{ed_audio_url}" style="display:block;padding:10px 8px;background:linear-gradient(135deg,#6366F1,#3B82F6);color:white;text-decoration:none;text-align:center;font-weight:700;font-size:11px" target="_blank">&#9654; Listen Now</a>
+                    </td></tr>
+                  </table>
+                </td>"""
+
+            if ed_yt_id:
+                ed_video_cell = f"""<td style="padding:0 0 0 4px;width:50%;vertical-align:top">
+                  <table width="100%" cellpadding="0" cellspacing="0" style="border-radius:10px;overflow:hidden;border:1px solid #E2E8F0">
+                    <tr><td style="height:100px;background:#F1F5F9;padding:0;text-align:center;vertical-align:middle">
+                      <p style="margin:0 0 4px;font-size:28px;line-height:1">&#127916;</p>
+                      <p style="margin:0 0 4px;font-size:13px;font-weight:800;color:#0F172A">Anime Brief</p>
+                      <p style="margin:0;font-size:10px;color:#64748B">~2 min visual dive</p>
+                    </td></tr>
+                    <tr><td style="padding:0">
+                      <a href="https://www.youtube.com/watch?v={ed_yt_id}" style="display:block;padding:10px 8px;background:linear-gradient(135deg,#EC4899,#8B5CF6);color:white;text-decoration:none;text-align:center;font-weight:700;font-size:11px" target="_blank">&#9654; Watch Video</a>
+                    </td></tr>
+                  </table>
+                </td>"""
+
+            if ed_audio_cell and ed_video_cell:
+                ed_cells = ed_audio_cell + ed_video_cell
+            elif ed_audio_cell:
+                ed_cells = ed_audio_cell.replace("width:50%", "width:100%")
+            else:
+                ed_cells = ed_video_cell.replace("width:50%", "width:100%")
+
+            editorial_media_html = f"""<tr><td style="padding:16px 24px 0">
+      <p style="margin:0 0 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#8B5CF6">DEEP DIVE MEDIA</p>
+    </td></tr>
+    <tr><td style="padding:0 24px">
+      <table width="100%" cellpadding="0" cellspacing="0"><tr>{ed_cells}</tr></table>
     </td></tr>"""
 
     # --- RATE THIS ISSUE (1-click emoji poll) ---
@@ -656,6 +714,9 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
 
   <!-- DEEP DIVE (editorial) -->
   {editorial_html}
+
+  <!-- DEEP DIVE MEDIA (editorial audio + anime video) -->
+  {editorial_media_html}
 
   {_section_divider()}
 

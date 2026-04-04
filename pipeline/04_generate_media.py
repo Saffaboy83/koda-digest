@@ -260,6 +260,17 @@ def build_differentiation_text(recent_themes, today_hook):
         "\n- Prioritize today's unique developments over ongoing narratives."
         "\n- Use different examples, metaphors, and structure than previous episodes."
         "\n- Open with something surprising or new, not a recap."
+        "\n"
+        "\nSTORYTELLING RULES:"
+        "\n- Start with a story, not a summary. Hook the listener in the first 10 seconds."
+        "\n- Use real names and specific details. Say 'Jensen Huang said X at GTC' not "
+        "'NVIDIA announced'. People connect with people, not companies."
+        "\n- When a number is big, compare it to something tangible. '120 billion dollars "
+        "is more than the GDP of 140 countries' lands harder than just the number."
+        "\n- End each segment with a forward-looking question, not a conclusion. 'So the "
+        "real question now is...' pulls the listener forward."
+        "\n- Let the hosts react genuinely. If something is wild, say it is wild. If "
+        "something is concerning, do not hide it behind neutral language."
     )
 
     return "\n".join(lines)
@@ -349,14 +360,19 @@ def generate_visual_production_script(
     act1_body = act1_story.get("body", "")[:200]
     act2_body = act2_story.get("body", "")[:200]
 
-    prompt = f"""You are a cinematic video director for a daily AI intelligence briefing.
+    prompt = f"""You are a documentary filmmaker who makes technology feel human. You tell
+stories about real people navigating a world that changes faster than anyone expected.
 Write a Visual Production Script for today's episode. This script will guide Google's
 Veo 3 AI video model to generate a cinematic documentary-style video.
+
+THE HUMAN RULE: Every scene needs a human anchor -- a hand on a keyboard, a face lit
+by a screen, someone walking through a corridor, a crowd watching news on their phones.
+Technology is always the backdrop. People are the subject.
 
 TODAY'S THEME: {hook}
 FOCUS TOPICS: {', '.join(focus_titles)}
 
-ACT 1 -- CRISIS/WORLD ({act1_story['title']}):
+ACT 1 -- THE STAKES ({act1_story['title']}):
 Story context: {act1_body}
 Visual profile to use:
   Camera: {act1_vis['camera']}
@@ -366,7 +382,7 @@ Visual profile to use:
   Motion constraints: {act1_vis['stabilizers']}
   Sound design: {act1_vis['atmosphere']}
 
-ACT 2 -- TECHNOLOGY ({act2_story['title']}):
+ACT 2 -- THE SHIFT ({act2_story['title']}):
 Story context: {act2_body}
 Visual profile to use:
   Camera: {act2_vis['camera']}
@@ -376,8 +392,8 @@ Visual profile to use:
   Motion constraints: {act2_vis['stabilizers']}
   Sound design: {act2_vis['atmosphere']}
 
-Write the script in EXACTLY this format. Each scene block MUST include all 6 sub-fields.
-Be vivid and specific in your scene descriptions. Target 400-800 words.
+Write the script in EXACTLY this format. Each scene block MUST include all 7 sub-fields.
+Be vivid and specific. Find the person in every scene. Target 400-800 words.
 
 VISUAL PRODUCTION SCRIPT -- Koda Daily Briefing
 Format: Cinematic documentary (Veo 3)
@@ -388,36 +404,41 @@ empty podiums, building exteriors, flags, diplomatic tables, military hardware
 without identifiable personnel, policy documents, press briefing rooms without people.
 
 === COLD OPEN (0:00-0:15) ===
-SCENE: [Describe the opening visual -- the most dramatic image of the day. Be specific
-about what the camera sees, lighting, mood, and camera movement.]
-NARRATION HOOK: [One-line hook that starts mid-action]
+SCENE: [A human moment that pulls the viewer in -- not a headline, but a scene. Someone
+checking their phone, a screen reflecting bad news, a hand hovering over a keyboard.]
+NARRATION HOOK: [A question or surprising fact that a non-technical person would find
+fascinating. Not a summary -- a hook that makes them lean in.]
 
 === ACT 1: [TITLE] (0:15-1:30) ===
-SCENE: [Wide establishing shot, then close-up, then scale reveal]
+SCENE: [Start with a person, then reveal the scale around them]
 KEY VISUALS: [3-4 specific visual elements for Veo 3]
 COLOR GRADE: [Per the visual profile above]
 CAMERA FEEL: [Per the visual profile above]
 MOTION CONSTRAINTS: [Per the visual profile above]
 SOUND DESIGN: [Per the visual profile above]
+HUMAN ELEMENT: [Who is affected? Show them. A trader, a worker, a family, a commuter.]
 
 === ACT 2: [TITLE] (1:30-3:00) ===
-SCENE: [Contrast transition from Act 1, then technology visualization, then human element]
+SCENE: [Transition from Act 1 through a human moment -- same person, different world.
+Then show people interacting with technology, not technology alone.]
 KEY VISUALS: [3-4 specific visual elements for Veo 3]
 COLOR GRADE: [Per the visual profile above]
 CAMERA FEEL: [Per the visual profile above]
 MOTION CONSTRAINTS: [Per the visual profile above]
 SOUND DESIGN: [Per the visual profile above]
+HUMAN ELEMENT: [Who builds this? Who uses it? A developer, a student, a business owner.]
 
 === ACT 3: COLLISION (3:00-4:00) ===
-SCENE: [Visual juxtaposition -- intercut or morph between Act 1 and Act 2 worlds]
-KEY VISUALS: [How the two worlds merge visually]
+SCENE: [Visual juxtaposition -- same person experiencing both worlds. Intercut or morph.]
+KEY VISUALS: [How these two forces meet in someone's daily life]
 COLOR GRADE: [Mixed palette from both acts]
 CAMERA FEEL: [Accelerating pace]
 MOTION CONSTRAINTS: [Smooth interpolation on all morphing transitions, maintain geometry]
 SOUND DESIGN: [Both soundscapes bleeding together, rising tension]
 
 === CLOSE (4:00-4:30) ===
-FINAL FRAME: [Single powerful image that encapsulates the day's theme. Hold the shot.]
+FINAL FRAME: [A quiet human moment. Someone looking out a window. A hand closing a laptop.
+A city at dawn. Hold the shot. Let it breathe.]
 SOUND DESIGN: [Silence except a sustained tone fading to black]
 
 Reply with ONLY the script, no preamble or explanation."""
@@ -842,6 +863,99 @@ def main():
         upload_to_youtube(args.date, digest, media)
 
     sys.exit(result.returncode)
+
+
+# ── Editorial Media Direction Generators ──────────────────────────────────
+
+
+def generate_editorial_video_direction(
+    article_text: str, article_title: str, date_label: str
+) -> str | None:
+    """Generate an anime-style video direction document for an editorial article.
+
+    Uses an LLM call to map the editorial's key arguments into 3-4 anime
+    visual scenes suitable for a brief (~1-2 min) NotebookLM video.
+
+    Returns a ~300-500 word direction document, or None on failure.
+    """
+    prompt = (
+        f"You are a visual director for a brief anime-style video overview of an "
+        f"editorial article. The video will be 1-2 minutes long with 3-4 key scenes.\n\n"
+        f"Article title: {article_title}\n"
+        f"Date: {date_label}\n\n"
+        f"Article text:\n{article_text[:6000]}\n\n"
+        f"Create an ANIME VISUAL DIRECTION DOCUMENT with these sections:\n\n"
+        f"## ANIME VIDEO DIRECTION -- {article_title}\n\n"
+        f"### Visual Identity\n"
+        f"- Cel-shaded art style with vibrant saturated colors\n"
+        f"- Dynamic camera angles (low-angle power shots, dramatic zooms)\n"
+        f"- Expressive character reactions and speed lines for emphasis\n"
+        f"- Dark backgrounds with neon accent lighting (Koda brand colors: electric blue, vivid purple)\n\n"
+        f"### Scene Breakdown (3-4 scenes)\n"
+        f"For each scene provide:\n"
+        f"- Scene number and title (5 words max)\n"
+        f"- Visual description: what the viewer sees (cel-shaded environment, character poses, effects)\n"
+        f"- Key argument being illustrated\n"
+        f"- Camera movement (zoom, pan, tracking shot)\n"
+        f"- Color palette for that scene\n\n"
+        f"### Closing Frame\n"
+        f"- A single powerful image that encapsulates the article's thesis\n"
+        f"- Koda branding overlay\n\n"
+        f"RULES:\n"
+        f"- NO political figures or recognizable real people. Use abstract silhouettes, "
+        f"symbolic objects, or anime-style generic characters.\n"
+        f"- Map each scene to one key argument from the article.\n"
+        f"- Keep total direction under 500 words.\n"
+        f"- Use anime visual language: speed lines, dramatic lighting shifts, split-screen "
+        f"reveals, particle effects, glowing data streams.\n"
+    )
+    return _sonnet_call(prompt, max_tokens=700, temperature=0.6)
+
+
+def generate_editorial_audio_direction(
+    article_text: str, article_title: str, date_label: str
+) -> str:
+    """Generate a brief audio overview direction for an editorial article.
+
+    Returns a deterministic template string (no LLM call needed).
+    """
+    # Extract first ~200 chars of article for context snippet
+    snippet = article_text[:200].replace("\n", " ").strip()
+    if len(article_text) > 200:
+        snippet += "..."
+
+    return (
+        f"## EDITORIAL AUDIO DIRECTION -- {date_label}\n\n"
+        f"### Format: Brief Overview (~5-8 minutes)\n"
+        f"This is a single-topic deep analysis, NOT a news roundup.\n\n"
+        f"### Article: {article_title}\n"
+        f"Preview: {snippet}\n\n"
+        f"### Tone & Style\n"
+        f"- Conversational expert tone. Like explaining to a smart friend who missed "
+        f"the article over coffee.\n"
+        f"- This should feel like a 5-minute 'what you need to know' briefing on ONE topic.\n"
+        f"- Not a lecture. Not a newscast. A genuine conversation between two curious people.\n\n"
+        f"### Structure Guidance\n"
+        f"1. HOOK (30s): Open with the single most provocative claim or surprising insight "
+        f"from the article. Make the listener lean in.\n"
+        f"2. CONTEXT (1-2 min): Why this matters RIGHT NOW. What changed today that makes "
+        f"this topic urgent or important.\n"
+        f"3. DEEP DIVE (2-3 min): Walk through the key arguments. The second host should "
+        f"challenge assumptions and ask 'but what about...' questions.\n"
+        f"4. SO WHAT (1-2 min): What should the listener actually DO with this information? "
+        f"End with a forward-looking question, not a conclusion.\n\n"
+        f"### Host Chemistry\n"
+        f"- Host A drives the argument forward with conviction.\n"
+        f"- Host B plays devil's advocate and asks the questions the audience is thinking.\n"
+        f"- When a technical term comes up, Host B genuinely asks about it.\n"
+        f"- Energy should shift: excited for opportunities, concerned for risks, "
+        f"skeptical for hype.\n\n"
+        f"### What to Avoid\n"
+        f"- Do NOT summarize the full article linearly. Pick the 2-3 most compelling points.\n"
+        f"- No robot transitions ('moving on to', 'let us shift to').\n"
+        f"- No condescending explanations ('for our listeners who may not know').\n"
+        f"- Do not maintain one flat tone the entire time.\n"
+    )
 
 
 if __name__ == "__main__":

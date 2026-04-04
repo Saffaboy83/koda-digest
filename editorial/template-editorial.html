@@ -309,6 +309,30 @@ body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
     </div>
 </header>
 
+<!-- MEDIA_STRIP_START -->
+<section style="max-width:800px; margin:32px auto; padding:0 24px;">
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px;">
+    <!-- Audio card -->
+    <div style="padding:20px; background:linear-gradient(135deg, #0f1629, #162040); border:1px solid rgba(99,102,241,0.2); border-radius:12px; text-align:center;">
+      <span class="material-symbols-outlined" style="color:#6366F1; font-size:28px; display:block; margin-bottom:8px;">headphones</span>
+      <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Deep Dive Audio</div>
+      <div style="font-size:11px; color:rgba(255,255,255,0.4); margin-bottom:12px;">Brief overview (~5 min)</div>
+      <button class="media-btn podcast-btn" onclick="toggleEditorialPodcast()" aria-expanded="false" aria-controls="editorialPodcastPlayer" style="background:linear-gradient(135deg,#6366F1,#8B5CF6); color:white; padding:8px 20px; border-radius:999px; font-size:12px; font-weight:700; border:none; cursor:pointer;">&#9654; Listen Now</button>
+      <div class="podcast-player-wrap" id="editorialPodcastPlayer" style="display:none; margin-top:12px;">
+        <audio controls style="width:100%" preload="none"><source src="{{EDITORIAL_PODCAST_URL}}" type="audio/mpeg"></audio>
+      </div>
+    </div>
+    <!-- Video card -->
+    <div style="padding:20px; background:linear-gradient(135deg, #0f1629, #162040); border:1px solid rgba(236,72,153,0.2); border-radius:12px; text-align:center;">
+      <span class="material-symbols-outlined" style="color:#EC4899; font-size:28px; display:block; margin-bottom:8px;">smart_display</span>
+      <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Anime Brief</div>
+      <div style="font-size:11px; color:rgba(255,255,255,0.4); margin-bottom:12px;">Visual deep dive (~2 min)</div>
+      <a href="https://www.youtube.com/watch?v={{EDITORIAL_YOUTUBE_ID}}" target="_blank" rel="noopener" class="media-btn video-btn" style="display:inline-block; text-decoration:none; background:linear-gradient(135deg,#EC4899,#8B5CF6); color:white; padding:8px 20px; border-radius:999px; font-size:12px; font-weight:700;">&#9654; Watch on YouTube</a>
+    </div>
+  </div>
+</section>
+<!-- MEDIA_STRIP_END -->
+
 <!-- Article Body -->
 <article class="article-body">
 
@@ -428,6 +452,25 @@ const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Toggle editorial podcast player
+function toggleEditorialPodcast() {
+    var player = document.getElementById('editorialPodcastPlayer');
+    var btn = document.querySelector('.podcast-btn');
+    if (!player || !btn) return;
+    var isHidden = player.style.display === 'none';
+    player.style.display = isHidden ? 'block' : 'none';
+    btn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+    btn.innerHTML = isHidden ? '&#9646;&#9646; Playing' : '&#9654; Listen Now';
+    if (isHidden) {
+        var audio = player.querySelector('audio');
+        if (audio) audio.play();
+    } else {
+        var audio = player.querySelector('audio');
+        if (audio) audio.pause();
+    }
+}
+
 function kodaSubscribe(form){var btn=form.querySelector('button'),email=form.querySelector('input[name="email"]').value;btn.textContent='Subscribing...';btn.disabled=true;fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email})}).then(function(r){if(r.ok){btn.textContent='Subscribed!';btn.style.background='#10B981';form.querySelector('input[name="email"]').value=''}else{btn.textContent='Try again';btn.disabled=false}}).catch(function(){btn.textContent='Try again';btn.disabled=false});return false}
 </script>
 
