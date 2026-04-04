@@ -43,6 +43,8 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
 .animate-in{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
 .animate-in.visible{opacity:1;transform:translateY(0)}
 
+
+
 /* -- Koda Nav V2 -- */
 .kn-topbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(11,19,38,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
 .kn-topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:8px}
@@ -256,6 +258,7 @@ window.addEventListener('scroll',function(){var p=document.getElementById('scrol
 var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add('visible')});},{threshold:0.1});
 document.querySelectorAll('.animate-in').forEach(function(el){obs.observe(el)});
 </script>
+
 <!-- koda-nav-v2-js-start -->
 <script>
 (function(){
