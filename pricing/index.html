@@ -110,22 +110,76 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
   .takeaways{grid-template-columns:1fr}
 }
 
-/* -- Canonical Nav -- */
-.topbar{position:fixed;top:0;width:100%;z-index:50;background:rgba(11,19,38,0.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
-.topbar-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
-.brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px}
-.brand-text{font-size:14px;font-weight:700;color:#3B82F6}
-.brand-sub{font-size:10px;color:#8c909f;display:none}
-@media(min-width:640px){.brand-sub{display:block}}
-.nav-links{display:flex;align-items:center;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.nav-link{font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 8px;border-radius:6px;text-decoration:none;transition:all 0.2s;white-space:nowrap}
-.nav-link-home{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white}
-.nav-link-home:hover{box-shadow:0 4px 16px rgba(59,130,246,0.3)}
-.nav-link-secondary{color:#8c909f;background:rgba(255,255,255,0.04)}
-.nav-link-secondary:hover{color:#dae2fd;background:rgba(255,255,255,0.08)}
-.nav-link-active{color:#3B82F6;background:rgba(59,130,246,0.12);border-bottom:2px solid #3B82F6}
-@media(max-width:768px){.nav-link:not(.nav-link-home):not(.nav-link-active){display:none}}
+}
+
+/* -- Koda Nav V2 -- */
+.kn-topbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(11,19,38,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.kn-topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.kn-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;flex-shrink:0}
+.kn-brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0}
+.kn-brand-text{font-size:14px;font-weight:700;color:#3B82F6}
+.kn-brand-sub{font-size:10px;color:#8c909f;display:none}
+@media(min-width:640px){.kn-brand-sub{display:block}}
+
+/* Desktop nav links */
+.kn-links{display:none;align-items:center;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;flex:1;justify-content:center}
+@media(min-width:769px){.kn-links{display:flex}}
+.kn-link{font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 8px;border-radius:6px;text-decoration:none;transition:all 0.2s;white-space:nowrap;color:#8c909f;background:rgba(255,255,255,0.04)}
+.kn-link:hover{color:#dae2fd;background:rgba(255,255,255,0.08)}
+.kn-link-active{color:#3B82F6!important;background:rgba(59,130,246,0.12)!important;border-bottom:2px solid #3B82F6}
+.kn-link .material-symbols-outlined{font-size:13px;vertical-align:-2px;margin-right:2px}
+
+/* Actions (search, hamburger) */
+.kn-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.kn-action-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s;text-decoration:none}
+.kn-action-btn:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
+.kn-action-btn .material-symbols-outlined{font-size:20px}
+
+/* Hamburger - visible on mobile only */
+.kn-hamburger{display:flex}
+@media(min-width:769px){.kn-hamburger{display:none}}
+
+/* Home button - desktop only, in links row */
+.kn-home{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white!important;font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 10px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all 0.2s}
+.kn-home:hover{box-shadow:0 4px 16px rgba(59,130,246,0.3)}
+
+/* ── Drawer ── */
+.kn-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1001;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s}
+.kn-overlay.kn-open{opacity:1;visibility:visible}
+.kn-drawer{position:fixed;top:0;right:0;bottom:0;width:min(280px,85vw);background:rgba(11,19,38,0.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-left:1px solid rgba(173,198,255,0.1);z-index:1002;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.kn-drawer.kn-open{transform:translateX(0)}
+@media(prefers-reduced-motion:reduce){.kn-overlay,.kn-drawer{transition-duration:0.01ms!important}}
+
+/* Drawer header */
+.kn-drawer-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.kn-drawer-brand{display:flex;align-items:center;gap:10px}
+.kn-drawer-close{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s}
+.kn-drawer-close:hover{background:rgba(239,68,68,0.15);color:#EF4444}
+
+/* Drawer sections */
+.kn-drawer-section{padding:12px 20px 4px;font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#6b7280}
+.kn-drawer-divider{height:1px;background:rgba(255,255,255,0.06);margin:8px 20px}
+
+/* Drawer nav links */
+.kn-drawer-link{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:#c2c6d6;font-size:14px;font-weight:500;transition:all 0.2s;border-left:3px solid transparent}
+.kn-drawer-link:hover{background:rgba(255,255,255,0.04);color:#dae2fd}
+.kn-drawer-link-active{color:#3B82F6!important;border-left-color:#3B82F6;background:rgba(59,130,246,0.08)}
+.kn-drawer-link .material-symbols-outlined{font-size:20px;color:#6b7280;flex-shrink:0}
+.kn-drawer-link-active .material-symbols-outlined{color:#3B82F6}
+
+/* Drawer home link */
+.kn-drawer-home{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:white;font-size:14px;font-weight:600;border-left:3px solid transparent;transition:all 0.2s}
+.kn-drawer-home:hover{background:rgba(59,130,246,0.1)}
+.kn-drawer-home .material-symbols-outlined{font-size:20px;color:#3B82F6}
+
+/* Drawer social row */
+.kn-drawer-social{display:flex;gap:8px;padding:12px 20px}
+.kn-drawer-social a,.kn-drawer-social button{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;text-decoration:none;transition:all 0.2s}
+.kn-drawer-social a:hover,.kn-drawer-social button:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
+
+/* Body scroll lock */
+body.kn-locked{overflow:hidden}
+/* -- End Koda Nav V2 -- */
 </style>
 </head>
 <body>
@@ -133,21 +187,75 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- ── Topbar ── -->
-<header class="topbar">
-<div class="topbar-inner">
-    <a href="../index.html" class="brand"><div class="brand-icon">K</div><div><div class="brand-text">Koda Intelligence</div><div class="brand-sub"><span class="material-symbols-outlined" style="font-size:11px;vertical-align:-1px;margin-right:2px">monitoring</span>Token Tracker</div></div></a>
-    <div class="nav-links">
-        <a href="../morning-briefing-koda.html" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
-        <a href="../editorial/" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">explore</span>Deep Dive</a>
-        <a href="../pricing/" class="nav-link nav-link-active"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">monitoring</span>Token Tracker</a>
-        <a href="../benchmarks/" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">trophy</span>Leaderboard</a>
-        <a href="../reviews/" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">science</span>The Lab</a>
-        <a href="../changelog/" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">pulse_alert</span>Pulse</a>
-        <a href="../archive/" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
-        <a href="../index.html" class="nav-link nav-link-home">&larr; Home</a>
+<!-- koda-nav-v2-start -->
+<header class="kn-topbar" id="knTopbar">
+<div class="kn-topbar-inner">
+    <a href="../index.html" class="kn-brand">
+        <div class="kn-brand-icon">K</div>
+        <div>
+            <div class="kn-brand-text">Koda Intelligence</div>
+            <div class="kn-brand-sub"><span class="material-symbols-outlined" style="font-size:11px;vertical-align:-1px;margin-right:2px">monitoring</span>Token Tracker</div>
+        </div>
+    </a>
+    <div class="kn-links">
+                <a href="../morning-briefing-koda.html" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+        <a href="../editorial/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">explore</span>Deep Dive</a>
+        <a href="../pricing/" class="kn-link kn-link-active"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">monitoring</span>Token Tracker</a>
+        <a href="../benchmarks/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">trophy</span>Leaderboard</a>
+        <a href="../reviews/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">science</span>The Lab</a>
+        <a href="../changelog/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">pulse_alert</span>Pulse</a>
+        <a href="../archive/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
+        <a href="../index.html" class="kn-home">&larr; Home</a>
+    </div>
+    <div class="kn-actions">
+        <button class="kn-action-btn" id="knSearchBtn" title="Search (Ctrl+K)" aria-label="Search">
+            <span class="material-symbols-outlined">search</span>
+        </button>
+        <button class="kn-action-btn kn-hamburger" id="knMenuBtn" title="Menu" aria-label="Open menu" aria-expanded="false">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
     </div>
 </div>
 </header>
+
+<!-- Drawer overlay -->
+<div class="kn-overlay" id="knOverlay"></div>
+
+<!-- Slide-out drawer -->
+<nav class="kn-drawer" id="knDrawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="kn-drawer-header">
+        <div class="kn-drawer-brand">
+            <div class="kn-brand-icon">K</div>
+            <span class="kn-brand-text">Koda</span>
+        </div>
+        <button class="kn-drawer-close" id="knDrawerClose" aria-label="Close menu">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+    <div class="kn-drawer-section">Navigate</div>
+        <a href="../index.html" class="kn-drawer-home"><span class="material-symbols-outlined">home</span>Home</a>
+    <a href="../morning-briefing-koda.html" class="kn-drawer-link"><span class="material-symbols-outlined">bolt</span>The Signal</a>
+    <a href="../editorial/" class="kn-drawer-link"><span class="material-symbols-outlined">explore</span>Deep Dive</a>
+    <a href="../pricing/" class="kn-drawer-link kn-drawer-link-active"><span class="material-symbols-outlined">monitoring</span>Token Tracker</a>
+    <a href="../benchmarks/" class="kn-drawer-link"><span class="material-symbols-outlined">trophy</span>Leaderboard</a>
+    <a href="../reviews/" class="kn-drawer-link"><span class="material-symbols-outlined">science</span>The Lab</a>
+    <a href="../changelog/" class="kn-drawer-link"><span class="material-symbols-outlined">pulse_alert</span>Pulse</a>
+    <a href="../archive/" class="kn-drawer-link"><span class="material-symbols-outlined">lock_open</span>The Vault</a>
+    <div class="kn-drawer-divider"></div>
+    <div class="kn-drawer-section">Share</div>
+    <div class="kn-drawer-social">
+        <a href="https://x.com/intent/tweet?url=https://www.koda.community/pricing/" target="_blank" rel="noopener" title="Share on X">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/pricing/" target="_blank" rel="noopener" title="Share on LinkedIn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <button onclick="navigator.clipboard.writeText(window.location.href);this.style.color='#10B981';setTimeout(()=>this.style.color='',1500)" title="Copy link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        </button>
+    </div>
+</nav>
+<!-- koda-nav-v2-end -->
 
 <!-- ── Hero ── -->
 <section class="hero animate-in">
@@ -989,5 +1097,42 @@ function kodaSubscribe(form){
     return false;
 }
 </script>
+<!-- koda-nav-v2-js-start -->
+<script>
+(function(){
+    var btn=document.getElementById('knMenuBtn'),
+        drawer=document.getElementById('knDrawer'),
+        overlay=document.getElementById('knOverlay'),
+        closeBtn=document.getElementById('knDrawerClose'),
+        searchBtn=document.getElementById('knSearchBtn');
+    function open(){
+        drawer.classList.add('kn-open');
+        overlay.classList.add('kn-open');
+        document.body.classList.add('kn-locked');
+        btn.setAttribute('aria-expanded','true');
+        closeBtn.focus();
+    }
+    function close(){
+        drawer.classList.remove('kn-open');
+        overlay.classList.remove('kn-open');
+        document.body.classList.remove('kn-locked');
+        btn.setAttribute('aria-expanded','false');
+        btn.focus();
+    }
+    if(btn) btn.addEventListener('click',open);
+    if(closeBtn) closeBtn.addEventListener('click',close);
+    if(overlay) overlay.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){
+        if(e.key==='Escape' && drawer.classList.contains('kn-open')) close();
+    });
+    /* Search: hook into existing overlay if present, otherwise go to archive */
+    if(searchBtn) searchBtn.addEventListener('click',function(){
+        var so=document.getElementById('searchOverlay');
+        if(so){so.classList.remove('hidden');so.style.display='';var si=document.getElementById('globalSearchInput');if(si)si.focus();}
+        else{window.location.href=searchBtn.closest('.kn-topbar').querySelector('.kn-brand').href.replace('index.html','')+'archive/';}
+    });
+})();
+</script>
+<!-- koda-nav-v2-js-end -->
 </body>
 </html>
