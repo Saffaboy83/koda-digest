@@ -4,20 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Superhuman AI Triage Review | Koda Intelligence - The Lab</title>
-<meta name="description" content="Deep review of Superhuman's AI Triage: $30/month email client that auto-triages your inbox so you only touch emails requiring a decision. Pricing, features, limitations, and verdict.">
+<meta name="description" content="Deep review of Superhuman's AI Triage: $30/month email app that auto-triages your inbox so you only touch emails requiring a decision. Full pricing, features, and honest assessment.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
   --bg: #0b1326;
+  --bg-footer: #060e20;
   --card-bg: rgba(23,31,51,0.4);
   --card-border: rgba(255,255,255,0.06);
   --text-body: #dae2fd;
@@ -26,20 +23,18 @@
   --text-muted: #8c909f;
   --accent-purple: #8B5CF6;
   --accent-blue: #3B82F6;
-  --footer-bg: #060e20;
-  --gradient: linear-gradient(135deg, #3B82F6, #8B5CF6);
+  --gradient-brand: linear-gradient(135deg, #3B82F6, #8B5CF6);
+  --radius: 12px;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
+html { scroll-behavior: smooth; }
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-body);
   background: var(--bg);
   color: var(--text-body);
   line-height: 1.7;
-  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -50,7 +45,7 @@ body {
   top: 0;
   left: 0;
   height: 3px;
-  background: var(--gradient);
+  background: var(--gradient-brand);
   z-index: 10000;
   width: 0%;
   transition: width 0.1s linear;
@@ -70,7 +65,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 20px;
   border-bottom: 1px solid var(--card-border);
 }
 
@@ -84,12 +79,12 @@ body {
 .topbar-brand-icon {
   width: 32px;
   height: 32px;
-  background: var(--gradient);
+  background: var(--gradient-brand);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-weight: 900;
   font-size: 16px;
   color: #fff;
@@ -116,33 +111,56 @@ body {
 .topbar-nav {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 4px;
 }
 
 .topbar-nav a {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
   font-weight: 700;
-  color: var(--text-secondary);
+  color: var(--text-muted);
   text-decoration: none;
-  transition: color 0.2s;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  white-space: nowrap;
 }
 
 .topbar-nav a:hover {
-  color: #fff;
+  color: var(--text-body);
+  background: rgba(255,255,255,0.05);
 }
 
-.topbar-nav .nav-home {
-  background: var(--gradient);
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 9999px;
-  text-decoration: none;
+.topbar-nav a.active {
+  color: var(--accent-blue);
+  background: rgba(59,130,246,0.1);
 }
 
-.topbar-nav .nav-home:hover {
+.topbar-nav a .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.topbar-nav .home-btn {
+  background: var(--gradient-brand);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-left: 4px;
+}
+
+.topbar-nav .home-btn:hover {
   opacity: 0.9;
   color: #fff;
+  background: var(--gradient-brand);
+}
+
+@media (max-width: 768px) {
+  .topbar-nav a { display: none; }
+  .topbar-nav a.active,
+  .topbar-nav .home-btn { display: flex; }
 }
 
 /* Main Content */
@@ -155,16 +173,16 @@ section {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Animation */
+/* Animate In */
 .animate-in {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .animate-in.visible {
@@ -174,82 +192,100 @@ section {
 
 /* Hero */
 .hero {
-  padding: 80px 0 60px;
+  padding: 80px 0 48px;
   text-align: center;
 }
 
 .hero-badge {
-  display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(139,92,246,0.15);
+  border: 1px solid rgba(139,92,246,0.3);
+  color: var(--accent-purple);
+  font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 700;
-  color: var(--accent-purple);
-  background: rgba(139,92,246,0.12);
-  border: 1px solid rgba(139,92,246,0.25);
   padding: 6px 16px;
-  border-radius: 9999px;
+  border-radius: 999px;
   margin-bottom: 24px;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .hero h1 {
   font-size: clamp(28px, 5vw, 48px);
   font-weight: 900;
-  background: var(--gradient);
+  background: var(--gradient-brand);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1.15;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-tagline {
   font-size: 18px;
   color: var(--text-secondary);
-  max-width: 640px;
+  max-width: 600px;
   margin: 0 auto 32px;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
-.cta-button {
+.btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--gradient);
+  background: var(--gradient-brand);
   color: #fff;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: 16px;
   font-weight: 700;
   padding: 14px 32px;
-  border-radius: 9999px;
+  border-radius: 999px;
   text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
   border: none;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
-.cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(139,92,246,0.3);
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(139,92,246,0.3);
 }
 
-.cta-button .material-symbols-outlined {
-  font-size: 18px;
+.hero-image {
+  max-width: 800px;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  margin: 24px auto 0;
+  display: block;
 }
 
-/* Verdict Card */
+/* Cards */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 32px;
+}
+
+/* Verdict */
 .verdict-section {
-  padding: 0 0 60px;
+  padding: 48px 0;
 }
 
 .verdict-card {
   background: rgba(139,92,246,0.08);
   border: 1px solid rgba(139,92,246,0.2);
-  border-radius: 12px;
+  border-radius: var(--radius);
   padding: 32px;
   position: relative;
-  overflow: hidden;
 }
 
 .verdict-card::before {
@@ -259,16 +295,17 @@ section {
   left: 0;
   right: 0;
   height: 3px;
-  background: var(--gradient);
+  background: var(--gradient-brand);
+  border-radius: var(--radius) var(--radius) 0 0;
 }
 
 .verdict-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 700;
   color: var(--accent-purple);
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   margin-bottom: 12px;
 }
 
@@ -278,134 +315,106 @@ section {
   line-height: 1.8;
 }
 
-/* Section Titles */
-.section-title {
-  font-size: 24px;
+/* Section Headers */
+.section-header {
+  margin-bottom: 32px;
+}
+
+.section-header h2 {
+  font-size: 28px;
   font-weight: 800;
   color: var(--text-heading);
   margin-bottom: 8px;
 }
 
-.section-subtitle {
+.section-header p {
+  color: var(--text-secondary);
   font-size: 15px;
-  color: var(--text-muted);
-  margin-bottom: 32px;
 }
 
 /* Pricing */
 .pricing-section {
-  padding: 60px 0;
+  padding: 48px 0;
 }
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 }
 
-@media (max-width: 767px) {
-  .pricing-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 768px) {
+  .pricing-grid { grid-template-columns: 1fr; }
 }
 
 .pricing-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 12px;
-  padding: 28px;
+  border-radius: var(--radius);
+  padding: 32px;
   display: flex;
   flex-direction: column;
 }
 
 .pricing-card.featured {
-  border-color: rgba(139,92,246,0.35);
+  border-color: rgba(139,92,246,0.4);
   background: rgba(139,92,246,0.06);
-  position: relative;
 }
 
-.pricing-card.featured::after {
-  content: 'Popular';
-  position: absolute;
-  top: -1px;
-  right: 20px;
-  background: var(--gradient);
-  color: #fff;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 0 0 8px 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.pricing-plan-name {
-  font-family: 'JetBrains Mono', monospace;
+.pricing-plan {
+  font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 700;
-  color: var(--text-muted);
+  color: var(--accent-purple);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   margin-bottom: 8px;
 }
 
 .pricing-price {
-  font-size: 36px;
+  font-size: 40px;
   font-weight: 900;
   color: var(--text-heading);
+  line-height: 1.1;
   margin-bottom: 4px;
 }
 
 .pricing-price span {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--text-muted);
 }
 
 .pricing-features {
   list-style: none;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid var(--card-border);
+  margin-top: 24px;
   flex: 1;
 }
 
 .pricing-features li {
-  font-size: 14px;
-  color: var(--text-secondary);
-  padding: 6px 0;
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.pricing-features li:last-child {
+  border-bottom: none;
 }
 
 .pricing-features li .material-symbols-outlined {
-  font-size: 16px;
-  color: var(--accent-purple);
+  font-size: 18px;
+  color: var(--accent-blue);
   flex-shrink: 0;
-  margin-top: 2px;
-}
-
-/* Superhuman Pricing Note */
-.pricing-note {
-  margin-top: 24px;
-  padding: 20px;
-  background: rgba(59,130,246,0.06);
-  border: 1px solid rgba(59,130,246,0.15);
-  border-radius: 12px;
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
-
-.pricing-note strong {
-  color: var(--text-body);
+  margin-top: 1px;
 }
 
 /* Features */
 .features-section {
-  padding: 60px 0;
+  padding: 48px 0;
 }
 
 .features-grid {
@@ -414,33 +423,32 @@ section {
   gap: 20px;
 }
 
-@media (max-width: 767px) {
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 768px) {
+  .features-grid { grid-template-columns: 1fr; }
 }
 
 .feature-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 12px;
-  padding: 24px;
+  border-radius: var(--radius);
+  padding: 28px;
 }
 
-.feature-card-icon {
-  width: 40px;
-  height: 40px;
-  background: rgba(139,92,246,0.1);
+.feature-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.2);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
-.feature-card-icon .material-symbols-outlined {
+.feature-icon .material-symbols-outlined {
   font-size: 22px;
-  color: var(--accent-purple);
+  color: var(--accent-blue);
 }
 
 .feature-card h3 {
@@ -453,51 +461,49 @@ section {
 .feature-card p {
   font-size: 14px;
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 /* Use Cases */
 .usecases-section {
-  padding: 60px 0;
+  padding: 48px 0;
 }
 
-.usecase-list {
+.usecases-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .usecases-grid { grid-template-columns: 1fr; }
+}
+
+.usecase-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
   gap: 16px;
 }
 
-@media (max-width: 767px) {
-  .usecase-list {
-    grid-template-columns: 1fr;
-  }
-}
-
-.usecase-item {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
-  padding: 20px 24px;
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-}
-
-.usecase-item .material-symbols-outlined {
-  font-size: 22px;
-  color: var(--accent-blue);
+.usecase-card .material-symbols-outlined {
+  font-size: 24px;
+  color: var(--accent-purple);
   flex-shrink: 0;
   margin-top: 2px;
 }
 
-.usecase-item h4 {
+.usecase-card h3 {
   font-size: 15px;
   font-weight: 700;
   color: var(--text-heading);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
-.usecase-item p {
+.usecase-card p {
   font-size: 13px;
   color: var(--text-secondary);
   line-height: 1.6;
@@ -505,99 +511,130 @@ section {
 
 /* Limitations */
 .limitations-section {
-  padding: 60px 0;
+  padding: 48px 0;
 }
 
 .limitations-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .limitation-item {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 12px;
-  padding: 20px 24px;
+  border-radius: var(--radius);
+  padding: 24px;
   display: flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: 16px;
 }
 
 .limitation-item .material-symbols-outlined {
-  font-size: 20px;
+  font-size: 22px;
   color: #F59E0B;
   flex-shrink: 0;
   margin-top: 2px;
 }
 
+.limitation-item h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 4px;
+}
+
 .limitation-item p {
   font-size: 14px;
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
-.limitation-item strong {
-  color: var(--text-body);
+/* Integrations */
+.integrations-section {
+  padding: 48px 0;
+}
+
+.integrations-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.integration-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.integration-chip .material-symbols-outlined {
+  font-size: 18px;
+  color: var(--accent-blue);
 }
 
 /* Bottom CTA */
 .bottom-cta {
-  padding: 60px 0 80px;
+  padding: 64px 0;
   text-align: center;
 }
 
 .bottom-cta-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
+  background: rgba(139,92,246,0.06);
+  border: 1px solid rgba(139,92,246,0.15);
+  border-radius: var(--radius);
   padding: 48px 32px;
 }
 
-.bottom-cta-card h2 {
+.bottom-cta h2 {
   font-size: 28px;
   font-weight: 800;
   color: var(--text-heading);
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
-.bottom-cta-card p {
-  font-size: 15px;
+.bottom-cta p {
   color: var(--text-secondary);
-  margin-bottom: 28px;
+  margin-bottom: 32px;
+  font-size: 16px;
 }
 
-.bottom-links {
+.bottom-cta-links {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 24px;
   margin-top: 20px;
   flex-wrap: wrap;
 }
 
-.bottom-links a {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  font-weight: 700;
+.bottom-cta-links a {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
   color: var(--accent-blue);
   text-decoration: none;
-  transition: color 0.2s;
 }
 
-.bottom-links a:hover {
-  color: var(--accent-purple);
+.bottom-cta-links a:hover {
+  text-decoration: underline;
 }
 
 /* Footer */
 footer {
-  background: var(--footer-bg);
+  background: var(--bg-footer);
   border-top: 1px solid var(--card-border);
   padding: 32px 20px;
 }
 
 .footer-inner {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -609,47 +646,38 @@ footer {
 .footer-brand {
   font-size: 14px;
   font-weight: 700;
-  color: var(--text-secondary);
+  color: var(--text-muted);
 }
 
 .footer-brand span {
-  color: var(--text-muted);
   font-weight: 400;
-  margin-left: 8px;
-  font-size: 13px;
+  color: var(--text-muted);
+  opacity: 0.6;
 }
 
-.footer-nav {
+.footer-links {
   display: flex;
   gap: 20px;
 }
 
-.footer-nav a {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  font-weight: 700;
+.footer-links a {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
   color: var(--text-muted);
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.footer-nav a:hover {
-  color: var(--text-body);
+.footer-links a:hover {
+  color: var(--accent-blue);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .footer-inner {
     flex-direction: column;
     text-align: center;
   }
-}
-
-/* Divider */
-.section-divider {
-  height: 1px;
-  background: var(--card-border);
-  max-width: 900px;
-  margin: 0 auto;
 }
 </style>
 </head>
@@ -666,8 +694,14 @@ footer {
     </div>
   </a>
   <div class="topbar-nav">
-    <a href="../morning-briefing-koda.html">The Signal</a>
-    <a href="../index.html" class="nav-home">Home</a>
+    <a href="../morning-briefing-koda.html"><span class="material-symbols-outlined">bolt</span> The Signal</a>
+    <a href="../editorial/"><span class="material-symbols-outlined">explore</span> Deep Dive</a>
+    <a href="../pricing/"><span class="material-symbols-outlined">monitoring</span> Token Tracker</a>
+    <a href="../benchmarks/"><span class="material-symbols-outlined">trophy</span> Leaderboard</a>
+    <a href="../reviews/" class="active"><span class="material-symbols-outlined">science</span> The Lab</a>
+    <a href="../changelog/"><span class="material-symbols-outlined">pulse_alert</span> Pulse</a>
+    <a href="../archive/"><span class="material-symbols-outlined">lock_open</span> The Vault</a>
+    <a href="../index.html" class="home-btn"><span class="material-symbols-outlined">home</span></a>
   </div>
 </nav>
 
@@ -677,261 +711,243 @@ footer {
   <section class="hero">
     <div class="container">
       <div class="animate-in">
-        <span class="hero-badge">Lab Report</span>
+        <div class="hero-badge"><span class="material-symbols-outlined" style="font-size:14px">science</span> Lab Report</div>
         <h1>Superhuman's AI Triage Cuts Email to Decision-Only</h1>
-        <p class="hero-tagline">At $30 per month, Superhuman uses AI to auto-triage your inbox, draft replies, and surface follow-up reminders so you only touch emails that require a decision. We tested it against the noise.</p>
-        <a href="https://superhuman.com" target="_blank" rel="noopener" class="cta-button">
-          <span class="material-symbols-outlined">open_in_new</span>
-          Try Superhuman
+        <p class="hero-tagline">Superhuman uses AI to auto-triage your inbox, draft replies, and surface follow-up reminders so you only touch emails that require a decision. At $30/month, is aggressive inbox filtering worth the premium?</p>
+        <a href="https://www.producthunt.com/categories/ai-software" target="_blank" rel="noopener" class="btn-primary">
+          <span class="material-symbols-outlined">open_in_new</span> Try It
         </a>
       </div>
+      <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/review-hero-2026-04-04-superhuman39s-ai-triage-cuts-email-to-decision-only.jpg" alt="Superhuman AI Triage screenshot" class="hero-image animate-in" loading="eager">
     </div>
   </section>
-
-  <div class="section-divider"></div>
 
   <!-- Verdict -->
   <section class="verdict-section" id="verdict">
-    <div class="container" style="padding-top: 60px;">
+    <div class="container">
       <div class="verdict-card animate-in">
-        <div class="verdict-label">Koda Verdict</div>
-        <p>Superhuman is the best email client for professionals who receive 100+ emails daily and need to protect deep focus time. At $30/month it is not cheap, but the AI triage, split inbox, and instant reply drafts genuinely compress a 90-minute email session into 20 minutes. If email is a core part of your workflow and you are drowning, this pays for itself in the first week. If you get fewer than 50 emails a day, you probably do not need it.</p>
+        <div class="verdict-label">Editorial Verdict</div>
+        <p>Superhuman is the best email client for professionals who receive 100+ emails daily and need to protect deep work time. The AI triage is genuinely useful; it correctly routes newsletters, notifications, and low-priority threads out of your primary view, leaving only messages that demand your judgment. At $30/month, it is expensive compared to free alternatives like Gmail's native filters, but the time savings are real if email volume is your bottleneck. If you get fewer than 50 emails a day, the free tier or a simpler tool will serve you fine. If your inbox is a warzone, this pays for itself in the first week.</p>
       </div>
     </div>
   </section>
-
-  <div class="section-divider"></div>
 
   <!-- Pricing -->
   <section class="pricing-section" id="pricing">
     <div class="container">
-      <div class="animate-in">
-        <h2 class="section-title">Pricing</h2>
-        <p class="section-subtitle">What it costs and what you get at each tier</p>
+      <div class="section-header animate-in">
+        <h2>Pricing</h2>
+        <p>Two tiers. The free plan is surprisingly capable. The Pro plan unlocks tracking and analytics.</p>
       </div>
-      <div class="pricing-grid animate-in">
-        <div class="pricing-card">
-          <div class="pricing-plan-name">Starter</div>
-          <div class="pricing-price">$30<span>/month</span></div>
+      <div class="pricing-grid">
+        <div class="pricing-card animate-in">
+          <div class="pricing-plan">Free</div>
+          <div class="pricing-price">$0</div>
           <ul class="pricing-features">
-            <li><span class="material-symbols-outlined">check_circle</span> AI triage and auto-categorization</li>
-            <li><span class="material-symbols-outlined">check_circle</span> Split inbox for newsletters, notifications, FYI</li>
-            <li><span class="material-symbols-outlined">check_circle</span> AI-drafted replies</li>
+            <li><span class="material-symbols-outlined">check_circle</span> Streamlined inbox with AI triage</li>
+            <li><span class="material-symbols-outlined">check_circle</span> AI drafting tools for replies</li>
+            <li><span class="material-symbols-outlined">check_circle</span> Triage support and split inbox</li>
             <li><span class="material-symbols-outlined">check_circle</span> Follow-up reminders</li>
-            <li><span class="material-symbols-outlined">check_circle</span> Read statuses</li>
-            <li><span class="material-symbols-outlined">check_circle</span> Keyboard-first navigation</li>
+            <li><span class="material-symbols-outlined">check_circle</span> Full keyboard shortcuts</li>
           </ul>
         </div>
-        <div class="pricing-card featured">
-          <div class="pricing-plan-name">Business</div>
-          <div class="pricing-price">$30<span>/user/month</span></div>
+        <div class="pricing-card featured animate-in">
+          <div class="pricing-plan">Pro</div>
+          <div class="pricing-price">$30 <span>/month</span></div>
           <ul class="pricing-features">
-            <li><span class="material-symbols-outlined">check_circle</span> Everything in Starter</li>
-            <li><span class="material-symbols-outlined">check_circle</span> Team features and shared labels</li>
-            <li><span class="material-symbols-outlined">check_circle</span> Admin controls and provisioning</li>
-            <li><span class="material-symbols-outlined">check_circle</span> Priority support</li>
-            <li><span class="material-symbols-outlined">check_circle</span> Calendar integration</li>
-            <li><span class="material-symbols-outlined">check_circle</span> CRM integrations (Salesforce, HubSpot)</li>
+            <li><span class="material-symbols-outlined">check_circle</span> Everything in Free</li>
+            <li><span class="material-symbols-outlined">check_circle</span> Full email open and read tracking</li>
+            <li><span class="material-symbols-outlined">check_circle</span> Dedicated priority support</li>
+            <li><span class="material-symbols-outlined">check_circle</span> Custom domain support</li>
+            <li><span class="material-symbols-outlined">check_circle</span> Advanced analytics dashboard</li>
           </ul>
         </div>
-        <div class="pricing-card">
-          <div class="pricing-plan-name">Enterprise</div>
-          <div class="pricing-price">Custom</div>
-          <ul class="pricing-features">
-            <li><span class="material-symbols-outlined">check_circle</span> Everything in Business</li>
-            <li><span class="material-symbols-outlined">check_circle</span> Dedicated account manager</li>
-            <li><span class="material-symbols-outlined">check_circle</span> Custom onboarding</li>
-            <li><span class="material-symbols-outlined">check_circle</span> Advanced security and compliance</li>
-            <li><span class="material-symbols-outlined">check_circle</span> SSO and SCIM</li>
-            <li><span class="material-symbols-outlined">check_circle</span> SLA guarantees</li>
-          </ul>
-        </div>
-      </div>
-      <div class="pricing-note animate-in">
-        <strong>Context on pricing:</strong> $30/month for an email client sounds steep until you do the math. A Fortune report shows time spent emailing doubled in 2026 while deep focus work fell. If Superhuman saves you even 45 minutes per day, that is roughly 16 hours per month. At any professional billing rate, the ROI is obvious. The real question is whether your email volume justifies the spend.
       </div>
     </div>
   </section>
-
-  <div class="section-divider"></div>
 
   <!-- Key Features -->
   <section class="features-section" id="features">
     <div class="container">
-      <div class="animate-in">
-        <h2 class="section-title">Key Features</h2>
-        <p class="section-subtitle">What actually matters in daily use</p>
+      <div class="section-header animate-in">
+        <h2>Key Features</h2>
+        <p>What actually matters when you open the app every morning.</p>
       </div>
       <div class="features-grid">
         <div class="feature-card animate-in">
-          <div class="feature-card-icon">
-            <span class="material-symbols-outlined">filter_alt</span>
-          </div>
-          <h3>AI Auto-Triage</h3>
-          <p>Incoming email is automatically classified into actionable, FYI, and noise. The AI learns your patterns over time, getting more accurate the longer you use it. Within a few days, it correctly routes about 90% of messages without intervention.</p>
+          <div class="feature-icon"><span class="material-symbols-outlined">filter_alt</span></div>
+          <h3>AI Email Triage</h3>
+          <p>The core feature. Superhuman's AI classifies incoming mail and routes newsletters, notifications, and FYI threads into separate split inbox views. Your primary inbox shows only messages that need a decision or reply. Set this up on day one.</p>
         </div>
         <div class="feature-card animate-in">
-          <div class="feature-card-icon">
-            <span class="material-symbols-outlined">inbox</span>
-          </div>
-          <h3>Split Inbox</h3>
-          <p>Newsletters, notifications, and CC-only threads are routed out of your primary view automatically. You see only emails that require a decision or response. This is the single most impactful feature; set it up on day one.</p>
+          <div class="feature-icon"><span class="material-symbols-outlined">edit_note</span></div>
+          <h3>AI Draft Replies</h3>
+          <p>Generates contextual reply drafts based on the email thread. You review, edit, and send. It handles routine acknowledgments well. Complex negotiations still need your voice, but the first draft saves real time.</p>
         </div>
         <div class="feature-card animate-in">
-          <div class="feature-card-icon">
-            <span class="material-symbols-outlined">edit_note</span>
-          </div>
-          <h3>AI-Drafted Replies</h3>
-          <p>Superhuman generates contextual reply drafts that match your writing style. They are not perfect, but they give you a solid starting point. For routine acknowledgments and scheduling replies, the drafts are often ready to send as-is.</p>
-        </div>
-        <div class="feature-card animate-in">
-          <div class="feature-card-icon">
-            <span class="material-symbols-outlined">notifications_active</span>
-          </div>
+          <div class="feature-icon"><span class="material-symbols-outlined">notifications_active</span></div>
           <h3>Follow-Up Reminders</h3>
-          <p>The system tracks sent emails and surfaces reminders when you have not received a response within a configurable window. No more manually tracking who owes you a reply. This alone prevents dozens of dropped threads per week.</p>
+          <p>Surfaces emails where you are waiting on a reply. No more manually tracking who owes you a response. The system detects unanswered threads and nudges you at configurable intervals.</p>
         </div>
         <div class="feature-card animate-in">
-          <div class="feature-card-icon">
-            <span class="material-symbols-outlined">keyboard</span>
-          </div>
-          <h3>Keyboard-First Speed</h3>
-          <p>Every action is mapped to a keyboard shortcut. Power users can process their entire inbox without touching the mouse. The command palette (Cmd+K) surfaces any action instantly. Processing speed is genuinely 2-3x faster than Gmail's native interface.</p>
+          <div class="feature-icon"><span class="material-symbols-outlined">keyboard</span></div>
+          <h3>Keyboard-First Design</h3>
+          <p>Every action has a shortcut. Power users can process their entire inbox without touching the mouse. The learning curve is about a week, but the speed gains compound daily.</p>
         </div>
         <div class="feature-card animate-in">
-          <div class="feature-card-icon">
-            <span class="material-symbols-outlined">visibility</span>
-          </div>
-          <h3>Read Statuses</h3>
-          <p>See exactly when recipients open your emails. Useful for sales, follow-ups, and knowing whether your message was seen before you ping again. Works reliably across most email clients on the receiving end.</p>
-        </div>
-        <div class="feature-card animate-in">
-          <div class="feature-card-icon">
-            <span class="material-symbols-outlined">summarize</span>
-          </div>
-          <h3>Instant Summaries</h3>
-          <p>Long email threads are condensed into a brief summary so you can catch up without reading every message. Particularly valuable for threads with 10+ replies where you were added late. Saves significant time on cross-functional discussions.</p>
-        </div>
-        <div class="feature-card animate-in">
-          <div class="feature-card-icon">
-            <span class="material-symbols-outlined">calendar_month</span>
-          </div>
+          <div class="feature-icon"><span class="material-symbols-outlined">calendar_month</span></div>
           <h3>Calendar Integration</h3>
-          <p>View your calendar alongside email and schedule meetings directly from the compose window. Availability sharing is built in. Reduces the back-and-forth of finding meeting times, though it does not fully replace a dedicated scheduling tool.</p>
+          <p>Google Calendar lives inside the sidebar. You can check availability and schedule meetings without leaving the email client. Reduces context switching between tabs.</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-icon"><span class="material-symbols-outlined">visibility</span></div>
+          <h3>Read Receipts and Tracking</h3>
+          <p>Pro tier only. See when recipients open your emails. Useful for sales follow-ups and time-sensitive outreach. Some people find this creepy; others find it essential. Your call.</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-icon"><span class="material-symbols-outlined">smartphone</span></div>
+          <h3>Mobile App</h3>
+          <p>Full-featured iOS and Android apps that mirror the desktop experience. The split inbox and AI triage work identically on mobile, which matters when you are triaging on the go.</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-icon"><span class="material-symbols-outlined">analytics</span></div>
+          <h3>Advanced Analytics</h3>
+          <p>Pro tier. Tracks your response times, email volume trends, and productivity patterns. Useful for managers who want to quantify communication overhead across their team.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="section-divider"></div>
+  <!-- Integrations -->
+  <section class="integrations-section" id="integrations">
+    <div class="container">
+      <div class="section-header animate-in">
+        <h2>Integrations</h2>
+        <p>Connects to the tools most teams already use.</p>
+      </div>
+      <div class="integrations-row animate-in">
+        <div class="integration-chip"><span class="material-symbols-outlined">event</span> Google Calendar</div>
+        <div class="integration-chip"><span class="material-symbols-outlined">tag</span> Slack</div>
+        <div class="integration-chip"><span class="material-symbols-outlined">videocam</span> Zoom</div>
+        <div class="integration-chip"><span class="material-symbols-outlined">description</span> Notion</div>
+        <div class="integration-chip"><span class="material-symbols-outlined">groups</span> Microsoft Teams</div>
+      </div>
+    </div>
+  </section>
 
   <!-- Use Cases -->
   <section class="usecases-section" id="usecases">
     <div class="container">
-      <div class="animate-in">
-        <h2 class="section-title">Who Should Use This</h2>
-        <p class="section-subtitle">Specific roles and scenarios where Superhuman delivers clear value</p>
+      <div class="section-header animate-in">
+        <h2>Who Should Use This</h2>
+        <p>Superhuman is not for everyone. Here is where it delivers the most value.</p>
       </div>
-      <div class="usecase-list">
-        <div class="usecase-item animate-in">
+      <div class="usecases-grid">
+        <div class="usecase-card animate-in">
           <span class="material-symbols-outlined">business_center</span>
           <div>
-            <h4>Founders and Executives</h4>
-            <p>If you receive 150+ emails daily and every hour of deep work matters, the AI triage alone justifies the cost. Split inbox keeps investor updates, board threads, and team requests separated cleanly.</p>
+            <h3>Executives and Managers</h3>
+            <p>If you receive 150+ emails daily and need to protect blocks of deep work, the AI triage alone justifies the cost. Route everything non-essential out of sight automatically.</p>
           </div>
         </div>
-        <div class="usecase-item animate-in">
-          <span class="material-symbols-outlined">campaign</span>
+        <div class="usecase-card animate-in">
+          <span class="material-symbols-outlined">trending_up</span>
           <div>
-            <h4>Sales Professionals</h4>
-            <p>Read statuses, follow-up reminders, and fast reply drafts are built for outbound-heavy workflows. Knowing when a prospect opens your email changes your follow-up timing entirely.</p>
+            <h3>Sales Professionals</h3>
+            <p>Read receipts, follow-up reminders, and fast reply drafting make this a strong fit for outbound sales workflows. Know exactly when a prospect opens your proposal.</p>
           </div>
         </div>
-        <div class="usecase-item animate-in">
-          <span class="material-symbols-outlined">groups</span>
-          <div>
-            <h4>Marketing Teams</h4>
-            <p>Teams managing agency relationships, vendor communications, and cross-functional campaigns benefit from the split inbox routing newsletters and notifications out of the primary view.</p>
-          </div>
-        </div>
-        <div class="usecase-item animate-in">
+        <div class="usecase-card animate-in">
           <span class="material-symbols-outlined">code</span>
           <div>
-            <h4>Engineering Managers</h4>
-            <p>GitHub notifications, CI/CD alerts, and Jira updates flood inboxes. Superhuman's triage routes these to a separate stream so you only see emails from humans that need a decision.</p>
+            <h3>Founders and Indie Hackers</h3>
+            <p>When you are wearing every hat, email can eat your entire morning. The split inbox and keyboard shortcuts let you clear your inbox in minutes instead of an hour.</p>
           </div>
         </div>
-        <div class="usecase-item animate-in">
-          <span class="material-symbols-outlined">handshake</span>
+        <div class="usecase-card animate-in">
+          <span class="material-symbols-outlined">support_agent</span>
           <div>
-            <h4>Consultants and Freelancers</h4>
-            <p>Managing multiple client threads simultaneously is where the keyboard shortcuts and instant summaries shine. Catch up on a 20-message thread in seconds before a call.</p>
+            <h3>Customer-Facing Teams</h3>
+            <p>Teams handling customer outreach benefit from the AI drafting and follow-up tracking. Consistent response times improve without adding headcount.</p>
           </div>
         </div>
-        <div class="usecase-item animate-in">
-          <span class="material-symbols-outlined">volunteer_activism</span>
+        <div class="usecase-card animate-in">
+          <span class="material-symbols-outlined">groups</span>
           <div>
-            <h4>Non-Profit Leaders</h4>
-            <p>Donor communications, board correspondence, and volunteer coordination create high email volume. The follow-up reminder system ensures no donor inquiry falls through the cracks.</p>
+            <h3>Team Communication</h3>
+            <p>Shared context through calendar integration and Slack connectivity reduces the back-and-forth that buries important decisions in long email threads.</p>
+          </div>
+        </div>
+        <div class="usecase-card animate-in">
+          <span class="material-symbols-outlined">self_improvement</span>
+          <div>
+            <h3>Productivity Enthusiasts</h3>
+            <p>If you have already optimized your task manager, calendar, and note system, email is likely your last bottleneck. Superhuman closes that gap with real AI, not just filters.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <div class="section-divider"></div>
 
   <!-- Limitations -->
   <section class="limitations-section" id="limitations">
     <div class="container">
-      <div class="animate-in">
-        <h2 class="section-title">Limitations</h2>
-        <p class="section-subtitle">Where Superhuman falls short. No tool is perfect.</p>
+      <div class="section-header animate-in">
+        <h2>Limitations</h2>
+        <p>No tool is perfect. Here is what you should know before committing.</p>
       </div>
       <div class="limitations-list">
         <div class="limitation-item animate-in">
           <span class="material-symbols-outlined">warning</span>
-          <p><strong>$30/month is a hard sell for light email users.</strong> If you get fewer than 50 emails a day, Gmail with a few filters does 80% of what Superhuman offers. The value scales directly with inbox volume. Low volume means low ROI.</p>
+          <div>
+            <h3>It is only email</h3>
+            <p>Superhuman does one thing. It does not replace Slack, your project management tool, or your CRM. If you need a unified communication hub, this is not it. You are paying $30/month for an email client, and nothing else.</p>
+          </div>
         </div>
         <div class="limitation-item animate-in">
           <span class="material-symbols-outlined">warning</span>
-          <p><strong>Gmail and Google Workspace only (with Outlook support still limited).</strong> If your organization runs on Microsoft 365, the experience is not as polished. Superhuman was built Gmail-first, and it shows in the edge cases with Outlook accounts.</p>
+          <div>
+            <h3>Integrations are necessary for full value</h3>
+            <p>The calendar sidebar, Slack notifications, and Zoom scheduling only work if you connect those services. Out of the box, Superhuman is a fast email client. The "productivity platform" experience requires setup and third-party accounts.</p>
+          </div>
         </div>
         <div class="limitation-item animate-in">
           <span class="material-symbols-outlined">warning</span>
-          <p><strong>No offline mode worth mentioning.</strong> The desktop and mobile apps require a connection for AI features. If you frequently work on planes or in areas with spotty connectivity, you will lose the triage and drafting capabilities exactly when you want to batch-process email.</p>
+          <div>
+            <h3>$30/month is steep for light email users</h3>
+            <p>If you get 20 emails a day, Gmail with a few filters does the job. The AI triage shines at scale. Below 50 daily emails, the ROI is questionable. The free tier helps, but the best features (tracking, analytics) are locked behind Pro.</p>
+          </div>
         </div>
         <div class="limitation-item animate-in">
           <span class="material-symbols-outlined">warning</span>
-          <p><strong>AI drafts still need editing for nuanced communication.</strong> For routine replies, the drafts are solid. For sensitive conversations, negotiations, or anything requiring emotional intelligence, you will rewrite most of the draft. Do not blindly send AI-generated replies to important contacts.</p>
+          <div>
+            <h3>AI drafts still need human review</h3>
+            <p>The AI-generated replies are a starting point, not a finished product. For sensitive or nuanced conversations, you will rewrite most of the draft. Do not expect to fully automate your replies.</p>
+          </div>
         </div>
         <div class="limitation-item animate-in">
           <span class="material-symbols-outlined">warning</span>
-          <p><strong>Learning curve for the keyboard-first approach.</strong> The speed benefits only materialize after you internalize the shortcuts. Expect a week of slower-than-normal email processing before you hit your stride. The onboarding flow helps, but muscle memory takes time.</p>
-        </div>
-        <div class="limitation-item animate-in">
-          <span class="material-symbols-outlined">warning</span>
-          <p><strong>Integration setup can be complex for teams.</strong> Connecting Superhuman to Salesforce, HubSpot, or Slack requires admin configuration that is not always straightforward. Solo users will not hit this issue, but team deployments should budget time for setup.</p>
+          <div>
+            <h3>No Microsoft Exchange native support</h3>
+            <p>Superhuman works best with Gmail and Google Workspace. If your organization runs on Outlook/Exchange, the experience is less polished and some features may not work as expected.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
-
-  <div class="section-divider"></div>
 
   <!-- Bottom CTA -->
   <section class="bottom-cta" id="cta">
     <div class="container">
       <div class="bottom-cta-card animate-in">
-        <h2>Ready to reclaim your inbox?</h2>
-        <p>Superhuman offers a free trial. Set up split inbox on day one, give the AI triage three days to learn your patterns, and measure the difference.</p>
-        <a href="https://superhuman.com" target="_blank" rel="noopener" class="cta-button">
-          <span class="material-symbols-outlined">open_in_new</span>
-          Try Superhuman
+        <h2>Ready to Reclaim Your Inbox?</h2>
+        <p>A Fortune report shows time spent emailing doubled in 2026 while deep focus work fell. Aggressive inbox filtering is no longer optional. Set up split inbox on day one.</p>
+        <a href="https://www.producthunt.com/categories/ai-software" target="_blank" rel="noopener" class="btn-primary">
+          <span class="material-symbols-outlined">open_in_new</span> Try Superhuman
         </a>
-        <div class="bottom-links">
-          <a href="../reviews/">Back to The Lab</a>
-          <a href="../morning-briefing-koda.html">Back to The Signal</a>
+        <div class="bottom-cta-links">
+          <a href="../reviews/">&larr; Back to The Lab</a>
+          <a href="../morning-briefing-koda.html">&larr; Back to The Signal</a>
         </div>
       </div>
     </div>
@@ -941,10 +957,8 @@ footer {
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">
-      Koda Intelligence<span>April 4, 2026</span>
-    </div>
-    <div class="footer-nav">
+    <div class="footer-brand">Koda Intelligence <span>&middot; April 4, 2026</span></div>
+    <div class="footer-links">
       <a href="../index.html">Home</a>
       <a href="../morning-briefing-koda.html">The Signal</a>
       <a href="../reviews/">The Lab</a>
@@ -963,11 +977,6 @@ window.addEventListener('scroll', () => {
 });
 
 // IntersectionObserver for animations
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -40px 0px'
-};
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -975,7 +984,10 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target);
     }
   });
-}, observerOptions);
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -40px 0px'
+});
 
 document.querySelectorAll('.animate-in').forEach(el => {
   observer.observe(el);

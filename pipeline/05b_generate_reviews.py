@@ -207,7 +207,7 @@ def deep_scrape_tool(url: str, tool_name: str) -> dict:
     # Primary scrape: structured data + branding
     data = firecrawl_scrape(
         url,
-        formats=["json", "branding"],
+        formats=["json", "branding", "screenshot"],
         json_schema=REVIEW_EXTRACTION_SCHEMA,
         json_prompt=(
             "Extract the product name, pricing tiers with features, "
@@ -221,6 +221,7 @@ def deep_scrape_tool(url: str, tool_name: str) -> dict:
         "name": tool_name,
         "structured": {},
         "branding": {},
+        "screenshot_url": "",
     }
 
     if not data:
@@ -229,6 +230,10 @@ def deep_scrape_tool(url: str, tool_name: str) -> dict:
 
     result["structured"] = data.get("json", {})
     result["branding"] = data.get("branding", {})
+    result["screenshot_url"] = data.get("screenshot", "")
+
+    if result["screenshot_url"]:
+        print(f"      Screenshot captured")
 
     structured = result["structured"]
     feature_count = len(structured.get("key_features", []))
@@ -248,12 +253,15 @@ def generate_review_html(tool: dict, scrape_data: dict, date: str) -> str | None
     """Generate a complete self-contained review HTML page via LLM."""
     structured = scrape_data.get("structured", {})
     branding = scrape_data.get("branding", {})
+    hero_url = scrape_data.get("hero_url", "")
 
     context_parts = [
         f"Tool: {tool.get('title', '')}",
         f"URL: {tool.get('url', '')}",
         f"From digest: {tool.get('body', '')}",
     ]
+    if hero_url:
+        context_parts.append(f"Hero image URL (screenshot of the tool): {hero_url}")
 
     if structured:
         context_parts.append(f"\nStructured data from website:\n{json.dumps(structured, indent=2)}")
@@ -281,10 +289,19 @@ DESIGN SYSTEM (must match exactly):
 TOPBAR (fixed, 56px height):
 - Background: rgba(11,19,38,0.8) with backdrop-filter: blur(20px)
 - Left: brand link to ../index.html with 32x32 gradient "K" icon + "Koda Intelligence" text (14px, 700, color #3B82F6) + sub-text "The Lab" (10px, color #8c909f)
-- Right: nav links in JetBrains Mono 11px/700: "The Signal" (../morning-briefing-koda.html), "Home" button (gradient background, white text)
+- Right: ALL 7 nav links in JetBrains Mono 10px/700 (gap 4px):
+  bolt "The Signal" -> ../morning-briefing-koda.html
+  explore "Deep Dive" -> ../editorial/
+  monitoring "Token Tracker" -> ../pricing/
+  trophy "Leaderboard" -> ../benchmarks/
+  science "The Lab" -> ../reviews/ (ACTIVE: highlighted with color #3B82F6 and blue bg)
+  pulse_alert "Pulse" -> ../changelog/
+  lock_open "The Vault" -> ../archive/
+  Home button (gradient) -> ../index.html
+- On mobile (@media max-width:768px): hide all except active link + Home
 
 PAGE STRUCTURE:
-1. Hero: purple badge "Lab Report", tool name as gradient h1 (clamp 28px-48px), tagline, prominent "Try It" CTA button linking to {tool.get('url', '')}
+1. Hero: purple badge "Lab Report", tool name as gradient h1 (clamp 28px-48px), tagline, prominent "Try It" CTA button linking to {tool.get('url', '')}. If a hero image URL is provided in the context, render it below the hero text as: <img src="HERO_URL" alt="Tool screenshot" style="max-width:800px;width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.08);margin:24px auto 0;display:block" loading="eager">
 2. Verdict: 2-3 sentence editorial verdict in a highlighted card (who is this for, is it worth it)
 3. Pricing table: all tiers with features using the scraped data. Use a grid on desktop, stack on mobile.
 4. Key Features: 2-column grid of feature cards (5-8 features) with material icon per card
@@ -510,6 +527,34 @@ def main():
 
         # Deep scrape
         scrape_data = deep_scrape_tool(url, title)
+
+        # Download screenshot and upload to Supabase
+        hero_url = ""
+        screenshot_src = scrape_data.get("screenshot_url", "")
+        if screenshot_src:
+            try:
+                print(f"    Downloading screenshot...")
+                img_resp = httpx.get(screenshot_src, timeout=20, follow_redirects=True)
+                img_resp.raise_for_status()
+                hero_filename = f"review-hero-{args.date}-{slug}.jpg"
+                hero_path = REVIEWS_DIR / hero_filename
+                hero_path.write_bytes(img_resp.content)
+                print(f"    Saved: reviews/{hero_filename} ({len(img_resp.content) // 1024}KB)")
+
+                # Upload to Supabase if keys available
+                from pipeline.config import SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
+                if SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY:
+                    from supabase_upload import upload_file
+                    hero_url = upload_file(str(hero_path), SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
+                    print(f"    Uploaded to Supabase: {hero_url}")
+                else:
+                    # Fallback: serve from relative path via Vercel
+                    hero_url = f"./reviews/{hero_filename}"
+                    print(f"    No Supabase keys; using relative path")
+            except Exception as e:
+                print(f"    Screenshot download/upload failed (non-critical): {e}")
+
+        scrape_data["hero_url"] = hero_url
 
         # Generate HTML
         print(f"    Generating review HTML...")

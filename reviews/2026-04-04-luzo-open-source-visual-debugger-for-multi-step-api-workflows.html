@@ -3,29 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luzo Review: Open-Source Visual Debugger for Multi-Step API Workflows | Koda Intelligence Lab</title>
-<meta name="description" content="Deep review of Luzo, the open-source visual debugger for multi-step API workflows. Pricing, features, limitations, and honest verdict from Koda Intelligence.">
+<title>Luzo: Open-Source Visual Debugger for Multi-Step API Workflows | Koda Intelligence Lab Report</title>
+<meta name="description" content="Deep review of Luzo, a free open-source visual debugger for multi-step API workflows. Pricing, features, limitations, and honest verdict from Koda Intelligence.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', sans-serif;
   background: #0b1326;
   color: #dae2fd;
   line-height: 1.7;
-  font-size: 16px;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -36,9 +28,9 @@ body {
   top: 0;
   left: 0;
   height: 3px;
+  width: 0%;
   background: linear-gradient(135deg, #3B82F6, #8B5CF6);
   z-index: 10000;
-  width: 0%;
   transition: width 0.1s linear;
 }
 
@@ -49,24 +41,22 @@ body {
   left: 0;
   right: 0;
   height: 56px;
-  background: rgba(11, 19, 38, 0.8);
+  background: rgba(11,19,38,0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
-
 .topbar-brand {
   display: flex;
   align-items: center;
   gap: 10px;
   text-decoration: none;
 }
-
 .topbar-brand-icon {
   width: 32px;
   height: 32px;
@@ -77,81 +67,88 @@ body {
   justify-content: center;
   font-family: 'Inter', sans-serif;
   font-weight: 900;
-  font-size: 18px;
+  font-size: 16px;
   color: #fff;
 }
-
 .topbar-brand-text {
   display: flex;
   flex-direction: column;
 }
-
 .topbar-brand-name {
   font-size: 14px;
   font-weight: 700;
   color: #3B82F6;
   line-height: 1.2;
 }
-
 .topbar-brand-sub {
   font-size: 10px;
   color: #8c909f;
   line-height: 1.2;
 }
-
 .topbar-nav {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 4px;
 }
-
 .topbar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
+  color: #8c909f;
   text-decoration: none;
-  color: #c2c6d6;
-  transition: color 0.2s;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  white-space: nowrap;
 }
-
 .topbar-nav a:hover {
   color: #dae2fd;
+  background: rgba(255,255,255,0.05);
 }
-
+.topbar-nav a.active {
+  color: #3B82F6;
+  background: rgba(59,130,246,0.1);
+}
+.topbar-nav a .material-symbols-outlined {
+  font-size: 16px;
+}
 .topbar-nav .nav-home {
   background: linear-gradient(135deg, #3B82F6, #8B5CF6);
   color: #fff;
-  padding: 6px 14px;
+  padding: 6px 10px;
   border-radius: 6px;
 }
-
 .topbar-nav .nav-home:hover {
-  color: #fff;
   opacity: 0.9;
+  background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .topbar-nav a { display: none; }
+  .topbar-nav a.active,
+  .topbar-nav a.nav-home { display: flex; }
 }
 
 /* Main Content */
 main {
-  padding-top: 56px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 20px 60px;
 }
-
 section {
   scroll-margin-top: 80px;
-}
-
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
 }
 
 /* Animation */
 .animate-in {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
-
 .animate-in.visible {
   opacity: 1;
   transform: translateY(0);
@@ -159,25 +156,23 @@ section {
 
 /* Hero */
 .hero {
-  padding: 80px 0 60px;
   text-align: center;
+  padding: 60px 0 40px;
 }
-
 .hero-badge {
   display: inline-block;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: #8B5CF6;
-  background: rgba(139, 92, 246, 0.12);
-  border: 1px solid rgba(139, 92, 246, 0.25);
-  padding: 6px 16px;
-  border-radius: 9999px;
-  margin-bottom: 24px;
+  background: rgba(139,92,246,0.12);
+  border: 1px solid rgba(139,92,246,0.25);
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
 .hero h1 {
   font-size: clamp(28px, 5vw, 48px);
   font-weight: 900;
@@ -188,501 +183,361 @@ section {
   line-height: 1.15;
   margin-bottom: 16px;
 }
-
 .hero-tagline {
   font-size: 18px;
   color: #c2c6d6;
-  max-width: 640px;
-  margin: 0 auto 32px;
+  max-width: 600px;
+  margin: 0 auto 28px;
   line-height: 1.6;
 }
-
-.btn-primary {
+.cta-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   background: linear-gradient(135deg, #3B82F6, #8B5CF6);
   color: #fff;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
   font-weight: 700;
   padding: 14px 32px;
-  border-radius: 9999px;
+  border-radius: 10px;
   text-decoration: none;
-  transition: opacity 0.2s, transform 0.2s;
+  transition: all 0.25s;
   border: none;
   cursor: pointer;
 }
-
-.btn-primary:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(139,92,246,0.3);
 }
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #3B82F6;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  font-weight: 700;
-  text-decoration: none;
-  padding: 10px 20px;
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  border-radius: 9999px;
-  transition: background 0.2s, border-color 0.2s;
+.cta-btn .material-symbols-outlined {
+  font-size: 18px;
 }
-
-.btn-secondary:hover {
-  background: rgba(59, 130, 246, 0.08);
-  border-color: rgba(59, 130, 246, 0.5);
+.hero-img {
+  max-width: 800px;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  margin: 24px auto 0;
+  display: block;
 }
 
 /* Cards */
 .card {
-  background: rgba(23, 31, 51, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(23,31,51,0.4);
+  border: 1px solid rgba(255,255,255,0.06);
   border-radius: 12px;
   padding: 28px;
 }
 
 /* Verdict */
 .verdict-section {
-  padding: 0 0 60px;
+  margin: 40px 0;
 }
-
 .verdict-card {
-  background: rgba(23, 31, 51, 0.4);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: rgba(139,92,246,0.08);
+  border: 1px solid rgba(139,92,246,0.2);
   border-radius: 12px;
-  padding: 32px;
-  position: relative;
-  overflow: hidden;
+  padding: 28px 32px;
 }
-
-.verdict-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(135deg, #3B82F6, #8B5CF6);
-}
-
-.verdict-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  font-weight: 700;
-  color: #8B5CF6;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 12px;
-}
-
-.verdict-text {
-  font-size: 17px;
+.verdict-card h2 {
+  font-size: 20px;
+  font-weight: 800;
   color: #dae2fd;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.verdict-card h2 .material-symbols-outlined {
+  color: #8B5CF6;
+  font-size: 24px;
+}
+.verdict-card p {
+  font-size: 15px;
+  color: #c2c6d6;
   line-height: 1.75;
+}
+
+/* Section Headings */
+.section-heading {
+  font-size: 24px;
+  font-weight: 800;
+  color: #dae2fd;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-heading .material-symbols-outlined {
+  color: #8B5CF6;
+  font-size: 26px;
 }
 
 /* Pricing */
 .pricing-section {
-  padding: 60px 0;
+  margin: 48px 0;
 }
-
-.section-title {
-  font-size: clamp(22px, 3vw, 30px);
-  font-weight: 800;
-  color: #dae2fd;
-  margin-bottom: 8px;
-}
-
-.section-subtitle {
-  font-size: 15px;
-  color: #8c909f;
-  margin-bottom: 40px;
-}
-
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
-
-@media (max-width: 767px) {
-  .pricing-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 .pricing-card {
-  background: rgba(23, 31, 51, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(23,31,51,0.4);
+  border: 1px solid rgba(255,255,255,0.06);
   border-radius: 12px;
   padding: 32px;
-  display: flex;
-  flex-direction: column;
-}
-
-.pricing-card.highlighted {
-  border-color: rgba(139, 92, 246, 0.35);
   position: relative;
 }
-
-.pricing-card.highlighted::after {
-  content: 'POPULAR';
-  position: absolute;
-  top: 16px;
-  right: 16px;
+.pricing-card.highlighted {
+  border-color: rgba(139,92,246,0.35);
+  background: rgba(139,92,246,0.06);
+}
+.pricing-plan {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   color: #8B5CF6;
-  background: rgba(139, 92, 246, 0.12);
-  padding: 3px 10px;
-  border-radius: 9999px;
-  letter-spacing: 1px;
-}
-
-.pricing-plan-name {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
-  font-weight: 700;
-  color: #c2c6d6;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 8px;
 }
-
 .pricing-price {
   font-size: 40px;
   font-weight: 900;
   color: #dae2fd;
-  line-height: 1.1;
   margin-bottom: 4px;
 }
-
 .pricing-price span {
   font-size: 16px;
   font-weight: 500;
   color: #8c909f;
 }
-
-.pricing-divider {
-  height: 1px;
-  background: rgba(255, 255, 255, 0.06);
-  margin: 20px 0;
+.pricing-desc {
+  font-size: 13px;
+  color: #8c909f;
+  margin-bottom: 20px;
 }
-
 .pricing-features {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  flex: 1;
+  gap: 10px;
 }
-
 .pricing-features li {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 8px;
   font-size: 14px;
   color: #c2c6d6;
-  line-height: 1.5;
 }
-
 .pricing-features li .material-symbols-outlined {
   font-size: 18px;
   color: #3B82F6;
   flex-shrink: 0;
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
-/* Features */
+/* Features Grid */
 .features-section {
-  padding: 60px 0;
+  margin: 48px 0;
 }
-
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
-
-@media (max-width: 767px) {
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 768px) {
+  .features-grid { grid-template-columns: 1fr; }
 }
-
 .feature-card {
-  background: rgba(23, 31, 51, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(23,31,51,0.4);
+  border: 1px solid rgba(255,255,255,0.06);
   border-radius: 12px;
   padding: 24px;
-  transition: border-color 0.2s;
 }
-
-.feature-card:hover {
-  border-color: rgba(255, 255, 255, 0.12);
-}
-
-.feature-icon {
+.feature-card-icon {
   width: 40px;
   height: 40px;
-  background: rgba(139, 92, 246, 0.1);
+  background: rgba(139,92,246,0.1);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 14px;
 }
-
-.feature-icon .material-symbols-outlined {
+.feature-card-icon .material-symbols-outlined {
   font-size: 22px;
   color: #8B5CF6;
 }
-
 .feature-card h3 {
   font-size: 15px;
   font-weight: 700;
   color: #dae2fd;
   margin-bottom: 6px;
 }
-
 .feature-card p {
-  font-size: 14px;
+  font-size: 13px;
   color: #8c909f;
   line-height: 1.6;
 }
 
 /* Use Cases */
 .usecases-section {
-  padding: 60px 0;
+  margin: 48px 0;
 }
-
 .usecases-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
-
 .usecase-item {
-  background: rgba(23, 31, 51, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(23,31,51,0.4);
+  border: 1px solid rgba(255,255,255,0.06);
   border-radius: 12px;
-  padding: 24px 28px;
+  padding: 22px 24px;
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 14px;
 }
-
 .usecase-item .material-symbols-outlined {
-  font-size: 24px;
+  font-size: 22px;
   color: #3B82F6;
   flex-shrink: 0;
   margin-top: 2px;
 }
-
 .usecase-item h3 {
   font-size: 15px;
   font-weight: 700;
   color: #dae2fd;
   margin-bottom: 4px;
 }
-
 .usecase-item p {
-  font-size: 14px;
+  font-size: 13px;
   color: #8c909f;
   line-height: 1.6;
 }
 
 /* Limitations */
 .limitations-section {
-  padding: 60px 0;
+  margin: 48px 0;
 }
-
 .limitations-card {
-  background: rgba(23, 31, 51, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(23,31,51,0.4);
+  border: 1px solid rgba(255,255,255,0.06);
   border-radius: 12px;
-  padding: 32px;
+  padding: 28px;
 }
-
-.limitation-item {
+.limitations-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.limitations-list li {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  gap: 10px;
+  font-size: 14px;
+  color: #c2c6d6;
+  line-height: 1.65;
 }
-
-.limitation-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.limitation-item:first-child {
-  padding-top: 0;
-}
-
-.limitation-item .material-symbols-outlined {
-  font-size: 20px;
+.limitations-list li .material-symbols-outlined {
+  font-size: 18px;
   color: #f59e0b;
   flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.limitation-item h4 {
-  font-size: 15px;
-  font-weight: 700;
-  color: #dae2fd;
-  margin-bottom: 4px;
-}
-
-.limitation-item p {
-  font-size: 14px;
-  color: #8c909f;
-  line-height: 1.6;
-}
-
-/* Integrations */
-.integrations-section {
-  padding: 60px 0;
-}
-
-.integrations-row {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.integration-chip {
-  background: rgba(23, 31, 51, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 9999px;
-  padding: 10px 20px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  font-weight: 500;
-  color: #c2c6d6;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.integration-chip .material-symbols-outlined {
-  font-size: 18px;
-  color: #3B82F6;
+  margin-top: 3px;
 }
 
 /* Bottom CTA */
 .bottom-cta {
-  padding: 80px 0;
   text-align: center;
+  margin: 56px 0 20px;
+  padding: 40px 20px;
+  background: rgba(23,31,51,0.4);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
 }
-
 .bottom-cta h2 {
-  font-size: clamp(22px, 3vw, 32px);
+  font-size: 22px;
   font-weight: 800;
   color: #dae2fd;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
-
-.bottom-cta p {
-  font-size: 15px;
-  color: #8c909f;
-  margin-bottom: 32px;
-}
-
 .bottom-cta-links {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  gap: 20px;
   margin-top: 20px;
+  flex-wrap: wrap;
+}
+.bottom-cta-links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: #3B82F6;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+}
+.bottom-cta-links a:hover {
+  color: #8B5CF6;
+}
+.bottom-cta-links a .material-symbols-outlined {
+  font-size: 16px;
 }
 
 /* Footer */
 footer {
   background: #060e20;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 32px 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 28px 20px;
+  margin-top: 40px;
 }
-
 .footer-inner {
-  max-width: 960px;
+  max-width: 900px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 12px;
 }
-
 .footer-brand {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   color: #3B82F6;
 }
-
 .footer-brand span {
-  color: #8c909f;
   font-weight: 400;
-  font-size: 13px;
+  color: #8c909f;
+  font-size: 12px;
   margin-left: 8px;
 }
-
 .footer-nav {
   display: flex;
-  gap: 20px;
+  gap: 16px;
 }
-
 .footer-nav a {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 500;
   color: #8c909f;
   text-decoration: none;
   transition: color 0.2s;
 }
-
 .footer-nav a:hover {
-  color: #c2c6d6;
+  color: #dae2fd;
 }
-
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .footer-inner {
     flex-direction: column;
     text-align: center;
   }
-}
-
-/* Meta info row */
-.meta-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 16px;
-  flex-wrap: wrap;
-}
-
-.meta-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  color: #8c909f;
-}
-
-.meta-item .material-symbols-outlined {
-  font-size: 16px;
-  color: #3B82F6;
 }
 </style>
 </head>
@@ -699,313 +554,170 @@ footer {
     </div>
   </a>
   <div class="topbar-nav">
-    <a href="../morning-briefing-koda.html">The Signal</a>
-    <a href="../index.html" class="nav-home">Home</a>
+    <a href="../morning-briefing-koda.html"><span class="material-symbols-outlined">bolt</span>The Signal</a>
+    <a href="../editorial/"><span class="material-symbols-outlined">explore</span>Deep Dive</a>
+    <a href="../pricing/"><span class="material-symbols-outlined">monitoring</span>Token Tracker</a>
+    <a href="../benchmarks/"><span class="material-symbols-outlined">trophy</span>Leaderboard</a>
+    <a href="../reviews/" class="active"><span class="material-symbols-outlined">science</span>The Lab</a>
+    <a href="../changelog/"><span class="material-symbols-outlined">pulse_alert</span>Pulse</a>
+    <a href="../archive/"><span class="material-symbols-outlined">lock_open</span>The Vault</a>
+    <a href="../index.html" class="nav-home"><span class="material-symbols-outlined">home</span></a>
   </div>
 </nav>
 
 <main>
 
   <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <div class="animate-in">
-        <span class="hero-badge">Lab Report</span>
-        <h1>Luzo</h1>
-        <p class="hero-tagline">An open-source, desktop-first visual debugger for building, running, and tracing multi-step API workflows. Replace fragile Postman chains with a dependency-aware canvas and live timeline inspector.</p>
-        <div class="meta-row">
-          <span class="meta-item">
-            <span class="material-symbols-outlined">calendar_today</span>
-            April 4, 2026
-          </span>
-          <span class="meta-item">
-            <span class="material-symbols-outlined">category</span>
-            API Development
-          </span>
-          <span class="meta-item">
-            <span class="material-symbols-outlined">code</span>
-            Open Source
-          </span>
-        </div>
-        <div style="margin-top: 32px;">
-          <a href="https://www.producthunt.com/products/luzo/alternatives" target="_blank" rel="noopener" class="btn-primary">
-            <span class="material-symbols-outlined" style="font-size: 18px;">open_in_new</span>
-            Try Luzo
-          </a>
-        </div>
-      </div>
-    </div>
+  <section class="hero animate-in">
+    <div class="hero-badge">Lab Report</div>
+    <h1>Luzo: Open-Source Visual Debugger for Multi-Step API Workflows</h1>
+    <p class="hero-tagline">Design and debug API workflows visually. A free, desktop-first tool that replaces fragile Postman chains with a dependency-aware visual canvas and live execution timeline.</p>
+    <a href="https://www.producthunt.com/products/luzo/alternatives" target="_blank" rel="noopener" class="cta-btn">
+      <span class="material-symbols-outlined">open_in_new</span>Try It
+    </a>
+    <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/review-hero-2026-04-04-luzo-open-source-visual-debugger-for-multi-step-api-workflows.jpg" alt="Luzo visual debugger screenshot" class="hero-img" loading="eager">
   </section>
 
   <!-- Verdict -->
-  <section class="verdict-section" id="verdict">
-    <div class="container">
-      <div class="verdict-card animate-in">
-        <div class="verdict-label">Koda Verdict</div>
-        <p class="verdict-text">
-          Luzo fills a genuine gap for backend engineers and QA teams who spend too much time tracing failures across chained API calls. The visual canvas with dependency awareness and the ability to retry from a specific failure point (without restarting the entire flow) are its standout features. If you are building or maintaining microservice integrations, webhook sequences, or multi-step API pipelines, the free tier is worth trying immediately. The $15/month Pro plan makes sense once you need collaboration or workflows with more than a handful of steps. It is not a Postman replacement for simple one-off requests; it is a purpose-built debugger for complex, sequential API logic.
-        </p>
-      </div>
+  <section class="verdict-section animate-in">
+    <div class="verdict-card">
+      <h2><span class="material-symbols-outlined">gavel</span>Verdict</h2>
+      <p>Luzo fills a real gap for developers and QA engineers who spend too much time tracing failures across chained API calls, webhook sequences, and microservice integrations. If you have ever stacked Postman requests in a collection and manually passed tokens between them while squinting at logs to find where things broke, this tool was built for you. It is completely free and open-source, which removes the usual pricing friction. The main question is whether you can live with a desktop-only tool that currently lacks third-party integrations; for small-to-mid teams debugging complex API flows, the answer is probably yes.</p>
     </div>
   </section>
 
   <!-- Pricing -->
-  <section class="pricing-section" id="pricing">
-    <div class="container">
-      <div class="animate-in">
-        <h2 class="section-title">Pricing</h2>
-        <p class="section-subtitle">Two tiers. The free plan covers solo debugging. Pro unlocks team workflows.</p>
-      </div>
-      <div class="pricing-grid animate-in">
-        <div class="pricing-card">
-          <div class="pricing-plan-name">Free</div>
-          <div class="pricing-price">$0</div>
-          <div class="pricing-divider"></div>
-          <ul class="pricing-features">
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Basic API workflow design
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Full visual interface and canvas
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Limited steps per flow
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Live timeline inspection
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Variable passing between steps
-            </li>
-          </ul>
-        </div>
-        <div class="pricing-card highlighted">
-          <div class="pricing-plan-name">Pro</div>
-          <div class="pricing-price">$15<span>/month</span></div>
-          <div class="pricing-divider"></div>
-          <ul class="pricing-features">
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Everything in Free
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Unlimited steps per flow
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Team collaboration features
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Priority support
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Full integration access
-            </li>
-          </ul>
-        </div>
+  <section class="pricing-section animate-in" id="pricing">
+    <h2 class="section-heading"><span class="material-symbols-outlined">payments</span>Pricing</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card highlighted">
+        <div class="pricing-plan">Free</div>
+        <div class="pricing-price">$0 <span>forever</span></div>
+        <div class="pricing-desc">Open-source. No paywalls, no feature gates, no usage limits.</div>
+        <ul class="pricing-features">
+          <li><span class="material-symbols-outlined">check_circle</span>Desktop-first interface</li>
+          <li><span class="material-symbols-outlined">check_circle</span>Fully open-source codebase</li>
+          <li><span class="material-symbols-outlined">check_circle</span>Build multi-step API workflows</li>
+          <li><span class="material-symbols-outlined">check_circle</span>Live timeline execution inspector</li>
+          <li><span class="material-symbols-outlined">check_circle</span>Retry failed steps without resetting the entire flow</li>
+          <li><span class="material-symbols-outlined">check_circle</span>Dependency-aware flow design</li>
+          <li><span class="material-symbols-outlined">check_circle</span>Pass variables between steps</li>
+        </ul>
       </div>
     </div>
+    <p style="font-size:13px;color:#8c909f;margin-top:14px;">There is only one tier. Everything is free. No enterprise upsell at the time of this review.</p>
   </section>
 
   <!-- Key Features -->
-  <section class="features-section" id="features">
-    <div class="container">
-      <div class="animate-in">
-        <h2 class="section-title">Key Features</h2>
-        <p class="section-subtitle">What Luzo actually does, and why it matters for API debugging.</p>
+  <section class="features-section animate-in" id="features">
+    <h2 class="section-heading"><span class="material-symbols-outlined">auto_awesome</span>Key Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">account_tree</span></div>
+        <h3>Dependency-Aware Flow Design</h3>
+        <p>Define explicit dependencies between API steps. Luzo understands which calls must complete before others fire, preventing race conditions and making execution order transparent on the canvas.</p>
       </div>
-      <div class="features-grid">
-        <div class="feature-card animate-in">
-          <div class="feature-icon">
-            <span class="material-symbols-outlined">account_tree</span>
-          </div>
-          <h3>Visual Workflow Design</h3>
-          <p>Drag and drop API steps onto a canvas. Connect them visually to define execution order. No more mentally tracing JSON configs or YAML files to understand what calls what.</p>
-        </div>
-        <div class="feature-card animate-in">
-          <div class="feature-icon">
-            <span class="material-symbols-outlined">hub</span>
-          </div>
-          <h3>Dependency-Aware Flows</h3>
-          <p>Steps understand their dependencies. If Step 3 depends on the output of Step 1 and Step 2, Luzo enforces that ordering and surfaces broken links before you run anything.</p>
-        </div>
-        <div class="feature-card animate-in">
-          <div class="feature-icon">
-            <span class="material-symbols-outlined">timeline</span>
-          </div>
-          <h3>Live Timeline Inspector</h3>
-          <p>Watch each step execute in real time on a timeline view. See request/response payloads, status codes, latency, and headers at every stage of the chain.</p>
-        </div>
-        <div class="feature-card animate-in">
-          <div class="feature-icon">
-            <span class="material-symbols-outlined">data_object</span>
-          </div>
-          <h3>Variable Passing Between Steps</h3>
-          <p>Extract values from one step's response and inject them into the next step's request. Token chaining, ID forwarding, and dynamic URL construction are all handled natively.</p>
-        </div>
-        <div class="feature-card animate-in">
-          <div class="feature-icon">
-            <span class="material-symbols-outlined">replay</span>
-          </div>
-          <h3>Retry From Failure Point</h3>
-          <p>When step 7 of 12 fails, you do not have to re-run steps 1 through 6. Luzo caches intermediate state and lets you retry from the exact point of failure. This alone saves significant debugging time.</p>
-        </div>
-        <div class="feature-card animate-in">
-          <div class="feature-icon">
-            <span class="material-symbols-outlined">code</span>
-          </div>
-          <h3>Open Source</h3>
-          <p>The core is open source. You can inspect the code, contribute, or fork it for internal use. This matters for teams with strict security requirements who need to audit their tooling.</p>
-        </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">data_object</span></div>
+        <h3>Variable Passing Between Steps</h3>
+        <p>Extract values from one response and inject them into the next request. No more copying tokens or IDs by hand. Variables flow through the chain automatically.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Integrations -->
-  <section class="integrations-section" id="integrations">
-    <div class="container">
-      <div class="animate-in">
-        <h2 class="section-title">Integrations</h2>
-        <p class="section-subtitle">Current integration support. The list is short but covers the essentials.</p>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">timeline</span></div>
+        <h3>Live Timeline Execution Inspector</h3>
+        <p>Watch every step execute in real time on a visual timeline. See request/response pairs, status codes, latency, and payload data as each step completes or fails.</p>
       </div>
-      <div class="integrations-row animate-in">
-        <div class="integration-chip">
-          <span class="material-symbols-outlined">code</span>
-          GitHub
-        </div>
-        <div class="integration-chip">
-          <span class="material-symbols-outlined">chat</span>
-          Slack
-        </div>
-        <div class="integration-chip">
-          <span class="material-symbols-outlined">api</span>
-          Postman
-        </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">replay</span></div>
+        <h3>Retry from Failure Point</h3>
+        <p>When a step fails, you do not have to re-run the entire workflow. Retry from the exact failure point, preserving all prior state. This alone can save significant debugging time.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">draw</span></div>
+        <h3>Visual Canvas Builder</h3>
+        <p>Drag and drop API steps onto a canvas, draw connections, and see your entire workflow at a glance. Much easier to reason about than a flat list of requests in a collection.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon"><span class="material-symbols-outlined">code</span></div>
+        <h3>Open-Source and Extensible</h3>
+        <p>The full source code is available. You can audit it, fork it, contribute to it, or customize it for your team's specific needs. No vendor lock-in.</p>
       </div>
     </div>
   </section>
 
   <!-- Use Cases -->
-  <section class="usecases-section" id="usecases">
-    <div class="container">
-      <div class="animate-in">
-        <h2 class="section-title">Who Should Use Luzo</h2>
-        <p class="section-subtitle">Specific scenarios where Luzo earns its place in your stack.</p>
+  <section class="usecases-section animate-in" id="usecases">
+    <h2 class="section-heading"><span class="material-symbols-outlined">groups</span>Who Should Use This</h2>
+    <div class="usecases-list">
+      <div class="usecase-item">
+        <span class="material-symbols-outlined">webhook</span>
+        <div>
+          <h3>Webhook Sequence Debugging</h3>
+          <p>If your system relies on chained webhooks (payment provider to order service to notification service), Luzo lets you model and test the entire chain visually. You can see exactly where a webhook fails to deliver the expected payload.</p>
+        </div>
       </div>
-      <div class="usecases-list">
-        <div class="usecase-item animate-in">
-          <span class="material-symbols-outlined">webhook</span>
-          <div>
-            <h3>Webhook Sequence Debugging</h3>
-            <p>If you maintain webhook chains where service A triggers B triggers C, Luzo lets you visualize the entire sequence and pinpoint exactly which hop fails. No more grepping through logs across three different services.</p>
-          </div>
+      <div class="usecase-item">
+        <span class="material-symbols-outlined">hub</span>
+        <div>
+          <h3>Microservice Integration Testing</h3>
+          <p>Teams building or maintaining microservice architectures can use Luzo to test cross-service API flows without writing throwaway scripts. Model the auth call, the data fetch, the transformation, and the write-back in one visual workflow.</p>
         </div>
-        <div class="usecase-item animate-in">
-          <span class="material-symbols-outlined">dns</span>
-          <div>
-            <h3>Microservice Integration Testing</h3>
-            <p>Backend teams building or maintaining microservice architectures can map out cross-service API calls, test them in sequence, and verify that data flows correctly between services before deploying.</p>
-          </div>
+      </div>
+      <div class="usecase-item">
+        <span class="material-symbols-outlined">bug_report</span>
+        <div>
+          <h3>QA Teams Reproducing API Bugs</h3>
+          <p>QA engineers can build reproducible multi-step API scenarios and share them with developers. The visual timeline makes it trivial to point at the exact step and response that caused a failure.</p>
         </div>
-        <div class="usecase-item animate-in">
-          <span class="material-symbols-outlined">bug_report</span>
-          <div>
-            <h3>QA Engineers Testing Complex Flows</h3>
-            <p>QA teams who need to validate multi-step API workflows (user signup, payment processing, notification delivery) can build reusable test flows and re-run them on demand without writing custom scripts.</p>
-          </div>
-        </div>
-        <div class="usecase-item animate-in">
-          <span class="material-symbols-outlined">group</span>
-          <div>
-            <h3>Collaborative API Project Management</h3>
-            <p>On the Pro plan, teams can share workflow definitions. This is useful when onboarding new engineers who need to understand how services interact, or when debugging production issues collaboratively.</p>
-          </div>
-        </div>
-        <div class="usecase-item animate-in">
-          <span class="material-symbols-outlined">swap_horiz</span>
-          <div>
-            <h3>Replacing Postman Collection Runners</h3>
-            <p>If you have outgrown Postman's collection runner for sequential API testing and find yourself fighting with pre-request scripts and test scripts to pass data between calls, Luzo's visual approach is a cleaner alternative.</p>
-          </div>
+      </div>
+      <div class="usecase-item">
+        <span class="material-symbols-outlined">speed</span>
+        <div>
+          <h3>Real-Time Execution Monitoring</h3>
+          <p>During development, use the live timeline to monitor how your API endpoints behave under realistic multi-step usage patterns. Spot latency spikes, unexpected error codes, or malformed responses immediately.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Limitations -->
-  <section class="limitations-section" id="limitations">
-    <div class="container">
-      <div class="animate-in">
-        <h2 class="section-title">Limitations</h2>
-        <p class="section-subtitle">Honest gaps you should know about before committing.</p>
-      </div>
-      <div class="limitations-card animate-in">
-        <div class="limitation-item">
-          <span class="material-symbols-outlined">warning</span>
-          <div>
-            <h4>Desktop Only</h4>
-            <p>Luzo is desktop-first with no web or mobile version. If your workflow involves debugging from a tablet, a remote server terminal, or a browser-based dev environment, you are out of luck. This also means no quick checks from your phone when something breaks at 2 AM.</p>
-          </div>
-        </div>
-        <div class="limitation-item">
-          <span class="material-symbols-outlined">warning</span>
-          <div>
-            <h4>Learning Curve for the Visual Paradigm</h4>
-            <p>Engineers accustomed to cURL, Postman, or scripted API testing will need time to adapt to the canvas-based approach. The visual model is powerful once internalized, but the initial setup of a complex flow takes longer than writing a quick script.</p>
-          </div>
-        </div>
-        <div class="limitation-item">
-          <span class="material-symbols-outlined">warning</span>
-          <div>
-            <h4>Free Tier Step Limits</h4>
-            <p>The free plan caps the number of steps per flow. For simple 3 to 5 step chains this is fine. But real-world microservice debugging often involves 10 or more steps, which pushes you to the $15/month Pro plan quickly.</p>
-          </div>
-        </div>
-        <div class="limitation-item">
-          <span class="material-symbols-outlined">warning</span>
-          <div>
-            <h4>Limited Integration Ecosystem</h4>
-            <p>Three integrations (GitHub, Slack, Postman) is a thin list. There is no native support for CI/CD pipelines, cloud provider APIs, or observability tools like Datadog or Grafana. You will need to work around this with manual exports or custom scripting.</p>
-          </div>
-        </div>
-        <div class="limitation-item">
-          <span class="material-symbols-outlined">warning</span>
-          <div>
-            <h4>Early-Stage Maturity</h4>
-            <p>As an open-source project still building its community, expect rough edges. Documentation may be sparse in places, and feature requests may take time to land. This is not a polished enterprise product yet.</p>
-          </div>
-        </div>
-      </div>
+  <section class="limitations-section animate-in" id="limitations">
+    <h2 class="section-heading"><span class="material-symbols-outlined">warning</span>Limitations: What to Know</h2>
+    <div class="limitations-card">
+      <ul class="limitations-list">
+        <li>
+          <span class="material-symbols-outlined">info</span>
+          <div><strong>Desktop-only.</strong> There is no web-based or cloud-hosted version. Every team member needs to install the desktop app. This makes collaboration harder, especially for distributed teams who want to share workflows without exporting files.</div>
+        </li>
+        <li>
+          <span class="material-symbols-outlined">info</span>
+          <div><strong>No third-party integrations.</strong> As of this review, Luzo does not integrate with CI/CD pipelines, monitoring tools, or API gateways. You cannot trigger a Luzo workflow from GitHub Actions or pipe results into Datadog. For now, it is a standalone debugging tool.</div>
+        </li>
+        <li>
+          <span class="material-symbols-outlined">info</span>
+          <div><strong>Early-stage project.</strong> The feature set is focused but narrow. There is no mention of authentication presets (OAuth2 flows, API key management), environment variable management, or team collaboration features. If you need those, Postman or Insomnia still have the edge.</div>
+        </li>
+        <li>
+          <span class="material-symbols-outlined">info</span>
+          <div><strong>Community and ecosystem are small.</strong> Being open-source is great, but the project's maturity, documentation depth, and plugin ecosystem are unknowns. Expect to rely on GitHub issues rather than polished support channels.</div>
+        </li>
+        <li>
+          <span class="material-symbols-outlined">info</span>
+          <div><strong>Not a Postman replacement (yet).</strong> Luzo excels at multi-step visual debugging, but it does not appear to cover single-request testing, API documentation generation, mock servers, or the broader API lifecycle. Think of it as a complement, not a substitute.</div>
+        </li>
+      </ul>
     </div>
   </section>
 
   <!-- Bottom CTA -->
-  <section class="bottom-cta" id="cta">
-    <div class="container animate-in">
-      <h2>Ready to Debug Visually?</h2>
-      <p>If you are tired of tracing chained API failures through logs and Postman scripts, give Luzo a try.</p>
-      <a href="https://www.producthunt.com/products/luzo/alternatives" target="_blank" rel="noopener" class="btn-primary">
-        <span class="material-symbols-outlined" style="font-size: 18px;">open_in_new</span>
-        Try Luzo
-      </a>
-      <div class="bottom-cta-links">
-        <a href="../reviews/" class="btn-secondary">
-          <span class="material-symbols-outlined" style="font-size: 16px;">science</span>
-          Back to The Lab
-        </a>
-        <a href="../morning-briefing-koda.html" class="btn-secondary">
-          <span class="material-symbols-outlined" style="font-size: 16px;">newspaper</span>
-          Back to The Signal
-        </a>
-      </div>
+  <section class="bottom-cta animate-in">
+    <h2>Ready to debug API workflows visually?</h2>
+    <a href="https://www.producthunt.com/products/luzo/alternatives" target="_blank" rel="noopener" class="cta-btn">
+      <span class="material-symbols-outlined">open_in_new</span>Try Luzo Free
+    </a>
+    <div class="bottom-cta-links">
+      <a href="../reviews/"><span class="material-symbols-outlined">science</span>Back to The Lab</a>
+      <a href="../morning-briefing-koda.html"><span class="material-symbols-outlined">bolt</span>Back to The Signal</a>
     </div>
   </section>
 
@@ -1013,15 +725,12 @@ footer {
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">
-      Koda Intelligence
-      <span>April 4, 2026</span>
-    </div>
-    <nav class="footer-nav">
+    <div class="footer-brand">Koda Intelligence <span>April 4, 2026</span></div>
+    <div class="footer-nav">
       <a href="../index.html">Home</a>
       <a href="../morning-briefing-koda.html">The Signal</a>
       <a href="../reviews/">The Lab</a>
-    </nav>
+    </div>
   </div>
 </footer>
 
@@ -1036,29 +745,18 @@ window.addEventListener('scroll', function() {
 
 // IntersectionObserver for animations
 document.addEventListener('DOMContentLoaded', function() {
-  const elements = document.querySelectorAll('.animate-in');
-  
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px'
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    elements.forEach(function(el) {
-      observer.observe(el);
-    });
-  } else {
-    elements.forEach(function(el) {
-      el.classList.add('visible');
-    });
-  }
+  document.querySelectorAll('.animate-in').forEach(function(el) {
+    observer.observe(el);
+  });
 });
 </script>
 

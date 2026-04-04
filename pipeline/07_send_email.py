@@ -448,18 +448,26 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
           <p style="margin:4px 0 0;font-size:13px;color:#475569;line-height:1.5">{short_body}{src}</p>
         </td></tr>"""
 
-    # --- TOOL DROP (emoji + name + one-liner) ---
+    # --- TOOL DROP (emoji + name + description + Lab Report link) ---
     tool_emojis = ["&#128640;", "&#9889;", "&#128161;", "&#128295;", "&#127775;"]
     tools_html = ""
     for i, tool in enumerate(tools[:3]):
         name = tool.get("title", "")
         desc = tool.get("body", "")
         url = tool.get("url", "")
+        review_url = tool.get("review_url", "")
         emoji = tool_emojis[i % len(tool_emojis)]
-        short_desc = desc.split(". ")[0] + "." if ". " in desc else desc
+        # Use first two sentences instead of one
+        sentences = desc.split(". ")
+        short_desc = ". ".join(sentences[:2]) + "." if len(sentences) > 1 else desc
         name_html = f'<a href="{url}" style="color:#0F172A;text-decoration:underline;font-weight:700" target="_blank">{name}</a>' if url else f'<strong style="color:#0F172A">{name}</strong>'
+        review_link = ""
+        if review_url:
+            full_review_url = f"https://www.koda.community{review_url}"
+            review_link = f' <a href="{full_review_url}" style="color:#6366F1;font-size:12px;font-weight:600;text-decoration:underline" target="_blank">Lab Report &rarr;</a>'
         tools_html += f"""<tr><td style="padding:8px 0">
           <p style="margin:0;font-size:14px;color:#475569;line-height:1.5">{emoji} {name_html} -- {short_desc}</p>
+          {f'<p style="margin:4px 0 0">{review_link}</p>' if review_link else ''}
         </td></tr>"""
 
     # --- LISTEN & WATCH (media section) ---

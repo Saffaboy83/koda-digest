@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noiz AI Review | Koda Intelligence Lab Report</title>
-<meta name="description" content="Deep review of Noiz AI: text to voice to story in one flow. Pricing, features, limitations, and honest verdict from Koda Intelligence.">
+<title>Noiz AI: Text to Voice to Story in One Flow | Koda Intelligence - The Lab</title>
+<meta name="description" content="Deep review of Noiz AI, the top-ranked Product Hunt product for April 2026. Chains text generation, voice synthesis, and narrative structuring into a single pipeline.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -14,6 +14,7 @@
 
 :root {
   --bg: #0b1326;
+  --bg-footer: #060e20;
   --card-bg: rgba(23,31,51,0.4);
   --card-border: rgba(255,255,255,0.06);
   --text-body: #dae2fd;
@@ -22,14 +23,16 @@
   --text-muted: #8c909f;
   --accent-purple: #8B5CF6;
   --accent-blue: #3B82F6;
-  --footer-bg: #060e20;
   --gradient: linear-gradient(135deg, #3B82F6, #8B5CF6);
+  --radius: 12px;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-body);
   background: var(--bg);
   color: var(--text-body);
   line-height: 1.7;
@@ -82,7 +85,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-weight: 900;
   font-size: 16px;
   color: #fff;
@@ -109,37 +112,65 @@ body {
 .topbar-nav {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 4px;
 }
 
 .topbar-nav a {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
   font-weight: 700;
+  color: var(--text-muted);
   text-decoration: none;
-  color: var(--text-secondary);
-  transition: color 0.2s;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
 }
 
 .topbar-nav a:hover {
   color: var(--text-body);
+  background: rgba(255,255,255,0.05);
 }
 
-.topbar-nav .btn-home {
+.topbar-nav a.active {
+  color: var(--accent-blue);
+  background: rgba(59,130,246,0.1);
+}
+
+.topbar-nav a .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.topbar-nav .nav-home {
   background: var(--gradient);
   color: #fff;
-  padding: 6px 14px;
+  padding: 6px 10px;
   border-radius: 6px;
+  margin-left: 4px;
 }
 
-.topbar-nav .btn-home:hover {
+.topbar-nav .nav-home:hover {
   opacity: 0.9;
   color: #fff;
+  background: var(--gradient);
+}
+
+@media (max-width: 768px) {
+  .topbar-nav a { display: none; }
+  .topbar-nav a.active,
+  .topbar-nav a.nav-home { display: flex; }
 }
 
 /* Main Content */
 main {
   padding-top: 56px;
+}
+
+section {
+  scroll-margin-top: 80px;
 }
 
 .container {
@@ -148,11 +179,7 @@ main {
   padding: 0 20px;
 }
 
-section {
-  scroll-margin-top: 80px;
-}
-
-/* Animation */
+/* Animate In */
 .animate-in {
   opacity: 0;
   transform: translateY(24px);
@@ -172,17 +199,17 @@ section {
 
 .hero-badge {
   display: inline-block;
-  background: rgba(139,92,246,0.15);
-  color: var(--accent-purple);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 700;
-  padding: 6px 16px;
-  border-radius: 100px;
+  color: var(--accent-purple);
+  background: rgba(139,92,246,0.12);
   border: 1px solid rgba(139,92,246,0.25);
+  padding: 6px 16px;
+  border-radius: 999px;
   margin-bottom: 24px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .hero h1 {
@@ -200,19 +227,8 @@ section {
   font-size: 18px;
   color: var(--text-secondary);
   max-width: 600px;
-  margin: 0 auto 12px;
+  margin: 0 auto 32px;
   font-weight: 400;
-}
-
-.hero-meta {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  color: var(--text-muted);
-  margin-bottom: 32px;
-}
-
-.hero-meta span {
-  color: var(--accent-purple);
 }
 
 .btn-primary {
@@ -221,32 +237,41 @@ section {
   gap: 8px;
   background: var(--gradient);
   color: #fff;
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
+  font-family: var(--font-mono);
+  font-size: 14px;
   font-weight: 700;
   padding: 14px 32px;
-  border-radius: 10px;
+  border-radius: 999px;
   text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
   border: none;
   cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(139,92,246,0.3);
+  opacity: 0.9;
+  transform: translateY(-1px);
 }
 
 .btn-primary .material-symbols-outlined {
   font-size: 18px;
 }
 
-/* Cards */
+.hero-image {
+  max-width: 800px;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  margin: 24px auto 0;
+  display: block;
+}
+
+/* Card */
 .card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 12px;
-  padding: 28px;
+  border-radius: var(--radius);
+  padding: 32px;
 }
 
 /* Verdict */
@@ -255,43 +280,29 @@ section {
 }
 
 .verdict-card {
-  background: rgba(139,92,246,0.06);
-  border: 1px solid rgba(139,92,246,0.18);
-  border-radius: 12px;
-  padding: 32px;
+  border-left: 3px solid var(--accent-purple);
   position: relative;
-  overflow: hidden;
-}
-
-.verdict-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--gradient);
 }
 
 .verdict-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 700;
   color: var(--accent-purple);
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   margin-bottom: 12px;
 }
 
 .verdict-card p {
   font-size: 16px;
+  color: var(--text-secondary);
   line-height: 1.8;
-  color: var(--text-body);
 }
 
 /* Section Titles */
 .section-title {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 800;
   color: var(--text-heading);
   margin-bottom: 8px;
@@ -305,7 +316,7 @@ section {
 
 /* Pricing */
 .pricing-section {
-  padding: 0 0 60px;
+  padding: 60px 0;
 }
 
 .pricing-grid {
@@ -314,55 +325,36 @@ section {
   gap: 20px;
 }
 
-@media (max-width: 767px) {
-  .pricing-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 768px) {
+  .pricing-grid { grid-template-columns: 1fr; }
 }
 
 .pricing-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 12px;
+  border-radius: var(--radius);
   padding: 28px;
   display: flex;
   flex-direction: column;
 }
 
 .pricing-card.featured {
-  border-color: rgba(139,92,246,0.35);
+  border-color: rgba(139,92,246,0.4);
   background: rgba(139,92,246,0.06);
-  position: relative;
 }
 
-.pricing-card.featured::after {
-  content: 'Most Popular';
-  position: absolute;
-  top: -1px;
-  right: 20px;
-  background: var(--gradient);
-  color: #fff;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
+.pricing-plan {
+  font-family: var(--font-mono);
+  font-size: 12px;
   font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 0 0 8px 8px;
+  color: var(--accent-purple);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-}
-
-.pricing-plan-name {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 1px;
   margin-bottom: 8px;
 }
 
 .pricing-price {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 900;
   color: var(--text-heading);
   margin-bottom: 4px;
@@ -370,41 +362,35 @@ section {
 
 .pricing-price span {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--text-muted);
-}
-
-.pricing-divider {
-  height: 1px;
-  background: var(--card-border);
-  margin: 20px 0;
 }
 
 .pricing-features {
   list-style: none;
+  margin-top: 20px;
   flex: 1;
 }
 
 .pricing-features li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding: 6px 0;
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin-bottom: 10px;
-  line-height: 1.5;
 }
 
 .pricing-features li .material-symbols-outlined {
-  font-size: 18px;
-  color: var(--accent-purple);
+  font-size: 16px;
+  color: var(--accent-blue);
   flex-shrink: 0;
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
 /* Features */
 .features-section {
-  padding: 0 0 60px;
+  padding: 60px 0;
 }
 
 .features-grid {
@@ -413,20 +399,15 @@ section {
   gap: 16px;
 }
 
-@media (max-width: 767px) {
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 768px) {
+  .features-grid { grid-template-columns: 1fr; }
 }
 
 .feature-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 12px;
+  border-radius: var(--radius);
   padding: 24px;
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
 }
 
 .feature-icon {
@@ -437,7 +418,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  margin-bottom: 14px;
 }
 
 .feature-icon .material-symbols-outlined {
@@ -445,14 +426,14 @@ section {
   color: var(--accent-purple);
 }
 
-.feature-content h3 {
+.feature-card h3 {
   font-size: 15px;
   font-weight: 700;
   color: var(--text-heading);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
-.feature-content p {
+.feature-card p {
   font-size: 13px;
   color: var(--text-muted);
   line-height: 1.6;
@@ -460,7 +441,7 @@ section {
 
 /* Use Cases */
 .usecases-section {
-  padding: 0 0 60px;
+  padding: 60px 0;
 }
 
 .usecases-grid {
@@ -469,32 +450,41 @@ section {
   gap: 16px;
 }
 
-@media (max-width: 767px) {
-  .usecases-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 768px) {
+  .usecases-grid { grid-template-columns: 1fr; }
 }
 
 .usecase-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 12px;
+  border-radius: var(--radius);
   padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.usecase-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(59,130,246,0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.usecase-icon .material-symbols-outlined {
+  font-size: 20px;
+  color: var(--accent-blue);
 }
 
 .usecase-card h3 {
   font-size: 15px;
   font-weight: 700;
   color: var(--text-heading);
-  margin-bottom: 6px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.usecase-card h3 .material-symbols-outlined {
-  font-size: 20px;
-  color: var(--accent-blue);
+  margin-bottom: 4px;
 }
 
 .usecase-card p {
@@ -505,7 +495,7 @@ section {
 
 /* Limitations */
 .limitations-section {
-  padding: 0 0 60px;
+  padding: 60px 0;
 }
 
 .limitations-list {
@@ -517,11 +507,11 @@ section {
 .limitation-item {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 12px;
+  border-radius: var(--radius);
   padding: 20px 24px;
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 14px;
 }
 
 .limitation-item .material-symbols-outlined {
@@ -531,17 +521,75 @@ section {
   margin-top: 2px;
 }
 
-.limitation-item .lim-content h4 {
+.limitation-item h3 {
   font-size: 14px;
   font-weight: 700;
   color: var(--text-heading);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
-.limitation-item .lim-content p {
+.limitation-item p {
   font-size: 13px;
   color: var(--text-muted);
   line-height: 1.6;
+}
+
+/* Bottom CTA */
+.bottom-cta {
+  padding: 60px 0 80px;
+  text-align: center;
+}
+
+.bottom-cta-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 48px 32px;
+}
+
+.bottom-cta h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 12px;
+}
+
+.bottom-cta p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bottom-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.bottom-links a {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent-blue);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: opacity 0.2s;
+}
+
+.bottom-links a:hover {
+  opacity: 0.8;
+}
+
+.bottom-links a .material-symbols-outlined {
+  font-size: 16px;
 }
 
 /* Integrations */
@@ -552,79 +600,31 @@ section {
 .integrations-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
 }
 
-.integration-chip {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 100px;
-  padding: 8px 20px;
-  font-family: 'JetBrains Mono', monospace;
+.integration-tag {
+  font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 500;
   color: var(--text-secondary);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  padding: 8px 16px;
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.integration-chip .material-symbols-outlined {
+.integration-tag .material-symbols-outlined {
   font-size: 16px;
   color: var(--accent-blue);
 }
 
-/* Bottom CTA */
-.bottom-cta {
-  padding: 60px 0 80px;
-  text-align: center;
-}
-
-.bottom-cta-card {
-  background: rgba(139,92,246,0.04);
-  border: 1px solid rgba(139,92,246,0.12);
-  border-radius: 12px;
-  padding: 48px 32px;
-}
-
-.bottom-cta h2 {
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--text-heading);
-  margin-bottom: 8px;
-}
-
-.bottom-cta p {
-  font-size: 14px;
-  color: var(--text-muted);
-  margin-bottom: 28px;
-}
-
-.bottom-cta-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
-.bottom-cta-links a {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--accent-blue);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.bottom-cta-links a:hover {
-  color: var(--accent-purple);
-}
-
 /* Footer */
-footer {
-  background: var(--footer-bg);
+.footer {
+  background: var(--bg-footer);
   border-top: 1px solid var(--card-border);
   padding: 32px 20px;
 }
@@ -642,7 +642,7 @@ footer {
 .footer-brand {
   font-size: 14px;
   font-weight: 700;
-  color: var(--text-secondary);
+  color: var(--text-heading);
 }
 
 .footer-brand span {
@@ -658,9 +658,9 @@ footer {
 }
 
 .footer-nav a {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
   color: var(--text-muted);
   text-decoration: none;
   transition: color 0.2s;
@@ -670,7 +670,7 @@ footer {
   color: var(--text-body);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .footer-inner {
     flex-direction: column;
     text-align: center;
@@ -691,24 +691,30 @@ footer {
     </div>
   </a>
   <div class="topbar-nav">
-    <a href="../morning-briefing-koda.html">The Signal</a>
-    <a href="../index.html" class="btn-home">Home</a>
+    <a href="../morning-briefing-koda.html"><span class="material-symbols-outlined">bolt</span>The Signal</a>
+    <a href="../editorial/"><span class="material-symbols-outlined">explore</span>Deep Dive</a>
+    <a href="../pricing/"><span class="material-symbols-outlined">monitoring</span>Token Tracker</a>
+    <a href="../benchmarks/"><span class="material-symbols-outlined">trophy</span>Leaderboard</a>
+    <a href="../reviews/" class="active"><span class="material-symbols-outlined">science</span>The Lab</a>
+    <a href="../changelog/"><span class="material-symbols-outlined">pulse_alert</span>Pulse</a>
+    <a href="../archive/"><span class="material-symbols-outlined">lock_open</span>The Vault</a>
+    <a href="../index.html" class="nav-home"><span class="material-symbols-outlined">home</span>Home</a>
   </div>
 </nav>
 
 <main>
+
   <!-- Hero -->
   <section class="hero">
     <div class="container">
       <div class="animate-in">
-        <div class="hero-badge">Lab Report</div>
-        <h1>Noiz AI</h1>
-        <p class="hero-tagline">From text to voice to story, all in one flow.</p>
-        <p class="hero-meta">By <span>Noiz Studio</span> · Reviewed April 4, 2026 · #1 on Product Hunt, April 2026</p>
+        <span class="hero-badge">Lab Report</span>
+        <h1>Noiz AI: Text to Voice to Story in One Flow</h1>
+        <p class="hero-tagline">From text to voice to story, all in one flow. The top-ranked Product Hunt product for April 2026 chains text generation, voice synthesis, and narrative structuring into a single pipeline.</p>
         <a href="https://www.producthunt.com/products" target="_blank" rel="noopener" class="btn-primary">
-          <span class="material-symbols-outlined">open_in_new</span>
-          Try Noiz AI
+          <span class="material-symbols-outlined">open_in_new</span>Try It
         </a>
+        <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/review-hero-2026-04-04-noiz-ai-text-to-voice-to-story-in-one-flow.jpg" alt="Noiz AI screenshot" class="hero-image" loading="eager">
       </div>
     </div>
   </section>
@@ -716,9 +722,9 @@ footer {
   <!-- Verdict -->
   <section class="verdict-section" id="verdict">
     <div class="container">
-      <div class="verdict-card animate-in">
-        <div class="verdict-label">Verdict</div>
-        <p>Noiz AI is built for solo content creators and small teams who want to go from a rough text outline to a polished, narrated audio story without juggling three or four separate tools. The $29/month Pro plan is where the real value lives; the free tier is too limited on voice options to produce anything you would actually publish. If you are already deep in a workflow with dedicated TTS tools like ElevenLabs or a full DAW setup, Noiz probably will not replace that. But for podcast intros, short explainers, and quick audio content, the unified pipeline saves real time and is worth testing.</p>
+      <div class="card verdict-card animate-in">
+        <div class="verdict-label">Editorial Verdict</div>
+        <p>Noiz AI is built for content creators who are tired of stitching together three or four separate tools to get from a rough idea to a finished narrated piece. If you produce podcast intros, short audio stories, narrated explainers, or educational content, the unified pipeline genuinely saves time and reduces friction. At $19/month for the Pro tier, it is competitively priced against running separate subscriptions for a writing assistant, a TTS service, and an audio editor. The free plan is useful for testing, but the voice limitations will push serious users to Pro quickly.</p>
       </div>
     </div>
   </section>
@@ -728,72 +734,36 @@ footer {
     <div class="container">
       <div class="animate-in">
         <h2 class="section-title">Pricing</h2>
-        <p class="section-subtitle">Three tiers. The free plan is a demo, not a production tool.</p>
+        <p class="section-subtitle">Three tiers. The free plan is a trial in disguise.</p>
       </div>
       <div class="pricing-grid">
         <div class="pricing-card animate-in">
-          <div class="pricing-plan-name">Free</div>
+          <div class="pricing-plan">Free</div>
           <div class="pricing-price">$0</div>
-          <div class="pricing-divider"></div>
           <ul class="pricing-features">
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Basic text generation and voice synthesis
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Limited access to voice options
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Good for testing the pipeline concept
-            </li>
+            <li><span class="material-symbols-outlined">check_circle</span>Basic text to voice conversion</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Access to story templates</li>
+            <li><span class="material-symbols-outlined">info</span>Limited voice variations</li>
           </ul>
         </div>
         <div class="pricing-card featured animate-in">
-          <div class="pricing-plan-name">Pro</div>
-          <div class="pricing-price">$29<span>/month</span></div>
-          <div class="pricing-divider"></div>
+          <div class="pricing-plan">Pro</div>
+          <div class="pricing-price">$19<span>/month</span></div>
           <ul class="pricing-features">
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Full access to all voice options
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Custom voice creation
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Priority support
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Multi-language support
-            </li>
+            <li><span class="material-symbols-outlined">check_circle</span>Advanced voice synthesis</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Unlimited story creation</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Priority support</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Full voice library access</li>
           </ul>
         </div>
         <div class="pricing-card animate-in">
-          <div class="pricing-plan-name">Enterprise</div>
+          <div class="pricing-plan">Enterprise</div>
           <div class="pricing-price">Custom</div>
-          <div class="pricing-divider"></div>
           <ul class="pricing-features">
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Custom solutions and workflows
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Dedicated support
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Full API access
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check_circle</span>
-              Volume pricing
-            </li>
+            <li><span class="material-symbols-outlined">check_circle</span>Custom integrations</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Dedicated support</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Tailored solutions</li>
+            <li><span class="material-symbols-outlined">check_circle</span>SLA guarantees</li>
           </ul>
         </div>
       </div>
@@ -809,112 +779,44 @@ footer {
       </div>
       <div class="features-grid">
         <div class="feature-card animate-in">
-          <div class="feature-icon">
-            <span class="material-symbols-outlined">text_fields</span>
-          </div>
-          <div class="feature-content">
-            <h3>Text Generation</h3>
-            <p>Start with a rough outline or prompt. Noiz expands it into structured narrative text, handling pacing and tone automatically.</p>
-          </div>
+          <div class="feature-icon"><span class="material-symbols-outlined">record_voice_over</span></div>
+          <h3>Seamless Text-to-Voice Conversion</h3>
+          <p>Feed in raw text and get natural-sounding voice output without leaving the app. The synthesis engine handles pacing, emphasis, and tone automatically based on context.</p>
         </div>
         <div class="feature-card animate-in">
-          <div class="feature-icon">
-            <span class="material-symbols-outlined">record_voice_over</span>
-          </div>
-          <div class="feature-content">
-            <h3>Voice Synthesis</h3>
-            <p>Converts generated text to natural-sounding speech. Pro users get the full voice library plus custom voice cloning.</p>
-          </div>
+          <div class="feature-icon"><span class="material-symbols-outlined">auto_stories</span></div>
+          <h3>Complete Story Crafting Workflow</h3>
+          <p>Noiz structures your content into a narrative arc. You provide an outline or bullet points; it returns a coherent story with intro, body, and conclusion ready for narration.</p>
         </div>
         <div class="feature-card animate-in">
-          <div class="feature-icon">
-            <span class="material-symbols-outlined">auto_stories</span>
-          </div>
-          <div class="feature-content">
-            <h3>Narrative Structuring</h3>
-            <p>Chains text and voice into a coherent story arc. Handles transitions, pacing, and segment ordering within the pipeline.</p>
-          </div>
+          <div class="feature-icon"><span class="material-symbols-outlined">touch_app</span></div>
+          <h3>User-Friendly Interface</h3>
+          <p>The pipeline is linear and visual. Each stage (text, structure, voice) is a clear step in the UI. No hidden menus, no confusing modal stacks. You see your content evolve in real time.</p>
         </div>
         <div class="feature-card animate-in">
-          <div class="feature-icon">
-            <span class="material-symbols-outlined">translate</span>
-          </div>
-          <div class="feature-content">
-            <h3>Multi-Language Support</h3>
-            <p>Generate and narrate content in multiple languages. Useful for creators targeting international audiences.</p>
-          </div>
+          <div class="feature-icon"><span class="material-symbols-outlined">translate</span></div>
+          <h3>Multi-Language Support</h3>
+          <p>Generate and narrate stories in multiple languages. Useful for creators targeting international audiences or producing localized versions of the same content.</p>
         </div>
         <div class="feature-card animate-in">
-          <div class="feature-icon">
-            <span class="material-symbols-outlined">tune</span>
-          </div>
-          <div class="feature-content">
-            <h3>Customizable Voices</h3>
-            <p>Adjust pitch, speed, and tone. Pro plan includes custom voice creation for brand consistency across episodes.</p>
-          </div>
+          <div class="feature-icon"><span class="material-symbols-outlined">hub</span></div>
+          <h3>Integration Capabilities</h3>
+          <p>Connects to Google Drive, Dropbox, Slack, Zapier, and WordPress. Export finished audio directly to your CMS or trigger story generation from a Zap.</p>
         </div>
         <div class="feature-card animate-in">
-          <div class="feature-icon">
-            <span class="material-symbols-outlined">touch_app</span>
-          </div>
-          <div class="feature-content">
-            <h3>Single-Flow Interface</h3>
-            <p>No tab switching. Text, voice, and story assembly happen in one continuous workspace. The UI is clean and linear.</p>
-          </div>
+          <div class="feature-icon"><span class="material-symbols-outlined">tune</span></div>
+          <h3>Advanced Voice Controls (Pro)</h3>
+          <p>Pro users get granular control over voice speed, pitch, emotional tone, and pauses. This is where Noiz separates itself from basic TTS tools that offer a single flat reading.</p>
         </div>
         <div class="feature-card animate-in">
-          <div class="feature-icon">
-            <span class="material-symbols-outlined">hub</span>
-          </div>
-          <div class="feature-content">
-            <h3>Integrations</h3>
-            <p>Connects to Zapier, Slack, Microsoft Teams, and Google Cloud for distribution and team notification workflows.</p>
-          </div>
+          <div class="feature-icon"><span class="material-symbols-outlined">description</span></div>
+          <h3>Story Templates</h3>
+          <p>Pre-built templates for podcast intros, explainer scripts, fiction shorts, and marketing narratives. Good starting points that save 10 to 15 minutes of structural work per piece.</p>
         </div>
         <div class="feature-card animate-in">
-          <div class="feature-icon">
-            <span class="material-symbols-outlined">api</span>
-          </div>
-          <div class="feature-content">
-            <h3>API Access (Enterprise)</h3>
-            <p>Enterprise customers can integrate the full pipeline into their own products and internal tools via API.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Use Cases -->
-  <section class="usecases-section" id="usecases">
-    <div class="container">
-      <div class="animate-in">
-        <h2 class="section-title">Who Should Use This</h2>
-        <p class="section-subtitle">Specific scenarios where Noiz AI makes sense.</p>
-      </div>
-      <div class="usecases-grid">
-        <div class="usecase-card animate-in">
-          <h3><span class="material-symbols-outlined">podcasts</span> Podcasters</h3>
-          <p>Generate and narrate podcast intros, outros, and segment transitions quickly. Especially useful for solo podcasters who do not want to record every filler segment themselves.</p>
-        </div>
-        <div class="usecase-card animate-in">
-          <h3><span class="material-symbols-outlined">menu_book</span> Audiobook Creators</h3>
-          <p>Draft short-form audio stories or chapters and hear them narrated immediately. Not a replacement for professional narration on a full book, but solid for prototyping and short content.</p>
-        </div>
-        <div class="usecase-card animate-in">
-          <h3><span class="material-symbols-outlined">campaign</span> Content Marketers</h3>
-          <p>Turn blog posts, newsletters, or product updates into narrated audio explainers for distribution on social or internal channels.</p>
-        </div>
-        <div class="usecase-card animate-in">
-          <h3><span class="material-symbols-outlined">smart_toy</span> Virtual Assistant Builders</h3>
-          <p>Create scripted, natural-sounding voice responses for chatbots and virtual assistants. The pipeline handles both the script and the voice in one pass.</p>
-        </div>
-        <div class="usecase-card animate-in">
-          <h3><span class="material-symbols-outlined">school</span> Educators</h3>
-          <p>Build narrated lesson summaries, explainer audio, or story-based learning content without needing separate recording and editing tools.</p>
-        </div>
-        <div class="usecase-card animate-in">
-          <h3><span class="material-symbols-outlined">edit_note</span> Storytellers</h3>
-          <p>Writers experimenting with audio fiction can go from outline to narrated draft in minutes. Good for rapid prototyping of narrative ideas.</p>
+          <div class="feature-icon"><span class="material-symbols-outlined">bolt</span></div>
+          <h3>Single Pipeline Execution</h3>
+          <p>The core value proposition: text generation, narrative structuring, and voice synthesis happen in one continuous flow. No exporting between tools, no copy-pasting, no format conversion headaches.</p>
         </div>
       </div>
     </div>
@@ -925,24 +827,60 @@ footer {
     <div class="container">
       <div class="animate-in">
         <h2 class="section-title">Integrations</h2>
-        <p class="section-subtitle">Where Noiz AI plugs into your existing stack.</p>
+        <p class="section-subtitle">Where Noiz AI plugs into your existing workflow.</p>
+        <div class="integrations-row">
+          <span class="integration-tag"><span class="material-symbols-outlined">cloud</span>Google Drive</span>
+          <span class="integration-tag"><span class="material-symbols-outlined">cloud_upload</span>Dropbox</span>
+          <span class="integration-tag"><span class="material-symbols-outlined">chat</span>Slack</span>
+          <span class="integration-tag"><span class="material-symbols-outlined">electric_bolt</span>Zapier</span>
+          <span class="integration-tag"><span class="material-symbols-outlined">language</span>WordPress</span>
+        </div>
       </div>
-      <div class="integrations-row animate-in">
-        <div class="integration-chip">
-          <span class="material-symbols-outlined">bolt</span>
-          Zapier
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="usecases-section" id="usecases">
+    <div class="container">
+      <div class="animate-in">
+        <h2 class="section-title">Who Should Use This</h2>
+        <p class="section-subtitle">Specific audiences and why Noiz fits their workflow.</p>
+      </div>
+      <div class="usecases-grid">
+        <div class="usecase-card animate-in">
+          <div class="usecase-icon"><span class="material-symbols-outlined">podcasts</span></div>
+          <div>
+            <h3>Podcasters</h3>
+            <p>Generate scripted intros, outros, and segment transitions with consistent voice quality. Particularly useful for solo podcasters who want a polished sound without hiring voice talent for every episode.</p>
+          </div>
         </div>
-        <div class="integration-chip">
-          <span class="material-symbols-outlined">tag</span>
-          Slack
+        <div class="usecase-card animate-in">
+          <div class="usecase-icon"><span class="material-symbols-outlined">video_library</span></div>
+          <div>
+            <h3>Content Creators</h3>
+            <p>Turn blog posts, newsletters, or social media threads into narrated audio content. Repurpose written material into a new format without the overhead of recording and editing.</p>
+          </div>
         </div>
-        <div class="integration-chip">
-          <span class="material-symbols-outlined">groups</span>
-          Microsoft Teams
+        <div class="usecase-card animate-in">
+          <div class="usecase-icon"><span class="material-symbols-outlined">school</span></div>
+          <div>
+            <h3>Educators</h3>
+            <p>Create narrated lesson summaries, audio study guides, or story-based learning modules. The structured narrative output helps maintain pedagogical flow.</p>
+          </div>
         </div>
-        <div class="integration-chip">
-          <span class="material-symbols-outlined">cloud</span>
-          Google Cloud
+        <div class="usecase-card animate-in">
+          <div class="usecase-icon"><span class="material-symbols-outlined">campaign</span></div>
+          <div>
+            <h3>Marketers</h3>
+            <p>Produce audio ads, brand story narrations, and explainer voiceovers at scale. The Zapier integration means you can automate production from a content calendar.</p>
+          </div>
+        </div>
+        <div class="usecase-card animate-in">
+          <div class="usecase-icon"><span class="material-symbols-outlined">edit_note</span></div>
+          <div>
+            <h3>Fiction Writers</h3>
+            <p>Prototype audiobook-style readings of short stories or chapters. Useful for testing pacing and dialogue flow before committing to professional narration.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -953,42 +891,42 @@ footer {
     <div class="container">
       <div class="animate-in">
         <h2 class="section-title">Limitations</h2>
-        <p class="section-subtitle">What you should know before committing.</p>
+        <p class="section-subtitle">Where Noiz AI falls short. No sugarcoating.</p>
       </div>
       <div class="limitations-list">
         <div class="limitation-item animate-in">
           <span class="material-symbols-outlined">warning</span>
-          <div class="lim-content">
-            <h4>Free Tier Is Severely Limited</h4>
-            <p>The free plan restricts voice options to a small subset. You can test the concept, but you will not produce publishable audio on it. This is effectively a trial, not a usable free tier.</p>
+          <div>
+            <h3>Free Plan Is Severely Limited</h3>
+            <p>The free tier gives you basic TTS and template access, but the voice options are sparse. You will hit the ceiling fast. It works as a demo, not as a production tool. Expect to upgrade within a week if you are serious.</p>
           </div>
         </div>
         <div class="limitation-item animate-in">
           <span class="material-symbols-outlined">warning</span>
-          <div class="lim-content">
-            <h4>No Mobile App</h4>
-            <p>Noiz AI is web-only. There is no native iOS or Android app. If you need to create or edit audio content on the go, this is a real gap.</p>
+          <div>
+            <h3>No Offline Access</h3>
+            <p>Everything runs in the cloud. If you are on a flight, in a low-connectivity area, or simply prefer local processing for privacy reasons, Noiz will not work. There is no desktop app or offline mode on the roadmap as of April 2026.</p>
           </div>
         </div>
         <div class="limitation-item animate-in">
           <span class="material-symbols-outlined">warning</span>
-          <div class="lim-content">
-            <h4>Limited Collaboration Features</h4>
-            <p>Multi-user collaboration is minimal. If your team needs to co-edit scripts or review audio together in real time, you will need to work around this with external tools.</p>
+          <div>
+            <h3>Advanced Features Locked Behind Pro</h3>
+            <p>Voice customization, unlimited story creation, and priority support all require the $19/month Pro plan. The free-to-Pro gap is steep. There is no middle tier for casual users who need more than basic but less than unlimited.</p>
           </div>
         </div>
         <div class="limitation-item animate-in">
           <span class="material-symbols-outlined">warning</span>
-          <div class="lim-content">
-            <h4>Requires Internet Connection</h4>
-            <p>Certain features depend on a live connection. There is no offline mode for text generation or voice synthesis, which is expected but worth noting for travel or unreliable network situations.</p>
+          <div>
+            <h3>Voice Variety Could Be Deeper</h3>
+            <p>While the Pro plan unlocks "advanced voice synthesis," the total number of distinct voice profiles is not disclosed. Competitors like ElevenLabs offer hundreds of voices and voice cloning. Noiz focuses on narrative quality over voice catalog breadth, which may not suit every use case.</p>
           </div>
         </div>
         <div class="limitation-item animate-in">
           <span class="material-symbols-outlined">warning</span>
-          <div class="lim-content">
-            <h4>API Only on Enterprise</h4>
-            <p>If you want to integrate Noiz into your own product or automate workflows beyond Zapier, you need the Enterprise plan. No API access on Free or Pro.</p>
+          <div>
+            <h3>Enterprise Pricing Is Opaque</h3>
+            <p>No published pricing for the Enterprise tier. "Contact for pricing" is standard in the industry, but it makes it harder to evaluate Noiz against competitors for team or organizational use without going through a sales process.</p>
           </div>
         </div>
       </div>
@@ -999,32 +937,29 @@ footer {
   <section class="bottom-cta" id="cta">
     <div class="container">
       <div class="bottom-cta-card animate-in">
-        <h2>Ready to try Noiz AI?</h2>
-        <p>Start with the free plan to test the pipeline. Upgrade to Pro if the voice quality and workflow fit your needs.</p>
+        <h2>Ready to Try Noiz AI?</h2>
+        <p>Go from rough outline to narrated audio story in a single pipeline. Free tier available; Pro at $19/month for the full experience.</p>
         <a href="https://www.producthunt.com/products" target="_blank" rel="noopener" class="btn-primary">
-          <span class="material-symbols-outlined">open_in_new</span>
-          Try Noiz AI
+          <span class="material-symbols-outlined">open_in_new</span>Try Noiz AI
         </a>
-        <div class="bottom-cta-links">
-          <a href="../reviews/">Back to The Lab</a>
-          <a href="../morning-briefing-koda.html">Back to The Signal</a>
+        <div class="bottom-links">
+          <a href="../reviews/"><span class="material-symbols-outlined">arrow_back</span>Back to The Lab</a>
+          <a href="../morning-briefing-koda.html"><span class="material-symbols-outlined">bolt</span>Back to The Signal</a>
         </div>
       </div>
     </div>
   </section>
+
 </main>
 
-<footer>
+<footer class="footer">
   <div class="footer-inner">
-    <div class="footer-brand">
-      Koda Intelligence
-      <span>April 4, 2026</span>
-    </div>
-    <div class="footer-nav">
+    <div class="footer-brand">Koda Intelligence<span>April 4, 2026</span></div>
+    <nav class="footer-nav">
       <a href="../index.html">Home</a>
       <a href="../morning-briefing-koda.html">The Signal</a>
       <a href="../reviews/">The Lab</a>
-    </div>
+    </nav>
   </div>
 </footer>
 
@@ -1034,12 +969,11 @@ const progressBar = document.getElementById('scroll-progress');
 window.addEventListener('scroll', () => {
   const scrollTop = window.scrollY;
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-  progressBar.style.width = scrollPercent + '%';
+  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  progressBar.style.width = progress + '%';
 });
 
 // IntersectionObserver for animations
-const animateElements = document.querySelectorAll('.animate-in');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -1052,7 +986,9 @@ const observer = new IntersectionObserver((entries) => {
   rootMargin: '0px 0px -40px 0px'
 });
 
-animateElements.forEach(el => observer.observe(el));
+document.querySelectorAll('.animate-in').forEach(el => {
+  observer.observe(el);
+});
 </script>
 
 </body>
