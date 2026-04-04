@@ -87,8 +87,8 @@ def update_article(filepath: Path) -> None:
         r"/\* -- Canonical Nav -- \*/.*?@media\(max-width:768px\)\{\.koda-nav-link[^}]*\}\s*\}?",
         "", html, flags=re.DOTALL,
     )
-    # Clean stray orphaned braces before the V2 CSS injection point
-    html = re.sub(r"\n\s*}\s*\n+\s*\n*(?=</style>)", "\n", html)
+    # Clean stray orphaned braces (a } on its own line preceded by a blank line)
+    html = re.sub(r"\n\n+\s*}\s*\n+\s*\n*(?=</style>)", "\n", html)
     if "Koda Nav V2" not in html:
         css_with_end = css.rstrip() + "\n/* -- End Koda Nav V2 -- */\n"
         html = html.replace("</style>", css_with_end + "</style>", 1)

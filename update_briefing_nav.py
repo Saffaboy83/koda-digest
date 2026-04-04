@@ -147,8 +147,8 @@ def update_briefing(filepath: Path) -> None:
         r"\.dark-toggle\{[^}]*\}",
     ]:
         html = re.sub(old_cls + r"\s*", "", html)
-    # Clean orphaned braces before injection
-    html = re.sub(r"\n\s*}\s*\n+\s*\n*(?=</style>)", "\n", html)
+    # Clean orphaned braces (a } on its own line preceded by a blank line)
+    html = re.sub(r"\n\n+\s*}\s*\n+\s*\n*(?=</style>)", "\n", html)
     if "Koda Nav V2" not in html:
         css_with_end = css.rstrip() + "\n/* -- End Koda Nav V2 -- */\n"
         html = html.replace("</style>", css_with_end + "</style>", 1)
@@ -184,6 +184,27 @@ def force_update_nav(filepath: Path) -> None:
         r"<!-- koda-nav-v2-start -->.*?<!-- koda-nav-v2-end -->",
         nav_html, html, flags=re.DOTALL,
     )
+
+    # Inject date picker for briefing pages (before kn-desktop-social)
+    date_match = re.search(r'data-digest-date="(\d{4}-\d{2}-\d{2})"', html)
+    if date_match:
+        digest_date = date_match.group(1)
+        date_picker_html = (
+            f'<div class="hidden md:flex items-center" id="dayNav">'
+            f'<div class="relative">'
+            f'<button id="datePickerBtn" class="flex items-center gap-1 font-mono text-[10px] font-bold text-[#3B82F6] px-2 py-1 bg-[#3B82F6]/10 rounded-md hover:bg-[#3B82F6]/20 transition-all cursor-pointer border-none" title="Jump to date">'
+            f'<span class="material-symbols-outlined" style="font-size:14px">calendar_month</span>'
+            f'<span id="dateLabel">{digest_date}</span>'
+            f'</button>'
+            f'<input type="date" id="datePicker" class="absolute top-full left-0 mt-1 opacity-0 pointer-events-none w-0 h-0" value="{digest_date}" min="2026-03-24">'
+            f'</div></div>\n        '
+        )
+        html = html.replace(
+            '<div class="kn-desktop-social">',
+            date_picker_html + '<div class="kn-desktop-social">',
+            1,
+        )
+
     # Replace V2 nav JS
     html = re.sub(
         r"<!-- koda-nav-v2-js-start -->.*?<!-- koda-nav-v2-js-end -->",
