@@ -1,6 +1,35 @@
 {
-  "generated": "2026-04-04T01:24:49Z",
+  "generated": "2026-04-04T10:30:32Z",
   "digests": [
+    {
+      "date": "2026-04-04",
+      "dayOfWeek": "Saturday",
+      "focusTopics": [
+        {
+          "title": "SpaceX-xAI Merger Fallout",
+          "desc": "The deal folds xAI's Grok models and massive Memphis GPU cluster into SpaceX's orbital and defense ecosystem. Competitors will challenge the combination on antitrust grounds, particularly given SpaceX's dominant position in government launch contracts. The merger also concentrates an unprecedented amount of compute, connectivity, and AI capability under a single private entity."
+        },
+        {
+          "title": "Persian Gulf Escalation Dynamics",
+          "desc": "Iran's shootdown of a U.S. fighter jet is the first such incident since the 1980s tanker wars, yet Trump's insistence that it will not derail nuclear talks suggests a calculated de-escalation posture. France's push for a multinational Hormuz operation and Erdogan's warning to Putin against strikes on Iran reveal a fracturing of traditional alliance lines. The succession process for Iran's next Supreme Leader adds a layer of internal instability that could accelerate or complicate diplomacy."
+        },
+        {
+          "title": "$267B Quarter for AI",
+          "desc": "Q1 2026 venture funding into AI hit $267 billion, dwarfing full-year totals from just two years ago and signaling that capital allocation to the sector remains aggressive despite geopolitical turmoil. This week alone saw Anthropic launch Operon for lab automation, Mistral ship its Boxrol TTS voice model, and Microsoft release three new media generation models. The contrast between record investment and Extreme Fear market sentiment suggests investors are bifurcating: betting long on AI while hedging everything else."
+        }
+      ],
+      "kpis": {
+        "aiStories": "10",
+        "worldEvents": "8",
+        "marketMood": "Extreme Fear",
+        "toolsFeatured": "6"
+      },
+      "hasPodcast": true,
+      "hasInfographic": true,
+      "hasVideo": true,
+      "youtubeId": "j4r7YtBMZLw",
+      "file": "morning-briefing-koda-2026-04-04.html"
+    },
     {
       "date": "2026-04-03",
       "dayOfWeek": "Friday",
@@ -410,10 +439,22 @@
   ],
   "editorials": [
     {
+      "date": "2026-04-04",
+      "title": "DeepSeek V4 proves frontier-level AI performance no longer requires frontier-lev",
+      "tag": "Strategy",
+      "file": "editorial/2026-04-04-deepseek-v4-proves-frontier-level-ai-performance-no-longer-r.html"
+    },
+    {
       "date": "2026-04-03",
       "title": "The shift to pay-as-you-go pricing for AI coding tools signals a structural chan",
       "tag": "Monetization",
       "file": "editorial/2026-04-03-the-shift-to-pay-as-you-go-pricing-for-ai-coding-tools-signa.html"
+    },
+    {
+      "date": "2026-04-03",
+      "title": "Pay-as-you-go pricing for AI coding tools signals the end of seat-based SaaS and",
+      "tag": "Monetization",
+      "file": "editorial/2026-04-03-pay-as-you-go-pricing-for-ai-coding-tools-signals-the-end-of.html"
     },
     {
       "date": "2026-04-02",

@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-04-04T02:36:14.299855+00:00",
+  "generated_at": "2026-04-04T10:13:07.774418+00:00",
   "company_count": 25,
-  "companies_with_posts": 14,
-  "total_entries": 61,
-  "new_today": 54,
+  "companies_with_posts": 15,
+  "total_entries": 70,
+  "new_today": 9,
   "entries": [
     {
       "company": "Runway",
@@ -78,6 +78,15 @@
       "category": "Feature"
     },
     {
+      "company": "Together AI",
+      "color": "#EC4899",
+      "url": "https://www.together.ai/blog/inside-the-together-ai-kernels-team",
+      "title": "Inside the Together AI kernels team",
+      "summary": "This post explores the innovative work of the Together AI kernels team, which is focused on optimizing GPUs for AI applications. It discusses the challenges they face and the breakthroughs they've achieved, including significant performance improvements that enhance the efficiency of AI-native applications.",
+      "date": "2026-04-01",
+      "category": "Research"
+    },
+    {
       "company": "Google",
       "color": "#3B82F6",
       "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-march-2026/",
@@ -129,6 +138,15 @@
       "title": "Release Notes 2026",
       "summary": "The 2026 release notes for Journey Optimizer detail new capabilities and improvements, including journey arbitration, action activities, wave sending for campaigns, and integration of web push notifications. The release outlines various enhancements aimed at enhancing user experience and efficiency for both users and organizations.",
       "date": "2026-04-01",
+      "category": "Feature"
+    },
+    {
+      "company": "ElevenLabs",
+      "color": "#F472B6",
+      "url": "https://elevenlabs.io/blog/cascaded-vs-fused-models",
+      "title": "Cascaded vs Fused Models: How architecture determines whether your voice agent is enterprise-ready",
+      "summary": "This article explores the differing architectures of voice agents, focusing on the trade-offs between cascaded and fused designs. It discusses how these architectures affect conversation quality, configurability, and reliability, with insights into selecting the right model for specific applications.",
+      "date": "2026-03-31",
       "category": "Feature"
     },
     {
@@ -238,6 +256,15 @@
       "summary": "This blog post discusses the collaboration between OpenAI and various disaster response teams in Asia to leverage artificial intelligence for disaster management. The initiative aims to improve the effectiveness of responses to natural disasters through advanced AI solutions.",
       "date": "2026-03-29",
       "category": "Partnership"
+    },
+    {
+      "company": "ElevenLabs",
+      "color": "#F472B6",
+      "url": "https://elevenlabs.io/blog/the-state-of-ai-audio-in-publishing-and-news",
+      "title": "The state of AI Audio in publishing and news",
+      "summary": "This blog post discusses how AI audio technology is transforming the news industry by enhancing engagement and accessibility through narrated articles and podcasts. It highlights the shift from traditional reading to immersive audio experiences and the growing demand for multilingual content, showcasing the potential benefits of integrating AI-driven audio solutions into publishing strategies.",
+      "date": "2026-03-27",
+      "category": "Feature"
     },
     {
       "company": "OpenAI",
@@ -413,6 +440,51 @@
     {
       "company": "ElevenLabs",
       "color": "#F472B6",
+      "url": "https://elevenlabs.io/blog/monetize-your-voice-with-elevenlabs-voice-library-and-create-passive-income",
+      "title": "How to monetize your voice with ElevenLabs Voice Library and create a passive income",
+      "summary": "This blog post discusses how voice actors can generate passive income using the ElevenLabs Voice Library, outlining steps to create a voice clone and sell audio. The guide details the potential earnings through a system that pays per 1,000 characters generated, emphasizing the ease of entry into voice monetization.",
+      "date": "2026-03-14",
+      "category": "Feature"
+    },
+    {
+      "company": "ElevenLabs",
+      "color": "#F472B6",
+      "url": "https://elevenlabs.io/blog/how-to-extract-voices-from-music",
+      "title": "How to extract voices from music",
+      "summary": "The blog discusses the challenges of isolating vocals from background music in audio recordings and introduces the ElevenLabs Voice Isolator tool as an efficient solution. This AI-driven tool simplifies the process, allowing users to quickly extract clean dialogue and enhance audio quality without extensive manual intervention.",
+      "date": "2026-03-14",
+      "category": "Feature"
+    },
+    {
+      "company": "ElevenLabs",
+      "color": "#F472B6",
+      "url": "https://elevenlabs.io/blog/text-to-speech-api-up-to-40-faster-globally",
+      "title": "Text to Speech API - Up To 40% Faster Globally",
+      "summary": "ElevenLabs has introduced multi-region serving for its Text to Speech API, allowing requests to route automatically to the nearest backend. This upgrade leads to significant reductions in latency, enhancing responsiveness and user experience for voice agents and real-time applications.",
+      "date": "2026-03-14",
+      "category": "API Update"
+    },
+    {
+      "company": "ElevenLabs",
+      "color": "#F472B6",
+      "url": "https://elevenlabs.io/blog/how-to-make-an-audiobook",
+      "title": "How to make an audiobook using AI in 2026 our ultimate guide",
+      "summary": "This blog post provides a comprehensive guide on creating audiobooks using AI technology. It highlights the advantages of AI over traditional methods, including cost-effectiveness and efficiency, while outlining various aspects of audiobook production such as preparation, voice customization, and marketing strategies.",
+      "date": "2026-03-14",
+      "category": "Feature"
+    },
+    {
+      "company": "ElevenLabs",
+      "color": "#F472B6",
+      "url": "https://elevenlabs.io/blog/text-to-speech-vs-speech-to-text",
+      "title": "Text to Speech vs Speech to Text: What is the Difference?",
+      "summary": "This blog post explores the differences between text to speech (TTS) and speech to text (STT) technologies, detailing their functionalities, applications, and the technological approaches they utilize. Both technologies have unique roles in enhancing accessibility and efficiency across various industries.",
+      "date": "2026-03-14",
+      "category": "Feature"
+    },
+    {
+      "company": "ElevenLabs",
+      "color": "#F472B6",
       "url": "https://elevenlabs.io/blog/meet-flash",
       "title": "Meet Flash",
       "summary": "Meet Flash, our newest model that generates speech in just 75ms, making it ideal for low-latency conversational voice agents. Integrated within our Conversational AI platform, Flash supports 32 languages and offers a competitive edge in ultra-low-latency applications, despite slightly lower quality compared to Turbo models.",
@@ -480,6 +552,15 @@
       "title": "Introducing Runway Labs",
       "summary": "Runway Labs is an internal incubator launched to explore the next generation of applications for generative video, focusing on how AI can transform various industries. Led by Co-Founder Alejandro Matamala Ortiz, the initiative aims to prototype bold new products and experiences that harness the power of AI video and General World Models.",
       "date": "2026-03-11",
+      "category": "Feature"
+    },
+    {
+      "company": "Hugging Face",
+      "color": "#FFD21E",
+      "url": "https://huggingface.co/blog/storage-buckets",
+      "title": "Introducing Storage Buckets on the Hugging Face Hub",
+      "summary": "Hugging Face has launched Storage Buckets, a flexible S3-like object storage solution tailored for machine learning artifacts. This feature allows seamless management of mutable storage for datasets, checkpoints, and other intermediate files, optimizing efficiency and speed for ML workflows.",
+      "date": "2026-03-10",
       "category": "Feature"
     },
     {

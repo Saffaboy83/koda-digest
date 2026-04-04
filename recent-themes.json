@@ -1,4 +1,58 @@
 {
+  "2026-04-04": {
+    "hook": "SpaceX just bought xAI while a downed F-15 sends markets into extreme fear territory.",
+    "top_themes": [
+      "SpaceX-xAI Merger Fallout",
+      "Persian Gulf Escalation Dynamics",
+      "$267B Quarter for AI"
+    ],
+    "top_stories": [
+      "Anthropic Unveils Operon for Lab Automation",
+      "Mistral Ships Boxrol TTS Voice Model",
+      "Microsoft Drops Three New AI Media Models",
+      "Q1 2026 AI Venture Funding Hits $267 Billion",
+      "SpaceX Acquires xAI in Landmark Deal",
+      "DeepSeek V4 Matches Frontier Labs at $5.2M",
+      "GPT-5.4 Beats Humans on Desktop Tasks",
+      "Industry Narrative Shifts Toward Agentic Systems",
+      "Major Release Cadence Hits Every 72 Hours",
+      "Hugging Face Launches Gemma 4 Playground",
+      "Iran Downs U.S. F-15 Over Southwest Iran",
+      "Trump Says Downed Jet Won't Derail Iran Talks",
+      "Iran Prepares to Select New Supreme Leader",
+      "France Plans Multinational Operation to Reopen Hormuz",
+      "Erdogan Tells Putin Ankara Opposes Strikes on Iran",
+      "Bahrain Cracks Down on Dissent Amid War",
+      "5.9 Earthquake Shakes Afghanistan-Tajikistan Border Region",
+      "Maryland Governor Calls Iran Campaign a Forever War"
+    ],
+    "source_urls": [
+      "https://www.devflokers.com/blog/ai-news-last-24-hours-april-2026-model-releases-breakthroughs",
+      "https://www.devflokers.com/blog/ai-news-last-24-hours-april-2026-model-releases-breakthroughs",
+      "https://www.geekwire.com/2026/microsoft-releases-new-ai-models-to-further-expand-beyond-openai/",
+      "https://www.devflokers.com/blog/ai-news-last-24-hours-april-2026-model-releases-breakthroughs",
+      "https://www.devflokers.com/blog/ai-news-last-24-hours-april-2026-model-releases-breakthroughs",
+      "https://kersai.com/ai-breakthroughs-in-2026-march-update/",
+      "https://kersai.com/ai-breakthroughs-in-2026-march-update/",
+      "https://www.devflokers.com/blog/ai-news-last-24-hours-april-2026-model-releases-breakthroughs",
+      "https://kersai.com/ai-breakthroughs-in-2026-march-update/",
+      "https://huggingface.co/posts",
+      "https://www.aa.com.tr/en/world/morning-briefing-april-4-2026/3891280",
+      "https://www.aa.com.tr/en/world/morning-briefing-april-4-2026/3891280",
+      "https://www.democracynow.org/2026/3/4/headlines",
+      "https://www.aa.com.tr/en/world/morning-briefing-april-4-2026/3891280",
+      "https://www.aa.com.tr/en/world/morning-briefing-april-4-2026/3891280",
+      "https://abcnews.com/International",
+      "https://www.aa.com.tr/en/world/morning-briefing-april-4-2026/3891280",
+      "https://www.cbsnews.com/world/"
+    ],
+    "story_angles": [
+      "SpaceX's acquisition of Elon Musk's xAI consolidates rocket infrastructure and f",
+      "Iran's downing of a U.S. F-15 over its southwest territory marks the most seriou",
+      "Sentiment has plunged to Extreme Fear as the shootdown rattles energy and defens",
+      "France is organizing a multinational naval operation to reopen the Strait of Hor"
+    ]
+  },
   "2026-04-03": {
     "hook": "Google's Gemma 4 drops open weights into a world where oil just spiked 11% and fear rules everything.",
     "top_themes": [
@@ -195,54 +249,6 @@
       "U.S. bunker busters struck Iran's Isfahan uranium enrichment site as the conflic",
       "Sentiment sits at Extreme Fear as gold approaches $4,554 per ounce yet records i",
       "Amazon and OpenAI quietly unveiled a stateful AI runtime, a foundational shift t"
-    ]
-  },
-  "2026-03-30": {
-    "hook": "Meta's brain-mapping breakthrough lands in a week where the real world feels unmappable.",
-    "top_themes": [
-      "Meta Opens Neuroscience AI",
-      "Hormuz Chokepoint Rattles Markets",
-      "Agent Architecture Goes Isolated"
-    ],
-    "top_stories": [
-      "Meta TRIBE v2 Maps Brain Responses at Scale",
-      "ByteDance DeerFlow 2.0 Ships Isolated Agent Architecture",
-      "Late March AI Release Pipeline Hits Quiet Stretch",
-      "Q1 2026 Model Count Settles Near Record High",
-      "Open-Source Neuroscience AI Gains Momentum From Meta",
-      "GPT-5.4 Holds Intelligence Index Lead at 57.17",
-      "China's Open-Weight Labs Consolidate Q1 Gains",
-      "Agentic Frameworks Proliferate as Labs Shift Focus",
-      "Iran Launches Major Retaliatory Strikes on Israel",
-      "UN Warns Escalation Now Risks Uncontrollable Spiral",
-      "Strait of Hormuz Disruptions Hit Energy, Food Prices",
-      "Supreme Court Hears Trump Birthright Citizenship Challenge",
-      "Pakistan, Saudi Arabia Coordinate Regional De-escalation Push",
-      "DRC Violence Worsens Near Burundi Border",
-      "U.S. Spy Plane Loss Exposes Costly Platform Vulnerability"
-    ],
-    "source_urls": [
-      "https://whatllm.org/blog/llm-releases-march-2026",
-      "https://whatllm.org/blog/llm-releases-march-2026",
-      "https://aiflashreport.com/model-releases.html",
-      "https://blog.mean.ceo/new-ai-model-releases-news-march-2026/",
-      "https://whatllm.org/blog/llm-releases-march-2026",
-      "https://whatllm.org/blog/llm-releases-march-2026",
-      "https://www.labla.org/latest-ai-model-releases-past-24-hours/new-ai-model-releases-announcements-march-25-2026-the-stuff-that-actually-matters-today-beyond-openai-and-google/",
-      "https://radicaldatascience.wordpress.com/2026/03/20/ai-news-briefs-bulletin-board-for-march-2026/",
-      "https://www.globalissues.org/news/2026/03",
-      "https://www.globalissues.org/news/2026/03",
-      "https://www.youtube.com/watch?v=SFXQzdfKhq0",
-      "https://www.youtube.com/watch?v=6tcKmV2nIig",
-      "https://www.youtube.com/watch?v=6tcKmV2nIig",
-      "https://www.globalissues.org/news/2026/03",
-      "https://www.youtube.com/watch?v=f0c96_2VtSA"
-    ],
-    "story_angles": [
-      "Meta's TRIBE v2 open-source framework maps neural responses at unprecedented sca",
-      "Iran launched major retaliatory strikes against Israel, prompting UN warnings of",
-      "Sentiment has cratered to Extreme Fear as Strait of Hormuz disruptions ripple th",
-      "ByteDance's DeerFlow 2.0 quietly shipped an isolated agent architecture this wee"
     ]
   }
 }

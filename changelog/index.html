@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Who Shipped What | Koda Intelligence</title>
-<meta name="description" content="Daily AI company release tracker. 15 releases across 2 companies in the last 30 days.">
+<meta name="description" content="Daily AI company release tracker. 70 releases across 15 companies in the last 30 days.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
@@ -75,9 +75,9 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
     <p>Every AI company release tracked daily. Model launches, API updates, pricing changes, partnerships, and more across 25 companies.</p>
 </section>
 <div class="stats animate-in">
-    <div class="stat"><div class="stat-value">15</div><div class="stat-label">Releases (30 days)</div></div>
-    <div class="stat"><div class="stat-value">2</div><div class="stat-label">Companies</div></div>
-    <div class="stat"><div class="stat-value">0</div><div class="stat-label">New Today</div></div>
+    <div class="stat"><div class="stat-value">70</div><div class="stat-label">Releases (30 days)</div></div>
+    <div class="stat"><div class="stat-value">15</div><div class="stat-label">Companies</div></div>
+    <div class="stat"><div class="stat-value">9</div><div class="stat-label">New Today</div></div>
     <div class="stat"><div class="stat-value">April 04, 2026</div><div class="stat-label">Last Scanned</div></div>
 </div>
 <div class="container">
@@ -87,16 +87,383 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
             <span style="font-size:11px;color:#8c909f;text-transform:uppercase;letter-spacing:0.1em;font-weight:600">Filter by Company</span>
         </div>
         <div class="filter-pills"><button class="filter-btn active" onclick="filterCompany(this,'all')">All</button>
+<button class="filter-btn" style="--btn-color:#FF0000" onclick="filterCompany(this,'Adobe')">Adobe</button>
+<button class="filter-btn" style="--btn-color:#FF9900" onclick="filterCompany(this,'Amazon AWS')">Amazon AWS</button>
+<button class="filter-btn" style="--btn-color:#EF4444" onclick="filterCompany(this,'Cohere')">Cohere</button>
+<button class="filter-btn" style="--btn-color:#7DD3FC" onclick="filterCompany(this,'Cursor')">Cursor</button>
+<button class="filter-btn" style="--btn-color:#FF3621" onclick="filterCompany(this,'Databricks')">Databricks</button>
+<button class="filter-btn" style="--btn-color:#F472B6" onclick="filterCompany(this,'ElevenLabs')">ElevenLabs</button>
 <button class="filter-btn" style="--btn-color:#3B82F6" onclick="filterCompany(this,'Google')">Google</button>
+<button class="filter-btn" style="--btn-color:#FFD21E" onclick="filterCompany(this,'Hugging Face')">Hugging Face</button>
+<button class="filter-btn" style="--btn-color:#FBBF24" onclick="filterCompany(this,'Midjourney')">Midjourney</button>
+<button class="filter-btn" style="--btn-color:#F97316" onclick="filterCompany(this,'Mistral')">Mistral</button>
 <button class="filter-btn" style="--btn-color:#10B981" onclick="filterCompany(this,'OpenAI')">OpenAI</button>
+<button class="filter-btn" style="--btn-color:#F59E0B" onclick="filterCompany(this,'Perplexity')">Perplexity</button>
+<button class="filter-btn" style="--btn-color:#00E5FF" onclick="filterCompany(this,'Runway')">Runway</button>
+<button class="filter-btn" style="--btn-color:#EC4899" onclick="filterCompany(this,'Together AI')">Together AI</button>
+<button class="filter-btn" style="--btn-color:#8B5CF6" onclick="filterCompany(this,'xAI')">xAI</button>
 </div>
     </div>
     
+        <div class="company-section animate-in" data-company="Adobe">
+            <div class="company-header">
+                <div class="company-dot" style="background:#FF0000"></div>
+                <h3 style="font-size:18px;font-weight:800">Adobe</h3>
+                <span style="color:#64748B;font-size:12px">8 releases</span>
+                <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
+            </div>
+            <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#14B8A6">api</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#14B8A6;background:#14B8A615">API Update</span>
+                        <span style="color:#64748B;font-size:11px">Apr 02, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">26.001.21367 Planned update, Apr 02, 2026</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This is a planned update for the Acrobat product family, introducing different tracks for both Acrobat and Reader. The update includes installers for both Windows and Macintosh platforms, along with new features and bug fixes addressing ongoing issues.</div>
+                    <div style="margin-top:8px"><a href="https://www.adobe.com/devnet-docs/acrobatetk/tools/ReleaseNotesDC/continuous/dccontinuousmarch2026qfe.html" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Apr 01, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Second Quarter 2026 release overview</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">The Second Quarter 2026 release overview details the new functionalities and enhancements scheduled for April 2026, including AI Collaborators, document enhancements, and updates to enterprise operations. These improvements are designed to optimize user experience and operational efficiency in Adobe Workfront.</div>
+                    <div style="margin-top:8px"><a href="https://experienceleague.adobe.com/en/docs/workfront/using/product-announcements/product-releases/release-26-q2/26-q2-release-overview" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Apr 01, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Release Notes 2026</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">The 2026 release notes for Journey Optimizer detail new capabilities and improvements, including journey arbitration, action activities, wave sending for campaigns, and integration of web push notifications. The release outlines various enhancements aimed at enhancing user experience and efficiency for both users and organizations.</div>
+                    <div style="margin-top:8px"><a href="https://experienceleague.adobe.com/en/docs/journey-optimizer/using/whats-new/previous-rn-new/release-notes-2026" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 30, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Adobe Illustrator on Desktop Release Notes</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This post details the latest updates, new features, and bug fixes for Adobe Illustrator. The most recent update as of March 2026 includes enhancements such as the Turntable feature for generating views, improved font handling, and direct export options for Adobe Cloud storage.</div>
+                    <div style="margin-top:8px"><a href="https://helpx.adobe.com/illustrator/desktop/new-features/release-notes.html" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 30, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">What’s new in Adobe Illustrator on desktop</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This post highlights the latest features and enhancements introduced in Adobe Illustrator version 30.3, released on March 30, 2026. Key improvements include the Turntable feature for viewing objects from multiple angles, Auto Select for generating variations, and enhanced export capabilities to Adobe cloud storage.</div>
+                    <div style="margin-top:8px"><a href="https://helpx.adobe.com/illustrator/desktop/new-features/whats-new.html" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 10, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Adobe Express: 2026 Updates</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Adobe Express has introduced numerous enhancements aimed at improving workflows in creation, video editing, and brand management. Key features include faster presentation generation, improved video editing capabilities, new export options, and better support for various image formats.</div>
+                    <div style="margin-top:8px"><a href="https://community.adobe.com/announcements-327/adobe-express-2026-updates-1553068" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#EF4444">shield</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EF4444;background:#EF444415">Safety</span>
+                        <span style="color:#64748B;font-size:11px">Mar 10, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Security Updates Available for Adobe Illustrator | APSB26-18</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Adobe has released an update for Adobe Illustrator to address important and critical vulnerabilities that could potentially lead to arbitrary code execution and memory exposure. There are no known exploits in the wild for the issues resolved in this update.</div>
+                    <div style="margin-top:8px"><a href="https://helpx.adobe.com/security/products/illustrator/apsb26-18.html" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 05, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">2026 Adobe Analytics Release Notes</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">The 2026 release notes for Adobe Analytics outline new features and improvements, including enhanced data feeds and API guides. Significant updates also focus on the user experience and managing templates, while several bug fixes are documented for accuracy and reliability.</div>
+                    <div style="margin-top:8px"><a href="https://experienceleague.adobe.com/en/docs/analytics/release-notes/previous/2026" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div></div>
+        </div>
+        <div class="company-section animate-in" data-company="Amazon AWS">
+            <div class="company-header">
+                <div class="company-dot" style="background:#FF9900"></div>
+                <h3 style="font-size:18px;font-weight:800">Amazon AWS</h3>
+                <span style="color:#64748B;font-size:12px">1 release</span>
+                <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
+            </div>
+            <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 31, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Build reliable AI agents with Amazon Bedrock AgentCore Evaluations</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">The post discusses the challenges of AI agent evaluations, particularly for large language models (LLMs), and introduces Amazon Bedrock AgentCore Evaluations, a managed service designed to assess AI agent performance throughout the development lifecycle. It outlines the evaluation methods, principles for effective assessment, and the continuous improvement process to enhance AI agent reliability in production environments.</div>
+                    <div style="margin-top:8px"><a href="https://aws.amazon.com/blogs/machine-learning/build-reliable-ai-agents-with-amazon-bedrock-agentcore-evaluations" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div></div>
+        </div>
+        <div class="company-section animate-in" data-company="Cohere">
+            <div class="company-header">
+                <div class="company-dot" style="background:#EF4444"></div>
+                <h3 style="font-size:18px;font-weight:800">Cohere</h3>
+                <span style="color:#64748B;font-size:12px">1 release</span>
+                <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
+            </div>
+            <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#EC4899">science</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EC4899;background:#EC489915">Research</span>
+                        <span style="color:#64748B;font-size:11px">Mar 31, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Ensemble and Cohere building the first RCM‑native healthcare LLM</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This blog post discusses the collaboration between Ensemble and Cohere to create a healthcare language model tailored for revenue cycle management. It highlights the innovative approaches being implemented to enhance accuracy and efficiency in healthcare settings.</div>
+                    <div style="margin-top:8px"><a href="https://cohere.com/blog/authors/neeral-beladia" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div></div>
+        </div>
+        <div class="company-section animate-in" data-company="Cursor">
+            <div class="company-header">
+                <div class="company-dot" style="background:#7DD3FC"></div>
+                <h3 style="font-size:18px;font-weight:800">Cursor</h3>
+                <span style="color:#64748B;font-size:12px">1 release</span>
+                <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
+            </div>
+            <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Apr 02, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Meet the new Cursor</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Cursor has launched a significant update, introducing exciting new features and enhancements. This blog post details the improvements and what users can expect from the new Cursor experience.</div>
+                    <div style="margin-top:8px"><a href="https://cursor.com/blog/topic/product" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div></div>
+        </div>
+        <div class="company-section animate-in" data-company="Databricks">
+            <div class="company-header">
+                <div class="company-dot" style="background:#FF3621"></div>
+                <h3 style="font-size:18px;font-weight:800">Databricks</h3>
+                <span style="color:#64748B;font-size:12px">8 releases</span>
+                <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
+            </div>
+            <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#14B8A6">api</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#14B8A6;background:#14B8A615">API Update</span>
+                        <span style="color:#64748B;font-size:11px">Apr 02, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Databricks Runtime maintenance updates (04/02)</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">New maintenance updates for supported Databricks Runtime versions have been released, featuring bug fixes, security patches, and performance enhancements. The updates include improvements for multiple runtime versions, ensuring better functionality and security for users.</div>
+                    <div style="margin-top:8px"><a href="https://docs.databricks.com/aws/en/release-notes/product/2026/april" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Apr 01, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">AI/BI Features and Improvements Released in 2026</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This post outlines the key AI/BI features and enhancements from Databricks that were released throughout 2026, highlighting significant updates across various functionalities such as dashboards, Genie enhancements, and Databricks One improvements. Key features include new user-friendly display options, API availability, and improved navigation capabilities.</div>
+                    <div style="margin-top:8px"><a href="https://docs.databricks.com/aws/en/ai-bi/release-notes/2026" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Apr 01, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Databricks Release Notes - March 2026</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This document outlines the latest features and improvements released on the Databricks platform in March 2026, including new functionalities for various tools and integrations. Key highlights include updates to the Databricks Connector for Google Sheets, the introduction of AI Runtime in Public Preview, and enhancements to the Databricks SQL editor.</div>
+                    <div style="margin-top:8px"><a href="https://docs.databricks.com/aws/en/release-notes/product/2026/march" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Apr 01, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">April 2026 Release Notes</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">The April 2026 release includes multiple enhancements for dashboards, Genie, and Databricks One. Key improvements feature clearer filter management, new visual capabilities, and general availability of the Genie Conversation API.</div>
+                    <div style="margin-top:8px"><a href="https://docs.databricks.com/gcp/en/ai-bi/release-notes/2026" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#06B6D4">handshake</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#06B6D4;background:#06B6D415">Partnership</span>
+                        <span style="color:#64748B;font-size:11px">Mar 31, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Databricks Announces $850M UK Investment to Accelerate Enterprise Data + AI Adoption</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Databricks plans to invest over $850 million in the UK over the next three years, expanding its office footprint and workforce, while enhancing its AI capabilities with products like Lakebase and Genie. The investment aims to attract top AI talent and train 100,000 individuals in data and AI skills by 2028.</div>
+                    <div style="margin-top:8px"><a href="https://www.databricks.com/company/newsroom/press-releases/databricks-announces-850m-uk-investment-accelerate-enterprise-data" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 26, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Databricks SQL version 2026.10 is now available in Preview</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">The Databricks SQL version 2026.10 has been released in the Preview channel, introducing significant new features and bug fixes. Notable enhancements include improvements to observation metrics, optimized writes for Unity Catalog, support for filter clauses in aggregate functions, and enhanced geospatial functions.</div>
+                    <div style="margin-top:8px"><a href="https://docs.databricks.com/aws/en/sql/release-notes/2026" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#06B6D4">handshake</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#06B6D4;background:#06B6D415">Partnership</span>
+                        <span style="color:#64748B;font-size:11px">Mar 23, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Announcing the 2026 Built-On Databricks Startup Challenge</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">The 2026 Built-On Databricks Startup Challenge is a global competition for early-stage B2B startups building core products on the Databricks platform, offering over $1 million in prizes and potential venture investment. Sponsored by Databricks Ventures and Databricks for Startups, this initiative connects innovative startups with vital resources and mentorship to accelerate their growth.</div>
+                    <div style="margin-top:8px"><a href="https://www.databricks.com/blog/announcing-2026-built-databricks-startup-challenge" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 16, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Databricks Release Notes</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This page provides organized release notes for Databricks, including details on Databricks Runtime releases, platform features, and feature-specific notes. It is updated regularly to reflect the latest developments and improvements in the Databricks ecosystem.</div>
+                    <div style="margin-top:8px"><a href="https://docs.databricks.com/aws/en/release-notes/" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div></div>
+        </div>
+        <div class="company-section animate-in" data-company="ElevenLabs">
+            <div class="company-header">
+                <div class="company-dot" style="background:#F472B6"></div>
+                <h3 style="font-size:18px;font-weight:800">ElevenLabs</h3>
+                <span style="color:#64748B;font-size:12px">11 releases</span>
+                <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
+            </div>
+            <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 31, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Cascaded vs Fused Models: How architecture determines whether your voice agent is enterprise-ready</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This article explores the differing architectures of voice agents, focusing on the trade-offs between cascaded and fused designs. It discusses how these architectures affect conversation quality, configurability, and reliability, with insights into selecting the right model for specific applications.</div>
+                    <div style="margin-top:8px"><a href="https://elevenlabs.io/blog/cascaded-vs-fused-models" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 27, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">The state of AI Audio in publishing and news</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This blog post discusses how AI audio technology is transforming the news industry by enhancing engagement and accessibility through narrated articles and podcasts. It highlights the shift from traditional reading to immersive audio experiences and the growing demand for multilingual content, showcasing the potential benefits of integrating AI-driven audio solutions into publishing strategies.</div>
+                    <div style="margin-top:8px"><a href="https://elevenlabs.io/blog/the-state-of-ai-audio-in-publishing-and-news" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 14, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">How to monetize your voice with ElevenLabs Voice Library and create a passive income</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This blog post discusses how voice actors can generate passive income using the ElevenLabs Voice Library, outlining steps to create a voice clone and sell audio. The guide details the potential earnings through a system that pays per 1,000 characters generated, emphasizing the ease of entry into voice monetization.</div>
+                    <div style="margin-top:8px"><a href="https://elevenlabs.io/blog/monetize-your-voice-with-elevenlabs-voice-library-and-create-passive-income" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 14, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">How to extract voices from music</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">The blog discusses the challenges of isolating vocals from background music in audio recordings and introduces the ElevenLabs Voice Isolator tool as an efficient solution. This AI-driven tool simplifies the process, allowing users to quickly extract clean dialogue and enhance audio quality without extensive manual intervention.</div>
+                    <div style="margin-top:8px"><a href="https://elevenlabs.io/blog/how-to-extract-voices-from-music" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#14B8A6">api</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#14B8A6;background:#14B8A615">API Update</span>
+                        <span style="color:#64748B;font-size:11px">Mar 14, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Text to Speech API - Up To 40% Faster Globally</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">ElevenLabs has introduced multi-region serving for its Text to Speech API, allowing requests to route automatically to the nearest backend. This upgrade leads to significant reductions in latency, enhancing responsiveness and user experience for voice agents and real-time applications.</div>
+                    <div style="margin-top:8px"><a href="https://elevenlabs.io/blog/text-to-speech-api-up-to-40-faster-globally" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 14, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">How to make an audiobook using AI in 2026 our ultimate guide</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This blog post provides a comprehensive guide on creating audiobooks using AI technology. It highlights the advantages of AI over traditional methods, including cost-effectiveness and efficiency, while outlining various aspects of audiobook production such as preparation, voice customization, and marketing strategies.</div>
+                    <div style="margin-top:8px"><a href="https://elevenlabs.io/blog/how-to-make-an-audiobook" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 14, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Text to Speech vs Speech to Text: What is the Difference?</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This blog post explores the differences between text to speech (TTS) and speech to text (STT) technologies, detailing their functionalities, applications, and the technological approaches they utilize. Both technologies have unique roles in enhancing accessibility and efficiency across various industries.</div>
+                    <div style="margin-top:8px"><a href="https://elevenlabs.io/blog/text-to-speech-vs-speech-to-text" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 14, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Meet Flash</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Meet Flash, our newest model that generates speech in just 75ms, making it ideal for low-latency conversational voice agents. Integrated within our Conversational AI platform, Flash supports 32 languages and offers a competitive edge in ultra-low-latency applications, despite slightly lower quality compared to Turbo models.</div>
+                    <div style="margin-top:8px"><a href="https://elevenlabs.io/blog/meet-flash" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 14, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Generate high-quality Indian accent Text to Speech</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This blog post discusses how to create realistic Indian accent text-to-speech using ElevenLabs' platform. It provides guidance on selecting voices, models, and adjusting text parameters to enhance audio quality, and emphasizes the tool's applications in storytelling, marketing, and education.</div>
+                    <div style="margin-top:8px"><a href="https://elevenlabs.io/blog/generate-high-quality-indian-accent-text-to-speech" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 14, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Voicemail Detection now available in Conversational AI</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Voicemail detection automatically identifies voicemail systems, allowing voice agents to avoid wasting time and credits. It offers strategies for handling voicemails intelligently, ultimately reducing costs and improving operational efficiency.</div>
+                    <div style="margin-top:8px"><a href="https://elevenlabs.io/blog/voicemail-detection" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 14, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">How to generate speech in multiple languages?</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This post explores how advancements in AI and machine learning have made it possible to generate synthetic speech in various languages. It discusses the benefits of multilingual text-to-speech technology, voice cloning, and the ethical considerations surrounding its use.</div>
+                    <div style="margin-top:8px"><a href="https://elevenlabs.io/blog/how-to-generate-speech-in-multiple-languages" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div></div>
+        </div>
         <div class="company-section animate-in" data-company="Google">
             <div class="company-header">
                 <div class="company-dot" style="background:#3B82F6"></div>
                 <h3 style="font-size:18px;font-weight:800">Google</h3>
-                <span style="color:#64748B;font-size:12px">4 releases</span>
+                <span style="color:#64748B;font-size:12px">6 releases</span>
                 <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
             </div>
             <div class="changelog-cards">
@@ -109,6 +476,26 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
                     <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Bring state-of-the-art agentic skills to the edge with Gemma 4</div>
                     <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Google DeepMind has launched Gemma 4, a family of advanced open models that empower developers to create agentic and autonomous AI solutions directly on their devices. With capabilities such as multi-step planning and support for over 140 languages, Gemma 4 marks a significant leap in on-device AI development, making complex workflows and applications more accessible.</div>
                     <div style="margin-top:8px"><a href="https://developers.googleblog.com/en/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Apr 01, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">The latest AI news we announced in March 2026</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">In March 2026, Google released significant updates to its AI offerings, emphasizing the enhancement of the Gemini platform. Key features included an expansion of Search Live, better context understanding for personal tasks, and upgraded capabilities for Google Maps and other productivity tools.</div>
+                    <div style="margin-top:8px"><a href="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-march-2026/" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 31, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Build with Veo 3.1 Lite, our most cost-effective video generation model</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Google has introduced Veo 3.1 Lite, the most affordable video generation model available, which allows developers to create high-volume video applications at a reduced cost. This model supports various video formats and resolutions and is now accessible through the Gemini API and Google AI Studio.</div>
+                    <div style="margin-top:8px"><a href="https://blog.google/innovation-and-ai/technology/ai/veo-3-1-lite/" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
                 </div>
                 <div class="changelog-card">
                     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
@@ -141,14 +528,111 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
                     <div style="margin-top:8px"><a href="https://blog.google/products-and-platforms/platforms/google-tv/new-gemini-features-march-2026/" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
                 </div></div>
         </div>
+        <div class="company-section animate-in" data-company="Hugging Face">
+            <div class="company-header">
+                <div class="company-dot" style="background:#FFD21E"></div>
+                <h3 style="font-size:18px;font-weight:800">Hugging Face</h3>
+                <span style="color:#64748B;font-size:12px">2 releases</span>
+                <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
+            </div>
+            <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 30, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Accelerating LLM Inference: Fused INT8 Weight-Only Quantization in Pallas</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This article discusses the bottlenecks in Large Language Model (LLM) inference and introduces the concept of Weight-Only Quantization to enhance memory bandwidth efficiency. By using jax's Pallas extension to implement a custom kernel, it highlights how to optimize the data movement in memory, crucial for improving performance in LLMs.</div>
+                    <div style="margin-top:8px"><a href="https://huggingface.co/blog/rishiraj/fused-int8-weight-only-quantization-in-pallas" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 10, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Introducing Storage Buckets on the Hugging Face Hub</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Hugging Face has launched Storage Buckets, a flexible S3-like object storage solution tailored for machine learning artifacts. This feature allows seamless management of mutable storage for datasets, checkpoints, and other intermediate files, optimizing efficiency and speed for ML workflows.</div>
+                    <div style="margin-top:8px"><a href="https://huggingface.co/blog/storage-buckets" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div></div>
+        </div>
+        <div class="company-section animate-in" data-company="Midjourney">
+            <div class="company-header">
+                <div class="company-dot" style="background:#FBBF24"></div>
+                <h3 style="font-size:18px;font-weight:800">Midjourney</h3>
+                <span style="color:#64748B;font-size:12px">3 releases</span>
+                <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
+            </div>
+            <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 21, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Introducing the V8 Model: Early Access and Features</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Today, we are excited to let the community test an early version of our V8 model, which excels in following detailed directions and generating coherent images at a much faster rate. With improved web interfaces and new features like multiple aspect ratios and HD mode, we encourage user feedback to enhance the model further.</div>
+                    <div style="margin-top:8px"><a href="https://updates.midjourney.com/v8-alpha/" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 20, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Relax mode for V8 Alpha</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">The Relax mode for V8 Alpha is now available for Standard, Pro, and Mega subscribers, allowing specific commands while maintaining efficiency. Additionally, there's a new version of SREF/Moodboards that is faster and more cost-effective, with ongoing improvements promised for the V8 model based on user feedback.</div>
+                    <div style="margin-top:8px"><a href="https://www.midjourney.com/updates" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 17, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Explore and switch between Midjourney versions using the version parameter: `--version` or `--v`</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This blog post discusses the various versions of Midjourney, highlighting changes and features in versions V6, V7, and V8 Alpha. Users are guided on setting default versions and understanding the impact of these versions on their image generation results.</div>
+                    <div style="margin-top:8px"><a href="https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div></div>
+        </div>
+        <div class="company-section animate-in" data-company="Mistral">
+            <div class="company-header">
+                <div class="company-dot" style="background:#F97316"></div>
+                <h3 style="font-size:18px;font-weight:800">Mistral</h3>
+                <span style="color:#64748B;font-size:12px">1 release</span>
+                <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
+            </div>
+            <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#EC4899">science</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EC4899;background:#EC489915">Research</span>
+                        <span style="color:#64748B;font-size:11px">Mar 16, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Leanstral: Open-Source foundation for trustworthy vibe-coding</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Mistral AI has introduced Leanstral, the first open-source code agent for Lean 4, aimed at enhancing coding efficiency through formal proof. This innovative tool strives to automate proof engineering tasks and improve verification accuracy in code generation.</div>
+                    <div style="margin-top:8px"><a href="https://mistral.ai/news/leanstral" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div></div>
+        </div>
         <div class="company-section animate-in" data-company="OpenAI">
             <div class="company-header">
                 <div class="company-dot" style="background:#10B981"></div>
                 <h3 style="font-size:18px;font-weight:800">OpenAI</h3>
-                <span style="color:#64748B;font-size:12px">11 releases</span>
+                <span style="color:#64748B;font-size:12px">17 releases</span>
                 <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
             </div>
             <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#10B981">payments</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#10B981;background:#10B98115">Pricing</span>
+                        <span style="color:#64748B;font-size:11px">Apr 02, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Codex now offers pay-as-you-go pricing for teams</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">OpenAI has introduced a flexible pay-as-you-go pricing model for Codex, aimed at enhancing accessibility for teams. This new pricing structure allows users to tailor their usage according to their budget and project needs.</div>
+                    <div style="margin-top:8px"><a href="https://openai.com/news/product-releases/" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
                 <div class="changelog-card">
                     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
                         <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
@@ -181,6 +665,16 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
                 </div>
                 <div class="changelog-card">
                     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#06B6D4">handshake</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#06B6D4;background:#06B6D415">Partnership</span>
+                        <span style="color:#64748B;font-size:11px">Mar 29, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Helping disaster response teams turn AI into action across Asia</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This blog post discusses the collaboration between OpenAI and various disaster response teams in Asia to leverage artificial intelligence for disaster management. The initiative aims to improve the effectiveness of responses to natural disasters through advanced AI solutions.</div>
+                    <div style="margin-top:8px"><a href="https://openai.com/news/global-affairs" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
                         <span class="material-symbols-outlined" style="font-size:16px;color:#14B8A6">api</span>
                         <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#14B8A6;background:#14B8A615">API Update</span>
                         <span style="color:#64748B;font-size:11px">Mar 27, 2026</span>
@@ -188,6 +682,26 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
                     <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">ChatGPT Business - Release Notes</div>
                     <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This article provides a comprehensive changelog of the latest updates for the ChatGPT Business plan, detailing enhancements and new features added to various applications such as Box, Notion, and Google Drive, alongside the introduction of plugins and updates on Microsoft app scopes. Each update includes information on how these features impact workspace administration and user interactions.</div>
                     <div style="margin-top:8px"><a href="https://help.openai.com/zh-hant-hk/articles/11391654-chatgpt-business-release-notes" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#EF4444">shield</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EF4444;background:#EF444415">Safety</span>
+                        <span style="color:#64748B;font-size:11px">Mar 25, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Introducing the OpenAI Safety Bug Bounty program</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">The OpenAI Safety Bug Bounty program is launched to empower the community in identifying and resolving safety issues in AI systems. This initiative aims to enhance the overall safety of OpenAI's technologies.</div>
+                    <div style="margin-top:8px"><a href="https://openai.com/news/safety-alignment" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#EC4899">science</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EC4899;background:#EC489915">Research</span>
+                        <span style="color:#64748B;font-size:11px">Mar 25, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Inside our approach to the Model Spec</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This post delves into OpenAI's innovative strategies for developing and sharing model specifications. It highlights the key principles guiding their approach to transparency and collaboration in AI research.</div>
+                    <div style="margin-top:8px"><a href="https://openai.com/news/research" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
                 </div>
                 <div class="changelog-card">
                     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
@@ -243,6 +757,16 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
                     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
                         <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
                         <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 11, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">From model to agent: Equipping the Responses API with a computer environment</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This post discusses the enhancements made to the Responses API by integrating a computer environment, facilitating more efficient processing. The article outlines key features and technical insights about the upgrades.</div>
+                    <div style="margin-top:8px"><a href="https://openai.com/news/engineering" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
                         <span style="color:#64748B;font-size:11px">Mar 10, 2026</span>
                     </div>
                     <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">ChatGPT Atlas - Release Notes</div>
@@ -256,8 +780,164 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
                         <span style="color:#64748B;font-size:11px">Mar 05, 2026</span>
                     </div>
                     <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Introducing GPT-5.4</div>
-                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Introducing GPT-5.4, OpenAI’s most capable and efficient frontier model for professional work, featuring state-of-the-art coding, computer use, tool search, and a 1M-token context.</div>
-                    <div style="margin-top:8px"><a href="https://openai.com/research/index/release/" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">OpenAI announced the release of GPT-5.4, a significant upgrade to its language model offering improved capabilities. This new version aims to enhance user interactions and performance across various applications.</div>
+                    <div style="margin-top:8px"><a href="https://openai.com/news/company-announcements" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 05, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">The five AI value models driving business reinvention</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This post discusses five key AI value models that are transforming how businesses operate and innovate. It highlights the importance of integrating AI into business strategies for enhanced efficiency and competitiveness.</div>
+                    <div style="margin-top:8px"><a href="https://openai.com/news/ai-adoption" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div></div>
+        </div>
+        <div class="company-section animate-in" data-company="Perplexity">
+            <div class="company-header">
+                <div class="company-dot" style="background:#F59E0B"></div>
+                <h3 style="font-size:18px;font-weight:800">Perplexity</h3>
+                <span style="color:#64748B;font-size:12px">2 releases</span>
+                <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
+            </div>
+            <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#EC4899">science</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EC4899;background:#EC489915">Research</span>
+                        <span style="color:#64748B;font-size:11px">Mar 31, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Announcing the Secure Intelligence Institute</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Perplexity has launched the Secure Intelligence Institute (SII), which will serve as a flagship research center focused on advancing security, privacy, and trust in frontier AI. This initiative strengthens ongoing efforts in AI security, promoting collaboration with the broader community to enhance safety in AI systems.</div>
+                    <div style="margin-top:8px"><a href="https://www.perplexity.ai/hub/blog/announcing-the-secure-intelligence-institute" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 19, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Introducing Perplexity Health</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Perplexity Health is a new suite of tools designed to connect personal health data, offering users comprehensive answers to health-related queries. With integrations from various health platforms, Perplexity Health aims to streamline access to medical records, lab results, and fitness data, while ensuring high-quality information backed by credible sources.</div>
+                    <div style="margin-top:8px"><a href="https://www.perplexity.ai/hub/blog/introducing-perplexity-health" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div></div>
+        </div>
+        <div class="company-section animate-in" data-company="Runway">
+            <div class="company-header">
+                <div class="company-dot" style="background:#00E5FF"></div>
+                <h3 style="font-size:18px;font-weight:800">Runway</h3>
+                <span style="color:#64748B;font-size:12px">7 releases</span>
+                <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
+            </div>
+            <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Jun 11, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">AIF 2026</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Runway's fourth annual AI Festival celebrates the intersection of art and technology. Showcasing AI films and creative works, it highlights how today's creatives are using advanced tools to reshape artistic expression across various fields.</div>
+                    <div style="margin-top:8px"><a href="https://aif.runwayml.com/" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#06B6D4">handshake</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#06B6D4;background:#06B6D415">Partnership</span>
+                        <span style="color:#64748B;font-size:11px">Mar 31, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Introducing Runway Fund</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Runway Fund is an investment vehicle launching to support the next generation of companies in AI, media, and world simulation. With initial commitments of up to $10M, the fund aims to invest in pre-seed and seed stage companies focusing on AI research, new applications, and innovative media and content.</div>
+                    <div style="margin-top:8px"><a href="https://runwayml.com/news/introducing-runway-fund" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#06B6D4">handshake</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#06B6D4;background:#06B6D415">Partnership</span>
+                        <span style="color:#64748B;font-size:11px">Mar 31, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Introducing Runway Builders</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Runway Builders is a program aimed at Seed to Series C startups, providing them with complimentary API credits and early access to build using Runway Characters. This initiative supports innovative projects in generative video and conversational AI by offering direct partnership with the Runway team.</div>
+                    <div style="margin-top:8px"><a href="https://runwayml.com/news/introducing-runway-builders" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 12, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Building Interactive AI Characters Responsibly</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Runway has launched Runway Characters, a real-time video agent API that allows the creation of conversational characters from a single image. This technology poses important questions about consent, representation, and the ethical implications of AI avatars in digital interactions.</div>
+                    <div style="margin-top:8px"><a href="https://runwayml.com/news/building-interactive-ai-characters-responsibly" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 11, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Introducing Runway Labs</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Runway Labs is an internal incubator launched to explore the next generation of applications for generative video, focusing on how AI can transform various industries. Led by Co-Founder Alejandro Matamala Ortiz, the initiative aims to prototype bold new products and experiences that harness the power of AI video and General World Models.</div>
+                    <div style="margin-top:8px"><a href="https://runwayml.com/news/introducing-runway-labs" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 09, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">New updates and improvements to Runway</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Runway has introduced multiple updates across its platform, including the launch of Runway Characters, advanced image generation models, and improved audio features. Users can now enjoy real-time avatars, new video models, and enhanced workflows to streamline their creative processes.</div>
+                    <div style="margin-top:8px"><a href="https://runwayml.com/changelog" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 09, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Introducing Runway Characters</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Runway has launched Runway Characters, a real-time video agent API enabling the creation of fully custom conversational characters from a single image. These characters can adapt in appearance and style, offering extensive customization in voice, personality, and actions, paving the way for a new era in online interactions.</div>
+                    <div style="margin-top:8px"><a href="https://runwayml.com/news/introducing-runway-characters" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div></div>
+        </div>
+        <div class="company-section animate-in" data-company="Together AI">
+            <div class="company-header">
+                <div class="company-dot" style="background:#EC4899"></div>
+                <h3 style="font-size:18px;font-weight:800">Together AI</h3>
+                <span style="color:#64748B;font-size:12px">1 release</span>
+                <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
+            </div>
+            <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#EC4899">science</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EC4899;background:#EC489915">Research</span>
+                        <span style="color:#64748B;font-size:11px">Apr 01, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Inside the Together AI kernels team</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This post explores the innovative work of the Together AI kernels team, which is focused on optimizing GPUs for AI applications. It discusses the challenges they face and the breakthroughs they've achieved, including significant performance improvements that enhance the efficiency of AI-native applications.</div>
+                    <div style="margin-top:8px"><a href="https://www.together.ai/blog/inside-the-together-ai-kernels-team" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div></div>
+        </div>
+        <div class="company-section animate-in" data-company="xAI">
+            <div class="company-header">
+                <div class="company-dot" style="background:#8B5CF6"></div>
+                <h3 style="font-size:18px;font-weight:800">xAI</h3>
+                <span style="color:#64748B;font-size:12px">1 release</span>
+                <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
+            </div>
+            <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#14B8A6">api</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#14B8A6;background:#14B8A615">API Update</span>
+                        <span style="color:#64748B;font-size:11px">Mar 15, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Batch API supports Image and Video generation</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">The Batch API has expanded its capabilities to include image generation and video generation alongside chat completions. Both server-side and client-side tools are now supported in batch requests, with URLs for image and video results expiring after one hour.</div>
+                    <div style="margin-top:8px"><a href="https://docs.x.ai/developers/release-notes" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
                 </div></div>
         </div>
 </div>
