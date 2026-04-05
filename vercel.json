@@ -3,7 +3,11 @@
     { "source": "/", "destination": "/index.html" },
     { "source": "/today", "destination": "/morning-briefing-koda.html" },
     { "source": "/reviews", "destination": "/reviews/index.html" },
-    { "source": "/reviews/", "destination": "/reviews/index.html" }
+    { "source": "/reviews/", "destination": "/reviews/index.html" },
+    { "source": "/dojo", "destination": "/dojo/index.html" },
+    { "source": "/dojo/", "destination": "/dojo/index.html" },
+    { "source": "/dojo/claude-code", "destination": "/dojo/claude-code/index.html" },
+    { "source": "/dojo/claude-code/", "destination": "/dojo/claude-code/index.html" }
   ],
   "headers": [
     {

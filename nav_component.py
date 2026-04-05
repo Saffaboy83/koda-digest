@@ -13,6 +13,7 @@ NAV_ITEMS: list[tuple[str, str, str, str]] = [
     ("monitoring", "Token Tracker", "pricing/", "pricing"),
     ("trophy", "Leaderboard", "benchmarks/", "benchmarks"),
     ("science", "The Lab", "reviews/", "reviews"),
+    ("school", "The Dojo", "dojo/", "dojo"),
     ("pulse_alert", "Pulse", "changelog/", "changelog"),
     ("lock_open", "The Vault", "archive/", "archive"),
 ]

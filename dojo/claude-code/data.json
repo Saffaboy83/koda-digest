@@ -1,0 +1,1043 @@
+{
+  "metadata": {
+    "name": "claude-code-dojo",
+    "description": "Interactive learning path for mastering Claude Code, from setup to advanced multi-agent orchestration. Covers system prompts, agent harnesses, parallelization, context management, auto research, browser automation, MCP servers, skills, security, and agentic engineering.",
+    "version": "1.0.0",
+    "lastUpdated": "2026-04-04",
+    "refreshCadence": "weekly",
+    "totalModules": 15,
+    "totalPrompts": 44,
+    "notebookId": "30a51138-18e8-4f37-8603-b0d5ac6d52c7",
+    "sourceFiles": [
+      "SKILL.md",
+      "references/prompt-library.md",
+      "references/advanced-patterns.md",
+      "references/workspace-guide.md",
+      "references/security-checklist.md"
+    ]
+  },
+  "modules": [
+    {
+      "id": "m1",
+      "number": 1,
+      "title": "Getting Started: Setup and Interface",
+      "belt": "white",
+      "estimatedMinutes": 20,
+      "description": "Install, configure, and explore the Claude Code terminal interface, keyboard shortcuts, and slash commands.",
+      "keyConcepts": ["installation", "configuration", "keyboard shortcuts", "slash commands", "extended thinking"],
+      "prerequisites": "Claude Code installed and authenticated (claude --version to verify). A project directory to practice in.",
+      "concepts": [
+        {
+          "title": "Version and Configuration Check",
+          "body": "Every Claude Code session runs with a specific model, settings file, MCP server list, and thinking mode. Understanding your current configuration is the first step to mastering the tool. Use the version check prompt to see exactly what you are working with."
+        },
+        {
+          "title": "Project Initialization with /init",
+          "body": "The /init command bootstraps a new project by auto-detecting tech stack from config files (package.json, requirements.txt, go.mod) and creating a CLAUDE.md with project name, directory structure, conventions, and build/test commands."
+        },
+        {
+          "title": "Terminal Interface Navigation",
+          "body": "Claude Code operates entirely from the terminal. Key shortcuts include toggling extended thinking (Alt+T), switching plan/code mode, compacting context, and canceling operations. Slash commands like /compact, /context, and /init are your daily tools."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "1.1",
+          "label": "Check Claude Code Version and Configuration",
+          "difficulty": "Beginner",
+          "prompt": "What version of Claude Code am I running? Show me my current configuration including:\n- Model being used\n- Any custom settings in ~/.claude/settings.json\n- Installed MCP servers\n- Whether extended thinking is enabled",
+          "expectedOutcome": "Claude reports the installed version, active model, settings file contents, MCP server list, and thinking mode status."
+        },
+        {
+          "id": "1.2",
+          "label": "Set Up a New Project with /init",
+          "difficulty": "Beginner",
+          "prompt": "Initialize this project for Claude Code. Create a CLAUDE.md that includes:\n- Project name and one-line description\n- Tech stack (auto-detect from package.json, requirements.txt, go.mod, or other config files)\n- Directory structure overview\n- Key conventions found in the codebase\n- Build and test commands",
+          "expectedOutcome": "A CLAUDE.md file is created at the project root with auto-detected project information, giving Claude persistent context for future sessions."
+        },
+        {
+          "id": "1.3",
+          "label": "Explore the Terminal Interface Basics",
+          "difficulty": "Beginner",
+          "prompt": "Show me a quick reference of Claude Code keyboard shortcuts and slash commands. Include:\n- How to toggle extended thinking\n- How to switch between plan mode and code mode\n- How to compact context\n- How to escape/cancel a running operation\n- The most useful slash commands",
+          "expectedOutcome": "A concise reference card of keybindings and slash commands for daily use."
+        }
+      ],
+      "proTip": "Run /context at any time to see exactly how much of your context window is consumed and by what. This helps you decide when to compact.",
+      "takeaways": [
+        "Always verify your Claude Code version and active model before starting work",
+        "Use /init to bootstrap any new project with auto-detected configuration",
+        "Learn the keyboard shortcuts -- Alt+T for thinking, /compact for context management",
+        "Extended thinking is enabled by default, reserving up to 31,999 tokens for reasoning"
+      ]
+    },
+    {
+      "id": "m2",
+      "number": 2,
+      "title": "The Project Brain: CLAUDE.md Mastery",
+      "belt": "white",
+      "estimatedMinutes": 30,
+      "description": "Design and maintain CLAUDE.md files that give Claude persistent project memory across sessions.",
+      "keyConcepts": ["CLAUDE.md", "knowledge compression", "user preferences", "capability declarations", "modular rules"],
+      "prerequisites": "Module 1 completed. An existing project to audit or a new project to configure.",
+      "concepts": [
+        {
+          "title": "The Four Functions of CLAUDE.md",
+          "body": "Every effective CLAUDE.md serves exactly four purposes: (1) Knowledge Compression -- project purpose, tech stack, key locations, build commands; (2) User Preferences -- formatting rules, coding patterns, style constraints; (3) Capability Declarations -- available tools, MCP servers, integrations; (4) Log of Failures and Successes -- patterns that worked or broke things. This last section evolves the most and provides the highest ROI."
+        },
+        {
+          "title": "The Infinity-Loop Workflow",
+          "body": "CLAUDE.md is not a static config file. It evolves continuously: start a session (Claude reads CLAUDE.md), work on a task (Claude discovers something new), update CLAUDE.md (add the discovery), next session (Claude benefits). This creates a feedback loop where every session makes the next one better."
+        },
+        {
+          "title": "Global vs Local CLAUDE.md",
+          "body": "Claude Code reads CLAUDE.md files from multiple locations, merged in order of specificity: ~/.claude/CLAUDE.md (all projects, universal preferences), ./CLAUDE.md (project root, project-specific knowledge), ./src/CLAUDE.md (subdirectory, module-specific patterns). Promote to global when a preference applies everywhere; keep local when it is project-specific."
+        },
+        {
+          "title": "Modular Rules with .claude/rules/",
+          "body": "For complex projects, break CLAUDE.md into focused rule files in .claude/rules/: coding-style.md, security.md, testing.md, git-workflow.md, deployment.md. Rules files are loaded automatically based on the path of the file being edited. Keep individual rule files focused: one concern per file, under 200 lines."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "2.1",
+          "label": "Audit and Score Your Current CLAUDE.md",
+          "difficulty": "Intermediate",
+          "prompt": "Audit my CLAUDE.md file and score it on a 1-10 scale across these dimensions:\n1. Clarity: Is the project purpose immediately obvious?\n2. Tech stack: Are all languages, frameworks, and tools listed?\n3. Conventions: Are coding standards, naming patterns, and file organization documented?\n4. Commands: Are build, test, lint, and deploy commands included?\n5. Architecture: Are key design decisions and patterns explained?\n6. Boundaries: Are things Claude should NOT do clearly stated?\n\nFor each dimension scoring below 7, provide a specific fix I can apply.",
+          "expectedOutcome": "A scored rubric with actionable improvements for each weak area of your CLAUDE.md."
+        },
+        {
+          "id": "2.2",
+          "label": "Generate a CLAUDE.md for a Specific Project Type",
+          "difficulty": "Intermediate",
+          "prompt": "Generate a production-grade CLAUDE.md for a Next.js 14 SaaS application that uses:\n- App Router with server components\n- Prisma ORM with PostgreSQL\n- NextAuth.js for authentication\n- Stripe for billing\n- Tailwind CSS for styling\n- Vercel for deployment\n\nInclude sections for: project overview, tech stack, directory conventions, environment variables (without values), key architectural decisions, testing strategy, and deployment workflow.",
+          "expectedOutcome": "A comprehensive, well-structured CLAUDE.md tailored to the specific tech stack, ready to drop into any matching project."
+        },
+        {
+          "id": "2.3",
+          "label": "Create Modular Rules in .claude/rules/",
+          "difficulty": "Advanced",
+          "prompt": "Refactor my CLAUDE.md into a modular rules system. Create separate rule files in .claude/rules/ for:\n1. coding-style.md: Naming conventions, formatting, immutability patterns\n2. testing.md: TDD workflow, coverage requirements, test file organization\n3. git-workflow.md: Commit message format, branch naming, PR template\n4. security.md: Input validation, secret management, auth patterns\n5. architecture.md: Layer boundaries, dependency rules, API response format\n\nKeep CLAUDE.md under 50 lines as an index pointing to each rule file. Each rule file should be self-contained and under 100 lines.",
+          "expectedOutcome": "A clean .claude/rules/ directory with focused, maintainable rule files and a slim CLAUDE.md that references them."
+        }
+      ],
+      "proTip": "Keep CLAUDE.md under 200 lines. Offload detailed patterns to memory files or .claude/rules/. A bloated CLAUDE.md eats context window space every single session.",
+      "takeaways": [
+        "CLAUDE.md serves four functions: knowledge, preferences, capabilities, and learned patterns",
+        "The log of failures and successes section provides the highest ROI over time",
+        "Use the infinity-loop workflow: every session should improve CLAUDE.md for the next",
+        "Break large CLAUDE.md files into .claude/rules/ for path-scoped, focused rule files",
+        "Global CLAUDE.md for universal preferences, local for project-specific knowledge"
+      ]
+    },
+    {
+      "id": "m3",
+      "number": 3,
+      "title": "Permission Modes and Plan Mode",
+      "belt": "white",
+      "estimatedMinutes": 25,
+      "description": "Control what Claude can do autonomously vs what requires approval, and use plan mode for read-only analysis.",
+      "keyConcepts": ["plan mode", "permission modes", "auto-approve", "phase gates", "read-only analysis"],
+      "prerequisites": "Module 1 completed. Understanding of CLAUDE.md from Module 2.",
+      "concepts": [
+        {
+          "title": "Plan Mode for Safe Analysis",
+          "body": "Plan mode instructs Claude to analyze and plan without writing any code. This is ideal for architecture reviews, impact analysis, and pre-implementation planning. Always use plan mode when you want Claude to look but not touch."
+        },
+        {
+          "title": "Permission Boundaries",
+          "body": "Claude Code has configurable permission levels controlling what actions require human approval. Understanding which tools are auto-approved vs gated is critical for balancing speed with safety. Use allowedTools in settings.json and hook-based approval gates."
+        },
+        {
+          "title": "Phase-Gated Implementation",
+          "body": "The plan-first approach splits work into phases: first plan (read-only), then implement (with approval). This prevents Claude from making sweeping changes without your review. Wait for explicit approval at each gate before proceeding."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "3.1",
+          "label": "Enter Plan Mode and Analyze Architecture",
+          "difficulty": "Beginner",
+          "prompt": "Switch to plan mode. Analyze this codebase and produce an architecture overview:\n1. Map all entry points (API routes, CLI commands, event handlers)\n2. Trace the dependency graph between major modules\n3. Identify the data flow from input to storage\n4. Flag any circular dependencies or tight coupling\n5. List external service integrations\n\nDo NOT write any code. Output a structured analysis I can review.",
+          "expectedOutcome": "A detailed architecture map with dependency flows, coupling issues, and integration points, with no code changes made."
+        },
+        {
+          "id": "3.2",
+          "label": "Switch Between Permission Modes",
+          "difficulty": "Intermediate",
+          "prompt": "I want to understand my current permission mode and its implications. Show me:\n1. What permission mode am I in right now?\n2. What actions require approval in this mode?\n3. What is auto-approved?\n4. How do I switch to a more permissive mode for trusted tasks?\n5. How do I lock down to the most restrictive mode?\n\nThen recommend the right mode for: (a) exploratory debugging, (b) automated refactoring across 50 files, (c) reviewing code without changes.",
+          "expectedOutcome": "A clear explanation of the current permission state with mode recommendations for different workflows."
+        },
+        {
+          "id": "3.3",
+          "label": "Build a Full-Stack App Using Plan-First Approach",
+          "difficulty": "Advanced",
+          "prompt": "I want to build a URL shortener service. Use plan mode first.\n\nPhase 1 (Plan only, no code):\n- Define the API contract (endpoints, request/response shapes)\n- Choose the data model and storage strategy\n- Outline the frontend components needed\n- Identify edge cases (collision handling, expiry, rate limiting)\n- Estimate the file structure\n\nPresent the plan. Wait for my approval before writing any code.\n\nPhase 2 (after approval):\n- Implement the backend API\n- Add input validation and error handling\n- Write tests for all endpoints\n- Build a minimal frontend",
+          "expectedOutcome": "A structured implementation plan followed by phased execution only after explicit approval at each gate."
+        }
+      ],
+      "proTip": "Use plan mode as your default starting posture for any non-trivial task. It is cheaper (no tool calls), safer (no changes), and gives you a review checkpoint before committing to an approach.",
+      "takeaways": [
+        "Plan mode is read-only analysis -- use it before any significant implementation",
+        "Permission modes control the balance between speed and safety",
+        "Phase-gated workflows prevent unreviewed sweeping changes",
+        "Match permission mode to task: restrictive for exploration, permissive for trusted automation"
+      ]
+    },
+    {
+      "id": "m4",
+      "number": 4,
+      "title": "Context Management and Compaction",
+      "belt": "brown",
+      "estimatedMinutes": 30,
+      "description": "Manage the finite context window to keep sessions productive, using strategic compaction and progress tracking.",
+      "keyConcepts": ["context window", "token optimization", "compaction", "context rot", "phase boundaries"],
+      "prerequisites": "Modules 1-3 completed. Experience with at least one long session.",
+      "concepts": [
+        {
+          "title": "Understanding Context Overhead",
+          "body": "Before you write a single prompt, a chunk of your context is already consumed: system prompt (~2,000-4,000 tokens), CLAUDE.md files (variable, aim for under 200 lines each), MCP tool definitions (~500-2,000 tokens per server), rules files, and memory files (first 200 lines of MEMORY.md). Use /context to see exactly how much is consumed."
+        },
+        {
+          "title": "Minimizing Context Rot",
+          "body": "Context rot happens when your window fills with stale information: old file reads, abandoned approaches, debug output no longer relevant. Prevention: read only what you need (use line ranges for large files), avoid unnecessary exploration, clean up dead ends with /compact, keep tool output minimal."
+        },
+        {
+          "title": "Strategic Compaction at Phase Boundaries",
+          "body": "Use /compact at natural phase boundaries: after completing a feature, after a successful commit, when switching codebase areas, when responses lose focus. Bad times: mid-debugging (lose reasoning chain), while iterating on implementation (lose state), right after reading unacted files. Add a summary prompt to preserve key context across compaction."
+        },
+        {
+          "title": "Skills vs Sub-agents Cost Profiles",
+          "body": "Skills are SKILL.md files loaded once into context, persisting for the session. Cost: one-time token load. Sub-agents are separate Claude instances spawned for specific tasks then discarded. Cost: full prompt overhead per invocation. Use skills for recurring patterns, sub-agents for isolated one-off tasks."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "4.1",
+          "label": "Analyze Current Context Usage",
+          "difficulty": "Beginner",
+          "prompt": "Analyze how much context I have used in this session so far. Tell me:\n1. Approximately how much of the context window has been consumed\n2. What are the largest items in context (files read, tool outputs, conversation history)\n3. Am I at risk of hitting context limits for remaining work?\n4. What can be safely dropped or summarized to free space?",
+          "expectedOutcome": "A context budget report showing consumption breakdown and recommendations for managing the remaining window."
+        },
+        {
+          "id": "4.2",
+          "label": "Strategic Compaction at Phase Boundaries",
+          "difficulty": "Intermediate",
+          "prompt": "I just finished Phase 1 of my implementation (data models and database migrations). Before starting Phase 2 (API endpoints), I need to compact context.\n\nSummarize everything completed so far into a concise status block that preserves:\n- All file paths created or modified\n- Key design decisions made\n- Test results and coverage numbers\n- Any open issues or TODOs\n- The exact plan for Phase 2\n\nThen suggest I run /compact to reset context with this summary as the anchor.",
+          "expectedOutcome": "A structured summary suitable for surviving compaction, preserving critical state while freeing context for the next phase."
+        },
+        {
+          "id": "4.3",
+          "label": "Minimize Context Rot in Long Sessions",
+          "difficulty": "Advanced",
+          "prompt": "I am about to start a long session (refactoring authentication across 20+ files). Help me set up a context management strategy:\n\n1. Create a scratchpad file (REFACTOR_PROGRESS.md) to track completed steps\n2. Define natural compaction points (after each major module is refactored)\n3. Write a status template I can ask you to fill at each checkpoint\n4. Identify which files should be re-read after compaction vs remembered from summary\n5. Set up a \"context budget\" for each phase so I know when to compact\n\nGive me the strategy document and the scratchpad template.",
+          "expectedOutcome": "A reusable context management strategy with a progress tracking file and checkpoint templates for long multi-phase sessions."
+        }
+      ],
+      "proTip": "Add a summary prompt when compacting: /compact Preserve: we just finished the auth module refactor. The new pattern uses middleware chains. Tests are passing. Next task is the billing integration.",
+      "takeaways": [
+        "Context overhead from system prompt, CLAUDE.md, MCP tools, and rules is significant -- budget for it",
+        "Context rot from stale file reads and abandoned approaches degrades session quality",
+        "Compact at phase boundaries, not mid-task -- preserve the reasoning chain",
+        "Use skills for recurring patterns (one-time cost), sub-agents for isolated tasks (per-invocation cost)",
+        "Track long sessions with a scratchpad file that survives compaction"
+      ]
+    },
+    {
+      "id": "m5",
+      "number": 5,
+      "title": "Skills and Automation",
+      "belt": "brown",
+      "estimatedMinutes": 30,
+      "description": "Create, optimize, and deploy SKILL.md files for reusable Claude Code automation.",
+      "keyConcepts": ["SKILL.md", "frontmatter", "skill triggers", "token efficiency", "reusable automation"],
+      "prerequisites": "Modules 1-4 completed. Understanding of CLAUDE.md structure.",
+      "concepts": [
+        {
+          "title": "Skill Anatomy",
+          "body": "A SKILL.md file has frontmatter (name and description fields) and a body with trigger description, step-by-step instructions, and example output format. Skills are loaded on demand via slash commands and persist in the session until compacted. They inject reusable knowledge without spawning a separate agent."
+        },
+        {
+          "title": "Skill as Reusable Knowledge",
+          "body": "Skills differ from sub-agents: they are loaded once into context and persist for the session. This makes them ideal for patterns you follow every session (TDD workflow, coding standards, deployment checklists). Cost is one-time token load per session, not per invocation."
+        },
+        {
+          "title": "Token Efficiency Optimization",
+          "body": "Skills consume context tokens. Optimize by compressing verbose sections, replacing repetitive instructions with patterns/templates, converting prose to structured bullet points, and removing instructions Claude would follow by default. Target 30%+ reduction while maintaining behavior."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "5.1",
+          "label": "Create a SKILL.md from Scratch",
+          "difficulty": "Beginner",
+          "prompt": "Create a new Claude Code skill that generates a changelog entry from the latest git commits. The skill should:\n\n1. Read commits since the last tag (or last 20 commits if no tags)\n2. Group commits by type (feat, fix, refactor, docs, etc.)\n3. Generate a formatted changelog section with date header\n4. Append it to CHANGELOG.md\n\nSave it as ~/.claude/skills/changelog-generator/SKILL.md with proper frontmatter (name and description fields).",
+          "expectedOutcome": "A complete SKILL.md file with frontmatter, trigger description, step-by-step instructions, and example output format."
+        },
+        {
+          "id": "5.2",
+          "label": "Build a Lead Scraping Skill",
+          "difficulty": "Intermediate",
+          "prompt": "Create a Claude Code skill that researches a company and extracts key contact information. The skill should:\n\n1. Accept a company name or domain as input\n2. Use web search to find the company website, LinkedIn page, and recent news\n3. Extract: company size, industry, key decision-makers (names and titles), tech stack (if detectable)\n4. Output a structured markdown report with all findings\n5. Flag any information that could not be verified from multiple sources\n\nSave as ~/.claude/skills/lead-researcher/SKILL.md with proper frontmatter.",
+          "expectedOutcome": "A research-focused skill that produces structured company intelligence reports using web search and extraction tools."
+        },
+        {
+          "id": "5.3",
+          "label": "Optimize a Skill for Token Efficiency",
+          "difficulty": "Advanced",
+          "prompt": "Review the skill at ~/.claude/skills/[pick any existing skill]/SKILL.md and optimize it for token efficiency:\n\n1. Measure the current token count of the skill file\n2. Identify verbose sections that can be compressed without losing meaning\n3. Replace repetitive instructions with patterns or templates\n4. Convert prose paragraphs to structured bullet points\n5. Remove any instructions that Claude would do by default\n6. Show before/after token counts and the percentage reduction\n\nTarget: 30%+ reduction while maintaining the same behavior.",
+          "expectedOutcome": "A leaner skill file with measured token savings, preserving all functional behavior while reducing context cost."
+        }
+      ],
+      "proTip": "Skills can be shared globally (~/.claude/skills/) or scoped per project (.claude/skills/). Use global for cross-project patterns and local for project-specific automation.",
+      "takeaways": [
+        "Skills are reusable knowledge bundles loaded once per session, not per invocation",
+        "Frontmatter (name and description) is required for proper skill registration",
+        "Optimize skills for token efficiency -- 30% reduction is achievable without losing behavior",
+        "Share globally for universal patterns, scope locally for project-specific workflows"
+      ]
+    },
+    {
+      "id": "m6",
+      "number": 6,
+      "title": "MCP Servers and Plugins",
+      "belt": "brown",
+      "estimatedMinutes": 30,
+      "description": "Add, configure, and chain MCP (Model Context Protocol) servers to extend Claude Code with external tools.",
+      "keyConcepts": ["MCP servers", "tool definitions", "settings.json", "cross-tool workflows", "browser automation"],
+      "prerequisites": "Modules 1-5 completed. Access to at least one MCP server (filesystem, Chrome, Gmail, etc.).",
+      "concepts": [
+        {
+          "title": "MCP Server Configuration",
+          "body": "MCP servers are configured in settings.json (global or project-level). Each server adds tool schemas to the context window (~500-2,000 tokens per server). Servers grant Claude access to external tools and data: file systems, browsers, email, calendars, databases."
+        },
+        {
+          "title": "Tool Chaining",
+          "body": "The real power of MCP comes from chaining multiple tools in a single workflow. For example: search Gmail for emails with attachments, cross-reference senders with Google Calendar meetings, produce a correlated briefing. Each tool's output feeds the next step."
+        },
+        {
+          "title": "MCP Security Considerations",
+          "body": "A misconfigured or malicious MCP server can read files, execute commands, access credentials, or exfiltrate data. Always verify server sources, pin versions, review permissions, and use --strict-mcp-config when running Claude Code."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "6.1",
+          "label": "Add and Configure an MCP Server",
+          "difficulty": "Beginner",
+          "prompt": "Show me how to add a new MCP server to my Claude Code configuration. Walk me through:\n\n1. Where MCP servers are configured (settings.json location)\n2. The JSON structure for adding a new server\n3. How to verify the server is connected and its tools are available\n4. How to test a tool call from the new server\n\nUse the filesystem MCP server as a concrete example.",
+          "expectedOutcome": "Step-by-step instructions with the exact JSON configuration needed, verification commands, and a test tool call."
+        },
+        {
+          "id": "6.2",
+          "label": "Use Chrome DevTools MCP for Browser Control",
+          "difficulty": "Intermediate",
+          "prompt": "I have the Chrome MCP server connected. Demonstrate a practical workflow:\n\n1. Open a new browser tab and navigate to https://news.ycombinator.com\n2. Take a screenshot of the page\n3. Extract the titles and URLs of the top 10 stories\n4. Format the results as a markdown table with columns: Rank, Title, URL, Points\n5. Save the results to a file called hn-top-10.md",
+          "expectedOutcome": "A live browser automation sequence that produces a formatted markdown file with the extracted data."
+        },
+        {
+          "id": "6.3",
+          "label": "Chain Multiple MCP Tools in a Workflow",
+          "difficulty": "Advanced",
+          "prompt": "Build a workflow that chains multiple MCP tools together:\n\n1. Use Gmail MCP to find the 5 most recent emails with attachments\n2. For each email, extract the sender, subject, and attachment filenames\n3. Use Google Calendar MCP to check if any of those senders have meetings with me this week\n4. Produce a summary report that correlates: email sender, their email subject, attachments, and upcoming meeting times (if any)\n\nFormat the output as a structured briefing document.",
+          "expectedOutcome": "A cross-tool workflow that correlates data from email and calendar, producing an actionable briefing."
+        }
+      ],
+      "proTip": "Each MCP server adds ~500-2,000 tokens to your context overhead. Only connect servers you actively need for the current project to preserve context budget.",
+      "takeaways": [
+        "MCP servers extend Claude Code with external tool access via settings.json",
+        "Each connected server adds token overhead -- only connect what you need",
+        "Tool chaining across multiple MCP servers enables powerful cross-service workflows",
+        "Always verify MCP server sources, pin versions, and review permissions for security"
+      ]
+    },
+    {
+      "id": "m7",
+      "number": 7,
+      "title": "Agent Harnesses",
+      "belt": "brown",
+      "estimatedMinutes": 35,
+      "description": "Understand the harness model -- Claude Code is the scaffolding around the LLM, not the agent itself. Audit and improve your harness.",
+      "keyConcepts": ["harness vs agent", "action space", "observation format", "recovery contracts", "context budget"],
+      "prerequisites": "Modules 1-6 completed. Experience running Claude Code on real tasks.",
+      "concepts": [
+        {
+          "title": "Claude Code Is the Harness, Not the Agent",
+          "body": "A common misconception: Claude Code is not the AI agent. Claude Code is the harness that wraps the LLM. The harness controls everything around the model: what tools it can access, what permissions it has, what context gets injected, and how it recovers from failures. The LLM inside is the reasoning engine. Improving your results is often about improving the harness (better prompts, better tool definitions, better context), not about the model itself."
+        },
+        {
+          "title": "Four Quality Dimensions of a Harness",
+          "body": "Anthropic's November 2025 blog post on building effective agents identifies four quality dimensions: (1) Action space clarity -- are tool definitions unambiguous? (2) Observation format -- is tool output structured well enough for the LLM to parse? (3) Recovery contracts -- when a tool call fails, does the harness give enough information to retry? (4) Context budget -- are you stuffing too much or too little into the context window?"
+        },
+        {
+          "title": "What the Harness Controls",
+          "body": "Tool access (allowedTools in settings.json), permission boundaries (hook-based approval gates), context injection (CLAUDE.md, memory files, system prompts), and recovery paths (retry logic, fallback models, error handling hooks). Each dimension can be audited and improved independently."
+        },
+        {
+          "title": "Harness Comparison",
+          "body": "Claude Code provides full CLI access, extensibility via hooks/MCP, and local file system access. Compared to PI (cloud-hosted, persistent memory, less tool flexibility), Factory AI/Droid (CI/CD integration, automated PR workflows, narrower scope). Choose based on your needs."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "7.1",
+          "label": "Audit Your Harness Quality",
+          "difficulty": "Beginner",
+          "prompt": "Audit the quality of my Claude Code agent harness by checking:\n\n1. CLAUDE.md completeness (does it give Claude enough context to work autonomously?)\n2. Tool definitions (are all available tools well-described with clear parameters?)\n3. Error handling (what happens when a tool call fails? Is there a retry strategy?)\n4. Permission boundaries (what can the agent do vs what requires human approval?)\n5. Output format (is the expected output format clearly specified?)\n\nScore each dimension 1-10 and provide the top 3 improvements that would have the biggest impact.",
+          "expectedOutcome": "A harness quality scorecard with prioritized improvements to increase agent completion rates."
+        },
+        {
+          "id": "7.2",
+          "label": "Design a Tool Definition for a Custom Agent",
+          "difficulty": "Intermediate",
+          "prompt": "Design a tool definition for an agent that manages a project's dependency updates. The tool should:\n\n1. Define the tool name, description, and parameter schema (JSON Schema format)\n2. Specify input validation rules\n3. Define success and failure response formats\n4. Include rate limiting and timeout constraints\n5. Document edge cases (conflicting versions, peer dependencies, breaking changes)\n\nOutput the complete tool definition as a JSON schema with inline documentation.",
+          "expectedOutcome": "A production-ready tool definition with comprehensive schema, validation, error handling, and edge case documentation."
+        },
+        {
+          "id": "7.3",
+          "label": "Create a Recovery Contract for Error Handling",
+          "difficulty": "Advanced",
+          "prompt": "Design an error recovery contract for a multi-step agent workflow (code generation, testing, deployment). For each step, define:\n\n1. Pre-conditions that must be true before the step runs\n2. Expected outputs on success\n3. Failure modes (timeout, validation error, external service down, partial completion)\n4. Recovery actions for each failure mode (retry, rollback, skip, escalate to human)\n5. Maximum retry attempts and backoff strategy\n6. State that must be preserved across retries\n\nOutput this as a structured YAML or markdown specification that could be embedded in a CLAUDE.md.",
+          "expectedOutcome": "A formal recovery contract that makes agent workflows resilient to failures at every step."
+        }
+      ],
+      "proTip": "Run a quick harness audit by checking: Can the agent reach every tool it needs? Is CLAUDE.md giving clear, actionable instructions (not vague wishes)? Do hooks catch failures before they cascade? Is the context budget spent on information the agent actually uses?",
+      "takeaways": [
+        "Claude Code is the harness (scaffolding), not the agent (reasoning engine)",
+        "Four quality dimensions: action space clarity, observation format, recovery contracts, context budget",
+        "Improving results is usually about improving the harness, not the model",
+        "Audit your harness regularly using the four dimensions as a scorecard",
+        "Vague tool descriptions lead to misuse -- keep definitions unambiguous"
+      ]
+    },
+    {
+      "id": "m8",
+      "number": 8,
+      "title": "Sub-agents and Agent Teams",
+      "belt": "black",
+      "estimatedMinutes": 45,
+      "description": "Orchestrate multiple Claude instances with fan-out/fan-in, stochastic consensus, adversarial debate, and sequential pipeline patterns.",
+      "keyConcepts": ["fan-out/fan-in", "stochastic consensus", "adversarial debate", "sequential pipelines", "model routing"],
+      "prerequisites": "Module 7 completed. Understanding of parallelization concepts. Bash scripting basics.",
+      "concepts": [
+        {
+          "title": "Fan-out / Fan-in",
+          "body": "Split a research task across N sub-agents running in parallel, then merge results with a synthesizer agent. Use cheaper models (Sonnet, Haiku) for parallel research workers and Opus for final synthesis. Each claude -p call runs as a background process, wait blocks until all finish, the synthesizer reads all outputs via stdin pipe."
+        },
+        {
+          "title": "Stochastic Consensus",
+          "body": "Run the same prompt N times independently, then compare outputs and take the majority view. This eliminates hallucinations and catches issues any single pass might miss. Independent runs eliminate shared hallucination -- if all three say it, it is almost certainly real. Single-reviewer findings get flagged as lower confidence."
+        },
+        {
+          "title": "Adversarial Debate Pattern",
+          "body": "Two agents argue opposing positions on a decision. A third judge agent evaluates both arguments and makes a ruling. Best for architectural decisions with genuine trade-offs where there is no obvious right answer. The judge identifies weak/unsupported claims and delivers a verdict with confidence level."
+        },
+        {
+          "title": "Sequential Pipelines",
+          "body": "Chain claude -p calls where each step's output feeds the next. Unlike parallel patterns, each step depends on the previous one. Real example: plan -> implement -> review -> fix. Can also use bash piping shorthand for simpler chains."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "8.1",
+          "label": "Fan-out/Fan-in Research Pattern",
+          "difficulty": "Intermediate",
+          "prompt": "Use the fan-out/fan-in pattern to research a technology decision. I need to choose between SQLite, PostgreSQL, and DynamoDB for a new project.\n\nFan-out phase (parallel):\n- Agent 1: Research SQLite. Strengths, weaknesses, ideal use cases, scaling limits.\n- Agent 2: Research PostgreSQL. Same dimensions.\n- Agent 3: Research DynamoDB. Same dimensions.\n\nFan-in phase:\n- Synthesize all three reports into a comparison matrix\n- Score each option against my requirements: <1M rows, single-region, need transactions, team of 3 developers\n- Make a recommendation with clear reasoning",
+          "expectedOutcome": "Three parallel research reports synthesized into a scored comparison matrix with a final recommendation."
+        },
+        {
+          "id": "8.2",
+          "label": "Stochastic Consensus for Code Review",
+          "difficulty": "Advanced",
+          "prompt": "Run a stochastic consensus code review on the file [specify a file path]. Use 3 independent review passes:\n\nPass 1 (Security lens): Review for injection vulnerabilities, auth bypass, data exposure, and unsafe dependencies.\nPass 2 (Performance lens): Review for N+1 queries, memory leaks, unnecessary allocations, and missing caching opportunities.\nPass 3 (Maintainability lens): Review for code clarity, naming, single responsibility violations, and missing error handling.\n\nAfter all passes complete:\n- Merge findings, removing duplicates\n- Categorize as CRITICAL, HIGH, MEDIUM, LOW\n- If 2+ passes flag the same issue, mark it as \"consensus finding\"\n- Present the final review sorted by severity",
+          "expectedOutcome": "A multi-perspective code review where independently identified issues are merged and ranked, with consensus findings highlighted."
+        },
+        {
+          "id": "8.3",
+          "label": "Adversarial Debate Pattern for Architecture Decisions",
+          "difficulty": "Advanced",
+          "prompt": "I am deciding whether to use a monolith or microservices architecture for a new e-commerce platform. Run an adversarial debate:\n\nAdvocate A (Pro-Monolith):\n- Present the strongest case for a monolithic architecture\n- Anticipate and counter microservices arguments\n- Cite real-world examples of successful monoliths at scale\n\nAdvocate B (Pro-Microservices):\n- Present the strongest case for microservices\n- Anticipate and counter monolith arguments\n- Cite real-world examples of successful microservices migrations\n\nJudge:\n- Evaluate both arguments for logical consistency and evidence quality\n- Identify where each side made weak or unsupported claims\n- Deliver a verdict with confidence level (high/medium/low)\n- Provide a \"best of both\" hybrid recommendation if appropriate",
+          "expectedOutcome": "A structured debate with two opposing positions and a judged verdict, forcing rigorous examination of both options."
+        },
+        {
+          "id": "8.4",
+          "label": "Sequential Pipeline (Dev, Review, QA)",
+          "difficulty": "Advanced",
+          "prompt": "Run a sequential agent pipeline to implement and validate a new utility function:\n\nStage 1 (Developer Agent):\n- Implement a function called `parseQueryString(url: string)` that extracts query parameters into a typed object\n- Handle edge cases: empty strings, duplicate keys, encoded characters, hash fragments\n- Write the implementation in TypeScript\n\nStage 2 (Reviewer Agent):\n- Review the implementation from Stage 1\n- Check for: type safety, edge case coverage, performance, naming conventions\n- Provide specific line-by-line feedback\n- Must approve before proceeding to Stage 3\n\nStage 3 (QA Agent):\n- Write comprehensive tests for the function\n- Include: happy path, edge cases, error cases, property-based test ideas\n- Run the tests and report coverage\n- Flag any behaviors not covered by tests\n\nEach stage receives the output of the previous stage. No stage can be skipped.",
+          "expectedOutcome": "A fully implemented, reviewed, and tested utility function produced by a three-stage quality pipeline."
+        }
+      ],
+      "proTip": "Cost optimization rule of thumb: use the cheapest model that can do each sub-task well. Reserve Opus for synthesis, judgment, and architecture. Use Haiku for research and simple extraction. Sonnet handles most implementation and review work.",
+      "takeaways": [
+        "Fan-out/fan-in enables parallel research with cheap workers and expensive synthesis",
+        "Stochastic consensus eliminates hallucinations by comparing independent runs",
+        "Adversarial debate forces rigorous examination of decisions with genuine trade-offs",
+        "Sequential pipelines ensure quality by chaining dev -> review -> QA stages",
+        "Route models by cost: Haiku for research, Sonnet for implementation, Opus for synthesis"
+      ]
+    },
+    {
+      "id": "m9",
+      "number": 9,
+      "title": "Auto Research Loops",
+      "belt": "black",
+      "estimatedMinutes": 40,
+      "description": "Build iterative measure-change-remeasure loops for automated optimization, inspired by Karpathy's auto-research pattern.",
+      "keyConcepts": ["auto research", "metric-driven loops", "Karpathy method", "Lighthouse optimization", "regression detection"],
+      "prerequisites": "Module 8 completed. A measurable metric to optimize (Lighthouse score, test coverage, lint errors, etc.).",
+      "concepts": [
+        {
+          "title": "The Core Loop",
+          "body": "Auto research requires three things: (1) A metric -- a measurable number showing current state quality; (2) A change method -- a way to propose and apply modifications; (3) An assessment -- a way to re-measure after the change and compare. The loop: measure baseline -> propose change -> apply change -> re-measure -> compare, repeating until target met or max attempts reached."
+        },
+        {
+          "title": "Real-World Case: Shopify Liquid",
+          "body": "Tobi Lutke (Shopify CEO) used a similar auto-research loop to achieve 53% faster parse+render performance on Shopify's Liquid template engine. The pattern: benchmark current time, have Claude propose a single optimization, apply and re-benchmark, keep improvements and revert regressions, repeat. Works because the metric (render time) is unambiguous and fast to measure."
+        },
+        {
+          "title": "When Auto Research Works (and When It Does Not)",
+          "body": "Good candidates: Lighthouse scores, Core Web Vitals, test execution time, bundle size reduction, query execution time, memory usage, API response latency. Bad candidates: code readability (subjective), architecture quality (too abstract), UX quality (requires human judgment). The rule: if you can measure it with a number and re-measure in under 60 seconds, auto research will work."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "9.1",
+          "label": "Lighthouse Performance Optimization Loop",
+          "difficulty": "Intermediate",
+          "prompt": "Run an iterative performance optimization loop on my web application:\n\nLoop iteration:\n1. Run a Lighthouse audit (or simulate by analyzing the codebase for common performance issues)\n2. Parse the results and identify the top 3 performance bottlenecks\n3. Implement a fix for the highest-impact issue\n4. Re-run the audit to measure improvement\n5. Log the before/after scores\n\nRepeat until: Performance score >= 90 OR 5 iterations complete (whichever comes first).\n\nAfter the loop, produce a summary table: Iteration, Issue Fixed, Score Before, Score After, Delta.",
+          "expectedOutcome": "An automated optimize-measure-repeat loop with a final summary showing cumulative performance gains."
+        },
+        {
+          "id": "9.2",
+          "label": "Metric-Driven Code Quality Improvement",
+          "difficulty": "Intermediate",
+          "prompt": "Run a code quality improvement loop on this project:\n\nLoop iteration:\n1. Run the linter and collect all warnings/errors (eslint, pylint, or equivalent)\n2. Group issues by rule and count occurrences\n3. Fix the most common issue category across all files\n4. Re-run the linter to verify the fix count decreased\n5. Log: rule name, files fixed, issues before, issues after\n\nStop conditions: Zero linter errors OR 5 iterations complete.\n\nProduce a final report showing total issues eliminated and remaining issues by category.",
+          "expectedOutcome": "A systematic lint cleanup loop that prioritizes the most common issues first, with a measured reduction report."
+        },
+        {
+          "id": "9.3",
+          "label": "Clone and Customize the Karpathy Auto-Research Pattern",
+          "difficulty": "Advanced",
+          "prompt": "Implement an auto-research loop inspired by the Karpathy pattern. The goal is to deeply research a technical topic through iterative refinement:\n\nTopic: \"Best practices for LLM evaluation in production\"\n\nLoop:\n1. Generate 5 specific research questions about the topic\n2. Search the web for answers to each question\n3. Synthesize findings into a structured document\n4. Identify gaps, contradictions, or areas needing deeper investigation\n5. Generate 3 follow-up questions based on the gaps\n6. Repeat from step 2 with the follow-up questions\n\nStop after 3 iterations. Produce a final research document with:\n- Key findings organized by theme\n- Confidence levels for each finding (based on source agreement)\n- Open questions that remain unresolved\n- Full source list with URLs",
+          "expectedOutcome": "A progressively refined research document that deepens understanding through multiple search-synthesize-question cycles."
+        }
+      ],
+      "proTip": "Always revert regressions automatically. If a change makes the metric worse, git checkout and try a different approach. Never let the loop compound bad changes.",
+      "takeaways": [
+        "Auto research needs three things: a metric, a change method, and an assessment",
+        "The Karpathy method iterates question -> search -> synthesize -> gap-find -> repeat",
+        "Good metrics are numeric, unambiguous, and fast to measure (under 60 seconds)",
+        "Always revert regressions -- keep improvements, discard degradations",
+        "Real-world success: Shopify achieved 53% faster Liquid rendering with this pattern"
+      ]
+    },
+    {
+      "id": "m10",
+      "number": 10,
+      "title": "Browser Automation",
+      "belt": "brown",
+      "estimatedMinutes": 30,
+      "description": "Automate browser interactions from HTTP-level scraping to full Chrome DevTools control and computer use planning.",
+      "keyConcepts": ["HTTP scraping", "Chrome DevTools MCP", "page interaction", "computer use", "multi-step workflows"],
+      "prerequisites": "Modules 1-6 completed. Chrome MCP server connected (for browser-based prompts). curl available.",
+      "concepts": [
+        {
+          "title": "HTTP-Level Scraping",
+          "body": "For API-based data sources, no browser is needed. Use curl to fetch JSON endpoints, extract data, and format results. This is faster, cheaper, and more reliable than browser automation. Always try HTTP first before reaching for browser tools."
+        },
+        {
+          "title": "Chrome DevTools MCP",
+          "body": "The Chrome MCP server enables full browser control: navigate, take screenshots, extract page content, click elements, and fill forms. Use for sites that require JavaScript rendering or multi-step interactions that HTTP cannot handle."
+        },
+        {
+          "title": "Computer Use Automation Planning",
+          "body": "For complex cross-application workflows (Jira + GitHub + Slack), design an automation plan specifying: the tool/approach for each step, fallback strategies, data format for inter-step communication, and estimated token cost. Plan first, execute later."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "10.1",
+          "label": "HTTP-Level Scraping with Curl",
+          "difficulty": "Beginner",
+          "prompt": "Scrape the top stories from a public news API using HTTP requests only (no browser needed):\n\n1. Use curl to fetch the Hacker News API top stories endpoint (https://hacker-news.firebaseio.com/v0/topstories.json)\n2. Take the first 10 story IDs\n3. Fetch each story's details from the item endpoint\n4. Extract: title, URL, score, author, comment count\n5. Format as a markdown table sorted by score (descending)\n6. Save to hn-digest.md",
+          "expectedOutcome": "A markdown file with the top 10 Hacker News stories extracted purely via HTTP API calls, no browser required."
+        },
+        {
+          "id": "10.2",
+          "label": "Chrome DevTools MCP for Page Interaction",
+          "difficulty": "Intermediate",
+          "prompt": "Using the Chrome MCP, automate this multi-step workflow:\n\n1. Navigate to a product page on a public e-commerce site (e.g., Amazon search results for \"mechanical keyboard\")\n2. Take a screenshot of the page\n3. Read the page content and extract the first 5 product names, prices, and ratings\n4. Click on the first product to open its detail page\n5. Take a screenshot of the detail page\n6. Extract the full product description and specifications\n7. Compile everything into a product-research.md file",
+          "expectedOutcome": "A two-page scraping workflow with screenshots at each step and structured product data saved to a file."
+        },
+        {
+          "id": "10.3",
+          "label": "Computer Use for Complex Multi-Step Workflows",
+          "difficulty": "Advanced",
+          "prompt": "Design (but do not execute) a computer-use automation plan for this workflow:\n\nTask: Every Monday morning, generate a weekly status report by:\n1. Opening Jira and extracting completed tickets from last week\n2. Opening GitHub and extracting merged PRs from last week\n3. Opening Slack and finding key announcements from the #team channel\n4. Correlating Jira tickets with their corresponding PRs\n5. Generating a formatted weekly report with: completed work, in-progress items, blockers, and metrics\n\nFor each step, specify:\n- The tool/approach to use (MCP, HTTP API, browser automation)\n- Fallback strategy if the primary approach fails\n- Data format for inter-step communication\n- Estimated token cost\n\nProduce the automation plan as a structured document, not executable code.",
+          "expectedOutcome": "A detailed automation blueprint specifying tools, fallbacks, and data flows for a complex cross-application workflow."
+        }
+      ],
+      "proTip": "Always try HTTP/API-based scraping first. It is faster, cheaper, and more reliable than browser automation. Only reach for Chrome MCP when the target requires JavaScript rendering or interactive elements.",
+      "takeaways": [
+        "HTTP-level scraping is faster, cheaper, and more reliable than browser automation",
+        "Chrome DevTools MCP enables full browser control for JavaScript-heavy sites",
+        "For complex workflows, design the automation plan before executing",
+        "Specify fallback strategies for each step in multi-application workflows"
+      ]
+    },
+    {
+      "id": "m11",
+      "number": 11,
+      "title": "Security",
+      "belt": "brown",
+      "estimatedMinutes": 35,
+      "description": "Audit repositories for secrets, vulnerable dependencies, RLS gaps, and configuration risks using structured security prompts.",
+      "keyConcepts": ["secret scanning", "package hallucination", "RLS verification", "MCP security", "pre-commit gates"],
+      "prerequisites": "Modules 1-6 completed. A repository to audit. Supabase project (for RLS prompts, optional).",
+      "concepts": [
+        {
+          "title": "API Key and Secret Leak Prevention",
+          "body": "API keys, tokens, and passwords end up in source code, .claude conversation history, or git history. Once pushed to a remote, they are effectively public. Defense: all secrets in .env files (gitignored), .env.example with placeholders, startup validation, no secrets in logs, CI uses secrets manager, ~/.claude/ excluded from cloud sync."
+        },
+        {
+          "title": "Package Hallucination Defense",
+          "body": "Claude and other AI tools sometimes suggest packages that do not exist. Attackers monitor hallucinated names and publish malicious packages (typosquatting). Defense: verify every package on official registry, check download counts (low = red flag), check creation date (very recent = red flag), review publisher, commit lock files, run npm audit/pip-audit regularly."
+        },
+        {
+          "title": "Row Level Security (Supabase/Postgres)",
+          "body": "In Supabase, any table without RLS enabled is accessible to anyone with the anon key. This is the single most common Supabase security mistake. Defense: RLS on every table, policies using auth.uid(), service role key never exposed to client, no policy using true as condition, storage buckets have RLS policies."
+        },
+        {
+          "title": "Pre-Commit Security Gate",
+          "body": "A comprehensive audit covering secrets, dependencies, database, configuration, input validation, and authentication in a single pass before every commit. Checks staged changes and broader project configuration. Blocks commit recommendation if any CRITICAL issues exist."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "11.1",
+          "label": "Full Repository Security Scan",
+          "difficulty": "Intermediate",
+          "prompt": "Perform a comprehensive security scan of this repository:\n\n1. Scan for hardcoded secrets (API keys, passwords, tokens, connection strings) in all source files\n2. Check .env files and .gitignore to ensure secrets are not committed\n3. Review authentication and authorization code for common vulnerabilities (broken auth, privilege escalation)\n4. Check for SQL injection vectors (raw queries without parameterization)\n5. Check for XSS vectors (unsanitized user input rendered in HTML)\n6. Review dependency manifests for known vulnerable packages\n7. Check for insecure HTTP endpoints (should be HTTPS)\n\nProduce a security report with: severity (CRITICAL/HIGH/MEDIUM/LOW), file path, line number, description, and recommended fix for each finding.",
+          "expectedOutcome": "A prioritized security findings report covering secrets, auth, injection, XSS, dependencies, and transport security."
+        },
+        {
+          "id": "11.2",
+          "label": "Package Hallucination Detection",
+          "difficulty": "Intermediate",
+          "prompt": "Audit all dependencies in this project for hallucination risk (packages that may not exist or were fabricated by an AI):\n\n1. Read package.json (or requirements.txt, go.mod, Cargo.toml, etc.)\n2. For each dependency, verify it exists on the official registry (npm, PyPI, crates.io, etc.)\n3. Check the package publish date, download count, and maintainer info\n4. Flag any package that: has fewer than 100 weekly downloads, was published less than 30 days ago, has a single maintainer with no other packages, or has a name suspiciously similar to a popular package (typosquatting)\n5. For flagged packages, search for known supply chain attacks using that name\n\nProduce a risk assessment table: Package, Registry, Downloads/week, Age, Risk Level, Reason.",
+          "expectedOutcome": "A dependency audit that catches potentially hallucinated, typosquatted, or supply-chain-risky packages."
+        },
+        {
+          "id": "11.3",
+          "label": "API Key Leak Audit Across Git History",
+          "difficulty": "Advanced",
+          "prompt": "Scan the entire git history of this repository for leaked secrets:\n\n1. Search all commits (not just current files) for patterns matching: API keys, AWS credentials, database connection strings, JWT secrets, OAuth tokens, private keys\n2. Use regex patterns for common secret formats (e.g., AKIA for AWS, sk- for Stripe, ghp_ for GitHub)\n3. Check if any .env or config files were ever committed then removed\n4. Verify whether leaked secrets appear in the current HEAD (still exposed) or only in history (needs rotation)\n5. For each finding, provide: commit hash, file path, secret type, and whether it is still in HEAD\n\nProduce a remediation plan: which secrets need immediate rotation, and how to use git filter-branch or BFG to clean history.",
+          "expectedOutcome": "A historical secret scan with a prioritized rotation list and instructions for cleaning git history."
+        },
+        {
+          "id": "11.4",
+          "label": "Supabase RLS Verification",
+          "difficulty": "Advanced",
+          "prompt": "Audit the Row Level Security (RLS) policies in my Supabase project:\n\n1. List all tables in the public schema\n2. For each table, check if RLS is enabled\n3. For tables with RLS enabled, list all policies and their conditions\n4. Identify tables that SHOULD have RLS but do not (any table with user data, PII, or tenant-scoped data)\n5. Test each policy by simulating queries as: anonymous user, authenticated user, admin user, and a user trying to access another user's data\n6. Flag any policy that allows broader access than intended\n\nProduce a table: Table Name, RLS Enabled, Policy Count, Risk Assessment, Recommendation.",
+          "expectedOutcome": "A complete RLS audit showing which tables are protected, which are exposed, and specific policy fixes needed."
+        }
+      ],
+      "proTip": "Run the pre-commit security gate prompt (Section 7 of security-checklist.md) before every commit. It covers secrets, dependencies, database, configuration, input validation, and authentication in a single pass.",
+      "takeaways": [
+        "Always scan for hardcoded secrets in both source code AND git history",
+        "Package hallucination is a real attack vector -- verify every dependency on the official registry",
+        "Supabase tables without RLS are accessible to anyone with the anon key",
+        "MCP servers can be attack vectors -- verify sources, pin versions, review permissions",
+        "Run comprehensive security audits before every commit, not just before releases"
+      ]
+    },
+    {
+      "id": "m12",
+      "number": 12,
+      "title": "Workspace Org, Deployment, and the Future",
+      "belt": "black",
+      "estimatedMinutes": 35,
+      "description": "Organize workspaces for business/personal separation, use git worktrees for parallel agents, and assess workflows for automation readiness.",
+      "keyConcepts": ["workspace separation", "git worktrees", "parallel agents", "automation readiness", ".claude/ anatomy"],
+      "prerequisites": "Modules 1-11 completed. Multiple projects or contexts to organize.",
+      "concepts": [
+        {
+          "title": "Business and Personal Separation",
+          "body": "Keep work and personal projects structurally separate: ~/work/ and ~/personal/ each with their own .claude/ directory. Each workspace root has its own config. Client subfolders get their own CLAUDE.md. Skills can be shared globally or scoped per project. Keep roots clean with everything in subdirectories."
+        },
+        {
+          "title": "The .claude/ Directory Anatomy",
+          "body": "The .claude/ directory contains: skills/ (project-specific SKILL.md files, invoked via slash command), rules/ (path-scoped behavioral constraints, auto-loaded), agents/ (custom agent definitions, spawned as sub-agents), commands/ (custom slash commands, user-invoked), settings.json (tool permissions, hooks, model config, loaded at session start)."
+        },
+        {
+          "title": "Git Worktrees for Parallel Agent Work",
+          "body": "When multiple agents need to modify files simultaneously, they conflict in the same working directory. Git worktrees solve this by giving each agent its own checked-out copy. Create worktrees for each feature branch, run agents in parallel, merge results back. Claude Code supports the -w flag for automatic worktree management."
+        },
+        {
+          "title": "The Auto Memory System",
+          "body": "Claude Code learns preferences over time through the memory system. It observes corrections, saves as memory entries in ~/.claude/projects/<project-hash>/memory/, with MEMORY.md as an index (first 200 lines auto-loaded). Save corrections and project-specific patterns; do not save temporary context or information already in CLAUDE.md."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "12.1",
+          "label": "Set Up Business/Personal Workspace Separation",
+          "difficulty": "Beginner",
+          "prompt": "Help me organize my Claude Code workspaces for clean separation between business and personal projects:\n\n1. Audit my current project structure and identify which projects are business vs personal\n2. Recommend a directory layout that keeps them separate (e.g., ~/work/ vs ~/personal/)\n3. Create separate .claude/rules/ files for business projects (stricter security, compliance) vs personal (more relaxed, experimental)\n4. Set up different CLAUDE.md templates for each context\n5. Show how to switch between contexts cleanly\n\nProduce a workspace organization guide I can follow.",
+          "expectedOutcome": "A clear workspace separation strategy with distinct configurations, templates, and switching instructions for business vs personal work."
+        },
+        {
+          "id": "12.2",
+          "label": "Git Worktrees for Parallel Agent Work",
+          "difficulty": "Intermediate",
+          "prompt": "Set up git worktrees so I can run multiple Claude Code agents in parallel on different features:\n\n1. Explain the git worktree concept and why it enables parallel agent work\n2. Show the commands to create worktrees for 3 parallel features:\n   - feature/auth-refactor\n   - feature/api-v2\n   - fix/performance-regression\n3. Explain how each worktree gets its own working directory (so agents do not conflict)\n4. Show how to clean up worktrees when features are merged\n5. Provide a workflow for reviewing and merging worktree branches\n\nCreate a cheat sheet I can reference for worktree management.",
+          "expectedOutcome": "A practical git worktree guide enabling parallel Claude Code sessions on separate branches without conflicts."
+        },
+        {
+          "id": "12.3",
+          "label": "Assess Which Workflows to Convert to Agent-Driven",
+          "difficulty": "Advanced",
+          "prompt": "Analyze my daily development workflow and identify which tasks should be converted to autonomous agent workflows:\n\nFor each task in my typical day, evaluate:\n1. Repeatability: Is this done the same way every time? (score 1-5)\n2. Determinism: Is the expected outcome clearly defined? (score 1-5)\n3. Risk: What is the blast radius if the agent makes a mistake? (LOW/MEDIUM/HIGH)\n4. Token cost: How much context does this task require? (estimate)\n5. Human judgment: How much subjective decision-making is needed? (score 1-5)\n\nCommon daily tasks to evaluate:\n- Code review on PRs\n- Writing unit tests for new functions\n- Updating documentation after code changes\n- Triaging and responding to bug reports\n- Dependency updates and security patches\n- Writing changelog entries\n- Refactoring code flagged by linters\n- Generating API client code from OpenAPI specs\n\nProduce a prioritized list: tasks sorted by \"automation readiness\" (high repeatability + high determinism + low risk = automate first).",
+          "expectedOutcome": "A scored assessment of daily tasks ranked by automation potential, giving a clear roadmap for which workflows to hand off to agents first."
+        }
+      ],
+      "proTip": "Use VS Code workspace colors to visually distinguish environments: blue title bar for work, green for personal. This gives an instant visual cue for which context you are in.",
+      "takeaways": [
+        "Separate business and personal workspaces with distinct .claude/ configs and CLAUDE.md templates",
+        "Git worktrees enable parallel Claude Code agents without file conflicts",
+        "The .claude/ directory has five key subdirectories: skills, rules, agents, commands, settings.json",
+        "The auto memory system learns corrections over time -- save patterns, not temporary context",
+        "Assess automation readiness by scoring repeatability, determinism, risk, token cost, and human judgment"
+      ]
+    },
+    {
+      "id": "m13",
+      "number": 13,
+      "title": "Common Mistakes and Anti-patterns",
+      "belt": "brown",
+      "estimatedMinutes": 20,
+      "description": "Recognize and avoid the most common mistakes that reduce Claude Code effectiveness.",
+      "keyConcepts": ["context waste", "permission misconfiguration", "vague prompts", "missing recovery", "over-automation"],
+      "prerequisites": "Modules 1-7 completed. Experience with at least a few real Claude Code sessions.",
+      "concepts": [
+        {
+          "title": "Vague CLAUDE.md Instructions",
+          "body": "Vague wishes (\"write good code\") waste tokens and produce inconsistent results. Replace with specific, actionable constraints (\"use Zod for all input validation\", \"prefer early returns over nested conditionals\"). Every instruction should be testable: could you verify whether Claude followed it?"
+        },
+        {
+          "title": "Context Window Waste",
+          "body": "Loading entire large files when you need 10 lines, running exploratory glob/grep when you know the path, keeping stale debug output in context. Prevention: use line ranges, read directly, compact after dead ends."
+        },
+        {
+          "title": "Missing Recovery Contracts",
+          "body": "When a tool call fails and the agent just returns \"error\" with no recovery path, the session stalls. Define pre-conditions, failure modes, retry strategies, and escalation paths for every multi-step workflow."
+        },
+        {
+          "title": "Over-Automation of Judgment Tasks",
+          "body": "Not everything should be automated. Tasks requiring subjective human judgment (UX quality, code readability, architecture decisions) are poor candidates for fully autonomous loops. Use agent-assisted workflows (agent proposes, human decides) instead."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "B.1",
+          "label": "Debugging with Raw Logs",
+          "difficulty": "Beginner",
+          "prompt": "Paste the raw error log below. Trace the root cause. Fix the bug. Run tests to confirm. Do not explain unless asked.\n\n[paste error log here]",
+          "expectedOutcome": "Claude traces the exact error from raw data instead of guessing."
+        },
+        {
+          "id": "B.2",
+          "label": "Multi-file Refactoring with Plan Mode",
+          "difficulty": "Intermediate",
+          "prompt": "Switch to Plan Mode. Analyze all files related to [module name]. Describe your understanding of the architecture and predicted ripple effects. List every file you plan to change. WAIT for my confirmation before making any edits.",
+          "expectedOutcome": "A read-only analysis of impact before any changes are made."
+        },
+        {
+          "id": "B.3",
+          "label": "Repo-level PR Review",
+          "difficulty": "Intermediate",
+          "prompt": "Multi-stage review of this PR:\n1. EXPLORE: Read all changed files plus their imports and callers\n2. PLAN: Describe architecture impact, dependency changes, edge cases\n3. VERIFY: Check for security issues, missing error handling, test gaps\nOutput a table: File | Issue | Severity | Suggested Fix",
+          "expectedOutcome": "A comprehensive review that goes beyond line-level diffs."
+        }
+      ],
+      "proTip": "The single biggest anti-pattern is a vague CLAUDE.md. If your CLAUDE.md says \"write clean code\" instead of \"use Zod for validation, prefer early returns, all files must have tests\" -- you are leaving quality to chance every session.",
+      "takeaways": [
+        "Replace vague instructions with specific, testable constraints",
+        "Minimize context waste by reading only what you need and compacting after dead ends",
+        "Define recovery contracts for every multi-step workflow",
+        "Do not over-automate judgment tasks -- use agent-assisted workflows instead"
+      ]
+    },
+    {
+      "id": "m14",
+      "number": 14,
+      "title": "Power User Workflows",
+      "belt": "black",
+      "estimatedMinutes": 35,
+      "description": "Advanced patterns for daily power users: architecture decision matrices, TDD generation, session handoffs, cost-conscious prompting, and CI/CD integration.",
+      "keyConcepts": ["decision matrices", "TDD generation", "session handoffs", "cost optimization", "JSON pipelines"],
+      "prerequisites": "Modules 1-12 completed. Daily Claude Code usage. Familiarity with CI/CD concepts.",
+      "concepts": [
+        {
+          "title": "Architecture Decision Matrices",
+          "body": "For complex decisions between multiple options with multiple constraints, use a structured decision matrix. Evaluate each option against performance, maintainability, security, cost, and team familiarity. Output as a table with a clear recommendation."
+        },
+        {
+          "title": "Session Handoff Notes",
+          "body": "Before ending a session, generate a handoff note covering: what was accomplished, what remains, key decisions and rationale, known issues/blockers, exact commands to resume. Save to memory/ for seamless continuation in the next session."
+        },
+        {
+          "title": "Cost-Conscious Prompting",
+          "body": "For routine tasks, prefix with cost-conscious instructions: respond concisely, code only, no explanations unless asked, max 200 tokens for non-code responses. This dramatically reduces token consumption per response."
+        },
+        {
+          "title": "Structured JSON Output for Pipelines",
+          "body": "Use claude -p with --output-format json and --json-schema to produce machine-parseable output for CI/CD integration. This enables Claude Code to participate in automated pipelines where downstream tools consume structured data."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "B.4",
+          "label": "Architecture Decision Matrix",
+          "difficulty": "Advanced",
+          "prompt": "I need to decide between [Option A] and [Option B] for [component].\nConstraints: [list constraints]\nEvaluate both on: performance, maintainability, security, cost, team familiarity.\nOutput a decision matrix table. Recommend one with reasoning.",
+          "expectedOutcome": "A structured decision matrix with a clear recommendation."
+        },
+        {
+          "id": "B.5",
+          "label": "TDD Generation",
+          "difficulty": "Intermediate",
+          "prompt": "For the function/module at [file path]:\n1. Write comprehensive tests FIRST covering happy path, edge cases, error cases\n2. Run the tests (they should FAIL)\n3. Implement the minimum code to make all tests pass\n4. Run tests again to confirm GREEN\n5. Report coverage percentage",
+          "expectedOutcome": "True TDD workflow: tests first, then implementation."
+        },
+        {
+          "id": "B.6",
+          "label": "Session Handoff Notes",
+          "difficulty": "Beginner",
+          "prompt": "Before we end: write a session handoff note covering:\n- What was accomplished\n- What remains (specific files/tasks)\n- Key decisions made and why\n- Known issues or blockers\n- Exact commands to resume\nSave this to memory/ so the next session can continue seamlessly.",
+          "expectedOutcome": "A comprehensive handoff document for session continuity."
+        },
+        {
+          "id": "B.7",
+          "label": "Cost-Conscious Prefix",
+          "difficulty": "Beginner",
+          "prompt": "Respond concisely. Code only, no explanations unless I ask. Max 200 tokens for non-code responses.",
+          "expectedOutcome": "Dramatically reduced token consumption per response."
+        },
+        {
+          "id": "B.8",
+          "label": "Structured JSON Output for Pipelines",
+          "difficulty": "Advanced",
+          "prompt": "claude -p --output-format json --json-schema '{\"type\":\"object\",\"properties\":{\"issues\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"file\":{\"type\":\"string\"},\"line\":{\"type\":\"number\"},\"severity\":{\"type\":\"string\"},\"message\":{\"type\":\"string\"}}}}}}' \"Review src/ for bugs\"",
+          "expectedOutcome": "Machine-parseable JSON output for CI/CD integration."
+        }
+      ],
+      "proTip": "Always write session handoff notes before ending a long session. The 30 seconds it takes saves 10+ minutes of re-orientation in the next session.",
+      "takeaways": [
+        "Use decision matrices for structured multi-criteria architectural choices",
+        "TDD generation: write tests first, then implement minimum code to pass",
+        "Session handoff notes save significant re-orientation time across sessions",
+        "Cost-conscious prompting dramatically reduces token usage for routine tasks",
+        "Structured JSON output enables Claude Code participation in CI/CD pipelines"
+      ]
+    },
+    {
+      "id": "m15",
+      "number": 15,
+      "title": "Hooks Recipe Book",
+      "belt": "brown",
+      "estimatedMinutes": 25,
+      "description": "Configure PreToolUse, PostToolUse, and Stop hooks for automated validation, formatting, and security gates.",
+      "keyConcepts": ["PreToolUse hooks", "PostToolUse hooks", "Stop hooks", "command injection prevention", "auto-formatting"],
+      "prerequisites": "Modules 1-7 and 11 completed. Understanding of settings.json structure.",
+      "concepts": [
+        {
+          "title": "Hook Types and Triggers",
+          "body": "Three hook types: PreToolUse (before tool execution -- validation, parameter modification), PostToolUse (after tool execution -- auto-format, checks), Stop (when session ends -- final verification). Hooks execute shell commands automatically, configured in settings.json."
+        },
+        {
+          "title": "Hook Security",
+          "body": "Hooks can run arbitrary commands. Security checklist: review all hooks, ensure commands do not accept unsanitized input, no downloading/executing remote scripts, use absolute paths, appropriate file permissions, no eval/exec on untrusted input, review project-level hooks when cloning repos."
+        },
+        {
+          "title": "Practical Hook Patterns",
+          "body": "Auto-format on file save (PostToolUse on Write), lint check before commit (PreToolUse on Bash/git commit), secret scanning on file read (PostToolUse on Read), test runner after implementation (PostToolUse on Edit). Each hook should be minimal, focused, and fail-safe."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "11.hooks.1",
+          "label": "Review All Hooks for Security",
+          "difficulty": "Intermediate",
+          "prompt": "Read all Claude Code settings files and extract every hook definition:\n- ~/.claude/settings.json\n- .claude/settings.json\n\nFor each hook:\n1. Identify the trigger (PreToolUse, PostToolUse, Stop)\n2. Read the command or script that executes\n3. Check if the command accepts any dynamic input (file paths, tool output, etc.)\n4. Flag any use of eval, exec, bash -c with interpolated strings, or curl | bash\n5. Flag any hook that downloads content from the internet\n6. Flag any hook that modifies files outside the project directory\n7. Verify hook scripts are not world-writable (check file permissions).",
+          "expectedOutcome": "A comprehensive hook security audit identifying triggers, commands, and potential injection vectors."
+        },
+        {
+          "id": "11.hooks.2",
+          "label": "Review Agent and Settings Permissions",
+          "difficulty": "Intermediate",
+          "prompt": "Read all files in .claude/agents/ (both project and global ~/.claude/agents/):\n1. List each agent and its configured tools/permissions\n2. Flag any agent that allows shell execution without constraints\n3. Flag any agent with \"dangerouslySkipPermissions\" or similar overrides\n4. Flag any agent that auto-accepts tool calls without user confirmation\n5. Check that agent system prompts do not instruct bypassing safety checks.",
+          "expectedOutcome": "An agent permission audit identifying overly permissive configurations and safety bypass risks."
+        },
+        {
+          "id": "11.hooks.3",
+          "label": "Check Permission Mode Settings",
+          "difficulty": "Intermediate",
+          "prompt": "Review Claude Code settings for permission configurations:\n1. Check the current permission mode (default, allowlist, etc.)\n2. List all tools in the \"allowedTools\" array\n3. Flag any dangerous tools that are auto-allowed:\n   - Shell/Bash execution\n   - File write/delete operations\n   - Network requests\n4. Verify that \"dangerouslySkipPermissions\" is not enabled\n5. Check for any \"autoApprove\" patterns in hook configurations.",
+          "expectedOutcome": "A permission mode audit ensuring no dangerous tools are auto-approved and skip-permissions is disabled."
+        }
+      ],
+      "proTip": "Always review project-level hooks (.claude/settings.json) when cloning a new repository. A malicious repo could include hooks that exfiltrate data or execute arbitrary commands on your machine.",
+      "takeaways": [
+        "Three hook types: PreToolUse (before), PostToolUse (after), Stop (session end)",
+        "Hooks execute shell commands automatically -- treat them as security-sensitive code",
+        "Never use eval, exec, or curl | bash in hooks",
+        "Review project-level hooks when cloning new repositories",
+        "Use hooks for auto-formatting, lint checks, secret scanning, and test running"
+      ]
+    }
+  ],
+  "capstones": [
+    {
+      "belt": "white",
+      "title": "White Belt Challenge",
+      "difficulty": "Beginner",
+      "description": "Set up a proper workspace from scratch.",
+      "tasks": [
+        "Create a CLAUDE.md with all four functions (knowledge, preferences, capabilities, logs)",
+        "Set up .claude/rules/ with 3 path-scoped rules",
+        "Configure at least one MCP server",
+        "Run a security audit on the configuration"
+      ]
+    },
+    {
+      "belt": "brown",
+      "title": "Brown Belt Challenge",
+      "difficulty": "Intermediate",
+      "description": "Build a multi-agent research pipeline.",
+      "tasks": [
+        "Create a custom skill that orchestrates 3 sub-agents",
+        "Use fan-out/fan-in to research a topic from multiple angles",
+        "Merge findings using stochastic consensus",
+        "Output a structured report"
+      ]
+    },
+    {
+      "belt": "black",
+      "title": "Black Belt Challenge",
+      "difficulty": "Advanced",
+      "description": "Create a full auto-research optimization loop.",
+      "tasks": [
+        "Pick a measurable metric (Lighthouse score, test coverage, build time)",
+        "Build a loop that measures, proposes changes, applies them, and re-measures",
+        "Run until the target is hit or max attempts reached",
+        "Document the results and share what you learned"
+      ]
+    }
+  ],
+  "bonusPrompts": [
+    {
+      "id": "B.1",
+      "label": "Debugging with Raw Logs",
+      "module": "m13",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "B.2",
+      "label": "Multi-file Refactoring with Plan Mode",
+      "module": "m13",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "B.3",
+      "label": "Repo-level PR Review",
+      "module": "m13",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "B.4",
+      "label": "Architecture Decision Matrix",
+      "module": "m14",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "B.5",
+      "label": "TDD Generation",
+      "module": "m14",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "B.6",
+      "label": "Session Handoff Notes",
+      "module": "m14",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "B.7",
+      "label": "Cost-Conscious Prefix",
+      "module": "m14",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "B.8",
+      "label": "Structured JSON Output for Pipelines",
+      "module": "m14",
+      "difficulty": "Advanced"
+    }
+  ],
+  "references": {
+    "advancedPatterns": {
+      "source": "references/advanced-patterns.md",
+      "topics": ["Agent Harnesses", "Fan-out/Fan-in", "Stochastic Consensus", "Debate Pattern", "Sequential Pipelines", "Auto Research (Karpathy Method)", "Agent Teams", "Git Worktrees"],
+      "citations": [
+        "Anthropic, \"Building Effective Agents\" (November 2025)",
+        "Andrej Karpathy, auto-research (github.com/karpathy/auto-research)",
+        "Nick Saraev, Claude Code courses on agent patterns and harness design",
+        "Tobi Lutke, Shopify Liquid optimization case study"
+      ]
+    },
+    "workspaceGuide": {
+      "source": "references/workspace-guide.md",
+      "topics": ["CLAUDE.md Best Practices", "Four Functions", "Infinity-Loop Workflow", "Global vs Local", "Modular Rules", "Context Management", "Token Optimization", "Context Rot", "Compaction", "Skills vs Sub-agents", "Workspace Organization", "Auto Memory System"],
+      "fileHierarchy": [
+        "~/.claude/CLAUDE.md (global preferences)",
+        "~/.claude/settings.json (global settings)",
+        "~/.claude/skills/ (global skills)",
+        "~/.claude/rules/common/ (global rules)",
+        "~/.claude/projects/<project-hash>/memory/ (auto-memory)",
+        "<project-root>/CLAUDE.md (project knowledge)",
+        "<project-root>/.claude/skills/ (project skills)",
+        "<project-root>/.claude/rules/ (project rules, path-scoped)",
+        "<project-root>/.claude/agents/ (project agents)",
+        "<project-root>/.claude/commands/ (project commands)",
+        "<project-root>/.claude/settings.json (project settings)"
+      ]
+    },
+    "securityChecklist": {
+      "source": "references/security-checklist.md",
+      "sections": [
+        "API Key and Secret Leak Prevention",
+        "Package Hallucination Defense",
+        "Row Level Security (Supabase/Postgres)",
+        "MCP Server Security",
+        "Hooks Security",
+        "Agent and Settings Security",
+        "Pre-Commit Security Gate",
+        "Public-Facing Server Security"
+      ],
+      "severityLevels": {
+        "CRITICAL": "Exploitable now, data at risk. Stop and fix immediately.",
+        "HIGH": "Likely exploitable, significant impact. Fix before commit.",
+        "MEDIUM": "Potential risk, limited impact. Fix before release.",
+        "LOW": "Best practice gap, minimal risk. Track and fix in next sprint."
+      },
+      "auditSchedule": {
+        "beforeEveryCommit": "Pre-Commit Security Gate (Section 7)",
+        "weekly": "Full set of audit prompts for your stack",
+        "whenAddingDependencies": "Package Hallucination Defense (Section 2)",
+        "whenAddingMCPServers": "MCP Server Security (Section 4)",
+        "whenCloningRepos": "Review .claude/ directory for hooks and agents"
+      }
+    }
+  }
+}

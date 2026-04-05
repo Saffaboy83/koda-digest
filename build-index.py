@@ -610,6 +610,43 @@ def build_changelog_entries(filepath: str) -> list[dict]:
     return entries
 
 
+def build_dojo_entries(filepath: str) -> list[dict]:
+    """Build search entries from a dojo data.json file."""
+    with open(filepath, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    dojo_name = data.get("metadata", {}).get("name", "dojo")
+    date_str = data.get("metadata", {}).get("lastUpdated", "")
+    entries: list[dict] = []
+
+    for module in data.get("modules", []):
+        items: list[dict] = []
+        items.append({
+            "headline": module.get("title", ""),
+            "text": module.get("description", ""),
+        })
+        for prompt in module.get("prompts", []):
+            label = prompt.get("label", "")
+            prompt_text = prompt.get("prompt", "")[:300]
+            if label:
+                items.append({"headline": label, "text": prompt_text})
+
+        if items:
+            entries.append({
+                "date": date_str,
+                "type": "dojo",
+                "file": f"dojo/{dojo_name.replace('-dojo', '').replace('dojo-', '')}/index.html",
+                "title": f"Module {module.get('number', '')}: {module.get('title', '')}",
+                "sections": [{
+                    "title": f"Module {module.get('number', '')}: {module.get('title', '')}",
+                    "anchor": module.get("id", ""),
+                    "items": items,
+                }],
+            })
+
+    return entries
+
+
 def main():
     base_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -697,6 +734,19 @@ def main():
         changelog_count = len(changelog_entries)
         print(f"  {changelog_count} changelog entries")
 
+    # --- Dojo ---
+    dojo_count = 0
+    dojo_dir = os.path.join(base_dir, "dojo")
+    if os.path.isdir(dojo_dir):
+        for dojo_subdir in sorted(os.listdir(dojo_dir)):
+            data_path = os.path.join(dojo_dir, dojo_subdir, "data.json")
+            if os.path.isfile(data_path):
+                print(f"Parsing dojo/{dojo_subdir}/data.json...")
+                dojo_entries = build_dojo_entries(data_path)
+                search_entries.extend(dojo_entries)
+                dojo_count += len(dojo_entries)
+                print(f"  {len(dojo_entries)} dojo modules")
+
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     # Write manifest.json (digests + editorials)
@@ -718,7 +768,8 @@ def main():
     print(f"Wrote {search_path} ({len(search_entries)} entries: "
           f"{len(manifest_entries)} digests, {len(editorial_entries)} editorials, "
           f"{review_count} reviews, {pricing_count} pricing providers, "
-          f"{benchmark_count} benchmarks, {changelog_count} changelog)")
+          f"{benchmark_count} benchmarks, {changelog_count} changelog, "
+          f"{dojo_count} dojo modules)")
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-05T02:02:19Z",
+  "generated": "2026-04-05T02:27:52Z",
   "entries": [
     {
       "date": "2026-04-04",
@@ -6000,6 +6000,472 @@
             {
               "headline": "2026 Adobe Analytics Release Notes",
               "text": "[Feature] The 2026 release notes for Adobe Analytics outline new features and improvements, including enhanced data feeds and API guides. Significant updates also focus on the user experience and managing templates, while several bug fixes are documented for accuracy and reliability."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-code/index.html",
+      "title": "Module 1: Getting Started: Setup and Interface",
+      "sections": [
+        {
+          "title": "Module 1: Getting Started: Setup and Interface",
+          "anchor": "m1",
+          "items": [
+            {
+              "headline": "Getting Started: Setup and Interface",
+              "text": "Install, configure, and explore the Claude Code terminal interface, keyboard shortcuts, and slash commands."
+            },
+            {
+              "headline": "Check Claude Code Version and Configuration",
+              "text": "What version of Claude Code am I running? Show me my current configuration including:\n- Model being used\n- Any custom settings in ~/.claude/settings.json\n- Installed MCP servers\n- Whether extended thinking is enabled"
+            },
+            {
+              "headline": "Set Up a New Project with /init",
+              "text": "Initialize this project for Claude Code. Create a CLAUDE.md that includes:\n- Project name and one-line description\n- Tech stack (auto-detect from package.json, requirements.txt, go.mod, or other config files)\n- Directory structure overview\n- Key conventions found in the codebase\n- Build and test com"
+            },
+            {
+              "headline": "Explore the Terminal Interface Basics",
+              "text": "Show me a quick reference of Claude Code keyboard shortcuts and slash commands. Include:\n- How to toggle extended thinking\n- How to switch between plan mode and code mode\n- How to compact context\n- How to escape/cancel a running operation\n- The most useful slash commands"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-code/index.html",
+      "title": "Module 2: The Project Brain: CLAUDE.md Mastery",
+      "sections": [
+        {
+          "title": "Module 2: The Project Brain: CLAUDE.md Mastery",
+          "anchor": "m2",
+          "items": [
+            {
+              "headline": "The Project Brain: CLAUDE.md Mastery",
+              "text": "Design and maintain CLAUDE.md files that give Claude persistent project memory across sessions."
+            },
+            {
+              "headline": "Audit and Score Your Current CLAUDE.md",
+              "text": "Audit my CLAUDE.md file and score it on a 1-10 scale across these dimensions:\n1. Clarity: Is the project purpose immediately obvious?\n2. Tech stack: Are all languages, frameworks, and tools listed?\n3. Conventions: Are coding standards, naming patterns, and file organization documented?\n4. Commands: "
+            },
+            {
+              "headline": "Generate a CLAUDE.md for a Specific Project Type",
+              "text": "Generate a production-grade CLAUDE.md for a Next.js 14 SaaS application that uses:\n- App Router with server components\n- Prisma ORM with PostgreSQL\n- NextAuth.js for authentication\n- Stripe for billing\n- Tailwind CSS for styling\n- Vercel for deployment\n\nInclude sections for: project overview, tech s"
+            },
+            {
+              "headline": "Create Modular Rules in .claude/rules/",
+              "text": "Refactor my CLAUDE.md into a modular rules system. Create separate rule files in .claude/rules/ for:\n1. coding-style.md: Naming conventions, formatting, immutability patterns\n2. testing.md: TDD workflow, coverage requirements, test file organization\n3. git-workflow.md: Commit message format, branch "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-code/index.html",
+      "title": "Module 3: Permission Modes and Plan Mode",
+      "sections": [
+        {
+          "title": "Module 3: Permission Modes and Plan Mode",
+          "anchor": "m3",
+          "items": [
+            {
+              "headline": "Permission Modes and Plan Mode",
+              "text": "Control what Claude can do autonomously vs what requires approval, and use plan mode for read-only analysis."
+            },
+            {
+              "headline": "Enter Plan Mode and Analyze Architecture",
+              "text": "Switch to plan mode. Analyze this codebase and produce an architecture overview:\n1. Map all entry points (API routes, CLI commands, event handlers)\n2. Trace the dependency graph between major modules\n3. Identify the data flow from input to storage\n4. Flag any circular dependencies or tight coupling\n"
+            },
+            {
+              "headline": "Switch Between Permission Modes",
+              "text": "I want to understand my current permission mode and its implications. Show me:\n1. What permission mode am I in right now?\n2. What actions require approval in this mode?\n3. What is auto-approved?\n4. How do I switch to a more permissive mode for trusted tasks?\n5. How do I lock down to the most restric"
+            },
+            {
+              "headline": "Build a Full-Stack App Using Plan-First Approach",
+              "text": "I want to build a URL shortener service. Use plan mode first.\n\nPhase 1 (Plan only, no code):\n- Define the API contract (endpoints, request/response shapes)\n- Choose the data model and storage strategy\n- Outline the frontend components needed\n- Identify edge cases (collision handling, expiry, rate li"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-code/index.html",
+      "title": "Module 4: Context Management and Compaction",
+      "sections": [
+        {
+          "title": "Module 4: Context Management and Compaction",
+          "anchor": "m4",
+          "items": [
+            {
+              "headline": "Context Management and Compaction",
+              "text": "Manage the finite context window to keep sessions productive, using strategic compaction and progress tracking."
+            },
+            {
+              "headline": "Analyze Current Context Usage",
+              "text": "Analyze how much context I have used in this session so far. Tell me:\n1. Approximately how much of the context window has been consumed\n2. What are the largest items in context (files read, tool outputs, conversation history)\n3. Am I at risk of hitting context limits for remaining work?\n4. What can "
+            },
+            {
+              "headline": "Strategic Compaction at Phase Boundaries",
+              "text": "I just finished Phase 1 of my implementation (data models and database migrations). Before starting Phase 2 (API endpoints), I need to compact context.\n\nSummarize everything completed so far into a concise status block that preserves:\n- All file paths created or modified\n- Key design decisions made\n"
+            },
+            {
+              "headline": "Minimize Context Rot in Long Sessions",
+              "text": "I am about to start a long session (refactoring authentication across 20+ files). Help me set up a context management strategy:\n\n1. Create a scratchpad file (REFACTOR_PROGRESS.md) to track completed steps\n2. Define natural compaction points (after each major module is refactored)\n3. Write a status t"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-code/index.html",
+      "title": "Module 5: Skills and Automation",
+      "sections": [
+        {
+          "title": "Module 5: Skills and Automation",
+          "anchor": "m5",
+          "items": [
+            {
+              "headline": "Skills and Automation",
+              "text": "Create, optimize, and deploy SKILL.md files for reusable Claude Code automation."
+            },
+            {
+              "headline": "Create a SKILL.md from Scratch",
+              "text": "Create a new Claude Code skill that generates a changelog entry from the latest git commits. The skill should:\n\n1. Read commits since the last tag (or last 20 commits if no tags)\n2. Group commits by type (feat, fix, refactor, docs, etc.)\n3. Generate a formatted changelog section with date header\n4. "
+            },
+            {
+              "headline": "Build a Lead Scraping Skill",
+              "text": "Create a Claude Code skill that researches a company and extracts key contact information. The skill should:\n\n1. Accept a company name or domain as input\n2. Use web search to find the company website, LinkedIn page, and recent news\n3. Extract: company size, industry, key decision-makers (names and t"
+            },
+            {
+              "headline": "Optimize a Skill for Token Efficiency",
+              "text": "Review the skill at ~/.claude/skills/[pick any existing skill]/SKILL.md and optimize it for token efficiency:\n\n1. Measure the current token count of the skill file\n2. Identify verbose sections that can be compressed without losing meaning\n3. Replace repetitive instructions with patterns or templates"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-code/index.html",
+      "title": "Module 6: MCP Servers and Plugins",
+      "sections": [
+        {
+          "title": "Module 6: MCP Servers and Plugins",
+          "anchor": "m6",
+          "items": [
+            {
+              "headline": "MCP Servers and Plugins",
+              "text": "Add, configure, and chain MCP (Model Context Protocol) servers to extend Claude Code with external tools."
+            },
+            {
+              "headline": "Add and Configure an MCP Server",
+              "text": "Show me how to add a new MCP server to my Claude Code configuration. Walk me through:\n\n1. Where MCP servers are configured (settings.json location)\n2. The JSON structure for adding a new server\n3. How to verify the server is connected and its tools are available\n4. How to test a tool call from the n"
+            },
+            {
+              "headline": "Use Chrome DevTools MCP for Browser Control",
+              "text": "I have the Chrome MCP server connected. Demonstrate a practical workflow:\n\n1. Open a new browser tab and navigate to https://news.ycombinator.com\n2. Take a screenshot of the page\n3. Extract the titles and URLs of the top 10 stories\n4. Format the results as a markdown table with columns: Rank, Title,"
+            },
+            {
+              "headline": "Chain Multiple MCP Tools in a Workflow",
+              "text": "Build a workflow that chains multiple MCP tools together:\n\n1. Use Gmail MCP to find the 5 most recent emails with attachments\n2. For each email, extract the sender, subject, and attachment filenames\n3. Use Google Calendar MCP to check if any of those senders have meetings with me this week\n4. Produc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-code/index.html",
+      "title": "Module 7: Agent Harnesses",
+      "sections": [
+        {
+          "title": "Module 7: Agent Harnesses",
+          "anchor": "m7",
+          "items": [
+            {
+              "headline": "Agent Harnesses",
+              "text": "Understand the harness model -- Claude Code is the scaffolding around the LLM, not the agent itself. Audit and improve your harness."
+            },
+            {
+              "headline": "Audit Your Harness Quality",
+              "text": "Audit the quality of my Claude Code agent harness by checking:\n\n1. CLAUDE.md completeness (does it give Claude enough context to work autonomously?)\n2. Tool definitions (are all available tools well-described with clear parameters?)\n3. Error handling (what happens when a tool call fails? Is there a "
+            },
+            {
+              "headline": "Design a Tool Definition for a Custom Agent",
+              "text": "Design a tool definition for an agent that manages a project's dependency updates. The tool should:\n\n1. Define the tool name, description, and parameter schema (JSON Schema format)\n2. Specify input validation rules\n3. Define success and failure response formats\n4. Include rate limiting and timeout c"
+            },
+            {
+              "headline": "Create a Recovery Contract for Error Handling",
+              "text": "Design an error recovery contract for a multi-step agent workflow (code generation, testing, deployment). For each step, define:\n\n1. Pre-conditions that must be true before the step runs\n2. Expected outputs on success\n3. Failure modes (timeout, validation error, external service down, partial comple"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-code/index.html",
+      "title": "Module 8: Sub-agents and Agent Teams",
+      "sections": [
+        {
+          "title": "Module 8: Sub-agents and Agent Teams",
+          "anchor": "m8",
+          "items": [
+            {
+              "headline": "Sub-agents and Agent Teams",
+              "text": "Orchestrate multiple Claude instances with fan-out/fan-in, stochastic consensus, adversarial debate, and sequential pipeline patterns."
+            },
+            {
+              "headline": "Fan-out/Fan-in Research Pattern",
+              "text": "Use the fan-out/fan-in pattern to research a technology decision. I need to choose between SQLite, PostgreSQL, and DynamoDB for a new project.\n\nFan-out phase (parallel):\n- Agent 1: Research SQLite. Strengths, weaknesses, ideal use cases, scaling limits.\n- Agent 2: Research PostgreSQL. Same dimension"
+            },
+            {
+              "headline": "Stochastic Consensus for Code Review",
+              "text": "Run a stochastic consensus code review on the file [specify a file path]. Use 3 independent review passes:\n\nPass 1 (Security lens): Review for injection vulnerabilities, auth bypass, data exposure, and unsafe dependencies.\nPass 2 (Performance lens): Review for N+1 queries, memory leaks, unnecessary "
+            },
+            {
+              "headline": "Adversarial Debate Pattern for Architecture Decisions",
+              "text": "I am deciding whether to use a monolith or microservices architecture for a new e-commerce platform. Run an adversarial debate:\n\nAdvocate A (Pro-Monolith):\n- Present the strongest case for a monolithic architecture\n- Anticipate and counter microservices arguments\n- Cite real-world examples of succes"
+            },
+            {
+              "headline": "Sequential Pipeline (Dev, Review, QA)",
+              "text": "Run a sequential agent pipeline to implement and validate a new utility function:\n\nStage 1 (Developer Agent):\n- Implement a function called `parseQueryString(url: string)` that extracts query parameters into a typed object\n- Handle edge cases: empty strings, duplicate keys, encoded characters, hash "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-code/index.html",
+      "title": "Module 9: Auto Research Loops",
+      "sections": [
+        {
+          "title": "Module 9: Auto Research Loops",
+          "anchor": "m9",
+          "items": [
+            {
+              "headline": "Auto Research Loops",
+              "text": "Build iterative measure-change-remeasure loops for automated optimization, inspired by Karpathy's auto-research pattern."
+            },
+            {
+              "headline": "Lighthouse Performance Optimization Loop",
+              "text": "Run an iterative performance optimization loop on my web application:\n\nLoop iteration:\n1. Run a Lighthouse audit (or simulate by analyzing the codebase for common performance issues)\n2. Parse the results and identify the top 3 performance bottlenecks\n3. Implement a fix for the highest-impact issue\n4"
+            },
+            {
+              "headline": "Metric-Driven Code Quality Improvement",
+              "text": "Run a code quality improvement loop on this project:\n\nLoop iteration:\n1. Run the linter and collect all warnings/errors (eslint, pylint, or equivalent)\n2. Group issues by rule and count occurrences\n3. Fix the most common issue category across all files\n4. Re-run the linter to verify the fix count de"
+            },
+            {
+              "headline": "Clone and Customize the Karpathy Auto-Research Pattern",
+              "text": "Implement an auto-research loop inspired by the Karpathy pattern. The goal is to deeply research a technical topic through iterative refinement:\n\nTopic: \"Best practices for LLM evaluation in production\"\n\nLoop:\n1. Generate 5 specific research questions about the topic\n2. Search the web for answers to"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-code/index.html",
+      "title": "Module 10: Browser Automation",
+      "sections": [
+        {
+          "title": "Module 10: Browser Automation",
+          "anchor": "m10",
+          "items": [
+            {
+              "headline": "Browser Automation",
+              "text": "Automate browser interactions from HTTP-level scraping to full Chrome DevTools control and computer use planning."
+            },
+            {
+              "headline": "HTTP-Level Scraping with Curl",
+              "text": "Scrape the top stories from a public news API using HTTP requests only (no browser needed):\n\n1. Use curl to fetch the Hacker News API top stories endpoint (https://hacker-news.firebaseio.com/v0/topstories.json)\n2. Take the first 10 story IDs\n3. Fetch each story's details from the item endpoint\n4. Ex"
+            },
+            {
+              "headline": "Chrome DevTools MCP for Page Interaction",
+              "text": "Using the Chrome MCP, automate this multi-step workflow:\n\n1. Navigate to a product page on a public e-commerce site (e.g., Amazon search results for \"mechanical keyboard\")\n2. Take a screenshot of the page\n3. Read the page content and extract the first 5 product names, prices, and ratings\n4. Click on"
+            },
+            {
+              "headline": "Computer Use for Complex Multi-Step Workflows",
+              "text": "Design (but do not execute) a computer-use automation plan for this workflow:\n\nTask: Every Monday morning, generate a weekly status report by:\n1. Opening Jira and extracting completed tickets from last week\n2. Opening GitHub and extracting merged PRs from last week\n3. Opening Slack and finding key a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-code/index.html",
+      "title": "Module 11: Security",
+      "sections": [
+        {
+          "title": "Module 11: Security",
+          "anchor": "m11",
+          "items": [
+            {
+              "headline": "Security",
+              "text": "Audit repositories for secrets, vulnerable dependencies, RLS gaps, and configuration risks using structured security prompts."
+            },
+            {
+              "headline": "Full Repository Security Scan",
+              "text": "Perform a comprehensive security scan of this repository:\n\n1. Scan for hardcoded secrets (API keys, passwords, tokens, connection strings) in all source files\n2. Check .env files and .gitignore to ensure secrets are not committed\n3. Review authentication and authorization code for common vulnerabili"
+            },
+            {
+              "headline": "Package Hallucination Detection",
+              "text": "Audit all dependencies in this project for hallucination risk (packages that may not exist or were fabricated by an AI):\n\n1. Read package.json (or requirements.txt, go.mod, Cargo.toml, etc.)\n2. For each dependency, verify it exists on the official registry (npm, PyPI, crates.io, etc.)\n3. Check the p"
+            },
+            {
+              "headline": "API Key Leak Audit Across Git History",
+              "text": "Scan the entire git history of this repository for leaked secrets:\n\n1. Search all commits (not just current files) for patterns matching: API keys, AWS credentials, database connection strings, JWT secrets, OAuth tokens, private keys\n2. Use regex patterns for common secret formats (e.g., AKIA for AW"
+            },
+            {
+              "headline": "Supabase RLS Verification",
+              "text": "Audit the Row Level Security (RLS) policies in my Supabase project:\n\n1. List all tables in the public schema\n2. For each table, check if RLS is enabled\n3. For tables with RLS enabled, list all policies and their conditions\n4. Identify tables that SHOULD have RLS but do not (any table with user data,"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-code/index.html",
+      "title": "Module 12: Workspace Org, Deployment, and the Future",
+      "sections": [
+        {
+          "title": "Module 12: Workspace Org, Deployment, and the Future",
+          "anchor": "m12",
+          "items": [
+            {
+              "headline": "Workspace Org, Deployment, and the Future",
+              "text": "Organize workspaces for business/personal separation, use git worktrees for parallel agents, and assess workflows for automation readiness."
+            },
+            {
+              "headline": "Set Up Business/Personal Workspace Separation",
+              "text": "Help me organize my Claude Code workspaces for clean separation between business and personal projects:\n\n1. Audit my current project structure and identify which projects are business vs personal\n2. Recommend a directory layout that keeps them separate (e.g., ~/work/ vs ~/personal/)\n3. Create separa"
+            },
+            {
+              "headline": "Git Worktrees for Parallel Agent Work",
+              "text": "Set up git worktrees so I can run multiple Claude Code agents in parallel on different features:\n\n1. Explain the git worktree concept and why it enables parallel agent work\n2. Show the commands to create worktrees for 3 parallel features:\n   - feature/auth-refactor\n   - feature/api-v2\n   - fix/perfo"
+            },
+            {
+              "headline": "Assess Which Workflows to Convert to Agent-Driven",
+              "text": "Analyze my daily development workflow and identify which tasks should be converted to autonomous agent workflows:\n\nFor each task in my typical day, evaluate:\n1. Repeatability: Is this done the same way every time? (score 1-5)\n2. Determinism: Is the expected outcome clearly defined? (score 1-5)\n3. Ri"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-code/index.html",
+      "title": "Module 13: Common Mistakes and Anti-patterns",
+      "sections": [
+        {
+          "title": "Module 13: Common Mistakes and Anti-patterns",
+          "anchor": "m13",
+          "items": [
+            {
+              "headline": "Common Mistakes and Anti-patterns",
+              "text": "Recognize and avoid the most common mistakes that reduce Claude Code effectiveness."
+            },
+            {
+              "headline": "Debugging with Raw Logs",
+              "text": "Paste the raw error log below. Trace the root cause. Fix the bug. Run tests to confirm. Do not explain unless asked.\n\n[paste error log here]"
+            },
+            {
+              "headline": "Multi-file Refactoring with Plan Mode",
+              "text": "Switch to Plan Mode. Analyze all files related to [module name]. Describe your understanding of the architecture and predicted ripple effects. List every file you plan to change. WAIT for my confirmation before making any edits."
+            },
+            {
+              "headline": "Repo-level PR Review",
+              "text": "Multi-stage review of this PR:\n1. EXPLORE: Read all changed files plus their imports and callers\n2. PLAN: Describe architecture impact, dependency changes, edge cases\n3. VERIFY: Check for security issues, missing error handling, test gaps\nOutput a table: File | Issue | Severity | Suggested Fix"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-code/index.html",
+      "title": "Module 14: Power User Workflows",
+      "sections": [
+        {
+          "title": "Module 14: Power User Workflows",
+          "anchor": "m14",
+          "items": [
+            {
+              "headline": "Power User Workflows",
+              "text": "Advanced patterns for daily power users: architecture decision matrices, TDD generation, session handoffs, cost-conscious prompting, and CI/CD integration."
+            },
+            {
+              "headline": "Architecture Decision Matrix",
+              "text": "I need to decide between [Option A] and [Option B] for [component].\nConstraints: [list constraints]\nEvaluate both on: performance, maintainability, security, cost, team familiarity.\nOutput a decision matrix table. Recommend one with reasoning."
+            },
+            {
+              "headline": "TDD Generation",
+              "text": "For the function/module at [file path]:\n1. Write comprehensive tests FIRST covering happy path, edge cases, error cases\n2. Run the tests (they should FAIL)\n3. Implement the minimum code to make all tests pass\n4. Run tests again to confirm GREEN\n5. Report coverage percentage"
+            },
+            {
+              "headline": "Session Handoff Notes",
+              "text": "Before we end: write a session handoff note covering:\n- What was accomplished\n- What remains (specific files/tasks)\n- Key decisions made and why\n- Known issues or blockers\n- Exact commands to resume\nSave this to memory/ so the next session can continue seamlessly."
+            },
+            {
+              "headline": "Cost-Conscious Prefix",
+              "text": "Respond concisely. Code only, no explanations unless I ask. Max 200 tokens for non-code responses."
+            },
+            {
+              "headline": "Structured JSON Output for Pipelines",
+              "text": "claude -p --output-format json --json-schema '{\"type\":\"object\",\"properties\":{\"issues\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"file\":{\"type\":\"string\"},\"line\":{\"type\":\"number\"},\"severity\":{\"type\":\"string\"},\"message\":{\"type\":\"string\"}}}}}}' \"Review src/ for bugs\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-code/index.html",
+      "title": "Module 15: Hooks Recipe Book",
+      "sections": [
+        {
+          "title": "Module 15: Hooks Recipe Book",
+          "anchor": "m15",
+          "items": [
+            {
+              "headline": "Hooks Recipe Book",
+              "text": "Configure PreToolUse, PostToolUse, and Stop hooks for automated validation, formatting, and security gates."
+            },
+            {
+              "headline": "Review All Hooks for Security",
+              "text": "Read all Claude Code settings files and extract every hook definition:\n- ~/.claude/settings.json\n- .claude/settings.json\n\nFor each hook:\n1. Identify the trigger (PreToolUse, PostToolUse, Stop)\n2. Read the command or script that executes\n3. Check if the command accepts any dynamic input (file paths, "
+            },
+            {
+              "headline": "Review Agent and Settings Permissions",
+              "text": "Read all files in .claude/agents/ (both project and global ~/.claude/agents/):\n1. List each agent and its configured tools/permissions\n2. Flag any agent that allows shell execution without constraints\n3. Flag any agent with \"dangerouslySkipPermissions\" or similar overrides\n4. Flag any agent that aut"
+            },
+            {
+              "headline": "Check Permission Mode Settings",
+              "text": "Review Claude Code settings for permission configurations:\n1. Check the current permission mode (default, allowlist, etc.)\n2. List all tools in the \"allowedTools\" array\n3. Flag any dangerous tools that are auto-allowed:\n   - Shell/Bash execution\n   - File write/delete operations\n   - Network request"
             }
           ]
         }
