@@ -34,26 +34,70 @@ MAX_NEW_PROMPTS: int = 5
 MIN_RELEVANCE_SCORE: float = 0.4
 FUZZY_MATCH_THRESHOLD: float = 0.65
 
-DATA_JSON_PATH: Path = Path(__file__).resolve().parent / "claude-code" / "data.json"
-BUILD_INDEX_SCRIPT: Path = Path(__file__).resolve().parent.parent / "build-index.py"
+DOJO_DIR: Path = Path(__file__).resolve().parent
+BUILD_INDEX_SCRIPT: Path = DOJO_DIR.parent / "build-index.py"
 
-MODULE_KEYWORD_MAP: dict[str, list[str]] = {
-    "m1":  ["cli", "setup", "install", "terminal", "interface", "keyboard", "shortcut"],
-    "m2":  ["claude.md", "claudemd", "workspace", "project brain", "rules file"],
-    "m3":  ["permission", "plan mode", "auto-accept", "dangerously", "yolo"],
-    "m4":  ["context", "token", "compact", "compaction", "window"],
-    "m5":  ["skill", "automation", "slash command", "custom command"],
-    "m6":  ["mcp", "server", "plugin", "tool server", "model context protocol"],
-    "m7":  ["harness", "agent harness", "tool loop", "action space"],
-    "m8":  ["sub-agent", "subagent", "multi-agent", "agent team", "orchestration"],
-    "m9":  ["research", "loop", "auto research", "search loop", "retrieval"],
-    "m10": ["browser", "chrome", "automation", "screenshot", "web scrape"],
-    "m11": ["security", "secret", "injection", "prompt injection", "sandbox"],
-    "m12": ["deploy", "deployment", "ci/cd", "docker", "production"],
-    "m13": ["mistake", "anti-pattern", "antipattern", "pitfall", "common error"],
-    "m14": ["power", "workflow", "advanced", "productivity", "parallel"],
-    "m15": ["hook", "prehook", "posthook", "pretooluse", "posttooluse"],
+# ── Per-dojo configuration ──
+
+DOJO_CONFIGS: dict[str, dict] = {
+    "claude-code": {
+        "label": "Claude Code Dojo",
+        "data_path": DOJO_DIR / "claude-code" / "data.json",
+        "search_queries": [
+            "Claude Code new features CLI",
+            "Claude Code tips workflow 2026",
+            "Claude Code best practices this week",
+        ],
+        "keyword_map": {
+            "m1":  ["cli", "setup", "install", "terminal", "interface", "keyboard", "shortcut"],
+            "m2":  ["claude.md", "claudemd", "workspace", "project brain", "rules file"],
+            "m3":  ["permission", "plan mode", "auto-accept", "dangerously", "yolo"],
+            "m4":  ["context", "token", "compact", "compaction", "window"],
+            "m5":  ["skill", "automation", "slash command", "custom command"],
+            "m6":  ["mcp", "server", "plugin", "tool server", "model context protocol"],
+            "m7":  ["harness", "agent harness", "tool loop", "action space"],
+            "m8":  ["sub-agent", "subagent", "multi-agent", "agent team", "orchestration"],
+            "m9":  ["research", "loop", "auto research", "search loop", "retrieval"],
+            "m10": ["browser", "chrome", "automation", "screenshot", "web scrape"],
+            "m11": ["security", "secret", "injection", "prompt injection", "sandbox"],
+            "m12": ["deploy", "deployment", "ci/cd", "docker", "production"],
+            "m13": ["mistake", "anti-pattern", "antipattern", "pitfall", "common error"],
+            "m14": ["power", "workflow", "advanced", "productivity", "parallel"],
+            "m15": ["hook", "prehook", "posthook", "pretooluse", "posttooluse"],
+        },
+        "default_module": "m14",
+    },
+    "cowork": {
+        "label": "Claude Cowork Dojo",
+        "data_path": DOJO_DIR / "cowork" / "data.json",
+        "search_queries": [
+            "Claude Cowork new features desktop agent",
+            "Claude Cowork skills plugins tips 2026",
+            "Claude Cowork automation workflow this week",
+        ],
+        "keyword_map": {
+            "m1":  ["cowork", "chat vs cowork", "desktop agent", "what is cowork"],
+            "m2":  ["setup", "config", "global instructions", "folder structure", "install"],
+            "m3":  ["delegation", "delegate", "end-state", "three-question", "prompt framework"],
+            "m4":  ["file", "document", "excel", "powerpoint", "pdf", "invoice", "spreadsheet"],
+            "m5":  ["skill", "skill.md", "custom skill", "skill creator", "skill stack"],
+            "m6":  ["connector", "gmail", "calendar", "slack", "notion", "zapier", "mcp"],
+            "m7":  ["plugin", "plugin marketplace", "build plugin", "package plugin"],
+            "m8":  ["schedule", "scheduled task", "recurring", "cron", "automate"],
+            "m9":  ["project", "memory", "context file", "claude.md", "persistent"],
+            "m10": ["sub-agent", "parallel", "multi-step", "fan-out", "concurrent"],
+            "m11": ["computer use", "screen control", "desktop", "browser", "click"],
+            "m12": ["dispatch", "remote", "mobile", "qr code", "cross-device"],
+            "m13": ["skill engineering", "frontmatter", "testing", "distribution", "mcp enhancement"],
+            "m14": ["business os", "content repurpose", "research synthesis", "power workflow"],
+            "m15": ["safety", "credit", "usage", "limit", "troubleshoot", "security", "vm"],
+        },
+        "default_module": "m14",
+    },
 }
+
+# Legacy alias for backward compatibility
+MODULE_KEYWORD_MAP = DOJO_CONFIGS["claude-code"]["keyword_map"]
 
 
 # ---------------------------------------------------------------------------
@@ -199,13 +243,17 @@ def filter_discoveries(
 # Step 4: Module mapping
 # ---------------------------------------------------------------------------
 
-def map_to_module(discovery: Discovery) -> str:
+def map_to_module(
+    discovery: Discovery,
+    keyword_map: dict[str, list[str]],
+    default_module: str = "m14",
+) -> str:
     """Map a discovery to the best-matching module ID based on keyword overlap."""
     text = f"{discovery.title} {discovery.description}".lower()
-    best_module = "m14"  # default: Power Workflows (catch-all)
+    best_module = default_module
     best_score = 0
 
-    for module_id, keywords in MODULE_KEYWORD_MAP.items():
+    for module_id, keywords in keyword_map.items():
         score = sum(1 for kw in keywords if kw in text)
         if score > best_score:
             best_score = score
@@ -391,9 +439,100 @@ def print_summary(new_entries: list[tuple[str, dict[str, Any]]]) -> None:
 # Main pipeline
 # ---------------------------------------------------------------------------
 
+def refresh_single_dojo(
+    dojo_key: str,
+    config: dict,
+    dry_run: bool = False,
+    review: bool = False,
+) -> bool:
+    """Run the refresh pipeline for a single dojo. Returns True if changes were made."""
+    data_path: Path = config["data_path"]
+    keyword_map: dict[str, list[str]] = config["keyword_map"]
+    default_module: str = config.get("default_module", "m14")
+
+    print(f"\n{'-' * 50}")
+    print(f"  {config['label']}")
+    print(f"{'-' * 50}")
+
+    # Step 1: Discovery
+    print("\n  Step 1: Discovery")
+    discoveries = run_discovery()
+
+    if not discoveries:
+        print("  No discoveries found. Skipping this dojo.")
+        return False
+
+    # Step 2: Load existing content
+    print("\n  Step 2: Loading existing content")
+    if not data_path.exists():
+        print(f"  ERROR: {data_path} not found, skipping")
+        return False
+
+    data = load_data(data_path)
+    existing = build_existing_index(data)
+    print(f"  Loaded {len(existing)} existing labels/concepts")
+
+    # Step 3: Dedup and filter
+    print("\n  Step 3: Dedup and filter")
+    filtered = filter_discoveries(discoveries, existing)
+    print(f"  -> {len(filtered)} new items after filtering")
+
+    if not filtered:
+        print("  All discoveries already covered. Nothing to add.")
+        return False
+
+    # Step 4: Module mapping
+    print("\n  Step 4: Module mapping")
+    module_lookup: dict[str, dict[str, Any]] = {
+        m["id"]: m for m in data["modules"]
+    }
+    mapped: list[tuple[str, Discovery]] = []
+    for d in filtered:
+        target = map_to_module(d, keyword_map, default_module)
+        print(f"    {d.title} -> {target} ({module_lookup[target]['title']})")
+        mapped.append((target, d))
+
+    # Step 5: Generate prompt entries
+    print("\n  Step 5: Generate prompt entries")
+    new_entries: list[tuple[str, dict[str, Any]]] = []
+    for module_id, discovery in mapped:
+        entry = generate_prompt_entry(discovery, module_lookup[module_id])
+        new_entries.append((module_id, entry))
+        print(f"    Created {entry['id']}: {entry['label']}")
+
+    print_summary(new_entries)
+
+    # Step 6: Update data.json
+    print("\n  Step 6: Update data.json")
+    updated = apply_updates(data, new_entries)
+
+    if review or dry_run:
+        diff_text = compute_diff(data, updated)
+        if diff_text:
+            print("\n  --- Diff ---")
+            print(diff_text)
+            print("  --- End Diff ---")
+
+    if dry_run:
+        print("\n  [DRY RUN] No files written.")
+        return False
+
+    if review:
+        answer = input(f"\n  Apply changes to {dojo_key}? [y/N] ").strip().lower()
+        if answer != "y":
+            print("  Skipped by user.")
+            return False
+
+    write_data(data_path, updated)
+    print(f"  Written to {data_path}")
+    print(f"  Version: {updated['metadata']['version']}")
+    print(f"  Total prompts: {updated['metadata']['totalPrompts']}")
+    return True
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Weekly content refresh for the Claude Code Dojo"
+        description="Weekly content refresh for all Koda Dojos"
     )
     parser.add_argument(
         "--dry-run",
@@ -405,96 +544,38 @@ def main() -> None:
         action="store_true",
         help="Output diff for manual approval before committing",
     )
+    parser.add_argument(
+        "--dojo",
+        choices=list(DOJO_CONFIGS.keys()),
+        help="Refresh only a specific dojo (default: all)",
+    )
     args = parser.parse_args()
 
     print("=" * 60)
-    print("  Claude Code Dojo -- Weekly Refresh Pipeline")
+    print("  Koda Dojo -- Weekly Refresh Pipeline")
     print("=" * 60)
 
-    # Step 1: Discovery
-    print("\nStep 1: Discovery")
-    discoveries = run_discovery()
+    # Select which dojos to refresh
+    if args.dojo:
+        targets = {args.dojo: DOJO_CONFIGS[args.dojo]}
+    else:
+        targets = DOJO_CONFIGS
 
-    if not discoveries:
-        print("\n  No discoveries found. Connect API keys to enable live search.")
-        print("  Exiting (nothing to update).")
-        return
+    any_changes = False
+    for dojo_key, config in targets.items():
+        changed = refresh_single_dojo(
+            dojo_key, config, dry_run=args.dry_run, review=args.review
+        )
+        any_changes = any_changes or changed
 
-    # Step 2: Load existing content
-    print("\nStep 2: Loading existing content")
-    if not DATA_JSON_PATH.exists():
-        print(f"  ERROR: {DATA_JSON_PATH} not found")
-        sys.exit(1)
-
-    data = load_data(DATA_JSON_PATH)
-    existing = build_existing_index(data)
-    print(f"  Loaded {len(existing)} existing labels/concepts")
-
-    # Step 3: Dedup and filter
-    print("\nStep 3: Dedup and filter")
-    filtered = filter_discoveries(discoveries, existing)
-    print(f"  -> {len(filtered)} new items after filtering")
-
-    if not filtered:
-        print("\n  All discoveries already covered. Nothing to add.")
-        return
-
-    # Step 4: Module mapping
-    print("\nStep 4: Module mapping")
-    module_lookup: dict[str, dict[str, Any]] = {
-        m["id"]: m for m in data["modules"]
-    }
-    mapped: list[tuple[str, Discovery]] = []
-    for d in filtered:
-        target = map_to_module(d)
-        print(f"  {d.title} -> {target} ({module_lookup[target]['title']})")
-        mapped.append((target, d))
-
-    # Step 5: Generate prompt entries
-    print("\nStep 5: Generate prompt entries")
-    new_entries: list[tuple[str, dict[str, Any]]] = []
-    for module_id, discovery in mapped:
-        entry = generate_prompt_entry(discovery, module_lookup[module_id])
-        new_entries.append((module_id, entry))
-        print(f"  Created {entry['id']}: {entry['label']}")
-
-    # Summary
-    print_summary(new_entries)
-
-    # Step 6: Update data.json
-    print("\nStep 6: Update data.json")
-    updated = apply_updates(data, new_entries)
-
-    if args.review or args.dry_run:
-        diff_text = compute_diff(data, updated)
-        if diff_text:
-            print("\n--- Diff ---")
-            print(diff_text)
-            print("--- End Diff ---")
-        else:
-            print("  No diff (unexpected).")
-
-    if args.dry_run:
-        print("\n  [DRY RUN] No files written.")
-        return
-
-    if args.review:
-        answer = input("\n  Apply these changes? [y/N] ").strip().lower()
-        if answer != "y":
-            print("  Aborted by user.")
-            return
-
-    write_data(DATA_JSON_PATH, updated)
-    print(f"  Written to {DATA_JSON_PATH}")
-    print(f"  Version: {updated['metadata']['version']}")
-    print(f"  Total prompts: {updated['metadata']['totalPrompts']}")
-
-    # Step 7: Rebuild search index
-    print("\nStep 7: Rebuild search index")
-    rebuild_search_index()
+    # Rebuild search index once after all dojos are updated
+    if any_changes:
+        print("\nStep 7: Rebuild search index")
+        rebuild_search_index()
 
     print("\n" + "=" * 60)
-    print("  Refresh complete.")
+    dojos_str = ", ".join(targets.keys())
+    print(f"  Refresh complete. Dojos processed: {dojos_str}")
     print("=" * 60)
 
 
