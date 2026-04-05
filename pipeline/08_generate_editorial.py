@@ -1318,6 +1318,8 @@ def _generate_editorial_media(
     audio_dir_file.write_text(audio_dir, encoding="utf-8")
 
     # Call notebooklm_media.py --editorial-file
+    # MUST use --new-notebook so editorial artifacts don't collide with digest
+    # artifacts in the permanent Koda notebook (download_video grabs latest)
     cmd = [
         sys.executable, str(DIGEST_DIR / "notebooklm_media.py"),
         "--editorial-file", str(article_file),
@@ -1325,6 +1327,8 @@ def _generate_editorial_media(
         "--date", date,
         "--output-dir", str(DIGEST_DIR),
         "--skip-digest",
+        "--new-notebook",
+        "--notebook-title", f"Koda Editorial {date}",
     ]
     if video_dir_file:
         cmd.extend(["--editorial-video-direction", str(video_dir_file)])

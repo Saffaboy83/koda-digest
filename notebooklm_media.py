@@ -636,11 +636,13 @@ async def run_editorial_pipeline(
     video_direction: str | None = None,
     audio_direction: str | None = None,
     existing_notebook_id: str | None = None,
+    create_new_notebook: bool = False,
 ) -> tuple[list[dict], dict, int]:
     """Run the editorial media pipeline: brief anime video + brief audio overview.
 
-    Uses the permanent Koda notebook (or existing_notebook_id).
-    Cleans old sources, uploads editorial content, generates brief media.
+    When create_new_notebook=True, creates a dedicated notebook for editorial
+    media to avoid artifact collision with the permanent digest notebook.
+    Otherwise uses existing_notebook_id or the permanent Koda notebook.
 
     Returns: (results_list, media_paths_dict, exit_code)
     """
@@ -663,7 +665,16 @@ async def run_editorial_pipeline(
             return [make_status("auth", False, error_msg)], {}, 2
         raise
 
+    created_notebook = False
     try:
+        # Create a new notebook if requested (avoids artifact collision)
+        if create_new_notebook:
+            print(f"[E0/5] Creating dedicated editorial notebook...")
+            nb = await client.notebooks.create(f"Koda Editorial {date_str}")
+            notebook_id = nb.notebook_id
+            created_notebook = True
+            print(f"  Created notebook: {notebook_id}")
+
         # ── Step E1: Clean old sources ──────────────────────────────────
         print("[E1/5] Cleaning old notebook sources for editorial...")
         try:
@@ -903,6 +914,15 @@ async def run_editorial_pipeline(
                 exit_code = 1
 
         media_paths["notebook_id"] = notebook_id
+
+        # Clean up temp notebook (don't leave orphan notebooks)
+        if created_notebook:
+            try:
+                await client.notebooks.delete(notebook_id)
+                print(f"  Cleaned up temp editorial notebook: {notebook_id}")
+            except Exception as e2:
+                print(f"  Warning: could not delete temp notebook: {e2}")
+
         return results, media_paths, exit_code
 
     except Exception as e:
@@ -1091,6 +1111,12 @@ def main():
             print(f"Audio direction: {'yes' if editorial_audio_dir else 'no'}")
             print()
 
+            # Use new notebook for editorial when --new-notebook is set,
+            # to avoid artifact collision with digest in permanent notebook.
+            ed_notebook_id = actual_notebook_id
+            if args.new_notebook or actual_notebook_id is None:
+                ed_notebook_id = None  # signals run_editorial_pipeline to create new
+
             ed_results, ed_media, ed_exit = asyncio.run(
                 run_editorial_pipeline(
                     editorial_text,
@@ -1098,7 +1124,8 @@ def main():
                     args.output_dir,
                     video_direction=editorial_video_dir,
                     audio_direction=editorial_audio_dir,
-                    existing_notebook_id=actual_notebook_id,
+                    existing_notebook_id=ed_notebook_id,
+                    create_new_notebook=args.new_notebook,
                 )
             )
 
