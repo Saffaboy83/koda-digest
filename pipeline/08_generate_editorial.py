@@ -654,7 +654,7 @@ def _generate_hero_via_openrouter(image_prompt: str, hero_path: Path) -> bool:
 
 
 def _generate_hero_via_gemini(image_prompt: str, hero_path: Path) -> bool:
-    """Primary: generate hero image via Gemini Imagen 3 (API key, free tier).
+    """Primary: generate hero image via Gemini Imagen 4 (API key, free tier).
     Returns True on success, False on failure (caller should try fallback)."""
     import subprocess
 

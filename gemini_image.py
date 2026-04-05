@@ -1,5 +1,5 @@
 """
-Generate an image via Google Gemini API (Imagen 3).
+Generate an image via Google Gemini API (Imagen 4).
 Uses API key authentication -- no browser cookies needed.
 
 Usage:
@@ -15,9 +15,15 @@ import os
 import sys
 from pathlib import Path
 
+# Imagen 4 models in preference order (fast first for speed)
+IMAGEN_MODELS = [
+    "imagen-4.0-fast-generate-001",
+    "imagen-4.0-generate-001",
+]
+
 
 def generate_image(prompt: str, output_path: str, api_key: str) -> bool:
-    """Generate an image via Gemini Imagen 3 and save it locally."""
+    """Generate an image via Gemini Imagen 4 and save it locally."""
     from google import genai
 
     client = genai.Client(api_key=api_key)
@@ -28,20 +34,28 @@ def generate_image(prompt: str, output_path: str, api_key: str) -> bool:
         f"{prompt}"
     )
 
-    print(f"Generating image via Gemini Imagen 3 ({len(prompt)} char prompt)...")
-
-    try:
-        response = client.models.generate_images(
-            model="imagen-3.0-generate-002",
-            prompt=generation_prompt,
-            config={"number_of_images": 1},
-        )
-    except Exception as e:
-        err_str = str(e).lower()
-        if any(kw in err_str for kw in ("api key", "api_key", "unauthorized", "403", "401", "invalid")):
-            print(f"AUTH ERROR: {e}")
-            sys.exit(2)
-        print(f"ERROR: Image generation failed: {e}")
+    # Try each model in order
+    for model in IMAGEN_MODELS:
+        print(f"Generating image via {model} ({len(prompt)} char prompt)...")
+        try:
+            response = client.models.generate_images(
+                model=model,
+                prompt=generation_prompt,
+                config={"number_of_images": 1},
+            )
+            break  # success
+        except Exception as e:
+            err_str = str(e).lower()
+            if any(kw in err_str for kw in ("api key", "api_key", "unauthorized", "403", "401", "invalid")):
+                print(f"AUTH ERROR: {e}")
+                sys.exit(2)
+            if "not found" in err_str or "not supported" in err_str:
+                print(f"  Model {model} unavailable, trying next...")
+                continue
+            print(f"ERROR: Image generation failed: {e}")
+            return False
+    else:
+        print("ERROR: No available Imagen model found")
         return False
 
     if not response.generated_images:
