@@ -430,15 +430,15 @@ body.kn-locked{overflow:hidden}
             <a href="./editorial/" class="text-xs font-semibold text-[#adc6ff] hover:text-white transition-colors uppercase tracking-wider no-underline">View All &rarr;</a>
         </div>
         <!-- EDITORIAL-CARD-START -->
-        <a href="./editorial/2026-04-04-deepseek-v4-proves-frontier-level-ai-performance-no-longer-r.html" class="block no-underline group">
+        <a href="./editorial/2026-04-05-pay-as-you-go-pricing-for-ai-coding-tools-signals-the-end-of.html" class="block no-underline group">
             <div class="bg-surface-container border border-outline-variant/20 rounded-2xl p-8 md:p-10 transition-all group-hover:border-[#6366F1]/30 group-hover:-translate-y-1" style="background:linear-gradient(135deg, rgba(99,102,241,0.06), rgba(139,92,246,0.04));">
                 <div class="flex items-center gap-3 mb-4">
-                    <span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;background:rgba(99,102,241,0.15);color:#a5b4fc;">Strategy</span>
-                    <span class="text-xs font-mono text-on-surface-variant/50">4 April 2026</span>
-                    <span class="text-xs font-mono text-on-surface-variant/40">6 min read</span>
+                    <span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;background:rgba(99,102,241,0.15);color:#a5b4fc;">Monetization</span>
+                    <span class="text-xs font-mono text-on-surface-variant/50">5 April 2026</span>
+                    <span class="text-xs font-mono text-on-surface-variant/40">7 min read</span>
                 </div>
-                <h3 class="text-xl md:text-2xl font-extrabold text-on-surface tracking-tight mb-3 group-hover:text-[#a5b4fc] transition-colors">DeepSeek V4 proves frontier-level AI performance no longer requires frontier-lev</h3>
-                <p class="text-sm text-on-surface-variant/70 leading-relaxed max-w-2xl">DeepSeek just trained a 1-trillion-parameter model for $5.2 million. Comparable Western frontier models cost north of $1...</p>
+                <h3 class="text-xl md:text-2xl font-extrabold text-on-surface tracking-tight mb-3 group-hover:text-[#a5b4fc] transition-colors">Pay-as-you-go pricing for AI coding tools signals the end of seat-based SaaS and</h3>
+                <p class="text-sm text-on-surface-variant/70 leading-relaxed max-w-2xl">OpenAI killed its fixed-tier pricing for Codex and replaced it with pay-as-you-go. In the same week, Coder raised $90 mi...</p>
             </div>
         </a>
 <!-- EDITORIAL-CARD-END -->
@@ -806,7 +806,7 @@ body.kn-locked{overflow:hidden}
         for (var i = 0; i < entries.length; i++) {
             var entry = entries[i];
             var entryType = entry.type || 'digest';
-            if (entryType === 'pricing' || entryType === 'benchmark') continue;
+            if (entryType !== 'digest' && entryType !== 'editorial' && entryType !== 'review' && entryType !== 'changelog') continue;
             var entryFile = entry.file || findFileForDate(entry.date);
             var sections = entry.sections || [];
             for (var j = 0; j < sections.length; j++) {
@@ -862,7 +862,7 @@ body.kn-locked{overflow:hidden}
                 var headlineHl = highlightTerms(escapeHtml(res.headline), terms);
                 var sectionAnchor = res.anchor ? res.anchor : (res.type === 'digest' ? slugify(res.section) : '');
                 var href = './' + res.file + (sectionAnchor ? '#' + sectionAnchor : '');
-                var TYPE_LABELS = { digest: 'The Signal', editorial: 'Deep Dive', review: 'The Lab', changelog: 'Pulse', dojo: 'The Dojo' };
+                var TYPE_LABELS = { digest: 'The Signal', editorial: 'Deep Dive', review: 'The Lab', changelog: 'Pulse' };
                 var typeBadge = '<span class="search-type-badge ' + res.type + '">' + (TYPE_LABELS[res.type] || res.type) + '</span>';
                 html += '<a href="' + href + '" class="search-result-item" ' + (isOverlay ? 'onclick="closeSearch()"' : '') + '>' +
                     '<div class="search-result-meta">' + typeBadge + '<span class="search-result-date">' + formatDate(res.date) + '</span><span class="search-result-section">' + escapeHtml(res.section) + '</span></div>' +
