@@ -394,7 +394,9 @@ def deduplicate_tools(tools: list[dict]) -> list[dict]:
             continue
         if any(known in name_lower for known in WELL_KNOWN_TOOLS):
             continue
-        if name_lower in recent_names:
+        # Substring match: ledger stores full titles ("Noiz AI: Text to Voice...")
+        # but discovered tools may have short names ("Noiz AI")
+        if any(name_lower in recent for recent in recent_names):
             continue
         if url and url in seen_urls:
             continue

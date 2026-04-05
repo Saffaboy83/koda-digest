@@ -29,9 +29,6 @@ from pipeline.config import (
 )
 from nav_component import NAV_CSS_V2, build_nav_v2
 
-# Escape CSS braces for f-string usage
-NAV_CSS_V2_ESCAPED = NAV_CSS_V2.replace("{", "{{").replace("}", "}}")
-
 # ── Config ─────────────────────────────────────────────────────────────────
 
 FIRECRAWL_API_URL = "https://api.firecrawl.dev/v1"
@@ -39,6 +36,7 @@ OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 LLM_MODEL = "anthropic/claude-opus-4-6"
 REVIEWS_DIR = DIGEST_DIR / "reviews"
 MAX_REVIEWS_PER_DAY = 3
+REVIEW_COOLDOWN_DAYS = 30
 
 WELL_KNOWN_TOOLS = {
     "chatgpt", "claude", "gemini", "copilot", "github copilot", "cursor",
@@ -212,12 +210,15 @@ def llm_call(prompt: str, system: str = "", max_tokens: int = 8000,
 
 # ── Tool Selection ─────────────────────────────────────────────────────────
 
-def select_tools_for_review(tools: list[dict]) -> list[dict]:
+def select_tools_for_review(
+    tools: list[dict], recently_reviewed: frozenset[str] = frozenset()
+) -> list[dict]:
     """Pick the top N tools from today's digest for deep review.
 
     Selection criteria:
     - Has a working URL
     - Not a well-known tool
+    - Not reviewed within the 30-day cooldown window
     - Prioritize tools with richer descriptions
     """
     candidates = []
@@ -229,6 +230,9 @@ def select_tools_for_review(tools: list[dict]) -> list[dict]:
         if not title:
             continue
         if any(known in title.lower() for known in WELL_KNOWN_TOOLS):
+            continue
+        if slugify(title) in recently_reviewed:
+            print(f"    Skipping {title} (reviewed within {REVIEW_COOLDOWN_DAYS} days)")
             continue
         candidates.append(tool)
 
@@ -243,6 +247,30 @@ def slugify(text: str) -> str:
     slug = re.sub(r'[^a-z0-9\s-]', '', slug)
     slug = re.sub(r'[\s-]+', '-', slug)
     return slug.strip('-')
+
+
+def _get_recently_reviewed_slugs(
+    reviews_dir: Path, today: str, cooldown_days: int = REVIEW_COOLDOWN_DAYS
+) -> frozenset[str]:
+    """Return slugs of tools reviewed within the cooldown window.
+
+    Scans YYYY-MM-DD-slug.html filenames in reviews_dir.
+    """
+    today_date = datetime.strptime(today, "%Y-%m-%d")
+    slugs: set[str] = set()
+    for path in reviews_dir.glob("*.html"):
+        if path.name == "index.html":
+            continue
+        parts = path.stem.split("-", 3)
+        if len(parts) < 4:
+            continue
+        try:
+            file_date = datetime(int(parts[0]), int(parts[1]), int(parts[2]))
+        except (ValueError, IndexError):
+            continue
+        if (today_date - file_date).days <= cooldown_days:
+            slugs.add(parts[3])
+    return frozenset(slugs)
 
 
 # ── Review Generation ──────────────────────────────────────────────────────
@@ -434,80 +462,95 @@ def _build_review_index_html(entries: list[dict]) -> str:
 
     review_count = len(entries)
 
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Lab | Koda Intelligence</title>
-<meta name="description" content="Hands-on AI tool deep dives with pricing, features, and honest verdicts from the Koda Intelligence team.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-<style>
-*{{margin:0;padding:0;box-sizing:border-box}}
-body{{font-family:'Inter',sans-serif;background:#0b1326;color:#dae2fd;min-height:100vh;overflow-x:hidden}}
-.material-symbols-outlined{{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;display:inline-block;vertical-align:middle}}
-.scroll-progress{{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,#3B82F6,#8B5CF6);z-index:1001;transition:width 0.1s linear;pointer-events:none}}
-{NAV_CSS_V2_ESCAPED}
-/* -- End Koda Nav V2 -- */
-.hero{{padding:100px 24px 40px;text-align:center;background:radial-gradient(ellipse 80% 50% at 20% 60%,rgba(139,92,246,0.12) 0%,transparent 100%),radial-gradient(ellipse 60% 40% at 80% 30%,rgba(59,130,246,0.08) 0%,transparent 100%)}}
-.hero h1{{font-size:clamp(28px,5vw,48px);font-weight:900;background:linear-gradient(135deg,#8B5CF6 0%,#3B82F6 50%,#EC4899 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;letter-spacing:-0.02em}}
-.hero p{{color:#c2c6d6;font-size:15px;max-width:600px;margin:0 auto}}
-.hero .badge{{display:inline-block;padding:4px 14px;border-radius:9999px;border:1px solid rgba(139,92,246,0.2);background:rgba(139,92,246,0.05);color:#a78bfa;font-size:10px;text-transform:uppercase;letter-spacing:0.2em;font-weight:700;margin-bottom:16px}}
-.stats{{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;padding:0 24px;margin-bottom:32px}}
-.stat{{background:rgba(23,31,51,0.4);backdrop-filter:blur(20px);border:1px solid rgba(173,198,255,0.1);border-radius:12px;padding:16px 24px;text-align:center;min-width:120px}}
-.stat-value{{font-size:24px;font-weight:800;color:#dae2fd}}
-.stat-label{{font-size:11px;color:#8c909f;margin-top:2px;text-transform:uppercase;letter-spacing:0.05em}}
-.container{{max-width:900px;margin:0 auto;padding:0 24px 64px}}
-.review-card{{display:block;background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:18px 20px;margin-bottom:10px;transition:all 0.2s}}
-.review-card:hover{{background:rgba(23,31,51,0.7);border-color:rgba(139,92,246,0.3)}}
-.empty-state{{text-align:center;padding:60px 24px}}
-footer{{background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto}}
-footer .inner{{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;padding:32px 24px;gap:12px;text-align:center}}
-@media(min-width:768px){{footer .inner{{flex-direction:row;justify-content:space-between;text-align:left}}}}
-.animate-in{{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}}
-.animate-in.visible{{opacity:1;transform:translateY(0)}}
-</style>
-</head>
-<body>
-<div class="scroll-progress" id="scrollProgress"></div>
-{reviews_nav_html}
-<section class="hero animate-in">
-    <div class="badge">Hands-On Tool Intelligence</div>
-    <h1>The Lab</h1>
-    <p>We scrape, test, and break down the AI tools everyone is talking about. Pricing, features, and honest verdicts so you do not have to guess.</p>
-</section>
-<div class="stats animate-in">
-    <div class="stat"><div class="stat-value">{review_count}</div><div class="stat-label">Lab Reports</div></div>
-    <div class="stat"><div class="stat-value">3</div><div class="stat-label">New Per Day</div></div>
-</div>
-<div class="container">
-    {cards}
-</div>
-<footer>
-    <div class="inner">
-        <div>
-            <div style="font-weight:700;font-size:14px;color:#dae2fd;margin-bottom:4px">Koda Intelligence</div>
-            <div style="font-size:12px;color:#8c909f">AI-powered daily intelligence for builders and operators.</div>
-        </div>
-        <div style="display:flex;gap:16px;align-items:center">
-            <a href="../index.html" style="color:#8c909f;text-decoration:none;font-size:12px">Home</a>
-            <a href="../morning-briefing-koda.html" style="color:#8c909f;text-decoration:none;font-size:12px">The Signal</a>
-            <a href="../editorial/" style="color:#8c909f;text-decoration:none;font-size:12px">Deep Dive</a>
-        </div>
-    </div>
-</footer>
-<script>
-// Scroll progress
-window.addEventListener('scroll',function(){{var p=document.getElementById('scrollProgress');if(p){{var h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=h>0?(window.scrollY/h*100)+'%':'0%'}}}});
-// Animate in
-var obs=new IntersectionObserver(function(e){{e.forEach(function(en){{if(en.isIntersecting)en.target.classList.add('visible')}});}},{{threshold:0.1}});
-document.querySelectorAll('.animate-in').forEach(function(el){{obs.observe(el)}});
-</script>
-{reviews_nav_js}
-</body>
-</html>"""
+    # Build page CSS separately to avoid double-brace issue with NAV_CSS_V2
+    page_css = (
+        "*{margin:0;padding:0;box-sizing:border-box}\n"
+        "body{font-family:'Inter',sans-serif;background:#0b1326;color:#dae2fd;min-height:100vh;overflow-x:hidden}\n"
+        ".material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;display:inline-block;vertical-align:middle}\n"
+        ".scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,#3B82F6,#8B5CF6);z-index:1001;transition:width 0.1s linear;pointer-events:none}\n"
+        + NAV_CSS_V2 + "\n"
+        "/* -- End Koda Nav V2 -- */\n"
+        ".hero{padding:100px 24px 40px;text-align:center;background:radial-gradient(ellipse 80% 50% at 20% 60%,rgba(139,92,246,0.12) 0%,transparent 100%),radial-gradient(ellipse 60% 40% at 80% 30%,rgba(59,130,246,0.08) 0%,transparent 100%)}\n"
+        ".hero h1{font-size:clamp(28px,5vw,48px);font-weight:900;background:linear-gradient(135deg,#8B5CF6 0%,#3B82F6 50%,#EC4899 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;letter-spacing:-0.02em}\n"
+        ".hero p{color:#c2c6d6;font-size:15px;max-width:600px;margin:0 auto}\n"
+        ".hero .badge{display:inline-block;padding:4px 14px;border-radius:9999px;border:1px solid rgba(139,92,246,0.2);background:rgba(139,92,246,0.05);color:#a78bfa;font-size:10px;text-transform:uppercase;letter-spacing:0.2em;font-weight:700;margin-bottom:16px}\n"
+        ".stats{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;padding:0 24px;margin-bottom:32px}\n"
+        ".stat{background:rgba(23,31,51,0.4);backdrop-filter:blur(20px);border:1px solid rgba(173,198,255,0.1);border-radius:12px;padding:16px 24px;text-align:center;min-width:120px}\n"
+        ".stat-value{font-size:24px;font-weight:800;color:#dae2fd}\n"
+        ".stat-label{font-size:11px;color:#8c909f;margin-top:2px;text-transform:uppercase;letter-spacing:0.05em}\n"
+        ".container{max-width:900px;margin:0 auto;padding:0 24px 64px}\n"
+        ".review-card{display:block;background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:18px 20px;margin-bottom:10px;transition:all 0.2s}\n"
+        ".review-card:hover{background:rgba(23,31,51,0.7);border-color:rgba(139,92,246,0.3)}\n"
+        ".empty-state{text-align:center;padding:60px 24px}\n"
+        "footer{background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto}\n"
+        "footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;padding:32px 24px;gap:12px;text-align:center}\n"
+        "@media(min-width:768px){footer .inner{flex-direction:row;justify-content:space-between;text-align:left}}\n"
+        ".animate-in{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}\n"
+        ".animate-in.visible{opacity:1;transform:translateY(0)}\n"
+    )
+
+    # Use string concatenation (not f-string) to avoid brace-escaping issues
+    # in CSS selectors and JS function bodies
+    scroll_js = (
+        "<script>\n"
+        "// Scroll progress\n"
+        "window.addEventListener('scroll',function(){var p=document.getElementById('scrollProgress');"
+        "if(p){var h=document.documentElement.scrollHeight-window.innerHeight;"
+        "p.style.width=h>0?(window.scrollY/h*100)+'%':'0%'}});\n"
+        "// Animate in\n"
+        "var obs=new IntersectionObserver(function(e){e.forEach(function(en){"
+        "if(en.isIntersecting)en.target.classList.add('visible')});},{threshold:0.1});\n"
+        "document.querySelectorAll('.animate-in').forEach(function(el){obs.observe(el)});\n"
+        "</script>\n"
+    )
+
+    return (
+        '<!DOCTYPE html>\n<html lang="en">\n<head>\n'
+        '<meta charset="UTF-8">\n'
+        '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
+        '<title>The Lab | Koda Intelligence</title>\n'
+        '<meta name="description" content="Hands-on AI tool deep dives with pricing, '
+        'features, and honest verdicts from the Koda Intelligence team.">\n'
+        '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
+        '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;'
+        '700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">\n'
+        '<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:'
+        'wght,FILL@100..700,0..1&display=swap" rel="stylesheet">\n'
+        '<style>\n' + page_css + '</style>\n'
+        '</head>\n<body>\n'
+        '<div class="scroll-progress" id="scrollProgress"></div>\n'
+        + reviews_nav_html + '\n'
+        '<section class="hero animate-in">\n'
+        '    <div class="badge">Hands-On Tool Intelligence</div>\n'
+        '    <h1>The Lab</h1>\n'
+        '    <p>We scrape, test, and break down the AI tools everyone is talking about. '
+        'Pricing, features, and honest verdicts so you do not have to guess.</p>\n'
+        '</section>\n'
+        '<div class="stats animate-in">\n'
+        '    <div class="stat"><div class="stat-value">' + str(review_count) + '</div>'
+        '<div class="stat-label">Lab Reports</div></div>\n'
+        '    <div class="stat"><div class="stat-value">3</div>'
+        '<div class="stat-label">New Per Day</div></div>\n'
+        '</div>\n'
+        '<div class="container">\n    ' + cards + '\n</div>\n'
+        '<footer>\n    <div class="inner">\n        <div>\n'
+        '            <div style="font-weight:700;font-size:14px;color:#dae2fd;margin-bottom:4px">'
+        'Koda Intelligence</div>\n'
+        '            <div style="font-size:12px;color:#8c909f">'
+        'AI-powered daily intelligence for builders and operators.</div>\n'
+        '        </div>\n'
+        '        <div style="display:flex;gap:16px;align-items:center">\n'
+        '            <a href="../index.html" style="color:#8c909f;text-decoration:none;'
+        'font-size:12px">Home</a>\n'
+        '            <a href="../morning-briefing-koda.html" style="color:#8c909f;'
+        'text-decoration:none;font-size:12px">The Signal</a>\n'
+        '            <a href="../editorial/" style="color:#8c909f;text-decoration:none;'
+        'font-size:12px">Deep Dive</a>\n'
+        '        </div>\n    </div>\n</footer>\n'
+        + scroll_js
+        + reviews_nav_js + '\n'
+        '</body>\n</html>'
+    )
 
 
 # ── Main ───────────────────────────────────────────────────────────────────
@@ -539,8 +582,11 @@ def main():
         print("  WARNING: No OPENROUTER_API_KEY. Skipping reviews.")
         sys.exit(0)
 
-    # Select tools for review
-    selected = select_tools_for_review(tools)
+    # Select tools for review (skip tools reviewed in last 30 days)
+    recently_reviewed = _get_recently_reviewed_slugs(REVIEWS_DIR, args.date)
+    if recently_reviewed:
+        print(f"  Found {len(recently_reviewed)} tools reviewed in last {REVIEW_COOLDOWN_DAYS} days")
+    selected = select_tools_for_review(tools, recently_reviewed)
     if not selected:
         print("  No eligible tools for review. Skipping.")
         sys.exit(0)

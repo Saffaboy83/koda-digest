@@ -15,82 +15,82 @@ body{font-family:'Inter',sans-serif;background:#0b1326;color:#dae2fd;min-height:
 .scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,#3B82F6,#8B5CF6);z-index:1001;transition:width 0.1s linear;pointer-events:none}
 
 /* -- Koda Nav V2 -- */
-.kn-topbar{{position:fixed;top:0;width:100%;z-index:1000;background:rgba(11,19,38,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}}
-.kn-topbar-inner{{max-width:1280px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:8px}}
-.kn-brand{{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;flex-shrink:0}}
-.kn-brand-icon{{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0}}
-.kn-brand-text{{font-size:14px;font-weight:700;color:#3B82F6}}
-.kn-brand-sub{{font-size:10px;color:#8c909f;display:none}}
-@media(min-width:640px){{.kn-brand-sub{{display:block}}}}
+.kn-topbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(11,19,38,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.kn-topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.kn-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;flex-shrink:0}
+.kn-brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0}
+.kn-brand-text{font-size:14px;font-weight:700;color:#3B82F6}
+.kn-brand-sub{font-size:10px;color:#8c909f;display:none}
+@media(min-width:640px){.kn-brand-sub{display:block}}
 
 /* Desktop nav links */
-.kn-links{{display:none;align-items:center;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;flex:1;justify-content:center}}
-@media(min-width:769px){{.kn-links{{display:flex}}}}
-.kn-link{{font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 8px;border-radius:6px;text-decoration:none;transition:all 0.2s;white-space:nowrap;color:#8c909f;background:rgba(255,255,255,0.04)}}
-.kn-link:hover{{color:#dae2fd;background:rgba(255,255,255,0.08)}}
-.kn-link-active{{color:#3B82F6!important;background:rgba(59,130,246,0.12)!important;border-bottom:2px solid #3B82F6}}
-.kn-link .material-symbols-outlined{{font-size:13px;vertical-align:-2px;margin-right:2px}}
+.kn-links{display:none;align-items:center;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;flex:1;justify-content:center}
+@media(min-width:769px){.kn-links{display:flex}}
+.kn-link{font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 8px;border-radius:6px;text-decoration:none;transition:all 0.2s;white-space:nowrap;color:#8c909f;background:rgba(255,255,255,0.04)}
+.kn-link:hover{color:#dae2fd;background:rgba(255,255,255,0.08)}
+.kn-link-active{color:#3B82F6!important;background:rgba(59,130,246,0.12)!important;border-bottom:2px solid #3B82F6}
+.kn-link .material-symbols-outlined{font-size:13px;vertical-align:-2px;margin-right:2px}
 
 /* Actions (search, hamburger) */
-.kn-actions{{display:flex;align-items:center;gap:4px;flex-shrink:0}}
-.kn-action-btn{{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s;text-decoration:none}}
-.kn-action-btn:hover{{background:rgba(59,130,246,0.15);color:#3B82F6}}
-.kn-action-btn .material-symbols-outlined{{font-size:20px}}
+.kn-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.kn-action-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s;text-decoration:none}
+.kn-action-btn:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
+.kn-action-btn .material-symbols-outlined{font-size:20px}
 
 /* Hamburger - visible on mobile only */
-.kn-hamburger{{display:flex}}
-@media(min-width:769px){{.kn-hamburger{{display:none}}}}
+.kn-hamburger{display:flex}
+@media(min-width:769px){.kn-hamburger{display:none}}
 
 /* Desktop social - hidden on mobile (drawer has them) */
-.kn-desktop-social{{display:none;align-items:center;gap:4px}}
-@media(min-width:769px){{.kn-desktop-social{{display:flex}}}}
+.kn-desktop-social{display:none;align-items:center;gap:4px}
+@media(min-width:769px){.kn-desktop-social{display:flex}}
 
 /* Date picker (briefing pages only) */
-.kn-date-picker{{display:none;align-items:center}}
-@media(min-width:769px){{.kn-date-picker{{display:flex}}}}
-.kn-date-btn{{display:flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:#3B82F6;padding:4px 8px;background:rgba(59,130,246,0.1);border-radius:6px;border:none;cursor:pointer;transition:all 0.2s;white-space:nowrap}}
-.kn-date-btn:hover{{background:rgba(59,130,246,0.2)}}
+.kn-date-picker{display:none;align-items:center}
+@media(min-width:769px){.kn-date-picker{display:flex}}
+.kn-date-btn{display:flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:#3B82F6;padding:4px 8px;background:rgba(59,130,246,0.1);border-radius:6px;border:none;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.kn-date-btn:hover{background:rgba(59,130,246,0.2)}
 
 /* Home button - desktop only, in links row */
-.kn-home{{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white!important;font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 10px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all 0.2s}}
-.kn-home:hover{{box-shadow:0 4px 16px rgba(59,130,246,0.3)}}
+.kn-home{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white!important;font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 10px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all 0.2s}
+.kn-home:hover{box-shadow:0 4px 16px rgba(59,130,246,0.3)}
 
 /* ── Drawer ── */
-.kn-overlay{{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1001;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s}}
-.kn-overlay.kn-open{{opacity:1;visibility:visible}}
-.kn-drawer{{position:fixed;top:0;right:0;bottom:0;width:min(280px,85vw);background:rgba(11,19,38,0.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-left:1px solid rgba(173,198,255,0.1);z-index:1002;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);overflow-y:auto;-webkit-overflow-scrolling:touch}}
-.kn-drawer.kn-open{{transform:translateX(0)}}
-@media(prefers-reduced-motion:reduce){{.kn-overlay,.kn-drawer{{transition-duration:0.01ms!important}}}}
+.kn-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1001;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s}
+.kn-overlay.kn-open{opacity:1;visibility:visible}
+.kn-drawer{position:fixed;top:0;right:0;bottom:0;width:min(280px,85vw);background:rgba(11,19,38,0.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-left:1px solid rgba(173,198,255,0.1);z-index:1002;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.kn-drawer.kn-open{transform:translateX(0)}
+@media(prefers-reduced-motion:reduce){.kn-overlay,.kn-drawer{transition-duration:0.01ms!important}}
 
 /* Drawer header */
-.kn-drawer-header{{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06)}}
-.kn-drawer-brand{{display:flex;align-items:center;gap:10px}}
-.kn-drawer-close{{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s}}
-.kn-drawer-close:hover{{background:rgba(239,68,68,0.15);color:#EF4444}}
+.kn-drawer-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.kn-drawer-brand{display:flex;align-items:center;gap:10px}
+.kn-drawer-close{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s}
+.kn-drawer-close:hover{background:rgba(239,68,68,0.15);color:#EF4444}
 
 /* Drawer sections */
-.kn-drawer-section{{padding:12px 20px 4px;font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#6b7280}}
-.kn-drawer-divider{{height:1px;background:rgba(255,255,255,0.06);margin:8px 20px}}
+.kn-drawer-section{padding:12px 20px 4px;font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#6b7280}
+.kn-drawer-divider{height:1px;background:rgba(255,255,255,0.06);margin:8px 20px}
 
 /* Drawer nav links */
-.kn-drawer-link{{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:#c2c6d6;font-size:14px;font-weight:500;transition:all 0.2s;border-left:3px solid transparent}}
-.kn-drawer-link:hover{{background:rgba(255,255,255,0.04);color:#dae2fd}}
-.kn-drawer-link-active{{color:#3B82F6!important;border-left-color:#3B82F6;background:rgba(59,130,246,0.08)}}
-.kn-drawer-link .material-symbols-outlined{{font-size:20px;color:#6b7280;flex-shrink:0}}
-.kn-drawer-link-active .material-symbols-outlined{{color:#3B82F6}}
+.kn-drawer-link{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:#c2c6d6;font-size:14px;font-weight:500;transition:all 0.2s;border-left:3px solid transparent}
+.kn-drawer-link:hover{background:rgba(255,255,255,0.04);color:#dae2fd}
+.kn-drawer-link-active{color:#3B82F6!important;border-left-color:#3B82F6;background:rgba(59,130,246,0.08)}
+.kn-drawer-link .material-symbols-outlined{font-size:20px;color:#6b7280;flex-shrink:0}
+.kn-drawer-link-active .material-symbols-outlined{color:#3B82F6}
 
 /* Drawer home link */
-.kn-drawer-home{{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:white;font-size:14px;font-weight:600;border-left:3px solid transparent;transition:all 0.2s}}
-.kn-drawer-home:hover{{background:rgba(59,130,246,0.1)}}
-.kn-drawer-home .material-symbols-outlined{{font-size:20px;color:#3B82F6}}
+.kn-drawer-home{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:white;font-size:14px;font-weight:600;border-left:3px solid transparent;transition:all 0.2s}
+.kn-drawer-home:hover{background:rgba(59,130,246,0.1)}
+.kn-drawer-home .material-symbols-outlined{font-size:20px;color:#3B82F6}
 
 /* Drawer social row */
-.kn-drawer-social{{display:flex;gap:8px;padding:12px 20px}}
-.kn-drawer-social a,.kn-drawer-social button{{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;text-decoration:none;transition:all 0.2s}}
-.kn-drawer-social a:hover,.kn-drawer-social button:hover{{background:rgba(59,130,246,0.15);color:#3B82F6}}
+.kn-drawer-social{display:flex;gap:8px;padding:12px 20px}
+.kn-drawer-social a,.kn-drawer-social button{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;text-decoration:none;transition:all 0.2s}
+.kn-drawer-social a:hover,.kn-drawer-social button:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
 
 /* Body scroll lock */
-body.kn-locked{{overflow:hidden}}
+body.kn-locked{overflow:hidden}
 
 /* -- End Koda Nav V2 -- */
 .hero{padding:100px 24px 40px;text-align:center;background:radial-gradient(ellipse 80% 50% at 20% 60%,rgba(139,92,246,0.12) 0%,transparent 100%),radial-gradient(ellipse 60% 40% at 80% 30%,rgba(59,130,246,0.08) 0%,transparent 100%)}
@@ -203,7 +203,7 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
     <p>We scrape, test, and break down the AI tools everyone is talking about. Pricing, features, and honest verdicts so you do not have to guess.</p>
 </section>
 <div class="stats animate-in">
-    <div class="stat"><div class="stat-value">6</div><div class="stat-label">Lab Reports</div></div>
+    <div class="stat"><div class="stat-value">5</div><div class="stat-label">Lab Reports</div></div>
     <div class="stat"><div class="stat-value">3</div><div class="stat-label">New Per Day</div></div>
 </div>
 <div class="container">
@@ -212,15 +212,6 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
             <div style="display:flex;justify-content:space-between;align-items:center">
                 <div style="min-width:0">
                     <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Parliai Crowdsource Ai Perspectives Before You Decide</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-05</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-05-noiz-ai-text-to-voice-to-story-in-one-flow.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Noiz Ai Text To Voice To Story In One Flow</div>
                     <div style="font-size:12px;color:#8c909f">2026-04-05</div>
                 </div>
                 <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
