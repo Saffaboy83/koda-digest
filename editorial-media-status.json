@@ -1,16 +1,13 @@
 {
   "date": "2026-04-05",
-  "generated_at": "2026-04-05T18:05:21.040368+00:00",
+  "generated_at": "2026-04-05T20:50:33.343078+00:00",
   "exit_code": 0,
   "editorial_audio": {
     "success": true,
-    "path": "editorial-podcast-2026-04-05.mp3",
-    "url": "https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/editorial-podcast-2026-04-05.mp3"
+    "path": "C:\\Users\\arno_\\Digest\\editorial-podcast-2026-04-05.mp3"
   },
   "editorial_video": {
     "success": true,
-    "path": "editorial-video-2026-04-05.mp4",
-    "youtube_id": "RWv_qGALxC0",
-    "youtube_url": "https://www.youtube.com/watch?v=RWv_qGALxC0"
+    "path": "C:\\Users\\arno_\\Digest\\editorial-video-2026-04-05.mp4"
   }
 }

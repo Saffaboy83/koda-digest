@@ -653,17 +653,65 @@ def _generate_hero_via_openrouter(image_prompt: str, hero_path: Path) -> bool:
         return False
 
 
+def _generate_hero_via_gemini(image_prompt: str, hero_path: Path) -> bool:
+    """Primary: generate hero image via Gemini web app (uses Google Ultra subscription).
+    Returns True on success, False on failure (caller should try fallback)."""
+    import subprocess
+
+    cookies_path = os.environ.get("GEMINI_COOKIE_PATH", os.path.expanduser("~/.gemini/cookies.json"))
+    if not os.path.exists(cookies_path):
+        print("  WARNING: Gemini cookies not found, skipping Gemini image gen")
+        return False
+
+    gemini_script = DIGEST_DIR / "gemini_image.py"
+    if not gemini_script.exists():
+        print("  WARNING: gemini_image.py not found, skipping Gemini image gen")
+        return False
+
+    print("  Generating editorial hero via Gemini (Google Ultra)...")
+    try:
+        result = subprocess.run(
+            [sys.executable, str(gemini_script),
+             "--prompt", image_prompt,
+             "--output", str(hero_path),
+             "--cookies", cookies_path],
+            capture_output=True, text=True, timeout=120,
+            env={**os.environ, "PYTHONUTF8": "1"},
+        )
+        if result.stdout:
+            for line in result.stdout.strip().splitlines():
+                print(f"    {line}")
+        if result.returncode == 0 and hero_path.exists():
+            size_kb = hero_path.stat().st_size // 1024
+            print(f"  Gemini hero image saved: {hero_path.name} ({size_kb}KB)")
+            return True
+        elif result.returncode == 2:
+            print("  WARNING: Gemini auth expired -- falling back to DALL-E")
+            if result.stderr:
+                print(f"    {result.stderr.strip()[:200]}")
+            return False
+        else:
+            print(f"  WARNING: Gemini image gen failed (exit {result.returncode})")
+            if result.stderr:
+                print(f"    {result.stderr.strip()[:200]}")
+            return False
+    except subprocess.TimeoutExpired:
+        print("  WARNING: Gemini image gen timed out after 120s")
+        return False
+    except Exception as e:
+        print(f"  WARNING: Gemini image gen error: {e}")
+        return False
+
+
 def generate_editorial_hero(topic: dict, date: str, article_text: str | None = None) -> str | None:
-    """Generate a hero image for the editorial. Primary: Leonardo.ai. Fallback: DALL-E via OpenRouter."""
-    import time
+    """Generate a hero image for the editorial.
+    Primary: Gemini Ultra (via gemini-webapi, free with subscription).
+    Fallback: DALL-E via OpenRouter (paid tokens).
+    """
 
     hero_filename = f"editorial-hero-{date}.jpg"
     # Save inside editorial/ so Vercel serves it and git tracks it
     hero_path = DIGEST_DIR / "editorial" / hero_filename
-
-    if not LEONARDO_API_KEY and not OPENROUTER_API_KEY:
-        print("  WARNING: No image API keys available, skipping hero image")
-        return None
 
     if hero_path.exists():
         print(f"  Hero image already exists: {hero_filename}")
@@ -716,79 +764,9 @@ def generate_editorial_hero(topic: dict, date: str, article_text: str | None = N
                 f"Clean abstract visual only. Photorealistic 3D render, dramatic cinematic lighting."
             )
 
-        print(f"  Generating editorial hero via Leonardo.ai...")
-
-        headers = {
-            "authorization": f"Bearer {LEONARDO_API_KEY}",
-            "Content-Type": "application/json",
-            "accept": "application/json",
-        }
-        payload = {
-            "model": "gemini-2.5-flash-image",
-            "parameters": {
-                "width": 1024,
-                "height": 1024,
-                "prompt": image_prompt,
-                "quantity": 1,
-                "style_ids": ["111dc692-d470-4eec-b791-3475abac4c46"],
-                "prompt_enhance": "OFF",
-            },
-            "public": False,
-        }
-
-        try:
-            resp = httpx.post(
-                "https://cloud.leonardo.ai/api/rest/v2/generations",
-                json=payload, headers=headers, timeout=30,
-            )
-            resp.raise_for_status()
-            submit_body = resp.json()
-            if not isinstance(submit_body, dict):
-                print(f"  WARNING: Unexpected submit response: {str(submit_body)[:200]}")
-                return None
-            generation_id = submit_body.get("generate", {}).get("generationId")
-            if not generation_id:
-                print(f"  WARNING: No generation ID returned: {submit_body}")
-                return None
-
-            poll_url = f"https://cloud.leonardo.ai/api/rest/v1/generations/{generation_id}"
-            for attempt in range(30):
-                time.sleep(3)
-                poll = httpx.get(poll_url, headers=headers, timeout=15)
-                poll.raise_for_status()
-                poll_body = poll.json()
-                if not isinstance(poll_body, dict):
-                    print(f"  WARNING: Unexpected poll response: {str(poll_body)[:200]}")
-                    return None
-                gen = poll_body.get("generations_by_pk", {})
-                state = gen.get("status", "")
-
-                if state == "COMPLETE":
-                    images = gen.get("generated_images", [])
-                    if not images:
-                        print("  WARNING: Generation complete but no images returned")
-                        return None
-                    img_data = httpx.get(images[0]["url"], timeout=30)
-                    img_data.raise_for_status()
-                    with open(hero_path, "wb") as f:
-                        f.write(img_data.content)
-                    size_kb = hero_path.stat().st_size // 1024
-                    print(f"  Hero image saved: {hero_filename} ({size_kb}KB)")
-                    break
-                elif state == "FAILED":
-                    print("  WARNING: Leonardo generation failed")
-                    return None
-                if attempt % 5 == 4:
-                    print(f"    Still generating... ({(attempt + 1) * 3}s)")
-            else:
-                print("  WARNING: Leonardo generation timed out after 90s")
-                return None
-
-        except Exception as e:
-            print(f"  WARNING: Leonardo hero generation failed: {e}")
-            if hero_path.exists():
-                hero_path.unlink()
-            # Try DALL-E fallback
+        # Try Gemini first (free, uses Google Ultra subscription)
+        if not _generate_hero_via_gemini(image_prompt, hero_path):
+            # Fallback to DALL-E via OpenRouter (paid)
             if not _generate_hero_via_openrouter(image_prompt, hero_path):
                 return None
 

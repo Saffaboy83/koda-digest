@@ -3,15 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Lab | Koda Intelligence</title>
-<meta name="description" content="Hands-on AI tool deep dives with pricing, features, and honest verdicts from the Koda Intelligence team.">
+<title>Sleek Analytics: Real-Time Visitor Tracking With One Line of Code | The Lab | Koda Intelligence</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#0b1326;color:#dae2fd;min-height:100vh;overflow-x:hidden}
-.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;display:inline-block;vertical-align:middle}
+body{font-family:"Inter",sans-serif;background:#0b1326;color:#dae2fd;min-height:100vh;overflow-x:hidden}
+.material-symbols-outlined{font-variation-settings:"FILL" 0,"wght" 400,"GRAD" 0,"opsz" 24;display:inline-block;vertical-align:middle}
 .scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,#3B82F6,#8B5CF6);z-index:1001;transition:width 0.1s linear;pointer-events:none}
 
 /* -- Koda Nav V2 -- */
@@ -92,22 +91,6 @@ body{font-family:'Inter',sans-serif;background:#0b1326;color:#dae2fd;min-height:
 /* Body scroll lock */
 body.kn-locked{overflow:hidden}
 
-/* -- End Koda Nav V2 -- */
-.hero{padding:100px 24px 40px;text-align:center;background:radial-gradient(ellipse 80% 50% at 20% 60%,rgba(139,92,246,0.12) 0%,transparent 100%),radial-gradient(ellipse 60% 40% at 80% 30%,rgba(59,130,246,0.08) 0%,transparent 100%)}
-.hero h1{font-size:clamp(28px,5vw,48px);font-weight:900;background:linear-gradient(135deg,#8B5CF6 0%,#3B82F6 50%,#EC4899 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;letter-spacing:-0.02em}
-.hero p{color:#c2c6d6;font-size:15px;max-width:600px;margin:0 auto}
-.hero .badge{display:inline-block;padding:4px 14px;border-radius:9999px;border:1px solid rgba(139,92,246,0.2);background:rgba(139,92,246,0.05);color:#a78bfa;font-size:10px;text-transform:uppercase;letter-spacing:0.2em;font-weight:700;margin-bottom:16px}
-.stats{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;padding:0 24px;margin-bottom:32px}
-.stat{background:rgba(23,31,51,0.4);backdrop-filter:blur(20px);border:1px solid rgba(173,198,255,0.1);border-radius:12px;padding:16px 24px;text-align:center;min-width:120px}
-.stat-value{font-size:24px;font-weight:800;color:#dae2fd}
-.stat-label{font-size:11px;color:#8c909f;margin-top:2px;text-transform:uppercase;letter-spacing:0.05em}
-.container{max-width:900px;margin:0 auto;padding:0 24px 64px}
-.review-card{display:block;background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:18px 20px;margin-bottom:10px;transition:all 0.2s}
-.review-card:hover{background:rgba(23,31,51,0.7);border-color:rgba(139,92,246,0.3)}
-.empty-state{text-align:center;padding:60px 24px}
-footer{background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto}
-footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;padding:32px 24px;gap:12px;text-align:center}
-@media(min-width:768px){footer .inner{flex-direction:row;justify-content:space-between;text-align:left}}
 .animate-in{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
 .animate-in.visible{opacity:1;transform:translateY(0)}
 </style>
@@ -197,90 +180,202 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
     </div>
 </nav>
 <!-- koda-nav-v2-end -->
-<section class="hero animate-in">
-    <div class="badge">Hands-On Tool Intelligence</div>
-    <h1>The Lab</h1>
-    <p>We scrape, test, and break down the AI tools everyone is talking about. Pricing, features, and honest verdicts so you do not have to guess.</p>
+<style>
+@media (max-width: 768px) {
+  .grid-2col {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-title {
+    font-size: clamp(28px, 6vw, 48px) !important;
+  }
+}
+.animate-in {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeInUp 0.7s ease forwards;
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-in:nth-child(2) { animation-delay: 0.1s; }
+.animate-in:nth-child(3) { animation-delay: 0.15s; }
+.animate-in:nth-child(4) { animation-delay: 0.2s; }
+.animate-in:nth-child(5) { animation-delay: 0.25s; }
+.animate-in:nth-child(6) { animation-delay: 0.3s; }
+.animate-in:nth-child(7) { animation-delay: 0.35s; }
+</style>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<section id="hero" class="animate-in" style="scroll-margin-top:80px; padding-top:100px; max-width:900px; margin:0 auto; padding-left:24px; padding-right:24px; text-align:center;">
+  <span style="display:inline-block; background:rgba(139,92,246,0.15); color:#8B5CF6; font-size:13px; font-weight:600; padding:6px 16px; border-radius:999px; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:20px;">Lab Report</span>
+  <h1 class="hero-title" style="font-size:clamp(28px,5vw,48px); font-weight:800; line-height:1.15; padding-bottom:0.15em; margin:0 0 16px; background:linear-gradient(135deg,#3B82F6,#8B5CF6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Sleek Analytics</h1>
+  <p style="color:#c2c6d6; font-size:18px; line-height:1.6; max-width:640px; margin:0 auto 28px;">Real-time visitor tracking with a single line of code. No cookies, no consent banners, no complexity. Just a clean live view of who is on your site right now.</p>
+  <a href="https://www.producthunt.com/products/sleek-analytics" target="_blank" rel="noopener" style="display:inline-block; padding:14px 36px; background:linear-gradient(135deg,#3B82F6,#8B5CF6); color:#fff; font-size:16px; font-weight:600; border-radius:999px; text-decoration:none; transition:opacity 0.2s;">Try It</a>
+  <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/review-hero-2026-04-05-sleek-analytics-real-time-visitor-tracking-with-one-line-of-code.jpg" alt="Sleek Analytics screenshot" style="max-width:800px;width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.08);margin:24px auto 0;display:block" loading="eager">
 </section>
-<div class="stats animate-in">
-    <div class="stat"><div class="stat-value">8</div><div class="stat-label">Lab Reports</div></div>
-    <div class="stat"><div class="stat-value">3</div><div class="stat-label">New Per Day</div></div>
-</div>
-<div class="container">
-    
-        <a href="./2026-04-05-sleek-analytics-real-time-visitor-tracking-with-one-line-of-code.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Sleek Analytics Real Time Visitor Tracking With One Line Of Code</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-05</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-05-parliai-crowdsource-ai-perspectives-before-you-decide.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Parliai Crowdsource Ai Perspectives Before You Decide</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-05</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-05-kilo-code-a-model-agnostic-coding-agent-worth-testing.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Kilo Code A Model Agnostic Coding Agent Worth Testing</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-05</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-05-influcio-let-an-ai-agent-run-your-influencer-campaigns-end-to-end.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Influcio Let An Ai Agent Run Your Influencer Campaigns End To End</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-05</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-05-chattee-build-full-stack-apps-through-conversation.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Chattee Build Full Stack Apps Through Conversation</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-05</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-04-superhuman39s-ai-triage-cuts-email-to-decision-only.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Superhuman39S Ai Triage Cuts Email To Decision Only</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-04</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-04-noiz-ai-text-to-voice-to-story-in-one-flow.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Noiz Ai Text To Voice To Story In One Flow</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-04</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-04-luzo-open-source-visual-debugger-for-multi-step-api-workflows.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Luzo Open Source Visual Debugger For Multi Step Api Workflows</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-04</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-</div>
+
+<section id="verdict" class="animate-in" style="scroll-margin-top:80px; max-width:900px; margin:48px auto 0; padding:0 24px;">
+  <div style="background:rgba(139,92,246,0.08); border:1px solid rgba(139,92,246,0.25); border-radius:12px; padding:28px 32px;">
+    <h2 style="color:#dae2fd; font-size:22px; font-weight:700; margin:0 0 12px;">
+      <span class="material-icons" style="vertical-align:middle; margin-right:8px; color:#8B5CF6;">gavel</span>The Verdict
+    </h2>
+    <p style="color:#c2c6d6; font-size:16px; line-height:1.7; margin:0;">Sleek Analytics is built for indie makers, solo founders, and small site owners who want to know what is happening on their site without wading through the labyrinth of Google Analytics 4. At $5/month with GDPR/CCPA compliance baked in and zero cookie banners, it removes real friction from the analytics workflow. If you need deep funnel analysis or event tracking, this is not the tool for you yet. But if you want a clean, live pulse on your traffic with minimal setup, Sleek delivers exactly that.</p>
+  </div>
+</section>
+
+<section id="pricing" class="animate-in" style="scroll-margin-top:80px; max-width:900px; margin:48px auto 0; padding:0 24px;">
+  <h2 style="color:#dae2fd; font-size:24px; font-weight:700; margin:0 0 8px;">Pricing</h2>
+  <p style="color:#8c909f; font-size:14px; margin:0 0 24px;">Simple, single-tier pricing. No usage traps.</p>
+  <div class="grid-2col" style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:28px;">
+      <p style="color:#8B5CF6; font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; margin:0 0 8px;">Standard</p>
+      <p style="color:#dae2fd; font-size:32px; font-weight:800; margin:0 0 4px;">$5<span style="font-size:16px; font-weight:400; color:#8c909f;">/month</span></p>
+      <p style="color:#8c909f; font-size:13px; margin:0 0 20px;">Locked in forever. No price increases.</p>
+      <ul style="list-style:none; padding:0; margin:0;">
+        <li style="color:#c2c6d6; font-size:14px; padding:6px 0; display:flex; align-items:center;"><span class="material-icons" style="font-size:18px; color:#8B5CF6; margin-right:10px;">check_circle</span>Live visitor tracking</li>
+        <li style="color:#c2c6d6; font-size:14px; padding:6px 0; display:flex; align-items:center;"><span class="material-icons" style="font-size:18px; color:#8B5CF6; margin-right:10px;">check_circle</span>No cookies required</li>
+        <li style="color:#c2c6d6; font-size:14px; padding:6px 0; display:flex; align-items:center;"><span class="material-icons" style="font-size:18px; color:#8B5CF6; margin-right:10px;">check_circle</span>One-line setup</li>
+        <li style="color:#c2c6d6; font-size:14px; padding:6px 0; display:flex; align-items:center;"><span class="material-icons" style="font-size:18px; color:#8B5CF6; margin-right:10px;">check_circle</span>Visitor profiles</li>
+        <li style="color:#c2c6d6; font-size:14px; padding:6px 0; display:flex; align-items:center;"><span class="material-icons" style="font-size:18px; color:#8B5CF6; margin-right:10px;">check_circle</span>Meaningful insights for low traffic</li>
+      </ul>
+    </div>
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:28px; display:flex; flex-direction:column; justify-content:center;">
+      <p style="color:#dae2fd; font-size:18px; font-weight:600; margin:0 0 12px;">How it compares</p>
+      <ul style="list-style:none; padding:0; margin:0;">
+        <li style="color:#c2c6d6; font-size:14px; padding:6px 0;"><strong style="color:#dae2fd;">Google Analytics:</strong> Free, but complex, cookie-dependent, and requires consent banners in the EU.</li>
+        <li style="color:#c2c6d6; font-size:14px; padding:6px 0;"><strong style="color:#dae2fd;">Plausible:</strong> $9/month for 10k pageviews. Privacy-focused, more mature feature set.</li>
+        <li style="color:#c2c6d6; font-size:14px; padding:6px 0;"><strong style="color:#dae2fd;">Fathom:</strong> $15/month for 100k pageviews. Enterprise-grade privacy analytics.</li>
+        <li style="color:#c2c6d6; font-size:14px; padding:6px 0;"><strong style="color:#dae2fd;">Sleek:</strong> $5/month flat. Simpler scope, but the cheapest privacy-first option with real-time focus.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="animate-in" style="scroll-margin-top:80px; max-width:900px; margin:48px auto 0; padding:0 24px;">
+  <h2 style="color:#dae2fd; font-size:24px; font-weight:700; margin:0 0 8px;">Key Features</h2>
+  <p style="color:#8c909f; font-size:14px; margin:0 0 24px;">What you actually get when you drop that script tag in.</p>
+  <div class="grid-2col" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+      <span class="material-icons" style="font-size:28px; color:#3B82F6; margin-bottom:12px; display:block;">visibility</span>
+      <h3 style="color:#dae2fd; font-size:16px; font-weight:600; margin:0 0 8px;">Real-Time Visitor Tracking</h3>
+      <p style="color:#8c909f; font-size:14px; line-height:1.6; margin:0;">See exactly who is on your site at any given moment. Not aggregated data from yesterday. Live, right now.</p>
+    </div>
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+      <span class="material-icons" style="font-size:28px; color:#3B82F6; margin-bottom:12px; display:block;">cookie</span>
+      <h3 style="color:#dae2fd; font-size:16px; font-weight:600; margin:0 0 8px;">No Cookies, No Banners</h3>
+      <p style="color:#8c909f; font-size:14px; line-height:1.6; margin:0;">Sleek operates without cookies entirely. That means no annoying consent popups and no compliance headaches for GDPR or CCPA.</p>
+    </div>
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+      <span class="material-icons" style="font-size:28px; color:#3B82F6; margin-bottom:12px; display:block;">code</span>
+      <h3 style="color:#dae2fd; font-size:16px; font-weight:600; margin:0 0 8px;">One-Line Integration</h3>
+      <p style="color:#8c909f; font-size:14px; line-height:1.6; margin:0;">A single script tag in your HTML. No npm packages, no build steps, no configuration files. Copy, paste, done.</p>
+    </div>
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+      <span class="material-icons" style="font-size:28px; color:#3B82F6; margin-bottom:12px; display:block;">person</span>
+      <h3 style="color:#dae2fd; font-size:16px; font-weight:600; margin:0 0 8px;">Visitor Profiles</h3>
+      <p style="color:#8c909f; font-size:14px; line-height:1.6; margin:0;">Individual visitor profiles give you context on returning users without relying on cookies or personally identifiable information.</p>
+    </div>
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+      <span class="material-icons" style="font-size:28px; color:#3B82F6; margin-bottom:12px; display:block;">speed</span>
+      <h3 style="color:#dae2fd; font-size:16px; font-weight:600; margin:0 0 8px;">Live Web Vitals</h3>
+      <p style="color:#8c909f; font-size:14px; line-height:1.6; margin:0;">Track Core Web Vitals in real time alongside your traffic data. Performance monitoring and analytics in one dashboard.</p>
+    </div>
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+      <span class="material-icons" style="font-size:28px; color:#3B82F6; margin-bottom:12px; display:block;">shield</span>
+      <h3 style="color:#dae2fd; font-size:16px; font-weight:600; margin:0 0 8px;">GDPR & CCPA Compliant</h3>
+      <p style="color:#8c909f; font-size:14px; line-height:1.6; margin:0;">Built from the ground up for privacy compliance. No personal data collection means no legal gray areas for your site.</p>
+    </div>
+  </div>
+</section>
+
+<section id="usecases" class="animate-in" style="scroll-margin-top:80px; max-width:900px; margin:48px auto 0; padding:0 24px;">
+  <h2 style="color:#dae2fd; font-size:24px; font-weight:700; margin:0 0 8px;">Who Should Use This</h2>
+  <p style="color:#8c909f; font-size:14px; margin:0 0 24px;">Sleek is not trying to replace enterprise analytics. It is targeting a specific audience, and it knows it.</p>
+  <div style="display:flex; flex-direction:column; gap:12px;">
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:20px 24px; display:flex; align-items:flex-start; gap:16px;">
+      <span class="material-icons" style="font-size:24px; color:#8B5CF6; flex-shrink:0; margin-top:2px;">rocket_launch</span>
+      <div>
+        <h3 style="color:#dae2fd; font-size:15px; font-weight:600; margin:0 0 4px;">Indie Makers & Solo Founders</h3>
+        <p style="color:#8c909f; font-size:14px; line-height:1.6; margin:0;">You launched a side project, a landing page, or a SaaS MVP. You want to know if anyone is actually visiting. GA4 feels like overkill. Sleek gives you the answer in seconds.</p>
+      </div>
+    </div>
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:20px 24px; display:flex; align-items:flex-start; gap:16px;">
+      <span class="material-icons" style="font-size:24px; color:#8B5CF6; flex-shrink:0; margin-top:2px;">storefront</span>
+      <div>
+        <h3 style="color:#dae2fd; font-size:15px; font-weight:600; margin:0 0 4px;">Small Business Owners</h3>
+        <p style="color:#8c909f; font-size:14px; line-height:1.6; margin:0;">Running a local business site or portfolio? You do not need conversion funnels. You need to know how many people visited today and where they came from. Sleek handles that cleanly.</p>
+      </div>
+    </div>
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:20px 24px; display:flex; align-items:flex-start; gap:16px;">
+      <span class="material-icons" style="font-size:24px; color:#8B5CF6; flex-shrink:0; margin-top:2px;">gavel</span>
+      <div>
+        <h3 style="color:#dae2fd; font-size:15px; font-weight:600; margin:0 0 4px;">Privacy-Conscious Developers</h3>
+        <p style="color:#8c909f; font-size:14px; line-height:1.6; margin:0;">If you are building in the EU or simply refuse to add cookie banners on principle, Sleek lets you track traffic without compromising on privacy compliance.</p>
+      </div>
+    </div>
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:20px 24px; display:flex; align-items:flex-start; gap:16px;">
+      <span class="material-icons" style="font-size:24px; color:#8B5CF6; flex-shrink:0; margin-top:2px;">campaign</span>
+      <div>
+        <h3 style="color:#dae2fd; font-size:15px; font-weight:600; margin:0 0 4px;">Marketers Running Launch Campaigns</h3>
+        <p style="color:#8c909f; font-size:14px; line-height:1.6; margin:0;">Launching on Product Hunt or Hacker News? The real-time dashboard lets you watch traffic spike live as your post gains traction. That immediate feedback loop is genuinely useful.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="limitations" class="animate-in" style="scroll-margin-top:80px; max-width:900px; margin:48px auto 0; padding:0 24px;">
+  <h2 style="color:#dae2fd; font-size:24px; font-weight:700; margin:0 0 8px;">Limitations</h2>
+  <p style="color:#8c909f; font-size:14px; margin:0 0 24px;">Where Sleek falls short. These are real gaps, not nitpicks.</p>
+  <div style="display:flex; flex-direction:column; gap:12px;">
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:20px 24px; display:flex; align-items:flex-start; gap:16px;">
+      <span class="material-icons" style="font-size:22px; color:#EF4444; flex-shrink:0; margin-top:2px;">block</span>
+      <div>
+        <h3 style="color:#dae2fd; font-size:15px; font-weight:600; margin:0 0 4px;">No Event Tracking</h3>
+        <p style="color:#8c909f; font-size:14px; line-height:1.6; margin:0;">You cannot track button clicks, form submissions, or custom events. If you need to measure conversions or user actions beyond pageviews, Sleek cannot do it yet. This is a significant gap for anyone doing product analytics.</p>
+      </div>
+    </div>
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:20px 24px; display:flex; align-items:flex-start; gap:16px;">
+      <span class="material-icons" style="font-size:22px; color:#EF4444; flex-shrink:0; margin-top:2px;">download</span>
+      <div>
+        <h3 style="color:#dae2fd; font-size:15px; font-weight:600; margin:0 0 4px;">No Data Export</h3>
+        <p style="color:#8c909f; font-size:14px; line-height:1.6; margin:0;">There is currently no way to export your analytics data as CSV, JSON, or through an API. Your data lives inside Sleek and stays there. For anyone who needs to pull numbers into spreadsheets or reporting tools, this is a blocker.</p>
+      </div>
+    </div>
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:20px 24px; display:flex; align-items:flex-start; gap:16px;">
+      <span class="material-icons" style="font-size:22px; color:#EF4444; flex-shrink:0; margin-top:2px;">construction</span>
+      <div>
+        <h3 style="color:#dae2fd; font-size:15px; font-weight:600; margin:0 0 4px;">Early-Stage Feature Set</h3>
+        <p style="color:#8c909f; font-size:14px; line-height:1.6; margin:0;">Sleek is still building out its feature set. Not all planned analytics capabilities are available at launch. You are betting on the roadmap, which is fine for a $5/month tool but worth knowing upfront.</p>
+      </div>
+    </div>
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:20px 24px; display:flex; align-items:flex-start; gap:16px;">
+      <span class="material-icons" style="font-size:22px; color:#EF4444; flex-shrink:0; margin-top:2px;">fingerprint</span>
+      <div>
+        <h3 style="color:#dae2fd; font-size:15px; font-weight:600; margin:0 0 4px;">Fingerprinting Compliance Questions</h3>
+        <p style="color:#8c909f; font-size:14px; line-height:1.6; margin:0;">Without cookies, Sleek likely relies on some form of browser fingerprinting for visitor profiles. The privacy compliance landscape around fingerprinting is evolving, and future regulations could affect how this works. Worth monitoring.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="animate-in" style="scroll-margin-top:80px; max-width:900px; margin:64px auto 0; padding:0 24px 80px; text-align:center;">
+  <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:40px 32px;">
+    <h2 style="color:#dae2fd; font-size:22px; font-weight:700; margin:0 0 8px;">Ready to try Sleek Analytics?</h2>
+    <p style="color:#8c909f; font-size:15px; margin:0 0 24px;">One script tag. Real-time data. $5/month forever.</p>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:16px;">
+      <a href="https://www.producthunt.com/products/sleek-analytics" target="_blank" rel="noopener" style="display:inline-block; padding:14px 40px; background:linear-gradient(135deg,#3B82F6,#8B5CF6); color:#fff; font-size:16px; font-weight:600; border-radius:999px; text-decoration:none;">Try It</a>
+      <div style="display:flex; gap:24px; flex-wrap:wrap; justify-content:center;">
+        <a href="../reviews/" style="color:#3B82F6; font-size:14px; text-decoration:none;">← Back to The Lab</a>
+        <a href="../morning-briefing-koda.html" style="color:#3B82F6; font-size:14px; text-decoration:none;">← Back to The Signal</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Subscribe CTA -->
 <section style="width:100%;padding:64px 24px">
     <div style="max-width:36rem;margin:0 auto;text-align:center">
         <div style="background:rgba(11,19,38,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:40px;position:relative;overflow:hidden">
@@ -297,6 +392,7 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
         </div>
     </div>
 </section>
+<!-- Footer -->
 <footer style="background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto">
     <div style="max-width:40rem;margin:0 auto;text-align:center;padding:64px 24px;position:relative">
         <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:500px;height:200px;background:linear-gradient(to top,rgba(139,92,246,0.04),transparent);border-radius:50%;filter:blur(48px);pointer-events:none"></div>
@@ -307,11 +403,11 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
             </div>
             <p style="color:#c2c6d6;font-size:14px;margin-bottom:32px">Read. Listen. Watch. Every morning.</p>
             <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:40px;flex-wrap:wrap">
-                <a href="../morning-briefing-koda.html" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color='#3B82F6'" onmouseout="this.style.color='#c2c6d6'"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+                <a href="../morning-briefing-koda.html" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em">The Signal</a>
                 <span style="color:rgba(140,144,159,0.3)">|</span>
-                <a href="../archive/" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color='#8B5CF6'" onmouseout="this.style.color='#c2c6d6'"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
+                <a href="../archive/" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em">The Vault</a>
                 <span style="color:rgba(140,144,159,0.3)">|</span>
-                <a href="https://www.youtube.com/channel/UC8qqiKRGFAd5SwTr_2ZzPJg" target="_blank" rel="noopener" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color='#EC4899'" onmouseout="this.style.color='#c2c6d6'">YouTube</a>
+                <a href="https://www.youtube.com/channel/UC8qqiKRGFAd5SwTr_2ZzPJg" target="_blank" rel="noopener" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em">YouTube</a>
             </div>
             <p style="font-size:11px;color:rgba(140,144,159,0.6)">&copy; 2026 Koda Community &middot; <span style="font-family:'JetBrains Mono',monospace">koda.community</span></p>
         </div>
@@ -344,11 +440,9 @@ function kodaSubscribe(form) {
 }
 </script>
 <script>
-// Scroll progress
-window.addEventListener('scroll',function(){var p=document.getElementById('scrollProgress');if(p){var h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=h>0?(window.scrollY/h*100)+'%':'0%'}});
-// Animate in
-var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add('visible')});},{threshold:0.1});
-document.querySelectorAll('.animate-in').forEach(function(el){obs.observe(el)});
+window.addEventListener("scroll",function(){var p=document.getElementById("scrollProgress");if(p){var h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=h>0?(window.scrollY/h*100)+"%":"0%"}});
+var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add("visible")});},{threshold:0.1});
+document.querySelectorAll(".animate-in").forEach(function(el){obs.observe(el)});
 </script>
 <!-- koda-nav-v2-js-start -->
 <script>
