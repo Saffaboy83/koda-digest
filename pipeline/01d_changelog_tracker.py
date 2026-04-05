@@ -37,7 +37,7 @@ def main():
     scrape_script = DIGEST_DIR / "changelog" / "scrape_changelog.py"
     result = subprocess.run(
         [sys.executable, str(scrape_script), "--date", args.date],
-        env=env, cwd=str(DIGEST_DIR), timeout=480,
+        env=env, cwd=str(DIGEST_DIR), timeout=900,
     )
     if result.returncode != 0:
         print("  ERROR: scrape_changelog.py failed")

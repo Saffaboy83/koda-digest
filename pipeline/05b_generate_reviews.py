@@ -221,6 +221,12 @@ def select_tools_for_review(
     - Not reviewed within the 30-day cooldown window
     - Prioritize tools with richer descriptions
     """
+    # Aggregator/directory domains that 408 on scrape (JS-heavy)
+    AGGREGATOR_DOMAINS = (
+        "producthunt.com", "theresanaiforthat.com", "futuretools.io",
+        "toolify.ai", "alternativeto.net", "g2.com", "capterra.com",
+    )
+
     candidates = []
     for tool in tools:
         url = tool.get("url", "").strip()
@@ -230,6 +236,10 @@ def select_tools_for_review(
         if not title:
             continue
         if any(known in title.lower() for known in WELL_KNOWN_TOOLS):
+            continue
+        # Skip aggregator/directory URLs (they 408 and aren't the actual tool)
+        if any(domain in url for domain in AGGREGATOR_DOMAINS):
+            print(f"    Skipping {title} (aggregator URL: {url})")
             continue
         if slugify(title) in recently_reviewed:
             print(f"    Skipping {title} (reviewed within {REVIEW_COOLDOWN_DAYS} days)")
@@ -300,7 +310,29 @@ def deep_scrape_tool(url: str, tool_name: str) -> dict:
     }
 
     if not data:
-        print(f"      Primary scrape failed")
+        print(f"      Primary scrape failed -- trying Firecrawl search fallback")
+        # Search fallback: find the tool's actual page and scrape basic info
+        try:
+            search_resp = httpx.post(
+                f"{FIRECRAWL_API_URL}/search",
+                json={"query": f"{tool_name} official site", "limit": 3,
+                      "scrapeOptions": {"formats": ["json"],
+                                        "jsonOptions": {"schema": REVIEW_EXTRACTION_SCHEMA,
+                                                        "prompt": f"Extract product info for {tool_name}"}}},
+                headers={"Authorization": f"Bearer {FIRECRAWL_API_KEY}",
+                         "Content-Type": "application/json"},
+                timeout=30,
+            )
+            search_resp.raise_for_status()
+            search_data = search_resp.json().get("data", [])
+            if search_data:
+                first = search_data[0]
+                result["structured"] = first.get("json", {})
+                result["url"] = first.get("url", url)
+                print(f"      Search fallback: got data from {result['url']}")
+                return result
+        except Exception as e:
+            print(f"      Search fallback also failed: {e}")
         return result
 
     result["structured"] = data.get("json", {})
