@@ -704,26 +704,6 @@ def main():
                 search_entries.append(entry)
                 review_count += 1
 
-    # --- Pricing (Token Tracker) ---
-    pricing_path = os.path.join(base_dir, "pricing", "data.json")
-    pricing_count = 0
-    if os.path.exists(pricing_path):
-        print("Parsing pricing/data.json...")
-        pricing_entries = build_pricing_entries(pricing_path)
-        search_entries.extend(pricing_entries)
-        pricing_count = sum(len(e["sections"]) for e in pricing_entries)
-        print(f"  {pricing_count} provider sections")
-
-    # --- Benchmarks (Leaderboard) ---
-    benchmarks_path = os.path.join(base_dir, "benchmarks", "data.json")
-    benchmark_count = 0
-    if os.path.exists(benchmarks_path):
-        print("Parsing benchmarks/data.json...")
-        benchmark_entries = build_benchmark_entries(benchmarks_path)
-        search_entries.extend(benchmark_entries)
-        benchmark_count = sum(len(e["sections"]) for e in benchmark_entries)
-        print(f"  {benchmark_count} benchmark sections")
-
     # --- Changelog (Pulse) ---
     changelog_path = os.path.join(base_dir, "changelog", "data.json")
     changelog_count = 0
@@ -733,19 +713,6 @@ def main():
         search_entries.extend(changelog_entries)
         changelog_count = len(changelog_entries)
         print(f"  {changelog_count} changelog entries")
-
-    # --- Dojo ---
-    dojo_count = 0
-    dojo_dir = os.path.join(base_dir, "dojo")
-    if os.path.isdir(dojo_dir):
-        for dojo_subdir in sorted(os.listdir(dojo_dir)):
-            data_path = os.path.join(dojo_dir, dojo_subdir, "data.json")
-            if os.path.isfile(data_path):
-                print(f"Parsing dojo/{dojo_subdir}/data.json...")
-                dojo_entries = build_dojo_entries(data_path)
-                search_entries.extend(dojo_entries)
-                dojo_count += len(dojo_entries)
-                print(f"  {len(dojo_entries)} dojo modules")
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -767,9 +734,7 @@ def main():
         json.dump(search_index, f, indent=2, ensure_ascii=False)
     print(f"Wrote {search_path} ({len(search_entries)} entries: "
           f"{len(manifest_entries)} digests, {len(editorial_entries)} editorials, "
-          f"{review_count} reviews, {pricing_count} pricing providers, "
-          f"{benchmark_count} benchmarks, {changelog_count} changelog, "
-          f"{dojo_count} dojo modules)")
+          f"{review_count} reviews, {changelog_count} changelog)")
 
 
 if __name__ == "__main__":

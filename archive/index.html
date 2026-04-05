@@ -410,6 +410,7 @@ body.kn-locked{overflow:hidden}
         var hits = [], entries = idx.entries || idx.days || [];
         for (var i = 0; i < entries.length; i++) {
             var en = entries[i], tp = en.type || 'digest', fl = en.file || ('morning-briefing-koda-' + en.date + '.html'), secs = en.sections || [];
+            if (tp !== 'digest' && tp !== 'editorial' && tp !== 'review' && tp !== 'changelog') continue;
             for (var j = 0; j < secs.length; j++) {
                 var sec = secs[j], items = sec.items || [];
                 for (var k = 0; k < items.length; k++) {
@@ -429,7 +430,7 @@ body.kn-locked{overflow:hidden}
         var h = '';
         for (var r = 0; r < hits.length; r++) {
             var rs = hits[r], sn = snippet(rs.text, terms[0], 80), sa = rs.anchor ? rs.anchor : (rs.type === 'digest' ? slug(rs.section) : ''), href = '../' + rs.file + (sa ? '#' + sa : '');
-            var TL = { digest: 'The Signal', editorial: 'Deep Dive', review: 'The Lab', pricing: 'Token Tracker', benchmark: 'Leaderboard', changelog: 'Pulse' };
+            var TL = { digest: 'The Signal', editorial: 'Deep Dive', review: 'The Lab', changelog: 'Pulse' };
             h += '<a href="' + href + '" class="sr-item" onclick="closeSearch()"><div class="sr-meta"><span class="sr-badge ' + rs.type + '">' + (TL[rs.type] || rs.type) + '</span><span class="sr-date">' + fmtDate(rs.date) + '</span><span class="sr-section">' + esc(rs.section) + '</span></div><div class="sr-headline">' + hilight(esc(rs.headline), terms) + '</div><div class="sr-snippet">' + hilight(sn, terms) + '</div></a>';
         }
         searchResults.innerHTML = h;
