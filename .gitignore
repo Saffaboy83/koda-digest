@@ -21,6 +21,9 @@ pipeline/data/
 .claude/launch.json
 .claude/settings.local.json
 .claude/*.local.json
+.claude/worktrees/
+.claude/scheduled_tasks.lock
+.claude/plans/
 test_write/
 _archive/
 editorial-podcast-*.mp3
