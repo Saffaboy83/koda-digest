@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-05T02:27:52Z",
+  "generated": "2026-04-05T03:07:51Z",
   "entries": [
     {
       "date": "2026-04-04",
@@ -6466,6 +6466,460 @@
             {
               "headline": "Check Permission Mode Settings",
               "text": "Review Claude Code settings for permission configurations:\n1. Check the current permission mode (default, allowlist, etc.)\n2. List all tools in the \"allowedTools\" array\n3. Flag any dangerous tools that are auto-allowed:\n   - Shell/Bash execution\n   - File write/delete operations\n   - Network request"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-cowork/index.html",
+      "title": "Module 1: What is Cowork (and When to Use It)",
+      "sections": [
+        {
+          "title": "Module 1: What is Cowork (and When to Use It)",
+          "anchor": "m1",
+          "items": [
+            {
+              "headline": "What is Cowork (and When to Use It)",
+              "text": "Understand the three Claude surfaces -- Chat, Cowork, and Code -- and learn when Cowork is the right tool for the job."
+            },
+            {
+              "headline": "Try Your First Cowork Task",
+              "text": "Create a file called \"hello-cowork.md\" in my work folder. Include:\n- Today's date\n- A one-paragraph summary of what Cowork can do\n- A bulleted list of 5 tasks I could delegate to Cowork this week\n- A section called \"Next Steps\" with links to learn more"
+            },
+            {
+              "headline": "Compare Chat vs Cowork Output",
+              "text": "I want to understand the difference between Chat and Cowork. For this task:\n1. Explain in 3 sentences what Chat would produce if I asked it to \"create a weekly meal plan\"\n2. Now actually create the meal plan as a formatted markdown file called \"meal-plan.md\" with 7 days, breakfast/lunch/dinner, and "
+            },
+            {
+              "headline": "Explore the Cowork Interface",
+              "text": "Give me a quick tour of the Cowork interface. Explain:\n1. Where do I type prompts?\n2. How do I see what files Cowork has created or modified?\n3. How do I access Settings to configure Cowork?\n4. How do I switch between Chat and Cowork mode?\n5. What does the activity feed show me?\n6. How do I stop a t"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-cowork/index.html",
+      "title": "Module 2: Setup and Configuration",
+      "sections": [
+        {
+          "title": "Module 2: Setup and Configuration",
+          "anchor": "m2",
+          "items": [
+            {
+              "headline": "Setup and Configuration",
+              "text": "Configure your Cowork environment with a dedicated work folder, global instructions, and context files that make Claude understand your world."
+            },
+            {
+              "headline": "Set Up Global Instructions",
+              "text": "Help me write my Global Instructions for Cowork. Ask me 5 questions about my role, preferences, and work style, then generate a complete Global Instructions block I can paste into Settings > Cowork > Edit. Include:\n- My name and role\n- My company and industry\n- Communication style preferences\n- Defa"
+            },
+            {
+              "headline": "Scaffold a Project Folder",
+              "text": "Create a complete Cowork project folder structure in my work directory. Include:\n1. A CLAUDE.md file with project-specific instructions (use a marketing campaign as the example project)\n2. A branding.md with placeholder sections for logo, colors, voice, and audience\n3. A memories.md with sections fo"
+            },
+            {
+              "headline": "Configure Context Files for Maximum Productivity",
+              "text": "I want to optimize my Cowork context for maximum productivity. Review my current work folder and:\n1. Check if CLAUDE.md exists -- if not, create one with best practices\n2. Check if branding.md exists -- if not, create one with my company details\n3. Check if memories.md exists -- if not, create one w"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-cowork/index.html",
+      "title": "Module 3: The Delegation Framework",
+      "sections": [
+        {
+          "title": "Module 3: The Delegation Framework",
+          "anchor": "m3",
+          "items": [
+            {
+              "headline": "The Delegation Framework",
+              "text": "Master the art of delegating to Cowork with end-state prompting, the three-question framework, and change log discipline."
+            },
+            {
+              "headline": "Delegate a File Organization Task",
+              "text": "Organize my Downloads folder. Here is what 'done' looks like:\n1. Scan all files in ~/Downloads (or C:\\Users\\[me]\\Downloads)\n2. Create subfolders by type: Documents/, Images/, Spreadsheets/, PDFs/, Archives/, Other/\n3. Move each file into the appropriate subfolder based on extension\n4. Create a manif"
+            },
+            {
+              "headline": "Write an End-State Prompt",
+              "text": "I need to write a client proposal but I am not sure how to prompt Cowork effectively. Help me build the prompt using the three-question framework:\n\n1. Ask me what 'done' looks like (deliverable format, sections, length)\n2. Ask me what context Claude needs (client name, project scope, pricing)\n3. Ask"
+            },
+            {
+              "headline": "Create a Delegation Template Library",
+              "text": "Create a file called delegation-templates.md with 10 reusable delegation templates for common knowledge work tasks. Each template should follow the three-question framework and include:\n- Task name\n- The 'done' state (exact deliverable description)\n- Required context (what files or info to provide)\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-cowork/index.html",
+      "title": "Module 4: File and Document Management",
+      "sections": [
+        {
+          "title": "Module 4: File and Document Management",
+          "anchor": "m4",
+          "items": [
+            {
+              "headline": "File and Document Management",
+              "text": "Use Cowork to sort, rename, batch process, and create professional documents -- Excel, PowerPoint, PDF, invoices, and more."
+            },
+            {
+              "headline": "Organize and Rename Files in Bulk",
+              "text": "I have a messy folder of client documents. Organize them:\n1. Scan all files in my references/ folder\n2. Rename each file to follow this convention: YYYY-MM-DD_ClientName_DocType.ext (extract dates from file content or modified date)\n3. Create subfolders by client name\n4. Move renamed files into the "
+            },
+            {
+              "headline": "Generate a Professional Invoice",
+              "text": "Create a professional invoice as a PDF. Details:\n- From: [My Company Name], [Address], [Email]\n- To: Acme Corp, 123 Business Ave, New York, NY 10001\n- Invoice #: INV-2026-042\n- Date: Today's date, Due: Net 30\n- Line items:\n  1. Strategy Consulting -- 20 hours @ $150/hr = $3,000\n  2. Market Research "
+            },
+            {
+              "headline": "Create a Budget Spreadsheet with Formulas",
+              "text": "Create an Excel spreadsheet called outputs/q2-budget.xlsx with:\n1. Sheet 1 \"Monthly Budget\": Columns for Category, April, May, June, Q2 Total. Rows for: Payroll, Marketing, Software, Travel, Office, Misc. Add SUM formulas for each month column and Q2 Total. Include sample data.\n2. Sheet 2 \"Actuals v"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-cowork/index.html",
+      "title": "Module 5: Skills System Mastery",
+      "sections": [
+        {
+          "title": "Module 5: Skills System Mastery",
+          "anchor": "m5",
+          "items": [
+            {
+              "headline": "Skills System Mastery",
+              "text": "Understand the skills system -- built-in skills, custom SKILL.md files, progressive disclosure, and skill stacking."
+            },
+            {
+              "headline": "Create Your First Custom Skill",
+              "text": "Create a custom Cowork skill that generates a weekly status update. The SKILL.md should:\n1. Have proper YAML frontmatter with name, description, and trigger conditions\n2. Accept inputs: project name, key accomplishments, blockers, next week's priorities\n3. Output a formatted markdown file with secti"
+            },
+            {
+              "headline": "Test a Built-in Skill",
+              "text": "I want to test the built-in PDF skill. Walk me through:\n1. How to invoke the PDF skill\n2. Create a simple 2-page PDF with: a title page (company name, report title, date) and a content page (3 sections with headers and body text)\n3. Save it as outputs/test-report.pdf\n4. Then show me how to read an e"
+            },
+            {
+              "headline": "Customize an Existing Skill",
+              "text": "Take the built-in morning briefing skill and customize it for my specific needs. I want a daily briefing that includes:\n1. Weather for my city (using web search)\n2. My top 3 calendar events today (using Calendar connector)\n3. Unread email summary -- senders and subjects only (using Gmail connector)\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-cowork/index.html",
+      "title": "Module 6: Connectors and Integrations",
+      "sections": [
+        {
+          "title": "Module 6: Connectors and Integrations",
+          "anchor": "m6",
+          "items": [
+            {
+              "headline": "Connectors and Integrations",
+              "text": "Connect Cowork to external services -- Gmail, Calendar, Slack, Notion, and 8000+ apps via Zapier MCP."
+            },
+            {
+              "headline": "Connect Gmail and Build an Email Summary",
+              "text": "I want to connect my Gmail to Cowork. Walk me through:\n1. How to enable the Gmail connector in Settings\n2. How to authenticate (what permissions are needed)\n3. Once connected, search my inbox for unread emails from the last 24 hours\n4. Create a summary file called outputs/email-summary.md with: send"
+            },
+            {
+              "headline": "Build a Morning Briefing with Multiple Connectors",
+              "text": "Create a comprehensive morning briefing using multiple connectors. Pull data from:\n1. Gmail: Count of unread emails, top 5 by sender importance\n2. Calendar: Today's meetings with times, attendees, and any prep notes\n3. Web search: Top 3 industry news headlines relevant to my field\n\nCombine everythin"
+            },
+            {
+              "headline": "Set Up Zapier MCP for a Niche Integration",
+              "text": "I want to connect Cowork to a tool that does not have a built-in connector (example: Airtable, Trello, or Asana). Walk me through:\n1. How to set up Zapier MCP as a connector\n2. How to authenticate Zapier with my target app\n3. Create a test workflow: when I say 'sync tasks', pull my open tasks from t"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-cowork/index.html",
+      "title": "Module 7: Plugins and Plugin Building",
+      "sections": [
+        {
+          "title": "Module 7: Plugins and Plugin Building",
+          "anchor": "m7",
+          "items": [
+            {
+              "headline": "Plugins and Plugin Building",
+              "text": "Install, customize, and build plugins -- bundles of skills, connectors, sub-agents, and slash commands packaged for distribution."
+            },
+            {
+              "headline": "Install and Explore a Plugin",
+              "text": "I want to explore the Cowork plugin ecosystem. Help me:\n1. Explain how to access the Plugin Marketplace\n2. Browse available plugins and recommend 3 that would be useful for a marketing professional\n3. Walk me through installing one plugin\n4. Show me how to list all installed plugins and their availa"
+            },
+            {
+              "headline": "Customize a Plugin for Your Workflow",
+              "text": "Take an installed plugin and customize it for my specific needs:\n1. List the skills and commands included in the plugin\n2. Identify which skill is closest to my use case but needs modification\n3. Fork the skill -- create a customized version that:\n   - Uses my company's branding (from branding.md)\n "
+            },
+            {
+              "headline": "Build a Simple Plugin from Scratch",
+              "text": "Build a 'Client Management' plugin from scratch. The plugin should include:\n1. A manifest.json with name, description, version, and dependencies\n2. Skill 1: client-research.md -- research a company using web search and produce a brief\n3. Skill 2: meeting-prep.md -- prepare for a client meeting using"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-cowork/index.html",
+      "title": "Module 8: Scheduled Tasks",
+      "sections": [
+        {
+          "title": "Module 8: Scheduled Tasks",
+          "anchor": "m8",
+          "items": [
+            {
+              "headline": "Scheduled Tasks",
+              "text": "Automate recurring work with scheduled tasks -- daily briefings, weekly reports, expense tracking, and more."
+            },
+            {
+              "headline": "Create a Daily Morning Briefing Task",
+              "text": "Set up a scheduled task that runs every weekday at 8:00 AM and produces a morning briefing. The task should:\n1. Check my email for unread messages (Gmail connector)\n2. List today's meetings (Calendar connector)\n3. Search for top 3 industry news headlines\n4. Save everything to outputs/briefing-[date]"
+            },
+            {
+              "headline": "Schedule Weekly Expense Scanning",
+              "text": "Create a scheduled task that runs every Friday at 5 PM and processes my expenses:\n1. Scan the references/receipts/ folder for new receipt images and PDFs\n2. Extract vendor, date, amount, and category from each receipt\n3. Append the data to outputs/expense-tracker.xlsx (create if it does not exist)\n4"
+            },
+            {
+              "headline": "Manage and Monitor Scheduled Tasks",
+              "text": "Help me manage my scheduled tasks:\n1. List all currently scheduled tasks with their schedules and last run times\n2. Check if any tasks failed on their last run -- show error details\n3. Pause a specific task temporarily (without deleting it)\n4. Create a monitoring dashboard file: outputs/task-dashboa"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-cowork/index.html",
+      "title": "Module 9: Projects and Memory",
+      "sections": [
+        {
+          "title": "Module 9: Projects and Memory",
+          "anchor": "m9",
+          "items": [
+            {
+              "headline": "Projects and Memory",
+              "text": "Use Projects for persistent workspaces with their own files, instructions, and memory that survive across sessions."
+            },
+            {
+              "headline": "Create a Project Workspace",
+              "text": "Set up a new project workspace for a product launch. Create:\n1. A project folder called 'product-launch-q2/'\n2. CLAUDE.md with: project name, launch date, team members, goals, constraints, and preferred output formats\n3. Subfolders: research/, content/, design/, approvals/, outputs/\n4. A memories.md"
+            },
+            {
+              "headline": "Set Up Project Memory for Cross-Session Persistence",
+              "text": "I want Cowork to remember context across sessions for my active project. Set up a memory system:\n1. Create a memories.md with structured sections: People (name, role, preferences), Decisions (date, decision, rationale), Context (ongoing situations, deadlines, dependencies), Lessons (what worked, wha"
+            },
+            {
+              "headline": "Build a Reference Library",
+              "text": "Create a comprehensive reference library for my project:\n1. Audit existing files in my project folder and identify potential reference materials\n2. Organize them into references/ with subfolders: brand/, competitors/, templates/, data/\n3. Create an index file: references/INDEX.md that catalogs every"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-cowork/index.html",
+      "title": "Module 10: Sub-agents and Parallel Work",
+      "sections": [
+        {
+          "title": "Module 10: Sub-agents and Parallel Work",
+          "anchor": "m10",
+          "items": [
+            {
+              "headline": "Sub-agents and Parallel Work",
+              "text": "Understand how Cowork spawns sub-agents to work in parallel, splitting tasks for dramatic speed improvements."
+            },
+            {
+              "headline": "Process Multiple Files in Parallel",
+              "text": "I have 5 client briefing documents in my references/ folder. Use sub-agents to process them in parallel:\n1. Spawn a sub-agent for each document\n2. Each sub-agent extracts: client name, key requirements, budget range, timeline, decision-makers\n3. Each sub-agent saves its output as a structured summar"
+            },
+            {
+              "headline": "Multi-Perspective Research with Sub-agents",
+              "text": "I need to research whether to adopt a new project management tool. Use sub-agents to research from 3 perspectives in parallel:\n\nSub-agent 1 (Feature Analyst): Compare features of Monday.com, Asana, and Linear. Create a feature matrix.\nSub-agent 2 (Cost Analyst): Compare pricing, hidden costs, and RO"
+            },
+            {
+              "headline": "Explicit Sub-agent Delegation",
+              "text": "I need to prepare for a board meeting next week. Use sub-agents to tackle these tasks in parallel:\n\nSub-agent 1: Create a financial summary from references/q1-financials.xlsx -- key metrics, trends, and variance analysis\nSub-agent 2: Create a competitive landscape update using web search -- top 3 co"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-cowork/index.html",
+      "title": "Module 11: Computer Use",
+      "sections": [
+        {
+          "title": "Module 11: Computer Use",
+          "anchor": "m11",
+          "items": [
+            {
+              "headline": "Computer Use",
+              "text": "Control desktop applications directly through screen interaction when APIs and connectors are not available."
+            },
+            {
+              "headline": "Enable and Test Computer Use",
+              "text": "I want to try Computer Use for the first time. Walk me through:\n1. How to enable Computer Use in Cowork settings\n2. What permissions it needs and what it can/cannot do\n3. A simple test: open my web browser, navigate to google.com, search for 'Claude Cowork tutorial', and take a screenshot of the res"
+            },
+            {
+              "headline": "Automate a Desktop Application Task",
+              "text": "Use Computer Use to automate a task in a desktop application:\n1. Open my default spreadsheet application (Excel or Google Sheets in browser)\n2. Create a new spreadsheet\n3. Add a header row: Date, Task, Hours, Status\n4. Add 5 sample rows of timesheet data\n5. Apply basic formatting: bold headers, alte"
+            },
+            {
+              "headline": "Compare Connector vs Computer Use Approaches",
+              "text": "For the same task (checking my calendar and listing today's meetings), run it two ways:\n\nApproach 1 (Connector): Use the Calendar connector to pull today's events via API. Time it.\nApproach 2 (Computer Use): Open Google Calendar in a browser, read the screen, and extract today's events visually. Tim"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-cowork/index.html",
+      "title": "Module 12: Dispatch and Remote Control",
+      "sections": [
+        {
+          "title": "Module 12: Dispatch and Remote Control",
+          "anchor": "m12",
+          "items": [
+            {
+              "headline": "Dispatch and Remote Control",
+              "text": "Assign tasks from your phone to your desktop -- fire-and-forget workflows with Dispatch."
+            },
+            {
+              "headline": "Set Up Dispatch and Pair Your Phone",
+              "text": "Walk me through setting up Dispatch:\n1. Where to find Dispatch settings in Claude Desktop\n2. How to generate the QR code for pairing\n3. How to scan and pair from my phone\n4. A test task: from my phone, send 'Create a file called dispatch-test.md with today's date and the text: Dispatch is working!'\n"
+            },
+            {
+              "headline": "Assign a Task from Mobile",
+              "text": "I am away from my desk and need to prepare for a meeting in 2 hours. From my phone via Dispatch, assign these tasks:\n1. Check my calendar for the meeting details (attendees, agenda)\n2. Search my email for any recent threads with the attendees\n3. Create a meeting prep document with: attendee profiles"
+            },
+            {
+              "headline": "Build a Remote Workflow Library",
+              "text": "Create a library of 10 Dispatch-optimized prompts I can fire from my phone. Each prompt should:\n1. Be short enough to type on a phone (under 50 words)\n2. Produce a useful deliverable on my desktop\n3. Work without any follow-up interaction (true fire-and-forget)\n\nCategories: Morning routine (3), Meet"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-cowork/index.html",
+      "title": "Module 13: Advanced Skill Engineering",
+      "sections": [
+        {
+          "title": "Module 13: Advanced Skill Engineering",
+          "anchor": "m13",
+          "items": [
+            {
+              "headline": "Advanced Skill Engineering",
+              "text": "Apply Anthropic's official skill building patterns to create production-grade skills across three categories: document creation, workflow automation, and MCP enhancement."
+            },
+            {
+              "headline": "Build a Category 1 Skill: Document Creation",
+              "text": "Build a production-grade document creation skill: a 'Proposal Generator' that takes a client name, project scope, and budget range, then produces a polished PDF proposal. The SKILL.md should include:\n1. Input validation (reject missing fields with clear error messages)\n2. Template structure (cover p"
+            },
+            {
+              "headline": "Build a Category 3 Skill: MCP Enhancement",
+              "text": "Build an MCP Enhancement skill that wraps the Gmail connector with intelligent email triage. The skill should:\n1. Pull unread emails from the last 24 hours (Gmail connector)\n2. Classify each email: Urgent, Action Required, FYI, Newsletter, Spam\n3. For Urgent emails: draft a quick response and flag f"
+            },
+            {
+              "headline": "Test and Iterate a Skill",
+              "text": "Take one of my existing custom skills and put it through a rigorous testing and iteration cycle:\n1. Run the skill with normal inputs -- document the output quality (1-10)\n2. Run with edge cases: empty inputs, very long inputs, malformed data\n3. Run with failure conditions: missing reference files, d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-cowork/index.html",
+      "title": "Module 14: Power User Workflows",
+      "sections": [
+        {
+          "title": "Module 14: Power User Workflows",
+          "anchor": "m14",
+          "items": [
+            {
+              "headline": "Power User Workflows",
+              "text": "Build real-world production workflows -- business OS dashboards, content pipelines, research synthesis, contract review, and email triage automation."
+            },
+            {
+              "headline": "Build a Business OS Dashboard",
+              "text": "Create a visual map of my entire Cowork automation system. Produce a file called outputs/business-os.md that includes:\n1. Inventory: List all my installed skills, active connectors, and scheduled tasks\n2. Data Flow Map: Show how data flows between components (email -> triage -> tasks -> reports)\n3. "
+            },
+            {
+              "headline": "Build a Content Repurposing Pipeline",
+              "text": "I have a blog post in references/latest-blog.md. Build a content repurposing pipeline that produces:\n1. A LinkedIn post (professional tone, 150-200 words, with a hook and CTA)\n2. A Twitter/X thread (5-7 tweets, punchy, with numbered format)\n3. An email newsletter section (3 paragraphs, conversationa"
+            },
+            {
+              "headline": "Automate Email Triage",
+              "text": "Build a complete email triage automation:\n1. Connect to Gmail and pull unread emails from the last 12 hours\n2. Classify each email: Urgent (needs response today), Action (needs response this week), FYI (informational), Newsletter (content to digest), Noise (can be archived)\n3. For Urgent: draft a re"
+            },
+            {
+              "headline": "Research Synthesis from Multiple Sources",
+              "text": "I need to research 'AI adoption in mid-market B2B companies' using multiple sources. Build a synthesis workflow:\n1. Web search: Find 5 recent articles and reports on the topic\n2. Extract key findings from each source with citations\n3. Cross-reference findings: which claims appear in multiple sources"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "dojo",
+      "file": "dojo/claude-cowork/index.html",
+      "title": "Module 15: Safety, Limits, and Optimization",
+      "sections": [
+        {
+          "title": "Module 15: Safety, Limits, and Optimization",
+          "anchor": "m15",
+          "items": [
+            {
+              "headline": "Safety, Limits, and Optimization",
+              "text": "Manage credits, understand safety boundaries, troubleshoot common issues, and optimize your Cowork setup for maximum efficiency."
+            },
+            {
+              "headline": "Audit Your Safety Settings",
+              "text": "Run a safety audit of my Cowork configuration:\n1. Check what folders Cowork has access to -- are any sensitive folders exposed?\n2. Review installed connectors -- are any granted more permissions than needed?\n3. Check if any scheduled tasks could cause data loss (file deletion, overwriting)\n4. Verify"
+            },
+            {
+              "headline": "Optimize Credit Usage",
+              "text": "Help me optimize my Cowork credit usage:\n1. Review my recent task history -- which tasks consumed the most credits?\n2. Identify patterns: am I re-reading the same files repeatedly? Are my prompts too verbose?\n3. Suggest 5 specific changes to reduce credit consumption by 30%+\n4. Create an optimized v"
+            },
+            {
+              "headline": "Build a Safety and Troubleshooting Guide",
+              "text": "Create a comprehensive troubleshooting guide for my Cowork setup:\n1. Common issues and fixes: session loss, connector failures, skill not loading, file access errors, Computer Use failures\n2. Safety best practices: folder access, credential management, deletion protection, change log review\n3. Perfo"
             }
           ]
         }

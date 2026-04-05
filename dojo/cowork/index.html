@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude Cowork Dojo | Koda Intelligence</title>
+<meta name="description" content="15 modules. 46 prompts. Your complete training ground for mastering Claude Cowork, from setup to advanced autonomous desktop workflows.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0b1326;color:#dae2fd;min-height:100vh;overflow-x:hidden}
+a{color:inherit}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;display:inline-block;vertical-align:middle}
+
+/* ── Koda Nav V2 ── */
+.kn-topbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(11,19,38,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.kn-topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.kn-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;flex-shrink:0}
+.kn-brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0}
+.kn-brand-text{font-size:14px;font-weight:700;color:#3B82F6}
+.kn-brand-sub{font-size:10px;color:#8c909f;display:none}
+@media(min-width:640px){.kn-brand-sub{display:block}}
+.kn-links{display:none;align-items:center;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;flex:1;justify-content:center}
+@media(min-width:769px){.kn-links{display:flex}}
+.kn-link{font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 8px;border-radius:6px;text-decoration:none;transition:all 0.2s;white-space:nowrap;color:#8c909f;background:rgba(255,255,255,0.04)}
+.kn-link:hover{color:#dae2fd;background:rgba(255,255,255,0.08)}
+.kn-link-active{color:#3B82F6!important;background:rgba(59,130,246,0.12)!important;border-bottom:2px solid #3B82F6}
+.kn-link .material-symbols-outlined{font-size:13px;vertical-align:-2px;margin-right:2px}
+.kn-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.kn-action-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s;text-decoration:none}
+.kn-action-btn:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
+.kn-action-btn .material-symbols-outlined{font-size:20px}
+.kn-hamburger{display:flex}
+@media(min-width:769px){.kn-hamburger{display:none}}
+.kn-desktop-social{display:none;align-items:center;gap:4px}
+@media(min-width:769px){.kn-desktop-social{display:flex}}
+.kn-home{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white!important;font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 10px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all 0.2s}
+.kn-home:hover{box-shadow:0 4px 16px rgba(59,130,246,0.3)}
+.kn-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1001;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s}
+.kn-overlay.kn-open{opacity:1;visibility:visible}
+.kn-drawer{position:fixed;top:0;right:0;bottom:0;width:min(280px,85vw);background:rgba(11,19,38,0.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-left:1px solid rgba(173,198,255,0.1);z-index:1002;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.kn-drawer.kn-open{transform:translateX(0)}
+@media(prefers-reduced-motion:reduce){.kn-overlay,.kn-drawer,.animate-in{transition-duration:0.01ms!important}}
+.kn-drawer-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.kn-drawer-brand{display:flex;align-items:center;gap:10px}
+.kn-drawer-close{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s}
+.kn-drawer-close:hover{background:rgba(239,68,68,0.15);color:#EF4444}
+.kn-drawer-section{padding:12px 20px 4px;font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#6b7280}
+.kn-drawer-divider{height:1px;background:rgba(255,255,255,0.06);margin:8px 20px}
+.kn-drawer-link{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:#c2c6d6;font-size:14px;font-weight:500;transition:all 0.2s;border-left:3px solid transparent}
+.kn-drawer-link:hover{background:rgba(255,255,255,0.04);color:#dae2fd}
+.kn-drawer-link-active{color:#3B82F6!important;border-left-color:#3B82F6;background:rgba(59,130,246,0.08)}
+.kn-drawer-link .material-symbols-outlined{font-size:20px;color:#6b7280;flex-shrink:0}
+.kn-drawer-link-active .material-symbols-outlined{color:#3B82F6}
+.kn-drawer-home{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:white;font-size:14px;font-weight:600;border-left:3px solid transparent;transition:all 0.2s}
+.kn-drawer-home:hover{background:rgba(59,130,246,0.1)}
+.kn-drawer-home .material-symbols-outlined{font-size:20px;color:#3B82F6}
+.kn-drawer-social{display:flex;gap:8px;padding:12px 20px}
+.kn-drawer-social a,.kn-drawer-social button{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;text-decoration:none;transition:all 0.2s}
+.kn-drawer-social a:hover,.kn-drawer-social button:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
+body.kn-locked{overflow:hidden}
+/* ── End Nav V2 ── */
+
+/* ── Scroll progress ── */
+.scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,#3B82F6,#8B5CF6);z-index:1001;transition:width 0.1s linear;pointer-events:none}
+
+/* ── Hero ── */
+.hero{padding:100px 24px 32px;text-align:center;background:radial-gradient(ellipse 80% 50% at 20% 60%,rgba(139,92,246,0.12) 0%,transparent 100%),radial-gradient(ellipse 60% 40% at 80% 30%,rgba(59,130,246,0.08) 0%,transparent 100%)}
+.hero-overline{font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:#8c909f;margin-bottom:12px}
+.hero h1{font-size:clamp(28px,5vw,48px);font-weight:900;background:linear-gradient(135deg,#3B82F6 0%,#8B5CF6 50%,#EC4899 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.02em;margin-bottom:8px}
+.hero p{color:#c2c6d6;font-size:15px;max-width:600px;margin:0 auto}
+
+/* ── KPI strip ── */
+.kpi-strip{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;padding:0 24px;margin-bottom:16px}
+.kpi-card{background:rgba(23,31,51,0.4);backdrop-filter:blur(20px);border:1px solid rgba(173,198,255,0.1);border-radius:12px;padding:16px 24px;text-align:center;min-width:120px}
+.kpi-value{font-size:24px;font-weight:800;color:#dae2fd}
+.kpi-label{font-size:11px;color:#8c909f;margin-top:2px;text-transform:uppercase;letter-spacing:0.05em}
+
+/* ── Progress bar ── */
+.progress-wrap{max-width:640px;margin:0 auto 40px;padding:0 24px}
+.progress-bar{width:100%;height:8px;border-radius:4px;background:rgba(255,255,255,0.06);overflow:hidden}
+.progress-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#10B981,#F59E0B,#8B5CF6);transition:width 0.5s cubic-bezier(0.16,1,0.3,1)}
+
+/* ── Container ── */
+.container{max-width:1080px;margin:0 auto;padding:0 24px 64px}
+
+/* ── Belt section headers ── */
+.belt-section{margin-bottom:40px}
+.belt-header{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:10px;margin-bottom:16px}
+.belt-header-white{border-left:3px solid #10B981;background:rgba(16,185,129,0.04)}
+.belt-header-brown{border-left:3px solid #F59E0B;background:rgba(245,158,11,0.04)}
+.belt-header-black{border-left:3px solid #8B5CF6;background:rgba(139,92,246,0.04)}
+.belt-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:9999px;font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;text-transform:uppercase;letter-spacing:0.08em}
+.belt-badge-white{background:rgba(16,185,129,0.12);color:#34d399}
+.belt-badge-brown{background:rgba(245,158,11,0.12);color:#fbbf24}
+.belt-badge-black{background:rgba(139,92,246,0.12);color:#a78bfa}
+.belt-title{font-size:16px;font-weight:700;flex:1}
+.belt-count{font-size:12px;color:#8c909f;font-family:'JetBrains Mono',monospace}
+
+/* ── Module card grid ── */
+.module-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:1024px){.module-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.module-grid{grid-template-columns:1fr}}
+
+.module-card{background:rgba(23,31,51,0.4);backdrop-filter:blur(20px);border:1px solid rgba(173,198,255,0.1);border-radius:12px;padding:20px;cursor:pointer;transition:all 0.2s;text-decoration:none;display:block}
+.module-card:hover{border-color:rgba(59,130,246,0.3);transform:translateY(-2px)}
+.module-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.module-num{font-size:14px;font-family:'JetBrains Mono',monospace;font-weight:700;opacity:0.4}
+.module-card-title{font-size:16px;font-weight:700;margin-bottom:6px;color:#dae2fd}
+.module-card-desc{font-size:13px;color:#8c909f;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.module-card-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+.module-time{font-size:11px;font-family:'JetBrains Mono',monospace;color:#8c909f;display:flex;align-items:center;gap:4px}
+.module-time .material-symbols-outlined{font-size:14px}
+.module-check{width:20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.module-check-done{border-color:#10B981;background:rgba(16,185,129,0.15)}
+.module-check-done .material-symbols-outlined{font-size:14px;color:#10B981}
+
+/* ── Capstone cards ── */
+.capstone-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px}
+@media(max-width:1024px){.capstone-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.capstone-grid{grid-template-columns:1fr}}
+.capstone-card{background:rgba(23,31,51,0.4);backdrop-filter:blur(20px);border:1px solid rgba(173,198,255,0.1);border-radius:12px;padding:20px}
+.capstone-title{font-size:16px;font-weight:700;margin:8px 0 6px}
+.capstone-desc{font-size:13px;color:#8c909f;line-height:1.5;margin-bottom:12px}
+.capstone-tasks{list-style:none;padding:0}
+.capstone-tasks li{font-size:12px;color:#c2c6d6;padding:4px 0;display:flex;align-items:flex-start;gap:6px}
+.capstone-tasks li::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;margin-top:6px;flex-shrink:0}
+.capstone-white li::before{background:#10B981}
+.capstone-brown li::before{background:#F59E0B}
+.capstone-black li::before{background:#8B5CF6}
+
+/* ── Module detail: sticky subnav ── */
+.module-nav{position:sticky;top:56px;z-index:40;background:rgba(11,19,38,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);padding:0 20px}
+.module-nav-inner{max-width:1080px;margin:0 auto;height:48px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mn-back{display:flex;align-items:center;gap:4px;font-size:12px;font-family:'JetBrains Mono',monospace;font-weight:700;color:#8c909f;cursor:pointer;background:none;border:none;transition:color 0.2s;text-decoration:none;flex-shrink:0}
+.mn-back:hover{color:#3B82F6}
+.mn-back .material-symbols-outlined{font-size:16px}
+.mn-title{font-size:13px;font-weight:600;color:#dae2fd;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;text-align:center;min-width:0}
+.mn-arrows{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.mn-arrow{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s;text-decoration:none}
+.mn-arrow:hover:not(:disabled){background:rgba(59,130,246,0.15);color:#3B82F6}
+.mn-arrow:disabled{opacity:0.3;cursor:default}
+.mn-arrow .material-symbols-outlined{font-size:18px}
+.mn-counter{font-size:11px;font-family:'JetBrains Mono',monospace;color:#8c909f;white-space:nowrap}
+
+/* ── Module detail content ── */
+.detail-wrap{max-width:800px;margin:0 auto;padding:24px 24px 64px}
+.detail-header{margin-bottom:32px}
+.detail-meta{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.detail-title{font-size:clamp(24px,4vw,36px);font-weight:800;letter-spacing:-0.02em;color:#dae2fd;margin-bottom:8px}
+.detail-time{font-size:12px;font-family:'JetBrains Mono',monospace;color:#8c909f;display:flex;align-items:center;gap:4px}
+.detail-time .material-symbols-outlined{font-size:16px}
+
+/* ── Prerequisites card ── */
+.prereq-card{border-left:3px solid #3B82F6;background:rgba(59,130,246,0.06);border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:32px}
+.prereq-label{font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#3B82F6;margin-bottom:6px}
+.prereq-text{font-size:14px;color:#c2c6d6;line-height:1.6}
+
+/* ── Concepts ── */
+.concepts-section{margin-bottom:32px}
+.section-heading{font-size:18px;font-weight:700;margin-bottom:16px;color:#dae2fd}
+.concept-card{border-left:3px solid #6366F1;background:rgba(99,102,241,0.06);border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:12px}
+.concept-title{font-size:16px;font-weight:700;margin-bottom:6px;color:#dae2fd}
+.concept-body{font-size:14px;color:#c2c6d6;line-height:1.7}
+
+/* ── Prompts ── */
+.prompts-section{margin-bottom:32px}
+.prompt-card{background:rgba(23,31,51,0.4);backdrop-filter:blur(20px);border:1px solid rgba(173,198,255,0.1);border-radius:12px;padding:20px;margin-bottom:14px}
+.prompt-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px}
+.prompt-label{font-size:14px;font-weight:700;color:#dae2fd}
+.difficulty-badge{font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:3px 10px;border-radius:9999px;text-transform:uppercase;letter-spacing:0.08em}
+.diff-beginner{background:rgba(16,185,129,0.12);color:#34d399}
+.diff-intermediate{background:rgba(245,158,11,0.12);color:#fbbf24}
+.diff-advanced{background:rgba(139,92,246,0.12);color:#a78bfa}
+.code-block-wrap{position:relative;margin-bottom:10px}
+.code-block{background:rgba(0,0,0,0.3);border-radius:8px;padding:16px;padding-right:48px;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.6;color:#c2c6d6;white-space:pre-wrap;word-break:break-word;overflow-x:auto}
+.copy-btn{position:absolute;top:8px;right:8px;display:flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;background:rgba(255,255,255,0.08);color:#8c909f;border:none;cursor:pointer;font-size:11px;font-family:'JetBrains Mono',monospace;transition:all 0.2s}
+.copy-btn:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
+.copy-btn .material-symbols-outlined{font-size:14px}
+.expected-outcome{font-size:13px;color:#8c909f;font-style:italic;line-height:1.5}
+
+/* ── Pro Tip ── */
+.protip-card{border-left:3px solid #F59E0B;background:rgba(245,158,11,0.06);border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:32px}
+.protip-label{display:flex;align-items:center;gap:6px;font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#F59E0B;margin-bottom:6px}
+.protip-label .material-symbols-outlined{font-size:16px}
+.protip-text{font-size:14px;color:#c2c6d6;line-height:1.6}
+
+/* ── Key Takeaways ── */
+.takeaways-section{margin-bottom:32px}
+.takeaway-item{display:flex;align-items:flex-start;gap:8px;padding:6px 0;font-size:14px;color:#c2c6d6;line-height:1.5}
+.takeaway-item .material-symbols-outlined{font-size:18px;color:#10B981;flex-shrink:0;margin-top:2px}
+
+/* ── Action buttons ── */
+.detail-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn-primary{display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:10px;font-size:13px;font-family:'Inter',sans-serif;font-weight:700;border:none;cursor:pointer;transition:all 0.2s}
+.btn-primary-fill{background:linear-gradient(135deg,#3B82F6,#8B5CF6);color:white}
+.btn-primary-fill:hover{box-shadow:0 4px 16px rgba(59,130,246,0.3)}
+.btn-primary-outline{background:transparent;border:1px solid rgba(173,198,255,0.2);color:#c2c6d6}
+.btn-primary-outline:hover{border-color:rgba(59,130,246,0.4);color:#3B82F6}
+.btn-done{background:rgba(16,185,129,0.15)!important;color:#34d399!important;border:1px solid rgba(16,185,129,0.3)!important}
+.btn-primary .material-symbols-outlined{font-size:16px}
+
+/* ── Footer ── */
+.site-footer{background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto}
+.footer-inner{max-width:40rem;margin:0 auto;text-align:center;padding:64px 24px;position:relative}
+.footer-glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:500px;height:200px;background:linear-gradient(to top,rgba(139,92,246,0.04),transparent);border-radius:50%;filter:blur(48px);pointer-events:none}
+.footer-content{position:relative;z-index:1}
+.footer-brand{display:inline-flex;align-items:center;gap:12px;margin-bottom:24px}
+.footer-brand-icon{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;box-shadow:0 4px 12px rgba(139,92,246,0.2)}
+.footer-brand-text{font-size:18px;font-weight:700;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-links{display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+.footer-link{font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s}
+.footer-link:hover{color:#3B82F6}
+.footer-sep{color:rgba(140,144,159,0.3)}
+
+/* ── Animate ── */
+.animate-in{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.animate-in.visible{opacity:1;transform:translateY(0)}
+
+/* ── View toggle ── */
+.view-overview,.view-detail{display:none}
+.view-overview.active,.view-detail.active{display:block}
+</style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- koda-nav-v2-start -->
+<header class="kn-topbar" id="knTopbar">
+<div class="kn-topbar-inner">
+    <a href="../../index.html" class="kn-brand">
+        <div class="kn-brand-icon">K</div>
+        <div>
+            <div class="kn-brand-text">Koda Intelligence</div>
+            <div class="kn-brand-sub"><span class="material-symbols-outlined" style="font-size:11px;vertical-align:-1px;margin-right:2px">school</span>The Dojo</div>
+        </div>
+    </a>
+    <div class="kn-links">
+        <a href="../../morning-briefing-koda.html" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+        <a href="../../editorial/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">explore</span>Deep Dive</a>
+        <a href="../../pricing/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">monitoring</span>Token Tracker</a>
+        <a href="../../benchmarks/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">trophy</span>Leaderboard</a>
+        <a href="../../reviews/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">science</span>The Lab</a>
+        <a href="./" class="kn-link kn-link-active"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">school</span>The Dojo</a>
+        <a href="../../changelog/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">pulse_alert</span>Pulse</a>
+        <a href="../../archive/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
+        <a href="../../index.html" class="kn-home">&larr; Home</a>
+    </div>
+    <div class="kn-actions">
+        <div class="kn-desktop-social">
+            <a href="https://x.com/intent/tweet?url=https://www.koda.community/dojo/cowork/" target="_blank" rel="noopener" class="kn-action-btn" title="Share on X">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/dojo/cowork/" target="_blank" rel="noopener" class="kn-action-btn" title="Share on LinkedIn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <button class="kn-action-btn" onclick="navigator.clipboard.writeText(window.location.href);this.style.color='#10B981';setTimeout(()=>this.style.color='',1500)" title="Copy link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            </button>
+        </div>
+        <button class="kn-action-btn kn-hamburger" id="knMenuBtn" title="Menu" aria-label="Open menu" aria-expanded="false">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </div>
+</div>
+</header>
+
+<div class="kn-overlay" id="knOverlay"></div>
+
+<nav class="kn-drawer" id="knDrawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="kn-drawer-header">
+        <div class="kn-drawer-brand">
+            <div class="kn-brand-icon">K</div>
+            <span class="kn-brand-text">Koda</span>
+        </div>
+        <button class="kn-drawer-close" id="knDrawerClose" aria-label="Close menu">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+    <div class="kn-drawer-section">Navigate</div>
+    <a href="../../index.html" class="kn-drawer-home"><span class="material-symbols-outlined">home</span>Home</a>
+    <a href="../../morning-briefing-koda.html" class="kn-drawer-link"><span class="material-symbols-outlined">bolt</span>The Signal</a>
+    <a href="../../editorial/" class="kn-drawer-link"><span class="material-symbols-outlined">explore</span>Deep Dive</a>
+    <a href="../../pricing/" class="kn-drawer-link"><span class="material-symbols-outlined">monitoring</span>Token Tracker</a>
+    <a href="../../benchmarks/" class="kn-drawer-link"><span class="material-symbols-outlined">trophy</span>Leaderboard</a>
+    <a href="../../reviews/" class="kn-drawer-link"><span class="material-symbols-outlined">science</span>The Lab</a>
+    <a href="./" class="kn-drawer-link kn-drawer-link-active"><span class="material-symbols-outlined">school</span>The Dojo</a>
+    <a href="../../changelog/" class="kn-drawer-link"><span class="material-symbols-outlined">pulse_alert</span>Pulse</a>
+    <a href="../../archive/" class="kn-drawer-link"><span class="material-symbols-outlined">lock_open</span>The Vault</a>
+    <div class="kn-drawer-divider"></div>
+    <div class="kn-drawer-section">Share</div>
+    <div class="kn-drawer-social">
+        <a href="https://x.com/intent/tweet?url=https://www.koda.community/dojo/cowork/" target="_blank" rel="noopener" title="Share on X">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/dojo/cowork/" target="_blank" rel="noopener" title="Share on LinkedIn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <button onclick="navigator.clipboard.writeText(window.location.href);this.style.color='#10B981';setTimeout(()=>this.style.color='',1500)" title="Copy link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        </button>
+    </div>
+</nav>
+<!-- koda-nav-v2-end -->
+
+<!-- ═══ OVERVIEW MODE ═══ -->
+<div class="view-overview" id="viewOverview">
+    <section class="hero animate-in">
+        <div class="hero-overline">WHITE BELT TO BLACK BELT</div>
+        <h1>Claude Cowork Dojo</h1>
+        <p>15 modules. 46 prompts. Your complete training ground.</p>
+    </section>
+
+    <div class="kpi-strip animate-in">
+        <div class="kpi-card">
+            <div class="kpi-value" id="kpiCompleted">0 / 15</div>
+            <div class="kpi-label">Completed</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value" id="kpiPrompts">49</div>
+            <div class="kpi-label">Total Prompts</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value" id="kpiBelt">White</div>
+            <div class="kpi-label">Belt Progress</div>
+        </div>
+    </div>
+
+    <div class="progress-wrap animate-in">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    </div>
+
+    <div class="container" id="overviewContainer"></div>
+</div>
+
+<!-- ═══ DETAIL MODE ═══ -->
+<div class="view-detail" id="viewDetail">
+    <div class="module-nav" id="moduleNav">
+        <div class="module-nav-inner">
+            <a href="#overview" class="mn-back"><span class="material-symbols-outlined">arrow_back</span>All Modules</a>
+            <div class="mn-title" id="mnTitle"></div>
+            <div class="mn-arrows">
+                <button class="mn-arrow" id="mnPrev" title="Previous module"><span class="material-symbols-outlined">chevron_left</span></button>
+                <span class="mn-counter" id="mnCounter"></span>
+                <button class="mn-arrow" id="mnNext" title="Next module"><span class="material-symbols-outlined">chevron_right</span></button>
+            </div>
+        </div>
+    </div>
+    <div class="detail-wrap" id="detailContent"></div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-glow"></div>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-brand-icon">K</div>
+                <span class="footer-brand-text">Koda Intelligence</span>
+            </div>
+            <p style="color:#c2c6d6;font-size:14px;margin-bottom:32px">Read. Listen. Watch. Every morning.</p>
+            <div class="footer-links">
+                <a href="../../morning-briefing-koda.html" class="footer-link"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+                <span class="footer-sep">|</span>
+                <a href="../../archive/" class="footer-link"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
+                <span class="footer-sep">|</span>
+                <a href="https://www.youtube.com/channel/UC8qqiKRGFAd5SwTr_2ZzPJg" target="_blank" rel="noopener" class="footer-link">YouTube</a>
+            </div>
+            <p style="font-size:11px;color:rgba(140,144,159,0.6)">&copy; 2026 Koda Community &middot; <span style="font-family:'JetBrains Mono',monospace">koda.community</span></p>
+        </div>
+    </div>
+</footer>
+
+<!-- koda-nav-v2-js-start -->
+<script>
+(function(){
+    var btn=document.getElementById('knMenuBtn'),
+        drawer=document.getElementById('knDrawer'),
+        overlay=document.getElementById('knOverlay'),
+        closeBtn=document.getElementById('knDrawerClose');
+    function open(){
+        drawer.classList.add('kn-open');
+        overlay.classList.add('kn-open');
+        document.body.classList.add('kn-locked');
+        btn.setAttribute('aria-expanded','true');
+        closeBtn.focus();
+    }
+    function close(){
+        drawer.classList.remove('kn-open');
+        overlay.classList.remove('kn-open');
+        document.body.classList.remove('kn-locked');
+        btn.setAttribute('aria-expanded','false');
+        btn.focus();
+    }
+    if(btn) btn.addEventListener('click',open);
+    if(closeBtn) closeBtn.addEventListener('click',close);
+    if(overlay) overlay.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){
+        if(e.key==='Escape' && drawer.classList.contains('kn-open')) close();
+    });
+})();
+</script>
+<!-- koda-nav-v2-js-end -->
+
+<!-- ═══ APPLICATION JS ═══ -->
+<script>
+(function(){
+    'use strict';
+
+    var STORAGE_KEY = 'koda-dojo-cowork-progress';
+    var dojoData = null;
+    var currentModuleIndex = -1;
+
+    /* ── Progress helpers ── */
+    function getProgress(){
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+        catch(e){ return []; }
+    }
+    function setProgress(id){
+        var p = getProgress();
+        if(p.indexOf(id) === -1) p.push(id);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
+        updateKPIs();
+    }
+    function removeProgress(id){
+        var p = getProgress().filter(function(x){ return x !== id; });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
+        updateKPIs();
+    }
+    function isCompleted(id){ return getProgress().indexOf(id) !== -1; }
+
+    function getBeltLevel(count){
+        if(count >= 11) return 'Black';
+        if(count >= 6) return 'Brown';
+        return 'White';
+    }
+
+    function updateKPIs(){
+        if(!dojoData) return;
+        var total = dojoData.modules.length;
+        var done = getProgress().filter(function(id){
+            return dojoData.modules.some(function(m){ return m.id === id; });
+        }).length;
+        var el1 = document.getElementById('kpiCompleted');
+        var el2 = document.getElementById('kpiPrompts');
+        var el3 = document.getElementById('kpiBelt');
+        var fill = document.getElementById('progressFill');
+        if(el1) el1.textContent = done + ' / ' + total;
+        if(el2) el2.textContent = dojoData.metadata.totalPrompts || 49;
+        if(el3) el3.textContent = getBeltLevel(done);
+        if(fill) fill.style.width = (total > 0 ? (done / total * 100) : 0) + '%';
+    }
+
+    /* ── Belt grouping ── */
+    var beltConfig = {
+        white: { label: 'White Belt', css: 'white', border: '#10B981' },
+        brown: { label: 'Brown Belt', css: 'brown', border: '#F59E0B' },
+        black: { label: 'Black Belt', css: 'black', border: '#8B5CF6' }
+    };
+
+    function groupByBelt(modules){
+        var groups = { white: [], brown: [], black: [] };
+        modules.forEach(function(m){ if(groups[m.belt]) groups[m.belt].push(m); });
+        return groups;
+    }
+
+    /* ── Escape HTML ── */
+    function esc(s){ var d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+
+    /* ── Render overview ── */
+    function renderOverview(){
+        if(!dojoData) return;
+        var c = document.getElementById('overviewContainer');
+        var html = '';
+        var groups = groupByBelt(dojoData.modules);
+        var beltOrder = ['white','brown','black'];
+
+        beltOrder.forEach(function(belt){
+            var mods = groups[belt];
+            if(!mods || mods.length === 0) return;
+            var cfg = beltConfig[belt];
+            var doneCount = mods.filter(function(m){ return isCompleted(m.id); }).length;
+
+            html += '<div class="belt-section animate-in">';
+            html += '<div class="belt-header belt-header-' + cfg.css + '">';
+            html += '<span class="belt-badge belt-badge-' + cfg.css + '">' + cfg.label + '</span>';
+            html += '<span class="belt-count">' + doneCount + '/' + mods.length + ' completed</span>';
+            html += '</div>';
+            html += '<div class="module-grid">';
+
+            mods.forEach(function(m){
+                var done = isCompleted(m.id);
+                html += '<a href="#' + m.id + '" class="module-card">';
+                html += '<div class="module-card-top">';
+                html += '<span class="module-num">' + String(m.number).padStart(2,'0') + '</span>';
+                html += '<span class="belt-badge belt-badge-' + cfg.css + '">' + cfg.label + '</span>';
+                html += '</div>';
+                html += '<div class="module-card-title">' + esc(m.title) + '</div>';
+                html += '<div class="module-card-desc">' + esc(m.description) + '</div>';
+                html += '<div class="module-card-bottom">';
+                html += '<span class="module-time"><span class="material-symbols-outlined">schedule</span>~' + m.estimatedMinutes + ' min</span>';
+                if(done){
+                    html += '<span class="module-check module-check-done"><span class="material-symbols-outlined">check</span></span>';
+                } else {
+                    html += '<span class="module-check"></span>';
+                }
+                html += '</div></a>';
+            });
+
+            html += '</div></div>';
+        });
+
+        /* Capstones */
+        if(dojoData.capstones && dojoData.capstones.length > 0){
+            html += '<div class="animate-in"><div class="section-heading" style="margin-top:24px;margin-bottom:16px">Capstone Projects</div>';
+            html += '<div class="capstone-grid">';
+            dojoData.capstones.forEach(function(cap){
+                var cfg = beltConfig[cap.belt] || beltConfig.white;
+                html += '<div class="capstone-card" style="border-top:3px solid ' + cfg.border + '">';
+                html += '<span class="belt-badge belt-badge-' + cfg.css + '">' + cfg.label + '</span>';
+                html += '<div class="capstone-title">' + esc(cap.title) + '</div>';
+                html += '<div class="capstone-desc">' + esc(cap.description) + '</div>';
+                if(cap.tasks && cap.tasks.length > 0){
+                    html += '<ul class="capstone-tasks capstone-' + cfg.css + '">';
+                    cap.tasks.forEach(function(t){ html += '<li>' + esc(t) + '</li>'; });
+                    html += '</ul>';
+                }
+                html += '</div>';
+            });
+            html += '</div></div>';
+        }
+
+        c.innerHTML = html;
+        observeAnimations();
+    }
+
+    /* ── Render module detail ── */
+    function renderModule(idx){
+        if(!dojoData || idx < 0 || idx >= dojoData.modules.length) return;
+        var m = dojoData.modules[idx];
+        currentModuleIndex = idx;
+        var total = dojoData.modules.length;
+        var cfg = beltConfig[m.belt] || beltConfig.white;
+        var done = isCompleted(m.id);
+
+        /* Subnav */
+        document.getElementById('mnTitle').textContent = m.title;
+        document.getElementById('mnCounter').textContent = (idx + 1) + '/' + total;
+        var prevBtn = document.getElementById('mnPrev');
+        var nextBtn = document.getElementById('mnNext');
+        prevBtn.disabled = (idx === 0);
+        nextBtn.disabled = (idx === total - 1);
+
+        /* Content */
+        var html = '';
+
+        /* Header */
+        html += '<div class="detail-header">';
+        html += '<div class="detail-meta">';
+        html += '<span class="module-num">Module ' + m.number + '</span>';
+        html += '<span class="belt-badge belt-badge-' + cfg.css + '">' + cfg.label + '</span>';
+        html += '</div>';
+        html += '<div class="detail-title">' + esc(m.title) + '</div>';
+        html += '<span class="detail-time"><span class="material-symbols-outlined">schedule</span>~' + m.estimatedMinutes + ' min</span>';
+        html += '</div>';
+
+        /* Prerequisites */
+        if(m.prerequisites){
+            html += '<div class="prereq-card">';
+            html += '<div class="prereq-label">Prerequisites</div>';
+            html += '<div class="prereq-text">' + esc(m.prerequisites) + '</div>';
+            html += '</div>';
+        }
+
+        /* Concepts */
+        if(m.concepts && m.concepts.length > 0){
+            html += '<div class="concepts-section">';
+            html += '<div class="section-heading">Key Concepts</div>';
+            m.concepts.forEach(function(c){
+                html += '<div class="concept-card">';
+                html += '<div class="concept-title">' + esc(c.title) + '</div>';
+                html += '<div class="concept-body">' + esc(c.body) + '</div>';
+                html += '</div>';
+            });
+            html += '</div>';
+        }
+
+        /* Prompts */
+        if(m.prompts && m.prompts.length > 0){
+            html += '<div class="prompts-section">';
+            html += '<div class="section-heading">Hands-on Prompts</div>';
+            m.prompts.forEach(function(p, pi){
+                var diffClass = 'diff-beginner';
+                if(p.difficulty === 'Intermediate') diffClass = 'diff-intermediate';
+                if(p.difficulty === 'Advanced') diffClass = 'diff-advanced';
+
+                html += '<div class="prompt-card">';
+                html += '<div class="prompt-header">';
+                html += '<span class="prompt-label">' + esc(p.label) + '</span>';
+                html += '<span class="difficulty-badge ' + diffClass + '">' + esc(p.difficulty) + '</span>';
+                html += '</div>';
+                html += '<div class="code-block-wrap">';
+                html += '<pre class="code-block" id="prompt-' + m.id + '-' + pi + '">' + esc(p.prompt) + '</pre>';
+                html += '<button class="copy-btn" data-target="prompt-' + m.id + '-' + pi + '" onclick="copyPrompt(this)"><span class="material-symbols-outlined">content_copy</span>Copy</button>';
+                html += '</div>';
+                if(p.expectedOutcome){
+                    html += '<div class="expected-outcome"><strong>Expected outcome:</strong> ' + esc(p.expectedOutcome) + '</div>';
+                }
+                html += '</div>';
+            });
+            html += '</div>';
+        }
+
+        /* Pro Tip */
+        if(m.proTip){
+            html += '<div class="protip-card">';
+            html += '<div class="protip-label"><span class="material-symbols-outlined">lightbulb</span>Pro Tip</div>';
+            html += '<div class="protip-text">' + esc(m.proTip) + '</div>';
+            html += '</div>';
+        }
+
+        /* Key Takeaways */
+        if(m.takeaways && m.takeaways.length > 0){
+            html += '<div class="takeaways-section">';
+            html += '<div class="section-heading">Key Takeaways</div>';
+            m.takeaways.forEach(function(t){
+                html += '<div class="takeaway-item"><span class="material-symbols-outlined">check_circle</span><span>' + esc(t) + '</span></div>';
+            });
+            html += '</div>';
+        }
+
+        /* Action buttons */
+        html += '<div class="detail-actions">';
+        if(done){
+            html += '<button class="btn-primary btn-done" id="btnMark" onclick="toggleComplete(\'' + m.id + '\')"><span class="material-symbols-outlined">check_circle</span>Completed</button>';
+        } else {
+            html += '<button class="btn-primary btn-primary-fill" id="btnMark" onclick="toggleComplete(\'' + m.id + '\')"><span class="material-symbols-outlined">check_circle</span>Mark as Complete</button>';
+        }
+        if(idx < total - 1){
+            html += '<a href="#' + dojoData.modules[idx + 1].id + '" class="btn-primary btn-primary-outline"><span>Next Module</span><span class="material-symbols-outlined">arrow_forward</span></a>';
+        }
+        html += '</div>';
+
+        document.getElementById('detailContent').innerHTML = html;
+    }
+
+    /* ── Copy to clipboard (global) ── */
+    window.copyPrompt = function(btn){
+        var targetId = btn.getAttribute('data-target');
+        var el = document.getElementById(targetId);
+        if(!el) return;
+        var text = el.textContent;
+        navigator.clipboard.writeText(text).then(function(){
+            btn.innerHTML = '<span class="material-symbols-outlined">check</span>Copied!';
+            btn.style.color = '#10B981';
+            setTimeout(function(){
+                btn.innerHTML = '<span class="material-symbols-outlined">content_copy</span>Copy';
+                btn.style.color = '';
+            }, 2000);
+        }).catch(function(){
+            /* Fallback for older browsers */
+            var ta = document.createElement('textarea');
+            ta.value = text; ta.style.position='fixed'; ta.style.left='-9999px';
+            document.body.appendChild(ta); ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            btn.innerHTML = '<span class="material-symbols-outlined">check</span>Copied!';
+            btn.style.color = '#10B981';
+            setTimeout(function(){
+                btn.innerHTML = '<span class="material-symbols-outlined">content_copy</span>Copy';
+                btn.style.color = '';
+            }, 2000);
+        });
+    };
+
+    /* ── Toggle complete (global) ── */
+    window.toggleComplete = function(id){
+        if(isCompleted(id)){
+            removeProgress(id);
+        } else {
+            setProgress(id);
+        }
+        /* Re-render both views to reflect state */
+        renderOverview();
+        if(currentModuleIndex >= 0) renderModule(currentModuleIndex);
+    };
+
+    /* ── View switching ── */
+    function showOverview(){
+        document.getElementById('viewOverview').classList.add('active');
+        document.getElementById('viewDetail').classList.remove('active');
+        renderOverview();
+        updateKPIs();
+    }
+
+    function showModule(id){
+        if(!dojoData) return;
+        var idx = -1;
+        dojoData.modules.forEach(function(m, i){ if(m.id === id) idx = i; });
+        if(idx === -1){ showOverview(); return; }
+
+        document.getElementById('viewDetail').classList.add('active');
+        document.getElementById('viewOverview').classList.remove('active');
+        renderModule(idx);
+    }
+
+    /* ── Hash routing ── */
+    function handleHash(){
+        var hash = window.location.hash.replace('#','');
+        if(!hash || hash === 'overview'){
+            showOverview();
+            window.scrollTo(0,0);
+        } else if(hash.match(/^m\d+$/)){
+            showModule(hash);
+            window.scrollTo(0,0);
+        } else {
+            showOverview();
+        }
+    }
+
+    window.addEventListener('hashchange', handleHash);
+
+    /* ── Subnav prev/next ── */
+    document.getElementById('mnPrev').addEventListener('click', function(){
+        if(!dojoData || currentModuleIndex <= 0) return;
+        window.location.hash = '#' + dojoData.modules[currentModuleIndex - 1].id;
+    });
+    document.getElementById('mnNext').addEventListener('click', function(){
+        if(!dojoData || currentModuleIndex >= dojoData.modules.length - 1) return;
+        window.location.hash = '#' + dojoData.modules[currentModuleIndex + 1].id;
+    });
+
+    /* ── Keyboard navigation ── */
+    document.addEventListener('keydown', function(e){
+        /* Skip if user is typing in an input */
+        if(e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        /* Only handle in detail mode */
+        if(!document.getElementById('viewDetail').classList.contains('active')) return;
+
+        if(e.key === 'ArrowLeft' && currentModuleIndex > 0){
+            e.preventDefault();
+            window.location.hash = '#' + dojoData.modules[currentModuleIndex - 1].id;
+        }
+        if(e.key === 'ArrowRight' && dojoData && currentModuleIndex < dojoData.modules.length - 1){
+            e.preventDefault();
+            window.location.hash = '#' + dojoData.modules[currentModuleIndex + 1].id;
+        }
+        if(e.key === 'Escape'){
+            e.preventDefault();
+            window.location.hash = '#overview';
+        }
+    });
+
+    /* ── Scroll progress ── */
+    window.addEventListener('scroll', function(){
+        var p = document.getElementById('scrollProgress');
+        if(!p) return;
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        p.style.width = h > 0 ? (window.scrollY / h * 100) + '%' : '0%';
+    });
+
+    /* ── Scroll animations ── */
+    function observeAnimations(){
+        var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if(prefersReduced){
+            document.querySelectorAll('.animate-in').forEach(function(el){ el.classList.add('visible'); });
+            return;
+        }
+        var obs = new IntersectionObserver(function(entries){
+            entries.forEach(function(en){ if(en.isIntersecting) en.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-in:not(.visible)').forEach(function(el){ obs.observe(el); });
+    }
+
+    /* ── Init ── */
+    document.addEventListener('DOMContentLoaded', function(){
+        fetch('data.json')
+            .then(function(r){ return r.json(); })
+            .then(function(data){
+                dojoData = data;
+                updateKPIs();
+                handleHash();
+                observeAnimations();
+            })
+            .catch(function(err){
+                console.error('Failed to load data.json:', err);
+                document.getElementById('overviewContainer').innerHTML =
+                    '<div style="text-align:center;padding:60px 24px;color:#8c909f">' +
+                    '<span class="material-symbols-outlined" style="font-size:48px;display:block;margin-bottom:12px;opacity:0.3">error</span>' +
+                    '<p>Failed to load training data. Check that data.json is available.</p></div>';
+                document.getElementById('viewOverview').classList.add('active');
+            });
+    });
+
+})();
+</script>
+</body>
+</html>

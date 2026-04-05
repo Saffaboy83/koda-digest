@@ -1,0 +1,972 @@
+{
+  "metadata": {
+    "name": "claude-cowork-dojo",
+    "description": "Interactive learning path for mastering Claude Cowork -- the autonomous desktop agent for knowledge workers. Covers setup, delegation, file management, skills, connectors, plugins, scheduled tasks, projects, sub-agents, computer use, dispatch, advanced skill engineering, power user workflows, and optimization.",
+    "version": "1.0.0",
+    "lastUpdated": "2026-04-04",
+    "refreshCadence": "weekly",
+    "totalModules": 15,
+    "totalPrompts": 46,
+    "sourceFiles": [
+      "Jack Roberts Full Course (1:05:18, 77K views)",
+      "Brock Mesarich 15 Skills Tutorial (88K views)",
+      "findskill.ai Comprehensive Guide",
+      "Karo Zieminski 50+ Power User Tips",
+      "Anthropic Official Skill Building Guide (32 pages)",
+      "Claude Help Center Official Docs",
+      "o-mega.ai Ultimate Autonomous Desktop Guide"
+    ]
+  },
+  "modules": [
+    {
+      "id": "m1",
+      "number": 1,
+      "title": "What is Cowork (and When to Use It)",
+      "belt": "white",
+      "estimatedMinutes": 15,
+      "description": "Understand the three Claude surfaces -- Chat, Cowork, and Code -- and learn when Cowork is the right tool for the job.",
+      "keyConcepts": ["Chat vs Cowork vs Code", "autonomous workflows", "file access", "sub-agents", "deliverables", "VM sandbox"],
+      "prerequisites": "A Claude Pro ($20/mo), Max, or Team subscription. Claude Desktop app installed.",
+      "concepts": [
+        {
+          "title": "Three Surfaces, Three Jobs",
+          "body": "Chat is for questions and conversation -- you get answers in text. Cowork is for workflows and deliverables -- you get files, reports, and automated outputs. Code is for software development -- you get commits, PRs, and tested code. Cowork sits in the middle: it has file access, sub-agents, and tool use, but it is designed for knowledge workers, not developers."
+        },
+        {
+          "title": "How Cowork Differs From Chat",
+          "body": "Cowork can read and write files on your machine, spawn sub-agents to work in parallel, use connectors (Gmail, Calendar, Slack, Notion), run skills (reusable instruction sets), and produce tangible deliverables (spreadsheets, PDFs, presentations). Chat can only produce text responses. If your task ends with a file or an action, Cowork is the right surface."
+        },
+        {
+          "title": "The VM Sandbox Model",
+          "body": "Cowork runs inside a sandboxed virtual machine on your desktop. It can access files in your designated work folder but cannot reach system files, install software, or run arbitrary code outside the sandbox. This is a safety feature: Cowork is powerful but contained. Your files stay local -- nothing is uploaded to the cloud unless you explicitly use a connector."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "1.1",
+          "label": "Try Your First Cowork Task",
+          "difficulty": "Beginner",
+          "prompt": "Create a file called \"hello-cowork.md\" in my work folder. Include:\n- Today's date\n- A one-paragraph summary of what Cowork can do\n- A bulleted list of 5 tasks I could delegate to Cowork this week\n- A section called \"Next Steps\" with links to learn more",
+          "expectedOutcome": "A markdown file is created in your work folder, demonstrating that Cowork can create and write files -- something Chat cannot do."
+        },
+        {
+          "id": "1.2",
+          "label": "Compare Chat vs Cowork Output",
+          "difficulty": "Beginner",
+          "prompt": "I want to understand the difference between Chat and Cowork. For this task:\n1. Explain in 3 sentences what Chat would produce if I asked it to \"create a weekly meal plan\"\n2. Now actually create the meal plan as a formatted markdown file called \"meal-plan.md\" with 7 days, breakfast/lunch/dinner, and a grocery list at the bottom\n3. At the end, note which parts only Cowork could do (the file creation, the formatting, the deliverable)",
+          "expectedOutcome": "A tangible meal plan file plus a clear explanation of why Cowork was needed -- demonstrating the deliverable vs conversation distinction."
+        },
+        {
+          "id": "1.3",
+          "label": "Explore the Cowork Interface",
+          "difficulty": "Beginner",
+          "prompt": "Give me a quick tour of the Cowork interface. Explain:\n1. Where do I type prompts?\n2. How do I see what files Cowork has created or modified?\n3. How do I access Settings to configure Cowork?\n4. How do I switch between Chat and Cowork mode?\n5. What does the activity feed show me?\n6. How do I stop a task that is running too long?",
+          "expectedOutcome": "A concise orientation guide to the Cowork interface, helping new users navigate confidently."
+        }
+      ],
+      "proTip": "If your task ends with a question mark, use Chat. If it ends with a file, a report, or an action taken on your behalf, use Cowork.",
+      "takeaways": [
+        "Chat answers questions, Cowork produces deliverables, Code writes software",
+        "Cowork has file access, sub-agents, connectors, and skills that Chat does not",
+        "The VM sandbox keeps your system safe while giving Cowork controlled file access",
+        "Default to Cowork whenever the output is a file, spreadsheet, email, or automated workflow"
+      ]
+    },
+    {
+      "id": "m2",
+      "number": 2,
+      "title": "Setup and Configuration",
+      "belt": "white",
+      "estimatedMinutes": 25,
+      "description": "Configure your Cowork environment with a dedicated work folder, global instructions, and context files that make Claude understand your world.",
+      "keyConcepts": ["work folder", "global instructions", "CLAUDE.md", "context files", "folder structure", "pricing plans"],
+      "prerequisites": "Module 1 completed. Claude Desktop app installed with Pro ($20/mo), Max, or Team plan.",
+      "concepts": [
+        {
+          "title": "The Dedicated Work Folder",
+          "body": "Never point Cowork at your Documents or Desktop folder. Create a dedicated folder (e.g., ~/CoworkSpace or C:\\CoworkSpace) with a clear structure. This becomes Cowork's workspace -- everything it reads and writes lives here. A clean folder structure is the single biggest predictor of Cowork productivity."
+        },
+        {
+          "title": "Global Instructions",
+          "body": "Go to Settings > Cowork > Edit Global Instructions. This is text that Cowork reads at the start of every session. Put your name, role, company, communication preferences, and recurring context here. Think of it as your permanent briefing to an executive assistant. Example: 'I am Sarah, VP of Marketing at Acme Corp. I prefer bullet points over paragraphs. Always save files in markdown format.'"
+        },
+        {
+          "title": "Context Files: CLAUDE.md and Friends",
+          "body": "Drop these files in your work folder root: CLAUDE.md (project-specific instructions), branding.md (logos, colors, voice guidelines), memories.md (things Cowork should remember across sessions). Cowork reads these automatically. They are your persistent memory system -- the more specific, the better the output."
+        },
+        {
+          "title": "The Scaffold: Folder Structure",
+          "body": "A well-organized folder structure tells Cowork where to find and put things. Recommended: thoughts/ (brainstorming, drafts), ideas/ (concepts in progress), todo/ (active tasks), outputs/ (finished deliverables), done/ (archived completed work), references/ (source materials, brand guides, templates). Cowork navigates this structure and files outputs in the right place."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "2.1",
+          "label": "Set Up Global Instructions",
+          "difficulty": "Beginner",
+          "prompt": "Help me write my Global Instructions for Cowork. Ask me 5 questions about my role, preferences, and work style, then generate a complete Global Instructions block I can paste into Settings > Cowork > Edit. Include:\n- My name and role\n- My company and industry\n- Communication style preferences\n- Default file formats\n- Any recurring context (tools I use, people I work with, projects I manage)",
+          "expectedOutcome": "A ready-to-paste Global Instructions block tailored to your specific role and preferences."
+        },
+        {
+          "id": "2.2",
+          "label": "Scaffold a Project Folder",
+          "difficulty": "Beginner",
+          "prompt": "Create a complete Cowork project folder structure in my work directory. Include:\n1. A CLAUDE.md file with project-specific instructions (use a marketing campaign as the example project)\n2. A branding.md with placeholder sections for logo, colors, voice, and audience\n3. A memories.md with sections for people, decisions, and lessons learned\n4. Empty folders: thoughts/, ideas/, todo/, outputs/, done/, references/\n5. A README.md explaining what each folder is for\n\nMake each file have real, useful starter content -- not just headers.",
+          "expectedOutcome": "A fully scaffolded project folder with populated context files, ready for productive Cowork sessions."
+        },
+        {
+          "id": "2.3",
+          "label": "Configure Context Files for Maximum Productivity",
+          "difficulty": "Intermediate",
+          "prompt": "I want to optimize my Cowork context for maximum productivity. Review my current work folder and:\n1. Check if CLAUDE.md exists -- if not, create one with best practices\n2. Check if branding.md exists -- if not, create one with my company details\n3. Check if memories.md exists -- if not, create one with starter sections\n4. Audit the folder structure -- suggest improvements\n5. Create a checklist of the top 10 things that should be in my context files\n6. Score my current setup out of 10 and explain how to reach a 9 or 10",
+          "expectedOutcome": "A complete context audit with created or improved files and a scored rubric for measuring setup quality."
+        }
+      ],
+      "proTip": "The quality of Cowork's output is directly proportional to the quality of your context files. Spend 30 minutes setting up CLAUDE.md properly and you will save hours every week.",
+      "takeaways": [
+        "Always use a dedicated work folder -- never point Cowork at Documents or Desktop",
+        "Global Instructions persist across all sessions and set your permanent context",
+        "CLAUDE.md, branding.md, and memories.md are your persistent memory system",
+        "A clear folder structure (thoughts, ideas, todo, outputs, done, references) guides Cowork's file organization"
+      ]
+    },
+    {
+      "id": "m3",
+      "number": 3,
+      "title": "The Delegation Framework",
+      "belt": "white",
+      "estimatedMinutes": 20,
+      "description": "Master the art of delegating to Cowork with end-state prompting, the three-question framework, and change log discipline.",
+      "keyConcepts": ["end-state prompting", "three-question framework", "change logs", "delegation templates", "dummy files", "source tracing"],
+      "prerequisites": "Module 2 completed. Work folder set up with context files.",
+      "concepts": [
+        {
+          "title": "The Three-Question Framework",
+          "body": "Before every Cowork task, answer three questions: (1) What does 'done' look like? Describe the exact output -- file name, format, sections, length. (2) What context does Claude need? Point to reference files, examples, brand guides. (3) What constraints can it not guess? Deadlines, audience, tone, things to avoid. These three answers are your prompt."
+        },
+        {
+          "title": "End-State Prompting",
+          "body": "Vague instructions produce vague results. Instead of 'write a report about our Q1 results,' say 'Create a file called q1-report.md with: (1) Executive summary (3 sentences), (2) Revenue table with Q1 vs Q4 comparison, (3) Top 3 wins, (4) Top 3 risks, (5) Recommended actions. Use data from references/q1-data.csv. Tone: professional, concise. Length: under 500 words.' The more specific your end-state, the better the output."
+        },
+        {
+          "title": "Always Ask for a Change Log",
+          "body": "Add 'Include a change log at the end listing every file you created, modified, or deleted' to your prompts. This gives you an audit trail of exactly what Cowork did. Without it, you are trusting blindly. The change log is your receipt -- review it every time."
+        },
+        {
+          "title": "Delegation Tips: Dummy Files and Source Tracing",
+          "body": "Create dummy files (empty templates with headers) before delegating. This shows Cowork the exact structure you want. Source tracing: ask Cowork to cite which reference files it used for each section. Token tracking: ask Cowork to estimate how many tokens the task consumed so you can optimize future prompts."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "3.1",
+          "label": "Delegate a File Organization Task",
+          "difficulty": "Beginner",
+          "prompt": "Organize my Downloads folder. Here is what 'done' looks like:\n1. Scan all files in ~/Downloads (or C:\\Users\\[me]\\Downloads)\n2. Create subfolders by type: Documents/, Images/, Spreadsheets/, PDFs/, Archives/, Other/\n3. Move each file into the appropriate subfolder based on extension\n4. Create a manifest.md listing every file moved, its original name, new location, and file size\n5. Do NOT delete anything -- only move files into subfolders\n\nConstraints: Skip any file larger than 500MB. Skip any file modified in the last 24 hours. Include a change log.",
+          "expectedOutcome": "A clean Downloads folder with files sorted into typed subfolders, plus a manifest documenting every move."
+        },
+        {
+          "id": "3.2",
+          "label": "Write an End-State Prompt",
+          "difficulty": "Beginner",
+          "prompt": "I need to write a client proposal but I am not sure how to prompt Cowork effectively. Help me build the prompt using the three-question framework:\n\n1. Ask me what 'done' looks like (deliverable format, sections, length)\n2. Ask me what context Claude needs (client name, project scope, pricing)\n3. Ask me what constraints it cannot guess (tone, deadline, things to avoid)\n\nThen combine my answers into a single, optimized end-state prompt I can paste into Cowork. Format it as a ready-to-use delegation prompt.",
+          "expectedOutcome": "An interactive prompt-building session that produces a polished, copy-paste ready delegation prompt."
+        },
+        {
+          "id": "3.3",
+          "label": "Create a Delegation Template Library",
+          "difficulty": "Intermediate",
+          "prompt": "Create a file called delegation-templates.md with 10 reusable delegation templates for common knowledge work tasks. Each template should follow the three-question framework and include:\n- Task name\n- The 'done' state (exact deliverable description)\n- Required context (what files or info to provide)\n- Default constraints\n- A ready-to-use prompt with [PLACEHOLDERS] for customization\n\nInclude templates for: meeting notes, client proposal, expense report, weekly status update, competitive analysis, email draft, presentation outline, project brief, hiring scorecard, and content calendar.",
+          "expectedOutcome": "A reusable template library with 10 delegation prompts following the three-question framework, ready for daily use."
+        }
+      ],
+      "proTip": "The biggest mistake new Cowork users make is prompting like they are chatting. Cowork is an executor, not a conversationalist. Give it a spec, not a conversation starter.",
+      "takeaways": [
+        "Answer three questions before every task: What is done? What context is needed? What constraints exist?",
+        "End-state prompting with specific deliverable descriptions beats vague instructions every time",
+        "Always request a change log to audit what Cowork created, modified, or deleted",
+        "Build a template library for recurring tasks -- reuse beats reinvention"
+      ]
+    },
+    {
+      "id": "m4",
+      "number": 4,
+      "title": "File and Document Management",
+      "belt": "brown",
+      "estimatedMinutes": 30,
+      "description": "Use Cowork to sort, rename, batch process, and create professional documents -- Excel, PowerPoint, PDF, invoices, and more.",
+      "keyConcepts": ["file sorting", "batch operations", "Excel generation", "PowerPoint creation", "PDF formatting", "invoice generation", "receipt processing"],
+      "prerequisites": "Module 3 completed. Files in your work folder to practice with.",
+      "concepts": [
+        {
+          "title": "File Sorting and Batch Operations",
+          "body": "Cowork excels at file operations that would take you hours manually. Sorting hundreds of files by type, date, or content. Renaming files with consistent naming conventions. Extracting data from multiple files and consolidating it. Moving files between folders based on rules. The key is being specific about the rules -- Cowork follows instructions literally."
+        },
+        {
+          "title": "Document Creation: Beyond Text",
+          "body": "Cowork can create Excel spreadsheets with formulas, charts, and formatting. PowerPoint presentations with layouts, bullet points, and speaker notes. Formatted PDFs with headers, tables, and page numbers. The built-in skills (xlsx, pptx, pdf, docx) handle the heavy lifting -- you describe what you want, the skill handles the format."
+        },
+        {
+          "title": "Receipt Processing and Expense Tracking",
+          "body": "Cowork can read receipts (images or PDFs), extract vendor, date, amount, and category, then populate an expense spreadsheet. This is a classic automation: scan a folder of receipt photos, extract structured data from each, output a consolidated expense report. Pair it with a scheduled task for weekly processing."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "4.1",
+          "label": "Organize and Rename Files in Bulk",
+          "difficulty": "Beginner",
+          "prompt": "I have a messy folder of client documents. Organize them:\n1. Scan all files in my references/ folder\n2. Rename each file to follow this convention: YYYY-MM-DD_ClientName_DocType.ext (extract dates from file content or modified date)\n3. Create subfolders by client name\n4. Move renamed files into the correct client subfolder\n5. Generate a file-inventory.md with columns: Original Name, New Name, Client, Type, Date, Size\n\nConstraints: Do not modify file contents -- only rename and move. Include a change log.",
+          "expectedOutcome": "A clean, consistently named file structure organized by client, with a full inventory document."
+        },
+        {
+          "id": "4.2",
+          "label": "Generate a Professional Invoice",
+          "difficulty": "Intermediate",
+          "prompt": "Create a professional invoice as a PDF. Details:\n- From: [My Company Name], [Address], [Email]\n- To: Acme Corp, 123 Business Ave, New York, NY 10001\n- Invoice #: INV-2026-042\n- Date: Today's date, Due: Net 30\n- Line items:\n  1. Strategy Consulting -- 20 hours @ $150/hr = $3,000\n  2. Market Research Report -- 1 deliverable @ $2,500 = $2,500\n  3. Presentation Design -- 8 hours @ $100/hr = $800\n- Subtotal, Tax (8%), and Total\n- Payment terms and bank details section (placeholder)\n\nSave as outputs/invoice-acme-2026-04.pdf",
+          "expectedOutcome": "A formatted PDF invoice with proper line items, calculations, tax, and professional layout."
+        },
+        {
+          "id": "4.3",
+          "label": "Create a Budget Spreadsheet with Formulas",
+          "difficulty": "Intermediate",
+          "prompt": "Create an Excel spreadsheet called outputs/q2-budget.xlsx with:\n1. Sheet 1 \"Monthly Budget\": Columns for Category, April, May, June, Q2 Total. Rows for: Payroll, Marketing, Software, Travel, Office, Misc. Add SUM formulas for each month column and Q2 Total. Include sample data.\n2. Sheet 2 \"Actuals vs Budget\": Same categories with Budget, Actual, and Variance columns. Conditional formatting: green if under budget, red if over.\n3. Sheet 3 \"Summary Dashboard\": A summary table pulling totals from both sheets. Include percentage variance calculations.\n\nFormat with professional styling -- bold headers, currency formatting, borders.",
+          "expectedOutcome": "A multi-sheet Excel workbook with formulas, conditional formatting, and professional styling ready for use."
+        }
+      ],
+      "proTip": "Cowork's built-in skills (xlsx, pptx, pdf, docx) are purpose-built for document creation. Invoke them by name or let Cowork auto-detect the right skill from your file extension.",
+      "takeaways": [
+        "Cowork handles file sorting, renaming, and batch operations that would take hours manually",
+        "Built-in skills create professional Excel, PowerPoint, PDF, and Word documents",
+        "Always specify exact file names, formats, and output locations in your prompts",
+        "Pair receipt processing with scheduled tasks for automated weekly expense tracking"
+      ]
+    },
+    {
+      "id": "m5",
+      "number": 5,
+      "title": "Skills System Mastery",
+      "belt": "brown",
+      "estimatedMinutes": 30,
+      "description": "Understand the skills system -- built-in skills, custom SKILL.md files, progressive disclosure, and skill stacking.",
+      "keyConcepts": ["SKILL.md", "YAML frontmatter", "built-in skills", "custom skills", "progressive disclosure", "skill stacking", "Skill Creator"],
+      "prerequisites": "Module 4 completed. Familiarity with markdown files.",
+      "concepts": [
+        {
+          "title": "What is a Skill?",
+          "body": "A skill is a SKILL.md file -- a set of reusable instructions that Cowork loads when triggered. It has YAML frontmatter (name, description, trigger conditions) and a body with step-by-step instructions. Think of it as a playbook: instead of re-explaining a complex workflow every time, you write it once as a skill and invoke it with a slash command."
+        },
+        {
+          "title": "Built-in Skills",
+          "body": "Cowork ships with built-in skills for common tasks: pdf (read, merge, split PDFs), docx (create and edit Word documents), pptx (create presentations), xlsx (create spreadsheets with formulas), canvas-design (create visual designs). These are pre-installed and optimized -- always check if a built-in skill exists before building a custom one."
+        },
+        {
+          "title": "Progressive Disclosure",
+          "body": "Skills use a two-stage loading system to save tokens. First, only the metadata loads (~100 tokens: name and description). The full instructions and linked files only load when the skill is actually triggered. This means having 20 skills installed costs only ~2,000 tokens in overhead, not 20,000. The entire skill system targets roughly 2% of the context window."
+        },
+        {
+          "title": "Skill Stacking",
+          "body": "Multiple skills can be active in the same session. Cowork picks the right skill based on your prompt. You can also explicitly invoke skills by name. Stacking lets you build powerful combinations: a research skill feeds into a report-writing skill, which feeds into an email-drafting skill. Each skill is a composable building block."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "5.1",
+          "label": "Create Your First Custom Skill",
+          "difficulty": "Beginner",
+          "prompt": "Create a custom Cowork skill that generates a weekly status update. The SKILL.md should:\n1. Have proper YAML frontmatter with name, description, and trigger conditions\n2. Accept inputs: project name, key accomplishments, blockers, next week's priorities\n3. Output a formatted markdown file with sections: Summary, Accomplishments, Blockers, Next Week, Risks\n4. Include a professional tone and bullet-point format\n5. Save the output to outputs/status-update-[date].md\n\nExplain each part of the SKILL.md structure as you build it.",
+          "expectedOutcome": "A complete SKILL.md file with frontmatter, instructions, and output format -- plus an explanation of each component."
+        },
+        {
+          "id": "5.2",
+          "label": "Test a Built-in Skill",
+          "difficulty": "Beginner",
+          "prompt": "I want to test the built-in PDF skill. Walk me through:\n1. How to invoke the PDF skill\n2. Create a simple 2-page PDF with: a title page (company name, report title, date) and a content page (3 sections with headers and body text)\n3. Save it as outputs/test-report.pdf\n4. Then show me how to read an existing PDF and extract its text content\n5. Finally, explain what other built-in skills are available and how to discover them",
+          "expectedOutcome": "A working PDF created via the built-in skill, plus a guide to discovering and using all built-in skills."
+        },
+        {
+          "id": "5.3",
+          "label": "Customize an Existing Skill",
+          "difficulty": "Intermediate",
+          "prompt": "Take the built-in morning briefing skill and customize it for my specific needs. I want a daily briefing that includes:\n1. Weather for my city (using web search)\n2. My top 3 calendar events today (using Calendar connector)\n3. Unread email summary -- senders and subjects only (using Gmail connector)\n4. Top 3 AI news headlines (using web search)\n5. My active tasks from todo/ folder\n\nCreate a custom SKILL.md that wraps the built-in skill with my personalized sections. Save it so I can trigger it daily.",
+          "expectedOutcome": "A customized morning briefing skill that combines multiple data sources into a personalized daily dashboard."
+        }
+      ],
+      "proTip": "Use the Skill Creator (available in Cowork settings) to build skills interactively. It walks you through frontmatter, triggers, instructions, and testing -- much faster than writing SKILL.md from scratch.",
+      "takeaways": [
+        "Skills are reusable SKILL.md playbooks with YAML frontmatter and step-by-step instructions",
+        "Built-in skills (pdf, docx, pptx, xlsx) handle common document tasks out of the box",
+        "Progressive disclosure keeps token overhead low -- metadata loads first, full instructions only when triggered",
+        "Skill stacking lets you chain multiple skills in a single session for complex workflows"
+      ]
+    },
+    {
+      "id": "m6",
+      "number": 6,
+      "title": "Connectors and Integrations",
+      "belt": "brown",
+      "estimatedMinutes": 25,
+      "description": "Connect Cowork to external services -- Gmail, Calendar, Slack, Notion, and 8000+ apps via Zapier MCP.",
+      "keyConcepts": ["built-in connectors", "Gmail", "Calendar", "Slack", "Notion", "Zapier MCP", "connector pairing"],
+      "prerequisites": "Module 5 completed. At least one service account (Gmail, Calendar, etc.) to connect.",
+      "concepts": [
+        {
+          "title": "Built-in Connectors",
+          "body": "Cowork has 50+ built-in connectors: Gmail, Google Calendar, Slack, Notion, HubSpot, Canva, Google Drive, and more. Each connector gives Cowork API-level access to that service -- reading emails, creating calendar events, posting to Slack channels, querying Notion databases. Configure them in Settings > Customize > Connectors."
+        },
+        {
+          "title": "Zapier MCP for Everything Else",
+          "body": "For services without a built-in connector, Zapier MCP bridges the gap. It connects Cowork to 8,000+ apps through Zapier's automation platform. Set up a Zapier MCP server, authenticate your apps in Zapier, and Cowork can trigger any Zapier action. This is the escape hatch for niche tools."
+        },
+        {
+          "title": "Pairing Connectors with Skills",
+          "body": "The real power comes from combining connectors with skills. A morning briefing skill that pulls from Gmail + Calendar + Slack. A client research skill that queries HubSpot + LinkedIn. An expense tracking skill that reads Gmail receipts and writes to Google Sheets. Connectors provide the data, skills provide the workflow."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "6.1",
+          "label": "Connect Gmail and Build an Email Summary",
+          "difficulty": "Beginner",
+          "prompt": "I want to connect my Gmail to Cowork. Walk me through:\n1. How to enable the Gmail connector in Settings\n2. How to authenticate (what permissions are needed)\n3. Once connected, search my inbox for unread emails from the last 24 hours\n4. Create a summary file called outputs/email-summary.md with: sender, subject, date, and a 1-sentence preview for each email\n5. Group emails by category: Action Required, FYI, Newsletters, Other\n\nDo not read full email bodies -- only subjects and senders.",
+          "expectedOutcome": "A configured Gmail connector plus an organized email summary file grouped by priority category."
+        },
+        {
+          "id": "6.2",
+          "label": "Build a Morning Briefing with Multiple Connectors",
+          "difficulty": "Intermediate",
+          "prompt": "Create a comprehensive morning briefing using multiple connectors. Pull data from:\n1. Gmail: Count of unread emails, top 5 by sender importance\n2. Calendar: Today's meetings with times, attendees, and any prep notes\n3. Web search: Top 3 industry news headlines relevant to my field\n\nCombine everything into a single briefing file: outputs/morning-briefing-[date].md\n\nFormat it with clear sections, time estimates for each meeting, and action items extracted from email subjects. Keep it under 1 page -- this is a scan-and-go document.",
+          "expectedOutcome": "A concise, multi-source morning briefing combining email, calendar, and news into a single actionable document."
+        },
+        {
+          "id": "6.3",
+          "label": "Set Up Zapier MCP for a Niche Integration",
+          "difficulty": "Advanced",
+          "prompt": "I want to connect Cowork to a tool that does not have a built-in connector (example: Airtable, Trello, or Asana). Walk me through:\n1. How to set up Zapier MCP as a connector\n2. How to authenticate Zapier with my target app\n3. Create a test workflow: when I say 'sync tasks', pull my open tasks from the target app and save them as todo/external-tasks.md\n4. Explain the limitations of Zapier MCP vs built-in connectors\n5. List the top 10 most useful Zapier integrations for knowledge workers",
+          "expectedOutcome": "A working Zapier MCP connection with a test workflow, plus guidance on when to use Zapier vs built-in connectors."
+        }
+      ],
+      "proTip": "Start with Gmail and Calendar connectors -- they cover 80% of knowledge worker workflows. Add Slack and Notion next. Only reach for Zapier MCP when there is no built-in option.",
+      "takeaways": [
+        "50+ built-in connectors give Cowork API access to Gmail, Calendar, Slack, Notion, and more",
+        "Zapier MCP extends reach to 8,000+ apps when built-in connectors are not available",
+        "Pair connectors with skills for powerful automated workflows",
+        "Configure connectors in Settings > Customize > Connectors"
+      ]
+    },
+    {
+      "id": "m7",
+      "number": 7,
+      "title": "Plugins and Plugin Building",
+      "belt": "brown",
+      "estimatedMinutes": 30,
+      "description": "Install, customize, and build plugins -- bundles of skills, connectors, sub-agents, and slash commands packaged for distribution.",
+      "keyConcepts": ["plugin architecture", "Plugin Marketplace", "skill bundles", "slash commands", "sub-agents", "plugin customization"],
+      "prerequisites": "Module 6 completed. Understanding of skills and connectors.",
+      "concepts": [
+        {
+          "title": "What Plugins Are",
+          "body": "A plugin is a package that bundles multiple skills, connector configurations, sub-agent definitions, and slash commands into a single installable unit. Think of a skill as a single recipe and a plugin as an entire cookbook. Example: a 'Sales Operations' plugin might include skills for lead research, proposal generation, CRM updates, and pipeline reporting -- all preconfigured to work together."
+        },
+        {
+          "title": "The Plugin Marketplace",
+          "body": "Anthropic launched the Plugin Marketplace in February 2026. It is a curated collection of community-built plugins. Browse by category (productivity, sales, marketing, finance, engineering), install with one click, and customize to your needs. Before building a plugin from scratch, check the marketplace -- someone may have already solved your problem."
+        },
+        {
+          "title": "Building Your Own Plugin",
+          "body": "A plugin is a folder containing: a manifest.json (metadata, dependencies, permissions), one or more SKILL.md files, optional connector configurations, and optional sub-agent definitions. Build plugins for workflows you repeat across projects or want to share with your team. Start simple: one skill, one slash command. Expand as you validate the workflow."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "7.1",
+          "label": "Install and Explore a Plugin",
+          "difficulty": "Beginner",
+          "prompt": "I want to explore the Cowork plugin ecosystem. Help me:\n1. Explain how to access the Plugin Marketplace\n2. Browse available plugins and recommend 3 that would be useful for a marketing professional\n3. Walk me through installing one plugin\n4. Show me how to list all installed plugins and their available commands\n5. Test one command from the installed plugin and explain the output",
+          "expectedOutcome": "A guided tour of the Plugin Marketplace with a working installed plugin and tested command."
+        },
+        {
+          "id": "7.2",
+          "label": "Customize a Plugin for Your Workflow",
+          "difficulty": "Intermediate",
+          "prompt": "Take an installed plugin and customize it for my specific needs:\n1. List the skills and commands included in the plugin\n2. Identify which skill is closest to my use case but needs modification\n3. Fork the skill -- create a customized version that:\n   - Uses my company's branding (from branding.md)\n   - Outputs files in my preferred format\n   - Includes my specific workflow steps\n4. Replace the original skill with my customized version\n5. Test the customized version and compare output quality",
+          "expectedOutcome": "A customized plugin skill tailored to your specific workflow, tested and validated against the original."
+        },
+        {
+          "id": "7.3",
+          "label": "Build a Simple Plugin from Scratch",
+          "difficulty": "Advanced",
+          "prompt": "Build a 'Client Management' plugin from scratch. The plugin should include:\n1. A manifest.json with name, description, version, and dependencies\n2. Skill 1: client-research.md -- research a company using web search and produce a brief\n3. Skill 2: meeting-prep.md -- prepare for a client meeting using calendar + email data\n4. Skill 3: follow-up.md -- draft a follow-up email after a meeting\n5. A slash command /client that accepts a company name and runs the research skill\n\nSave everything in a plugin/ folder with proper structure. Include a README explaining how to install and use it.",
+          "expectedOutcome": "A complete plugin folder with manifest, 3 skills, a slash command, and documentation -- ready for installation or sharing."
+        }
+      ],
+      "proTip": "Start by customizing existing plugins before building from scratch. Most knowledge worker needs are covered by marketplace plugins with minor tweaks.",
+      "takeaways": [
+        "Plugins bundle skills, connectors, sub-agents, and commands into installable packages",
+        "Check the Plugin Marketplace before building from scratch -- save time by customizing existing plugins",
+        "Start simple: one skill, one command. Expand as you validate the workflow",
+        "Plugin structure: manifest.json + SKILL.md files + optional connector configs + sub-agent definitions"
+      ]
+    },
+    {
+      "id": "m8",
+      "number": 8,
+      "title": "Scheduled Tasks",
+      "belt": "brown",
+      "estimatedMinutes": 25,
+      "description": "Automate recurring work with scheduled tasks -- daily briefings, weekly reports, expense tracking, and more.",
+      "keyConcepts": ["scheduled tasks", "/schedule command", "daily automation", "weekly reports", "cron patterns", "desktop requirements"],
+      "prerequisites": "Module 6 completed. At least one connector configured (Gmail or Calendar).",
+      "concepts": [
+        {
+          "title": "Creating Scheduled Tasks",
+          "body": "Use the /schedule command to create recurring tasks. Specify a schedule (daily, weekly, monthly, or custom cron), a prompt (what Cowork should do), and optionally a skill to invoke. Scheduled tasks run automatically at the specified time. They are the foundation of a 'set it and forget it' automation system."
+        },
+        {
+          "title": "Scheduling Patterns",
+          "body": "Common patterns: daily morning briefing (8am, pulls email + calendar + news), weekly status report (Friday 4pm, summarizes the week's output), monthly expense processing (1st of month, scans receipts and generates report), event-driven (after each meeting, generate notes). Match the pattern to the workflow cadence."
+        },
+        {
+          "title": "Requirements and Limitations",
+          "body": "Scheduled tasks require your desktop to be awake (not sleeping) and Claude Desktop to be open. They will not run if your computer is off or the app is closed. This is a local automation system, not a cloud service. For critical tasks, consider pairing with Dispatch (Module 12) for remote triggering."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "8.1",
+          "label": "Create a Daily Morning Briefing Task",
+          "difficulty": "Beginner",
+          "prompt": "Set up a scheduled task that runs every weekday at 8:00 AM and produces a morning briefing. The task should:\n1. Check my email for unread messages (Gmail connector)\n2. List today's meetings (Calendar connector)\n3. Search for top 3 industry news headlines\n4. Save everything to outputs/briefing-[date].md\n5. Format it as a quick-scan document I can read in 2 minutes\n\nShow me the exact /schedule command and explain each parameter. Also explain what happens if my computer is asleep at 8 AM.",
+          "expectedOutcome": "A configured daily scheduled task with clear explanation of the schedule syntax and failure modes."
+        },
+        {
+          "id": "8.2",
+          "label": "Schedule Weekly Expense Scanning",
+          "difficulty": "Intermediate",
+          "prompt": "Create a scheduled task that runs every Friday at 5 PM and processes my expenses:\n1. Scan the references/receipts/ folder for new receipt images and PDFs\n2. Extract vendor, date, amount, and category from each receipt\n3. Append the data to outputs/expense-tracker.xlsx (create if it does not exist)\n4. Generate a weekly summary: total spent, top 3 categories, any receipts that could not be processed\n5. Move processed receipts to done/receipts-processed/\n\nInclude error handling for receipts that cannot be read. Include a change log.",
+          "expectedOutcome": "An automated weekly expense processing pipeline that scans receipts, updates a spreadsheet, and generates a summary."
+        },
+        {
+          "id": "8.3",
+          "label": "Manage and Monitor Scheduled Tasks",
+          "difficulty": "Intermediate",
+          "prompt": "Help me manage my scheduled tasks:\n1. List all currently scheduled tasks with their schedules and last run times\n2. Check if any tasks failed on their last run -- show error details\n3. Pause a specific task temporarily (without deleting it)\n4. Create a monitoring dashboard file: outputs/task-dashboard.md with:\n   - Task name, schedule, last run, status (success/failed/paused)\n   - Next scheduled run time\n   - Any recommended optimizations\n5. Explain how to delete a scheduled task I no longer need",
+          "expectedOutcome": "A complete view of all scheduled tasks with status monitoring and management instructions."
+        }
+      ],
+      "proTip": "Schedule your most important automations for times you are definitely at your desk. If you have a daily standup at 9 AM, schedule your briefing for 8:30 AM so it is ready when you need it.",
+      "takeaways": [
+        "Use /schedule to create daily, weekly, monthly, or custom cron recurring tasks",
+        "Desktop must be awake and Claude Desktop must be open for tasks to run",
+        "Common patterns: morning briefing, weekly status, monthly expenses, post-meeting notes",
+        "Always include error handling in scheduled tasks -- they run unattended"
+      ]
+    },
+    {
+      "id": "m9",
+      "number": 9,
+      "title": "Projects and Memory",
+      "belt": "brown",
+      "estimatedMinutes": 25,
+      "description": "Use Projects for persistent workspaces with their own files, instructions, and memory that survive across sessions.",
+      "keyConcepts": ["projects", "persistent workspaces", "folder instructions", "cross-session memory", "CLAUDE.md per project", "reference libraries"],
+      "prerequisites": "Module 2 completed (context files). Module 5 completed (skills).",
+      "concepts": [
+        {
+          "title": "What Projects Are",
+          "body": "Projects are persistent workspaces in Cowork. Each project has its own folder, its own CLAUDE.md, its own files, and its own memory. When you open a project, Cowork loads all of that context automatically. Close the project, open a different one, and the context switches completely. Projects are how you separate work streams without context bleed."
+        },
+        {
+          "title": "Folder Instructions for Project Context",
+          "body": "Each project folder can have its own CLAUDE.md with project-specific instructions. This is where you put: project goals, team members, brand guidelines, preferred tools, output formats, and anything else Cowork needs to know about this specific project. Keep it under 200 lines -- focused context produces better results than exhaustive documentation."
+        },
+        {
+          "title": "Memory Workarounds for Cross-Session Persistence",
+          "body": "Cowork does not have built-in persistent memory across sessions (yet). Workarounds: (1) memories.md file in the project folder -- manually updated with key decisions, people, and context. (2) CLAUDE.md with a 'History' section that captures major milestones. (3) A done/ folder where completed outputs serve as implicit memory. The more structured your memory files, the better Cowork picks up where it left off."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "9.1",
+          "label": "Create a Project Workspace",
+          "difficulty": "Beginner",
+          "prompt": "Set up a new project workspace for a product launch. Create:\n1. A project folder called 'product-launch-q2/'\n2. CLAUDE.md with: project name, launch date, team members, goals, constraints, and preferred output formats\n3. Subfolders: research/, content/, design/, approvals/, outputs/\n4. A memories.md with sections: Key Decisions, People & Roles, Brand Notes, Lessons Learned\n5. A reference library: references/ with placeholder files for brand-guide.md, competitor-analysis.md, and launch-timeline.md\n6. A README.md explaining the project structure\n\nMake all files have real starter content, not just empty headers.",
+          "expectedOutcome": "A complete project workspace with structured folders, populated context files, and a reference library."
+        },
+        {
+          "id": "9.2",
+          "label": "Set Up Project Memory for Cross-Session Persistence",
+          "difficulty": "Intermediate",
+          "prompt": "I want Cowork to remember context across sessions for my active project. Set up a memory system:\n1. Create a memories.md with structured sections: People (name, role, preferences), Decisions (date, decision, rationale), Context (ongoing situations, deadlines, dependencies), Lessons (what worked, what did not)\n2. Populate it with example entries showing the right format\n3. Add instructions to CLAUDE.md telling Cowork to read memories.md at session start and update it at session end\n4. Create a prompt I can use at the end of each session: 'Update memories.md with anything new from this session'\n5. Explain the limitations and how to handle memory file growth over time",
+          "expectedOutcome": "A working cross-session memory system with structured files, update prompts, and growth management guidance."
+        },
+        {
+          "id": "9.3",
+          "label": "Build a Reference Library",
+          "difficulty": "Intermediate",
+          "prompt": "Create a comprehensive reference library for my project:\n1. Audit existing files in my project folder and identify potential reference materials\n2. Organize them into references/ with subfolders: brand/, competitors/, templates/, data/\n3. Create an index file: references/INDEX.md that catalogs every reference with: title, description, last updated date, and when to use it\n4. Add instructions to CLAUDE.md telling Cowork which reference to check for which task type\n5. Create 3 starter templates: meeting-notes-template.md, status-update-template.md, decision-log-template.md\n\nThe reference library should be a living document that grows with the project.",
+          "expectedOutcome": "An organized, indexed reference library with templates and CLAUDE.md integration for automatic reference lookup."
+        }
+      ],
+      "proTip": "Keep each project's CLAUDE.md under 200 lines. If it gets longer, split into separate files: goals.md, people.md, conventions.md. Reference them from CLAUDE.md.",
+      "takeaways": [
+        "Projects are persistent workspaces with isolated context -- no bleed between projects",
+        "Each project gets its own CLAUDE.md, memories.md, and folder structure",
+        "Use memories.md as a cross-session memory bridge -- update it at the end of every session",
+        "A structured reference library with an INDEX.md helps Cowork find the right context for each task"
+      ]
+    },
+    {
+      "id": "m10",
+      "number": 10,
+      "title": "Sub-agents and Parallel Work",
+      "belt": "brown",
+      "estimatedMinutes": 30,
+      "description": "Understand how Cowork spawns sub-agents to work in parallel, splitting tasks for dramatic speed improvements.",
+      "keyConcepts": ["sub-agents", "parallel processing", "shared state", "cross-referencing", "performance gains"],
+      "prerequisites": "Module 5 completed (skills). Experience with multi-step Cowork tasks.",
+      "concepts": [
+        {
+          "title": "How Sub-agents Work",
+          "body": "When Cowork faces a large task, it can spawn sub-agents -- separate Claude instances that work on parts of the problem in parallel. Example: processing 10 documents sequentially takes 30 minutes. With sub-agents, 10 parallel workers finish in 4 minutes. Cowork manages the coordination: splitting the work, collecting results, and merging outputs."
+        },
+        {
+          "title": "The Shared State Problem",
+          "body": "Sub-agents do not share memory. Each one gets its own context window and cannot see what the others are doing. This means: no real-time coordination, no shared variables, no \"Agent 2, check what Agent 1 found.\" The orchestrator (main Cowork session) handles merging after all sub-agents complete. Design your tasks to be independently parallelizable."
+        },
+        {
+          "title": "When to Use Sub-agents Explicitly",
+          "body": "Cowork sometimes spawns sub-agents automatically, but you get better results by requesting them explicitly. Use sub-agents when: processing multiple independent files, researching multiple topics, generating multiple variants of content, reviewing from multiple perspectives. Do not use them for tasks that require sequential reasoning or shared context."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "10.1",
+          "label": "Process Multiple Files in Parallel",
+          "difficulty": "Intermediate",
+          "prompt": "I have 5 client briefing documents in my references/ folder. Use sub-agents to process them in parallel:\n1. Spawn a sub-agent for each document\n2. Each sub-agent extracts: client name, key requirements, budget range, timeline, decision-makers\n3. Each sub-agent saves its output as a structured summary in outputs/\n4. After all sub-agents complete, merge all summaries into a single comparison matrix\n5. Output: outputs/client-comparison.md with a table comparing all 5 clients across the extracted dimensions\n\nExplicitly request parallel processing and explain the time savings.",
+          "expectedOutcome": "Five parallel document analyses merged into a single comparison matrix, with visible time savings over sequential processing."
+        },
+        {
+          "id": "10.2",
+          "label": "Multi-Perspective Research with Sub-agents",
+          "difficulty": "Intermediate",
+          "prompt": "I need to research whether to adopt a new project management tool. Use sub-agents to research from 3 perspectives in parallel:\n\nSub-agent 1 (Feature Analyst): Compare features of Monday.com, Asana, and Linear. Create a feature matrix.\nSub-agent 2 (Cost Analyst): Compare pricing, hidden costs, and ROI for a team of 15. Create a cost table.\nSub-agent 3 (User Analyst): Search for user reviews, complaints, and satisfaction scores. Create a sentiment summary.\n\nAfter all complete, synthesize the three reports into a single recommendation document with a clear verdict.",
+          "expectedOutcome": "Three parallel research streams synthesized into a comprehensive tool comparison with a data-driven recommendation."
+        },
+        {
+          "id": "10.3",
+          "label": "Explicit Sub-agent Delegation",
+          "difficulty": "Advanced",
+          "prompt": "I need to prepare for a board meeting next week. Use sub-agents to tackle these tasks in parallel:\n\nSub-agent 1: Create a financial summary from references/q1-financials.xlsx -- key metrics, trends, and variance analysis\nSub-agent 2: Create a competitive landscape update using web search -- top 3 competitor moves this quarter\nSub-agent 3: Draft talking points for 5 agenda items (I will provide the agenda)\nSub-agent 4: Create a risk register -- top 5 risks with likelihood, impact, and mitigation\n\nCoordination: After all complete, merge into a single board-prep.md with sections for each sub-agent's output. Include a 1-page executive summary at the top.",
+          "expectedOutcome": "A comprehensive board meeting prep package assembled from 4 parallel workstreams, with executive summary."
+        }
+      ],
+      "proTip": "Sub-agents work best on embarrassingly parallel tasks -- where each piece can be done independently. If tasks need to reference each other's output, run them sequentially instead.",
+      "takeaways": [
+        "Sub-agents are parallel Claude instances that can cut task time from 30 minutes to 4 minutes",
+        "Sub-agents do not share memory -- design tasks to be independently parallelizable",
+        "Explicitly request sub-agents for multi-file, multi-topic, or multi-perspective tasks",
+        "The orchestrator merges results after all sub-agents complete -- plan your merge strategy upfront"
+      ]
+    },
+    {
+      "id": "m11",
+      "number": 11,
+      "title": "Computer Use",
+      "belt": "brown",
+      "estimatedMinutes": 25,
+      "description": "Control desktop applications directly through screen interaction when APIs and connectors are not available.",
+      "keyConcepts": ["computer use", "screen control", "connector-first", "desktop automation", "macOS and Windows support"],
+      "prerequisites": "Module 6 completed (connectors). Understanding of when connectors are insufficient.",
+      "concepts": [
+        {
+          "title": "Three Modes of Interaction",
+          "body": "Cowork interacts with your tools in three ways: (1) Connector-First -- API-level access via built-in connectors (fastest, most reliable). (2) Computer Use -- screen-level control where Cowork sees your screen and clicks/types like a human (slower, handles any app). (3) Dispatch -- remote task assignment from mobile (covered in Module 12). Always prefer connectors. Use Computer Use only when no connector exists."
+        },
+        {
+          "title": "How Computer Use Works",
+          "body": "Computer Use gives Cowork the ability to see your screen, move the mouse, click buttons, type text, and read on-screen content. It is like screen-sharing with a very fast assistant. Cowork takes screenshots, identifies UI elements, and performs actions. It works with any desktop application -- even proprietary tools with no API."
+        },
+        {
+          "title": "When to Use Computer Use vs Connectors",
+          "body": "Use connectors when: the service has a built-in connector (Gmail, Calendar, Slack, Notion) or a Zapier integration. Use Computer Use when: the app has no API (legacy desktop software), the workflow requires visual interaction (drag-and-drop, visual editors), or you need to interact with a web app that has no connector. Computer Use is slower and less reliable than connectors -- it is the fallback, not the default."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "11.1",
+          "label": "Enable and Test Computer Use",
+          "difficulty": "Beginner",
+          "prompt": "I want to try Computer Use for the first time. Walk me through:\n1. How to enable Computer Use in Cowork settings\n2. What permissions it needs and what it can/cannot do\n3. A simple test: open my web browser, navigate to google.com, search for 'Claude Cowork tutorial', and take a screenshot of the results\n4. Explain what happened behind the scenes (how Cowork sees the screen, identifies elements, and acts)\n5. List 3 practical tasks where Computer Use shines over connectors",
+          "expectedOutcome": "A working Computer Use setup with a completed test task and clear understanding of when to use it."
+        },
+        {
+          "id": "11.2",
+          "label": "Automate a Desktop Application Task",
+          "difficulty": "Intermediate",
+          "prompt": "Use Computer Use to automate a task in a desktop application:\n1. Open my default spreadsheet application (Excel or Google Sheets in browser)\n2. Create a new spreadsheet\n3. Add a header row: Date, Task, Hours, Status\n4. Add 5 sample rows of timesheet data\n5. Apply basic formatting: bold headers, alternating row colors\n6. Save the file to my outputs/ folder\n\nDocument each step Cowork takes (screenshot -> identify element -> click/type -> verify). Explain where this is slower or less reliable than using the xlsx skill directly.",
+          "expectedOutcome": "A completed spreadsheet created via screen interaction, with documentation of each step and comparison to API-based approaches."
+        },
+        {
+          "id": "11.3",
+          "label": "Compare Connector vs Computer Use Approaches",
+          "difficulty": "Intermediate",
+          "prompt": "For the same task (checking my calendar and listing today's meetings), run it two ways:\n\nApproach 1 (Connector): Use the Calendar connector to pull today's events via API. Time it.\nApproach 2 (Computer Use): Open Google Calendar in a browser, read the screen, and extract today's events visually. Time it.\n\nCompare:\n- Speed (which was faster?)\n- Accuracy (did both produce the same results?)\n- Reliability (which would you trust for a scheduled daily task?)\n- Output quality (formatting, completeness)\n\nSummarize with a clear recommendation for when to use each approach.",
+          "expectedOutcome": "A side-by-side comparison of connector vs Computer Use approaches with measured performance data and a decision framework."
+        }
+      ],
+      "proTip": "Computer Use works on both macOS and Windows (as of April 2026). But always check for a connector first -- API calls are 10x faster and more reliable than screen interactions.",
+      "takeaways": [
+        "Three interaction modes: Connector-First (API), Computer Use (screen), Dispatch (remote)",
+        "Always prefer connectors over Computer Use -- faster, more reliable, and more predictable",
+        "Computer Use is the fallback for apps without APIs or connectors",
+        "Computer Use works by taking screenshots, identifying UI elements, and performing mouse/keyboard actions"
+      ]
+    },
+    {
+      "id": "m12",
+      "number": 12,
+      "title": "Dispatch and Remote Control",
+      "belt": "black",
+      "estimatedMinutes": 20,
+      "description": "Assign tasks from your phone to your desktop -- fire-and-forget workflows with Dispatch.",
+      "keyConcepts": ["Dispatch", "mobile-to-desktop", "QR code pairing", "fire-and-forget", "remote workflows", "Pro/Max plans"],
+      "prerequisites": "Module 8 completed (scheduled tasks). Pro or Max plan subscription.",
+      "concepts": [
+        {
+          "title": "What Dispatch Is",
+          "body": "Dispatch lets you send tasks from your phone to your desktop Cowork session. You type a prompt on mobile, it executes on your desktop where all your files, connectors, and skills live, and the results are delivered back to your phone. It is remote control for your desktop AI assistant."
+        },
+        {
+          "title": "QR Code Pairing",
+          "body": "Dispatch uses QR code pairing to link your phone to your desktop. Open Claude Desktop, go to Dispatch settings, scan the QR code with your phone's camera, and the link is established. Once paired, you can send tasks from anywhere -- on the train, in a meeting, at a coffee shop."
+        },
+        {
+          "title": "Fire-and-Forget Workflows",
+          "body": "The power of Dispatch is fire-and-forget: assign a complex task from your phone, put the phone away, and check the results later. Examples: 'Process the receipts in my inbox and update the expense tracker' -- sent while walking to lunch. 'Generate the weekly report from this week's outputs' -- sent from a taxi. The desktop handles execution, the phone handles assignment."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "12.1",
+          "label": "Set Up Dispatch and Pair Your Phone",
+          "difficulty": "Beginner",
+          "prompt": "Walk me through setting up Dispatch:\n1. Where to find Dispatch settings in Claude Desktop\n2. How to generate the QR code for pairing\n3. How to scan and pair from my phone\n4. A test task: from my phone, send 'Create a file called dispatch-test.md with today's date and the text: Dispatch is working!'\n5. Verify the file was created on my desktop\n6. Explain the requirements (Pro/Max plan, desktop must be on, app must be open)",
+          "expectedOutcome": "A working Dispatch connection between phone and desktop, with a verified test task."
+        },
+        {
+          "id": "12.2",
+          "label": "Assign a Task from Mobile",
+          "difficulty": "Intermediate",
+          "prompt": "I am away from my desk and need to prepare for a meeting in 2 hours. From my phone via Dispatch, assign these tasks:\n1. Check my calendar for the meeting details (attendees, agenda)\n2. Search my email for any recent threads with the attendees\n3. Create a meeting prep document with: attendee profiles, key topics from email threads, 3 questions I should ask, and talking points\n4. Save it as outputs/meeting-prep-[date].md\n\nExplain how I would send this as a single Dispatch prompt and how to check the results from my phone.",
+          "expectedOutcome": "A meeting prep document generated remotely via Dispatch, with guidance on monitoring task progress from mobile."
+        },
+        {
+          "id": "12.3",
+          "label": "Build a Remote Workflow Library",
+          "difficulty": "Advanced",
+          "prompt": "Create a library of 10 Dispatch-optimized prompts I can fire from my phone. Each prompt should:\n1. Be short enough to type on a phone (under 50 words)\n2. Produce a useful deliverable on my desktop\n3. Work without any follow-up interaction (true fire-and-forget)\n\nCategories: Morning routine (3), Meeting prep (2), Client work (2), Expense tracking (1), Content creation (1), End-of-day (1)\n\nSave as references/dispatch-prompts.md with the prompt text and expected output for each.",
+          "expectedOutcome": "A curated library of 10 phone-friendly Dispatch prompts for common knowledge worker tasks."
+        }
+      ],
+      "proTip": "Write Dispatch prompts like text messages -- short, clear, and action-oriented. Your desktop Cowork session has all the context (CLAUDE.md, files, connectors), so you do not need to repeat it from your phone.",
+      "takeaways": [
+        "Dispatch sends tasks from your phone to your desktop Cowork session",
+        "QR code pairing links phone and desktop -- one-time setup",
+        "Fire-and-forget: assign complex tasks from anywhere, check results later",
+        "Requires Pro or Max plan, desktop must be on with Claude Desktop open"
+      ]
+    },
+    {
+      "id": "m13",
+      "number": 13,
+      "title": "Advanced Skill Engineering",
+      "belt": "black",
+      "estimatedMinutes": 35,
+      "description": "Apply Anthropic's official skill building patterns to create production-grade skills across three categories: document creation, workflow automation, and MCP enhancement.",
+      "keyConcepts": ["three skill categories", "success criteria", "testing methodology", "distribution", "Anthropic patterns"],
+      "prerequisites": "Module 5 completed (skills basics). Module 7 completed (plugins). Real-world skill building experience.",
+      "concepts": [
+        {
+          "title": "Three Skill Categories",
+          "body": "Anthropic's official guide identifies three categories: (1) Document/Asset Creation -- skills that produce files (reports, presentations, spreadsheets, designs). (2) Workflow Automation -- skills that orchestrate multi-step processes (email triage, expense processing, content pipelines). (3) MCP Enhancement -- skills that extend Cowork's capabilities by wrapping MCP server tools with better instructions and error handling."
+        },
+        {
+          "title": "Success Criteria and Testing",
+          "body": "Every skill needs measurable success criteria. For document skills: does the output match the spec? For workflow skills: does every step complete without manual intervention? For MCP skills: does the enhancement improve reliability over raw tool calls? Test skills with edge cases: missing inputs, unexpected data formats, API failures. A skill that fails silently is worse than no skill at all."
+        },
+        {
+          "title": "Distribution and Sharing",
+          "body": "Share skills with your team via GitHub, the Plugin Marketplace, or direct file sharing. When distributing: include a README with usage examples, document all dependencies (connectors, MCP servers, file structure), version your skills (semver), and include test prompts so recipients can verify the skill works in their environment."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "13.1",
+          "label": "Build a Category 1 Skill: Document Creation",
+          "difficulty": "Intermediate",
+          "prompt": "Build a production-grade document creation skill: a 'Proposal Generator' that takes a client name, project scope, and budget range, then produces a polished PDF proposal. The SKILL.md should include:\n1. Input validation (reject missing fields with clear error messages)\n2. Template structure (cover page, executive summary, scope, timeline, pricing, terms)\n3. Dynamic content population from inputs and reference files\n4. Professional formatting with consistent branding\n5. Output verification (check the PDF has all required sections)\n6. Error handling (what happens if the PDF skill fails?)\n\nInclude success criteria and 3 test cases with expected outputs.",
+          "expectedOutcome": "A production-grade proposal generator skill with input validation, error handling, and test cases."
+        },
+        {
+          "id": "13.2",
+          "label": "Build a Category 3 Skill: MCP Enhancement",
+          "difficulty": "Advanced",
+          "prompt": "Build an MCP Enhancement skill that wraps the Gmail connector with intelligent email triage. The skill should:\n1. Pull unread emails from the last 24 hours (Gmail connector)\n2. Classify each email: Urgent, Action Required, FYI, Newsletter, Spam\n3. For Urgent emails: draft a quick response and flag for review\n4. For Action Required: extract the action item and add to todo/\n5. For Newsletters: extract key points and add to a daily digest\n6. Handle failures gracefully (Gmail API timeout, classification uncertainty)\n\nThe skill should be a wrapper that makes raw Gmail connector calls smarter, more reliable, and more useful. Include the SKILL.md with full error handling.",
+          "expectedOutcome": "An MCP Enhancement skill that transforms raw Gmail API calls into intelligent email triage with classification, action extraction, and draft responses."
+        },
+        {
+          "id": "13.3",
+          "label": "Test and Iterate a Skill",
+          "difficulty": "Advanced",
+          "prompt": "Take one of my existing custom skills and put it through a rigorous testing and iteration cycle:\n1. Run the skill with normal inputs -- document the output quality (1-10)\n2. Run with edge cases: empty inputs, very long inputs, malformed data\n3. Run with failure conditions: missing reference files, disconnected connectors\n4. For each failure, add error handling to the SKILL.md\n5. Re-run all tests and compare quality scores\n6. Create a test-results.md documenting: test cases, expected vs actual outputs, pass/fail, and improvements made\n\nTarget: the skill should handle all edge cases gracefully without crashing or producing garbage output.",
+          "expectedOutcome": "A battle-tested skill with documented test results, improved error handling, and verified edge case coverage."
+        }
+      ],
+      "proTip": "The best skills are ones you would be embarrassed to share if they failed. Build with the assumption that someone else will use your skill with unexpected inputs.",
+      "takeaways": [
+        "Three categories: Document/Asset Creation, Workflow Automation, MCP Enhancement",
+        "Every skill needs measurable success criteria and test cases",
+        "Test with edge cases, missing inputs, and failure conditions before distributing",
+        "Include README, version, dependencies, and test prompts when sharing skills"
+      ]
+    },
+    {
+      "id": "m14",
+      "number": 14,
+      "title": "Power User Workflows",
+      "belt": "black",
+      "estimatedMinutes": 40,
+      "description": "Build real-world production workflows -- business OS dashboards, content pipelines, research synthesis, contract review, and email triage automation.",
+      "keyConcepts": ["business OS", "content repurposing", "research synthesis", "contract review", "email triage", "morning briefing"],
+      "prerequisites": "Modules 1-13 completed. Multiple connectors configured. Custom skills built.",
+      "concepts": [
+        {
+          "title": "The Business OS Concept",
+          "body": "A Business OS is a visual map of your entire Cowork system: all skills, connectors, scheduled tasks, and data flows in one view. It shows how your automation pieces connect: Gmail feeds into email triage, which feeds into task management, which feeds into weekly reports. Building this map reveals gaps, redundancies, and optimization opportunities."
+        },
+        {
+          "title": "Content Repurposing Pipelines",
+          "body": "Take one piece of content and automatically produce 5-10 variants for different platforms. A blog post becomes a LinkedIn post, a Twitter thread, an email newsletter section, a slide deck summary, and a podcast script. Each step is a skill. The pipeline is a scheduled task or a single prompt that chains them all."
+        },
+        {
+          "title": "Research Synthesis Across Multiple Sources",
+          "body": "Cowork can synthesize information from multiple sources in a single workflow: web search results, email threads, uploaded documents, Notion databases, and Slack channels. The key is structuring the synthesis: define the question, identify sources, extract relevant information from each, cross-reference, and produce a unified analysis with source attribution."
+        },
+        {
+          "title": "Contract Review and Analysis",
+          "body": "Upload a contract and Cowork will: extract key terms (parties, dates, obligations, payment terms), flag unusual clauses, compare against a template, highlight risks, and produce a summary brief. This is not legal advice -- it is document analysis that saves hours of reading. Always have a lawyer review the final output."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "14.1",
+          "label": "Build a Business OS Dashboard",
+          "difficulty": "Advanced",
+          "prompt": "Create a visual map of my entire Cowork automation system. Produce a file called outputs/business-os.md that includes:\n1. Inventory: List all my installed skills, active connectors, and scheduled tasks\n2. Data Flow Map: Show how data flows between components (email -> triage -> tasks -> reports)\n3. Gap Analysis: Identify workflows I do manually that could be automated\n4. Optimization Opportunities: Where am I duplicating effort or wasting credits?\n5. Recommended Additions: Top 5 skills, connectors, or tasks I should add\n6. System Health Score: Rate my setup out of 10 with specific improvement actions\n\nFormat as a structured dashboard I can review weekly.",
+          "expectedOutcome": "A comprehensive system map revealing the full automation landscape, gaps, and optimization opportunities."
+        },
+        {
+          "id": "14.2",
+          "label": "Build a Content Repurposing Pipeline",
+          "difficulty": "Advanced",
+          "prompt": "I have a blog post in references/latest-blog.md. Build a content repurposing pipeline that produces:\n1. A LinkedIn post (professional tone, 150-200 words, with a hook and CTA)\n2. A Twitter/X thread (5-7 tweets, punchy, with numbered format)\n3. An email newsletter section (3 paragraphs, conversational tone)\n4. A presentation slide outline (5 slides with titles and bullet points)\n5. A podcast script talking points (2-minute segment, casual tone)\n\nSave each as a separate file in outputs/content-repurpose/. Include a manifest listing all outputs and their word counts.\n\nUse sub-agents to generate all 5 variants in parallel.",
+          "expectedOutcome": "Five platform-specific content variants generated in parallel from a single source blog post."
+        },
+        {
+          "id": "14.3",
+          "label": "Automate Email Triage",
+          "difficulty": "Advanced",
+          "prompt": "Build a complete email triage automation:\n1. Connect to Gmail and pull unread emails from the last 12 hours\n2. Classify each email: Urgent (needs response today), Action (needs response this week), FYI (informational), Newsletter (content to digest), Noise (can be archived)\n3. For Urgent: draft a response and save to outputs/email-drafts/\n4. For Action: extract the action item and add to todo/email-actions.md\n5. For Newsletter: extract the top insight and add to a running digest at outputs/newsletter-digest.md\n6. For Noise: list them in outputs/archive-candidates.md\n7. Create a summary: outputs/email-triage-[date].md with counts per category and time estimate to clear the inbox\n\nThis should be schedulable as a daily automated task.",
+          "expectedOutcome": "A full email triage system with classification, draft responses, action extraction, and a daily summary report."
+        },
+        {
+          "id": "14.4",
+          "label": "Research Synthesis from Multiple Sources",
+          "difficulty": "Advanced",
+          "prompt": "I need to research 'AI adoption in mid-market B2B companies' using multiple sources. Build a synthesis workflow:\n1. Web search: Find 5 recent articles and reports on the topic\n2. Extract key findings from each source with citations\n3. Cross-reference findings: which claims appear in multiple sources? Which are unique?\n4. Identify contradictions or disagreements between sources\n5. Produce a unified research brief:\n   - Executive summary (200 words)\n   - Key findings with confidence levels (High: 3+ sources, Medium: 2 sources, Low: 1 source)\n   - Data points and statistics table\n   - Gaps in the research (what could not be answered)\n   - Source bibliography\n\nSave as outputs/research-ai-adoption.md",
+          "expectedOutcome": "A rigorous multi-source research brief with confidence scoring, cross-referenced findings, and identified gaps."
+        }
+      ],
+      "proTip": "Build your Business OS incrementally: start with one automated workflow that saves 30 minutes per week. Once it is reliable, add the next one. A fragile system of 20 automations is worse than 3 rock-solid ones.",
+      "takeaways": [
+        "A Business OS maps your entire automation system and reveals gaps and redundancies",
+        "Content repurposing pipelines turn one piece into 5-10 platform-specific variants",
+        "Research synthesis with confidence scoring turns multiple sources into actionable intelligence",
+        "Email triage automation with classification and draft responses saves hours weekly"
+      ]
+    },
+    {
+      "id": "m15",
+      "number": 15,
+      "title": "Safety, Limits, and Optimization",
+      "belt": "black",
+      "estimatedMinutes": 25,
+      "description": "Manage credits, understand safety boundaries, troubleshoot common issues, and optimize your Cowork setup for maximum efficiency.",
+      "keyConcepts": ["credit management", "safety checklist", "VM isolation", "usage limits", "troubleshooting", "optimization", "competitors"],
+      "prerequisites": "Modules 1-14 completed. Active Cowork usage for at least 2 weeks.",
+      "concepts": [
+        {
+          "title": "Credit Management and Usage Tracking",
+          "body": "Cowork consumes credits based on token usage. Every prompt, every sub-agent, every file read costs tokens. Track your usage in Settings > Usage. Optimize by: writing shorter, more specific prompts. Using skills (loaded once) instead of repeating instructions. Avoiding unnecessary file reads. Compacting context regularly. The goal is maximum output per credit spent."
+        },
+        {
+          "title": "Safety Checklist",
+          "body": "Cowork runs in a VM sandbox with restricted permissions. Safety boundaries: it cannot access system files outside your work folder, it cannot install software, it cannot make network calls except through configured connectors. File deletion requires explicit permission. Always review the change log after tasks. Never give Cowork access to folders containing passwords, keys, or sensitive credentials."
+        },
+        {
+          "title": "Troubleshooting Common Issues",
+          "body": "Session ends on app close: Cowork sessions do not survive closing Claude Desktop. Save progress frequently. Usage limits: Pro plan has usage caps that reset monthly. File access issues: Cowork can only access your designated work folder. Connector failures: tokens expire, re-authenticate in Settings. Slow performance: too many connectors loaded, too much context, or complex Computer Use tasks."
+        },
+        {
+          "title": "Cowork vs Competitors",
+          "body": "Cowork vs Gemini Deep Research: Cowork produces files and takes actions, Gemini produces research reports. Cowork vs Copilot: Cowork has deeper file access and skill system, Copilot has tighter Microsoft Office integration. Cowork's unique strengths: skills system, plugin ecosystem, sub-agents, Dispatch, and the connector library. Choose based on your ecosystem and workflow needs."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "15.1",
+          "label": "Audit Your Safety Settings",
+          "difficulty": "Beginner",
+          "prompt": "Run a safety audit of my Cowork configuration:\n1. Check what folders Cowork has access to -- are any sensitive folders exposed?\n2. Review installed connectors -- are any granted more permissions than needed?\n3. Check if any scheduled tasks could cause data loss (file deletion, overwriting)\n4. Verify that CLAUDE.md does not contain any credentials, API keys, or passwords\n5. Review Computer Use permissions -- is screen access appropriately restricted?\n6. Create a safety checklist file: outputs/safety-audit.md with pass/fail for each check\n\nScore my safety posture out of 10 and recommend fixes for anything below 8.",
+          "expectedOutcome": "A comprehensive safety audit with scored checklist and specific recommendations for improving security posture."
+        },
+        {
+          "id": "15.2",
+          "label": "Optimize Credit Usage",
+          "difficulty": "Intermediate",
+          "prompt": "Help me optimize my Cowork credit usage:\n1. Review my recent task history -- which tasks consumed the most credits?\n2. Identify patterns: am I re-reading the same files repeatedly? Are my prompts too verbose?\n3. Suggest 5 specific changes to reduce credit consumption by 30%+\n4. Create an optimized version of my 3 most-used prompts (same output, fewer tokens)\n5. Recommend which tasks should use skills (one-time load) vs fresh prompts (per-invocation cost)\n6. Calculate estimated monthly credit savings from the optimizations\n\nSave the optimization plan as outputs/credit-optimization.md",
+          "expectedOutcome": "A credit optimization plan with specific prompt rewrites, usage pattern analysis, and estimated monthly savings."
+        },
+        {
+          "id": "15.3",
+          "label": "Build a Safety and Troubleshooting Guide",
+          "difficulty": "Intermediate",
+          "prompt": "Create a comprehensive troubleshooting guide for my Cowork setup:\n1. Common issues and fixes: session loss, connector failures, skill not loading, file access errors, Computer Use failures\n2. Safety best practices: folder access, credential management, deletion protection, change log review\n3. Performance optimization: context management, connector pruning, prompt efficiency\n4. Emergency procedures: what to do if Cowork modifies wrong files, how to undo changes, how to revoke connector access\n5. Weekly maintenance checklist: update skills, review scheduled tasks, audit connectors, check credit usage\n\nSave as references/troubleshooting-guide.md -- a living document I can update over time.",
+          "expectedOutcome": "A comprehensive troubleshooting and maintenance guide covering safety, performance, and emergency procedures."
+        }
+      ],
+      "proTip": "The #1 credit saver is specificity. A 50-word prompt that produces the right output on the first try costs far less than a 200-word prompt that needs 3 rounds of revision.",
+      "takeaways": [
+        "Track credit usage in Settings > Usage and optimize prompts for token efficiency",
+        "Cowork runs in a VM sandbox -- it cannot access system files or install software",
+        "Never expose folders with passwords, API keys, or sensitive credentials to Cowork",
+        "Weekly maintenance: update skills, audit connectors, review scheduled tasks, check safety"
+      ]
+    }
+  ],
+  "capstones": [
+    {
+      "belt": "white",
+      "title": "White Belt Challenge",
+      "difficulty": "Beginner",
+      "description": "Set up a complete Cowork workspace from scratch -- proving you can configure the environment for productive autonomous work.",
+      "tasks": [
+        "Create a dedicated work folder with the recommended 6-folder structure",
+        "Write Global Instructions that capture your role, preferences, and work style",
+        "Create CLAUDE.md, branding.md, and memories.md with real, useful content",
+        "Delegate 3 tasks using the three-question framework and review the change logs"
+      ]
+    },
+    {
+      "belt": "brown",
+      "title": "Brown Belt Challenge",
+      "difficulty": "Intermediate",
+      "description": "Build a full automated workflow -- custom skill + connectors + scheduled task that runs daily without manual intervention.",
+      "tasks": [
+        "Build a custom skill that produces a daily deliverable (briefing, report, or digest)",
+        "Connect at least 2 connectors (Gmail + Calendar, Slack + Notion, etc.)",
+        "Create a scheduled task that runs the skill daily at a fixed time",
+        "Verify it runs 5 consecutive days without manual intervention"
+      ]
+    },
+    {
+      "belt": "black",
+      "title": "Black Belt Challenge",
+      "difficulty": "Advanced",
+      "description": "Build a Business OS plugin -- a complete plugin with 5+ skills, connector integrations, scheduled tasks, and a visual dashboard of your entire system.",
+      "tasks": [
+        "Build a plugin with 5+ skills covering your core workflows",
+        "Integrate at least 3 connectors into the plugin",
+        "Include at least 2 scheduled tasks (daily and weekly)",
+        "Create a Business OS dashboard showing all automations, data flows, and system health",
+        "Document the plugin with README, test prompts, and distribution instructions"
+      ]
+    }
+  ],
+  "bonusPrompts": [
+    {
+      "id": "B.1",
+      "label": "Voice Memo to Action Items",
+      "module": "m4",
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "B.2",
+      "label": "Contract Clause Extraction",
+      "module": "m4",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "B.3",
+      "label": "Multi-Language Email Drafting",
+      "module": "m6",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "B.4",
+      "label": "Competitive Intelligence Dashboard",
+      "module": "m14",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "B.5",
+      "label": "Client Onboarding Automation",
+      "module": "m13",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "B.6",
+      "label": "Meeting Notes to Task Tracker",
+      "module": "m8",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "B.7",
+      "label": "Weekly Report Generator from Daily Outputs",
+      "module": "m14",
+      "difficulty": "Intermediate"
+    }
+  ],
+  "references": {
+    "sourceGuides": {
+      "topics": ["Jack Roberts Full Course", "Brock Mesarich Skills Tutorial", "Anthropic Skill Building Guide", "Karo Zieminski Power Tips", "findskill.ai Guide", "o-mega.ai Desktop Guide"],
+      "citations": [
+        "Jack Roberts, \"Claude Cowork Full Course\" (YouTube, 1:05:18, 77K views)",
+        "Brock Mesarich, \"15 Claude Skills Tutorial\" (YouTube, 88K views)",
+        "findskill.ai, \"Comprehensive Claude Cowork Guide\"",
+        "Karo Zieminski, \"50+ Claude Power User Tips\"",
+        "Anthropic, \"Official Skill Building Guide\" (32 pages, PDF)",
+        "Claude Help Center, \"Official Documentation\"",
+        "o-mega.ai, \"Ultimate Autonomous Desktop Guide\""
+      ]
+    },
+    "skillBuildingPatterns": {
+      "topics": ["Document/Asset Creation", "Workflow Automation", "MCP Enhancement", "Progressive Disclosure", "Skill Stacking", "Testing Methodology", "Distribution"],
+      "categories": [
+        "Category 1: Document/Asset Creation -- skills that produce files (reports, presentations, spreadsheets)",
+        "Category 2: Workflow Automation -- skills that orchestrate multi-step processes",
+        "Category 3: MCP Enhancement -- skills that wrap connector tools with better instructions"
+      ]
+    },
+    "delegationFramework": {
+      "topics": ["Three-Question Framework", "End-State Prompting", "Change Logs", "Dummy Files", "Source Tracing", "Token Tracking"],
+      "threeQuestions": [
+        "What does 'done' look like? (exact deliverable description)",
+        "What context does Claude need? (reference files, examples, brand guides)",
+        "What constraints can it not guess? (deadlines, audience, tone, exclusions)"
+      ]
+    }
+  }
+}
