@@ -60,6 +60,7 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
 
 
 
+
 /* -- Koda Nav V2 -- */
 .kn-topbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(11,19,38,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
 .kn-topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:8px}
@@ -90,6 +91,12 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
 /* Desktop social - hidden on mobile (drawer has them) */
 .kn-desktop-social{display:none;align-items:center;gap:4px}
 @media(min-width:769px){.kn-desktop-social{display:flex}}
+
+/* Date picker (briefing pages only) */
+.kn-date-picker{display:none;align-items:center}
+@media(min-width:769px){.kn-date-picker{display:flex}}
+.kn-date-btn{display:flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:#3B82F6;padding:4px 8px;background:rgba(59,130,246,0.1);border-radius:6px;border:none;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.kn-date-btn:hover{background:rgba(59,130,246,0.2)}
 
 /* Home button - desktop only, in links row */
 .kn-home{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white!important;font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 10px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all 0.2s}
@@ -158,6 +165,7 @@ body.kn-locked{overflow:hidden}
         <a href="../index.html" class="kn-home">&larr; Home</a>
     </div>
     <div class="kn-actions">
+        
         <div class="kn-desktop-social">
             <a href="https://x.com/intent/tweet?url=https://www.koda.community/changelog/index.html" target="_blank" rel="noopener" class="kn-action-btn" title="Share on X">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -1193,6 +1201,19 @@ function kodaSubscribe(form){
         if(so){so.classList.remove('hidden');so.style.display='';var si=document.getElementById('globalSearchInput');if(si)si.focus();}
         else{window.location.href=searchBtn.closest('.kn-topbar').querySelector('.kn-brand').href.replace('index.html','')+'archive/';}
     });
+    /* Date picker */
+    var dpBtn=document.getElementById('datePickerBtn'),dpInput=document.getElementById('datePicker');
+    if(dpBtn&&dpInput){
+        dpBtn.addEventListener('click',function(){dpInput.showPicker?dpInput.showPicker():dpInput.click();});
+        dpInput.addEventListener('change',function(){
+            var v=dpInput.value;if(!v)return;
+            var file='morning-briefing-koda-'+v+'.html';
+            fetch(file,{method:'HEAD'}).then(function(r){
+                if(r.ok){window.location.href=file;}
+                else{alert('No digest available for '+v);dpInput.value=document.body.getAttribute('data-digest-date')||'';}
+            }).catch(function(){alert('No digest available for '+v);dpInput.value=document.body.getAttribute('data-digest-date')||'';});
+        });
+    }
 })();
 </script>
 <!-- koda-nav-v2-js-end -->

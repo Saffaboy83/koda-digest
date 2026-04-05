@@ -52,6 +52,12 @@ NAV_CSS_V2 = """
 .kn-desktop-social{display:none;align-items:center;gap:4px}
 @media(min-width:769px){.kn-desktop-social{display:flex}}
 
+/* Date picker (briefing pages only) */
+.kn-date-picker{display:none;align-items:center}
+@media(min-width:769px){.kn-date-picker{display:flex}}
+.kn-date-btn{display:flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:#3B82F6;padding:4px 8px;background:rgba(59,130,246,0.1);border-radius:6px;border:none;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.kn-date-btn:hover{background:rgba(59,130,246,0.2)}
+
 /* Home button - desktop only, in links row */
 .kn-home{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white!important;font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 10px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all 0.2s}
 .kn-home:hover{box-shadow:0 4px 16px rgba(59,130,246,0.3)}
@@ -108,6 +114,7 @@ def build_nav_v2(
     page_subtitle: str = "",
     page_icon: str = "",
     share_url: str = "https://www.koda.community",
+    date_picker_date: str = "",
 ) -> tuple[str, str, str]:
     """Build the canonical nav component.
 
@@ -159,6 +166,21 @@ def build_nav_v2(
             f'{page_subtitle}</div>'
         )
 
+    # ── Date picker (briefing pages only) ──
+    date_picker_html = ""
+    if date_picker_date:
+        date_picker_html = (
+            f'<div class="kn-date-picker" id="dayNav">'
+            f'<div style="position:relative">'
+            f'<button id="datePickerBtn" class="kn-date-btn" title="Jump to date">'
+            f'<span class="material-symbols-outlined" style="font-size:14px">calendar_month</span>'
+            f'<span id="dateLabel">{date_picker_date}</span>'
+            f'</button>'
+            f'<input type="date" id="datePicker" style="position:absolute;top:100%;left:0;margin-top:4px;opacity:0;pointer-events:none;width:0;height:0" '
+            f'value="{date_picker_date}" min="2026-03-24">'
+            f'</div></div>'
+        )
+
     # ── Assemble HTML ──
     html = f"""<!-- koda-nav-v2-start -->
 <header class="kn-topbar" id="knTopbar">
@@ -174,6 +196,7 @@ def build_nav_v2(
         {chr(10).join(f"        {l}" for l in desktop_links)}
     </div>
     <div class="kn-actions">
+        {date_picker_html}
         <div class="kn-desktop-social">
             <a href="https://x.com/intent/tweet?url={share_url}" target="_blank" rel="noopener" class="kn-action-btn" title="Share on X">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -262,6 +285,19 @@ def build_nav_v2(
         if(so){so.classList.remove('hidden');so.style.display='';var si=document.getElementById('globalSearchInput');if(si)si.focus();}
         else{window.location.href=searchBtn.closest('.kn-topbar').querySelector('.kn-brand').href.replace('index.html','')+'archive/';}
     });
+    /* Date picker */
+    var dpBtn=document.getElementById('datePickerBtn'),dpInput=document.getElementById('datePicker');
+    if(dpBtn&&dpInput){
+        dpBtn.addEventListener('click',function(){dpInput.showPicker?dpInput.showPicker():dpInput.click();});
+        dpInput.addEventListener('change',function(){
+            var v=dpInput.value;if(!v)return;
+            var file='morning-briefing-koda-'+v+'.html';
+            fetch(file,{method:'HEAD'}).then(function(r){
+                if(r.ok){window.location.href=file;}
+                else{alert('No digest available for '+v);dpInput.value=document.body.getAttribute('data-digest-date')||'';}
+            }).catch(function(){alert('No digest available for '+v);dpInput.value=document.body.getAttribute('data-digest-date')||'';});
+        });
+    }
 })();
 </script>
 <!-- koda-nav-v2-js-end -->"""

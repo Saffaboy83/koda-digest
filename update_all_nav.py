@@ -129,12 +129,26 @@ def update_file(
         return f"  SKIP (no JS markers): {rel_path}"
 
     share_url = _build_share_url(filepath)
+
+    # Extract date for briefing pages (enables date picker in nav)
+    date_picker_date = ""
+    if current_page == "signal":
+        import re as _re
+        m = _re.search(r"(\d{4}-\d{2}-\d{2})", filepath.name)
+        if m:
+            date_picker_date = m.group(1)
+        else:
+            # Undated briefing (morning-briefing-koda.html) — use today
+            from datetime import date
+            date_picker_date = date.today().isoformat()
+
     css, nav_html, nav_js = build_nav_v2(
         current_page=current_page,
         url_prefix=url_prefix,
         page_subtitle=page_subtitle,
         page_icon=page_icon,
         share_url=share_url,
+        date_picker_date=date_picker_date,
     )
 
     # Replace nav HTML (handles duplicates)
