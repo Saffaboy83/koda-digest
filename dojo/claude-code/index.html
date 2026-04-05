@@ -14,6 +14,18 @@ body{font-family:'Inter',sans-serif;background:#0b1326;color:#dae2fd;min-height:
 a{color:inherit}
 .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;display:inline-block;vertical-align:middle}
 
+/* ── Dojo Sub-Nav ── */
+.dojo-subnav{position:fixed;top:56px;width:100%;z-index:999;background:rgba(11,19,38,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.dojo-subnav-inner{max-width:1280px;margin:0 auto;padding:0 20px;height:40px;display:flex;align-items:center;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.dojo-subnav-back{display:flex;align-items:center;gap:4px;font-size:12px;font-weight:600;color:#8c909f;text-decoration:none;padding:4px 10px;border-radius:6px;transition:all 0.2s;white-space:nowrap;flex-shrink:0}
+.dojo-subnav-back:hover{color:#dae2fd;background:rgba(255,255,255,0.06)}
+.dojo-subnav-back .material-symbols-outlined{font-size:14px}
+.dojo-subnav-sep{width:1px;height:20px;background:rgba(255,255,255,0.08);flex-shrink:0;margin:0 4px}
+.dojo-subnav-link{display:flex;align-items:center;gap:5px;font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:700;color:#8c909f;text-decoration:none;padding:4px 10px;border-radius:6px;transition:all 0.2s;white-space:nowrap;background:rgba(255,255,255,0.03)}
+.dojo-subnav-link:hover{color:#dae2fd;background:rgba(255,255,255,0.08)}
+.dojo-subnav-link.active{color:#3B82F6;background:rgba(59,130,246,0.12)}
+.dojo-subnav-link .material-symbols-outlined{font-size:13px}
+
 /* ── Koda Nav V2 ── */
 .kn-topbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(11,19,38,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
 .kn-topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:8px}
@@ -67,7 +79,7 @@ body.kn-locked{overflow:hidden}
 .scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,#3B82F6,#8B5CF6);z-index:1001;transition:width 0.1s linear;pointer-events:none}
 
 /* ── Hero ── */
-.hero{padding:100px 24px 32px;text-align:center;background:radial-gradient(ellipse 80% 50% at 20% 60%,rgba(139,92,246,0.12) 0%,transparent 100%),radial-gradient(ellipse 60% 40% at 80% 30%,rgba(59,130,246,0.08) 0%,transparent 100%)}
+.hero{padding:130px 24px 32px;text-align:center;background:radial-gradient(ellipse 80% 50% at 20% 60%,rgba(139,92,246,0.12) 0%,transparent 100%),radial-gradient(ellipse 60% 40% at 80% 30%,rgba(59,130,246,0.08) 0%,transparent 100%)}
 .hero-overline{font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:#8c909f;margin-bottom:12px}
 .hero h1{font-size:clamp(28px,5vw,48px);font-weight:900;background:linear-gradient(135deg,#3B82F6 0%,#8B5CF6 50%,#EC4899 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.02em;margin-bottom:8px}
 .hero p{color:#c2c6d6;font-size:15px;max-width:600px;margin:0 auto}
@@ -132,7 +144,7 @@ body.kn-locked{overflow:hidden}
 .capstone-black li::before{background:#8B5CF6}
 
 /* ── Module detail: sticky subnav ── */
-.module-nav{position:sticky;top:56px;z-index:40;background:rgba(11,19,38,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);padding:0 20px}
+.module-nav{position:sticky;top:96px;z-index:40;background:rgba(11,19,38,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);padding:0 20px}
 .module-nav-inner{max-width:1080px;margin:0 auto;height:48px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .mn-back{display:flex;align-items:center;gap:4px;font-size:12px;font-family:'JetBrains Mono',monospace;font-weight:700;color:#8c909f;cursor:pointer;background:none;border:none;transition:color 0.2s;text-decoration:none;flex-shrink:0}
 .mn-back:hover{color:#3B82F6}
@@ -304,6 +316,16 @@ body.kn-locked{overflow:hidden}
     </div>
 </nav>
 <!-- koda-nav-v2-end -->
+
+<!-- Dojo Sub-Nav -->
+<div class="dojo-subnav">
+    <div class="dojo-subnav-inner">
+        <a href="../" class="dojo-subnav-back"><span class="material-symbols-outlined">arrow_back</span>All Dojos</a>
+        <div class="dojo-subnav-sep"></div>
+        <a href="./" class="dojo-subnav-link active"><span class="material-symbols-outlined">terminal</span>Claude Code</a>
+        <a href="../cowork/" class="dojo-subnav-link"><span class="material-symbols-outlined">desktop_windows</span>Cowork</a>
+    </div>
+</div>
 
 <!-- ═══ OVERVIEW MODE ═══ -->
 <div class="view-overview" id="viewOverview">
