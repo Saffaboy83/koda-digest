@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chattee Review | Koda Intelligence - The Lab</title>
+<meta name="description" content="Deep review of Chattee: Build full-stack apps through conversation. Pricing, features, limitations, and verdict from Koda Intelligence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0b1326;
+  --bg-footer: #060e20;
+  --card-bg: rgba(23,31,51,0.4);
+  --card-border: rgba(255,255,255,0.06);
+  --text: #dae2fd;
+  --heading: #dae2fd;
+  --secondary: #c2c6d6;
+  --muted: #8c909f;
+  --accent-purple: #8B5CF6;
+  --accent-blue: #3B82F6;
+  --gradient: linear-gradient(135deg, #3B82F6, #8B5CF6);
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scroll Progress Bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--gradient);
+  z-index: 10001;
+  transition: width 0.1s linear;
+}
+
+/* Topbar */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: rgba(11,19,38,0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.topbar-brand-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--gradient);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-weight: 900;
+  font-size: 16px;
+  color: #fff;
+}
+
+.topbar-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar-brand-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-blue);
+  line-height: 1.2;
+}
+
+.topbar-brand-sub {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.2;
+}
+
+.topbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.topbar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+
+.topbar-nav a:hover {
+  color: var(--text);
+  background: rgba(255,255,255,0.05);
+}
+
+.topbar-nav a.active {
+  color: var(--accent-blue);
+  background: rgba(59,130,246,0.1);
+}
+
+.topbar-nav a .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.topbar-nav .nav-home {
+  background: var(--gradient);
+  color: #fff;
+  margin-left: 4px;
+}
+
+.topbar-nav .nav-home:hover {
+  opacity: 0.9;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .topbar-nav a { display: none; }
+  .topbar-nav a.active,
+  .topbar-nav a.nav-home { display: flex; }
+}
+
+/* Main content */
+main {
+  padding-top: 56px;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Animation */
+.animate-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero */
+.hero {
+  padding: 80px 0 60px;
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-purple);
+  background: rgba(139,92,246,0.12);
+  border: 1px solid rgba(139,92,246,0.25);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero h1 {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 900;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.hero-tagline {
+  font-size: 18px;
+  color: var(--secondary);
+  max-width: 640px;
+  margin: 0 auto 32px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gradient);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-primary .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* Verdict */
+.verdict-section {
+  padding: 0 0 60px;
+}
+
+.verdict-card {
+  background: rgba(139,92,246,0.06);
+  border: 1px solid rgba(139,92,246,0.2);
+  border-radius: 12px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.verdict-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient);
+}
+
+.verdict-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-purple);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.verdict-card p {
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* Pricing */
+.pricing-section {
+  padding: 0 0 60px;
+}
+
+.section-title {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  color: var(--heading);
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .pricing-grid { grid-template-columns: 1fr; }
+}
+
+.pricing-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card.featured {
+  border-color: rgba(139,92,246,0.3);
+  background: rgba(139,92,246,0.05);
+  position: relative;
+}
+
+.pricing-card.featured::after {
+  content: 'Popular';
+  position: absolute;
+  top: -1px;
+  right: 20px;
+  background: var(--gradient);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 0 0 6px 6px;
+  text-transform: uppercase;
+}
+
+.pricing-tier {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-purple);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.pricing-price {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--heading);
+  margin-bottom: 4px;
+}
+
+.pricing-price span {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.pricing-desc {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.pricing-features {
+  list-style: none;
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.pricing-features li {
+  font-size: 13px;
+  color: var(--secondary);
+  padding: 6px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+.pricing-features li .material-symbols-outlined {
+  font-size: 16px;
+  color: var(--accent-purple);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pricing-cta {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid rgba(139,92,246,0.3);
+  color: var(--accent-purple);
+  transition: background 0.2s, color 0.2s;
+}
+
+.pricing-cta:hover {
+  background: rgba(139,92,246,0.1);
+}
+
+.pricing-card.featured .pricing-cta {
+  background: var(--gradient);
+  color: #fff;
+  border: none;
+}
+
+/* Features */
+.features-section {
+  padding: 0 0 60px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .features-grid { grid-template-columns: 1fr; }
+}
+
+.feature-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.feature-card-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(139,92,246,0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.feature-card-icon .material-symbols-outlined {
+  font-size: 22px;
+  color: var(--accent-purple);
+}
+
+.feature-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--heading);
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 13px;
+  color: var(--secondary);
+  line-height: 1.65;
+}
+
+/* Use Cases */
+.usecases-section {
+  padding: 0 0 60px;
+}
+
+.usecases-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .usecases-list { grid-template-columns: 1fr; }
+}
+
+.usecase-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.usecase-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--heading);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.usecase-card h3 .material-symbols-outlined {
+  font-size: 20px;
+  color: var(--accent-blue);
+}
+
+.usecase-card p {
+  font-size: 13px;
+  color: var(--secondary);
+  line-height: 1.65;
+}
+
+/* Limitations */
+.limitations-section {
+  padding: 0 0 60px;
+}
+
+.limitations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.limitation-item {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.limitation-item .material-symbols-outlined {
+  font-size: 20px;
+  color: #f59e0b;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.limitation-item h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--heading);
+  margin-bottom: 4px;
+}
+
+.limitation-item p {
+  font-size: 13px;
+  color: var(--secondary);
+  line-height: 1.6;
+}
+
+/* Bottom CTA */
+.bottom-cta {
+  padding: 60px 0 80px;
+  text-align: center;
+}
+
+.bottom-cta-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 48px 32px;
+}
+
+.bottom-cta h2 {
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 800;
+  color: var(--heading);
+  margin-bottom: 12px;
+}
+
+.bottom-cta p {
+  font-size: 15px;
+  color: var(--secondary);
+  margin-bottom: 28px;
+}
+
+.bottom-cta-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.bottom-cta-links a {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+.bottom-cta-links a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background: var(--bg-footer);
+  border-top: 1px solid var(--card-border);
+  padding: 32px 20px;
+}
+
+.footer-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-brand {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.footer-brand span {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-left: 8px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<nav class="topbar">
+  <a href="../index.html" class="topbar-brand">
+    <div class="topbar-brand-icon">K</div>
+    <div class="topbar-brand-text">
+      <span class="topbar-brand-name">Koda Intelligence</span>
+      <span class="topbar-brand-sub">The Lab</span>
+    </div>
+  </a>
+  <div class="topbar-nav">
+    <a href="../morning-briefing-koda.html"><span class="material-symbols-outlined">bolt</span>The Signal</a>
+    <a href="../editorial/"><span class="material-symbols-outlined">explore</span>Deep Dive</a>
+    <a href="../pricing/"><span class="material-symbols-outlined">monitoring</span>Token Tracker</a>
+    <a href="../benchmarks/"><span class="material-symbols-outlined">trophy</span>Leaderboard</a>
+    <a href="../reviews/" class="active"><span class="material-symbols-outlined">science</span>The Lab</a>
+    <a href="../changelog/"><span class="material-symbols-outlined">pulse_alert</span>Pulse</a>
+    <a href="../archive/"><span class="material-symbols-outlined">lock_open</span>The Vault</a>
+    <a href="../index.html" class="nav-home"><span class="material-symbols-outlined">home</span></a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="animate-in">
+        <span class="hero-badge">Lab Report</span>
+        <h1>Chattee: Build Full-Stack Apps Through Conversation</h1>
+        <p class="hero-tagline">Describe your data model, UI layout, and business logic in plain English. Chattee scaffolds the entire project, from frontend to backend, so you can prototype MVPs in hours instead of days.</p>
+        <a href="https://theresanaiforthat.com/ai/chattee/" target="_blank" rel="noopener" class="btn-primary">
+          <span class="material-symbols-outlined">open_in_new</span>
+          Try Chattee
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verdict -->
+  <section class="verdict-section" id="verdict">
+    <div class="container">
+      <div class="animate-in">
+        <div class="verdict-card">
+          <div class="verdict-label">Editorial Verdict</div>
+          <p>Chattee is best suited for solo developers, startup founders, and non-technical product managers who need to validate an idea quickly without assembling a full engineering team. It handles the tedious scaffolding work well enough to get a working prototype in front of stakeholders fast. However, if you are building anything production-grade with complex auth flows, custom integrations, or strict compliance requirements, you will still need to export the code and bring in experienced developers to harden it. Worth trying for rapid prototyping; not yet a replacement for a real engineering workflow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="animate-in">
+        <h2 class="section-title">Pricing</h2>
+        <p class="section-subtitle">Estimated tiers based on available information. Check the official site for current pricing.</p>
+      </div>
+      <div class="pricing-grid animate-in">
+        <div class="pricing-card">
+          <div class="pricing-tier">Free</div>
+          <div class="pricing-price">$0<span>/mo</span></div>
+          <div class="pricing-desc">Get started and explore the basics.</div>
+          <ul class="pricing-features">
+            <li><span class="material-symbols-outlined">check_circle</span>Up to 3 projects</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Basic scaffolding (frontend + simple backend)</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Community support</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Code export (basic)</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Limited prompt iterations per day</li>
+          </ul>
+          <a href="https://theresanaiforthat.com/ai/chattee/" target="_blank" rel="noopener" class="pricing-cta">Get Started</a>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pricing-tier">Pro</div>
+          <div class="pricing-price">$20<span>/mo</span></div>
+          <div class="pricing-desc">For serious prototyping and MVP development.</div>
+          <ul class="pricing-features">
+            <li><span class="material-symbols-outlined">check_circle</span>Unlimited projects</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Full-stack generation (database, API, UI)</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Priority AI model access</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Full code export with clean structure</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Unlimited prompt iterations</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Custom deployment options</li>
+          </ul>
+          <a href="https://theresanaiforthat.com/ai/chattee/" target="_blank" rel="noopener" class="pricing-cta">Try Pro</a>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-tier">Team</div>
+          <div class="pricing-price">$50<span>/mo</span></div>
+          <div class="pricing-desc">Collaboration features for small teams.</div>
+          <ul class="pricing-features">
+            <li><span class="material-symbols-outlined">check_circle</span>Everything in Pro</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Up to 5 team members</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Shared project workspace</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Version history and rollback</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Priority support</li>
+            <li><span class="material-symbols-outlined">check_circle</span>Custom branding on exports</li>
+          </ul>
+          <a href="https://theresanaiforthat.com/ai/chattee/" target="_blank" rel="noopener" class="pricing-cta">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="animate-in">
+        <h2 class="section-title">Key Features</h2>
+        <p class="section-subtitle">What Chattee brings to the table.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card animate-in">
+          <div class="feature-card-icon"><span class="material-symbols-outlined">chat</span></div>
+          <h3>Natural Language Prompting</h3>
+          <p>Describe your app in plain English. Specify data models, page layouts, user flows, and business rules conversationally. No need to write boilerplate or configure project files manually.</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-card-icon"><span class="material-symbols-outlined">stacks</span></div>
+          <h3>Full-Stack Scaffolding</h3>
+          <p>Generates both frontend and backend code in a single pass. Includes database schema, API endpoints, and UI components that are wired together and ready to run.</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-card-icon"><span class="material-symbols-outlined">code</span></div>
+          <h3>Code Export</h3>
+          <p>Download the generated codebase and continue development in your own IDE. The output is structured cleanly enough for a developer to pick up and refine without starting over.</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-card-icon"><span class="material-symbols-outlined">refresh</span></div>
+          <h3>Iterative Refinement</h3>
+          <p>Not happy with the first output? Continue the conversation to adjust layouts, add fields, change logic, or restructure components. Each iteration builds on the previous state.</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-card-icon"><span class="material-symbols-outlined">dashboard</span></div>
+          <h3>Internal Tool Templates</h3>
+          <p>Pre-built patterns for common internal tools like admin dashboards, CRUD apps, and data management interfaces. Speeds up the most repetitive category of app development.</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-card-icon"><span class="material-symbols-outlined">visibility</span></div>
+          <h3>Live Preview</h3>
+          <p>See your app rendered in real time as you describe it. The preview updates with each prompt, giving you immediate visual feedback before you commit to exporting.</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-card-icon"><span class="material-symbols-outlined">storage</span></div>
+          <h3>Database Schema Generation</h3>
+          <p>Describe your data relationships in natural language and Chattee generates the schema, including foreign keys, indexes, and basic validation rules. Supports common relational patterns.</p>
+        </div>
+        <div class="feature-card animate-in">
+          <div class="feature-card-icon"><span class="material-symbols-outlined">rocket_launch</span></div>
+          <h3>One-Click Deploy</h3>
+          <p>Deploy your generated app to a hosted environment directly from the platform. Useful for sharing prototypes with stakeholders or running quick user tests without configuring infrastructure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="usecases-section" id="usecases">
+    <div class="container">
+      <div class="animate-in">
+        <h2 class="section-title">Who Should Use Chattee</h2>
+        <p class="section-subtitle">The best and worst fits for this tool.</p>
+      </div>
+      <div class="usecases-list">
+        <div class="usecase-card animate-in">
+          <h3><span class="material-symbols-outlined">person</span>Solo Founders</h3>
+          <p>You have an idea and need a working prototype to show investors or early users. Chattee lets you skip the weeks of setup and get something tangible in front of people fast. The code export means you are not locked in when you hire your first engineer.</p>
+        </div>
+        <div class="usecase-card animate-in">
+          <h3><span class="material-symbols-outlined">business</span>Internal Tools Teams</h3>
+          <p>Building yet another admin panel or data entry form? Chattee handles the repetitive CRUD scaffolding so your developers can focus on the custom logic that actually matters. Good for teams drowning in internal tool requests.</p>
+        </div>
+        <div class="usecase-card animate-in">
+          <h3><span class="material-symbols-outlined">school</span>Non-Technical Product Managers</h3>
+          <p>You understand the product requirements but cannot write code. Chattee bridges that gap, letting you create functional mockups that go beyond static wireframes. Useful for communicating requirements to engineering teams.</p>
+        </div>
+        <div class="usecase-card animate-in">
+          <h3><span class="material-symbols-outlined">developer_mode</span>Developers Prototyping</h3>
+          <p>Even experienced developers waste time on boilerplate. Use Chattee to generate the skeleton, then export and customize. It is faster than copy-pasting from old projects or wrestling with CLI generators for the hundredth time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limitations -->
+  <section class="limitations-section" id="limitations">
+    <div class="container">
+      <div class="animate-in">
+        <h2 class="section-title">Limitations</h2>
+        <p class="section-subtitle">Where Chattee falls short. No sugarcoating.</p>
+      </div>
+      <div class="limitations-list">
+        <div class="limitation-item animate-in">
+          <span class="material-symbols-outlined">warning</span>
+          <div>
+            <h4>Not Production-Ready Output</h4>
+            <p>The generated code is functional but not hardened. Expect to spend significant time on security, error handling, edge cases, and performance optimization before shipping anything to real users. This is a prototyping tool, not a production pipeline.</p>
+          </div>
+        </div>
+        <div class="limitation-item animate-in">
+          <span class="material-symbols-outlined">warning</span>
+          <div>
+            <h4>Limited Framework Flexibility</h4>
+            <p>Chattee generates code in its preferred stack. If your team uses a specific framework or has strong opinions about architecture, the output may not align. You will likely need to refactor or rewrite portions to fit your existing codebase.</p>
+          </div>
+        </div>
+        <div class="limitation-item animate-in">
+          <span class="material-symbols-outlined">warning</span>
+          <div>
+            <h4>Complex Logic Breaks Down</h4>
+            <p>Simple CRUD operations and standard UI patterns work well. But once you introduce complex business logic, conditional workflows, or multi-step transactions, the AI struggles to maintain coherence. You will hit a ceiling on complexity fairly quickly.</p>
+          </div>
+        </div>
+        <div class="limitation-item animate-in">
+          <span class="material-symbols-outlined">warning</span>
+          <div>
+            <h4>Opaque Pricing and Early Stage</h4>
+            <p>Pricing details are not fully transparent on the site, and the tool is still relatively new. Feature availability, model quality, and pricing could shift significantly. The tiers listed above are estimates based on available information; verify before committing.</p>
+          </div>
+        </div>
+        <div class="limitation-item animate-in">
+          <span class="material-symbols-outlined">warning</span>
+          <div>
+            <h4>Competitive Landscape is Crowded</h4>
+            <p>Chattee competes with Bolt, Lovable, Replit Agent, and similar tools. Some of these competitors have larger teams, more funding, and more mature ecosystems. It is worth testing multiple options before committing to one platform for your workflow.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="bottom-cta" id="cta">
+    <div class="container">
+      <div class="bottom-cta-card animate-in">
+        <h2>Ready to Try Chattee?</h2>
+        <p>Describe your app. Get a working prototype. Export the code. It is that simple, at least in theory.</p>
+        <a href="https://theresanaiforthat.com/ai/chattee/" target="_blank" rel="noopener" class="btn-primary">
+          <span class="material-symbols-outlined">open_in_new</span>
+          Try Chattee
+        </a>
+        <div class="bottom-cta-links">
+          <a href="../reviews/">Back to The Lab</a>
+          <a href="../morning-briefing-koda.html">Back to The Signal</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Koda Intelligence<span>April 5, 2026</span></div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="../morning-briefing-koda.html">The Signal</a>
+      <a href="../reviews/">The Lab</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll progress bar
+window.addEventListener('scroll', function() {
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const progress = (scrollTop / scrollHeight) * 100;
+  document.getElementById('scroll-progress').style.width = progress + '%';
+});
+
+// IntersectionObserver for animations
+document.addEventListener('DOMContentLoaded', function() {
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  document.querySelectorAll('.animate-in').forEach(function(el) {
+    observer.observe(el);
+  });
+});
+</script>
+
+</body>
+</html>

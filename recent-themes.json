@@ -1,4 +1,64 @@
 {
+  "2026-04-05": {
+    "hook": "At $852 billion, OpenAI is now worth more than most countries produce in a year.",
+    "top_themes": [
+      "OpenAI's $852B Valuation",
+      "Hormuz Crisis Spikes Oil",
+      "Specialized Models Challenge Frontiers"
+    ],
+    "top_stories": [
+      "OpenAI Valued at $852B After Mega Round",
+      "Microsoft Copilot Adds Multi-Model Workflows, Cowork Agent",
+      "Baidu Robotaxi Outage Strands Cars in Wuhan",
+      "Suleyman Built MAI-Transcribe With 10-Person Team",
+      "Coding Specialists Beat GPT-5.4 by 14 Points",
+      "ChatGPT Super App Consolidates Five AI Functions",
+      "Developer Decision Fatigue Hits Crisis Levels",
+      "Gemini 3.1 Flash-Lite Sets Efficiency Benchmark",
+      "Hugging Face Charts Open Source AI Landscape Shift",
+      "Waymo Ridership Growth Accelerates Sharply",
+      "Trump Issues 48-Hour Ultimatum to Iran",
+      "Iran Approves Humanitarian Passage Through Hormuz",
+      "Oil Nears $124 as Hormuz Blockade Chokes Supply",
+      "Soleimani Relatives Detained, U.S. Residency Revoked",
+      "Erdogan Hosts Zelenskyy, Rutte in Istanbul Talks",
+      "Senegal Bans Official Foreign Travel Over Fuel Costs",
+      "Israeli Airstrike Kills Five in Southern Lebanon"
+    ],
+    "featured_tools": [
+      "Faahh: The Focus App That Roasts You Back to Work",
+      "Chattee: Build Full-Stack Apps Through Conversation",
+      "ZooClaw: One Entry Point to a Team of AI Specialists",
+      "Noiz AI: Text to Voice to Story in One Flow",
+      "Tether AI: Schedule and Automate Tasks With a Personal Agent",
+      "ParliAI: Crowdsource AI Perspectives Before You Decide"
+    ],
+    "source_urls": [
+      "https://www.marketingprofs.com/opinions/2026/54505/ai-update-april-3-2026-ai-news-and-views-from-the-past-week",
+      "https://www.marketingprofs.com/opinions/2026/54505/ai-update-april-3-2026-ai-news-and-views-from-the-past-week",
+      "https://www.reuters.com/video/watch/idRW918801042026RP1/",
+      "https://www.geekwire.com/2026/microsoft-releases-new-ai-models-to-further-expand-beyond-openai/",
+      "https://www.digitalapplied.com/blog/12-ai-models-released-one-week-march-2026-developer-guide",
+      "https://www.marketingprofs.com/opinions/2026/54505/ai-update-april-3-2026-ai-news-and-views-from-the-past-week",
+      "https://www.searchcans.com/blog/ai-model-releases-april-2026-v2/",
+      "https://www.digitalapplied.com/blog/12-ai-models-released-one-week-march-2026-developer-guide",
+      "https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026",
+      "https://techcrunch.com/2026/03/27/waymo-skyrocketing-ridership-in-one-chart/",
+      "https://www.aa.com.tr/en/world/morning-briefing-april-5-2026/3892286",
+      "https://www.aa.com.tr/en/world/morning-briefing-april-5-2026/3892286",
+      "https://www.aa.com.tr/en/world/morning-briefing-april-5-2026/3892286",
+      "https://www.cbsnews.com/news/ex-iranian-guard-leader-soleimani-family-ice-custody/",
+      "https://www.aa.com.tr/en/world/morning-briefing-april-5-2026/3892286",
+      "https://www.aa.com.tr/en/world/morning-briefing-april-5-2026/3892286",
+      "https://en.wikipedia.org/wiki/Portal:Current_events/2026_April_5"
+    ],
+    "story_angles": [
+      "OpenAI closed a mega funding round valuing the company at $852 billion, cementin",
+      "Trump issued a 48-hour ultimatum to Iran as oil surged near $124 per barrel on f",
+      "Extreme fear dominates sentiment as the Iran standoff, spiking crude prices, and",
+      "Baidu's robotaxi fleet suffered a major outage in Wuhan, stranding autonomous ve"
+    ]
+  },
   "2026-04-04": {
     "hook": "SpaceX just bought xAI while a downed F-15 sends markets into extreme fear territory.",
     "top_themes": [
