@@ -841,6 +841,18 @@ def inline_md(text: str) -> str:
     return text
 
 
+def _truncate_title(text: str, max_len: int = 120) -> str:
+    """Truncate text at the last word boundary before max_len."""
+    if len(text) <= max_len:
+        return text
+    # Find last space or dash before the limit
+    truncated = text[:max_len]
+    last_break = max(truncated.rfind(' '), truncated.rfind('—'), truncated.rfind('-'))
+    if last_break > max_len // 2:
+        return truncated[:last_break].rstrip(' —-')
+    return truncated.rstrip()
+
+
 def render_html(article: str, topic: dict, date: str, hero_url: str | None = None) -> str:
     """Render editorial HTML from the article text."""
     tag = topic.get("tag", "Strategy")
@@ -854,8 +866,9 @@ def render_html(article: str, topic: dict, date: str, hero_url: str | None = Non
 
     # Extract title from first strong claim in hook
     first_line = hook.split('\n')[0].strip()
-    # Generate a proper title from the topic
-    title = topic.get("topic", first_line)[:80]
+    # Generate a proper title from the topic (truncate at word boundary)
+    raw_title = topic.get("topic", first_line)
+    title = _truncate_title(raw_title, max_len=120)
 
     # Build subtitle from hook
     hook_sentences = re.split(r'(?<=[.!?])\s+', hook)
@@ -1365,8 +1378,8 @@ def _inject_media_strip(html: str, media_status: dict) -> str:
     if audio_url:
         cards.append(f"""    <div class="media-card media-card--audio">
       <span class="material-symbols-outlined media-card__icon media-card__icon--audio">headphones</span>
-      <div class="media-card__title">Deep Dive Audio</div>
-      <div class="media-card__subtitle">Brief overview (~5 min)</div>
+      <div class="media-card__title">Expert Analysis</div>
+      <div class="media-card__subtitle">Two-minute conversation (~2 min)</div>
       <button class="media-btn media-btn--podcast" id="edPodBtn" onclick="toggleEditorialPodcast()" aria-expanded="false" aria-controls="editorialPodcastPlayer">&#9654; Listen Now</button>
       <div class="ed-podcast-wrap" id="editorialPodcastPlayer">
         <audio controls preload="none"><source src="{audio_url}" type="audio/mpeg"></audio>
@@ -1376,8 +1389,8 @@ def _inject_media_strip(html: str, media_status: dict) -> str:
     if youtube_id:
         cards.append(f"""    <div class="media-card media-card--video">
       <span class="material-symbols-outlined media-card__icon media-card__icon--video">smart_display</span>
-      <div class="media-card__title">Anime Brief</div>
-      <div class="media-card__subtitle">Visual deep dive (~2 min)</div>
+      <div class="media-card__title">Visual Narrative</div>
+      <div class="media-card__subtitle">Animated story breakdown (~2 min)</div>
       <button class="media-btn media-btn--video" onclick="toggleVideo()">&#9654; Play Video</button>
       <a href="{youtube_url}" target="_blank" rel="noopener" class="media-yt-link">or watch on YouTube &rarr;</a>
       <div class="video-overlay" id="videoOverlay" role="dialog" aria-modal="true" aria-label="Video player" onclick="if(event.target===this)toggleVideo()">
@@ -1435,15 +1448,15 @@ function toggleVideo() {
 </script>
 """
 
-    # Inject after </header> (end of hero section)
-    marker = "</header>"
+    # Inject after <article class="article-body"> (between hero and body text)
+    marker = '<article class="article-body">'
     idx = html.find(marker)
     if idx != -1:
         insert_at = idx + len(marker)
-        html = html[:insert_at] + strip_html + html[insert_at:]
+        html = html[:insert_at] + "\n" + strip_html + html[insert_at:]
         print(f"  Injected media strip (audio={bool(audio_url)}, video={bool(youtube_id)})")
     else:
-        print("  WARNING: Could not find </header> to inject media strip")
+        print("  WARNING: Could not find <article> to inject media strip")
 
     # Inject media JS before </body>
     body_end = html.rfind("</body>")
@@ -1545,7 +1558,7 @@ def main() -> None:
         print(f"  Saved: editorial/{filename} ({len(html)} chars, {word_count} words)")
 
     # Derive article title (same logic as render_html uses)
-    article_title = topic.get("topic", "Today's Analysis")[:80]
+    article_title = _truncate_title(topic.get("topic", "Today's Analysis"), max_len=120)
 
     # Save status
     status = {
