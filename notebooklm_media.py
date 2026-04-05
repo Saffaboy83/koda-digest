@@ -671,7 +671,7 @@ async def run_editorial_pipeline(
         if create_new_notebook:
             print(f"[E0/5] Creating dedicated editorial notebook...")
             nb = await client.notebooks.create(f"Koda Editorial {date_str}")
-            notebook_id = nb.notebook_id
+            notebook_id = nb.id
             created_notebook = True
             print(f"  Created notebook: {notebook_id}")
 
