@@ -7,7 +7,8 @@
     { "source": "/dojo", "destination": "/dojo/index.html" },
     { "source": "/dojo/", "destination": "/dojo/index.html" },
     { "source": "/dojo/claude-code", "destination": "/dojo/claude-code/index.html" },
-    { "source": "/dojo/claude-code/", "destination": "/dojo/claude-code/index.html" }
+    { "source": "/dojo/claude-code/", "destination": "/dojo/claude-code/index.html" },
+    { "source": "/media/:path*", "destination": "https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/:path*" }
   ],
   "headers": [
     {
