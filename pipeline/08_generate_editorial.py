@@ -654,13 +654,13 @@ def _generate_hero_via_openrouter(image_prompt: str, hero_path: Path) -> bool:
 
 
 def _generate_hero_via_gemini(image_prompt: str, hero_path: Path) -> bool:
-    """Primary: generate hero image via Gemini web app (uses Google Ultra subscription).
+    """Primary: generate hero image via Gemini Imagen 3 (API key, free tier).
     Returns True on success, False on failure (caller should try fallback)."""
     import subprocess
 
-    cookies_path = os.environ.get("GEMINI_COOKIE_PATH", os.path.expanduser("~/.gemini/cookies.json"))
-    if not os.path.exists(cookies_path):
-        print("  WARNING: Gemini cookies not found, skipping Gemini image gen")
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        print("  WARNING: GEMINI_API_KEY not set, skipping Gemini image gen")
         return False
 
     gemini_script = DIGEST_DIR / "gemini_image.py"
@@ -668,13 +668,12 @@ def _generate_hero_via_gemini(image_prompt: str, hero_path: Path) -> bool:
         print("  WARNING: gemini_image.py not found, skipping Gemini image gen")
         return False
 
-    print("  Generating editorial hero via Gemini (Google Ultra)...")
+    print("  Generating editorial hero via Gemini Imagen 3...")
     try:
         result = subprocess.run(
             [sys.executable, str(gemini_script),
              "--prompt", image_prompt,
-             "--output", str(hero_path),
-             "--cookies", cookies_path],
+             "--output", str(hero_path)],
             capture_output=True, text=True, timeout=120,
             env={**os.environ, "PYTHONUTF8": "1"},
         )
@@ -686,7 +685,7 @@ def _generate_hero_via_gemini(image_prompt: str, hero_path: Path) -> bool:
             print(f"  Gemini hero image saved: {hero_path.name} ({size_kb}KB)")
             return True
         elif result.returncode == 2:
-            print("  WARNING: Gemini auth expired -- falling back to DALL-E")
+            print("  WARNING: Gemini API key missing/invalid -- falling back to DALL-E")
             if result.stderr:
                 print(f"    {result.stderr.strip()[:200]}")
             return False
@@ -705,7 +704,7 @@ def _generate_hero_via_gemini(image_prompt: str, hero_path: Path) -> bool:
 
 def generate_editorial_hero(topic: dict, date: str, article_text: str | None = None) -> str | None:
     """Generate a hero image for the editorial.
-    Primary: Gemini Ultra (via gemini-webapi, free with subscription).
+    Primary: Gemini Imagen 3 (API key, free tier).
     Fallback: DALL-E via OpenRouter (paid tokens).
     """
 
