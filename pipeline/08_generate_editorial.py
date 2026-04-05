@@ -853,8 +853,16 @@ def _truncate_title(text: str, max_len: int = 120) -> str:
     return truncated.rstrip()
 
 
+def _clean_em_dashes(text: str) -> str:
+    """Replace em dashes with spaced hyphens (Koda house style: zero em dashes)."""
+    return text.replace("—", " -").replace("–", "-")
+
+
 def render_html(article: str, topic: dict, date: str, hero_url: str | None = None) -> str:
     """Render editorial HTML from the article text."""
+    # Koda house style: zero em dashes anywhere
+    article = _clean_em_dashes(article)
+    topic = {k: _clean_em_dashes(v) if isinstance(v, str) else v for k, v in topic.items()}
     tag = topic.get("tag", "Strategy")
     expert = topic.get("expert_overlay", "theMITmonk")
 
