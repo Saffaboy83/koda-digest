@@ -254,19 +254,68 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
             </div>
         </a>
 </div>
-<footer>
-    <div class="inner">
-        <div>
-            <div style="font-weight:700;font-size:14px;color:#dae2fd;margin-bottom:4px">Koda Intelligence</div>
-            <div style="font-size:12px;color:#8c909f">AI-powered daily intelligence for builders and operators.</div>
+<section style="width:100%;padding:64px 24px">
+    <div style="max-width:36rem;margin:0 auto;text-align:center">
+        <div style="background:rgba(11,19,38,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:40px;position:relative;overflow:hidden">
+            <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:128px;height:4px;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);border-radius:0 0 4px 4px"></div>
+            <h3 style="font-size:20px;font-weight:700;color:white;margin-bottom:8px">Like what you see?</h3>
+            <p style="color:#c2c6d6;font-size:14px;margin-bottom:24px">Get tomorrow's brief delivered to your inbox.</p>
+            <form style="display:flex;flex-direction:column;gap:8px;max-width:28rem;margin:0 auto;padding:6px;border-radius:9999px;background:#171f33;border:1px solid rgba(255,255,255,0.06)" onsubmit="return kodaSubscribe(this)">
+                <div style="display:flex;gap:8px">
+                    <input type="email" name="email" required style="background:transparent;border:none;outline:none;color:white;padding:12px 20px;width:100%;font-size:14px" placeholder="your@email.com">
+                    <button type="submit" style="background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;padding:12px 24px;border-radius:9999px;font-weight:700;font-size:14px;white-space:nowrap;border:none;cursor:pointer">Subscribe</button>
+                </div>
+            </form>
+            <p style="font-size:10px;color:#8c909f;margin-top:12px">One email per day. Unsubscribe anytime.</p>
         </div>
-        <div style="display:flex;gap:16px;align-items:center">
-            <a href="../index.html" style="color:#8c909f;text-decoration:none;font-size:12px">Home</a>
-            <a href="../morning-briefing-koda.html" style="color:#8c909f;text-decoration:none;font-size:12px">The Signal</a>
-            <a href="../editorial/" style="color:#8c909f;text-decoration:none;font-size:12px">Deep Dive</a>
+    </div>
+</section>
+<footer style="background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto">
+    <div style="max-width:40rem;margin:0 auto;text-align:center;padding:64px 24px;position:relative">
+        <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:500px;height:200px;background:linear-gradient(to top,rgba(139,92,246,0.04),transparent);border-radius:50%;filter:blur(48px);pointer-events:none"></div>
+        <div style="position:relative;z-index:1">
+            <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:24px">
+                <div style="width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;box-shadow:0 4px 12px rgba(139,92,246,0.2)">K</div>
+                <span style="font-size:18px;font-weight:700;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Koda Intelligence</span>
+            </div>
+            <p style="color:#c2c6d6;font-size:14px;margin-bottom:32px">Read. Listen. Watch. Every morning.</p>
+            <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:40px;flex-wrap:wrap">
+                <a href="../morning-briefing-koda.html" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color='#3B82F6'" onmouseout="this.style.color='#c2c6d6'"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+                <span style="color:rgba(140,144,159,0.3)">|</span>
+                <a href="../archive/" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color='#8B5CF6'" onmouseout="this.style.color='#c2c6d6'"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
+                <span style="color:rgba(140,144,159,0.3)">|</span>
+                <a href="https://www.youtube.com/channel/UC8qqiKRGFAd5SwTr_2ZzPJg" target="_blank" rel="noopener" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color='#EC4899'" onmouseout="this.style.color='#c2c6d6'">YouTube</a>
+            </div>
+            <p style="font-size:11px;color:rgba(140,144,159,0.6)">&copy; 2026 Koda Community &middot; <span style="font-family:'JetBrains Mono',monospace">koda.community</span></p>
         </div>
     </div>
 </footer>
+<script>
+function kodaSubscribe(form) {
+    var btn = form.querySelector("button");
+    var email = form.querySelector('input[name="email"]').value;
+    btn.textContent = "Subscribing...";
+    btn.disabled = true;
+    fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email })
+    }).then(function(r) {
+        if (r.ok) {
+            btn.textContent = "Subscribed!";
+            btn.style.background = "#10B981";
+            form.querySelector('input[name="email"]').value = "";
+        } else {
+            btn.textContent = "Try again";
+            btn.disabled = false;
+        }
+    }).catch(function() {
+        btn.textContent = "Try again";
+        btn.disabled = false;
+    });
+    return false;
+}
+</script>
 <script>
 // Scroll progress
 window.addEventListener('scroll',function(){var p=document.getElementById('scrollProgress');if(p){var h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=h>0?(window.scrollY/h*100)+'%':'0%'}});

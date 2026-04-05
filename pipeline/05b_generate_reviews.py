@@ -324,8 +324,95 @@ Do NOT use em dashes. Use commas, semicolons, or periods instead.
 The review should be genuinely useful to someone deciding whether to use this tool."""
 
 
+def _build_review_nav_and_footer() -> tuple[str, str, str, str]:
+    """Build nav + subscribe CTA + footer for individual review pages.
+
+    Returns (nav_css, nav_html, subscribe_and_footer, nav_js).
+    """
+    _css_unused, nav_html, nav_js = build_nav_v2(
+        current_page="reviews",
+        url_prefix="../",
+        page_subtitle="The Lab",
+        page_icon="science",
+        share_url="https://www.koda.community/reviews/",
+    )
+
+    subscribe_and_footer = (
+        '<!-- Subscribe CTA -->\n'
+        '<section style="width:100%;padding:64px 24px">\n'
+        '    <div style="max-width:36rem;margin:0 auto;text-align:center">\n'
+        '        <div style="background:rgba(11,19,38,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:40px;position:relative;overflow:hidden">\n'
+        '            <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:128px;height:4px;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);border-radius:0 0 4px 4px"></div>\n'
+        '            <h3 style="font-size:20px;font-weight:700;color:white;margin-bottom:8px">Like what you see?</h3>\n'
+        '            <p style="color:#c2c6d6;font-size:14px;margin-bottom:24px">Get tomorrow\'s brief delivered to your inbox.</p>\n'
+        '            <form style="display:flex;flex-direction:column;gap:8px;max-width:28rem;margin:0 auto;padding:6px;border-radius:9999px;background:#171f33;border:1px solid rgba(255,255,255,0.06)" onsubmit="return kodaSubscribe(this)">\n'
+        '                <div style="display:flex;gap:8px">\n'
+        '                    <input type="email" name="email" required style="background:transparent;border:none;outline:none;color:white;padding:12px 20px;width:100%;font-size:14px" placeholder="your@email.com">\n'
+        '                    <button type="submit" style="background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;padding:12px 24px;border-radius:9999px;font-weight:700;font-size:14px;white-space:nowrap;border:none;cursor:pointer">Subscribe</button>\n'
+        '                </div>\n'
+        '            </form>\n'
+        '            <p style="font-size:10px;color:#8c909f;margin-top:12px">One email per day. Unsubscribe anytime.</p>\n'
+        '        </div>\n'
+        '    </div>\n'
+        '</section>\n'
+        '<!-- Footer -->\n'
+        '<footer style="background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto">\n'
+        '    <div style="max-width:40rem;margin:0 auto;text-align:center;padding:64px 24px;position:relative">\n'
+        '        <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:500px;height:200px;background:linear-gradient(to top,rgba(139,92,246,0.04),transparent);border-radius:50%;filter:blur(48px);pointer-events:none"></div>\n'
+        '        <div style="position:relative;z-index:1">\n'
+        '            <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:24px">\n'
+        '                <div style="width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;box-shadow:0 4px 12px rgba(139,92,246,0.2)">K</div>\n'
+        '                <span style="font-size:18px;font-weight:700;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Koda Intelligence</span>\n'
+        '            </div>\n'
+        '            <p style="color:#c2c6d6;font-size:14px;margin-bottom:32px">Read. Listen. Watch. Every morning.</p>\n'
+        '            <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:40px;flex-wrap:wrap">\n'
+        '                <a href="../morning-briefing-koda.html" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em">The Signal</a>\n'
+        '                <span style="color:rgba(140,144,159,0.3)">|</span>\n'
+        '                <a href="../archive/" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em">The Vault</a>\n'
+        '                <span style="color:rgba(140,144,159,0.3)">|</span>\n'
+        '                <a href="https://www.youtube.com/channel/UC8qqiKRGFAd5SwTr_2ZzPJg" target="_blank" rel="noopener" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em">YouTube</a>\n'
+        '            </div>\n'
+        '            <p style="font-size:11px;color:rgba(140,144,159,0.6)">&copy; 2026 Koda Community &middot; <span style="font-family:\'JetBrains Mono\',monospace">koda.community</span></p>\n'
+        '        </div>\n'
+        '    </div>\n'
+        '</footer>\n'
+        '<script>\n'
+        'function kodaSubscribe(form) {\n'
+        '    var btn = form.querySelector("button");\n'
+        '    var email = form.querySelector(\'input[name="email"]\').value;\n'
+        '    btn.textContent = "Subscribing...";\n'
+        '    btn.disabled = true;\n'
+        '    fetch("/api/subscribe", {\n'
+        '        method: "POST",\n'
+        '        headers: { "Content-Type": "application/json" },\n'
+        '        body: JSON.stringify({ email: email })\n'
+        '    }).then(function(r) {\n'
+        '        if (r.ok) {\n'
+        '            btn.textContent = "Subscribed!";\n'
+        '            btn.style.background = "#10B981";\n'
+        '            form.querySelector(\'input[name="email"]\').value = "";\n'
+        '        } else {\n'
+        '            btn.textContent = "Try again";\n'
+        '            btn.disabled = false;\n'
+        '        }\n'
+        '    }).catch(function() {\n'
+        '        btn.textContent = "Try again";\n'
+        '        btn.disabled = false;\n'
+        '    });\n'
+        '    return false;\n'
+        '}\n'
+        '</script>\n'
+    )
+
+    return NAV_CSS_V2, nav_html, subscribe_and_footer, nav_js
+
+
 def generate_review_html(tool: dict, scrape_data: dict, date: str) -> str | None:
-    """Generate a complete self-contained review HTML page via LLM."""
+    """Generate a complete self-contained review HTML page via LLM.
+
+    Nav, subscribe CTA, and footer are injected directly from nav_component
+    (not LLM-generated) so they match all other Koda pages.
+    """
     structured = scrape_data.get("structured", {})
     branding = scrape_data.get("branding", {})
     hero_url = scrape_data.get("hero_url", "")
@@ -345,62 +432,90 @@ def generate_review_html(tool: dict, scrape_data: dict, date: str) -> str | None
 
     context = "\n".join(context_parts)
 
-    prompt = f"""Generate a complete, self-contained HTML review page for this AI tool.
+    # Get nav + footer from shared component
+    nav_css, nav_html, subscribe_and_footer, nav_js = _build_review_nav_and_footer()
+
+    prompt = f"""Generate the BODY CONTENT ONLY for an AI tool review page. Do NOT generate <html>, <head>, <style>, topbar/nav, or footer. I will wrap your output with those. Return ONLY the content between the nav and footer.
 
 {context}
 
 Date: {date}
 
-DESIGN SYSTEM (must match exactly):
-- Font: Inter (300-900) + JetBrains Mono (400,500,700) via Google Fonts
-- Icon font: Material Symbols Outlined via Google Fonts
+DESIGN SYSTEM (for your content sections only):
 - Background: #0b1326
 - Card backgrounds: rgba(23,31,51,0.4) with border: 1px solid rgba(255,255,255,0.06), border-radius: 12px
 - Text: #dae2fd (body), #dae2fd (headings), #c2c6d6 (secondary), #8c909f (muted)
 - Accent: #8B5CF6 (purple, primary for The Lab), #3B82F6 (blue, secondary)
 - Links: #3B82F6
-- Gradients: linear-gradient(135deg, #3B82F6, #8B5CF6) for buttons and brand icon
+- Gradients: linear-gradient(135deg, #3B82F6, #8B5CF6) for buttons
+- Max content width: 900px, centered with margin: 0 auto, padding: 0 24px
 
-TOPBAR (fixed, 56px height):
-- Background: rgba(11,19,38,0.8) with backdrop-filter: blur(20px)
-- Left: brand link to ../index.html with 32x32 gradient "K" icon + "Koda Intelligence" text (14px, 700, color #3B82F6) + sub-text "The Lab" (10px, color #8c909f)
-- Right: ALL 7 nav links in JetBrains Mono 10px/700 (gap 4px):
-  bolt "The Signal" -> ../morning-briefing-koda.html
-  explore "Deep Dive" -> ../editorial/
-  monitoring "Token Tracker" -> ../pricing/
-  trophy "Leaderboard" -> ../benchmarks/
-  science "The Lab" -> ../reviews/ (ACTIVE: highlighted with color #3B82F6 and blue bg)
-  pulse_alert "Pulse" -> ../changelog/
-  lock_open "The Vault" -> ../archive/
-  Home button (gradient) -> ../index.html
-- On mobile (@media max-width:768px): hide all except active link + Home
-
-PAGE STRUCTURE:
-1. Hero: purple badge "Lab Report", tool name as gradient h1 (clamp 28px-48px), tagline, prominent "Try It" CTA button linking to {tool.get('url', '')}. If a hero image URL is provided in the context, render it below the hero text as: <img src="HERO_URL" alt="Tool screenshot" style="max-width:800px;width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.08);margin:24px auto 0;display:block" loading="eager">
-2. Verdict: 2-3 sentence editorial verdict in a highlighted card (who is this for, is it worth it)
-3. Pricing table: all tiers with features using the scraped data. Use a grid on desktop, stack on mobile.
-4. Key Features: 2-column grid of feature cards (5-8 features) with material icon per card
-5. Use Cases: who should use this and why
-6. Limitations: honest assessment of gaps (be direct, not mean)
+SECTIONS TO GENERATE (use inline styles, each section gets class="animate-in" and an id attribute, and scroll-margin-top:80px):
+1. Hero section (id="hero", padding-top: 100px): purple badge "Lab Report", tool name as gradient h1 (clamp 28px-48px, padding-bottom:0.15em for descenders), tagline, prominent "Try It" CTA button linking to {tool.get('url', '')}. If a hero image URL is provided, render it below the hero text as: <img src="HERO_URL" alt="Tool screenshot" style="max-width:800px;width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.08);margin:24px auto 0;display:block" loading="eager">
+2. Verdict (id="verdict"): 2-3 sentence editorial verdict in a highlighted card (who is this for, is it worth it)
+3. Pricing (id="pricing"): all tiers with features using the scraped data. Grid on desktop, stack on mobile.
+4. Key Features (id="features"): 2-column grid of feature cards (5-8 features) with material icon per card
+5. Use Cases (id="usecases"): who should use this and why
+6. Limitations (id="limitations"): honest assessment of gaps (be direct, not mean)
 7. Bottom CTA: "Try It" button + "Back to The Lab" link to ../reviews/ + "Back to The Signal" link to ../morning-briefing-koda.html
 
-FOOTER:
-- Background: #060e20, border-top: 1px solid rgba(255,255,255,0.06)
-- "Koda Intelligence" + date + nav links (Home, The Signal, The Lab)
-- Flex column on mobile, row on desktop
-
 CRITICAL RULES:
-- NO em dashes. Use commas, semicolons, or periods.
-- Mobile-first: all grids collapse to single column below 768px
+- NO em dashes anywhere. Use commas, semicolons, or periods.
+- Mobile-first: all grids collapse to single column below 768px (use inline @media via <style> if needed for grid layouts)
 - All external links: target="_blank" rel="noopener"
-- IntersectionObserver animations: .animate-in class (opacity 0->1, translateY 24px->0)
-- Scroll progress bar at top (3px gradient #3B82F6 to #8B5CF6)
-- scroll-margin-top: 80px on sections
-- Self-contained: all CSS inline in <style> tag
+- Use class="animate-in" on each section for scroll animations
+- ALL styles must be inline on elements. You may include a small <style> block ONLY for @media responsive breakpoints and .animate-in animation.
 
-Return ONLY the complete HTML document. No markdown code fences. No explanation text."""
+Return ONLY the HTML content sections. No <!DOCTYPE>, no <html>, no <head>, no topbar, no footer. No markdown fences."""
 
-    return llm_call(prompt, REVIEW_SYSTEM_PROMPT, max_tokens=12000)
+    body_content = llm_call(prompt, REVIEW_SYSTEM_PROMPT, max_tokens=12000)
+    if not body_content:
+        return None
+
+    # Strip any markdown fences the LLM might add
+    body_content = body_content.strip()
+    if body_content.startswith("```"):
+        body_content = re.sub(r'^```\w*\n?', '', body_content)
+        body_content = re.sub(r'\n?```$', '', body_content)
+
+    # Assemble full page with consistent nav + footer
+    tool_title = tool.get("title", "AI Tool Review")
+
+    return (
+        '<!DOCTYPE html>\n<html lang="en">\n<head>\n'
+        '<meta charset="UTF-8">\n'
+        '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
+        '<title>' + tool_title + ' | The Lab | Koda Intelligence</title>\n'
+        '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
+        '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;'
+        '700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">\n'
+        '<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:'
+        'wght,FILL@100..700,0..1&display=swap" rel="stylesheet">\n'
+        '<style>\n'
+        '*{margin:0;padding:0;box-sizing:border-box}\n'
+        'body{font-family:"Inter",sans-serif;background:#0b1326;color:#dae2fd;min-height:100vh;overflow-x:hidden}\n'
+        '.material-symbols-outlined{font-variation-settings:"FILL" 0,"wght" 400,"GRAD" 0,"opsz" 24;display:inline-block;vertical-align:middle}\n'
+        '.scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,#3B82F6,#8B5CF6);z-index:1001;transition:width 0.1s linear;pointer-events:none}\n'
+        + nav_css + '\n'
+        '.animate-in{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}\n'
+        '.animate-in.visible{opacity:1;transform:translateY(0)}\n'
+        '</style>\n'
+        '</head>\n<body>\n'
+        '<div class="scroll-progress" id="scrollProgress"></div>\n'
+        + nav_html + '\n'
+        + body_content + '\n'
+        + subscribe_and_footer
+        + '<script>\n'
+        'window.addEventListener("scroll",function(){var p=document.getElementById("scrollProgress");'
+        'if(p){var h=document.documentElement.scrollHeight-window.innerHeight;'
+        'p.style.width=h>0?(window.scrollY/h*100)+"%":"0%"}});\n'
+        'var obs=new IntersectionObserver(function(e){e.forEach(function(en){'
+        'if(en.isIntersecting)en.target.classList.add("visible")});},{threshold:0.1});\n'
+        'document.querySelectorAll(".animate-in").forEach(function(el){obs.observe(el)});\n'
+        '</script>\n'
+        + nav_js + '\n'
+        '</body>\n</html>'
+    )
 
 
 # ── Archive Index ──────────────────────────────────────────────────────────
@@ -533,20 +648,71 @@ def _build_review_index_html(entries: list[dict]) -> str:
         '<div class="stat-label">New Per Day</div></div>\n'
         '</div>\n'
         '<div class="container">\n    ' + cards + '\n</div>\n'
-        '<footer>\n    <div class="inner">\n        <div>\n'
-        '            <div style="font-weight:700;font-size:14px;color:#dae2fd;margin-bottom:4px">'
-        'Koda Intelligence</div>\n'
-        '            <div style="font-size:12px;color:#8c909f">'
-        'AI-powered daily intelligence for builders and operators.</div>\n'
+        # Subscribe CTA
+        '<section style="width:100%;padding:64px 24px">\n'
+        '    <div style="max-width:36rem;margin:0 auto;text-align:center">\n'
+        '        <div style="background:rgba(11,19,38,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:40px;position:relative;overflow:hidden">\n'
+        '            <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:128px;height:4px;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);border-radius:0 0 4px 4px"></div>\n'
+        '            <h3 style="font-size:20px;font-weight:700;color:white;margin-bottom:8px">Like what you see?</h3>\n'
+        '            <p style="color:#c2c6d6;font-size:14px;margin-bottom:24px">Get tomorrow\'s brief delivered to your inbox.</p>\n'
+        '            <form style="display:flex;flex-direction:column;gap:8px;max-width:28rem;margin:0 auto;padding:6px;border-radius:9999px;background:#171f33;border:1px solid rgba(255,255,255,0.06)" onsubmit="return kodaSubscribe(this)">\n'
+        '                <div style="display:flex;gap:8px">\n'
+        '                    <input type="email" name="email" required style="background:transparent;border:none;outline:none;color:white;padding:12px 20px;width:100%;font-size:14px" placeholder="your@email.com">\n'
+        '                    <button type="submit" style="background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;padding:12px 24px;border-radius:9999px;font-weight:700;font-size:14px;white-space:nowrap;border:none;cursor:pointer">Subscribe</button>\n'
+        '                </div>\n'
+        '            </form>\n'
+        '            <p style="font-size:10px;color:#8c909f;margin-top:12px">One email per day. Unsubscribe anytime.</p>\n'
         '        </div>\n'
-        '        <div style="display:flex;gap:16px;align-items:center">\n'
-        '            <a href="../index.html" style="color:#8c909f;text-decoration:none;'
-        'font-size:12px">Home</a>\n'
-        '            <a href="../morning-briefing-koda.html" style="color:#8c909f;'
-        'text-decoration:none;font-size:12px">The Signal</a>\n'
-        '            <a href="../editorial/" style="color:#8c909f;text-decoration:none;'
-        'font-size:12px">Deep Dive</a>\n'
-        '        </div>\n    </div>\n</footer>\n'
+        '    </div>\n'
+        '</section>\n'
+        # Footer (matches editorial/archive)
+        '<footer style="background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto">\n'
+        '    <div style="max-width:40rem;margin:0 auto;text-align:center;padding:64px 24px;position:relative">\n'
+        '        <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:500px;height:200px;background:linear-gradient(to top,rgba(139,92,246,0.04),transparent);border-radius:50%;filter:blur(48px);pointer-events:none"></div>\n'
+        '        <div style="position:relative;z-index:1">\n'
+        '            <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:24px">\n'
+        '                <div style="width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;box-shadow:0 4px 12px rgba(139,92,246,0.2)">K</div>\n'
+        '                <span style="font-size:18px;font-weight:700;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Koda Intelligence</span>\n'
+        '            </div>\n'
+        '            <p style="color:#c2c6d6;font-size:14px;margin-bottom:32px">Read. Listen. Watch. Every morning.</p>\n'
+        '            <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:40px;flex-wrap:wrap">\n'
+        '                <a href="../morning-briefing-koda.html" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color=\'#3B82F6\'" onmouseout="this.style.color=\'#c2c6d6\'"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>\n'
+        '                <span style="color:rgba(140,144,159,0.3)">|</span>\n'
+        '                <a href="../archive/" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color=\'#8B5CF6\'" onmouseout="this.style.color=\'#c2c6d6\'"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>\n'
+        '                <span style="color:rgba(140,144,159,0.3)">|</span>\n'
+        '                <a href="https://www.youtube.com/channel/UC8qqiKRGFAd5SwTr_2ZzPJg" target="_blank" rel="noopener" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color=\'#EC4899\'" onmouseout="this.style.color=\'#c2c6d6\'">YouTube</a>\n'
+        '            </div>\n'
+        '            <p style="font-size:11px;color:rgba(140,144,159,0.6)">&copy; 2026 Koda Community &middot; <span style="font-family:\'JetBrains Mono\',monospace">koda.community</span></p>\n'
+        '        </div>\n'
+        '    </div>\n'
+        '</footer>\n'
+        # Subscribe JS
+        '<script>\n'
+        'function kodaSubscribe(form) {\n'
+        '    var btn = form.querySelector("button");\n'
+        '    var email = form.querySelector(\'input[name="email"]\').value;\n'
+        '    btn.textContent = "Subscribing...";\n'
+        '    btn.disabled = true;\n'
+        '    fetch("/api/subscribe", {\n'
+        '        method: "POST",\n'
+        '        headers: { "Content-Type": "application/json" },\n'
+        '        body: JSON.stringify({ email: email })\n'
+        '    }).then(function(r) {\n'
+        '        if (r.ok) {\n'
+        '            btn.textContent = "Subscribed!";\n'
+        '            btn.style.background = "#10B981";\n'
+        '            form.querySelector(\'input[name="email"]\').value = "";\n'
+        '        } else {\n'
+        '            btn.textContent = "Try again";\n'
+        '            btn.disabled = false;\n'
+        '        }\n'
+        '    }).catch(function() {\n'
+        '        btn.textContent = "Try again";\n'
+        '        btn.disabled = false;\n'
+        '    });\n'
+        '    return false;\n'
+        '}\n'
+        '</script>\n'
         + scroll_js
         + reviews_nav_js + '\n'
         '</body>\n</html>'
