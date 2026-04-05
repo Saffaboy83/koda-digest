@@ -136,6 +136,41 @@ def compile_text_for_notebooklm(digest: dict) -> str:
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 LLM_MODEL = "anthropic/claude-opus-4-6"
 
+# ── Media Tone Overlay ──────────────────────────────────────────────────
+# "Builder's Optimism" voice blend applied to ALL media production prompts.
+# Combines Tony Robbins (peak energy), Peter Diamandis (abundance mindset),
+# Dan Martell (systems optimism), Jack Roberts (tool excitement), and
+# theMITmonk (strategic opportunity).
+
+MEDIA_TONE_OVERLAY = (
+    "TONE OVERLAY (apply to ALL media production):\n"
+    "Channel the energy of a builder's optimism: someone who is genuinely excited "
+    "about what technology makes possible for regular people.\n\n"
+    "Voice blend:\n"
+    "- Tony Robbins energy: progress equals happiness. Every challenge is an "
+    "opportunity to grow. Incantation-level conviction that the future is bright. "
+    "State is everything. Make the viewer feel momentum, not fear.\n"
+    "- Peter Diamandis abundance: the world is getting better by almost every "
+    "measurable metric. Technology is the great equalizer. Exponential progress "
+    "means today's impossible is tomorrow's default.\n"
+    "- Dan Martell systems thinking: problems are systems to solve, not fires to "
+    "fight. Simple scales, complex fails. Frame solutions, not catastrophes.\n"
+    "- Jack Roberts tool enthusiasm: casual excitement about what just became "
+    "possible. Translate tech into real impact -- dollars saved, hours freed, "
+    "access unlocked. Show the 20% that gets 80% of results.\n"
+    "- theMITmonk strategic optimism: beginner's mind (shoshin). Contrast pairs "
+    "that resolve toward opportunity, not doom. Long-arc perspective that grounds "
+    "today's noise in genuine progress.\n\n"
+    "Core rules:\n"
+    "- Use 'people' not 'humans'. Warm and relatable, never clinical.\n"
+    "- Frame AI as a tool that amplifies what people can do, not a force acting on them.\n"
+    "- The overall energy is: 'look what just became possible.'\n"
+    "- Every challenge mentioned gets paired with who is building the solution.\n"
+    "- Avoid doom framing, apocalyptic metaphors, and existential hand-wringing.\n"
+    "- When something IS genuinely concerning, state it clearly then move to solutions.\n"
+    "- Close on momentum, not melancholy. People should finish and want to build something.\n"
+)
+
 # ── Scene Template Library ────────────────────────────────────────────────
 # Maps story categories (from digest-content.json) to Veo 3 visual profiles.
 # Each profile guides the Visual Production Script generator with camera,
@@ -143,20 +178,20 @@ LLM_MODEL = "anthropic/claude-opus-4-6"
 
 SCENE_TEMPLATES: dict[str, dict[str, str]] = {
     "Conflict": {
-        "camera": "handheld urgency, 35mm lens, slight dutch angle for unease",
-        "color_grade": "warm amber-red, desaturated shadows, high contrast",
-        "lighting": "golden hour through smoke haze, harsh directional light",
-        "environment": "aerial drone of strategic chokepoints, naval formations on open water, empty government halls with long shadows",
+        "camera": "handheld for immediacy, 35mm lens, grounded eye-level framing",
+        "color_grade": "warm amber-gold, deep shadows, measured contrast",
+        "lighting": "golden hour light, strong directional warmth",
+        "environment": "aerial drone of strategic chokepoints, naval formations on open water, empty government halls with purposeful architecture",
         "stabilizers": "maintain horizon line stability despite handheld motion, consistent shadow direction, prevent warping on rapid pans",
-        "atmosphere": "distant rumble of machinery, dust motes in shafts of light, heat shimmer on tarmac, muffled radio chatter",
+        "atmosphere": "purposeful ambient sounds, dust motes in shafts of light, measured radio chatter, resolute energy",
     },
     "Humanitarian": {
         "camera": "slow handheld, close-ups on hands and objects, 50mm lens shallow DOF",
-        "color_grade": "muted warm tones, lifted blacks, desaturated",
-        "lighting": "overcast diffused light, single harsh overhead in interiors",
-        "environment": "crowded corridors, supply crates, tent structures, empty roads stretching to horizon",
+        "color_grade": "warm tones, lifted blacks, rich and grounded",
+        "lighting": "overcast diffused light, single focused overhead in interiors",
+        "environment": "crowded corridors, supply crates, tent structures, roads with people moving forward",
         "stabilizers": "maintain subject center-frame on close-ups, consistent skin tone rendering, preserve fabric texture detail",
-        "atmosphere": "ambient crowd murmur fading to silence, wind through canvas, footsteps on gravel",
+        "atmosphere": "ambient crowd murmur, quiet determination, wind through canvas, footsteps on gravel",
     },
     "Diplomacy": {
         "camera": "slow dolly push-in, symmetrical framing, locked-off wide shots",
@@ -176,19 +211,19 @@ SCENE_TEMPLATES: dict[str, dict[str, str]] = {
     },
     "Economy": {
         "camera": "rack focus between screens and physical space, 35mm lens, smooth dolly",
-        "color_grade": "cool blue-green base with red flashes on downturns, warm gold on gains",
-        "lighting": "mixed neon and fluorescent, screen glow illuminating faces in dark rooms",
-        "environment": "trading floors with cascading tickers, commodity price screens, cargo ships in port, oil infrastructure at twilight",
+        "color_grade": "cool blue-green base with warm gold on gains, amber accents on shifts",
+        "lighting": "mixed neon and fluorescent, screen glow illuminating focused faces",
+        "environment": "trading floors with cascading tickers, commodity price screens, cargo ships in port, infrastructure at golden hour",
         "stabilizers": "maintain screen text legibility during rack focus, consistent ticker scroll direction, prevent color banding on gradients",
-        "atmosphere": "electronic tension hum, rapid keyboard clicks, distant phone rings, the low drone of financial data feeds",
+        "atmosphere": "electronic pulse, rapid keyboard clicks, focused energy, the steady hum of financial data feeds",
     },
     "Model Release": {
         "camera": "smooth dolly and crane movements, 35mm lens, symmetrical framing for scale",
-        "color_grade": "cool blue-cyan, clean whites, subtle purple highlights",
+        "color_grade": "cool blue-cyan, clean whites, subtle purple highlights with warm accent highlights",
         "lighting": "volumetric light through server racks, LED status glow, cool fluorescent precision",
         "environment": "vast data center interiors stretching to vanishing point, GPU racks with blinking lights, code scrolling on screens reflected in glass, holographic neural network visualizations",
         "stabilizers": "maintain vanishing point alignment on data center shots, consistent LED blink pattern, preserve code text legibility on screen reflections",
-        "atmosphere": "deep server fan hum, electrical crackle of cooling systems, subtle high-frequency data transfer tone",
+        "atmosphere": "deep server fan hum, crisp electrical hum of cooling systems, subtle high-frequency data transfer tone",
     },
     "Trend": {
         "camera": "smooth crane pullback for scale reveal, slow zoom-out, 24mm wide lens",
@@ -212,7 +247,7 @@ SCENE_TEMPLATES: dict[str, dict[str, str]] = {
         "lighting": "neon edge lighting, screen glow, sharp rim lights in dark space",
         "environment": "workflow visualizations as physical spaces, autonomous processes as assembly lines, decision trees as branching corridors, tool interfaces floating in space",
         "stabilizers": "maintain subject tracking stability on POV shots, consistent neon color temperature, preserve interface text legibility",
-        "atmosphere": "synthetic pulse rhythm, mechanical servo sounds, data processing clicks, a sense of purposeful autonomous motion",
+        "atmosphere": "rhythmic pulse, purposeful energy, data processing clicks, a sense of coordinated autonomous motion",
     },
     "China": {
         "camera": "symmetrical tracking shots, slow lateral movement, 35mm lens",
@@ -228,7 +263,7 @@ SCENE_TEMPLATES: dict[str, dict[str, str]] = {
         "lighting": "soft key light with ambient fill, clean and professional",
         "environment": "abstract information space, floating data points, clean minimalist backgrounds, soft gradients",
         "stabilizers": "maintain subject center-frame stability, consistent shadow direction, prevent horizon warping, preserve geometry on all surfaces",
-        "atmosphere": "ambient electronic tone, subtle particle movement, quiet room presence",
+        "atmosphere": "warm ambient electronic tone, clean energy, subtle forward motion",
     },
 }
 
@@ -270,7 +305,14 @@ def build_differentiation_text(recent_themes, today_hook):
         "\n- End each segment with a forward-looking question, not a conclusion. 'So the "
         "real question now is...' pulls the listener forward."
         "\n- Let the hosts react genuinely. If something is wild, say it is wild. If "
-        "something is concerning, do not hide it behind neutral language."
+        "something is challenging, frame it honestly but show who is working on the solution."
+        "\n"
+        "\nTONE:"
+        "\n- This show makes people excited about the future. For every challenge or risk "
+        "mentioned, spend equal or more time on the opportunity, the solution, or what "
+        "builders are doing about it. We are an informed optimism show, not doom-and-gloom."
+        "\n- Frame AI as a tool that amplifies what people can do, not a force acting on them."
+        "\n- Use 'people' not 'humans'. Warm and relatable, never clinical."
     )
 
     return "\n".join(lines)
@@ -288,7 +330,10 @@ def generate_dynamic_focus(digest: dict, recent_themes: dict) -> str | None:
             data = recent_themes[date]
             recent_summary += f"\n{date}: {data.get('hook', '')} -- angles: {', '.join(data.get('top_themes', []))}"
 
-    prompt = f"""You are the executive producer of a daily AI news video show.
+    prompt = f"""You are the executive producer of a daily AI news show known for making
+people feel excited and empowered about the future, not anxious. When covering
+challenges, always pair them with who is working on solutions. The overall tone
+should be: informed optimism with genuine curiosity.
 
 Today's hook: {today_hook}
 Today's top AI stories: {json.dumps(ai_titles)}
@@ -360,19 +405,20 @@ def generate_visual_production_script(
     act1_body = act1_story.get("body", "")[:200]
     act2_body = act2_story.get("body", "")[:200]
 
-    prompt = f"""You are a documentary filmmaker who makes technology feel human. You tell
-stories about real people navigating a world that changes faster than anyone expected.
-Write a Visual Production Script for today's episode. This script will guide Google's
-Veo 3 AI video model to generate a cinematic documentary-style video.
+    prompt = f"""{MEDIA_TONE_OVERLAY}
+You are a documentary filmmaker who makes technology feel personal and full of possibility.
+You tell stories about real people building, creating, and adapting in a world of rapid
+progress. Write a Visual Production Script for today's episode. This script will guide
+Google's Veo 3 AI video model to generate a cinematic documentary-style video.
 
-THE HUMAN RULE: Every scene needs a human anchor -- a hand on a keyboard, a face lit
-by a screen, someone walking through a corridor, a crowd watching news on their phones.
-Technology is always the backdrop. People are the subject.
+THE PERSON RULE: Every scene needs a personal anchor -- a hand on a keyboard, a face lit
+by a screen, someone smiling at a breakthrough, a team working together, a student
+discovering something new. Technology is always the backdrop. People are the subject.
 
 TODAY'S THEME: {hook}
 FOCUS TOPICS: {', '.join(focus_titles)}
 
-ACT 1 -- THE STAKES ({act1_story['title']}):
+ACT 1 -- THE SIGNAL ({act1_story['title']}):
 Story context: {act1_body}
 Visual profile to use:
   Camera: {act1_vis['camera']}
@@ -382,7 +428,7 @@ Visual profile to use:
   Motion constraints: {act1_vis['stabilizers']}
   Sound design: {act1_vis['atmosphere']}
 
-ACT 2 -- THE SHIFT ({act2_story['title']}):
+ACT 2 -- THE BUILD ({act2_story['title']}):
 Story context: {act2_body}
 Visual profile to use:
   Camera: {act2_vis['camera']}
@@ -404,42 +450,44 @@ empty podiums, building exteriors, flags, diplomatic tables, military hardware
 without identifiable personnel, policy documents, press briefing rooms without people.
 
 === COLD OPEN (0:00-0:15) ===
-SCENE: [A human moment that pulls the viewer in -- not a headline, but a scene. Someone
-checking their phone, a screen reflecting bad news, a hand hovering over a keyboard.]
+SCENE: [A personal moment that pulls the viewer in -- not a headline, but a scene. Someone
+opening a laptop with intent, a notification lighting up a phone, a developer leaning in.]
 NARRATION HOOK: [A question or surprising fact that a non-technical person would find
 fascinating. Not a summary -- a hook that makes them lean in.]
 
-=== ACT 1: [TITLE] (0:15-1:30) ===
+=== ACT 1: THE SIGNAL (0:15-1:30) ===
 SCENE: [Start with a person, then reveal the scale around them]
 KEY VISUALS: [3-4 specific visual elements for Veo 3]
 COLOR GRADE: [Per the visual profile above]
 CAMERA FEEL: [Per the visual profile above]
 MOTION CONSTRAINTS: [Per the visual profile above]
 SOUND DESIGN: [Per the visual profile above]
-HUMAN ELEMENT: [Who is affected? Show them. A trader, a worker, a family, a commuter.]
+PEOPLE: [Who does this matter to? Show them. A trader, a builder, a parent, a student.]
 
-=== ACT 2: [TITLE] (1:30-3:00) ===
-SCENE: [Transition from Act 1 through a human moment -- same person, different world.
-Then show people interacting with technology, not technology alone.]
+=== ACT 2: THE BUILD (1:30-3:00) ===
+SCENE: [Transition from Act 1 through a personal moment -- same person, expanded world.
+Then show people interacting with technology, building with it, benefiting from it.]
 KEY VISUALS: [3-4 specific visual elements for Veo 3]
 COLOR GRADE: [Per the visual profile above]
 CAMERA FEEL: [Per the visual profile above]
 MOTION CONSTRAINTS: [Per the visual profile above]
 SOUND DESIGN: [Per the visual profile above]
-HUMAN ELEMENT: [Who builds this? Who uses it? A developer, a student, a business owner.]
+PEOPLE: [Who builds this? Who benefits? A developer, a student, a business owner, a family.]
 
-=== ACT 3: COLLISION (3:00-4:00) ===
-SCENE: [Visual juxtaposition -- same person experiencing both worlds. Intercut or morph.]
-KEY VISUALS: [How these two forces meet in someone's daily life]
-COLOR GRADE: [Mixed palette from both acts]
-CAMERA FEEL: [Accelerating pace]
+=== ACT 3: THE UNLOCK (3:00-4:00) ===
+SCENE: [Where today's developments create tomorrow's opportunity. Show a person connecting
+the dots -- the signal from Act 1 enabling what was built in Act 2. Convergence, not collision.]
+KEY VISUALS: [How these two stories unlock something new in someone's daily life]
+COLOR GRADE: [Bright mixed palette from both acts]
+CAMERA FEEL: [Building energy, steadicam forward motion]
 MOTION CONSTRAINTS: [Smooth interpolation on all morphing transitions, maintain geometry]
-SOUND DESIGN: [Both soundscapes bleeding together, rising tension]
+SOUND DESIGN: [Both themes harmonizing, building momentum, energy lifting]
 
 === CLOSE (4:00-4:30) ===
-FINAL FRAME: [A quiet human moment. Someone looking out a window. A hand closing a laptop.
-A city at dawn. Hold the shot. Let it breathe.]
-SOUND DESIGN: [Silence except a sustained tone fading to black]
+FINAL FRAME: [A person in motion. Someone heading out the door with purpose. A city waking
+up full of energy. A hand opening a laptop to start building. Hold the frame. Forward
+momentum, not stillness.]
+SOUND DESIGN: [A warm rising tone that resolves on a note of possibility. Not silence -- anticipation.]
 
 Reply with ONLY the script, no preamble or explanation."""
 
@@ -460,13 +508,15 @@ def generate_dynamic_video_focus(digest: dict) -> str:
     act2_title = ai_news[0]["title"] if ai_news else "AI Developments"
 
     return (
+        MEDIA_TONE_OVERLAY + "\n\n"
         "Create a cinematic intelligence briefing using the Visual Production Script "
         "source as your scene-by-scene guide. Follow the shot descriptions, color "
         "grades, camera movements, and sound design specified in the script.\n\n"
         f"TODAY'S THEME: {hook}\n"
-        f"Act 1 focuses on: {act1_title} -- use warm/urgent palette\n"
-        f"Act 2 focuses on: {act2_title} -- use cool/precise palette\n"
-        "Act 3: show where these two worlds collide with visual juxtaposition\n\n"
+        f"Act 1 (The Signal) focuses on: {act1_title} -- use warm/grounded palette\n"
+        f"Act 2 (The Build) focuses on: {act2_title} -- use cool/precise palette\n"
+        "Act 3 (The Unlock): show where these two stories unlock something new -- "
+        "convergence and possibility, not collision\n\n"
         "TECHNICAL STABILIZERS (apply to ALL scenes):\n"
         "- Maintain subject center-frame stability in all shots\n"
         "- Consistent shadow direction within each act\n"
@@ -480,7 +530,7 @@ def generate_dynamic_video_focus(digest: dict) -> str:
         "representations: empty podiums, building exteriors, flags, military hardware "
         "without identifiable personnel.\n\n"
         "Push Veo 3 visual quality to maximum. Every frame should feel like it belongs "
-        "in a Netflix documentary or Bloomberg Originals film."
+        "in a MKBHD tech review or a TED Talk visual essay -- clean, optimistic, forward-moving."
     )
 
 
