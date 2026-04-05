@@ -38,6 +38,14 @@ GMAIL_SCOPES = [
 
 NOTEBOOK_ID = "f928d89b-2520-4180-a71a-d93a75a5487c"
 
+# Public media URLs use Vercel proxy to hide Supabase internals
+MEDIA_PUBLIC_BASE = "https://www.koda.community/media"
+
+
+def _media_url(filename: str) -> str:
+    """Build a public-facing media URL via the Vercel /media/ proxy."""
+    return f"{MEDIA_PUBLIC_BASE}/{filename}"
+
 
 def generate_email_hero(digest: dict, date: str) -> str | None:
     """Generate a concise sketch-note infographic via NotebookLM for the email hero.
@@ -129,7 +137,7 @@ def _upload_hero_to_supabase(hero_path: Path, date: str) -> str | None:
     service_key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
     if not service_key:
         # Return direct URL assuming it was already uploaded
-        return f"{SUPABASE_URL}/storage/v1/object/public/koda-media/email-hero-{date}.jpg"
+        return _media_url(f"email-hero-{date}.jpg")
 
     filename = f"email-hero-{date}.jpg"
     upload_url = f"{SUPABASE_URL}/storage/v1/object/koda-media/{filename}"
@@ -149,15 +157,14 @@ def _upload_hero_to_supabase(hero_path: Path, date: str) -> str | None:
             timeout=30,
         )
         if resp.status_code in (200, 201):
-            public_url = f"{SUPABASE_URL}/storage/v1/object/public/koda-media/{filename}"
             print(f"  Email hero uploaded to Supabase: {filename}")
-            return public_url
+            return _media_url(filename)
         else:
             print(f"  WARNING: Supabase upload failed ({resp.status_code}): {resp.text[:200]}")
     except Exception as e:
         print(f"  WARNING: Supabase upload error: {e}")
 
-    return f"{SUPABASE_URL}/storage/v1/object/public/koda-media/{filename}"
+    return _media_url(filename)
 
 
 SUBJECT_EMOJIS: dict[str, str] = {
@@ -494,7 +501,7 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
     yt_url = ""
     yt_video_id = ""
     if media.get("podcast"):
-        podcast_url = f"{SUPABASE_URL}/storage/v1/object/public/koda-media/podcast-{date}.mp3" if SUPABASE_URL else f"https://www.koda.community/podcast-{date}.mp3"
+        podcast_url = _media_url(f"podcast-{date}.mp3")
 
     video_result_path = Path(__file__).parent.parent / "youtube-result.json"
     if video_result_path.exists():
@@ -566,8 +573,12 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
     editorial_media_html = ""
     if editorial:
         editorial_hero_img = ""
-        editorial_hero_url = f"{SUPABASE_URL}/storage/v1/object/public/koda-media/editorial-hero-{date}.jpg" if SUPABASE_URL else ""
-        editorial_hero_local = Path(__file__).parent.parent / "editorial" / f"editorial-hero-{date}.jpg"
+        # Extract the editorial date from its URL (may differ from send date if fallback was used)
+        import re as _re
+        _ed_date_match = _re.search(r'(\d{4}-\d{2}-\d{2})', editorial.get("url", ""))
+        _ed_date = _ed_date_match.group(1) if _ed_date_match else date
+        editorial_hero_url = _media_url(f"editorial-hero-{_ed_date}.jpg")
+        editorial_hero_local = Path(__file__).parent.parent / "editorial" / f"editorial-hero-{_ed_date}.jpg"
         if editorial_hero_local.exists() and editorial_hero_url:
             editorial_hero_img = f'<a href="{editorial["url"]}" target="_blank"><img src="{editorial_hero_url}" alt="" width="520" style="width:100%;max-width:520px;height:140px;object-fit:cover;display:block;border-radius:10px 10px 0 0"></a>'
 
@@ -590,7 +601,7 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
         ed_video = editorial_media_status.get("editorial_video", {})
         # Build full Supabase URL from local path (e.g. "editorial-podcast-2026-04-04.mp3")
         ed_audio_path = ed_audio.get("path", "") if isinstance(ed_audio, dict) and ed_audio.get("success") else ""
-        ed_audio_url = f"{SUPABASE_URL}/storage/v1/object/public/koda-media/{ed_audio_path}" if ed_audio_path and SUPABASE_URL else ed_audio_path
+        ed_audio_url = _media_url(ed_audio_path) if ed_audio_path else ""
         ed_yt_id = ed_video.get("youtube_id", "") if isinstance(ed_video, dict) and ed_video.get("success") else ""
 
         has_ed_media = bool(ed_audio_url) or bool(ed_yt_id)
@@ -916,7 +927,7 @@ def get_gmail_credentials():
     return creds
 
 
-def send_email_gmail_api(subject, html_template, recipients, sender_email="saffaboyjm@gmail.com"):
+def send_email_gmail_api(subject, html_template, recipients, sender_email="saffaboy83@koda.community"):
     """Send individual emails via Gmail API. Each recipient gets a personalized
     unsubscribe link and cannot see other recipients' addresses."""
     creds = get_gmail_credentials()
