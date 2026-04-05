@@ -184,10 +184,11 @@ See `editorial/SKILL.md` for the full step-by-step pipeline.
 - Older digests (pre-2026-03-28) still use relative paths served by Vercel (files remain in git history)
 - Migration path to Cloudflare R2 if needed: swap URL prefix (same S3-compatible API)
 
-### NotebookLM: Single Permanent Notebook
-- Notebook ID: `f928d89b-2520-4180-a71a-d93a75a5487c`
-- Old text sources are deleted daily to keep it clean
-- Old audio/infographic/video artifacts are deleted daily before new generation (prevents stale content)
+### NotebookLM: Two Permanent Notebooks
+- **Digest notebook**: `f928d89b-2520-4180-a71a-d93a75a5487c` - daily news media (podcast, infographic, cinematic video)
+- **Editorial notebook**: `0bab4405-3d65-4457-8fe0-8a6c55bd98e2` - editorial media (brief audio, anime video)
+- Both notebooks: old text sources and artifacts deleted daily before new generation
+- Separate notebooks prevent artifact collision (download_video grabs latest in notebook)
 - Avoids hitting NotebookLM's notebook count limit
 
 ### Media Generation: notebooklm-py API (Primary)
