@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-04T20:07:12Z",
+  "generated": "2026-04-05T01:52:55Z",
   "entries": [
     {
       "date": "2026-04-04",
@@ -51,7 +51,7 @@
           ]
         },
         {
-          "title": "AI Developments",
+          "title": "The Radar",
           "items": [
             {
               "headline": "Anthropic Unveils Operon for Lab Automation",
@@ -96,7 +96,7 @@
           ]
         },
         {
-          "title": "World News",
+          "title": "The Globe",
           "items": [
             {
               "headline": "Iran Downs U.S. F-15 Over Southwest Iran",
@@ -133,7 +133,7 @@
           ]
         },
         {
-          "title": "Featured Newsletters",
+          "title": "The Feed",
           "items": [
             {
               "headline": "The Rundown AI",
@@ -162,7 +162,7 @@
           ]
         },
         {
-          "title": "Competitive Landscape",
+          "title": "The Arena",
           "items": [
             {
               "headline": "Anthropic",
@@ -175,7 +175,7 @@
           ]
         },
         {
-          "title": "AI Tool Guide",
+          "title": "The Lab Field Notes",
           "items": [
             {
               "headline": "Fabricate v2.0: Prompt to Deployed App in One Shot",
@@ -204,7 +204,7 @@
           ]
         },
         {
-          "title": "Market Snapshot",
+          "title": "The Ticker",
           "items": [
             {
               "headline": "S&P 500",

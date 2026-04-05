@@ -207,10 +207,15 @@ def build_email_preheader(digest: dict) -> str:
 
 
 def _get_editorial_teaser(date: str) -> dict | None:
-    """Find today's editorial and extract title + description from HTML meta."""
+    """Find today's editorial and extract title + description from HTML meta.
+    Falls back to the most recent editorial if today's isn't available."""
     import re
     editorial_dir = Path(__file__).parent.parent / "editorial"
     matches = sorted(editorial_dir.glob(f"{date}-*.html"))
+    if not matches:
+        # Fallback: most recent editorial by filename
+        all_editorials = sorted(editorial_dir.glob("2???-??-??-*.html"), reverse=True)
+        matches = all_editorials[:1] if all_editorials else []
     if not matches:
         return None
     try:

@@ -9,8 +9,7 @@ client_secret.json
 .env
 *.env.*
 GMAIL-TOKEN-B64.txt
-RAILWAY-ENV-VARS.txt
-RAILWAY-TOKENS.txt
+RAILWAY-*.txt
 media-status.json
 podcast-*.mp3
 infographic-*.jpg
@@ -23,3 +22,11 @@ pipeline/data/
 .claude/settings.local.json
 .claude/*.local.json
 test_write/
+_archive/
+editorial-podcast-*.mp3
+editorial-video-*.mp4
+editorial-media-status.json
+email-preview*.html
+video-upload-result.json
+koda-digest-eval-review.html
+*.bak
