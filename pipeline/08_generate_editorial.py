@@ -966,6 +966,7 @@ def render_html(article: str, topic: dict, date: str, hero_url: str | None = Non
     )
     html += nav_html
 
+    html += f"""
 <header class="hero-section">
     <div class="hero-inner">
         <div class="hero-meta">
