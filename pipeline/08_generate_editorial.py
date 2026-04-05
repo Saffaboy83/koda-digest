@@ -26,6 +26,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+import subprocess
+
 import httpx
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -1210,6 +1212,247 @@ def _update_landing_page(
         print(f"  Updated index.html editorial card for {date_str}")
 
 
+# ── Editorial Media ──────────────────────────────────────────────────────────
+
+SUPABASE_MEDIA_PREFIX = "https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media"
+
+
+def _generate_editorial_video_direction(
+    article_text: str, article_title: str, date_label: str,
+) -> str | None:
+    """Generate anime-style video direction via Sonnet LLM call."""
+    prompt = (
+        f"You are a visual director for a brief anime-style video overview of an "
+        f"editorial article. The video will be 1-2 minutes long with 3-4 key scenes.\n\n"
+        f"Article title: {article_title}\nDate: {date_label}\n\n"
+        f"Article text:\n{article_text[:6000]}\n\n"
+        f"Create an ANIME VISUAL DIRECTION DOCUMENT with:\n"
+        f"## ANIME VIDEO DIRECTION -- {article_title}\n\n"
+        f"### Visual Identity\n"
+        f"Cel-shaded art, vibrant colors, dynamic camera angles, dark backgrounds "
+        f"with neon accent lighting (electric blue, vivid purple).\n\n"
+        f"### Scene Breakdown (3-4 scenes)\n"
+        f"For each: scene title, visual description, key argument, camera movement, color palette.\n\n"
+        f"### Closing Frame\nA single powerful image encapsulating the thesis with Koda branding.\n\n"
+        f"RULES: NO political figures or real people. Use abstract silhouettes/symbols. "
+        f"Keep under 500 words. Use anime visual language."
+    )
+    return _llm_call(prompt, model=SONNET_MODEL, max_tokens=700, temperature=0.6)
+
+
+def _generate_editorial_audio_direction(
+    article_text: str, article_title: str, date_label: str,
+) -> str:
+    """Generate brief audio overview direction (deterministic template)."""
+    snippet = article_text[:200].replace("\n", " ").strip()
+    if len(article_text) > 200:
+        snippet += "..."
+    return (
+        f"## EDITORIAL AUDIO DIRECTION -- {date_label}\n\n"
+        f"### Format: Brief Overview (~5-8 minutes)\n"
+        f"Single-topic deep analysis, NOT a news roundup.\n\n"
+        f"### Article: {article_title}\nPreview: {snippet}\n\n"
+        f"### Tone & Style\n"
+        f"Conversational expert tone. Like explaining to a smart friend over coffee.\n"
+        f"5-minute 'what you need to know' briefing on ONE topic.\n\n"
+        f"### Structure: HOOK (30s) -> CONTEXT (1-2 min) -> DEEP DIVE (2-3 min) -> SO WHAT (1-2 min)\n\n"
+        f"### Host Chemistry\n"
+        f"Host A drives argument forward. Host B plays devil's advocate.\n"
+        f"Energy shifts: excited for opportunities, concerned for risks, skeptical for hype.\n\n"
+        f"### Avoid\n"
+        f"No linear summaries. No robot transitions. No condescending explanations."
+    )
+
+
+def _generate_editorial_media(
+    article: str, topic: dict, date: str, *, dry_run: bool = False,
+) -> dict | None:
+    """Generate brief anime video + audio for the editorial via notebooklm_media.py.
+
+    Returns editorial-media-status dict on success, None on failure.
+    """
+    print("\n  Step 05F: Generating editorial media (video + audio)...")
+
+    if dry_run:
+        print("  DRY RUN: skipping editorial media generation")
+        return None
+
+    title = topic.get("topic", "Today's Analysis")[:80]
+    date_label = datetime.strptime(date, "%Y-%m-%d").strftime("%d %B %Y")
+
+    # Generate direction documents
+    print("  Generating video direction...")
+    video_dir = _generate_editorial_video_direction(article, title, date_label)
+    if video_dir:
+        print(f"  Video direction: {len(video_dir)} chars")
+    else:
+        print("  Video direction failed (will skip video)")
+
+    audio_dir = _generate_editorial_audio_direction(article, title, date_label)
+    print(f"  Audio direction: {len(audio_dir)} chars")
+
+    # Write temp files
+    data_dir = DIGEST_DIR / "pipeline" / "data"
+    article_file = data_dir / "editorial-article.txt"
+    article_file.write_text(article, encoding="utf-8")
+
+    video_dir_file = None
+    if video_dir:
+        video_dir_file = data_dir / "editorial-video-direction.txt"
+        video_dir_file.write_text(video_dir, encoding="utf-8")
+
+    audio_dir_file = data_dir / "editorial-audio-direction.txt"
+    audio_dir_file.write_text(audio_dir, encoding="utf-8")
+
+    # Call notebooklm_media.py --editorial-file
+    cmd = [
+        sys.executable, str(DIGEST_DIR / "notebooklm_media.py"),
+        "--editorial-file", str(article_file),
+        "--editorial-audio-direction", str(audio_dir_file),
+        "--date", date,
+        "--output-dir", str(DIGEST_DIR),
+        "--skip-digest",
+    ]
+    if video_dir_file:
+        cmd.extend(["--editorial-video-direction", str(video_dir_file)])
+
+    env = os.environ.copy()
+    env["PYTHONUTF8"] = "1"
+
+    print("  Running notebooklm_media.py --editorial-file ...")
+    try:
+        result = subprocess.run(cmd, env=env, capture_output=False, timeout=1800)
+    except subprocess.TimeoutExpired:
+        print("  WARNING: Editorial media generation timed out (30 min)")
+        return None
+    except Exception as e:
+        print(f"  WARNING: Editorial media generation failed: {e}")
+        return None
+
+    # Read back status
+    status_path = DIGEST_DIR / "editorial-media-status.json"
+    if status_path.exists():
+        with open(status_path, "r", encoding="utf-8") as f:
+            status = json.load(f)
+        audio_ok = status.get("editorial_audio", {}).get("success", False)
+        video_ok = status.get("editorial_video", {}).get("success", False)
+        print(f"  Editorial media: audio={'OK' if audio_ok else 'FAIL'}, video={'OK' if video_ok else 'FAIL'}")
+        return status
+    else:
+        print("  WARNING: No editorial-media-status.json generated")
+        return None
+
+
+def _inject_media_strip(html: str, media_status: dict) -> str:
+    """Inject the media strip HTML after the hero section in the editorial."""
+    audio = media_status.get("editorial_audio", {})
+    video = media_status.get("editorial_video", {})
+
+    audio_url = audio.get("url", "")
+    if not audio_url and audio.get("path"):
+        # Extract just the filename from a potentially full path
+        audio_filename = Path(audio["path"]).name
+        audio_url = f"{SUPABASE_MEDIA_PREFIX}/{audio_filename}"
+
+    youtube_id = video.get("youtube_id", "")
+    youtube_url = video.get("youtube_url", f"https://www.youtube.com/watch?v={youtube_id}" if youtube_id else "")
+
+    if not audio_url and not youtube_id:
+        return html  # Nothing to inject
+
+    # Build media strip HTML
+    cards = []
+    if audio_url:
+        cards.append(f"""    <div class="media-card media-card--audio">
+      <span class="material-symbols-outlined media-card__icon media-card__icon--audio">headphones</span>
+      <div class="media-card__title">Deep Dive Audio</div>
+      <div class="media-card__subtitle">Brief overview (~5 min)</div>
+      <button class="media-btn media-btn--podcast" id="edPodBtn" onclick="toggleEditorialPodcast()" aria-expanded="false" aria-controls="editorialPodcastPlayer">&#9654; Listen Now</button>
+      <div class="ed-podcast-wrap" id="editorialPodcastPlayer">
+        <audio controls preload="none"><source src="{audio_url}" type="audio/mpeg"></audio>
+      </div>
+    </div>""")
+
+    if youtube_id:
+        cards.append(f"""    <div class="media-card media-card--video">
+      <span class="material-symbols-outlined media-card__icon media-card__icon--video">smart_display</span>
+      <div class="media-card__title">Anime Brief</div>
+      <div class="media-card__subtitle">Visual deep dive (~2 min)</div>
+      <button class="media-btn media-btn--video" onclick="toggleVideo()">&#9654; Play Video</button>
+      <a href="{youtube_url}" target="_blank" rel="noopener" class="media-yt-link">or watch on YouTube &rarr;</a>
+      <div class="video-overlay" id="videoOverlay" role="dialog" aria-modal="true" aria-label="Video player" onclick="if(event.target===this)toggleVideo()">
+        <div class="video-overlay-inner">
+          <button class="video-overlay-close" onclick="toggleVideo()" aria-label="Close video">&times;</button>
+          <iframe id="videoFrame" width="100%" style="aspect-ratio:16/9;border:none;border-radius:12px" allowfullscreen title="Editorial video"></iframe>
+        </div>
+      </div>
+    </div>""")
+
+    strip_html = (
+        '\n<!-- MEDIA_STRIP_START -->\n'
+        '<section class="media-strip fade-in">\n'
+        '  <div class="media-strip-grid">\n'
+        + '\n'.join(cards) + '\n'
+        '  </div>\n'
+        '</section>\n'
+        '<!-- MEDIA_STRIP_END -->\n'
+    )
+
+    # Media strip JS (podcast toggle + video overlay)
+    media_js = """
+<script>
+function toggleEditorialPodcast() {
+    var player = document.getElementById('editorialPodcastPlayer');
+    var btn = document.getElementById('edPodBtn');
+    if (!player || !btn) return;
+    if (player.classList.contains('active')) {
+        player.classList.remove('active');
+        btn.innerHTML = '&#9654; Listen Now';
+        btn.setAttribute('aria-expanded', 'false');
+        var audio = player.querySelector('audio');
+        if (audio) audio.pause();
+    } else {
+        player.classList.add('active');
+        btn.innerHTML = '&#9646;&#9646; Pause';
+        btn.setAttribute('aria-expanded', 'true');
+        var audio = player.querySelector('audio');
+        if (audio) audio.play();
+    }
+}
+function toggleVideo() {
+    var o = document.getElementById('videoOverlay'), f = document.getElementById('videoFrame');
+    if (!o || !f) return;
+    if (o.classList.contains('active')) {
+        o.classList.remove('active');
+        f.src = '';
+        document.body.style.overflow = '';
+    } else {
+        f.src = 'https://www.youtube.com/embed/""" + youtube_id + """?autoplay=1&rel=0';
+        o.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+</script>
+"""
+
+    # Inject after </header> (end of hero section)
+    marker = "</header>"
+    idx = html.find(marker)
+    if idx != -1:
+        insert_at = idx + len(marker)
+        html = html[:insert_at] + strip_html + html[insert_at:]
+        print(f"  Injected media strip (audio={bool(audio_url)}, video={bool(youtube_id)})")
+    else:
+        print("  WARNING: Could not find </header> to inject media strip")
+
+    # Inject media JS before </body>
+    body_end = html.rfind("</body>")
+    if body_end != -1:
+        html = html[:body_end] + media_js + html[body_end:]
+
+    return html
+
+
 # ── Main ─────────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -1275,6 +1518,9 @@ def main() -> None:
     else:
         print("  No hero image (skipped or failed)")
 
+    # Step 05F: Generate editorial media (brief anime video + brief audio)
+    editorial_media = _generate_editorial_media(article, topic, args.date, dry_run=args.dry_run)
+
     # Step 06E: Render HTML
     print("\n  Step 06E: Rendering HTML...")
     slug = slugify(topic.get("topic", "editorial"))
@@ -1285,6 +1531,10 @@ def main() -> None:
         print("  ERROR: HTML rendering failed")
         write_json("editorial-status.json", {"date": args.date, "success": False, "error": "render_failed"})
         sys.exit(1)
+
+    # Inject media strip if editorial media was generated
+    if editorial_media:
+        html = _inject_media_strip(html, editorial_media)
 
     if args.dry_run:
         print(f"  DRY RUN: would save editorial/{filename} ({len(html)} chars)")

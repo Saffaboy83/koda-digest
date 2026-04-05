@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-05T14:38:05Z",
+  "generated": "2026-04-05T15:03:40Z",
   "entries": [
     {
       "date": "2026-04-05",
@@ -3609,6 +3609,60 @@
     {
       "date": "2026-04-05",
       "type": "editorial",
+      "file": "editorial/2026-04-05-the-open-weight-model-explosionseven-of-nine-march-releases-.html",
+      "title": "The open-weight model explosion—seven of nine March releases were open-weight—is",
+      "tag": "Strategy",
+      "sections": [
+        {
+          "title": "Introduction",
+          "items": [
+            {
+              "headline": "The open-weight model explosion—seven of nine March releases were open-weight—is",
+              "text": "Seven out of nine text models released in March 2026 were open-weight. That is a 78% open-weight share in a single month. Alibaba's Qwen 3.5 series alone covered every deployment tier from 0.8 billion to 397 billion parameters. DeepSeek V4 shipped with 1 trillion total parameters but only 32 billion active per token, cutting memory by 40% and boosting inference speed by 1.8x. And prediction markets now show 5 additional major models above 55% probability of shipping in April. Closed-model provid"
+            }
+          ]
+        },
+        {
+          "title": "The Gravity Inversion",
+          "items": [
+            {
+              "headline": "The Gravity Inversion",
+              "text": "There is a pattern in technology markets that repeats with almost boring reliability. A scarce resource commands premium pricing. Then supply explodes. Then the premium collapses. Then the real value migrates somewhere else entirely. I call what is happening now the Gravity Inversion. For three years, the gravitational pull in AI economics pointed upward: bigger models, higher API costs, fatter margins for frontier labs. Open-weight releases have flipped that gravity. The pull now points downwar"
+            }
+          ]
+        },
+        {
+          "title": "The Asymmetric Collapse of Closed-Model Margins",
+          "items": [
+            {
+              "headline": "The Asymmetric Collapse of Closed-Model Margins",
+              "text": "Let me frame this through contrast pairs, because that is where the real signal lives. By March 2026, Sebastian Raschka's \"Ahead of AI\" newsletter cataloged 10 open-weight architectures released in January and February alone. Arcee AI's Trinity Large shipped at 400 billion mixture-of-experts parameters with only 13 billion active. Qwen3-Coder-Next delivered 80 billion parameters with 3 billion active. The sheer volume of credible alternatives makes closed-model pricing a negotiation, not a manda"
+            }
+          ]
+        },
+        {
+          "title": "2031",
+          "items": [
+            {
+              "headline": "2031",
+              "text": "Zoom out five years. Three structural forces are compounding simultaneously, and their intersection creates an asymmetric opportunity for builders who position now. First, open-weight model quality will continue converging with closed-model quality. The training playbook is increasingly public. Hugging Face's \"Smol Training Playbook\" documents in granular detail how to train a 3 billion parameter model on 11 trillion tokens. The secrets are not secret anymore. By 2031, the gap between the best o"
+            }
+          ]
+        },
+        {
+          "title": "What to Build This Weekend",
+          "items": [
+            {
+              "headline": "What to Build This Weekend",
+              "text": "Stop theorizing about open-weight economics. Start experiencing them. Here is a concrete weekend project. Step one: pick one workflow in your product or business that currently calls a closed API. Email triage is a good candidate. Superhuman's new AI triage feature at $30 per month shows the pattern: classify, draft, surface decisions. You can replicate the core logic yourself. Step two: deploy an open-weight model locally. Grab Qwen3-32B or a similar model from Hugging Face. Use Ollama or vLLM "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-05",
+      "type": "editorial",
       "file": "editorial/2026-04-05-pay-as-you-go-pricing-for-ai-coding-tools-signals-the-end-of.html",
       "title": "Pay-as-you-go pricing for AI coding tools signals the end of seat-based SaaS and",
       "tag": "Monetization",
@@ -4267,72 +4321,6 @@
             {
               "headline": "What to Build This Weekend",
               "text": "Stop reading about open-weight models. Start using one. Here is your weekend plan: 1. Pick one model and run it locally. Download Qwen3.5-7B or Mistral Small 4 via Ollama. This takes 15 minutes. You now have a model running on your laptop with zero API costs and zero data leaving your machine. 2. Fine-tune it on your domain. Use Unsloth or Axolotl to fine-tune on 500 examples from your industry. Customer support tickets, internal docs, sales emails. Whatever your team touches daily. Three hours "
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-04-05",
-      "type": "review",
-      "file": "reviews/2026-04-05-noiz-ai-text-to-voice-to-story-in-one-flow.html",
-      "title": "Noiz AI: Text to Voice to Story in One Flow",
-      "sections": [
-        {
-          "title": "Pricing",
-          "anchor": "pricing",
-          "items": [
-            {
-              "headline": "Free",
-              "text": "$0"
-            },
-            {
-              "headline": "Pro",
-              "text": "$49 /month"
-            },
-            {
-              "headline": "Enterprise",
-              "text": "Custom"
-            }
-          ]
-        },
-        {
-          "title": "Key Features",
-          "anchor": "features",
-          "items": [
-            {
-              "headline": "Text to Voice Conversion",
-              "text": "Converts written scripts into natural-sounding speech using voice synthesis. Multiple voice profiles are available, and the output quality is competitive with standalone TTS tools like ElevenLabs."
-            },
-            {
-              "headline": "Story Generation",
-              "text": "Takes a rough outline or prompt and generates a structured narrative with pacing, transitions, and scene breaks. This is the core differentiator: it does not just read text, it shapes it into a story."
-            },
-            {
-              "headline": "Multi-Format Export",
-              "text": "Outputs in formats suitable for podcasts, social media reels, and training content. Supports common audio and video containers, reducing the need for post-processing in another tool."
-            },
-            {
-              "headline": "Intuitive Interface",
-              "text": "The pipeline is presented as a single linear flow. You do not need to jump between tabs or tools. Input goes in at one end; finished content comes out the other."
-            },
-            {
-              "headline": "Real-Time Editing",
-              "text": "Adjust pacing, tone, and voice parameters while previewing the output in real time. This eliminates the re-render loop that plagues most TTS workflows."
-            },
-            {
-              "headline": "Integrations",
-              "text": "Connects with Google Drive, Dropbox, Slack, Trello, and Zapier. This means you can trigger story generation from a Trello card or push finished audio directly to a shared Drive folder."
-            }
-          ]
-        },
-        {
-          "title": "Limitations",
-          "anchor": "limitations",
-          "items": [
-            {
-              "headline": "Limitations",
-              "text": "No offline mode. Noiz AI is entirely cloud-based. If you are working in environments with unreliable internet, or if you need to process sensitive content without sending it to external servers, this is a hard blocker. There is no local processing option. Limited free tier. The free plan is restrictive enough that it functions as a demo rather than a usable tool. You will hit limits quickly if you try to evaluate it on a real project. Budget for the $49/month Pro plan from the start if you are s"
             }
           ]
         }

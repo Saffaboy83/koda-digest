@@ -925,7 +925,7 @@ async def run_editorial_pipeline(
 
 def main():
     parser = argparse.ArgumentParser(description="Generate Koda Digest media via NotebookLM API")
-    text_group = parser.add_mutually_exclusive_group(required=True)
+    text_group = parser.add_mutually_exclusive_group(required=False)
     text_group.add_argument("--text-file", help="Path to file containing compiled news text")
     text_group.add_argument("--text", help="Compiled news text (inline)")
 
@@ -957,6 +957,8 @@ def main():
                         help="Output results as JSON to stdout")
 
     # Editorial media arguments
+    parser.add_argument("--skip-digest", action="store_true",
+                        help="Skip digest media generation (only run editorial pipeline)")
     parser.add_argument("--editorial-file",
                         help="Path to editorial article text file (triggers editorial media pipeline)")
     parser.add_argument("--editorial-video-direction",
@@ -966,15 +968,16 @@ def main():
 
     args = parser.parse_args()
 
-    # Read text content
+    # Read text content (not required when --skip-digest)
+    text_content = ""
     if args.text_file:
         with open(args.text_file, "r", encoding="utf-8") as f:
             text_content = f.read().strip()
-    else:
+    elif args.text:
         text_content = args.text.strip()
 
-    if len(text_content) < 100:
-        print("ERROR: Text content too short (< 100 chars). Provide a proper news summary.")
+    if not args.skip_digest and len(text_content) < 100:
+        print("ERROR: Text content too short (< 100 chars). Provide --text-file or --text.")
         sys.exit(3)
 
     # Read optional differentiation text
@@ -1020,40 +1023,45 @@ def main():
         print(f"Editorial: {args.editorial_file}")
     print()
 
-    # Run the async pipeline
-    results, media_paths, exit_code = asyncio.run(
-        run_pipeline(text_content, args.date, args.output_dir, args.skip_video,
-                     diff_text=diff_text, audio_focus=args.focus,
-                     infographic_focus=args.infographic_focus,
-                     video_focus=args.video_focus,
-                     visual_script=visual_script,
-                     infographic_source=infographic_source,
-                     new_notebook=args.new_notebook,
-                     notebook_title=args.notebook_title,
-                     existing_notebook_id=args.notebook_id)
-    )
+    # Run the digest media pipeline (unless --skip-digest)
+    actual_notebook_id = None
+    if args.skip_digest:
+        print("Skipping digest media pipeline (--skip-digest)")
+        results, media_paths, exit_code = [], {}, 0
+    else:
+        results, media_paths, exit_code = asyncio.run(
+            run_pipeline(text_content, args.date, args.output_dir, args.skip_video,
+                         diff_text=diff_text, audio_focus=args.focus,
+                         infographic_focus=args.infographic_focus,
+                         video_focus=args.video_focus,
+                         visual_script=visual_script,
+                         infographic_source=infographic_source,
+                         new_notebook=args.new_notebook,
+                         notebook_title=args.notebook_title,
+                         existing_notebook_id=args.notebook_id)
+        )
 
-    # Write status file
-    status = {
-        "date": args.date,
-        "generated_at": datetime.now(timezone.utc).isoformat(),
-        "exit_code": exit_code,
-        "steps": results,
-        "media": media_paths,
-    }
-    status_path = os.path.join(args.output_dir, "media-status.json")
-    with open(status_path, "w", encoding="utf-8") as f:
-        json.dump(status, f, indent=2)
+        # Write status file
+        status = {
+            "date": args.date,
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "exit_code": exit_code,
+            "steps": results,
+            "media": media_paths,
+        }
+        status_path = os.path.join(args.output_dir, "media-status.json")
+        with open(status_path, "w", encoding="utf-8") as f:
+            json.dump(status, f, indent=2)
 
-    if args.json:
-        print(json.dumps(status, indent=2))
+        if args.json:
+            print(json.dumps(status, indent=2))
 
-    # Show Chrome fallback for any failures
-    actual_notebook_id = media_paths.get("notebook_id")
-    failed = [r["step"] for r in results
-              if not r["success"] and r["step"] in ("audio", "infographic", "video")]
-    if failed:
-        print_chrome_fallback(failed, notebook_id=actual_notebook_id)
+        # Show Chrome fallback for any failures
+        actual_notebook_id = media_paths.get("notebook_id")
+        failed = [r["step"] for r in results
+                  if not r["success"] and r["step"] in ("audio", "infographic", "video")]
+        if failed:
+            print_chrome_fallback(failed, notebook_id=actual_notebook_id)
 
     # ── Editorial media pipeline (if --editorial-file provided) ─────────
     if args.editorial_file:

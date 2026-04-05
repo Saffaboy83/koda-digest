@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-05T14:38:05Z",
+  "generated": "2026-04-05T15:03:40Z",
   "digests": [
     {
       "date": "2026-04-05",
@@ -467,6 +467,12 @@
     }
   ],
   "editorials": [
+    {
+      "date": "2026-04-05",
+      "title": "The open-weight model explosion—seven of nine March releases were open-weight—is",
+      "tag": "Strategy",
+      "file": "editorial/2026-04-05-the-open-weight-model-explosionseven-of-nine-march-releases-.html"
+    },
     {
       "date": "2026-04-05",
       "title": "Pay-as-you-go pricing for AI coding tools signals the end of seat-based SaaS and",
