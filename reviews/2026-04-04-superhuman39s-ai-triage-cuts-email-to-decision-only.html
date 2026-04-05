@@ -2,686 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Superhuman AI Triage Review | Koda Intelligence - The Lab</title>
-<meta name="description" content="Deep review of Superhuman's AI Triage: $30/month email app that auto-triages your inbox so you only touch emails requiring a decision. Full pricing, features, and honest assessment.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
-  --bg: #0b1326;
-  --bg-footer: #060e20;
-  --card-bg: rgba(23,31,51,0.4);
-  --card-border: rgba(255,255,255,0.06);
-  --text-body: #dae2fd;
-  --text-heading: #dae2fd;
-  --text-secondary: #c2c6d6;
-  --text-muted: #8c909f;
-  --accent-purple: #8B5CF6;
-  --accent-blue: #3B82F6;
-  --gradient-brand: linear-gradient(135deg, #3B82F6, #8B5CF6);
-  --radius: 12px;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-}
-
-html { scroll-behavior: smooth; }
-body {
-  font-family: var(--font-body);
-  background: var(--bg);
-  color: var(--text-body);
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Scroll Progress Bar */
-#scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: var(--gradient-brand);
-  z-index: 10000;
-  width: 0%;
-  transition: width 0.1s linear;
-}
-
-/* Topbar */
-.topbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 56px;
-  background: rgba(11,19,38,0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  border-bottom: 1px solid var(--card-border);
-}
-
-.topbar-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-
-.topbar-brand-icon {
-  width: 32px;
-  height: 32px;
-  background: var(--gradient-brand);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-body);
-  font-weight: 900;
-  font-size: 16px;
-  color: #fff;
-}
-
-.topbar-brand-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.topbar-brand-name {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--accent-blue);
-  line-height: 1.2;
-}
-
-.topbar-brand-sub {
-  font-size: 10px;
-  color: var(--text-muted);
-  line-height: 1.2;
-}
-
-.topbar-nav {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.topbar-nav a {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--text-muted);
-  text-decoration: none;
-  padding: 6px 8px;
-  border-radius: 6px;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-
-.topbar-nav a:hover {
-  color: var(--text-body);
-  background: rgba(255,255,255,0.05);
-}
-
-.topbar-nav a.active {
-  color: var(--accent-blue);
-  background: rgba(59,130,246,0.1);
-}
-
-.topbar-nav a .material-symbols-outlined {
-  font-size: 16px;
-}
-
-.topbar-nav .home-btn {
-  background: var(--gradient-brand);
-  color: #fff;
-  padding: 6px 12px;
-  border-radius: 6px;
-  margin-left: 4px;
-}
-
-.topbar-nav .home-btn:hover {
-  opacity: 0.9;
-  color: #fff;
-  background: var(--gradient-brand);
-}
-
-@media (max-width: 768px) {
-  .topbar-nav a { display: none; }
-  .topbar-nav a.active,
-  .topbar-nav .home-btn { display: flex; }
-}
-
-/* Main Content */
-main {
-  padding-top: 56px;
-}
-
-section {
-  scroll-margin-top: 80px;
-}
-
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Animate In */
-.animate-in {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.animate-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Hero */
-.hero {
-  padding: 80px 0 48px;
-  text-align: center;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(139,92,246,0.15);
-  border: 1px solid rgba(139,92,246,0.3);
-  color: var(--accent-purple);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 700;
-  padding: 6px 16px;
-  border-radius: 999px;
-  margin-bottom: 24px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.hero h1 {
-  font-size: clamp(28px, 5vw, 48px);
-  font-weight: 900;
-  background: var(--gradient-brand);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1.15;
-  margin-bottom: 16px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-tagline {
-  font-size: 18px;
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto 32px;
-  line-height: 1.6;
-}
-
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--gradient-brand);
-  color: #fff;
-  font-family: var(--font-body);
-  font-size: 16px;
-  font-weight: 700;
-  padding: 14px 32px;
-  border-radius: 999px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-primary:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(139,92,246,0.3);
-}
-
-.hero-image {
-  max-width: 800px;
-  width: 100%;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.08);
-  margin: 24px auto 0;
-  display: block;
-}
-
-/* Cards */
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius);
-  padding: 32px;
-}
-
-/* Verdict */
-.verdict-section {
-  padding: 48px 0;
-}
-
-.verdict-card {
-  background: rgba(139,92,246,0.08);
-  border: 1px solid rgba(139,92,246,0.2);
-  border-radius: var(--radius);
-  padding: 32px;
-  position: relative;
-}
-
-.verdict-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--gradient-brand);
-  border-radius: var(--radius) var(--radius) 0 0;
-}
-
-.verdict-label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--accent-purple);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
-}
-
-.verdict-card p {
-  font-size: 17px;
-  color: var(--text-body);
-  line-height: 1.8;
-}
-
-/* Section Headers */
-.section-header {
-  margin-bottom: 32px;
-}
-
-.section-header h2 {
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--text-heading);
-  margin-bottom: 8px;
-}
-
-.section-header p {
-  color: var(--text-secondary);
-  font-size: 15px;
-}
-
-/* Pricing */
-.pricing-section {
-  padding: 48px 0;
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
-@media (max-width: 768px) {
-  .pricing-grid { grid-template-columns: 1fr; }
-}
-
-.pricing-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius);
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-}
-
-.pricing-card.featured {
-  border-color: rgba(139,92,246,0.4);
-  background: rgba(139,92,246,0.06);
-}
-
-.pricing-plan {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--accent-purple);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 8px;
-}
-
-.pricing-price {
-  font-size: 40px;
-  font-weight: 900;
-  color: var(--text-heading);
-  line-height: 1.1;
-  margin-bottom: 4px;
-}
-
-.pricing-price span {
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--text-muted);
-}
-
-.pricing-features {
-  list-style: none;
-  margin-top: 24px;
-  flex: 1;
-}
-
-.pricing-features li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 8px 0;
-  font-size: 14px;
-  color: var(--text-secondary);
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-}
-
-.pricing-features li:last-child {
-  border-bottom: none;
-}
-
-.pricing-features li .material-symbols-outlined {
-  font-size: 18px;
-  color: var(--accent-blue);
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-
-/* Features */
-.features-section {
-  padding: 48px 0;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-@media (max-width: 768px) {
-  .features-grid { grid-template-columns: 1fr; }
-}
-
-.feature-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius);
-  padding: 28px;
-}
-
-.feature-icon {
-  width: 44px;
-  height: 44px;
-  background: rgba(59,130,246,0.1);
-  border: 1px solid rgba(59,130,246,0.2);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
-}
-
-.feature-icon .material-symbols-outlined {
-  font-size: 22px;
-  color: var(--accent-blue);
-}
-
-.feature-card h3 {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--text-heading);
-  margin-bottom: 8px;
-}
-
-.feature-card p {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-/* Use Cases */
-.usecases-section {
-  padding: 48px 0;
-}
-
-.usecases-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-@media (max-width: 768px) {
-  .usecases-grid { grid-template-columns: 1fr; }
-}
-
-.usecase-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius);
-  padding: 24px;
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.usecase-card .material-symbols-outlined {
-  font-size: 24px;
-  color: var(--accent-purple);
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.usecase-card h3 {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text-heading);
-  margin-bottom: 6px;
-}
-
-.usecase-card p {
-  font-size: 13px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-/* Limitations */
-.limitations-section {
-  padding: 48px 0;
-}
-
-.limitations-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.limitation-item {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius);
-  padding: 24px;
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.limitation-item .material-symbols-outlined {
-  font-size: 22px;
-  color: #F59E0B;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.limitation-item h3 {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text-heading);
-  margin-bottom: 4px;
-}
-
-.limitation-item p {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-/* Integrations */
-.integrations-section {
-  padding: 48px 0;
-}
-
-.integrations-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.integration-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 999px;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-secondary);
-}
-
-.integration-chip .material-symbols-outlined {
-  font-size: 18px;
-  color: var(--accent-blue);
-}
-
-/* Bottom CTA */
-.bottom-cta {
-  padding: 64px 0;
-  text-align: center;
-}
-
-.bottom-cta-card {
-  background: rgba(139,92,246,0.06);
-  border: 1px solid rgba(139,92,246,0.15);
-  border-radius: var(--radius);
-  padding: 48px 32px;
-}
-
-.bottom-cta h2 {
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--text-heading);
-  margin-bottom: 16px;
-}
-
-.bottom-cta p {
-  color: var(--text-secondary);
-  margin-bottom: 32px;
-  font-size: 16px;
-}
-
-.bottom-cta-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
-.bottom-cta-links a {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--accent-blue);
-  text-decoration: none;
-}
-
-.bottom-cta-links a:hover {
-  text-decoration: underline;
-}
-
-/* Footer */
-footer {
-  background: var(--bg-footer);
-  border-top: 1px solid var(--card-border);
-  padding: 32px 20px;
-}
-
-.footer-inner {
-  max-width: 960px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.footer-brand {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text-muted);
-}
-
-.footer-brand span {
-  font-weight: 400;
-  color: var(--text-muted);
-  opacity: 0.6;
-}
-
-.footer-links {
-  display: flex;
-  gap: 20px;
-}
-
-.footer-links a {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.footer-links a:hover {
-  color: var(--accent-blue);
-}
-
-@media (max-width: 768px) {
-  .footer-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-
-}
-
-
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Inter",sans-serif;background:#0b1326;color:#dae2fd;min-height:100vh;overflow-x:hidden;line-height:1.7}
+section{scroll-margin-top:80px}
+.material-symbols-outlined{font-variation-settings:"FILL" 0,"wght" 400,"GRAD" 0,"opsz" 24;display:inline-block;vertical-align:middle}
+.scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,#3B82F6,#8B5CF6);z-index:1001;transition:width 0.1s linear;pointer-events:none}
 
 /* -- Koda Nav V2 -- */
 .kn-topbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(11,19,38,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
@@ -760,13 +91,14 @@ footer {
 
 /* Body scroll lock */
 body.kn-locked{overflow:hidden}
-/* -- End Koda Nav V2 -- */
+
+main{max-width:900px;margin:0 auto;padding:80px 20px 60px}
+.animate-in{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.animate-in.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
-
-<div id="scroll-progress"></div>
-
+<div class="scroll-progress" id="scrollProgress"></div>
 <!-- koda-nav-v2-start -->
 <header class="kn-topbar" id="knTopbar">
 <div class="kn-topbar-inner">
@@ -791,10 +123,10 @@ body.kn-locked{overflow:hidden}
     <div class="kn-actions">
         
         <div class="kn-desktop-social">
-            <a href="https://x.com/intent/tweet?url=https://www.koda.community/reviews/2026-04-04-superhuman39s-ai-triage-cuts-email-to-decision-only.html" target="_blank" rel="noopener" class="kn-action-btn" title="Share on X">
+            <a href="https://x.com/intent/tweet?url=https://www.koda.community/reviews/" target="_blank" rel="noopener" class="kn-action-btn" title="Share on X">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/reviews/2026-04-04-superhuman39s-ai-triage-cuts-email-to-decision-only.html" target="_blank" rel="noopener" class="kn-action-btn" title="Share on LinkedIn">
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/reviews/" target="_blank" rel="noopener" class="kn-action-btn" title="Share on LinkedIn">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
             <button class="kn-action-btn" onclick="navigator.clipboard.writeText(window.location.href);this.style.color='#10B981';setTimeout(()=>this.style.color='',1500)" title="Copy link">
@@ -838,10 +170,10 @@ body.kn-locked{overflow:hidden}
     <div class="kn-drawer-divider"></div>
     <div class="kn-drawer-section">Share</div>
     <div class="kn-drawer-social">
-        <a href="https://x.com/intent/tweet?url=https://www.koda.community/reviews/2026-04-04-superhuman39s-ai-triage-cuts-email-to-decision-only.html" target="_blank" rel="noopener" title="Share on X">
+        <a href="https://x.com/intent/tweet?url=https://www.koda.community/reviews/" target="_blank" rel="noopener" title="Share on X">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/reviews/2026-04-04-superhuman39s-ai-triage-cuts-email-to-decision-only.html" target="_blank" rel="noopener" title="Share on LinkedIn">
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/reviews/" target="_blank" rel="noopener" title="Share on LinkedIn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
         <button onclick="navigator.clipboard.writeText(window.location.href);this.style.color='#10B981';setTimeout(()=>this.style.color='',1500)" title="Copy link">
@@ -850,10 +182,8 @@ body.kn-locked{overflow:hidden}
     </div>
 </nav>
 <!-- koda-nav-v2-end -->
-
 <main>
-
-  <!-- Hero -->
+<!-- Hero -->
   <section class="hero">
     <div class="container">
       <div class="animate-in">
@@ -1098,48 +428,76 @@ body.kn-locked{overflow:hidden}
       </div>
     </div>
   </section>
-
 </main>
-
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">Koda Intelligence <span>&middot; April 4, 2026</span></div>
-    <div class="footer-links">
-      <a href="../index.html">Home</a>
-      <a href="../morning-briefing-koda.html">The Signal</a>
-      <a href="../reviews/">The Lab</a>
+<!-- Subscribe CTA -->
+<section style="width:100%;padding:64px 24px">
+    <div style="max-width:36rem;margin:0 auto;text-align:center">
+        <div style="background:rgba(11,19,38,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:40px;position:relative;overflow:hidden">
+            <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:128px;height:4px;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);border-radius:0 0 4px 4px"></div>
+            <h3 style="font-size:20px;font-weight:700;color:white;margin-bottom:8px">Like what you see?</h3>
+            <p style="color:#c2c6d6;font-size:14px;margin-bottom:24px">Get tomorrow's brief delivered to your inbox.</p>
+            <form style="display:flex;flex-direction:column;gap:8px;max-width:28rem;margin:0 auto;padding:6px;border-radius:9999px;background:#171f33;border:1px solid rgba(255,255,255,0.06)" onsubmit="return kodaSubscribe(this)">
+                <div style="display:flex;gap:8px">
+                    <input type="email" name="email" required style="background:transparent;border:none;outline:none;color:white;padding:12px 20px;width:100%;font-size:14px" placeholder="your@email.com">
+                    <button type="submit" style="background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;padding:12px 24px;border-radius:9999px;font-weight:700;font-size:14px;white-space:nowrap;border:none;cursor:pointer">Subscribe</button>
+                </div>
+            </form>
+            <p style="font-size:10px;color:#8c909f;margin-top:12px">One email per day. Unsubscribe anytime.</p>
+        </div>
     </div>
-  </div>
+</section>
+<!-- Footer -->
+<footer style="background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto">
+    <div style="max-width:40rem;margin:0 auto;text-align:center;padding:64px 24px;position:relative">
+        <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:500px;height:200px;background:linear-gradient(to top,rgba(139,92,246,0.04),transparent);border-radius:50%;filter:blur(48px);pointer-events:none"></div>
+        <div style="position:relative;z-index:1">
+            <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:24px">
+                <div style="width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;box-shadow:0 4px 12px rgba(139,92,246,0.2)">K</div>
+                <span style="font-size:18px;font-weight:700;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Koda Intelligence</span>
+            </div>
+            <p style="color:#c2c6d6;font-size:14px;margin-bottom:32px">Read. Listen. Watch. Every morning.</p>
+            <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:40px;flex-wrap:wrap">
+                <a href="../morning-briefing-koda.html" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em">The Signal</a>
+                <span style="color:rgba(140,144,159,0.3)">|</span>
+                <a href="../archive/" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em">The Vault</a>
+                <span style="color:rgba(140,144,159,0.3)">|</span>
+                <a href="https://www.youtube.com/channel/UC8qqiKRGFAd5SwTr_2ZzPJg" target="_blank" rel="noopener" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em">YouTube</a>
+            </div>
+            <p style="font-size:11px;color:rgba(140,144,159,0.6)">&copy; 2026 Koda Community &middot; <span style="font-family:'JetBrains Mono',monospace">koda.community</span></p>
+        </div>
+    </div>
 </footer>
-
 <script>
-// Scroll progress bar
-const progressBar = document.getElementById('scroll-progress');
-window.addEventListener('scroll', () => {
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-  progressBar.style.width = progress + '%';
-});
-
-// IntersectionObserver for animations
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, {
-  threshold: 0.1,
-  rootMargin: '0px 0px -40px 0px'
-});
-
-document.querySelectorAll('.animate-in').forEach(el => {
-  observer.observe(el);
-});
+function kodaSubscribe(form) {
+    var btn = form.querySelector("button");
+    var email = form.querySelector('input[name="email"]').value;
+    btn.textContent = "Subscribing...";
+    btn.disabled = true;
+    fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email })
+    }).then(function(r) {
+        if (r.ok) {
+            btn.textContent = "Subscribed!";
+            btn.style.background = "#10B981";
+            form.querySelector('input[name="email"]').value = "";
+        } else {
+            btn.textContent = "Try again";
+            btn.disabled = false;
+        }
+    }).catch(function() {
+        btn.textContent = "Try again";
+        btn.disabled = false;
+    });
+    return false;
+}
 </script>
-
+<script>
+window.addEventListener("scroll",function(){var p=document.getElementById("scrollProgress");if(p){var h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=h>0?(window.scrollY/h*100)+"%":"0%"}});
+var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add("visible")});},{threshold:0.1});
+document.querySelectorAll(".animate-in").forEach(function(el){obs.observe(el)});
+</script>
 <!-- koda-nav-v2-js-start -->
 <script>
 (function(){
