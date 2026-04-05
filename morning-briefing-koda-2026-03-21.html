@@ -347,7 +347,7 @@ body.kn-locked{overflow:hidden}
 <!-- ===== DAILY INFOGRAPHIC ===== -->
 <section>
   <div class="container">
-    <div class="section-title">Daily Infographic</div>
+    <div class="section-title"><span class="material-symbols-outlined" style="font-size:14px;vertical-align:-1px;margin-right:5px">image_search</span>The Lens</div>
     <div class="infographic fade-in" style="background:#0a0f1e;border:1px solid rgba(59,130,246,.25);border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.5);padding:0;">
       <img src="https://github.com/Saffaboy83/koda-digest/releases/download/podcast-2026-03-21/infographic-2026-03-21.jpg" alt="Koda Intelligence: State of the World — March 21, 2026" style="width:100%;height:auto;display:block;border-radius:20px;">
     </div>
@@ -376,7 +376,7 @@ body.kn-locked{overflow:hidden}
 <!-- ===== TODAY'S FOCUS ===== -->
 <section id="todays-focus">
   <div class="container">
-    <div class="section-title">Today's Focus</div>
+    <div class="section-title"><span class="material-symbols-outlined" style="font-size:14px;vertical-align:-1px;margin-right:5px">target</span>Power Moves</div>
     <div style="display:flex;flex-direction:column;gap:12px;">
       <div class="focus-item fade-in">
         <div class="focus-number">1</div>
@@ -407,7 +407,7 @@ body.kn-locked{overflow:hidden}
 <!-- ===== AI DEVELOPMENTS ===== -->
 <section id="ai-developments">
   <div class="container">
-    <div class="section-title">AI Developments</div>
+    <div class="section-title"><span class="material-symbols-outlined" style="font-size:14px;vertical-align:-1px;margin-right:5px">radar</span>The Radar</div>
     <div class="grid-2">
 
       <div class="news-card fade-in">
@@ -487,7 +487,7 @@ body.kn-locked{overflow:hidden}
 <!-- ===== WORLD NEWS ===== -->
 <section id="world-news">
   <div class="container">
-    <div class="section-title">World News</div>
+    <div class="section-title"><span class="material-symbols-outlined" style="font-size:14px;vertical-align:-1px;margin-right:5px">public</span>The Globe</div>
     <div class="grid-2">
 
       <div class="news-card fade-in">
@@ -553,7 +553,7 @@ body.kn-locked{overflow:hidden}
 <!-- ===== MARKET SNAPSHOT ===== -->
 <section id="market-snapshot">
   <div class="container">
-    <div class="section-title">Market Snapshot</div>
+    <div class="section-title"><span class="material-symbols-outlined" style="font-size:14px;vertical-align:-1px;margin-right:5px">monitoring</span>The Ticker</div>
     <div class="grid-6">
       <div class="market-card fade-in">
         <div class="market-ticker">S&amp;P 500</div>
@@ -598,7 +598,7 @@ body.kn-locked{overflow:hidden}
 <!-- ===== NEWSLETTER INTELLIGENCE ===== -->
 <section id="newsletter-intelligence">
   <div class="container">
-    <div class="section-title">Newsletter Intelligence</div>
+    <div class="section-title"><span class="material-symbols-outlined" style="font-size:14px;vertical-align:-1px;margin-right:5px">rss_feed</span>The Feed</div>
 
     <!-- finstory AI -->
     <div class="newsletter-card fade-in">
@@ -675,7 +675,7 @@ body.kn-locked{overflow:hidden}
 <!-- ===== COMPETITIVE LANDSCAPE ===== -->
 <section id="competitive-landscape">
   <div class="container">
-    <div class="section-title">Competitive Landscape</div>
+    <div class="section-title"><span class="material-symbols-outlined" style="font-size:14px;vertical-align:-1px;margin-right:5px">swords</span>The Arena</div>
     <div class="grid-3">
 
       <div class="comp-card fade-in">
@@ -739,7 +739,7 @@ body.kn-locked{overflow:hidden}
 <!-- ===== AI TOOL GUIDE ===== -->
 <section id="ai-tool-guide">
   <div class="container">
-    <div class="section-title">AI Tool Guide</div>
+    <div class="section-title"><span class="material-symbols-outlined" style="font-size:14px;vertical-align:-1px;margin-right:5px">science</span>The Lab Field Notes</div>
     <div class="grid-2">
 
       <div class="tool-card fade-in" style="border-left-color:var(--purple);">
@@ -893,8 +893,8 @@ if (window.location.hash) {
         if (expandable && (expandable.classList.contains('hidden') || expandable.style.display === 'none')) {
             expandable.classList.remove('hidden');
             expandable.style.display = '';
-            var btn = expandable.previousElementSibling;
-            if (btn && btn.classList.contains('expandable-header')) {
+            var btn = expandable.parentElement.querySelector('.expandable-header');
+            if (btn) {
                 btn.setAttribute('aria-expanded', 'true');
                 var chev = btn.querySelector('.expand-chevron');
                 if (chev) chev.style.transform = 'rotate(180deg)';

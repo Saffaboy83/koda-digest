@@ -232,6 +232,7 @@
 
 /* ── Section Scroll Margin ───────────────────────────────────────────── */
 .section { scroll-margin-top: 80px; }
+.scroll-anchor { display: block; position: relative; top: -80px; visibility: hidden; height: 0; }
 
 /* ── Sidebar Scroll ──────────────────────────────────────────────────── */
 .sidebar-scroll {
@@ -460,6 +461,7 @@ body.kn-locked{overflow:hidden}
             <h3 class="text-2xl font-black tracking-tight uppercase">The Signal</h3>
             <div class="h-px flex-grow bg-white/[0.1]"></div>
         </div>
+        <p class="text-[10px] text-[#8c909f] tracking-widest uppercase font-mono mb-8">Your daily intelligence briefing</p>
         <div class="space-y-3">
             
             
@@ -633,11 +635,13 @@ body.kn-locked{overflow:hidden}
 
     
     
-    <section class="section" id="infographic">
+    <a id="infographic" class="scroll-anchor"></a>
+    <section class="section" id="the-lens">
         <div class="section-title flex items-center gap-4 mb-8">
-            <h3 class="text-2xl font-black tracking-tight uppercase">Daily Infographic</h3>
+            <h3 class="text-2xl font-black tracking-tight uppercase"><span class="material-symbols-outlined text-lg text-[#8c909f]" style="margin-right:6px">image_search</span>The Lens</h3>
             <div class="h-px flex-grow bg-white/[0.1]"></div>
         </div>
+        <p class="text-[10px] text-[#8c909f] tracking-widest uppercase font-mono mb-8">Today's intelligence, visualized</p>
         <div class="bg-[#131b2e] border border-white/[0.06] rounded-xl p-4 text-center cursor-zoom-in" onclick="openInfographic('https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/infographic-2026-04-01.jpg')">
             <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/infographic-2026-04-01.jpg" alt="Koda Daily Infographic 2026-04-01" class="max-w-full rounded-lg">
             <p class="text-[10px] text-[#8c909f] mt-2">Click to expand</p>
@@ -671,14 +675,16 @@ body.kn-locked{overflow:hidden}
     
     
     
-    <section class="section" id="todays-focus">
-        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
+    <a id="todays-focus" class="scroll-anchor"></a>
+    <section class="section" id="power-moves">
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-2" onclick="toggleExpand(this)" aria-expanded="false">
             <div class="flex items-center gap-4 flex-grow min-w-0">
-                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">Today's Focus</h3>
+                <span class="material-symbols-outlined text-lg text-[#8c909f] flex-shrink-0" style="margin-right:6px">target</span><h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">Power Moves</h3>
                 <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
             </div>
             <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
         </button>
+        <p class="text-[10px] text-[#8c909f] tracking-widest uppercase font-mono mb-4 lg:mb-8">The three stories that matter most</p>
         <div class="expandable-content hidden mt-4 lg:mt-0">
         <div class="space-y-3">
             
@@ -715,14 +721,16 @@ body.kn-locked{overflow:hidden}
     
     
     
-    <section class="section" id="ai-developments">
-        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
+    <a id="ai-developments" class="scroll-anchor"></a>
+    <section class="section" id="the-radar">
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-2" onclick="toggleExpand(this)" aria-expanded="false">
             <div class="flex items-center gap-4 flex-grow min-w-0">
-                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">AI Developments</h3>
+                <span class="material-symbols-outlined text-lg text-[#8c909f] flex-shrink-0" style="margin-right:6px">radar</span><h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">The Radar</h3>
                 <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
             </div>
             <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
         </button>
+        <p class="text-[10px] text-[#8c909f] tracking-widest uppercase font-mono mb-4 lg:mb-8">What just shipped in AI</p>
         <div class="expandable-content hidden mt-4 lg:mt-0">
         <div class="grid md:grid-cols-2 gap-4">
             
@@ -814,14 +822,16 @@ body.kn-locked{overflow:hidden}
     
     
     
-    <section class="section" id="world-news">
-        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
+    <a id="world-news" class="scroll-anchor"></a>
+    <section class="section" id="the-globe">
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-2" onclick="toggleExpand(this)" aria-expanded="false">
             <div class="flex items-center gap-4 flex-grow min-w-0">
-                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">World News</h3>
+                <span class="material-symbols-outlined text-lg text-[#8c909f] flex-shrink-0" style="margin-right:6px">public</span><h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">The Globe</h3>
                 <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
             </div>
             <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
         </button>
+        <p class="text-[10px] text-[#8c909f] tracking-widest uppercase font-mono mb-4 lg:mb-8">Geopolitics, economics, power shifts</p>
         <div class="expandable-content hidden mt-4 lg:mt-0">
         <div class="grid md:grid-cols-2 gap-4">
             
@@ -880,14 +890,16 @@ body.kn-locked{overflow:hidden}
 
     
     
-    <section class="section" id="newsletter-intelligence">
-        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
+    <a id="newsletter-intelligence" class="scroll-anchor"></a>
+    <section class="section" id="the-feed">
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-2" onclick="toggleExpand(this)" aria-expanded="false">
             <div class="flex items-center gap-4 flex-grow min-w-0">
-                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">Featured Newsletters</h3>
+                <span class="material-symbols-outlined text-lg text-[#8c909f] flex-shrink-0" style="margin-right:6px">rss_feed</span><h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">The Feed</h3>
                 <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
             </div>
             <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
         </button>
+        <p class="text-[10px] text-[#8c909f] tracking-widest uppercase font-mono mb-4 lg:mb-8">Curated from newsletters we trust</p>
         <div class="expandable-content hidden mt-4 lg:mt-0">
         <p class="text-[13px] text-[#c2c6d6] mb-4 leading-relaxed">We read and recommend these newsletters. Here is what they are covering today. Subscribe to them directly for the full experience.</p>
         
@@ -1120,14 +1132,16 @@ body.kn-locked{overflow:hidden}
 
     
     
-    <section class="section" id="competitive-landscape">
-        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
+    <a id="competitive-landscape" class="scroll-anchor"></a>
+    <section class="section" id="the-arena">
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-2" onclick="toggleExpand(this)" aria-expanded="false">
             <div class="flex items-center gap-4 flex-grow min-w-0">
-                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">Competitive Landscape</h3>
+                <span class="material-symbols-outlined text-lg text-[#8c909f] flex-shrink-0" style="margin-right:6px">swords</span><h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">The Arena</h3>
                 <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
             </div>
             <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
         </button>
+        <p class="text-[10px] text-[#8c909f] tracking-widest uppercase font-mono mb-4 lg:mb-8">Who moved, who shipped, who's next</p>
         <div class="expandable-content hidden mt-4">
             <div class="grid md:grid-cols-2 gap-4">
                 
@@ -1165,14 +1179,16 @@ body.kn-locked{overflow:hidden}
 
     
     
-    <section class="section" id="ai-tool-guide">
-        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
+    <a id="ai-tool-guide" class="scroll-anchor"></a>
+    <section class="section" id="lab-field-notes">
+        <button class="expandable-header w-full flex items-center justify-between lg:mb-2" onclick="toggleExpand(this)" aria-expanded="false">
             <div class="flex items-center gap-4 flex-grow min-w-0">
-                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">AI Tool Guide</h3>
+                <span class="material-symbols-outlined text-lg text-[#8c909f] flex-shrink-0" style="margin-right:6px">science</span><h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">The Lab <span class="text-base font-semibold text-[#8c909f] normal-case tracking-normal">Field Notes</span></h3>
                 <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
             </div>
             <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
         </button>
+        <p class="text-[10px] text-[#8c909f] tracking-widest uppercase font-mono mb-4 lg:mb-8">Tested tools and daily discoveries</p>
         <div class="expandable-content hidden mt-4">
             <div class="grid md:grid-cols-2 gap-4">
                 
@@ -1206,7 +1222,11 @@ body.kn-locked{overflow:hidden}
                     <span class="tool-body text-[13px] text-[#c2c6d6] leading-relaxed">Wispr Flow, featured among the best products of April 2026, is a system-wide dictation tool that works across every app on your machine. Instead of reserving voice input for quick notes, try using it for full drafts of emails, Slack messages, and even code comments. The trick is to dictate in short, structured bursts and then do a single editing pass, which many users report is 2 to 3 times faster than typing from scratch. <a href="https://www.producthunt.com/products" target="_blank" class="text-[#3B82F6] no-underline text-[11px] hover:underline">Try it &rarr;</a></span>
                 </div>
                 
+            
+            <div class="mt-5 text-center">
+                <a href="./reviews/" target="_blank" class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-[#8B5CF6] no-underline hover:underline"><span class="material-symbols-outlined" style="font-size:14px;vertical-align:-2px">science</span>Explore The Lab &rarr;</a>
             </div>
+</div>
         </div>
     </section>
     
@@ -1224,7 +1244,7 @@ body.kn-locked{overflow:hidden}
         <section class="section">
             <div class="flex items-center gap-1.5 mb-4">
                 <span class="material-symbols-outlined text-sm text-[#8c909f]">pulse_alert</span>
-                <span class="text-xs font-black tracking-[0.15em] uppercase text-[#8c909f]">Today's Pulse</span>
+                <span class="text-xs font-black tracking-[0.15em] uppercase text-[#8c909f]">The Pulse</span>
             </div>
             <div class="grid grid-cols-2 gap-3">
                 <div class="bg-[#131b2e] p-4 border-l-2 border-[#3B82F6]">
@@ -1250,7 +1270,7 @@ body.kn-locked{overflow:hidden}
         <section class="section" id="market-snapshot">
             <div class="flex items-center gap-1.5 mb-5">
                 <span class="material-symbols-outlined text-sm text-[#8c909f]">monitoring</span>
-                <span class="section-title text-xs font-black tracking-[0.15em] uppercase text-[#8c909f]">Market Snapshot</span>
+                <span class="section-title text-xs font-black tracking-[0.15em] uppercase text-[#8c909f]">The Ticker</span>
             </div>
             
             <div class="space-y-1">
@@ -1413,7 +1433,7 @@ body.kn-locked{overflow:hidden}
 
 // Expandable sections (works on both mobile and desktop)
 function toggleExpand(btn) {
-    var content = btn.nextElementSibling;
+    var content = btn.parentElement.querySelector('.expandable-content');
     var chevron = btn.querySelector('.expand-chevron');
     if (!content) return;
     // Check if currently hidden (class or inline style)
@@ -1520,8 +1540,8 @@ if (window.location.hash) {
         if (expandable && (expandable.classList.contains('hidden') || expandable.style.display === 'none')) {
             expandable.classList.remove('hidden');
             expandable.style.display = '';
-            var btn = expandable.previousElementSibling;
-            if (btn && btn.classList.contains('expandable-header')) {
+            var btn = expandable.parentElement.querySelector('.expandable-header');
+            if (btn) {
                 btn.setAttribute('aria-expanded', 'true');
                 var chev = btn.querySelector('.expand-chevron');
                 if (chev) chev.style.transform = 'rotate(180deg)';
