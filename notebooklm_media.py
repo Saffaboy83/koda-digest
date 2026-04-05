@@ -41,6 +41,9 @@ if sys.platform == "win32":
 NOTEBOOK_ID = os.environ.get(
     "NOTEBOOK_ID", "f928d89b-2520-4180-a71a-d93a75a5487c"
 )
+EDITORIAL_NOTEBOOK_ID = os.environ.get(
+    "EDITORIAL_NOTEBOOK_ID", "0bab4405-3d65-4457-8fe0-8a6c55bd98e2"
+)
 
 FFMPEG_PATH = os.environ.get("FFMPEG_PATH", "") or shutil.which("ffmpeg") or os.path.expanduser(
     "~/AppData/Local/Microsoft/WinGet/Packages/"
@@ -70,12 +73,21 @@ DEFAULT_AUDIO_FOCUS = (
     "react like a real person would. Rush through the minor stories. It is okay to say 'quick "
     "hits' and rattle through three things in 30 seconds. "
     "\n\n"
-    "EMOTIONAL RANGE: Be excited when something is exciting. Be concerned when something is "
-    "concerning. Be skeptical when a claim sounds too good. Do not maintain one flat "
-    "authoritative tone the entire time. Real conversations have energy shifts. "
+    "EMOTIONAL RANGE: Be excited when something is exciting. When something is challenging, "
+    "acknowledge it honestly but show what people and companies are doing about it. Frame "
+    "problems as solvable, not existential. Be skeptical when a claim sounds too good. Do not "
+    "maintain one flat authoritative tone the entire time. Real conversations have energy shifts. "
     "\n\n"
-    "END EACH TOPIC with a forward-looking question, not a conclusion. 'So the real question "
-    "is...' or 'What I want to know is...' This pulls the listener forward. "
+    "SOLUTIONS LENS: For every problem discussed, spend at least as much time on who is "
+    "working on fixing it, what tools or approaches exist, or what the listener could do about "
+    "it. The show should leave people feeling informed AND energized, not anxious. Think "
+    "abundance mindset: the data often shows things are getting better even when headlines say "
+    "otherwise. When a stat is scary, contextualize it -- is this actually worse than last year? "
+    "What is the trend line? Who is building the solution? "
+    "\n\n"
+    "END EACH TOPIC with a forward-looking possibility or question. Not just 'what happens "
+    "next?' but 'what does this unlock?' or 'what could someone build with this?' This pulls "
+    "the listener forward with energy, not dread. "
     "\n\n"
     "JARGON RULE: When you hit a term like parameter counts, context windows, mixture-of-experts, "
     "or open-weight -- the second host should jump in with genuine curiosity, not obligation. "
@@ -642,9 +654,9 @@ async def run_editorial_pipeline(
 ) -> tuple[list[dict], dict, int]:
     """Run the editorial media pipeline: brief anime video + brief audio overview.
 
-    When create_new_notebook=True, creates a dedicated notebook for editorial
-    media to avoid artifact collision with the permanent digest notebook.
-    Otherwise uses existing_notebook_id or the permanent Koda notebook.
+    Uses the permanent Koda Editorial notebook (EDITORIAL_NOTEBOOK_ID).
+    Each run: cleans old sources/artifacts, uploads fresh content, generates media.
+    Notebook persists between runs so it's browsable in NotebookLM UI.
 
     Returns: (results_list, media_paths_dict, exit_code)
     """
@@ -654,7 +666,7 @@ async def run_editorial_pipeline(
 
     results: list[dict] = []
     media_paths: dict[str, str] = {}
-    notebook_id = existing_notebook_id or NOTEBOOK_ID
+    notebook_id = existing_notebook_id or EDITORIAL_NOTEBOOK_ID
 
     client_cm = await NotebookLMClient.from_storage()
     try:
@@ -667,18 +679,11 @@ async def run_editorial_pipeline(
             return [make_status("auth", False, error_msg)], {}, 2
         raise
 
-    created_notebook = False
     try:
-        # Create a new notebook if requested (avoids artifact collision)
-        if create_new_notebook:
-            print(f"[E0/5] Creating dedicated editorial notebook...")
-            nb = await client.notebooks.create(f"Koda Editorial {date_str}")
-            notebook_id = nb.id
-            created_notebook = True
-            print(f"  Created notebook: {notebook_id}")
+        print(f"[E0/5] Using permanent editorial notebook: {notebook_id}")
 
-        # ── Step E1: Clean old sources ──────────────────────────────────
-        print("[E1/5] Cleaning old notebook sources for editorial...")
+        # ── Step E1: Clean old sources + artifacts ─────────────────────
+        print("[E1/5] Cleaning old notebook sources and artifacts...")
         try:
             old_sources = await client.sources.list(notebook_id)
             if old_sources:
@@ -917,14 +922,6 @@ async def run_editorial_pipeline(
 
         media_paths["notebook_id"] = notebook_id
 
-        # Clean up temp notebook (don't leave orphan notebooks)
-        if created_notebook:
-            try:
-                await client.notebooks.delete(notebook_id)
-                print(f"  Cleaned up temp editorial notebook: {notebook_id}")
-            except Exception as e2:
-                print(f"  Warning: could not delete temp notebook: {e2}")
-
         return results, media_paths, exit_code
 
     except Exception as e:
@@ -1113,12 +1110,6 @@ def main():
             print(f"Audio direction: {'yes' if editorial_audio_dir else 'no'}")
             print()
 
-            # Use new notebook for editorial when --new-notebook is set,
-            # to avoid artifact collision with digest in permanent notebook.
-            ed_notebook_id = actual_notebook_id
-            if args.new_notebook or actual_notebook_id is None:
-                ed_notebook_id = None  # signals run_editorial_pipeline to create new
-
             ed_results, ed_media, ed_exit = asyncio.run(
                 run_editorial_pipeline(
                     editorial_text,
@@ -1126,8 +1117,6 @@ def main():
                     args.output_dir,
                     video_direction=editorial_video_dir,
                     audio_direction=editorial_audio_dir,
-                    existing_notebook_id=ed_notebook_id,
-                    create_new_notebook=args.new_notebook,
                 )
             )
 
