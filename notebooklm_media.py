@@ -688,7 +688,7 @@ async def run_editorial_pipeline(
             old_sources = await client.sources.list(notebook_id)
             if old_sources:
                 for src in old_sources:
-                    await client.sources.delete(notebook_id, src.source_id)
+                    await client.sources.delete(notebook_id, src.id)
                 results.append(make_status("clean_sources", True,
                                            f"Removed {len(old_sources)} old sources"))
                 print(f"  Removed {len(old_sources)} old sources")

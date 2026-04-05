@@ -1,7 +1,8 @@
 """
 Koda Digest Pipeline Orchestrator.
 
-Runs all pipeline steps in sequence with state tracking.
+Runs all pipeline steps with state tracking.
+Steps 04, 04E, and 04R run in parallel (separate notebooks, no data deps).
 Can resume from any failed step.
 
 Usage:
@@ -19,6 +20,7 @@ import json
 import subprocess
 import sys
 import os
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 
@@ -46,8 +48,28 @@ STEPS = [
 # Step ordering index for --from comparisons (string comparison breaks for "03B" vs "04")
 STEP_ORDER = {step_id: i for i, (step_id, _, _) in enumerate(STEPS)}
 
+# Steps that run in parallel (separate notebooks/APIs, no shared data dependencies)
+PARALLEL_STEPS = {"04", "04E", "04R"}
 
-def run_step(step_id, name, script, date, extra_args=None):
+# Non-critical steps: pipeline continues if these fail
+NON_CRITICAL = {"01B", "01C", "01D", "03B", "04", "04E", "04R", "07"}
+
+# Per-step timeouts (seconds)
+STEP_TIMEOUTS = {
+    "04":  3600,  # Veo 3 cinematic video: 30-45 min
+    "04E": 2400,  # Editorial: research + draft + fact-check + hero + media: up to 40 min
+    "04R":  600,  # Reviews: 3 tools x scrape + LLM: ~10 min
+    "01D":  900,  # Changelog: scrape 25 companies: up to 15 min
+}
+DEFAULT_TIMEOUT = 900
+
+
+def _get_timeout(step_id: str) -> int:
+    return STEP_TIMEOUTS.get(step_id, DEFAULT_TIMEOUT)
+
+
+def run_step(step_id: str, name: str, script: str, date: str,
+             extra_args: list[str] | None = None) -> tuple[bool, float]:
     """Run a pipeline step and return (success, duration_seconds)."""
     script_path = DIGEST_DIR / "pipeline" / script
     cmd = [sys.executable, str(script_path), "--date", date]
@@ -63,9 +85,7 @@ def run_step(step_id, name, script, date, extra_args=None):
 
     start = datetime.now()
     try:
-        # Media generation (step 04) needs longer timeout for cinematic video (Veo 3: 30-45 min)
-        # Editorial (04E) needs moderate timeout for LLM calls + image gen
-        step_timeout = 3600 if step_id == "04" else 600 if step_id in ("04E", "04R", "01D") else 900
+        step_timeout = _get_timeout(step_id)
         result = subprocess.run(
             cmd, env=env, timeout=step_timeout,
             cwd=str(DIGEST_DIR),
@@ -82,6 +102,41 @@ def run_step(step_id, name, script, date, extra_args=None):
         duration = (datetime.now() - start).total_seconds()
         print(f"\n  ERROR: {e}")
         return False, duration
+
+
+def _run_parallel_block(
+    parallel_group: list[tuple[str, str, str, list[str]]],
+    date: str,
+) -> dict[str, dict]:
+    """Run a group of steps in parallel using threads.
+
+    Each step is a subprocess, so threads give true parallelism here.
+    Returns dict of step_id -> {name, success, duration}.
+    """
+    print(f"\n{'='*60}")
+    print(f"  PARALLEL BLOCK: {', '.join(s[0] for s in parallel_group)}")
+    print(f"  (These steps run concurrently -- logs may interleave)")
+    print(f"{'='*60}")
+
+    block_results: dict[str, dict] = {}
+
+    def _worker(step_id: str, name: str, script: str,
+                extra: list[str]) -> tuple[str, str, bool, float]:
+        success, duration = run_step(step_id, name, script, date, extra)
+        return step_id, name, success, duration
+
+    with ThreadPoolExecutor(max_workers=len(parallel_group)) as pool:
+        futures = {
+            pool.submit(_worker, sid, nm, sc, ex): sid
+            for sid, nm, sc, ex in parallel_group
+        }
+        for future in as_completed(futures):
+            step_id, name, success, duration = future.result()
+            block_results[step_id] = {
+                "name": name, "success": success, "duration": duration,
+            }
+
+    return block_results
 
 
 def main():
@@ -112,7 +167,7 @@ def main():
             print(f"  WARNING: {var} not set -- {usage} will fail")
 
     # Determine which steps to run
-    skip_steps = set()
+    skip_steps: set[str] = set()
     if args.skip_media:
         skip_steps.add("04")
     if args.skip_deploy or args.dry_run:
@@ -120,7 +175,7 @@ def main():
     if args.skip_email or args.dry_run:
         skip_steps.add("07")
 
-    steps_to_run = []
+    steps_to_run: list[tuple[str, str, str]] = []
     for step_id, name, script in STEPS:
         if args.only and step_id not in args.only:
             continue
@@ -133,31 +188,58 @@ def main():
     print(f"Steps: {', '.join(s[0] for s in steps_to_run)}")
 
     # Run steps
-    results = {}
+    results: dict[str, dict] = {}
     all_passed = True
     pipeline_start = datetime.now()
 
-    for step_id, name, script in steps_to_run:
-        extra_args = []
-        if step_id == "04" and args.skip_video:
-            extra_args.append("--skip-video")
-        if step_id == "06" and args.dry_run:
-            extra_args.append("--dry-run")
-        if step_id == "07" and args.dry_run:
-            extra_args.append("--dry-run")
+    # Collect steps into sequential runs and one parallel block
+    i = 0
+    while i < len(steps_to_run):
+        step_id, name, script = steps_to_run[i]
 
-        success, duration = run_step(step_id, name, script, args.date, extra_args)
-        results[step_id] = {"name": name, "success": success, "duration": duration}
+        # Check if this step starts a parallel block
+        if step_id in PARALLEL_STEPS:
+            # Gather all consecutive parallel steps
+            parallel_group: list[tuple[str, str, str, list[str]]] = []
+            while i < len(steps_to_run) and steps_to_run[i][0] in PARALLEL_STEPS:
+                sid, nm, sc = steps_to_run[i]
+                extra: list[str] = []
+                if sid == "04" and args.skip_video:
+                    extra.append("--skip-video")
+                parallel_group.append((sid, nm, sc, extra))
+                i += 1
 
-        if not success:
-            all_passed = False
-            # Non-critical steps: stat verification, media, editorial, email
-            if step_id in ("01B", "01D", "03B", "04", "04E", "04R", "07"):
-                print(f"  Non-critical step {step_id} failed — continuing...")
-            else:
-                print(f"\n  Critical step {step_id} failed. Pipeline stopped.")
-                print(f"  To resume: python -m pipeline.run_all --from {step_id} --date {args.date}")
-                break
+            # Run them all in parallel
+            block_results = _run_parallel_block(parallel_group, args.date)
+            for sid, info in block_results.items():
+                results[sid] = info
+                if not info["success"]:
+                    all_passed = False
+                    if sid in NON_CRITICAL:
+                        print(f"  Non-critical step {sid} failed -- continuing...")
+                    else:
+                        print(f"\n  Critical step {sid} failed. Pipeline stopped.")
+                        break
+        else:
+            # Sequential step
+            extra_args: list[str] = []
+            if step_id == "06" and args.dry_run:
+                extra_args.append("--dry-run")
+            if step_id == "07" and args.dry_run:
+                extra_args.append("--dry-run")
+
+            success, duration = run_step(step_id, name, script, args.date, extra_args)
+            results[step_id] = {"name": name, "success": success, "duration": duration}
+
+            if not success:
+                all_passed = False
+                if step_id in NON_CRITICAL:
+                    print(f"  Non-critical step {step_id} failed -- continuing...")
+                else:
+                    print(f"\n  Critical step {step_id} failed. Pipeline stopped.")
+                    print(f"  To resume: python -m pipeline.run_all --from {step_id} --date {args.date}")
+                    break
+            i += 1
 
     # Summary
     total_duration = (datetime.now() - pipeline_start).total_seconds()
