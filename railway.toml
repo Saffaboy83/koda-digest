@@ -4,7 +4,7 @@ dockerfilePath = "Dockerfile"
 
 [deploy]
 numReplicas = 1
-cronSchedule = "0 10 * * *"
+cronSchedule = "30 9 * * *"
 
 [deploy.healthcheck]
 enabled = false
