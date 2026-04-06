@@ -1,21 +1,50 @@
 {
-  "generated": "2026-04-05T15:03:40Z",
+  "generated": "2026-04-06T10:26:06Z",
   "digests": [
+    {
+      "date": "2026-04-06",
+      "dayOfWeek": "Monday",
+      "focusTopics": [
+        {
+          "title": "Claude Mythos 5's Trillion-Scale Gambit",
+          "desc": "Anthropic's rumored 10 trillion parameter Claude Mythos 5 would represent a roughly 10x leap over the largest confirmed models. Training a system at that scale demands extraordinary cluster capacity, likely hundreds of thousands of accelerators running for months. Whether this signals a genuine capability breakthrough or an unsustainable scaling bet will shape investor confidence in the entire frontier lab ecosystem."
+        },
+        {
+          "title": "Gulf Data Centers Under Fire",
+          "desc": "Iran's strikes on data centers in Qatar, the UAE, and Bahrain mark the first direct military targeting of major cloud infrastructure in the region. These facilities serve as critical nodes for enterprise AI workloads, financial systems, and government services across the Middle East and South Asia. The attacks will accelerate conversations about geographic redundancy and could push hyperscalers to rethink expansion plans in the Gulf."
+        },
+        {
+          "title": "AI Agents Enter SME Workflows",
+          "desc": "AWS launched autonomous agents specifically designed for small and medium enterprise operations, signaling that agentic AI is moving beyond pilot programs at Fortune 500 companies. Paired with Criteo's generative AI ad optimization tool, the trend suggests 2026 is the year AI tooling becomes accessible at the mid-market level. Adoption speed will depend on trust, pricing, and whether these agents can deliver measurable ROI without dedicated AI teams on the customer side."
+        }
+      ],
+      "kpis": {
+        "aiStories": "8",
+        "worldEvents": "8",
+        "marketMood": "Extreme Fear",
+        "toolsFeatured": "6"
+      },
+      "hasPodcast": true,
+      "hasInfographic": true,
+      "hasVideo": true,
+      "youtubeId": "tOvJPIsTIIU",
+      "file": "morning-briefing-koda-2026-04-06.html"
+    },
     {
       "date": "2026-04-05",
       "dayOfWeek": "Sunday",
       "focusTopics": [
         {
-          "title": "OpenAI's $852B Valuation",
-          "desc": "OpenAI's latest mega round places its valuation above the GDP of nations like the Netherlands. The figure reflects investor conviction that frontier AI will underpin the next economic era, but it also raises the stakes enormously: the company must now justify a price tag that dwarfs every private tech venture before it. With coding specialists already beating GPT-5.4 by 14 points on benchmarks, competitive pressure is intensifying even as the capital floods in."
+          "title": "Claude Mythos 5's Scale Leap",
+          "desc": "Anthropic's 10 trillion parameter model dwarfs anything publicly documented, raising immediate questions about inference cost, safety benchmarks, and competitive response. This launch lands in the same week Zhipu AI shipped a fast proprietary update and ChatGPT crossed 900 million weekly users, signaling that the frontier race has entered a new phase of raw scale competition."
         },
         {
-          "title": "Hormuz Crisis Spikes Oil",
-          "desc": "Oil prices neared $124 after Trump's 48-hour ultimatum to Iran collided with fears of a full Strait of Hormuz blockade, through which roughly 20% of the world's petroleum transits daily. Iran's approval of a humanitarian passage offered a narrow diplomatic off-ramp, but markets are not buying the de-escalation narrative yet. The energy shock is compounding an already fragile macro environment and feeding the extreme fear reading across global indices."
+          "title": "Gulf Conflict Hits Energy Supply",
+          "desc": "Iranian drone strikes on Bahrain's energy infrastructure and claims of shooting down a U.S. C-130 mark a dangerous escalation that directly threatens global oil flows. OPEC+ responded with a modest 206,000 barrel per day output increase, but the move looks insufficient given the scale of disruption. Nepal's decision to cut its workweek to just two days over fuel scarcity illustrates how quickly supply shocks cascade to vulnerable economies."
         },
         {
-          "title": "Specialized Models Challenge Frontiers",
-          "desc": "Coding-focused AI models outperformed GPT-5.4 by 14 points on competitive programming benchmarks, signaling that domain-tuned specialists can punch well above their weight class. Meanwhile, Microsoft's Copilot added multi-model workflows and a new Cowork agent, and Mustafa Suleyman revealed that a 10-person team built MAI-Transcribe inside Microsoft. The trend is clear: smaller, targeted efforts are carving out territory that massive general-purpose models cannot easily defend."
+          "title": "Enterprise AI Pushes Forward",
+          "desc": "AWS launched autonomous agents for cloud operations while Criteo introduced generative AI tools for ad optimization, both targeting concrete enterprise workflows rather than general intelligence. These releases suggest that even amid extreme market fear, the commercial AI stack is maturing fast. The gap between frontier research spectacle and production-grade tooling continues to narrow."
         }
       ],
       "kpis": {
@@ -27,7 +56,7 @@
       "hasPodcast": true,
       "hasInfographic": true,
       "hasVideo": true,
-      "youtubeId": "FMW3uK759Cs",
+      "youtubeId": "hLEI1Uz0oc0",
       "file": "morning-briefing-koda-2026-04-05.html"
     },
     {
@@ -468,8 +497,14 @@
   ],
   "editorials": [
     {
+      "date": "2026-04-06",
+      "title": "The case for LLM API abstraction layers as critical infrastructure: why hardcoding a single model provider is now an",
+      "tag": "Tools",
+      "file": "editorial/2026-04-06-the-case-for-llm-api-abstraction-layers-as-critical-infrastr.html"
+    },
+    {
       "date": "2026-04-05",
-      "title": "The open-weight model explosion—seven of nine March releases were open-weight—is",
+      "title": "The open-weight model explosion -seven of nine March releases were open-weight",
       "tag": "Strategy",
       "file": "editorial/2026-04-05-the-open-weight-model-explosionseven-of-nine-march-releases-.html"
     },

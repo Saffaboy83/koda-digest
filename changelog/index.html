@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Who Shipped What | Koda Intelligence</title>
-<meta name="description" content="Daily AI company release tracker. 70 releases across 15 companies in the last 30 days.">
+<meta name="description" content="Daily AI company release tracker. 87 releases across 17 companies in the last 30 days.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
@@ -54,188 +54,31 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
 .back-to-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:rgba(23,31,51,0.9);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.08);color:#dae2fd;cursor:pointer;z-index:999;opacity:0;transform:translateY(12px);transition:opacity 0.3s,transform 0.3s,background 0.2s;pointer-events:none;display:flex;align-items:center;justify-content:center}
 .back-to-top.visible{opacity:1;transform:translateY(0);pointer-events:auto}
 .back-to-top:hover{background:#6366F1;color:white}
-
-
-
-
-
-
-
-/* -- Koda Nav V2 -- */
-.kn-topbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(11,19,38,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
-.kn-topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:8px}
-.kn-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;flex-shrink:0}
-.kn-brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0}
-.kn-brand-text{font-size:14px;font-weight:700;color:#3B82F6}
-.kn-brand-sub{font-size:10px;color:#8c909f;display:none}
-@media(min-width:640px){.kn-brand-sub{display:block}}
-
-/* Desktop nav links */
-.kn-links{display:none;align-items:center;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;flex:1;justify-content:center}
-@media(min-width:769px){.kn-links{display:flex}}
-.kn-link{font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 8px;border-radius:6px;text-decoration:none;transition:all 0.2s;white-space:nowrap;color:#8c909f;background:rgba(255,255,255,0.04)}
-.kn-link:hover{color:#dae2fd;background:rgba(255,255,255,0.08)}
-.kn-link-active{color:#3B82F6!important;background:rgba(59,130,246,0.12)!important;border-bottom:2px solid #3B82F6}
-.kn-link .material-symbols-outlined{font-size:13px;vertical-align:-2px;margin-right:2px}
-
-/* Actions (search, hamburger) */
-.kn-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
-.kn-action-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s;text-decoration:none}
-.kn-action-btn:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
-.kn-action-btn .material-symbols-outlined{font-size:20px}
-
-/* Hamburger - visible on mobile only */
-.kn-hamburger{display:flex}
-@media(min-width:769px){.kn-hamburger{display:none}}
-
-/* Desktop social - hidden on mobile (drawer has them) */
-.kn-desktop-social{display:none;align-items:center;gap:4px}
-@media(min-width:769px){.kn-desktop-social{display:flex}}
-
-/* Date picker (briefing pages only) */
-.kn-date-picker{display:none;align-items:center}
-@media(min-width:769px){.kn-date-picker{display:flex}}
-.kn-date-btn{display:flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:#3B82F6;padding:4px 8px;background:rgba(59,130,246,0.1);border-radius:6px;border:none;cursor:pointer;transition:all 0.2s;white-space:nowrap}
-.kn-date-btn:hover{background:rgba(59,130,246,0.2)}
-
-/* Home button - desktop only, in links row */
-.kn-home{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white!important;font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 10px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all 0.2s}
-.kn-home:hover{box-shadow:0 4px 16px rgba(59,130,246,0.3)}
-
-/* ── Drawer ── */
-.kn-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1001;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s}
-.kn-overlay.kn-open{opacity:1;visibility:visible}
-.kn-drawer{position:fixed;top:0;right:0;bottom:0;width:min(280px,85vw);background:rgba(11,19,38,0.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-left:1px solid rgba(173,198,255,0.1);z-index:1002;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);overflow-y:auto;-webkit-overflow-scrolling:touch}
-.kn-drawer.kn-open{transform:translateX(0)}
-@media(prefers-reduced-motion:reduce){.kn-overlay,.kn-drawer{transition-duration:0.01ms!important}}
-
-/* Drawer header */
-.kn-drawer-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06)}
-.kn-drawer-brand{display:flex;align-items:center;gap:10px}
-.kn-drawer-close{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s}
-.kn-drawer-close:hover{background:rgba(239,68,68,0.15);color:#EF4444}
-
-/* Drawer sections */
-.kn-drawer-section{padding:12px 20px 4px;font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#6b7280}
-.kn-drawer-divider{height:1px;background:rgba(255,255,255,0.06);margin:8px 20px}
-
-/* Drawer nav links */
-.kn-drawer-link{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:#c2c6d6;font-size:14px;font-weight:500;transition:all 0.2s;border-left:3px solid transparent}
-.kn-drawer-link:hover{background:rgba(255,255,255,0.04);color:#dae2fd}
-.kn-drawer-link-active{color:#3B82F6!important;border-left-color:#3B82F6;background:rgba(59,130,246,0.08)}
-.kn-drawer-link .material-symbols-outlined{font-size:20px;color:#6b7280;flex-shrink:0}
-.kn-drawer-link-active .material-symbols-outlined{color:#3B82F6}
-
-/* Drawer home link */
-.kn-drawer-home{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:white;font-size:14px;font-weight:600;border-left:3px solid transparent;transition:all 0.2s}
-.kn-drawer-home:hover{background:rgba(59,130,246,0.1)}
-.kn-drawer-home .material-symbols-outlined{font-size:20px;color:#3B82F6}
-
-/* Drawer social row */
-.kn-drawer-social{display:flex;gap:8px;padding:12px 20px}
-.kn-drawer-social a,.kn-drawer-social button{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;text-decoration:none;transition:all 0.2s}
-.kn-drawer-social a:hover,.kn-drawer-social button:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
-
-/* Body scroll lock */
-body.kn-locked{overflow:hidden}
-/* -- End Koda Nav V2 -- */
 </style>
 </head>
 <body>
 <div class="scroll-progress" id="scrollProgress"></div>
-<!-- koda-nav-v2-start -->
-<header class="kn-topbar" id="knTopbar">
-<div class="kn-topbar-inner">
-    <a href="../index.html" class="kn-brand">
-        <div class="kn-brand-icon">K</div>
-        <div>
-            <div class="kn-brand-text">Koda Intelligence</div>
-            <div class="kn-brand-sub"><span class="material-symbols-outlined" style="font-size:11px;vertical-align:-1px;margin-right:2px">pulse_alert</span>Pulse</div>
-        </div>
-    </a>
-    <div class="kn-links">
-                <a href="../morning-briefing-koda.html" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
-        <a href="../editorial/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">explore</span>Deep Dive</a>
-        <a href="../pricing/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">monitoring</span>Token Tracker</a>
-        <a href="../benchmarks/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">trophy</span>Leaderboard</a>
-        <a href="../reviews/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">science</span>The Lab</a>
-        <a href="../dojo/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">school</span>The Dojo</a>
-        <a href="../changelog/" class="kn-link kn-link-active"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">pulse_alert</span>Pulse</a>
-        <a href="../archive/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
-        <a href="../index.html" class="kn-home">&larr; Home</a>
-    </div>
-    <div class="kn-actions">
-        
-        <div class="kn-desktop-social">
-            <a href="https://x.com/intent/tweet?url=https://www.koda.community/changelog/index.html" target="_blank" rel="noopener" class="kn-action-btn" title="Share on X">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/changelog/index.html" target="_blank" rel="noopener" class="kn-action-btn" title="Share on LinkedIn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-            <button class="kn-action-btn" onclick="navigator.clipboard.writeText(window.location.href);this.style.color='#10B981';setTimeout(()=>this.style.color='',1500)" title="Copy link">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
-            </button>
-        </div>
-        <button class="kn-action-btn" id="knSearchBtn" title="Search (Ctrl+K)" aria-label="Search">
-            <span class="material-symbols-outlined">search</span>
-        </button>
-        <button class="kn-action-btn kn-hamburger" id="knMenuBtn" title="Menu" aria-label="Open menu" aria-expanded="false">
-            <span class="material-symbols-outlined">menu</span>
-        </button>
+<header class="topbar">
+<div class="topbar-inner">
+    <a href="../index.html" class="brand"><div class="brand-icon">K</div><div><div class="brand-text">Koda Intelligence</div><div class="brand-sub"><span class="material-symbols-outlined" style="font-size:11px;vertical-align:-1px;margin-right:2px">pulse_alert</span>Pulse</div></div></a>
+    <div class="nav-links">
+        <a href="../morning-briefing-koda.html" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+        <a href="../pricing/" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">monitoring</span>Token Tracker</a>
+        <a href="../benchmarks/" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">trophy</span>Leaderboard</a>
+        <a href="../index.html" class="nav-link nav-link-home">&larr; Home</a>
     </div>
 </div>
 </header>
-
-<!-- Drawer overlay -->
-<div class="kn-overlay" id="knOverlay"></div>
-
-<!-- Slide-out drawer -->
-<nav class="kn-drawer" id="knDrawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
-    <div class="kn-drawer-header">
-        <div class="kn-drawer-brand">
-            <div class="kn-brand-icon">K</div>
-            <span class="kn-brand-text">Koda</span>
-        </div>
-        <button class="kn-drawer-close" id="knDrawerClose" aria-label="Close menu">
-            <span class="material-symbols-outlined">close</span>
-        </button>
-    </div>
-    <div class="kn-drawer-section">Navigate</div>
-        <a href="../index.html" class="kn-drawer-home"><span class="material-symbols-outlined">home</span>Home</a>
-    <a href="../morning-briefing-koda.html" class="kn-drawer-link"><span class="material-symbols-outlined">bolt</span>The Signal</a>
-    <a href="../editorial/" class="kn-drawer-link"><span class="material-symbols-outlined">explore</span>Deep Dive</a>
-    <a href="../pricing/" class="kn-drawer-link"><span class="material-symbols-outlined">monitoring</span>Token Tracker</a>
-    <a href="../benchmarks/" class="kn-drawer-link"><span class="material-symbols-outlined">trophy</span>Leaderboard</a>
-    <a href="../reviews/" class="kn-drawer-link"><span class="material-symbols-outlined">science</span>The Lab</a>
-    <a href="../dojo/" class="kn-drawer-link"><span class="material-symbols-outlined">school</span>The Dojo</a>
-    <a href="../changelog/" class="kn-drawer-link kn-drawer-link-active"><span class="material-symbols-outlined">pulse_alert</span>Pulse</a>
-    <a href="../archive/" class="kn-drawer-link"><span class="material-symbols-outlined">lock_open</span>The Vault</a>
-    <div class="kn-drawer-divider"></div>
-    <div class="kn-drawer-section">Share</div>
-    <div class="kn-drawer-social">
-        <a href="https://x.com/intent/tweet?url=https://www.koda.community/changelog/index.html" target="_blank" rel="noopener" title="Share on X">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/changelog/index.html" target="_blank" rel="noopener" title="Share on LinkedIn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <button onclick="navigator.clipboard.writeText(window.location.href);this.style.color='#10B981';setTimeout(()=>this.style.color='',1500)" title="Copy link">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
-        </button>
-    </div>
-</nav>
-<!-- koda-nav-v2-end -->
 <section class="hero animate-in">
     <div class="badge">Daily Release Tracker</div>
     <h1>Who Shipped What</h1>
     <p>Every AI company release tracked daily. Model launches, API updates, pricing changes, partnerships, and more across 25 companies.</p>
 </section>
 <div class="stats animate-in">
-    <div class="stat"><div class="stat-value">70</div><div class="stat-label">Releases (30 days)</div></div>
-    <div class="stat"><div class="stat-value">15</div><div class="stat-label">Companies</div></div>
-    <div class="stat"><div class="stat-value">9</div><div class="stat-label">New Today</div></div>
-    <div class="stat"><div class="stat-value">April 04, 2026</div><div class="stat-label">Last Scanned</div></div>
+    <div class="stat"><div class="stat-value">87</div><div class="stat-label">Releases (30 days)</div></div>
+    <div class="stat"><div class="stat-value">17</div><div class="stat-label">Companies</div></div>
+    <div class="stat"><div class="stat-value">21</div><div class="stat-label">New Today</div></div>
+    <div class="stat"><div class="stat-value">April 06, 2026</div><div class="stat-label">Last Scanned</div></div>
 </div>
 <div class="container">
     <div class="filter-bar animate-in">
@@ -252,11 +95,13 @@ body.kn-locked{overflow:hidden}
 <button class="filter-btn" style="--btn-color:#F472B6" onclick="filterCompany(this,'ElevenLabs')">ElevenLabs</button>
 <button class="filter-btn" style="--btn-color:#3B82F6" onclick="filterCompany(this,'Google')">Google</button>
 <button class="filter-btn" style="--btn-color:#FFD21E" onclick="filterCompany(this,'Hugging Face')">Hugging Face</button>
+<button class="filter-btn" style="--btn-color:#00A4EF" onclick="filterCompany(this,'Microsoft')">Microsoft</button>
 <button class="filter-btn" style="--btn-color:#FBBF24" onclick="filterCompany(this,'Midjourney')">Midjourney</button>
 <button class="filter-btn" style="--btn-color:#F97316" onclick="filterCompany(this,'Mistral')">Mistral</button>
 <button class="filter-btn" style="--btn-color:#10B981" onclick="filterCompany(this,'OpenAI')">OpenAI</button>
 <button class="filter-btn" style="--btn-color:#F59E0B" onclick="filterCompany(this,'Perplexity')">Perplexity</button>
 <button class="filter-btn" style="--btn-color:#00E5FF" onclick="filterCompany(this,'Runway')">Runway</button>
+<button class="filter-btn" style="--btn-color:#1428A0" onclick="filterCompany(this,'Samsung')">Samsung</button>
 <button class="filter-btn" style="--btn-color:#EC4899" onclick="filterCompany(this,'Together AI')">Together AI</button>
 <button class="filter-btn" style="--btn-color:#8B5CF6" onclick="filterCompany(this,'xAI')">xAI</button>
 </div>
@@ -306,6 +151,16 @@ body.kn-locked{overflow:hidden}
                         <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
                         <span style="color:#64748B;font-size:11px">Mar 30, 2026</span>
                     </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Current Adobe Analytics release notes (March 2026)</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">These release notes outline the new features, enhancements, and fixes in Adobe Analytics for March 2026. They detail updates to functionality including panel breakdowns, multi-column sorting in Analysis Workspace, and improved Fallout visualizations. Regular updates to these notes reflect a continuous delivery model for feature deployment.</div>
+                    <div style="margin-top:8px"><a href="https://experienceleague.adobe.com/en/docs/analytics/release-notes/latest" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 30, 2026</span>
+                    </div>
                     <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Adobe Illustrator on Desktop Release Notes</div>
                     <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This post details the latest updates, new features, and bug fixes for Adobe Illustrator. The most recent update as of March 2026 includes enhancements such as the Turntable feature for generating views, improved font handling, and direct export options for Adobe Cloud storage.</div>
                     <div style="margin-top:8px"><a href="https://helpx.adobe.com/illustrator/desktop/new-features/release-notes.html" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
@@ -339,16 +194,6 @@ body.kn-locked{overflow:hidden}
                     <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Security Updates Available for Adobe Illustrator | APSB26-18</div>
                     <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Adobe has released an update for Adobe Illustrator to address important and critical vulnerabilities that could potentially lead to arbitrary code execution and memory exposure. There are no known exploits in the wild for the issues resolved in this update.</div>
                     <div style="margin-top:8px"><a href="https://helpx.adobe.com/security/products/illustrator/apsb26-18.html" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
-                </div>
-                <div class="changelog-card">
-                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
-                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
-                        <span style="color:#64748B;font-size:11px">Mar 05, 2026</span>
-                    </div>
-                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">2026 Adobe Analytics Release Notes</div>
-                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">The 2026 release notes for Adobe Analytics outline new features and improvements, including enhanced data feeds and API guides. Significant updates also focus on the user experience and managing templates, while several bug fixes are documented for accuracy and reliability.</div>
-                    <div style="margin-top:8px"><a href="https://experienceleague.adobe.com/en/docs/analytics/release-notes/previous/2026" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
                 </div></div>
         </div>
         <div class="company-section animate-in" data-company="Amazon AWS">
@@ -393,7 +238,7 @@ body.kn-locked{overflow:hidden}
             <div class="company-header">
                 <div class="company-dot" style="background:#7DD3FC"></div>
                 <h3 style="font-size:18px;font-weight:800">Cursor</h3>
-                <span style="color:#64748B;font-size:12px">1 release</span>
+                <span style="color:#64748B;font-size:12px">4 releases</span>
                 <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
             </div>
             <div class="changelog-cards">
@@ -406,16 +251,56 @@ body.kn-locked{overflow:hidden}
                     <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Meet the new Cursor</div>
                     <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Cursor has launched a significant update, introducing exciting new features and enhancements. This blog post details the improvements and what users can expect from the new Cursor experience.</div>
                     <div style="margin-top:8px"><a href="https://cursor.com/blog/topic/product" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#EC4899">science</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EC4899;background:#EC489915">Research</span>
+                        <span style="color:#64748B;font-size:11px">Mar 30, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Technical Report on Composer 2</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This blog post discusses a technical report on Composer 2, a coding model for agentic software engineering. The report details the model's training processes, including continued pretraining on an open base model and large-scale reinforcement learning, highlighting the improvements in performance and efficiency achieved with the new system.</div>
+                    <div style="margin-top:8px"><a href="https://cursor.com/blog/composer-2-technical-report" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#EC4899">science</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EC4899;background:#EC489915">Research</span>
+                        <span style="color:#64748B;font-size:11px">Mar 27, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Self-Summarization in Composer: Enhancing Long-Horizon Task Performance</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">The blog discusses how Composer is trained for long tasks using a reinforcement learning process known as self-summarization. This technique allows Composer to efficiently handle and summarize extensive context, improving its ability to tackle challenging coding tasks requiring numerous actions.</div>
+                    <div style="margin-top:8px"><a href="https://cursor.com/blog/self-summarization" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 18, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">NVIDIA's Integration of Cursor for Enhanced AI-driven Software Development</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">NVIDIA has leveraged Cursor to embed AI throughout the software development lifecycle, resulting in significant efficiency gains and increased code generation by over three times. By adopting Cursor, NVIDIA has been able to automate core production workflows, enhance productivity for developers, and streamline the onboarding process for new hires.</div>
+                    <div style="margin-top:8px"><a href="https://cursor.com/blog/nvidia" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
                 </div></div>
         </div>
         <div class="company-section animate-in" data-company="Databricks">
             <div class="company-header">
                 <div class="company-dot" style="background:#FF3621"></div>
                 <h3 style="font-size:18px;font-weight:800">Databricks</h3>
-                <span style="color:#64748B;font-size:12px">8 releases</span>
+                <span style="color:#64748B;font-size:12px">10 releases</span>
                 <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
             </div>
             <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">May 01, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Git-based deployment for Databricks Apps will soon be available for workspaces with the compliance security profile enabled</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Beginning in early May 2026, Git-based deployment for Databricks Apps will be automatically enabled for workspaces that have the compliance security profile enabled, facilitating streamlined CI/CD workflows through direct app deployment from a Git repository.</div>
+                    <div style="margin-top:8px"><a href="https://docs.databricks.com/aws/en/release-notes/whats-coming" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
                 <div class="changelog-card">
                     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
                         <span class="material-symbols-outlined" style="font-size:16px;color:#14B8A6">api</span>
@@ -473,8 +358,18 @@ body.kn-locked{overflow:hidden}
                         <span style="color:#64748B;font-size:11px">Mar 26, 2026</span>
                     </div>
                     <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Databricks SQL version 2026.10 is now available in Preview</div>
-                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">The Databricks SQL version 2026.10 has been released in the Preview channel, introducing significant new features and bug fixes. Notable enhancements include improvements to observation metrics, optimized writes for Unity Catalog, support for filter clauses in aggregate functions, and enhanced geospatial functions.</div>
-                    <div style="margin-top:8px"><a href="https://docs.databricks.com/aws/en/sql/release-notes/2026" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Databricks SQL version 2026.10 is now available in the Preview channel, featuring various improvements including fixes for observation metric errors, support for FILTER clauses in MEASURE aggregate functions, and optimized writes for Unity Catalog CRTAS operations. Users are encouraged to review the new features and behavioral changes introduced in this release.</div>
+                    <div style="margin-top:8px"><a href="https://docs.databricks.com/gcp/en/sql/release-notes/2026" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 24, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Databricks Release Notes - AWS GovCloud 2026</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This post contains the release notes for Databricks on AWS GovCloud in 2026, detailing various platform features, improvements, and fixes. The updates include features such as serverless private connectivity, import of pre-built usage dashboards, and enhancements to the Databricks assistant, Genie Code.</div>
+                    <div style="margin-top:8px"><a href="https://docs.databricks.com/aws/en/release-notes/gov-cloud/2026" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
                 </div>
                 <div class="changelog-card">
                     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
@@ -501,7 +396,7 @@ body.kn-locked{overflow:hidden}
             <div class="company-header">
                 <div class="company-dot" style="background:#F472B6"></div>
                 <h3 style="font-size:18px;font-weight:800">ElevenLabs</h3>
-                <span style="color:#64748B;font-size:12px">11 releases</span>
+                <span style="color:#64748B;font-size:12px">13 releases</span>
                 <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
             </div>
             <div class="changelog-cards">
@@ -524,6 +419,26 @@ body.kn-locked{overflow:hidden}
                     <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">The state of AI Audio in publishing and news</div>
                     <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This blog post discusses how AI audio technology is transforming the news industry by enhancing engagement and accessibility through narrated articles and podcasts. It highlights the shift from traditional reading to immersive audio experiences and the growing demand for multilingual content, showcasing the potential benefits of integrating AI-driven audio solutions into publishing strategies.</div>
                     <div style="margin-top:8px"><a href="https://elevenlabs.io/blog/the-state-of-ai-audio-in-publishing-and-news" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 14, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">The best AAA video game sound effects tools (2025)</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This blog post explores the leading sound effects tools essential for enhancing AAA video game audio design. It discusses the importance of these tools in creating immersive gaming experiences and provides insights into various software options available for developers.</div>
+                    <div style="margin-top:8px"><a href="https://elevenlabs.io/blog/best-aaa-video-game-sound-effects-tools-2024-enhance-your-game-design" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 14, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Top Alternatives to Character AI</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This blog post explores various alternatives to Character AI, highlighting their unique features and functionalities for creating AI-generated characters and interactions. It also discusses the challenges faced by Character AI and emphasizes how other platforms offer diverse solutions for users seeking engaging AI experiences.</div>
+                    <div style="margin-top:8px"><a href="https://elevenlabs.io/blog/character-ai-alternatives" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
                 </div>
                 <div class="changelog-card">
                     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
@@ -620,10 +535,20 @@ body.kn-locked{overflow:hidden}
             <div class="company-header">
                 <div class="company-dot" style="background:#3B82F6"></div>
                 <h3 style="font-size:18px;font-weight:800">Google</h3>
-                <span style="color:#64748B;font-size:12px">6 releases</span>
+                <span style="color:#64748B;font-size:12px">8 releases</span>
                 <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
             </div>
             <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#A78BFA">build</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#A78BFA;background:#A78BFA15">Developer Tools</span>
+                        <span style="color:#64748B;font-size:11px">Apr 02, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Gemma 4: Byte for byte, the most capable open models</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Gemma 4 represents Google's most advanced open models to date, designed for complex reasoning and workflows. With enhanced performance across various sizes, it aims to empower developers with state-of-the-art capabilities while maintaining efficient hardware utilization.</div>
+                    <div style="margin-top:8px"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
                 <div class="changelog-card">
                     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
                         <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
@@ -683,6 +608,16 @@ body.kn-locked{overflow:hidden}
                     <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">3 new Gemini features are coming to Google TV</div>
                     <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Google TV is introducing three new Gemini features that enhance the viewing experience with richer visual answers, narrated deep dives, and timely sports updates. These features make it easier for users to explore topics of interest on their screens.</div>
                     <div style="margin-top:8px"><a href="https://blog.google/products-and-platforms/platforms/google-tv/new-gemini-features-march-2026/" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 23, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Google NewFront 2026: introducing the Gemini advantage</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">At Google NewFront, the Gemini advantage is highlighted as a way to supercharge the Google Marketing Platform, delivering enhanced intelligence and value for advertisers. This article explores how Gemini models improve return on investment through predictive customer behavior and optimized campaigns across various channels.</div>
+                    <div style="margin-top:8px"><a href="https://blog.google/products/marketingplatform/360/gemini-models-advantage-google-marketing-platform/" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
                 </div></div>
         </div>
         <div class="company-section animate-in" data-company="Hugging Face">
@@ -712,6 +647,25 @@ body.kn-locked{overflow:hidden}
                     <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Introducing Storage Buckets on the Hugging Face Hub</div>
                     <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Hugging Face has launched Storage Buckets, a flexible S3-like object storage solution tailored for machine learning artifacts. This feature allows seamless management of mutable storage for datasets, checkpoints, and other intermediate files, optimizing efficiency and speed for ML workflows.</div>
                     <div style="margin-top:8px"><a href="https://huggingface.co/blog/storage-buckets" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div></div>
+        </div>
+        <div class="company-section animate-in" data-company="Microsoft">
+            <div class="company-header">
+                <div class="company-dot" style="background:#00A4EF"></div>
+                <h3 style="font-size:18px;font-weight:800">Microsoft</h3>
+                <span style="color:#64748B;font-size:12px">1 release</span>
+                <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
+            </div>
+            <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#14B8A6">api</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#14B8A6;background:#14B8A615">API Update</span>
+                        <span style="color:#64748B;font-size:11px">Mar 26, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">March 26, 2026—KB5079391 (OS Builds 26200.8116 and 26100.8116) Preview</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This update addresses installation issues identified after its release and includes production-quality improvements for Windows 11, versions 25H2 and 24H2. The update is not available for new devices until a fix is implemented in the subsequent update.</div>
+                    <div style="margin-top:8px"><a href="https://support.microsoft.com/en-us/topic/march-26-2026-kb5079391-os-builds-26200-8116-and-26100-8116-preview-7c9e2275-b9ba-4068-aeb0-23da42b81d3b" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
                 </div></div>
         </div>
         <div class="company-section animate-in" data-company="Midjourney">
@@ -757,7 +711,7 @@ body.kn-locked{overflow:hidden}
             <div class="company-header">
                 <div class="company-dot" style="background:#F97316"></div>
                 <h3 style="font-size:18px;font-weight:800">Mistral</h3>
-                <span style="color:#64748B;font-size:12px">1 release</span>
+                <span style="color:#64748B;font-size:12px">2 releases</span>
                 <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
             </div>
             <div class="changelog-cards">
@@ -770,16 +724,36 @@ body.kn-locked{overflow:hidden}
                     <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Leanstral: Open-Source foundation for trustworthy vibe-coding</div>
                     <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Mistral AI has introduced Leanstral, the first open-source code agent for Lean 4, aimed at enhancing coding efficiency through formal proof. This innovative tool strives to automate proof engineering tasks and improve verification accuracy in code generation.</div>
                     <div style="margin-top:8px"><a href="https://mistral.ai/news/leanstral" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#EC4899">science</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EC4899;background:#EC489915">Research</span>
+                        <span style="color:#64748B;font-size:11px">Mar 11, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Rails testing on autopilot: Building an agent that writes what developers won't</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This post discusses the development of an autonomous agent designed to enhance test coverage in large Rails monoliths, addressing the common issue of insufficient testing. The agent automatically generates and improves RSpec tests, validates them, and runs within CI/CD pipelines, significantly improving code quality without human intervention.</div>
+                    <div style="margin-top:8px"><a href="https://mistral.ai/news/rails-testing-on-autopilot-building-an-agent-that-writes-what-developers-wont" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
                 </div></div>
         </div>
         <div class="company-section animate-in" data-company="OpenAI">
             <div class="company-header">
                 <div class="company-dot" style="background:#10B981"></div>
                 <h3 style="font-size:18px;font-weight:800">OpenAI</h3>
-                <span style="color:#64748B;font-size:12px">17 releases</span>
+                <span style="color:#64748B;font-size:12px">16 releases</span>
                 <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
             </div>
             <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Apr 02, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">ChatGPT Enterprise & Edu - Release Notes</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This post outlines significant updates and enhancements to ChatGPT Enterprise, including the introduction of Codex seats offering flexible pricing, updates to various application integrations, and various feature enhancements including project management and analytics. Additionally, the release notes cover updates to the model picker and various new integrations to enhance the user experience.</div>
+                    <div style="margin-top:8px"><a href="https://help.openai.com/zh-hant-hk/articles/10128477-chatgpt-enterprise-edu-release-notes" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
                 <div class="changelog-card">
                     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
                         <span class="material-symbols-outlined" style="font-size:16px;color:#10B981">payments</span>
@@ -929,33 +903,13 @@ body.kn-locked{overflow:hidden}
                     <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">ChatGPT Atlas - Release Notes</div>
                     <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This post outlines the latest updates and features included in the ChatGPT Atlas browser, released on various dates in early 2026. Notable enhancements include multiple ChatGPT logins, improved tab searching, and functionalities such as Save Prompts and Agent Mode that allow for smarter interactions and better user experience.</div>
                     <div style="margin-top:8px"><a href="https://help.openai.com/zh-hant-hk/articles/12591856-chatgpt-atlas-release-notes" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
-                </div>
-                <div class="changelog-card">
-                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
-                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
-                        <span style="color:#64748B;font-size:11px">Mar 05, 2026</span>
-                    </div>
-                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Introducing GPT-5.4</div>
-                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">OpenAI announced the release of GPT-5.4, a significant upgrade to its language model offering improved capabilities. This new version aims to enhance user interactions and performance across various applications.</div>
-                    <div style="margin-top:8px"><a href="https://openai.com/news/company-announcements" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
-                </div>
-                <div class="changelog-card">
-                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
-                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
-                        <span style="color:#64748B;font-size:11px">Mar 05, 2026</span>
-                    </div>
-                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">The five AI value models driving business reinvention</div>
-                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This post discusses five key AI value models that are transforming how businesses operate and innovate. It highlights the importance of integrating AI into business strategies for enhanced efficiency and competitiveness.</div>
-                    <div style="margin-top:8px"><a href="https://openai.com/news/ai-adoption" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
                 </div></div>
         </div>
         <div class="company-section animate-in" data-company="Perplexity">
             <div class="company-header">
                 <div class="company-dot" style="background:#F59E0B"></div>
                 <h3 style="font-size:18px;font-weight:800">Perplexity</h3>
-                <span style="color:#64748B;font-size:12px">2 releases</span>
+                <span style="color:#64748B;font-size:12px">6 releases</span>
                 <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
             </div>
             <div class="changelog-cards">
@@ -971,6 +925,16 @@ body.kn-locked{overflow:hidden}
                 </div>
                 <div class="changelog-card">
                     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#06B6D4">handshake</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#06B6D4;background:#06B6D415">Partnership</span>
+                        <span style="color:#64748B;font-size:11px">Mar 26, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Perplexity APIs Power AI Browsing on Samsung Devices</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Samsung has launched Browsing Assist, a conversational AI assistant built into the Samsung Browser on both Galaxy Android devices and Windows PCs, powered by Perplexity APIs. This partnership enhances AI functionalities for millions of Galaxy users, allowing them to interact more intuitively with web content and streamline their browsing experience.</div>
+                    <div style="margin-top:8px"><a href="https://www.perplexity.ai/hub/blog/perplexity-apis-power-ai-browsing-on-samsung-devices" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
                         <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
                         <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
                         <span style="color:#64748B;font-size:11px">Mar 19, 2026</span>
@@ -978,6 +942,36 @@ body.kn-locked{overflow:hidden}
                     <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Introducing Perplexity Health</div>
                     <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Perplexity Health is a new suite of tools designed to connect personal health data, offering users comprehensive answers to health-related queries. With integrations from various health platforms, Perplexity Health aims to streamline access to medical records, lab results, and fitness data, while ensuring high-quality information backed by credible sources.</div>
                     <div style="margin-top:8px"><a href="https://www.perplexity.ai/hub/blog/introducing-perplexity-health" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 18, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Comet for iOS: A New Era of AI-Powered Browsing</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Perplexity has launched Comet for iOS, enhancing the web experience for iPhone users. With features like voice mode and hybrid search results, Comet combines traditional search with advanced AI assistance, ensuring a seamless browsing experience.</div>
+                    <div style="margin-top:8px"><a href="https://www.perplexity.ai/hub/blog/meet-comet-for-ios" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 17, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Introducing Comet Enterprise: AI Browsing for Teams</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Comet Enterprise, the newest version of the fast-growing AI browser, offers organizations enhanced security and management features. Designed for team use, it allows IT leaders to deploy AI browsing while providing tools to ensure secure governance and protect against threats like phishing and malware.</div>
+                    <div style="margin-top:8px"><a href="https://www.perplexity.ai/hub/blog/comet-enterprise-is-here" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#14B8A6">api</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#14B8A6;background:#14B8A615">API Update</span>
+                        <span style="color:#64748B;font-size:11px">Mar 11, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Agent API: A Managed Runtime for Agentic Workflows</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">The Perplexity Agent API has been released, providing a managed runtime for developing agentic workflows with built-in search, tool execution, and multi-model orchestration. It simplifies multiple services into a single integration point, allowing for efficient tool selection and execution to meet objectives.</div>
+                    <div style="margin-top:8px"><a href="https://www.perplexity.ai/hub/blog/agent-api-a-managed-runtime-for-agentic-workflows" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
                 </div></div>
         </div>
         <div class="company-section animate-in" data-company="Runway">
@@ -1059,11 +1053,40 @@ body.kn-locked{overflow:hidden}
                     <div style="margin-top:8px"><a href="https://runwayml.com/news/introducing-runway-characters" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
                 </div></div>
         </div>
+        <div class="company-section animate-in" data-company="Samsung">
+            <div class="company-header">
+                <div class="company-dot" style="background:#1428A0"></div>
+                <h3 style="font-size:18px;font-weight:800">Samsung</h3>
+                <span style="color:#64748B;font-size:12px">2 releases</span>
+                <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
+            </div>
+            <div class="changelog-cards">
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Apr 01, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Turning Your Travel Moments Into Lasting Memories ②: San Francisco With Galaxy AI</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This blog post explores the advanced AI features of the Galaxy S26 Ultra that enhance travel photography, allowing users to edit and transform their photos into artistic creations. It discusses tools like Photo Assist and Creative Studio that help users re-imagine their travel moments more vividly.</div>
+                    <div style="margin-top:8px"><a href="https://news.samsung.com/uk/turning-your-travel-moments-into-lasting-memories-%E2%91%A1-san-francisco-with-galaxy-ai" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#3B82F6">new_releases</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">Feature</span>
+                        <span style="color:#64748B;font-size:11px">Mar 11, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Galaxy Unpacked February 2026: what was announced</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">During Samsung's Galaxy Unpacked event on February 25, 2026, several new products were unveiled including the Galaxy S26 Ultra, S26+, S26 smartphones, and the Galaxy Buds4 Pro and Buds4. The S26 Ultra features a 6.9" display, advanced camera capabilities, and a powerful 5,000 mAh battery, highlighting its innovations in personal privacy and video quality.</div>
+                    <div style="margin-top:8px"><a href="https://www.samsung.com/uk/support/mobile-devices/galaxy-unpacked/" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div></div>
+        </div>
         <div class="company-section animate-in" data-company="Together AI">
             <div class="company-header">
                 <div class="company-dot" style="background:#EC4899"></div>
                 <h3 style="font-size:18px;font-weight:800">Together AI</h3>
-                <span style="color:#64748B;font-size:12px">1 release</span>
+                <span style="color:#64748B;font-size:12px">2 releases</span>
                 <div style="height:1px;flex-grow:1;background:rgba(255,255,255,0.06)"></div>
             </div>
             <div class="changelog-cards">
@@ -1076,6 +1099,16 @@ body.kn-locked{overflow:hidden}
                     <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Inside the Together AI kernels team</div>
                     <div style="font-size:12px;color:#c2c6d6;line-height:1.5">This post explores the innovative work of the Together AI kernels team, which is focused on optimizing GPUs for AI applications. It discusses the challenges they face and the breakthroughs they've achieved, including significant performance improvements that enhance the efficiency of AI-native applications.</div>
                     <div style="margin-top:8px"><a href="https://www.together.ai/blog/inside-the-together-ai-kernels-team" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
+                </div>
+                <div class="changelog-card">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                        <span class="material-symbols-outlined" style="font-size:16px;color:#EC4899">science</span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EC4899;background:#EC489915">Research</span>
+                        <span style="color:#64748B;font-size:11px">Mar 17, 2026</span>
+                    </div>
+                    <div style="font-size:14px;font-weight:700;color:#dae2fd;margin-bottom:4px">Mamba-3</div>
+                    <div style="font-size:12px;color:#c2c6d6;line-height:1.5">Mamba-3 is a new state space model optimized for inference efficiency, significantly improving performance over its predecessor, Mamba-2. It introduces a more expressive recurrence formula and complex-valued state tracking, enabling more accurate multi-input, multi-output processing while maintaining low latency.</div>
+                    <div style="margin-top:8px"><a href="https://www.together.ai/blog/mamba-3" target="_blank" rel="noopener" style="color:#adc6ff;font-size:11px;text-decoration:none;font-weight:600">Read &nearr;</a></div>
                 </div></div>
         </div>
         <div class="company-section animate-in" data-company="xAI">
@@ -1113,24 +1146,28 @@ body.kn-locked{overflow:hidden}
         </div>
     </div>
 </section>
-<footer style="background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto">
-    <div style="max-width:40rem;margin:0 auto;text-align:center;padding:64px 24px;position:relative">
-        <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:500px;height:200px;background:linear-gradient(to top,rgba(139,92,246,0.04),transparent);border-radius:50%;filter:blur(48px);pointer-events:none"></div>
-        <div style="position:relative;z-index:1">
-            <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:24px">
-                <div style="width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;box-shadow:0 4px 12px rgba(139,92,246,0.2)">K</div>
-                <span style="font-size:18px;font-weight:700;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Koda Intelligence</span>
-            </div>
-            <p style="color:#c2c6d6;font-size:14px;margin-bottom:32px">Read. Listen. Watch. Every morning.</p>
-            <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:40px;flex-wrap:wrap">
-                <a href="../morning-briefing-koda.html" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color='#3B82F6'" onmouseout="this.style.color='#c2c6d6'"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
-                <span style="color:rgba(140,144,159,0.3)">|</span>
-                <a href="../archive/" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color='#8B5CF6'" onmouseout="this.style.color='#c2c6d6'"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
-                <span style="color:rgba(140,144,159,0.3)">|</span>
-                <a href="https://www.youtube.com/channel/UC8qqiKRGFAd5SwTr_2ZzPJg" target="_blank" rel="noopener" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color='#EC4899'" onmouseout="this.style.color='#c2c6d6'">YouTube</a>
-            </div>
-            <p style="font-size:11px;color:rgba(140,144,159,0.6)">&copy; 2026 Koda Community &middot; <span style="font-family:'JetBrains Mono',monospace">koda.community</span></p>
+<footer style="border-top:1px solid rgba(255,255,255,0.05);padding:64px 24px;position:relative;overflow:hidden">
+    <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:500px;height:200px;background:linear-gradient(to top,rgba(139,92,246,0.04),transparent);border-radius:50%;filter:blur(48px);pointer-events:none"></div>
+    <div style="max-width:40rem;margin:0 auto;text-align:center;position:relative;z-index:1">
+        <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:24px">
+            <a href="https://x.com/intent/tweet?url=https://www.koda.community/changelog/" target="_blank" rel="noopener" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;text-decoration:none" title="Share on X"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/changelog/" target="_blank" rel="noopener" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;text-decoration:none" title="Share on LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <button onclick="navigator.clipboard.writeText('https://www.koda.community/changelog/')" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer" title="Copy link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></button>
+            <a href="../index.html" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;text-decoration:none" title="Search"><span class="material-symbols-outlined" style="font-size:16px">search</span></a>
         </div>
+        <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:24px">
+            <div style="width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;box-shadow:0 4px 12px rgba(139,92,246,0.2)">K</div>
+            <span style="font-size:18px;font-weight:700;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Koda Intelligence</span>
+        </div>
+        <p style="color:#c2c6d6;font-size:14px;margin-bottom:32px">Read. Listen. Watch. Every morning.</p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:40px">
+            <a href="../morning-briefing-koda.html" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+            <span style="color:rgba(140,144,159,0.3)">|</span>
+            <a href="../archive/" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
+            <span style="color:rgba(140,144,159,0.3)">|</span>
+            <a href="https://www.youtube.com/channel/UC8qqiKRGFAd5SwTr_2ZzPJg" target="_blank" rel="noopener" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em">YouTube</a>
+        </div>
+        <p style="font-size:11px;color:rgba(140,144,159,0.6)">&copy; 2026 Koda Community &middot; <span style="font-family:'JetBrains Mono',monospace">koda.community</span></p>
     </div>
 </footer>
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><span class="material-symbols-outlined">arrow_upward</span></button>
@@ -1164,58 +1201,5 @@ function kodaSubscribe(form){
     return false;
 }
 </script>
-
-
-
-<!-- koda-nav-v2-js-start -->
-<script>
-(function(){
-    var btn=document.getElementById('knMenuBtn'),
-        drawer=document.getElementById('knDrawer'),
-        overlay=document.getElementById('knOverlay'),
-        closeBtn=document.getElementById('knDrawerClose'),
-        searchBtn=document.getElementById('knSearchBtn');
-    function open(){
-        drawer.classList.add('kn-open');
-        overlay.classList.add('kn-open');
-        document.body.classList.add('kn-locked');
-        btn.setAttribute('aria-expanded','true');
-        closeBtn.focus();
-    }
-    function close(){
-        drawer.classList.remove('kn-open');
-        overlay.classList.remove('kn-open');
-        document.body.classList.remove('kn-locked');
-        btn.setAttribute('aria-expanded','false');
-        btn.focus();
-    }
-    if(btn) btn.addEventListener('click',open);
-    if(closeBtn) closeBtn.addEventListener('click',close);
-    if(overlay) overlay.addEventListener('click',close);
-    document.addEventListener('keydown',function(e){
-        if(e.key==='Escape' && drawer.classList.contains('kn-open')) close();
-    });
-    /* Search: hook into existing overlay if present, otherwise go to archive */
-    if(searchBtn) searchBtn.addEventListener('click',function(){
-        var so=document.getElementById('searchOverlay');
-        if(so){so.classList.remove('hidden');so.style.display='';var si=document.getElementById('globalSearchInput');if(si)si.focus();}
-        else{window.location.href=searchBtn.closest('.kn-topbar').querySelector('.kn-brand').href.replace('index.html','')+'archive/';}
-    });
-    /* Date picker */
-    var dpBtn=document.getElementById('datePickerBtn'),dpInput=document.getElementById('datePicker');
-    if(dpBtn&&dpInput){
-        dpBtn.addEventListener('click',function(){dpInput.showPicker?dpInput.showPicker():dpInput.click();});
-        dpInput.addEventListener('change',function(){
-            var v=dpInput.value;if(!v)return;
-            var file='morning-briefing-koda-'+v+'.html';
-            fetch(file,{method:'HEAD'}).then(function(r){
-                if(r.ok){window.location.href=file;}
-                else{alert('No digest available for '+v);dpInput.value=document.body.getAttribute('data-digest-date')||'';}
-            }).catch(function(){alert('No digest available for '+v);dpInput.value=document.body.getAttribute('data-digest-date')||'';});
-        });
-    }
-})();
-</script>
-<!-- koda-nav-v2-js-end -->
 </body>
 </html>

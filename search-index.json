@@ -1,23 +1,23 @@
 {
-  "generated": "2026-04-05T15:03:40Z",
+  "generated": "2026-04-06T10:26:06Z",
   "entries": [
     {
-      "date": "2026-04-05",
+      "date": "2026-04-06",
       "sections": [
         {
           "title": "Today's Focus",
           "items": [
             {
-              "headline": "OpenAI's $852B Valuation",
-              "text": "OpenAI's latest mega round places its valuation above the GDP of nations like the Netherlands. The figure reflects investor conviction that frontier AI will underpin the next economic era, but it also raises the stakes enormously: the company must now justify a price tag that dwarfs every private tech venture before it. With coding specialists already beating GPT-5.4 by 14 points on benchmarks, competitive pressure is intensifying even as the capital floods in."
+              "headline": "Claude Mythos 5's Trillion-Scale Gambit",
+              "text": "Anthropic's rumored 10 trillion parameter Claude Mythos 5 would represent a roughly 10x leap over the largest confirmed models. Training a system at that scale demands extraordinary cluster capacity, likely hundreds of thousands of accelerators running for months. Whether this signals a genuine capability breakthrough or an unsustainable scaling bet will shape investor confidence in the entire frontier lab ecosystem."
             },
             {
-              "headline": "Hormuz Crisis Spikes Oil",
-              "text": "Oil prices neared $124 after Trump's 48-hour ultimatum to Iran collided with fears of a full Strait of Hormuz blockade, through which roughly 20% of the world's petroleum transits daily. Iran's approval of a humanitarian passage offered a narrow diplomatic off-ramp, but markets are not buying the de-escalation narrative yet. The energy shock is compounding an already fragile macro environment and feeding the extreme fear reading across global indices."
+              "headline": "Gulf Data Centers Under Fire",
+              "text": "Iran's strikes on data centers in Qatar, the UAE, and Bahrain mark the first direct military targeting of major cloud infrastructure in the region. These facilities serve as critical nodes for enterprise AI workloads, financial systems, and government services across the Middle East and South Asia. The attacks will accelerate conversations about geographic redundancy and could push hyperscalers to rethink expansion plans in the Gulf."
             },
             {
-              "headline": "Specialized Models Challenge Frontiers",
-              "text": "Coding-focused AI models outperformed GPT-5.4 by 14 points on competitive programming benchmarks, signaling that domain-tuned specialists can punch well above their weight class. Meanwhile, Microsoft's Copilot added multi-model workflows and a new Cowork agent, and Mustafa Suleyman revealed that a 10-person team built MAI-Transcribe inside Microsoft. The trend is clear: smaller, targeted efforts are carving out territory that massive general-purpose models cannot easily defend."
+              "headline": "AI Agents Enter SME Workflows",
+              "text": "AWS launched autonomous agents specifically designed for small and medium enterprise operations, signaling that agentic AI is moving beyond pilot programs at Fortune 500 companies. Paired with Criteo's generative AI ad optimization tool, the trend suggests 2026 is the year AI tooling becomes accessible at the mid-market level. Adoption speed will depend on trust, pricing, and whether these agents can deliver measurable ROI without dedicated AI teams on the customer side."
             }
           ]
         },
@@ -34,19 +34,19 @@
             },
             {
               "headline": "BTC",
-              "text": "$66,997.12 (-0.44%)"
+              "text": "$69,934.38 (+1.38%)"
             },
             {
               "headline": "ETH",
-              "text": "$2,043.94 (-1.02%)"
+              "text": "$2,159.76 (+2.36%)"
             },
             {
               "headline": "Oil",
-              "text": "$109.05 (+2.06%)"
+              "text": "$107.30 (-2.26%)"
             },
             {
               "headline": "Sentiment",
-              "text": "12 (Extreme Fear)"
+              "text": "13 (Extreme Fear)"
             }
           ]
         },
@@ -54,44 +54,36 @@
           "title": "AI Developments",
           "items": [
             {
-              "headline": "OpenAI Valued at $852B After Mega Round",
-              "text": "OpenAI secured a massive funding round valuing the company at $852 billion, up from the $approximately 300 billion range earlier this year. The company disclosed 900 million weekly ChatGPT users and outlined a super app strategy that consolidates chat, coding, search, and agent capabilities into a single interface to drive enterprise adoption and monetization. Source &rarr;"
+              "headline": "Claude Mythos 5 Tipped at 10 Trillion Parameters",
+              "text": "Anthropic's Claude Mythos 5, reportedly featuring 10 trillion parameters, is positioned for advanced cybersecurity and coding tasks according to startup-focused analysis from Mean CEO. Prediction markets give it a 39% chance of shipping in April 2026, but no official release has materialized yet. The model would represent a massive scale-up from the current Claude Sonnet 4.6 flagship. Source &rarr;"
             },
             {
-              "headline": "Microsoft Copilot Adds Multi-Model Workflows, Cowork Agent",
-              "text": "Microsoft upgraded its Copilot platform to allow multiple AI models, including OpenAI's GPT and Anthropic's Claude, to collaborate within a single workflow. A new Critique feature lets one model review another's output before delivery. The company also rolled out Copilot Cowork, an agent layer, to early access enterprise customers. Source &rarr;"
+              "headline": "Zhipu AI Ships Fast Proprietary Model Update",
+              "text": "Chinese AI lab Zhipu AI released a speed-optimized proprietary model update on April 3, joining a crowded week of releases tracked by LLM Stats. Details on benchmarks and parameter counts remain sparse, but the update signals continued momentum from China's inference-focused AI ecosystem. Source &rarr;"
             },
             {
-              "headline": "Baidu Robotaxi Outage Strands Cars in Wuhan",
-              "text": "A system outage hit Baidu's Apollo Go robotaxi fleet in Wuhan, leaving autonomous vehicles stuck on city roads and unable to complete trips. Reuters video showed multiple vehicles immobilized at intersections. The incident raises fresh questions about the reliability of large-scale autonomous ride-hailing deployments in Chinese cities. Source &rarr;"
+              "headline": "Huawei 950PR Chip Draws Enterprise AI Orders",
+              "text": "Huawei's 950PR inference chip, highlighted in April product launch coverage, is attracting orders from ByteDance and Alibaba for fast inference computing. The chip is positioned as a localized alternative for companies navigating export controls, enabling niche and regional AI deployments outside the NVIDIA ecosystem. Source &rarr;"
             },
             {
-              "headline": "Suleyman Built MAI-Transcribe With 10-Person Team",
-              "text": "Mustafa Suleyman told VentureBeat that Microsoft's new MAI-Transcribe-1 speech-to-text model was built by a team of just 10 people and runs at half the GPU cost of competing state-of-the-art models. The detail underscores how small, focused teams inside large organizations can now produce frontier-quality specialized models, a shift from the thousand-engineer paradigm of earlier foundation model efforts. Source &rarr;"
+              "headline": "AWS Autonomous Agents Target SME Operations",
+              "text": "Amazon Web Services launched autonomous agents designed to streamline operational tasks for startups and small-to-medium enterprises, part of a broader April 2026 wave of practical AI product launches. The agents aim to automate workflows with minimal human oversight, though analysts recommend maintaining human-in-the-loop controls for critical tasks. Source &rarr;"
             },
             {
-              "headline": "Coding Specialists Beat GPT-5.4 by 14 Points",
-              "text": "Analysis of the March 10-16 release wave found that specialized coding models, including Cursor Composer 2, outperform GPT-5.4 Standard on code generation benchmarks by 8 to 14 percentage points. The data suggests that for pure code tasks, choosing a specialist over a frontier generalist is now the empirically correct decision, reshaping how engineering teams should allocate model budgets. Source &rarr;"
+              "headline": "Criteo GO Brings Generative AI to Ad Optimization",
+              "text": "Criteo launched Criteo GO, a generative AI-powered advertising optimization platform designed to make enterprise-level marketing tools accessible to smaller businesses. The product leverages generative models to automate campaign creation and targeting, lowering the resource barrier for startups competing in online advertising. Source &rarr;"
             },
             {
-              "headline": "ChatGPT Super App Consolidates Five AI Functions",
-              "text": "OpenAI's newly unveiled ChatGPT super app merges chat, coding, search, image generation, and autonomous agent capabilities into a single interface. The strategy aims to make ChatGPT the default consumer gateway and enterprise platform, mirroring the super app playbook pioneered by WeChat and Grab. With 900 million weekly users, the consolidation could centralize how businesses interact with AI tooling. Source &rarr;"
+              "headline": "March 2026 Logged Over 30 Model Releases",
+              "text": "A SearchCans analysis tallied more than 30 new AI model releases or significant updates in March 2026 alone, spanning OpenAI, Anthropic, Google, and NVIDIA. The report warns that public benchmarks are increasingly unreliable due to training data contamination, urging developers to run private evaluations. The piece recommends adopting a \"model portfolio\" strategy, assigning different LLMs to tasks based on cost-performance ratios. Source &rarr;"
             },
             {
-              "headline": "Developer Decision Fatigue Hits Crisis Levels",
-              "text": "With over 30 significant model releases in March alone and a new major update landing roughly every 72 hours, developers face what analysts call a velocity crisis. SearchCans reports that teams are adopting model portfolio strategies, routing different tasks to different LLMs based on cost-performance ratios, and treating API abstraction layers as mandatory infrastructure rather than optional tooling. Source &rarr;"
+              "headline": "Google DeepMind Compression Cuts Memory Needs 6x",
+              "text": "Google DeepMind introduced a compression algorithm that reduces AI model memory requirements by a factor of six, according to Mean CEO's April roundup. The breakthrough could significantly lower inference costs and make large models viable on smaller hardware, a development with direct implications for startups and edge deployment scenarios. Source &rarr;"
             },
             {
-              "headline": "Gemini 3.1 Flash-Lite Sets Efficiency Benchmark",
-              "text": "Google's Gemini 3.1 Flash-Lite variant, released during the March surge, has emerged as the default recommendation for high-throughput production APIs. It delivers sub-50ms first-token latency at pricing below GPT-4o-mini, making it the clear efficiency winner for applications where speed and cost matter more than deep reasoning. The model is already seeing rapid adoption in latency-sensitive pipelines. Source &rarr;"
-            },
-            {
-              "headline": "Hugging Face Charts Open Source AI Landscape Shift",
-              "text": "Hugging Face published its State of Open Source AI: Spring 2026 report, mapping how competition, geography, technical trends, and emerging communities have shifted across the open-weight ecosystem. The report arrives as open-source models increasingly close the gap with proprietary frontier systems, with Qwen 3.5 and Moonshot AI's releases demonstrating near-parity on key benchmarks. Source &rarr;"
-            },
-            {
-              "headline": "Waymo Ridership Growth Accelerates Sharply",
-              "text": "TechCrunch published new data showing Waymo's ridership on a steep upward trajectory, visualized in a single chart that captures the autonomous ride-hailing service's acceleration. The growth comes as competitor Baidu's Apollo Go fleet suffered a high-profile outage in Wuhan, highlighting the divergent reliability trajectories of the two leading robotaxi operators. Source &rarr;"
+              "headline": "LLM API Abstraction Now Called Critical Infrastructure",
+              "text": "Developer-focused analysis from SearchCans argues that implementing an abstraction layer for LLM APIs is no longer optional, citing rapid model deprecations and the need for multi-model fallback strategies. With major releases now arriving roughly every 72 hours, teams that hardcode to a single provider risk costly migration cycles when models are retired or repriced. Source &rarr;"
             }
           ]
         },
@@ -99,32 +91,36 @@
           "title": "World News",
           "items": [
             {
-              "headline": "Trump Issues 48-Hour Ultimatum to Iran",
-              "text": "President Donald Trump gave Iran 48 hours to reopen the Strait of Hormuz or reach a deal, posting on Truth Social that \"all Hell will reign down on them\" if demands are not met. The ultimatum comes in the sixth week of the Iran war, following Iran's shootdown of two U.S. warplanes and a drone attack on Kuwait's power and water infrastructure. Source &rarr;"
+              "headline": "Airstrikes Kill 25+ in Iran as Deadline Looms",
+              "text": "Israel and the United States carried out a wave of attacks on Iranian cities on April 6, killing more than 25 people, according to the Associated Press. Iran responded with missile fire on Israel and Gulf Arab neighbors. The strikes come as Trump's April 7 deadline for Tehran to reopen the Strait of Hormuz approaches, with the waterway now shut for five weeks, choking roughly 20% of global oil and gas supply. Source &rarr;"
             },
             {
-              "headline": "Iran Approves Humanitarian Passage Through Hormuz",
-              "text": "Iran authorized ships carrying humanitarian and essential goods, including livestock feed, to transit the Strait of Hormuz under designated protocols. The directive, backed by Iran's government and armed forces, was communicated through the Agriculture Ministry's trade development office. Industry associations have begun instructing member companies to resume sending cargo ships to southern Iranian ports. Source &rarr;"
+              "headline": "US Special Forces Rescue Downed Airman Inside Iran",
+              "text": "President Trump announced on April 5 that US special forces extracted the wounded weapons officer of an F-15 shot down over southwest Iran on April 3, calling it 'one of the most daring' rescue missions in US history. The jet's pilot had been recovered earlier that same day. Trump followed the announcement with an expletive-laden post demanding Iran reopen the Strait of Hormuz or face 'hell.' Source &rarr;"
             },
             {
-              "headline": "Oil Nears $124 as Hormuz Blockade Chokes Supply",
-              "text": "Crude oil prices have nearly doubled to over $124 per barrel as the Hormuz blockade continues to strangle global shipping lanes. The price surge is triggering cascading economic consequences worldwide, from rising mortgage rates dampening housing markets to fuel import crises in developing nations. Source &rarr;"
+              "headline": "Iran Strikes Qatar, UAE, Bahrain Data Centers",
+              "text": "Iran launched ballistic missiles and drones at Gulf Arab states on April 6. Three missiles targeted Qatar, with two intercepted and one striking a QatarEnergy oil tanker. A Bangladeshi national was killed by shrapnel during drone interceptions in Fujairah, UAE. Strikes also reportedly hit AWS servers in Bahrain and an Oracle data center in Dubai, though UAE officials denied the latter. Iran's deputy foreign minister announced a separate transit protocol with Oman for strait passage. Source &rarr;"
             },
             {
-              "headline": "Soleimani Relatives Detained, U.S. Residency Revoked",
-              "text": "The U.S. government revoked legal residency for two relatives of slain IRGC commander Qasem Soleimani and placed them in ICE custody. Hamideh Soleimani Afshar and her daughter had been granted U.S. asylum in 2019. Separately, a second U.S. Air Force combat plane crashed in the Persian Gulf region, though Trump said it would not impact negotiations. Source &rarr;"
+              "headline": "Ceasefire Proposal Shared With Iran and US",
+              "text": "A draft ceasefire proposal has been delivered to both Iran and the United States as fighting intensifies across the region, according to the Associated Press. The proposal arrives as Trump's April 7 deadline for reopening the Strait of Hormuz creates a narrow window for diplomacy. Details of the proposal's terms and its mediator have not been fully disclosed. Source &rarr;"
             },
             {
-              "headline": "Erdogan Hosts Zelenskyy, Rutte in Istanbul Talks",
-              "text": "Turkish President Recep Tayyip Erdogan met Ukrainian President Volodymyr Zelenskyy in Istanbul to discuss pathways to ending the Russia-Ukraine war. Erdogan also held separate talks with NATO Secretary-General Mark Rutte on regional developments and alliance coordination, positioning Turkey as a mediator on multiple fronts. Source &rarr;"
+              "headline": "Russia Kills Three in Odesa, Ukraine Hits Oil Sites",
+              "text": "A Russian strike on Odesa killed three people and heavily damaged a residential building on April 6, according to the Associated Press. Ukraine simultaneously targeted Russian oil infrastructure in retaliatory operations. The attacks continue despite signals from both sides about a potential Easter ceasefire, with broader casualty reports citing 15 killed in the latest wave of Russian strikes. Source &rarr;"
             },
             {
-              "headline": "Senegal Bans Official Foreign Travel Over Fuel Costs",
-              "text": "Senegal banned non-essential foreign trips for government officials as the Hormuz crisis sends petroleum import costs soaring. Prime Minister Ousmane Sonko canceled planned missions to Niger, Spain, and France. The move illustrates how the Gulf conflict is forcing fiscal austerity in energy-importing African nations far from the war zone. Source &rarr;"
+              "headline": "Explosives Found Near Serbia-Hungary Gas Pipeline",
+              "text": "Serbian President Vucic reported that army and police discovered two backpacks of explosives near a Serbia-Hungary gas pipeline on April 5. Hungarian PM Viktor Orban convened an emergency security meeting ahead of Hungary's April 12 elections. Opposition leader Peter Magyar called the incident a potential 'false flag' operation, raising questions about the timing and political context of the discovery. Source &rarr;"
             },
             {
-              "headline": "Israeli Airstrike Kills Five in Southern Lebanon",
-              "text": "Five people were killed in an Israeli airstrike on Kfar Hatta in Lebanon's South Governorate on April 5. The strike is part of the ongoing Israeli-Lebanese conflict, which has intensified alongside the broader Middle Eastern crisis triggered by the Iran war. Source &rarr;"
+              "headline": "Trump Fires AG Bondi, Army Chief Resigns",
+              "text": "President Trump fired Attorney General Pam Bondi, with Deputy AG Todd Blanche assuming the acting role. Separately, Army Chief of Staff Gen. Randy George stepped down at the request of Defense Secretary Pete Hegseth. The twin departures mark a significant reshuffling of top national security and law enforcement leadership during an active military conflict with Iran. Source &rarr;"
+            },
+            {
+              "headline": "Over 70 Feared Dead in Mediterranean Boat Sinking",
+              "text": "More than 70 people are feared dead after a migrant boat capsized in the Mediterranean Sea off Europe's southern coast. The disaster underscores the persistent lethality of irregular migration routes, even as European political attention remains focused on the Iran conflict and energy security concerns tied to the Strait of Hormuz closure. Source &rarr;"
             }
           ]
         },
@@ -133,27 +129,11 @@
           "items": [
             {
               "headline": "Superhuman",
-              "text": "Waymo hits 500,000 paid rides per week, a 10x increase in under two years Physical Intelligence in talks to raise $1B at an $11B valuation for robot-training AI Baidu Apollo Go system failure strands over 100 robotaxis on busy Wuhan roads Waymo's explosive growth from 50,000 weekly paid rides in 2024 to 500,000 in 2026 underscores the rapid scaling of autonomous ride-hailing, with seven new Sun Belt markets added in the past year alone while maintaining a fleet of roughly 3,000 vehicles. Meanwhile, the risks of robotaxi dependence were starkly illustrated in Wuhan, where a system-wide failure in Baidu's Apollo Go fleet caused simultaneous vehicle freezes across busy roads, triggering unprecedented traffic disruption. On the investment side, Physical Intelligence is seeking a $1B raise at an $11B valuation, nearly doubling from $5.6B just four months ago, as it builds AI models that teach robots practical physical tasks like folding clothes and assembling boxes. Waymo's 6th-generation self-driving system is already live in early development, putting pressure on competitors to catch up. Physical Intelligence, a two-year-old startup founded by ex-DeepMind staff, is approaching valuations near rivals Skild AI ($14B) and Figure AI ($39B). Police confirmed the Baidu Apollo Go outage in Wuhan was caused by a system failure that left passengers stranded inside frozen robotaxis on active roadways."
-            },
-            {
-              "headline": "The Rundown AI",
-              "text": "Google to power Texas AI data center with massive gas plant emitting 4.5M tons of CO₂ per year Artemis II astronauts head to the moon Amazon is coming for Walmart with robots Google is partnering with Crusoe on the Goodnight data center campus in Texas, where Crusoe has filed for a 933 MW gas power plant to supply a facility that could cost nearly $30B. The plant's projected 4.5 million tons of annual CO₂ emissions exceed those of San Francisco, and unlike Google's recent gas deal in Illinois, this project reportedly includes no carbon capture. Critics call it a major rollback from Google's 2030 carbon-free energy goals, though the company argues AI's power demands are outpacing clean grid capacity. Whoop has reached a $10B valuation as a fitness tracker company Artemis II astronauts are heading to the moon Amazon is challenging Walmart with a robotics-driven strategy \"AI's appetite for power is growing faster than the clean grid can supply it.\""
-            },
-            {
-              "headline": "TLDR",
-              "text": "Cursor 3 launches with a redesigned, agent-driven interface supporting multi-repo workflows and coordination between local and cloud agents Google DeepMind introduces Gemma 4, a new generation of open models optimized for reasoning and agent workflows under an Apache 2.0 license Qwen3.6-Plus released as a multimodal reasoning model aimed at native multimodal agents, with open-source smaller variants planned Open models like GLM-5 and MiniMax M2.7 have crossed a critical threshold, now matching closed frontier models on core agent tasks such as tool use and instruction following at a fraction of the cost and latency. Agentic coding progress over Q1 2026 has outpaced expectations, with coding agents exploding in usefulness and some AI researchers suggesting automated AI R&D is imminent. A CData benchmark of five MCP integration approaches across 378 real-world prompts found a 25 percentage point accuracy gap between architectures, with most failing silently on filters, schemas, or multi-step logic. CData benchmarked five MCP integration approaches and found CData Connect AI achieved 98.5% accuracy, far ahead of alternatives that fail silently on multi-step logic Weaviate published a deep dive on the Engram memory system for AI agents OpenAI Codex now offers a pay-as-you-go pricing model \"At 75% per-step accuracy across a 5-step workflow, fewer than 24% of processes complete correctly.\""
+              "text": "NASA's Artemis II launches first crewed lunar mission in 54 years Scientists develop gene therapy injection that may 'reverse' deafness NASA qualifies iPhone 17 Pro Max for extended use in orbit for the first time Artemis II lifted off from Kennedy Space Center on April 1, carrying four astronauts on a trajectory that will bring them within 8,000 kilometers of the lunar surface, the first crewed Moon mission since 1972. The flight is a stress test of the Orion spacecraft ahead of Artemis IV and V, which are planned to land on the Moon in 2028. Separately, scientists published early results from a landmark gene therapy trial involving ten patients that may demonstrate the ability to reverse deafness, though the newsletter content was truncated before full details were provided. Artemis II astronauts shared viral photos of Earth from deep space, captured in part using NASA-issued iPhone 17 Pro Max units qualified for orbital use. Artemis IV and V missions targeting actual lunar landings are slated for 2028. A small gene therapy trial published results suggesting an injection could potentially reverse deafness, marking a possible breakthrough in hearing restoration. \"It's been one of those weeks where future generations may one day ask us: 'Where were you when it happened?'\""
             },
             {
               "headline": "Superhuman",
-              "text": "Perplexity Computer launches tax filing feature ahead of April 15 deadline OpenAI acquires TBPN, its first major media acquisition Google releases Gemma 4 open models; Microsoft unveils MAI model family Perplexity Computer now offers a tax preparation workflow: users upload relevant documents, answer situational questions, and the AI fills out IRS forms by retrieving and applying the current tax code. The company posted a demo on X that garnered 1.9 million views. The newsletter advises users to double check AI-generated filings before submitting. OpenAI acquired Technology Business Programming Network (TBPN), a daily live podcast described as 'SportsCenter for business,' while pledging to maintain its editorial independence. Google launched Gemma 4, its most capable open model family to date, available in four sizes and optimized for advanced reasoning and agentic workflows. Microsoft announced the MAI family of models delivering state-of-the-art performance in transcription, voice, and image generation."
-            },
-            {
-              "headline": "TLDR",
-              "text": "RevenueCat grew 40% in March alone, riding the vibe coding wave as new developers surge onto the platform Per-seat SaaS pricing is breaking down as AI agents become the next power users, pushing founders toward outcome-based models Warp scaled to 500K weekly active developers in 2024 through unconventional channels like YouTube, GitHub READMEs, and hackathon judge sponsorships RevenueCat now processes over $1 billion per month in mobile subscription revenue and powers 50% of North American mobile subscription apps. The vibe coding movement has driven a 40% spike in new developers shipping their first production app on the platform in March alone, illustrating how finding and leaning into AI tailwinds can supercharge growth. Separately, the shift from per-seat pricing to outcome-based models is accelerating as AI agents, not humans, increasingly become the primary users of software, and founders who fail to adapt their pricing risk being undercut by competitors who do. Chatbase bootstrapped to $9M ARR with just 18 people, 10,000+ paying customers, and zero outside capital B2B websites now serve two audiences: humans and AI crawlers, requiring founders to rethink site content and structure WordPress.com is offering TLDR readers up to 69% off select plans with free migration and 99.999% uptime \"Most bootstrapped founders stay small because they think like bootstrapped founders, not because they lack resources.\""
-            },
-            {
-              "headline": "TLDR",
-              "text": "Enterprises flying blind on AI activity: only ~1/3 can track AI usage across their environment Jamf reports 72% of devices run vulnerable apps, with 41% on outdated OS versions CIOs pushed toward edge and hybrid AI architectures as workloads shift beyond centralized cloud NIST's AI Agent Standards Initiative marks a turning point for enterprise security, addressing risks in autonomous systems that execute actions via APIs. With 96% of attacks involving credential abuse, the standards provide frameworks for identity governance and behavioral monitoring to help organizations scale AI agents without losing control. Separately, the FCC's foreign router ban is criticized for missing the real problem: unpatched, end-of-life devices remain the core vulnerability, and the policy may inadvertently keep older, more exploitable hardware in production. A breach traced to an internet-connected coffee machine highlights how unmanaged IoT devices bypass otherwise strong security controls Boards are pushing AI adoption faster than governance, creating dangerous visibility gaps where AI agents operate with little oversight AI PCs with NPUs are becoming part of enterprise infrastructure strategy, not just a hardware refresh cycle decision \"Segment, isolate, or block non-essential devices, or they become your easiest entry point.\""
+              "text": "Waymo hits 500,000 paid rides per week, a 10x increase in under two years Physical Intelligence in talks to raise $1B at an $11B valuation for robot-training AI Baidu Apollo Go system failure strands over 100 robotaxis on busy Wuhan roads Waymo's rapid scaling dominates this robotics-focused edition: the company expanded from 50,000 weekly paid trips in 2024 to 500,000 today, adding seven Sun Belt markets from Austin to Orlando while maintaining a fleet of roughly 3,000 vehicles. Its 6th-generation self-driving system is already in early development. Meanwhile, the risks of autonomous fleet operations were starkly illustrated in Wuhan, where a system-wide failure simultaneously froze over 100 Baidu Apollo Go robotaxis in traffic, creating unprecedented disruption. Waymo's 6th-gen self-driving system is now live in early development, putting pressure on competitors to catch up. Physical Intelligence, a two-year-old startup building AI models that teach robots tasks like folding clothes and assembling boxes, could approach the valuations of rivals Skild AI ($14B) and Figure AI ($39B). Wuhan police attributed the Baidu Apollo Go mass robotaxi freeze to a 'system failure,' highlighting infrastructure risks in scaling autonomous fleets."
             }
           ]
         },
@@ -161,16 +141,12 @@
           "title": "Competitive Landscape",
           "items": [
             {
-              "headline": "Anthropic",
-              "text": "Anthropic released Claude Mythos 5, a 10-trillion-parameter model targeting cybersecurity, coding, and multi-step planning, alongside Capabara, a mid-sized model designed for broader accessibility. The Mythos 5 launch represents a significant scale-up and positions Anthropic squarely against OpenAI's GPT-5.4 and Google's Gemini 3.1 Pro at the frontier. Combined with the Operon biological research agent unveiled earlier this week, Anthropic is now shipping across both general-purpose and domain-specific verticals at an accelerating pace."
-            },
-            {
               "headline": "Meta AI",
-              "text": "Meta's AI blog highlighted the company's custom silicon trajectory, noting it has shipped four MTIA chip generations in two years to support recommendation systems, generative AI, and ranking workloads across its platforms. The company also launched Vibes, an AI-powered immersive video creation tool, and continues to invest in foundation models like Segment Anything for third-party applications including conservation. No new frontier model release has been announced this cycle, but the infrastructure buildout signals Meta is prioritizing inference scale over headline benchmark scores."
+              "text": "Meta's AI blog highlights the deployment of four MTIA chip generations in two years, a cadence that underscores the company's commitment to vertical integration for inference workloads. The latest chips are designed to serve personalized recommendations, generative AI features, and the newly launched Vibes video creation tool at scale. With no new model release this cycle, Meta's competitive edge is shifting from parameter counts to silicon efficiency and distribution across its 3.9 billion user base."
             },
             {
               "headline": "Hugging Face",
-              "text": "Hugging Face published its State of Open Source AI: Spring 2026 analysis, examining how competition, geography, and technical trends have reshaped the open-weight landscape. The report arrives as Gemma 4 playgrounds go live on the platform and community projects like MEDPAI begin building medical imaging tools on top of Google's newly released models. Hugging Face's role as the neutral distribution layer for open models continues to grow as release cadence across the industry hits roughly one major drop every 72 hours."
+              "text": "Hugging Face published its State of Open Source AI report for spring 2026, charting how competition, geographic diversity, and technical trends have evolved since the open-weight surge began. The report lands as Gemma 4 community projects proliferate on the platform, including a medical imaging analysis Space built on the new models within days of release. Hugging Face continues to function as the neutral infrastructure layer for the open-weight ecosystem, and its editorial output increasingly shapes how developers evaluate the flood of new releases."
             }
           ]
         },
@@ -178,28 +154,28 @@
           "title": "AI Tool Guide",
           "items": [
             {
-              "headline": "Faahh: The Focus App That Roasts You Back to Work",
-              "text": "Faahh is a free, lightweight menu bar app that detects when you drift off task and hits you with a loud, customizable audio alert to snap your attention back. Think of it as a brutally honest accountability partner that lives in your system tray. Install it for deep work sessions where you need an external trigger to catch wandering focus before it spirals into a 20-minute scroll. Try it &rarr;"
+              "headline": "Domscribe: Give Your AI Coding Agent Live UI Context",
+              "text": "Domscribe is a free, open-source tool that feeds live UI context to AI coding agents so they can make sharper, more accurate edits across multi-file projects. Plug it into your existing PR workflow to let agents see what users see, reducing the back-and-forth of correcting layout and interaction bugs. Pair it with your preferred AI code editor for refactoring tasks where visual accuracy matters. Try it &rarr;"
             },
             {
-              "headline": "Chattee: Build Full-Stack Apps Through Conversation",
-              "text": "Chattee is an AI-powered web application builder that lets you generate complex, full-stack apps through natural language prompts instead of writing boilerplate from scratch. Describe your data model, UI layout, and business logic in plain English, and Chattee scaffolds the project for you. Use it to prototype internal tools or MVPs in hours rather than days, then export the code for manual refinement. Try it &rarr; Lab Report &rarr;"
+              "headline": "Contextli: Context-Aware Speech-to-Text for Professionals",
+              "text": "Contextli processes speech-to-text with awareness of your working context across platforms, meaning it adapts transcription output based on whether you are in a meeting, drafting notes, or dictating code comments. Set it up on your primary work device and connect it to the apps where you spend the most time typing. It is especially useful for professionals who switch between technical and conversational language throughout the day. Try it &rarr;"
             },
             {
-              "headline": "ZooClaw: One Entry Point to a Team of AI Specialists",
-              "text": "ZooClaw routes your natural language requests to the right AI agent automatically, with no setup or deployment required. It syncs with the latest models behind the scenes, so you always get the best-fit specialist for each task, whether it is writing, analysis, or code generation. Try it as a single command layer for teams that are tired of juggling five different AI subscriptions. Try it &rarr;"
+              "headline": "KREV: Turn One Product Photo Into Launch-Ready Ad Creative",
+              "text": "KREV takes a single product image and generates product photos, video ads, and on-brand creative assets guided by real ad performance signals and proven creative patterns. If you run an ecommerce brand, upload your hero shot and let KREV produce variations optimized for conversion rather than generic aesthetics. It fills the gap between a Canva mockup and a full creative agency sprint. Try it &rarr;"
             },
             {
-              "headline": "Noiz AI: Text to Voice to Story in One Flow",
-              "text": "Noiz AI, the top-ranked product on Product Hunt for April 2026, chains text generation, voice synthesis, and narrative structuring into a single pipeline. Feed it a script outline and it returns a voiced, paced story ready for podcasts, social reels, or internal training content. Content creators should test it as a replacement for the three-tool workflow of writing, TTS, and audio editing. Try it &rarr; Lab Report &rarr;"
+              "headline": "T-Rex Label: Speed Up Vision Data Labeling by 10x",
+              "text": "T-Rex Label is a newly launched tool designed to accelerate the labeling of image datasets for computer vision projects. Instead of manually drawing bounding boxes across thousands of frames, point T-Rex at your dataset and let it propose labels that you confirm or correct. If you are training custom object detection or segmentation models, this can compress weeks of annotation work into days. Try it &rarr;"
             },
             {
-              "headline": "Tether AI: Schedule and Automate Tasks With a Personal Agent",
-              "text": "Tether AI is a personal agent you can program to automate recurring tasks on your behalf, from scheduling follow-ups to pulling reports at set intervals. Unlike generic automation platforms, it is designed for individual workflows rather than team-wide orchestration. Set it up for the repetitive admin work you keep postponing: weekly data pulls, reminder chains, or inbox triage sequences. Try it &rarr;"
+              "headline": "ListIQ by BuzzStream: AI-Built Media Lists in Minutes",
+              "text": "ListIQ automates the tedious process of building media outreach lists by using AI to identify relevant journalists, bloggers, and outlets based on your pitch topic. Feed it your campaign brief and it returns a ranked, filterable list with contact details and relevance scores. PR teams and startup founders running their own outreach should test it before manually combing through databases. Try it &rarr;"
             },
             {
-              "headline": "ParliAI: Crowdsource AI Perspectives Before You Decide",
-              "text": "ParliAI is a decision-support tool that gathers multiple AI-generated responses to a single question, letting you compare reasoning paths before committing to a choice. It is especially useful for high-stakes calls where a single model's bias could steer you wrong. Use it when evaluating vendor contracts, strategic pivots, or any decision where you want a structured devil's advocate before pulling the trigger. Try it &rarr; Lab Report &rarr;"
+              "headline": "Usable Scroll: Audit Your Social Media Consumption Patterns",
+              "text": "Usable Scroll uses AI to analyze your scroll behavior across TikTok, Instagram, Reddit, and other platforms, surfacing how much time you spend and what content patterns dominate your feed. Use the insights to set concrete boundaries: if the tool shows you spend 40 minutes daily on short-form video, that is a measurable target to reclaim. Think of it as screen time reporting with actual behavioral analysis instead of a simple clock. Try it &rarr;"
             }
           ]
         },
@@ -216,11 +192,234 @@
             },
             {
               "headline": "Bitcoin",
-              "text": "$66,997.12 (-0.44%)"
+              "text": "$69,934.38 (+1.38%)"
             },
             {
               "headline": "Ethereum",
-              "text": "$2,043.94 (-1.02%)"
+              "text": "$2,159.76 (+2.36%)"
+            },
+            {
+              "headline": "Oil Brent",
+              "text": "$107.30 (-2.26%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "13 (Extreme Fear)"
+            }
+          ]
+        }
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-04-06.html"
+    },
+    {
+      "date": "2026-04-05",
+      "sections": [
+        {
+          "title": "Today's Focus",
+          "items": [
+            {
+              "headline": "Claude Mythos 5's Scale Leap",
+              "text": "Anthropic's 10 trillion parameter model dwarfs anything publicly documented, raising immediate questions about inference cost, safety benchmarks, and competitive response. This launch lands in the same week Zhipu AI shipped a fast proprietary update and ChatGPT crossed 900 million weekly users, signaling that the frontier race has entered a new phase of raw scale competition."
+            },
+            {
+              "headline": "Gulf Conflict Hits Energy Supply",
+              "text": "Iranian drone strikes on Bahrain's energy infrastructure and claims of shooting down a U.S. C-130 mark a dangerous escalation that directly threatens global oil flows. OPEC+ responded with a modest 206,000 barrel per day output increase, but the move looks insufficient given the scale of disruption. Nepal's decision to cut its workweek to just two days over fuel scarcity illustrates how quickly supply shocks cascade to vulnerable economies."
+            },
+            {
+              "headline": "Enterprise AI Pushes Forward",
+              "text": "AWS launched autonomous agents for cloud operations while Criteo introduced generative AI tools for ad optimization, both targeting concrete enterprise workflows rather than general intelligence. These releases suggest that even amid extreme market fear, the commercial AI stack is maturing fast. The gap between frontier research spectacle and production-grade tooling continues to narrow."
+            }
+          ]
+        },
+        {
+          "title": "Markets",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,582.69 (+0.11%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "21,879.18 (+0.18%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$67,480.54 (+0.28%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$2,065.55 (+0.02%)"
+            },
+            {
+              "headline": "Oil",
+              "text": "$109.05 (+2.06%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "12 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "AI Developments",
+          "items": [
+            {
+              "headline": "Zhipu AI Ships Fast Proprietary Model Update",
+              "text": "Chinese AI lab Zhipu AI released a fast proprietary model update on April 3, positioned as a significant but non-frontier advancement. The release adds to a wave of Chinese model activity that included Alibaba Cloud's Qwen team shipping a proprietary update on March 31. Zhipu's update was tracked on LLM Stats alongside Google's open-source variants from the same week. Source &rarr;"
+            },
+            {
+              "headline": "OpenAI ChatGPT Super App Hits 900M Weekly Users",
+              "text": "OpenAI unveiled a ChatGPT super app strategy that consolidates chat, coding, search, and agent capabilities into a unified interface. The company now reports 900 million weekly active users and significant enterprise revenue following its $852 billion valuation round. The move signals a shift toward centralizing AI capabilities into a single consumer and enterprise gateway. Source &rarr;"
+            },
+            {
+              "headline": "Criteo GO Brings Generative AI to Ad Optimization",
+              "text": "Criteo launched Criteo GO, a generative AI advertising optimization platform designed to make enterprise-level marketing tools accessible to startups and SMEs. The product was highlighted among April 2026's most practical AI product launches for smaller businesses. It represents a growing trend of AI tools moving from large enterprise exclusivity to broad commercial availability. Source &rarr;"
+            },
+            {
+              "headline": "AWS Launches Autonomous Agents for Operations",
+              "text": "Amazon Web Services released autonomous AI agents designed to streamline operational tasks for businesses, part of April 2026's wave of practical AI product launches. The agents target workflow automation rather than conversational AI, aligning with the broader industry shift toward agentic systems that execute multi-step processes. Details on pricing and availability were included in the initial rollout. Source &rarr;"
+            },
+            {
+              "headline": "Claude Mythos 5 Emerges With 10T Parameters",
+              "text": "Anthropic's Claude Mythos 5 has surfaced in benchmark tracking with a reported 10 trillion parameters, leading on multi-step planning tasks in cybersecurity and research domains. The model represents a new scale threshold for commercial AI systems. Prediction markets give a Claude Mythos broad release only a 39% probability before April 30, suggesting limited availability so far. Source &rarr;"
+            },
+            {
+              "headline": "Gemini 3.1 Ultra Scores 94.3% on GPQA Diamond",
+              "text": "Google DeepMind's Gemini 3.1 Ultra posted a 94.3% score on the GPQA Diamond benchmark, establishing a new high-water mark for graduate-level reasoning evaluation. The model's native multimodal architecture distinguishes it from competitors that bolt on vision or audio capabilities. It sits alongside GPT-5.4 Thinking and Grok 4.20 at the frontier tier. Source &rarr;"
+            },
+            {
+              "headline": "Prediction Markets Price GPT-5.5 at 76% for April",
+              "text": "Manifold prediction markets assign a 76% probability to a GPT-5.5 release before April 30, with DeepSeek V4 at 67% and Claude Mythos at 39%. The crowded pipeline reflects an industry release cadence that has accelerated to one significant model update every 72 hours on average. None of these anticipated releases have been confirmed by their respective companies. Source &rarr;"
+            },
+            {
+              "headline": "Grok 4.20 Claims 78% Non-Hallucination Rate",
+              "text": "xAI's Grok 4.20, featuring a four-agent parallel system and a claimed 2 million token context window, reports a 78% non-hallucination rate on factual accuracy benchmarks. The model leads on factual accuracy metrics but trails competitors on reasoning tasks. Its future development path remains uncertain following SpaceX's acquisition of xAI. Source &rarr;"
+            },
+            {
+              "headline": "Microsoft Copilot Adds Anthropic Claude to Workflows",
+              "text": "Microsoft's upgraded Copilot platform now allows multiple AI models, including OpenAI's GPT and Anthropic's Claude, to collaborate within a single workflow. A new Critique feature has one model generate output while another evaluates it, creating an adversarial quality loop. The Cowork agent is rolling out to early access enterprise customers. Source &rarr;"
+            },
+            {
+              "headline": "March 2026 Logged Over 30 Model Releases",
+              "text": "March 2026 saw more than 30 new AI model releases or significant updates from OpenAI, Anthropic, Google, NVIDIA, and others, creating what developers are calling unprecedented decision fatigue. A single week from March 10 to 16 produced 12 distinct model launches across six labs spanning text, code, image, and audio modalities. Industry analysts now recommend adopting a model portfolio strategy with abstraction layers to manage rapid deprecation cycles. Source &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "World News",
+          "items": [
+            {
+              "headline": "Iranian Drones Strike Bahrain Energy Infrastructure",
+              "text": "Iranian drone strikes hit Bahrain on April 5, igniting an oil tank fire at a Bapco Energies storage facility and severely damaging two power plants and desalination units. Bahrain's electricity and water ministry confirmed the attacks, which mark a significant expansion of Iranian targeting against Gulf Arab states in the widening 2026 Iran war. Source &rarr;"
+            },
+            {
+              "headline": "Iran Claims U.S. C-130 Shot Down Over Isfahan",
+              "text": "Iranian state media reported that a U.S. C-130 transport aircraft was shot down over Isfahan province during a search-and-rescue mission for a missing American airman. The incident, part of the ongoing 2026 U.S. pilot rescue operation in Iran, follows the downing of a U.S. F-15 reported on April 4 and represents a second major aircraft loss in days. Source &rarr;"
+            },
+            {
+              "headline": "Massive Weekend Strikes Hit Iran's Petrochemical Heartland",
+              "text": "Widespread waves of strikes continued across Iran over the April 3-4 weekend, targeting Tehran air defenses, ballistic missile arrays, and weapons R&D sites. A large-scale strike hit Iran's largest petrochemical complex in Mahshahr, responsible for approximately 70% of domestic gasoline supply. The Bushehr nuclear power plant area was struck for the fourth time, prompting Russia to begin evacuating 198 citizens working at the facility. Source &rarr;"
+            },
+            {
+              "headline": "OPEC+ Boosts Output 206,000 Barrels Amid Crisis",
+              "text": "OPEC+ increased oil production quotas by 206,000 barrels per day for the second consecutive month, responding to energy infrastructure damage and maritime disruptions caused by the Strait of Hormuz crisis. The move aims to ease global supply pressure as oil prices remain elevated near multi-year highs. Source &rarr;"
+            },
+            {
+              "headline": "Nepal Cuts Workweek to Two Days Over Fuel",
+              "text": "Nepal reduced government and school operations to just two days per week as the global fuel crisis triggered by the 2026 Iran war forces drastic conservation measures. The decision follows similar austerity steps by Bangladesh and Senegal, illustrating how the Hormuz disruption is cascading into developing economies far from the conflict zone. Source &rarr;"
+            },
+            {
+              "headline": "Hezbollah Claims Strike on Israeli Naval Vessel",
+              "text": "Hezbollah claimed it struck an Israeli military vessel off Lebanon's coast on April 5, while an Israeli airstrike killed five people in Kfar Hatta in Lebanon's South Governorate. The exchange marks continued escalation on the Israel-Lebanon front as the broader regional conflict intensifies. Source &rarr;"
+            },
+            {
+              "headline": "350 Palestinian Children Detained, Rights Groups Report",
+              "text": "Human rights organizations marked Palestinian Child's Day by highlighting that 350 Palestinian children are currently held in Israeli prisons. The groups reported worsening detention conditions and allegations of torture, calling for international intervention on behalf of the minors. Source &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "Featured Newsletters",
+          "items": [
+            {
+              "headline": "Superhuman",
+              "text": "NASA's Artemis II launches first crewed lunar mission in 54 years Scientists develop gene therapy injection that may 'reverse' deafness NASA qualifies iPhone 17 Pro Max for extended use in orbit for the first time Artemis II lifted off from Kennedy Space Center on April 1, carrying four astronauts on a trajectory that will bring them within 8,000 kilometers of the lunar surface, the first crewed Moon mission since the Apollo era. The flight is a stress test of the Orion spacecraft ahead of Artemis IV and V, which are planned to land on the Moon in 2028. Separately, scientists published results from a small but landmark gene therapy trial involving an injection that appears to reverse deafness, though the newsletter content was truncated before full details were provided. Artemis II crew shared viral photos of Earth from space, captured in part using NASA-issued iPhone 17 Pro Max units qualified for orbital use. The Artemis II mission will not land on the Moon; landing missions are slated for Artemis IV and V in 2028. A landmark gene therapy trial reported early results suggesting an injection could reverse deafness in patients. \"It's been one of those weeks where future generations may one day ask us: 'Where were you when it happened?'\""
+            },
+            {
+              "headline": "Superhuman",
+              "text": "Waymo hits 500,000 paid rides per week, a 10x increase in under two years Physical Intelligence in talks to raise $1B at an $11B valuation for robot-training AI Baidu Apollo Go system failure strands over 100 robotaxis on busy Wuhan roads Waymo's explosive growth from 50,000 weekly paid rides in 2024 to 500,000 today anchors this robotics-focused edition. The company expanded into seven Sun Belt markets from Austin to Orlando while maintaining a fleet of roughly 3,000 vehicles and rolling out its 6th-generation self-driving system. Meanwhile, the Baidu Apollo Go incident in Wuhan, where a system-wide failure simultaneously froze over 100 robotaxis in traffic, underscores the fragility risks that remain as autonomous fleets scale rapidly. Physical Intelligence, a two-year-old startup founded by ex-DeepMind staff, is building AI models that teach robots to fold clothes, make coffee, and assemble boxes, potentially reaching valuations near rivals Skild AI ($14B) and Figure AI ($39B). Waymo added seven new Sun Belt markets in the past year alone, with its 6th-gen self-driving system already in early development. Baidu's Apollo Go fleet suffered a simultaneous system failure in Wuhan, triggering unprecedented traffic disruption as stranded robotaxis blocked busy roads."
+            }
+          ]
+        },
+        {
+          "title": "Competitive Landscape",
+          "items": [
+            {
+              "headline": "OpenAI",
+              "text": "OpenAI's COO exit surfaced over the April 4-5 weekend, adding executive turbulence just as the company navigates its transition toward a for-profit structure and a potential public offering. The departure comes shortly after OpenAI closed a record fundraising round that valued it at $852 billion. No new model or product announcements have followed the March 5 launch of GPT-5.4; the company appears focused on organizational and financial milestones rather than shipping."
+            },
+            {
+              "headline": "Anthropic",
+              "text": "Anthropic launched Claude Mythos 5, a 10-trillion-parameter model targeting cybersecurity, coding, and academic reasoning, alongside Capabara, a more accessible mid-sized model designed to broaden its customer base. The dual-launch strategy mirrors the tiered approach competitors have adopted, pairing a frontier flagship with a cost-efficient workhorse. Mythos 5's parameter count represents a significant scale-up and positions Anthropic to compete directly with GPT-5.4 and Gemini 3.1 Pro on specialized professional tasks."
+            },
+            {
+              "headline": "Google DeepMind",
+              "text": "Following the April 2 release of Gemma 4 under Apache 2.0, the open model family is gaining traction in the developer community. Hugging Face posts show projects like MEDPAI, a medical imaging analysis tool combining object detection with Gemma 4's multimodal capabilities, illustrating rapid downstream adoption. The Gemma 4 lineup, spanning E2B through 31B Dense variants, gives Google DeepMind a broad open-weight footprint optimized for agentic workflows and advanced reasoning."
+            },
+            {
+              "headline": "Mistral",
+              "text": "Mistral AI has secured military contracts as European defense establishments look for alternatives to U.S.-headquartered AI providers, a trend accelerated by the Pentagon's own moves to deepen ties with domestic labs. The contracts complement Mistral's open-source commercial strategy anchored by Mistral Small 4, which posted a 0.7 GPQA score, competitive with far larger proprietary models. Mistral's dual-track approach, pairing open-source developer adoption with sovereign defense revenue, gives it a differentiated funding base among frontier labs."
+            }
+          ]
+        },
+        {
+          "title": "AI Tool Guide",
+          "items": [
+            {
+              "headline": "Reclaim.ai: Let AI Defend Your Deep Work Hours",
+              "text": "Reclaim.ai automatically blocks focus time on your calendar and reschedules lower-priority tasks into open gaps when conflicts arise. Instead of manually rearranging your day after every meeting invite, set your deep work preferences once and let the agent optimize around interruptions. Pair it with a daily review habit to ensure the AI's priorities still match yours. Try it &rarr;"
+            },
+            {
+              "headline": "Kilo Code: A Model-Agnostic Coding Agent Worth Testing",
+              "text": "Spotted in Product Hunt's 2026 roundup of best AI coding agents, Kilo Code lets you swap between different LLM backends while handling multi-file refactoring and pull request workflows. If you are tired of being locked into one model provider, try routing complex refactors through a stronger model and routine completions through a cheaper one. This mix-and-match approach can cut API costs while keeping output quality high. Try it &rarr; Lab Report &rarr;"
+            },
+            {
+              "headline": "Ollama: Run Large Language Models Locally With Zero Cloud Dependency",
+              "text": "Ollama ranked second among Product Hunt's best products of April 2026, offering the simplest path to running open-weight models like Gemma 4 on your own hardware. Install it, pull a model with a single command, and start prompting without sending data to any external server. For creative writers and developers who need privacy or offline access, this eliminates API latency and usage fees entirely. Try it &rarr;"
+            },
+            {
+              "headline": "Clockwise Prism: Resolve Team Calendar Conflicts via Chat",
+              "text": "Clockwise now includes Prism, a chat-based assistant that negotiates scheduling conflicts across your entire team's calendars. Instead of sending five Slack messages to find a meeting slot, ask Prism in natural language and it will propose times that protect everyone's focus blocks. Teams reporting 30% or more of their week lost to meetings should trial this before adding another scheduling tool. Try it &rarr;"
+            },
+            {
+              "headline": "Sleek Analytics: Real-Time Visitor Tracking With One Line of Code",
+              "text": "Sleek Analytics, a Product Hunt Awards winner with a 4.8 rating, gives you a live view of who is on your site right now without the complexity of traditional analytics platforms. Drop a single script tag into your HTML and you get clean, real-time dashboards with no cookie banners required. It is free to start, making it a strong alternative for indie builders who find Google Analytics overwhelming. Try it &rarr; Lab Report &rarr;"
+            },
+            {
+              "headline": "Influcio: Let an AI Agent Run Your Influencer Campaigns End to End",
+              "text": "Influcio topped the Product Hunt daily leaderboard on April 5, 2026, positioning itself as an AI marketing agent that handles influencer discovery, outreach, and real-time performance tracking in one workflow. Rather than juggling spreadsheets and DMs, define your campaign goals and let the agent match you with creators based on result-driven analytics. Marketing teams running more than two influencer campaigns simultaneously should test whether this collapses their coordination overhead. Try it &rarr; Lab Report &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,582.69 (+0.11%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "21,879.18 (+0.18%)"
+            },
+            {
+              "headline": "Bitcoin",
+              "text": "$67,480.54 (+0.28%)"
+            },
+            {
+              "headline": "Ethereum",
+              "text": "$2,065.55 (+0.02%)"
             },
             {
               "headline": "Oil Brent",
@@ -3607,17 +3806,71 @@
       "file": "morning-briefing-koda-2026-03-21.html"
     },
     {
+      "date": "2026-04-06",
+      "type": "editorial",
+      "file": "editorial/2026-04-06-the-case-for-llm-api-abstraction-layers-as-critical-infrastr.html",
+      "title": "The case for LLM API abstraction layers as critical infrastructure: why hardcoding a single model provider is now an",
+      "tag": "Tools",
+      "sections": [
+        {
+          "title": "Introduction",
+          "items": [
+            {
+              "headline": "The case for LLM API abstraction layers as critical infrastructure: why hardcoding a single model provider is now an",
+              "text": "Thirty new AI models shipped in March 2026. Thirty. That is one per day from OpenAI, Anthropic, Google, and NVIDIA combined. Claude Opus 4.6 dropped. Gemini 3.1 Pro landed. If your product was hardcoded to a single provider, you spent those 30 days praying nothing broke. Some teams were not that lucky. Meanwhile, AWS raised GPU instance pricing by 15% in January 2026. Inference costs across the industry fell 10x annually to $0.40 per million tokens. But that only helps if you can actually switch"
+            }
+          ]
+        },
+        {
+          "title": "The Swap Layer Principle",
+          "items": [
+            {
+              "headline": "The Swap Layer Principle",
+              "text": "I call this The Swap Layer Principle. Simple idea: the layer between your application logic and your model provider is the most valuable piece of infrastructure you own. Not your fine-tuned weights. Not your prompt library. The swap layer. Think of it like electrical outlets. You do not wire your toaster directly into the power plant. You plug it into a standardized outlet so you can switch appliances, switch power sources, and never rewire your kitchen. The Swap Layer Principle says your AI pro"
+            }
+          ]
+        },
+        {
+          "title": "Your AI Stack Is Either a Tractor, a Ferrari, or a Unicorn",
+          "items": [
+            {
+              "headline": "Your AI Stack Is Either a Tractor, a Ferrari, or a Unicorn",
+              "text": "Alright, let me break this down the Jack Roberts way. Your current AI integration falls into one of three buckets. The Tractor. It works. You hardcoded OpenAI's API, wrote your prompts, shipped the product. Ugly under the hood, but it gets the job done. Problem is, tractors do not corner well. When OpenAI deprecates a model version or hikes pricing, your tractor flips over in the ditch. You are looking at a full rewrite. I have talked to dev teams who burned 80+ engineering hours on a single mod"
+            }
+          ]
+        },
+        {
+          "title": "2031",
+          "items": [
+            {
+              "headline": "2031",
+              "text": "Zoom out five years. Here is what the landscape looks like. The ecosystem now exceeds 500 models across commercial APIs and open source, according to FundaAI's January 2026 analysis. ChatGPT alone has 800 million weekly active users. Perplexity handles 780 million queries monthly. Google's AI Overviews appear on more than 25% of searches. This is not a bubble. This is infrastructure. By 2031, I think the abstraction layer will be as invisible and essential as the TCP/IP stack. Nobody builds a we"
+            }
+          ]
+        },
+        {
+          "title": "What to Build This Weekend",
+          "items": [
+            {
+              "headline": "What to Build This Weekend",
+              "text": "You do not need a CS degree for this. You need a Saturday afternoon and a willingness to break things. Step 1: Install LiteLLM. It is open source. Run pip install litellm in your terminal. LiteLLM gives you a single Python function that routes to OpenAI, Anthropic, Google, Mistral, and dozens more. Swap the model name in one parameter. That is your swap layer, version one. Step 2: Set up two providers. Get an API key from OpenAI and one from Anthropic. Configure LiteLLM to use both. Write a simp"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-04-05",
       "type": "editorial",
       "file": "editorial/2026-04-05-the-open-weight-model-explosionseven-of-nine-march-releases-.html",
-      "title": "The open-weight model explosion—seven of nine March releases were open-weight—is",
+      "title": "The open-weight model explosion -seven of nine March releases were open-weight",
       "tag": "Strategy",
       "sections": [
         {
           "title": "Introduction",
           "items": [
             {
-              "headline": "The open-weight model explosion—seven of nine March releases were open-weight—is",
+              "headline": "The open-weight model explosion -seven of nine March releases were open-weight",
               "text": "Seven out of nine text models released in March 2026 were open-weight. That is a 78% open-weight share in a single month. Alibaba's Qwen 3.5 series alone covered every deployment tier from 0.8 billion to 397 billion parameters. DeepSeek V4 shipped with 1 trillion total parameters but only 32 billion active per token, cutting memory by 40% and boosting inference speed by 1.8x. And prediction markets now show 5 additional major models above 55% probability of shipping in April. Closed-model provid"
             }
           ]
@@ -4329,6 +4582,218 @@
     {
       "date": "2026-04-05",
       "type": "review",
+      "file": "reviews/2026-04-05-sleek-analytics-real-time-visitor-tracking-with-one-line-of-code.html",
+      "title": "Sleek Analytics",
+      "sections": [
+        {
+          "title": "Verdict",
+          "anchor": "verdict",
+          "items": [
+            {
+              "headline": "Sleek Analytics",
+              "text": "Sleek Analytics is built for indie makers, solo founders, and small site owners who want to know what is happening on their site without wading through the labyrinth of Google Analytics 4. At $5/month with GDPR/CCPA compliance baked in and zero cookie banners, it removes real friction from the analytics workflow. If you need deep funnel analysis or event tracking, this is not the tool for you yet. But if you want a clean, live pulse on your traffic with minimal setup, Sleek delivers exactly that"
+            }
+          ]
+        },
+        {
+          "title": "Key Features",
+          "anchor": "features",
+          "items": [
+            {
+              "headline": "Real-Time Visitor Tracking",
+              "text": "See exactly who is on your site at any given moment. Not aggregated data from yesterday. Live, right now."
+            },
+            {
+              "headline": "No Cookies, No Banners",
+              "text": "Sleek operates without cookies entirely. That means no annoying consent popups and no compliance headaches for GDPR or CCPA."
+            },
+            {
+              "headline": "One-Line Integration",
+              "text": "A single script tag in your HTML. No npm packages, no build steps, no configuration files. Copy, paste, done."
+            },
+            {
+              "headline": "Visitor Profiles",
+              "text": "Individual visitor profiles give you context on returning users without relying on cookies or personally identifiable information."
+            },
+            {
+              "headline": "Live Web Vitals",
+              "text": "Track Core Web Vitals in real time alongside your traffic data. Performance monitoring and analytics in one dashboard."
+            },
+            {
+              "headline": "GDPR & CCPA Compliant",
+              "text": "Built from the ground up for privacy compliance. No personal data collection means no legal gray areas for your site."
+            }
+          ]
+        },
+        {
+          "title": "Use Cases",
+          "anchor": "usecases",
+          "items": [
+            {
+              "headline": "Use Cases",
+              "text": "Sleek is not trying to replace enterprise analytics. It is targeting a specific audience, and it knows it. You launched a side project, a landing page, or a SaaS MVP. You want to know if anyone is actually visiting. GA4 feels like overkill. Sleek gives you the answer in seconds. Running a local business site or portfolio? You do not need conversion funnels. You need to know how many people visited today and where they came from. Sleek handles that cleanly. If you are building in the EU or simply"
+            }
+          ]
+        },
+        {
+          "title": "Limitations",
+          "anchor": "limitations",
+          "items": [
+            {
+              "headline": "Limitations",
+              "text": "Where Sleek falls short. These are real gaps, not nitpicks. You cannot track button clicks, form submissions, or custom events. If you need to measure conversions or user actions beyond pageviews, Sleek cannot do it yet. This is a significant gap for anyone doing product analytics. There is currently no way to export your analytics data as CSV, JSON, or through an API. Your data lives inside Sleek and stays there. For anyone who needs to pull numbers into spreadsheets or reporting tools, this is"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-05",
+      "type": "review",
+      "file": "reviews/2026-04-05-kilo-code-a-model-agnostic-coding-agent-worth-testing.html",
+      "title": "Kilo Code: A Model-Agnostic Coding Agent Worth Testing",
+      "sections": [
+        {
+          "title": "Verdict",
+          "anchor": "verdict",
+          "items": [
+            {
+              "headline": "Kilo Code: A Model-Agnostic Coding Agent Worth Testing",
+              "text": "Kilo Code is built for developers who refuse to be locked into a single AI provider. If you regularly juggle multi-file refactors, PR workflows, and want granular control over which model handles which task, this is one of the most flexible coding agents available today. It is especially compelling if you are cost-conscious; routing cheap completions to a lightweight model while reserving GPT-4 class power for architectural decisions can meaningfully reduce your monthly API bill without noticeab"
+            }
+          ]
+        },
+        {
+          "title": "Key Features",
+          "anchor": "features",
+          "items": [
+            {
+              "headline": "Model Routing",
+              "text": "Assign different LLM backends to different task types. Use a heavyweight model for architecture decisions and a fast, cheap model for boilerplate generation."
+            },
+            {
+              "headline": "AI-Powered Code Suggestions",
+              "text": "Context-aware completions that understand your codebase across multiple files. Not just autocomplete; it reasons about intent."
+            },
+            {
+              "headline": "Multi-File Refactoring",
+              "text": "Handles cross-file changes in a single operation. Rename a function, update its callers, and adjust tests in one pass."
+            },
+            {
+              "headline": "PR Workflow Integration",
+              "text": "Generates pull requests, writes descriptions, and integrates with GitHub and Bitbucket. Reduces the friction between coding and review."
+            },
+            {
+              "headline": "Bug Detection",
+              "text": "Scans for common patterns that lead to bugs. Catches null reference issues, off-by-one errors, and type mismatches before they hit production."
+            },
+            {
+              "headline": "Automated Testing Support",
+              "text": "Generates unit tests and integration tests based on your existing code. Useful for backfilling coverage on legacy codebases."
+            },
+            {
+              "headline": "Collaborative Coding Tools",
+              "text": "Slack and JIRA integrations let teams coordinate AI-assisted work. Share prompts, review AI-generated changes, and track what the agent modified."
+            },
+            {
+              "headline": "Cost Optimization",
+              "text": "The mix-and-match model approach means you only pay premium API rates when the task demands it. Routine completions can run on models that cost a fraction of GPT-4."
+            }
+          ]
+        },
+        {
+          "title": "Use Cases",
+          "anchor": "usecases",
+          "items": [
+            {
+              "headline": "Use Cases",
+              "text": "Kilo Code is not for everyone. Here is where it makes the most sense. If you are shipping across several repos and need to move fast, the multi-file refactoring and automated PR generation save real time. The free tier means there is no overhead beyond your API costs. Bug detection and test generation are particularly valuable when you inherit a codebase with minimal coverage. Point a strong model at the gnarly parts and let a cheaper one handle the straightforward fixes. Connecting third-party "
+            }
+          ]
+        },
+        {
+          "title": "Limitations",
+          "anchor": "limitations",
+          "items": [
+            {
+              "headline": "Limitations",
+              "text": "No tool is perfect. Here is what to watch out for. Language support outside the JavaScript/TypeScript ecosystem is more limited. If you are working primarily in Go, Rust, or less common languages, expect rougher edges. The agent's understanding of non-JS codebases is noticeably weaker. Getting Kilo Code running smoothly in your editor of choice may require additional configuration. Some editors need manual plugin installation and API key management. It is not always plug-and-play. The free tier "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-05",
+      "type": "review",
+      "file": "reviews/2026-04-05-influcio-let-an-ai-agent-run-your-influencer-campaigns-end-to-end.html",
+      "title": "Influcio",
+      "sections": [
+        {
+          "title": "Verdict",
+          "anchor": "verdict",
+          "items": [
+            {
+              "headline": "Influcio",
+              "text": "Influcio is built for marketing teams that are drowning in influencer coordination across multiple campaigns. If you are running two or more simultaneous influencer programs and spending hours on spreadsheets, DM threads, and manual performance tracking, the $29/month Pro tier is a reasonable bet to test whether AI-driven matching and real-time analytics can collapse that overhead. Solo creators or brands running a single campaign per quarter will likely find the free tier sufficient, but should"
+            }
+          ]
+        },
+        {
+          "title": "Key Features",
+          "anchor": "features",
+          "items": [
+            {
+              "headline": "AI-Driven Influencer Matching",
+              "text": "The agent analyzes your campaign goals, audience demographics, and budget to surface creators who are statistically likely to deliver results. Not just follower counts; it factors in engagement rates, audience overlap, and historical performance."
+            },
+            {
+              "headline": "Real-Time Campaign Analytics",
+              "text": "Live dashboards track impressions, clicks, conversions, and ROI as campaigns run. No more waiting for post-campaign reports to discover what worked and what burned budget."
+            },
+            {
+              "headline": "Unified Dashboard",
+              "text": "One interface for all active campaigns, creator communications, and performance metrics. Designed to replace the spreadsheet-plus-DMs workflow that most teams default to."
+            },
+            {
+              "headline": "Platform Integrations",
+              "text": "Connects to Facebook, Instagram, Twitter, and Google Analytics. Data flows in from your existing marketing stack rather than requiring manual exports and imports."
+            },
+            {
+              "headline": "Automated Outreach",
+              "text": "The AI agent handles initial creator outreach based on your campaign brief. It drafts personalized messages, manages follow-ups, and tracks response rates so your team is not manually chasing replies."
+            },
+            {
+              "headline": "Spend Optimization",
+              "text": "Result-driven analytics help you reallocate budget mid-campaign toward creators and channels that are actually converting. The system flags underperformers before they eat through your budget."
+            }
+          ]
+        },
+        {
+          "title": "Use Cases",
+          "anchor": "usecases",
+          "items": [
+            {
+              "headline": "Use Cases",
+              "text": "Influcio is not for everyone. Here is where it makes the most sense. If your team is juggling three or more influencer campaigns at once, the coordination overhead alone justifies testing Influcio. The unified dashboard and automated outreach are designed to eliminate the chaos of parallel campaign management. Direct-to-consumer brands that have validated influencer marketing and want to scale from a handful of creators to dozens will benefit from the AI matching and spend optimization. The $29/"
+            }
+          ]
+        },
+        {
+          "title": "Limitations",
+          "anchor": "limitations",
+          "items": [
+            {
+              "headline": "Limitations",
+              "text": "What to know before committing. The free tier gives you basic campaign tools and limited AI features, but no customization, no API access, and data caps that will frustrate anyone running real campaigns. It is a trial, not a viable long-term option. If your team needs to pipe Influcio data into internal dashboards, CRMs, or custom reporting tools, you are locked out unless you go Enterprise. For a tool positioning itself as part of a modern marketing stack, this is a notable gap at the Pro tier."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-05",
+      "type": "review",
       "file": "reviews/2026-04-05-chattee-build-full-stack-apps-through-conversation.html",
       "title": "Chattee: Build Full-Stack Apps Through Conversation",
       "sections": [
@@ -4414,21 +4879,7 @@
           "items": [
             {
               "headline": "Superhuman's AI Triage Cuts Email to Decision-Only",
-              "text": "Superhuman is the best email client for professionals who receive 100+ emails daily and need to protect deep work time. The AI triage is genuinely useful; it correctly routes newsletters, notifications, and low-priority threads out of your primary view, leaving only messages that demand your judgment. At $30/month, it is expensive compared to free alternatives like Gmail's native filters, but the time savings are real if email volume is your bottleneck. If you get fewer than 50 emails a day, the"
-            }
-          ]
-        },
-        {
-          "title": "Pricing",
-          "anchor": "pricing",
-          "items": [
-            {
-              "headline": "Free",
-              "text": "$0"
-            },
-            {
-              "headline": "Pro",
-              "text": "$30 /month"
+              "text": "Superhuman is the best email client for professionals who receive 100+ emails daily and need to protect deep focus time. At $30/month it is not cheap, but the AI triage, split inbox, and instant reply drafts genuinely compress a 90-minute email session into 20 minutes. If email is a core part of your workflow and you are drowning, this pays for itself in the first week. If you get fewer than 50 emails a day, you probably do not need it."
             }
           ]
         },
@@ -4437,46 +4888,36 @@
           "anchor": "features",
           "items": [
             {
-              "headline": "AI Email Triage",
-              "text": "The core feature. Superhuman's AI classifies incoming mail and routes newsletters, notifications, and FYI threads into separate split inbox views. Your primary inbox shows only messages that need a decision or reply. Set this up on day one."
+              "headline": "AI Auto-Triage",
+              "text": "Incoming email is automatically classified into actionable, FYI, and noise. The AI learns your patterns over time, getting more accurate the longer you use it. Within a few days, it correctly routes about 90% of messages without intervention."
             },
             {
-              "headline": "AI Draft Replies",
-              "text": "Generates contextual reply drafts based on the email thread. You review, edit, and send. It handles routine acknowledgments well. Complex negotiations still need your voice, but the first draft saves real time."
+              "headline": "Split Inbox",
+              "text": "Newsletters, notifications, and CC-only threads are routed out of your primary view automatically. You see only emails that require a decision or response. This is the single most impactful feature; set it up on day one."
+            },
+            {
+              "headline": "AI-Drafted Replies",
+              "text": "Superhuman generates contextual reply drafts that match your writing style. They are not perfect, but they give you a solid starting point. For routine acknowledgments and scheduling replies, the drafts are often ready to send as-is."
             },
             {
               "headline": "Follow-Up Reminders",
-              "text": "Surfaces emails where you are waiting on a reply. No more manually tracking who owes you a response. The system detects unanswered threads and nudges you at configurable intervals."
+              "text": "The system tracks sent emails and surfaces reminders when you have not received a response within a configurable window. No more manually tracking who owes you a reply. This alone prevents dozens of dropped threads per week."
             },
             {
-              "headline": "Keyboard-First Design",
-              "text": "Every action has a shortcut. Power users can process their entire inbox without touching the mouse. The learning curve is about a week, but the speed gains compound daily."
+              "headline": "Keyboard-First Speed",
+              "text": "Every action is mapped to a keyboard shortcut. Power users can process their entire inbox without touching the mouse. The command palette (Cmd+K) surfaces any action instantly. Processing speed is genuinely 2-3x faster than Gmail's native interface."
+            },
+            {
+              "headline": "Read Statuses",
+              "text": "See exactly when recipients open your emails. Useful for sales, follow-ups, and knowing whether your message was seen before you ping again. Works reliably across most email clients on the receiving end."
+            },
+            {
+              "headline": "Instant Summaries",
+              "text": "Long email threads are condensed into a brief summary so you can catch up without reading every message. Particularly valuable for threads with 10+ replies where you were added late. Saves significant time on cross-functional discussions."
             },
             {
               "headline": "Calendar Integration",
-              "text": "Google Calendar lives inside the sidebar. You can check availability and schedule meetings without leaving the email client. Reduces context switching between tabs."
-            },
-            {
-              "headline": "Read Receipts and Tracking",
-              "text": "Pro tier only. See when recipients open your emails. Useful for sales follow-ups and time-sensitive outreach. Some people find this creepy; others find it essential. Your call."
-            },
-            {
-              "headline": "Mobile App",
-              "text": "Full-featured iOS and Android apps that mirror the desktop experience. The split inbox and AI triage work identically on mobile, which matters when you are triaging on the go."
-            },
-            {
-              "headline": "Advanced Analytics",
-              "text": "Pro tier. Tracks your response times, email volume trends, and productivity patterns. Useful for managers who want to quantify communication overhead across their team."
-            }
-          ]
-        },
-        {
-          "title": "Integrations",
-          "anchor": "integrations",
-          "items": [
-            {
-              "headline": "Integrations",
-              "text": "Connects to the tools most teams already use."
+              "text": "View your calendar alongside email and schedule meetings directly from the compose window. Availability sharing is built in. Reduces the back-and-forth of finding meeting times, though it does not fully replace a dedicated scheduling tool."
             }
           ]
         },
@@ -4486,7 +4927,7 @@
           "items": [
             {
               "headline": "Use Cases",
-              "text": "Superhuman is not for everyone. Here is where it delivers the most value. If you receive 150+ emails daily and need to protect blocks of deep work, the AI triage alone justifies the cost. Route everything non-essential out of sight automatically. Read receipts, follow-up reminders, and fast reply drafting make this a strong fit for outbound sales workflows. Know exactly when a prospect opens your proposal. When you are wearing every hat, email can eat your entire morning. The split inbox and key"
+              "text": "Specific roles and scenarios where Superhuman delivers clear value If you receive 150+ emails daily and every hour of deep work matters, the AI triage alone justifies the cost. Split inbox keeps investor updates, board threads, and team requests separated cleanly. Read statuses, follow-up reminders, and fast reply drafts are built for outbound-heavy workflows. Knowing when a prospect opens your email changes your follow-up timing entirely. Teams managing agency relationships, vendor communicatio"
             }
           ]
         },
@@ -4496,7 +4937,7 @@
           "items": [
             {
               "headline": "Limitations",
-              "text": "No tool is perfect. Here is what you should know before committing. Superhuman does one thing. It does not replace Slack, your project management tool, or your CRM. If you need a unified communication hub, this is not it. You are paying $30/month for an email client, and nothing else. The calendar sidebar, Slack notifications, and Zoom scheduling only work if you connect those services. Out of the box, Superhuman is a fast email client. The \"productivity platform\" experience requires setup and t"
+              "text": "Where Superhuman falls short. No tool is perfect. $30/month is a hard sell for light email users. If you get fewer than 50 emails a day, Gmail with a few filters does 80% of what Superhuman offers. The value scales directly with inbox volume. Low volume means low ROI. Gmail and Google Workspace only (with Outlook support still limited). If your organization runs on Microsoft 365, the experience is not as polished. Superhuman was built Gmail-first, and it shows in the edge cases with Outlook acco"
             }
           ]
         }
@@ -4506,33 +4947,15 @@
       "date": "2026-04-04",
       "type": "review",
       "file": "reviews/2026-04-04-noiz-ai-text-to-voice-to-story-in-one-flow.html",
-      "title": "Noiz AI: Text to Voice to Story in One Flow",
+      "title": "Noiz AI",
       "sections": [
         {
           "title": "Verdict",
           "anchor": "verdict",
           "items": [
             {
-              "headline": "Noiz AI: Text to Voice to Story in One Flow",
-              "text": "Noiz AI is built for content creators who are tired of stitching together three or four separate tools to get from a rough idea to a finished narrated piece. If you produce podcast intros, short audio stories, narrated explainers, or educational content, the unified pipeline genuinely saves time and reduces friction. At $19/month for the Pro tier, it is competitively priced against running separate subscriptions for a writing assistant, a TTS service, and an audio editor. The free plan is useful"
-            }
-          ]
-        },
-        {
-          "title": "Pricing",
-          "anchor": "pricing",
-          "items": [
-            {
-              "headline": "Free",
-              "text": "$0"
-            },
-            {
-              "headline": "Pro",
-              "text": "$19/month"
-            },
-            {
-              "headline": "Enterprise",
-              "text": "Custom"
+              "headline": "Noiz AI",
+              "text": "Noiz AI is built for solo content creators and small teams who want to go from a rough text outline to a polished, narrated audio story without juggling three or four separate tools. The $29/month Pro plan is where the real value lives; the free tier is too limited on voice options to produce anything you would actually publish. If you are already deep in a workflow with dedicated TTS tools like ElevenLabs or a full DAW setup, Noiz probably will not replace that. But for podcast intros, short ex"
             }
           ]
         },
@@ -4541,36 +4964,36 @@
           "anchor": "features",
           "items": [
             {
-              "headline": "Seamless Text-to-Voice Conversion",
-              "text": "Feed in raw text and get natural-sounding voice output without leaving the app. The synthesis engine handles pacing, emphasis, and tone automatically based on context."
+              "headline": "Text Generation",
+              "text": "Start with a rough outline or prompt. Noiz expands it into structured narrative text, handling pacing and tone automatically."
             },
             {
-              "headline": "Complete Story Crafting Workflow",
-              "text": "Noiz structures your content into a narrative arc. You provide an outline or bullet points; it returns a coherent story with intro, body, and conclusion ready for narration."
+              "headline": "Voice Synthesis",
+              "text": "Converts generated text to natural-sounding speech. Pro users get the full voice library plus custom voice cloning."
             },
             {
-              "headline": "User-Friendly Interface",
-              "text": "The pipeline is linear and visual. Each stage (text, structure, voice) is a clear step in the UI. No hidden menus, no confusing modal stacks. You see your content evolve in real time."
+              "headline": "Narrative Structuring",
+              "text": "Chains text and voice into a coherent story arc. Handles transitions, pacing, and segment ordering within the pipeline."
             },
             {
               "headline": "Multi-Language Support",
-              "text": "Generate and narrate stories in multiple languages. Useful for creators targeting international audiences or producing localized versions of the same content."
+              "text": "Generate and narrate content in multiple languages. Useful for creators targeting international audiences."
             },
             {
-              "headline": "Integration Capabilities",
-              "text": "Connects to Google Drive, Dropbox, Slack, Zapier, and WordPress. Export finished audio directly to your CMS or trigger story generation from a Zap."
+              "headline": "Customizable Voices",
+              "text": "Adjust pitch, speed, and tone. Pro plan includes custom voice creation for brand consistency across episodes."
             },
             {
-              "headline": "Advanced Voice Controls (Pro)",
-              "text": "Pro users get granular control over voice speed, pitch, emotional tone, and pauses. This is where Noiz separates itself from basic TTS tools that offer a single flat reading."
+              "headline": "Single-Flow Interface",
+              "text": "No tab switching. Text, voice, and story assembly happen in one continuous workspace. The UI is clean and linear."
             },
             {
-              "headline": "Story Templates",
-              "text": "Pre-built templates for podcast intros, explainer scripts, fiction shorts, and marketing narratives. Good starting points that save 10 to 15 minutes of structural work per piece."
+              "headline": "Integrations",
+              "text": "Connects to Zapier, Slack, Microsoft Teams, and Google Cloud for distribution and team notification workflows."
             },
             {
-              "headline": "Single Pipeline Execution",
-              "text": "The core value proposition: text generation, narrative structuring, and voice synthesis happen in one continuous flow. No exporting between tools, no copy-pasting, no format conversion headaches."
+              "headline": "API Access (Enterprise)",
+              "text": "Enterprise customers can integrate the full pipeline into their own products and internal tools via API."
             }
           ]
         },
@@ -4580,7 +5003,7 @@
           "items": [
             {
               "headline": "Integrations",
-              "text": "Where Noiz AI plugs into your existing workflow."
+              "text": "Where Noiz AI plugs into your existing stack."
             }
           ]
         },
@@ -4590,7 +5013,7 @@
           "items": [
             {
               "headline": "Use Cases",
-              "text": "Specific audiences and why Noiz fits their workflow. Generate scripted intros, outros, and segment transitions with consistent voice quality. Particularly useful for solo podcasters who want a polished sound without hiring voice talent for every episode. Turn blog posts, newsletters, or social media threads into narrated audio content. Repurpose written material into a new format without the overhead of recording and editing. Create narrated lesson summaries, audio study guides, or story-based l"
+              "text": "Specific scenarios where Noiz AI makes sense. Generate and narrate podcast intros, outros, and segment transitions quickly. Especially useful for solo podcasters who do not want to record every filler segment themselves. Draft short-form audio stories or chapters and hear them narrated immediately. Not a replacement for professional narration on a full book, but solid for prototyping and short content. Turn blog posts, newsletters, or product updates into narrated audio explainers for distributi"
             }
           ]
         },
@@ -4600,7 +5023,7 @@
           "items": [
             {
               "headline": "Limitations",
-              "text": "Where Noiz AI falls short. No sugarcoating. The free tier gives you basic TTS and template access, but the voice options are sparse. You will hit the ceiling fast. It works as a demo, not as a production tool. Expect to upgrade within a week if you are serious. Everything runs in the cloud. If you are on a flight, in a low-connectivity area, or simply prefer local processing for privacy reasons, Noiz will not work. There is no desktop app or offline mode on the roadmap as of April 2026. Voice cu"
+              "text": "What you should know before committing. The free plan restricts voice options to a small subset. You can test the concept, but you will not produce publishable audio on it. This is effectively a trial, not a usable free tier. Noiz AI is web-only. There is no native iOS or Android app. If you need to create or edit audio content on the go, this is a real gap. Multi-user collaboration is minimal. If your team needs to co-edit scripts or review audio together in real time, you will need to work aro"
             }
           ]
         }
@@ -4610,15 +5033,15 @@
       "date": "2026-04-04",
       "type": "review",
       "file": "reviews/2026-04-04-luzo-open-source-visual-debugger-for-multi-step-api-workflows.html",
-      "title": "Luzo: Open-Source Visual Debugger for Multi-Step API Workflows",
+      "title": "Luzo",
       "sections": [
         {
-          "title": "Pricing",
-          "anchor": "pricing",
+          "title": "Verdict",
+          "anchor": "verdict",
           "items": [
             {
-              "headline": "Free",
-              "text": "$0 forever"
+              "headline": "Luzo",
+              "text": "Luzo fills a genuine gap for backend engineers and QA teams who spend too much time tracing failures across chained API calls. The visual canvas with dependency awareness and the ability to retry from a specific failure point (without restarting the entire flow) are its standout features. If you are building or maintaining microservice integrations, webhook sequences, or multi-step API pipelines, the free tier is worth trying immediately. The $15/month Pro plan makes sense once you need collabor"
             }
           ]
         },
@@ -4627,28 +5050,38 @@
           "anchor": "features",
           "items": [
             {
-              "headline": "Dependency-Aware Flow Design",
-              "text": "Define explicit dependencies between API steps. Luzo understands which calls must complete before others fire, preventing race conditions and making execution order transparent on the canvas."
+              "headline": "Visual Workflow Design",
+              "text": "Drag and drop API steps onto a canvas. Connect them visually to define execution order. No more mentally tracing JSON configs or YAML files to understand what calls what."
+            },
+            {
+              "headline": "Dependency-Aware Flows",
+              "text": "Steps understand their dependencies. If Step 3 depends on the output of Step 1 and Step 2, Luzo enforces that ordering and surfaces broken links before you run anything."
+            },
+            {
+              "headline": "Live Timeline Inspector",
+              "text": "Watch each step execute in real time on a timeline view. See request/response payloads, status codes, latency, and headers at every stage of the chain."
             },
             {
               "headline": "Variable Passing Between Steps",
-              "text": "Extract values from one response and inject them into the next request. No more copying tokens or IDs by hand. Variables flow through the chain automatically."
+              "text": "Extract values from one step's response and inject them into the next step's request. Token chaining, ID forwarding, and dynamic URL construction are all handled natively."
             },
             {
-              "headline": "Live Timeline Execution Inspector",
-              "text": "Watch every step execute in real time on a visual timeline. See request/response pairs, status codes, latency, and payload data as each step completes or fails."
+              "headline": "Retry From Failure Point",
+              "text": "When step 7 of 12 fails, you do not have to re-run steps 1 through 6. Luzo caches intermediate state and lets you retry from the exact point of failure. This alone saves significant debugging time."
             },
             {
-              "headline": "Retry from Failure Point",
-              "text": "When a step fails, you do not have to re-run the entire workflow. Retry from the exact failure point, preserving all prior state. This alone can save significant debugging time."
-            },
+              "headline": "Open Source",
+              "text": "The core is open source. You can inspect the code, contribute, or fork it for internal use. This matters for teams with strict security requirements who need to audit their tooling."
+            }
+          ]
+        },
+        {
+          "title": "Integrations",
+          "anchor": "integrations",
+          "items": [
             {
-              "headline": "Visual Canvas Builder",
-              "text": "Drag and drop API steps onto a canvas, draw connections, and see your entire workflow at a glance. Much easier to reason about than a flat list of requests in a collection."
-            },
-            {
-              "headline": "Open-Source and Extensible",
-              "text": "The full source code is available. You can audit it, fork it, contribute to it, or customize it for your team's specific needs. No vendor lock-in."
+              "headline": "Integrations",
+              "text": "Current integration support. The list is short but covers the essentials."
             }
           ]
         },
@@ -4658,7 +5091,7 @@
           "items": [
             {
               "headline": "Use Cases",
-              "text": "If your system relies on chained webhooks (payment provider to order service to notification service), Luzo lets you model and test the entire chain visually. You can see exactly where a webhook fails to deliver the expected payload. Teams building or maintaining microservice architectures can use Luzo to test cross-service API flows without writing throwaway scripts. Model the auth call, the data fetch, the transformation, and the write-back in one visual workflow. QA engineers can build reprod"
+              "text": "Specific scenarios where Luzo earns its place in your stack. If you maintain webhook chains where service A triggers B triggers C, Luzo lets you visualize the entire sequence and pinpoint exactly which hop fails. No more grepping through logs across three different services. Backend teams building or maintaining microservice architectures can map out cross-service API calls, test them in sequence, and verify that data flows correctly between services before deploying. QA teams who need to valida"
             }
           ]
         },
@@ -4668,7 +5101,7 @@
           "items": [
             {
               "headline": "Limitations",
-              "text": "info Desktop-only. There is no web-based or cloud-hosted version. Every team member needs to install the desktop app. This makes collaboration harder, especially for distributed teams who want to share workflows without exporting files. info No third-party integrations. As of this review, Luzo does not integrate with CI/CD pipelines, monitoring tools, or API gateways. You cannot trigger a Luzo workflow from GitHub Actions or pipe results into Datadog. For now, it is a standalone debugging tool. "
+              "text": "Honest gaps you should know about before committing. Luzo is desktop-first with no web or mobile version. If your workflow involves debugging from a tablet, a remote server terminal, or a browser-based dev environment, you are out of luck. This also means no quick checks from your phone when something breaks at 2 AM. Engineers accustomed to cURL, Postman, or scripted API testing will need time to adapt to the canvas-based approach. The visual model is powerful once internalized, but the initial "
             }
           ]
         }
@@ -4685,6 +5118,54 @@
             {
               "headline": "AIF 2026",
               "text": "[Feature] Runway's fourth annual AI Festival celebrates the intersection of art and technology. Showcasing AI films and creative works, it highlights how today's creatives are using advanced tools to reshape artistic expression across various fields."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-05-01",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Databricks",
+          "items": [
+            {
+              "headline": "Git-based deployment for Databricks Apps will soon be available for workspaces with the compliance security profile enabled",
+              "text": "[Feature] Beginning in early May 2026, Git-based deployment for Databricks Apps will be automatically enabled for workspaces that have the compliance security profile enabled, facilitating streamlined CI/CD workflows through direct app deployment from a Git repository."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "ChatGPT Enterprise & Edu - Release Notes",
+              "text": "[Feature] This post outlines significant updates and enhancements to ChatGPT Enterprise, including the introduction of Codex seats offering flexible pricing, updates to various application integrations, and various feature enhancements including project management and analytics. Additionally, the release notes cover updates to the model picker and various new integrations to enhance the user experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Google",
+          "items": [
+            {
+              "headline": "Gemma 4: Byte for byte, the most capable open models",
+              "text": "[Developer Tools] Gemma 4 represents Google's most advanced open models to date, designed for complex reasoning and workflows. With enhanced performance across various sizes, it aims to empower developers with state-of-the-art capabilities while maintaining efficient hardware utilization."
             }
           ]
         }
@@ -4797,6 +5278,22 @@
             {
               "headline": "Bring state-of-the-art agentic skills to the edge with Gemma 4",
               "text": "[Feature] Google DeepMind has launched Gemma 4, a family of advanced open models that empower developers to create agentic and autonomous AI solutions directly on their devices. With capabilities such as multi-step planning and support for over 140 languages, Gemma 4 marks a significant leap in on-device AI development, making complex workflows and applications more accessible."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-01",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Samsung",
+          "items": [
+            {
+              "headline": "Turning Your Travel Moments Into Lasting Memories ②: San Francisco With Galaxy AI",
+              "text": "[Feature] This blog post explores the advanced AI features of the Galaxy S26 Ultra that enhance travel photography, allowing users to edit and transform their photos into artistic creations. It discusses tools like Photo Assist and Creative Studio that help users re-imagine their travel moments more vividly."
             }
           ]
         }
@@ -5064,6 +5561,38 @@
       "file": "changelog/index.html",
       "sections": [
         {
+          "title": "Adobe",
+          "items": [
+            {
+              "headline": "Current Adobe Analytics release notes (March 2026)",
+              "text": "[Feature] These release notes outline the new features, enhancements, and fixes in Adobe Analytics for March 2026. They detail updates to functionality including panel breakdowns, multi-column sorting in Analysis Workspace, and improved Fallout visualizations. Regular updates to these notes reflect a continuous delivery model for feature deployment."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-30",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Cursor",
+          "items": [
+            {
+              "headline": "Technical Report on Composer 2",
+              "text": "[Research] This blog post discusses a technical report on Composer 2, a coding model for agentic software engineering. The report details the model's training processes, including continued pretraining on an open base model and large-scale reinforcement learning, highlighting the improvements in performance and efficiency achieved with the new system."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-30",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
           "title": "Hugging Face",
           "items": [
             {
@@ -5128,6 +5657,22 @@
       "file": "changelog/index.html",
       "sections": [
         {
+          "title": "Cursor",
+          "items": [
+            {
+              "headline": "Self-Summarization in Composer: Enhancing Long-Horizon Task Performance",
+              "text": "[Research] The blog discusses how Composer is trained for long tasks using a reinforcement learning process known as self-summarization. This technique allows Composer to efficiently handle and summarize extensive context, improving its ability to tackle challenging coding tasks requiring numerous actions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-27",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
           "title": "ElevenLabs",
           "items": [
             {
@@ -5176,11 +5721,43 @@
       "file": "changelog/index.html",
       "sections": [
         {
+          "title": "Microsoft",
+          "items": [
+            {
+              "headline": "March 26, 2026—KB5079391 (OS Builds 26200.8116 and 26100.8116) Preview",
+              "text": "[API Update] This update addresses installation issues identified after its release and includes production-quality improvements for Windows 11, versions 25H2 and 24H2. The update is not available for new devices until a fix is implemented in the subsequent update."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-26",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Perplexity",
+          "items": [
+            {
+              "headline": "Perplexity APIs Power AI Browsing on Samsung Devices",
+              "text": "[Partnership] Samsung has launched Browsing Assist, a conversational AI assistant built into the Samsung Browser on both Galaxy Android devices and Windows PCs, powered by Perplexity APIs. This partnership enhances AI functionalities for millions of Galaxy users, allowing them to interact more intuitively with web content and streamline their browsing experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-26",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
           "title": "Databricks",
           "items": [
             {
               "headline": "Databricks SQL version 2026.10 is now available in Preview",
-              "text": "[Feature] The Databricks SQL version 2026.10 has been released in the Preview channel, introducing significant new features and bug fixes. Notable enhancements include improvements to observation metrics, optimized writes for Unity Catalog, support for filter clauses in aggregate functions, and enhanced geospatial functions."
+              "text": "[Feature] Databricks SQL version 2026.10 is now available in the Preview channel, featuring various improvements including fixes for observation metric errors, support for FILTER clauses in MEASURE aggregate functions, and optimized writes for Unity Catalog CRTAS operations. Users are encouraged to review the new features and behavioral changes introduced in this release."
             }
           ]
         }
@@ -5240,6 +5817,22 @@
       "file": "changelog/index.html",
       "sections": [
         {
+          "title": "Databricks",
+          "items": [
+            {
+              "headline": "Databricks Release Notes - AWS GovCloud 2026",
+              "text": "[Feature] This post contains the release notes for Databricks on AWS GovCloud in 2026, detailing various platform features, improvements, and fixes. The updates include features such as serverless private connectivity, import of pre-built usage dashboards, and enhancements to the Databricks assistant, Genie Code."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
           "title": "OpenAI",
           "items": [
             {
@@ -5261,6 +5854,22 @@
             {
               "headline": "3 new Gemini features are coming to Google TV",
               "text": "[Feature] Google TV is introducing three new Gemini features that enhance the viewing experience with richer visual answers, narrated deep dives, and timely sports updates. These features make it easier for users to explore topics of interest on their screens."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Google",
+          "items": [
+            {
+              "headline": "Google NewFront 2026: introducing the Gemini advantage",
+              "text": "[Feature] At Google NewFront, the Gemini advantage is highlighted as a way to supercharge the Google Marketing Platform, delivering enhanced intelligence and value for advertisers. This article explores how Gemini models improve return on investment through predictive customer behavior and optimized campaigns across various channels."
             }
           ]
         }
@@ -5336,11 +5945,75 @@
       "file": "changelog/index.html",
       "sections": [
         {
+          "title": "Perplexity",
+          "items": [
+            {
+              "headline": "Comet for iOS: A New Era of AI-Powered Browsing",
+              "text": "[Feature] Perplexity has launched Comet for iOS, enhancing the web experience for iPhone users. With features like voice mode and hybrid search results, Comet combines traditional search with advanced AI assistance, ensuring a seamless browsing experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-18",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Cursor",
+          "items": [
+            {
+              "headline": "NVIDIA's Integration of Cursor for Enhanced AI-driven Software Development",
+              "text": "[Feature] NVIDIA has leveraged Cursor to embed AI throughout the software development lifecycle, resulting in significant efficiency gains and increased code generation by over three times. By adopting Cursor, NVIDIA has been able to automate core production workflows, enhance productivity for developers, and streamline the onboarding process for new hires."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-18",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
           "title": "OpenAI",
           "items": [
             {
               "headline": "Model Release Notes",
               "text": "[Model Release] This update details the rollout of GPT-5.4 mini and various model updates for GPT-5.3 and GPT-5.1, highlighting improvements in reasoning, coding capabilities, and user experience. The release also notes the retirement and changes to several existing models, alongside enhancements to the thinking time and response styles in ChatGPT."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-17",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Together AI",
+          "items": [
+            {
+              "headline": "Mamba-3",
+              "text": "[Research] Mamba-3 is a new state space model optimized for inference efficiency, significantly improving performance over its predecessor, Mamba-2. It introduces a more expressive recurrence formula and complex-valued state tracking, enabling more accurate multi-input, multi-output processing while maintaining low latency."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-17",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Perplexity",
+          "items": [
+            {
+              "headline": "Introducing Comet Enterprise: AI Browsing for Teams",
+              "text": "[Feature] Comet Enterprise, the newest version of the fast-growing AI browser, offers organizations enhanced security and management features. Designed for team use, it allows IT leaders to deploy AI browsing while providing tools to ensure secure governance and protect against threats like phishing and malware."
             }
           ]
         }
@@ -5437,6 +6110,38 @@
             {
               "headline": "Batch API supports Image and Video generation",
               "text": "[API Update] The Batch API has expanded its capabilities to include image generation and video generation alongside chat completions. Both server-side and client-side tools are now supported in batch requests, with URLs for image and video results expiring after one hour."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-14",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "ElevenLabs",
+          "items": [
+            {
+              "headline": "The best AAA video game sound effects tools (2025)",
+              "text": "[Feature] This blog post explores the leading sound effects tools essential for enhancing AAA video game audio design. It discusses the importance of these tools in creating immersive gaming experiences and provides insights into various software options available for developers."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-14",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "ElevenLabs",
+          "items": [
+            {
+              "headline": "Top Alternatives to Character AI",
+              "text": "[Feature] This blog post explores various alternatives to Character AI, highlighting their unique features and functionalities for creating AI-generated characters and interactions. It also discusses the challenges faced by Character AI and emphasizes how other platforms offer diverse solutions for users seeking engaging AI experiences."
             }
           ]
         }
@@ -5624,6 +6329,54 @@
       "file": "changelog/index.html",
       "sections": [
         {
+          "title": "Mistral",
+          "items": [
+            {
+              "headline": "Rails testing on autopilot: Building an agent that writes what developers won't",
+              "text": "[Research] This post discusses the development of an autonomous agent designed to enhance test coverage in large Rails monoliths, addressing the common issue of insufficient testing. The agent automatically generates and improves RSpec tests, validates them, and runs within CI/CD pipelines, significantly improving code quality without human intervention."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-11",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Perplexity",
+          "items": [
+            {
+              "headline": "Agent API: A Managed Runtime for Agentic Workflows",
+              "text": "[API Update] The Perplexity Agent API has been released, providing a managed runtime for developing agentic workflows with built-in search, tool execution, and multi-model orchestration. It simplifies multiple services into a single integration point, allowing for efficient tool selection and execution to meet objectives."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-11",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Samsung",
+          "items": [
+            {
+              "headline": "Galaxy Unpacked February 2026: what was announced",
+              "text": "[Feature] During Samsung's Galaxy Unpacked event on February 25, 2026, several new products were unveiled including the Galaxy S26 Ultra, S26+, S26 smartphones, and the Galaxy Buds4 Pro and Buds4. The S26 Ultra features a 6.9\" display, advanced camera capabilities, and a powerful 5,000 mAh battery, highlighting its innovations in personal privacy and video quality."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-11",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
           "title": "OpenAI",
           "items": [
             {
@@ -5741,54 +6494,6 @@
             {
               "headline": "Introducing Runway Characters",
               "text": "[Feature] Runway has launched Runway Characters, a real-time video agent API enabling the creation of fully custom conversational characters from a single image. These characters can adapt in appearance and style, offering extensive customization in voice, personality, and actions, paving the way for a new era in online interactions."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-03-05",
-      "type": "changelog",
-      "file": "changelog/index.html",
-      "sections": [
-        {
-          "title": "OpenAI",
-          "items": [
-            {
-              "headline": "Introducing GPT-5.4",
-              "text": "[Feature] OpenAI announced the release of GPT-5.4, a significant upgrade to its language model offering improved capabilities. This new version aims to enhance user interactions and performance across various applications."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-03-05",
-      "type": "changelog",
-      "file": "changelog/index.html",
-      "sections": [
-        {
-          "title": "OpenAI",
-          "items": [
-            {
-              "headline": "The five AI value models driving business reinvention",
-              "text": "[Feature] This post discusses five key AI value models that are transforming how businesses operate and innovate. It highlights the importance of integrating AI into business strategies for enhanced efficiency and competitiveness."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-03-05",
-      "type": "changelog",
-      "file": "changelog/index.html",
-      "sections": [
-        {
-          "title": "Adobe",
-          "items": [
-            {
-              "headline": "2026 Adobe Analytics Release Notes",
-              "text": "[Feature] The 2026 release notes for Adobe Analytics outline new features and improvements, including enhanced data feeds and API guides. Significant updates also focus on the user experience and managing templates, while several bug fixes are documented for accuracy and reliability."
             }
           ]
         }

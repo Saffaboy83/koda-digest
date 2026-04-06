@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-04-04T10:13:07.774418+00:00",
+  "generated_at": "2026-04-06T09:49:29.943323+00:00",
   "company_count": 25,
-  "companies_with_posts": 15,
-  "total_entries": 70,
-  "new_today": 9,
+  "companies_with_posts": 17,
+  "total_entries": 87,
+  "new_today": 21,
   "entries": [
     {
       "company": "Runway",
@@ -13,6 +13,33 @@
       "summary": "Runway's fourth annual AI Festival celebrates the intersection of art and technology. Showcasing AI films and creative works, it highlights how today's creatives are using advanced tools to reshape artistic expression across various fields.",
       "date": "2026-06-11",
       "category": "Feature"
+    },
+    {
+      "company": "Databricks",
+      "color": "#FF3621",
+      "url": "https://docs.databricks.com/aws/en/release-notes/whats-coming",
+      "title": "Git-based deployment for Databricks Apps will soon be available for workspaces with the compliance security profile enabled",
+      "summary": "Beginning in early May 2026, Git-based deployment for Databricks Apps will be automatically enabled for workspaces that have the compliance security profile enabled, facilitating streamlined CI/CD workflows through direct app deployment from a Git repository.",
+      "date": "2026-05-01",
+      "category": "Feature"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://help.openai.com/zh-hant-hk/articles/10128477-chatgpt-enterprise-edu-release-notes",
+      "title": "ChatGPT Enterprise & Edu - Release Notes",
+      "summary": "This post outlines significant updates and enhancements to ChatGPT Enterprise, including the introduction of Codex seats offering flexible pricing, updates to various application integrations, and various feature enhancements including project management and analytics. Additionally, the release notes cover updates to the model picker and various new integrations to enhance the user experience.",
+      "date": "2026-04-02",
+      "category": "Feature"
+    },
+    {
+      "company": "Google",
+      "color": "#3B82F6",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/",
+      "title": "Gemma 4: Byte for byte, the most capable open models",
+      "summary": "Gemma 4 represents Google's most advanced open models to date, designed for complex reasoning and workflows. With enhanced performance across various sizes, it aims to empower developers with state-of-the-art capabilities while maintaining efficient hardware utilization.",
+      "date": "2026-04-02",
+      "category": "Developer Tools"
     },
     {
       "company": "OpenAI",
@@ -75,6 +102,15 @@
       "title": "Bring state-of-the-art agentic skills to the edge with Gemma 4",
       "summary": "Google DeepMind has launched Gemma 4, a family of advanced open models that empower developers to create agentic and autonomous AI solutions directly on their devices. With capabilities such as multi-step planning and support for over 140 languages, Gemma 4 marks a significant leap in on-device AI development, making complex workflows and applications more accessible.",
       "date": "2026-04-02",
+      "category": "Feature"
+    },
+    {
+      "company": "Samsung",
+      "color": "#1428A0",
+      "url": "https://news.samsung.com/uk/turning-your-travel-moments-into-lasting-memories-%E2%91%A1-san-francisco-with-galaxy-ai",
+      "title": "Turning Your Travel Moments Into Lasting Memories ②: San Francisco With Galaxy AI",
+      "summary": "This blog post explores the advanced AI features of the Galaxy S26 Ultra that enhance travel photography, allowing users to edit and transform their photos into artistic creations. It discusses tools like Photo Assist and Creative Studio that help users re-imagine their travel moments more vividly.",
+      "date": "2026-04-01",
       "category": "Feature"
     },
     {
@@ -222,6 +258,24 @@
       "category": "Feature"
     },
     {
+      "company": "Adobe",
+      "color": "#FF0000",
+      "url": "https://experienceleague.adobe.com/en/docs/analytics/release-notes/latest",
+      "title": "Current Adobe Analytics release notes (March 2026)",
+      "summary": "These release notes outline the new features, enhancements, and fixes in Adobe Analytics for March 2026. They detail updates to functionality including panel breakdowns, multi-column sorting in Analysis Workspace, and improved Fallout visualizations. Regular updates to these notes reflect a continuous delivery model for feature deployment.",
+      "date": "2026-03-30",
+      "category": "Feature"
+    },
+    {
+      "company": "Cursor",
+      "color": "#7DD3FC",
+      "url": "https://cursor.com/blog/composer-2-technical-report",
+      "title": "Technical Report on Composer 2",
+      "summary": "This blog post discusses a technical report on Composer 2, a coding model for agentic software engineering. The report details the model's training processes, including continued pretraining on an open base model and large-scale reinforcement learning, highlighting the improvements in performance and efficiency achieved with the new system.",
+      "date": "2026-03-30",
+      "category": "Research"
+    },
+    {
       "company": "Hugging Face",
       "color": "#FFD21E",
       "url": "https://huggingface.co/blog/rishiraj/fused-int8-weight-only-quantization-in-pallas",
@@ -258,6 +312,15 @@
       "category": "Partnership"
     },
     {
+      "company": "Cursor",
+      "color": "#7DD3FC",
+      "url": "https://cursor.com/blog/self-summarization",
+      "title": "Self-Summarization in Composer: Enhancing Long-Horizon Task Performance",
+      "summary": "The blog discusses how Composer is trained for long tasks using a reinforcement learning process known as self-summarization. This technique allows Composer to efficiently handle and summarize extensive context, improving its ability to tackle challenging coding tasks requiring numerous actions.",
+      "date": "2026-03-27",
+      "category": "Research"
+    },
+    {
       "company": "ElevenLabs",
       "color": "#F472B6",
       "url": "https://elevenlabs.io/blog/the-state-of-ai-audio-in-publishing-and-news",
@@ -285,11 +348,29 @@
       "category": "Feature"
     },
     {
+      "company": "Microsoft",
+      "color": "#00A4EF",
+      "url": "https://support.microsoft.com/en-us/topic/march-26-2026-kb5079391-os-builds-26200-8116-and-26100-8116-preview-7c9e2275-b9ba-4068-aeb0-23da42b81d3b",
+      "title": "March 26, 2026—KB5079391 (OS Builds 26200.8116 and 26100.8116) Preview",
+      "summary": "This update addresses installation issues identified after its release and includes production-quality improvements for Windows 11, versions 25H2 and 24H2. The update is not available for new devices until a fix is implemented in the subsequent update.",
+      "date": "2026-03-26",
+      "category": "API Update"
+    },
+    {
+      "company": "Perplexity",
+      "color": "#F59E0B",
+      "url": "https://www.perplexity.ai/hub/blog/perplexity-apis-power-ai-browsing-on-samsung-devices",
+      "title": "Perplexity APIs Power AI Browsing on Samsung Devices",
+      "summary": "Samsung has launched Browsing Assist, a conversational AI assistant built into the Samsung Browser on both Galaxy Android devices and Windows PCs, powered by Perplexity APIs. This partnership enhances AI functionalities for millions of Galaxy users, allowing them to interact more intuitively with web content and streamline their browsing experience.",
+      "date": "2026-03-26",
+      "category": "Partnership"
+    },
+    {
       "company": "Databricks",
       "color": "#FF3621",
-      "url": "https://docs.databricks.com/aws/en/sql/release-notes/2026",
+      "url": "https://docs.databricks.com/gcp/en/sql/release-notes/2026",
       "title": "Databricks SQL version 2026.10 is now available in Preview",
-      "summary": "The Databricks SQL version 2026.10 has been released in the Preview channel, introducing significant new features and bug fixes. Notable enhancements include improvements to observation metrics, optimized writes for Unity Catalog, support for filter clauses in aggregate functions, and enhanced geospatial functions.",
+      "summary": "Databricks SQL version 2026.10 is now available in the Preview channel, featuring various improvements including fixes for observation metric errors, support for FILTER clauses in MEASURE aggregate functions, and optimized writes for Unity Catalog CRTAS operations. Users are encouraged to review the new features and behavioral changes introduced in this release.",
       "date": "2026-03-26",
       "category": "Feature"
     },
@@ -321,6 +402,15 @@
       "category": "Research"
     },
     {
+      "company": "Databricks",
+      "color": "#FF3621",
+      "url": "https://docs.databricks.com/aws/en/release-notes/gov-cloud/2026",
+      "title": "Databricks Release Notes - AWS GovCloud 2026",
+      "summary": "This post contains the release notes for Databricks on AWS GovCloud in 2026, detailing various platform features, improvements, and fixes. The updates include features such as serverless private connectivity, import of pre-built usage dashboards, and enhancements to the Databricks assistant, Genie Code.",
+      "date": "2026-03-24",
+      "category": "Feature"
+    },
+    {
       "company": "OpenAI",
       "color": "#10B981",
       "url": "https://openai.com/index/update-on-the-openai-foundation/",
@@ -336,6 +426,15 @@
       "title": "3 new Gemini features are coming to Google TV",
       "summary": "Google TV is introducing three new Gemini features that enhance the viewing experience with richer visual answers, narrated deep dives, and timely sports updates. These features make it easier for users to explore topics of interest on their screens.",
       "date": "2026-03-24",
+      "category": "Feature"
+    },
+    {
+      "company": "Google",
+      "color": "#3B82F6",
+      "url": "https://blog.google/products/marketingplatform/360/gemini-models-advantage-google-marketing-platform/",
+      "title": "Google NewFront 2026: introducing the Gemini advantage",
+      "summary": "At Google NewFront, the Gemini advantage is highlighted as a way to supercharge the Google Marketing Platform, delivering enhanced intelligence and value for advertisers. This article explores how Gemini models improve return on investment through predictive customer behavior and optimized campaigns across various channels.",
+      "date": "2026-03-23",
       "category": "Feature"
     },
     {
@@ -375,6 +474,24 @@
       "category": "Feature"
     },
     {
+      "company": "Perplexity",
+      "color": "#F59E0B",
+      "url": "https://www.perplexity.ai/hub/blog/meet-comet-for-ios",
+      "title": "Comet for iOS: A New Era of AI-Powered Browsing",
+      "summary": "Perplexity has launched Comet for iOS, enhancing the web experience for iPhone users. With features like voice mode and hybrid search results, Comet combines traditional search with advanced AI assistance, ensuring a seamless browsing experience.",
+      "date": "2026-03-18",
+      "category": "Feature"
+    },
+    {
+      "company": "Cursor",
+      "color": "#7DD3FC",
+      "url": "https://cursor.com/blog/nvidia",
+      "title": "NVIDIA's Integration of Cursor for Enhanced AI-driven Software Development",
+      "summary": "NVIDIA has leveraged Cursor to embed AI throughout the software development lifecycle, resulting in significant efficiency gains and increased code generation by over three times. By adopting Cursor, NVIDIA has been able to automate core production workflows, enhance productivity for developers, and streamline the onboarding process for new hires.",
+      "date": "2026-03-18",
+      "category": "Feature"
+    },
+    {
       "company": "OpenAI",
       "color": "#10B981",
       "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
@@ -382,6 +499,24 @@
       "summary": "This update details the rollout of GPT-5.4 mini and various model updates for GPT-5.3 and GPT-5.1, highlighting improvements in reasoning, coding capabilities, and user experience. The release also notes the retirement and changes to several existing models, alongside enhancements to the thinking time and response styles in ChatGPT.",
       "date": "2026-03-18",
       "category": "Model Release"
+    },
+    {
+      "company": "Together AI",
+      "color": "#EC4899",
+      "url": "https://www.together.ai/blog/mamba-3",
+      "title": "Mamba-3",
+      "summary": "Mamba-3 is a new state space model optimized for inference efficiency, significantly improving performance over its predecessor, Mamba-2. It introduces a more expressive recurrence formula and complex-valued state tracking, enabling more accurate multi-input, multi-output processing while maintaining low latency.",
+      "date": "2026-03-17",
+      "category": "Research"
+    },
+    {
+      "company": "Perplexity",
+      "color": "#F59E0B",
+      "url": "https://www.perplexity.ai/hub/blog/comet-enterprise-is-here",
+      "title": "Introducing Comet Enterprise: AI Browsing for Teams",
+      "summary": "Comet Enterprise, the newest version of the fast-growing AI browser, offers organizations enhanced security and management features. Designed for team use, it allows IT leaders to deploy AI browsing while providing tools to ensure secure governance and protect against threats like phishing and malware.",
+      "date": "2026-03-17",
+      "category": "Feature"
     },
     {
       "company": "Midjourney",
@@ -436,6 +571,24 @@
       "summary": "The Batch API has expanded its capabilities to include image generation and video generation alongside chat completions. Both server-side and client-side tools are now supported in batch requests, with URLs for image and video results expiring after one hour.",
       "date": "2026-03-15",
       "category": "API Update"
+    },
+    {
+      "company": "ElevenLabs",
+      "color": "#F472B6",
+      "url": "https://elevenlabs.io/blog/best-aaa-video-game-sound-effects-tools-2024-enhance-your-game-design",
+      "title": "The best AAA video game sound effects tools (2025)",
+      "summary": "This blog post explores the leading sound effects tools essential for enhancing AAA video game audio design. It discusses the importance of these tools in creating immersive gaming experiences and provides insights into various software options available for developers.",
+      "date": "2026-03-14",
+      "category": "Feature"
+    },
+    {
+      "company": "ElevenLabs",
+      "color": "#F472B6",
+      "url": "https://elevenlabs.io/blog/character-ai-alternatives",
+      "title": "Top Alternatives to Character AI",
+      "summary": "This blog post explores various alternatives to Character AI, highlighting their unique features and functionalities for creating AI-generated characters and interactions. It also discusses the challenges faced by Character AI and emphasizes how other platforms offer diverse solutions for users seeking engaging AI experiences.",
+      "date": "2026-03-14",
+      "category": "Feature"
     },
     {
       "company": "ElevenLabs",
@@ -537,6 +690,33 @@
       "category": "Feature"
     },
     {
+      "company": "Mistral",
+      "color": "#F97316",
+      "url": "https://mistral.ai/news/rails-testing-on-autopilot-building-an-agent-that-writes-what-developers-wont",
+      "title": "Rails testing on autopilot: Building an agent that writes what developers won't",
+      "summary": "This post discusses the development of an autonomous agent designed to enhance test coverage in large Rails monoliths, addressing the common issue of insufficient testing. The agent automatically generates and improves RSpec tests, validates them, and runs within CI/CD pipelines, significantly improving code quality without human intervention.",
+      "date": "2026-03-11",
+      "category": "Research"
+    },
+    {
+      "company": "Perplexity",
+      "color": "#F59E0B",
+      "url": "https://www.perplexity.ai/hub/blog/agent-api-a-managed-runtime-for-agentic-workflows",
+      "title": "Agent API: A Managed Runtime for Agentic Workflows",
+      "summary": "The Perplexity Agent API has been released, providing a managed runtime for developing agentic workflows with built-in search, tool execution, and multi-model orchestration. It simplifies multiple services into a single integration point, allowing for efficient tool selection and execution to meet objectives.",
+      "date": "2026-03-11",
+      "category": "API Update"
+    },
+    {
+      "company": "Samsung",
+      "color": "#1428A0",
+      "url": "https://www.samsung.com/uk/support/mobile-devices/galaxy-unpacked/",
+      "title": "Galaxy Unpacked February 2026: what was announced",
+      "summary": "During Samsung's Galaxy Unpacked event on February 25, 2026, several new products were unveiled including the Galaxy S26 Ultra, S26+, S26 smartphones, and the Galaxy Buds4 Pro and Buds4. The S26 Ultra features a 6.9\" display, advanced camera capabilities, and a powerful 5,000 mAh battery, highlighting its innovations in personal privacy and video quality.",
+      "date": "2026-03-11",
+      "category": "Feature"
+    },
+    {
       "company": "OpenAI",
       "color": "#10B981",
       "url": "https://openai.com/news/engineering",
@@ -606,33 +786,6 @@
       "title": "Introducing Runway Characters",
       "summary": "Runway has launched Runway Characters, a real-time video agent API enabling the creation of fully custom conversational characters from a single image. These characters can adapt in appearance and style, offering extensive customization in voice, personality, and actions, paving the way for a new era in online interactions.",
       "date": "2026-03-09",
-      "category": "Feature"
-    },
-    {
-      "company": "OpenAI",
-      "color": "#10B981",
-      "url": "https://openai.com/news/company-announcements",
-      "title": "Introducing GPT-5.4",
-      "summary": "OpenAI announced the release of GPT-5.4, a significant upgrade to its language model offering improved capabilities. This new version aims to enhance user interactions and performance across various applications.",
-      "date": "2026-03-05",
-      "category": "Feature"
-    },
-    {
-      "company": "OpenAI",
-      "color": "#10B981",
-      "url": "https://openai.com/news/ai-adoption",
-      "title": "The five AI value models driving business reinvention",
-      "summary": "This post discusses five key AI value models that are transforming how businesses operate and innovate. It highlights the importance of integrating AI into business strategies for enhanced efficiency and competitiveness.",
-      "date": "2026-03-05",
-      "category": "Feature"
-    },
-    {
-      "company": "Adobe",
-      "color": "#FF0000",
-      "url": "https://experienceleague.adobe.com/en/docs/analytics/release-notes/previous/2026",
-      "title": "2026 Adobe Analytics Release Notes",
-      "summary": "The 2026 release notes for Adobe Analytics outline new features and improvements, including enhanced data feeds and API guides. Significant updates also focus on the user experience and managing templates, while several bug fixes are documented for accuracy and reliability.",
-      "date": "2026-03-05",
       "category": "Feature"
     }
   ]
