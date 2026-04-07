@@ -210,23 +210,62 @@ def llm_call(prompt: str, system: str = "", max_tokens: int = 8000,
 
 # ── Tool Selection ─────────────────────────────────────────────────────────
 
+# Aggregator/directory domains that 408 on scrape (JS-heavy)
+AGGREGATOR_DOMAINS = (
+    "producthunt.com", "theresanaiforthat.com", "futuretools.io",
+    "toolify.ai", "alternativeto.net", "g2.com", "capterra.com",
+)
+
+
+def _resolve_product_url(tool_name: str, aggregator_url: str) -> str | None:
+    """Resolve an aggregator URL to the actual product website via search.
+
+    Returns the resolved URL or None if resolution fails.
+    """
+    # Extract just the product name (before the colon in titles like "Domscribe: Give Your AI...")
+    short_name = tool_name.split(":")[0].strip()
+
+    try:
+        resp = httpx.post(
+            f"{FIRECRAWL_API_URL}/search",
+            json={"query": f"{short_name} official website", "limit": 5},
+            headers={
+                "Authorization": f"Bearer {FIRECRAWL_API_KEY}",
+                "Content-Type": "application/json",
+            },
+            timeout=15,
+        )
+        resp.raise_for_status()
+        results = resp.json().get("data", [])
+        for r in results:
+            url = r.get("url", "")
+            if not url:
+                continue
+            # Skip results that are themselves aggregator pages
+            if any(domain in url for domain in AGGREGATOR_DOMAINS):
+                continue
+            # Skip social media, Wikipedia, etc.
+            skip_domains = ("twitter.com", "x.com", "linkedin.com", "facebook.com",
+                            "wikipedia.org", "youtube.com", "github.com", "reddit.com")
+            if any(d in url for d in skip_domains):
+                continue
+            return url
+    except Exception as e:
+        print(f"      URL resolve failed for {short_name}: {e}")
+    return None
+
+
 def select_tools_for_review(
     tools: list[dict], recently_reviewed: frozenset[str] = frozenset()
 ) -> list[dict]:
     """Pick the top N tools from today's digest for deep review.
 
     Selection criteria:
-    - Has a working URL
+    - Has a working URL (aggregator URLs resolved to product sites)
     - Not a well-known tool
     - Not reviewed within the 30-day cooldown window
     - Prioritize tools with richer descriptions
     """
-    # Aggregator/directory domains that 408 on scrape (JS-heavy)
-    AGGREGATOR_DOMAINS = (
-        "producthunt.com", "theresanaiforthat.com", "futuretools.io",
-        "toolify.ai", "alternativeto.net", "g2.com", "capterra.com",
-    )
-
     candidates = []
     print(f"  Tool selection ({len(tools)} tools, {len(recently_reviewed)} recently reviewed):")
     for tool in tools:
@@ -241,10 +280,17 @@ def select_tools_for_review(
         if any(known in title.lower() for known in WELL_KNOWN_TOOLS):
             print(f"    SKIP {title} -- well-known tool")
             continue
-        # Skip aggregator/directory URLs (they 408 and aren't the actual tool)
+        # Resolve aggregator URLs to actual product websites
         if any(domain in url for domain in AGGREGATOR_DOMAINS):
-            print(f"    SKIP {title} -- aggregator URL: {url}")
-            continue
+            print(f"    RESOLVE {title} -- aggregator URL: {url}")
+            resolved = _resolve_product_url(title, url)
+            if resolved:
+                print(f"      -> resolved to: {resolved}")
+                tool = {**tool, "url": resolved}
+                url = resolved
+            else:
+                print(f"      -> could not resolve, skipping")
+                continue
         if slugify(title) in recently_reviewed:
             print(f"    SKIP {title} -- reviewed within {REVIEW_COOLDOWN_DAYS} days")
             continue
