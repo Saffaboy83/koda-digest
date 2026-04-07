@@ -1,0 +1,1136 @@
+{
+  "metadata": {
+    "name": "m365-copilot-dojo",
+    "description": "Interactive learning path for mastering Microsoft 365 Copilot -- the AI assistant embedded across Word, Excel, PowerPoint, Teams, Outlook, and more. Covers prompt crafting, document workflows, data analysis, meeting intelligence, cross-app pipelines, Copilot Studio agents, enterprise governance, and Power Platform automation.",
+    "version": "1.0.0",
+    "lastUpdated": "2026-04-06",
+    "refreshCadence": "weekly",
+    "totalModules": 15,
+    "totalPrompts": 56,
+    "sourceFiles": [
+      "Microsoft 365 Copilot Official Documentation",
+      "Microsoft Learn Copilot Training Paths",
+      "Microsoft Copilot Studio Documentation",
+      "Power Platform + Copilot Integration Guides",
+      "Microsoft Graph API Developer Docs",
+      "Microsoft Purview Compliance Documentation"
+    ]
+  },
+  "modules": [
+    {
+      "id": "m1",
+      "number": 1,
+      "title": "What is Microsoft 365 Copilot?",
+      "belt": "white",
+      "estimatedMinutes": 15,
+      "description": "Understand what M365 Copilot is, how it works under the hood (LLM + Microsoft Graph + M365 apps), and where it lives across the suite.",
+      "keyConcepts": [
+        "Microsoft Graph grounding",
+        "LLM plus app integration",
+        "Copilot surfaces (in-app vs Business Chat)",
+        "licensing and availability"
+      ],
+      "prerequisites": "A Microsoft 365 subscription with Copilot license enabled. Access to at least Word, Excel, PowerPoint, Outlook, and Teams.",
+      "concepts": [
+        {
+          "title": "The Three Layers of M365 Copilot",
+          "body": "M365 Copilot combines three layers: a large language model (GPT-4 class) for reasoning, Microsoft Graph for your organizational data (emails, files, meetings, contacts), and the M365 app layer for taking action. When you prompt Copilot in Word, it reasons about your request, pulls relevant context from Graph (your documents, emails, calendar), and executes within Word. This grounding in your real data is what separates M365 Copilot from a generic chatbot."
+        },
+        {
+          "title": "In-App Copilot vs Business Chat",
+          "body": "Copilot appears in two forms. In-app Copilot lives inside each M365 app (Word, Excel, PowerPoint, Teams, Outlook) and has app-specific capabilities -- drafting in Word, analyzing in Excel, creating slides in PowerPoint. Business Chat (the standalone Copilot app or microsoft365.com/chat) works across all your data at once -- it can search emails, files, meetings, and chats in a single query. Think of in-app Copilot as a specialist and Business Chat as a generalist."
+        },
+        {
+          "title": "The Permission Boundary",
+          "body": "M365 Copilot inherits your existing permissions. It can only access data you already have access to -- it never elevates privileges. If you cannot see a SharePoint site, Copilot cannot reference it. This is the fundamental security guarantee: Copilot respects the existing Microsoft Graph permission model. This also means overshared content becomes a risk, because Copilot surfaces it more easily."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "1.1",
+          "label": "Your First Copilot Prompt in Word",
+          "difficulty": "Beginner",
+          "prompt": "Open a blank Word document. Click the Copilot icon in the ribbon (or press Alt+I). Type this prompt:\n\n\"Draft a one-page project brief for a company-wide digital transformation initiative. Include sections for Objective, Scope, Timeline, Key Stakeholders, and Expected Outcomes. Use a professional tone suitable for executive leadership.\"\n\nReview the output. Note how Copilot structured the document with headings, bullet points, and professional language without being told the exact format.",
+          "expectedOutcome": "A well-structured one-page project brief with appropriate sections, demonstrating that Copilot generates formatted documents -- not just text responses."
+        },
+        {
+          "id": "1.2",
+          "label": "Explore Business Chat",
+          "difficulty": "Beginner",
+          "prompt": "Open the Copilot app (microsoft365.com/chat or the Copilot icon in Teams). Try these three prompts in sequence:\n\n1. \"What did I work on last week?\"\n2. \"Summarize the most recent email thread about [a real project name]\"\n3. \"What meetings do I have tomorrow and what should I prepare?\"\n\nAfter each response, note where Copilot pulled its information from (emails, files, calendar, chats). Compare this to asking the same questions in Word Copilot -- Business Chat pulls from everywhere while in-app Copilot stays within its app.",
+          "expectedOutcome": "Three responses grounded in your real organizational data, demonstrating Business Chat's cross-app intelligence via Microsoft Graph."
+        },
+        {
+          "id": "1.3",
+          "label": "Map the Copilot Surfaces",
+          "difficulty": "Beginner",
+          "prompt": "Visit Copilot in at least four different M365 apps. In each, note what Copilot can do:\n\n1. Word: Click Copilot icon -- what options appear? (Draft, Rewrite, Summarize, etc.)\n2. Excel: Open a spreadsheet with data -- what does Copilot offer? (Analyze, Formula, Chart, etc.)\n3. PowerPoint: Open a blank deck -- what can Copilot create? (From file, from topic, etc.)\n4. Teams: Open a recent meeting -- what recap options exist? (Summary, Action items, Follow-up)\n\nCreate a simple comparison table: App | Copilot Capabilities | Best For.",
+          "expectedOutcome": "A mental map of where Copilot lives and what it specializes in per app, establishing that Copilot adapts its capabilities to each context."
+        },
+        {
+          "id": "1.4",
+          "label": "Grounding with File References",
+          "difficulty": "Beginner",
+          "prompt": "In Business Chat, test the difference between grounded and ungrounded prompts:\n\n1. First, ask: \"What are best practices for quarterly business reviews?\"\n   (This uses general knowledge only -- no grounding)\n\n2. Then ask: \"Summarize the key points from /[name of a real document in your OneDrive]\" using the / command to reference a specific file.\n   (This is grounded in your actual data)\n\n3. Compare the two responses. Which is more useful for your actual work? Why?\n\nThe / reference syntax tells Copilot to ground its response in a specific file, email, or person's content rather than relying on general knowledge.",
+          "expectedOutcome": "A clear understanding of grounded vs ungrounded responses, and how the / reference syntax connects Copilot to your specific organizational data."
+        }
+      ],
+      "proTip": "Business Chat is the fastest way to find anything across your M365 data. Use it as your search engine replacement -- ask natural language questions instead of searching SharePoint or Outlook manually.",
+      "takeaways": [
+        "M365 Copilot = LLM + Microsoft Graph + M365 apps working together",
+        "In-app Copilot is a specialist; Business Chat is a cross-app generalist",
+        "Copilot inherits your permissions -- it never sees more than you can see",
+        "The / reference syntax grounds responses in specific files and data"
+      ]
+    },
+    {
+      "id": "m2",
+      "number": 2,
+      "title": "Prompt Anatomy and Crafting",
+      "belt": "white",
+      "estimatedMinutes": 20,
+      "description": "Learn the four-part prompt structure (goal, context, source, expectations) that gets the best results from M365 Copilot across all apps.",
+      "keyConcepts": [
+        "goal/task statement",
+        "context framing",
+        "source references",
+        "output expectations (format/tone/length)",
+        "iterative refinement"
+      ],
+      "prerequisites": "Module 1 completed. Familiarity with at least one M365 Copilot surface.",
+      "concepts": [
+        {
+          "title": "The Four-Part Prompt Framework",
+          "body": "Every effective Copilot prompt has four components: Goal (what you want done), Context (background information and constraints), Source (specific files or data to reference), and Expectations (format, tone, length, audience). You do not need all four every time, but the more you provide, the better the output. A one-line prompt gets a generic response; a four-part prompt gets a tailored deliverable."
+        },
+        {
+          "title": "Iterative Refinement",
+          "body": "Copilot conversations are iterative. Your first prompt gets you 70% there; follow-up prompts close the gap. Treat Copilot like a junior colleague: give direction, review output, provide feedback, and iterate. The best users rarely accept the first response -- they refine 2-3 times. Phrases like 'make this more concise,' 'add a section about X,' or 'rewrite for a technical audience' are normal follow-ups."
+        },
+        {
+          "title": "Tone and Audience Control",
+          "body": "Copilot responds to explicit audience and tone instructions. 'Write for the CFO' produces different output than 'write for a summer intern.' Specifying tone (formal, conversational, persuasive, neutral) and audience (executive, technical team, client) is one of the highest-leverage prompt improvements. Always state who will read the output."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "2.1",
+          "label": "The Four-Part Prompt",
+          "difficulty": "Beginner",
+          "prompt": "In Word Copilot, test the difference between a weak and strong prompt:\n\nWeak prompt: \"Write a proposal\"\n\nStrong prompt: \"Draft a 2-page project proposal for migrating our CRM system to Salesforce.\nContext: We are a 200-person B2B SaaS company currently using HubSpot. Migration budget is $150K. Timeline is Q3-Q4 2026.\nSource: Reference /[your RFP or requirements doc if available]\nExpectations: Professional tone for VP-level audience. Include sections for Executive Summary, Current State, Proposed Solution, Timeline, Budget Breakdown, and Risk Mitigation. Use bullet points for key items.\"\n\nCompare the two outputs side by side. How much more useful is the four-part version?",
+          "expectedOutcome": "Two drastically different outputs demonstrating that structured prompts with goal, context, source, and expectations produce dramatically better results."
+        },
+        {
+          "id": "2.2",
+          "label": "Prompt Refinement Loop",
+          "difficulty": "Beginner",
+          "prompt": "Practice iterative refinement in three rounds:\n\nRound 1: Ask Copilot to \"Write an email announcing a new company policy on remote work.\"\nReview the output. Note what is missing or generic.\n\nRound 2: Refine: \"Make it more specific. The policy allows 3 remote days per week starting June 1. Address the team of 50 people in the marketing department. Include the approval process for exceptions.\"\n\nRound 3: Refine again: \"Shorten to under 200 words. Add a welcoming tone. End with a call to action to read the full policy document linked at [URL].\"\n\nDocument how each round improved the output. This is the normal workflow -- not a failure of the first prompt.",
+          "expectedOutcome": "Three progressively better drafts showing that iterative refinement is the expected workflow, not a sign of a bad initial prompt."
+        },
+        {
+          "id": "2.3",
+          "label": "Tone and Audience Control",
+          "difficulty": "Beginner",
+          "prompt": "Ask Copilot to rewrite the same paragraph for three different audiences:\n\nStart with: \"Our Q2 revenue grew 18% year-over-year, driven primarily by enterprise expansion and a 23% increase in average deal size.\"\n\nThen ask:\n1. \"Rewrite this as a board-level executive summary -- 2 sentences maximum, focus on strategic implications\"\n2. \"Rewrite this as a team Slack update -- casual, celebratory, 3-4 sentences\"\n3. \"Rewrite this as a customer-facing press release paragraph -- professional, third person, quotable\"\n\nCompare how vocabulary, structure, and emphasis change across audiences.",
+          "expectedOutcome": "Three versions of the same information tailored to board, team, and public audiences -- demonstrating that tone and audience instructions reshape the entire output."
+        }
+      ],
+      "proTip": "Keep a personal prompt library in OneNote or a Word doc. When a prompt works well, save it as a template with placeholders. Your best prompts are reusable assets, not one-time inputs.",
+      "takeaways": [
+        "Four-part prompts (goal, context, source, expectations) outperform one-liners every time",
+        "Iterative refinement is the normal workflow -- expect 2-3 rounds",
+        "Always specify who will read the output (audience) and how it should sound (tone)",
+        "Save effective prompts as reusable templates"
+      ]
+    },
+    {
+      "id": "m3",
+      "number": 3,
+      "title": "Copilot in Word: Document Foundations",
+      "belt": "white",
+      "estimatedMinutes": 25,
+      "description": "Master Copilot's document drafting, rewriting, summarization, and coaching capabilities in Microsoft Word.",
+      "keyConcepts": [
+        "draft from prompt",
+        "draft from reference file",
+        "rewrite selection",
+        "summarize document",
+        "coaching suggestions"
+      ],
+      "prerequisites": "Module 2 completed. A few documents in OneDrive to reference.",
+      "concepts": [
+        {
+          "title": "Draft vs Rewrite vs Summarize",
+          "body": "Word Copilot has three core modes. Draft creates new content from scratch or from a referenced file. Rewrite transforms selected text -- changing tone, length, or style while preserving the core message. Summarize condenses long documents into structured overviews. Most users start with Draft but Rewrite becomes the most-used feature over time, because editing existing content is more common than starting from scratch."
+        },
+        {
+          "title": "File-Grounded Drafting",
+          "body": "The most powerful Word Copilot feature is drafting from referenced files. Use the / command to reference an existing document, then ask Copilot to draft something new based on it. For example: 'Draft an executive summary based on /Q2-Report.docx.' This grounds the output in your actual data rather than generic knowledge. You can reference multiple files to synthesize information from several sources."
+        },
+        {
+          "title": "Coaching and Review",
+          "body": "Copilot can review your writing and suggest improvements for clarity, conciseness, and tone. This is different from rewriting -- it gives you suggestions that you choose to apply. Think of it as an always-available editor who provides structural and stylistic feedback without changing your voice."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "3.1",
+          "label": "Draft from a Reference Document",
+          "difficulty": "Beginner",
+          "prompt": "Open Word Copilot and use file-grounded drafting:\n\n\"Draft a two-page executive summary based on /[name of a long report or document in your OneDrive].\n\nStructure it as:\n- Key Findings (3-5 bullet points)\n- Recommended Actions (numbered list)\n- Risks and Mitigations (table format)\n- Next Steps with timeline\n\nAudience: C-suite executives who have 5 minutes to read this. Tone: authoritative but accessible.\"\n\nReview how Copilot extracted and organized information from the source document.",
+          "expectedOutcome": "A structured executive summary grounded in your actual document, demonstrating file-referenced generation with explicit formatting instructions."
+        },
+        {
+          "id": "3.2",
+          "label": "Rewrite and Transform",
+          "difficulty": "Beginner",
+          "prompt": "Select a paragraph of dense technical or legal text in a Word document. Use Copilot's Rewrite feature for three transformations:\n\n1. \"Simplify this for a non-technical reader. Remove jargon and explain concepts in plain language.\"\n2. \"Make this more concise -- reduce to 50% of the original length while keeping all key information.\"\n3. \"Convert this into 3-4 bullet points suitable for a slide deck.\"\n\nCompare all three rewrites to the original. Note how each transformation served a different purpose while preserving the core message.",
+          "expectedOutcome": "Three different rewrites of the same content showing Copilot's ability to transform tone, length, and format while maintaining accuracy."
+        },
+        {
+          "id": "3.3",
+          "label": "Summarize a Long Document",
+          "difficulty": "Beginner",
+          "prompt": "Open a document that is at least 10 pages long (a report, policy, or contract). Use Copilot to summarize it:\n\n\"Summarize this document in a structured format:\n1. One-paragraph overview (what is this document about and why does it matter)\n2. Key decisions or findings (bulleted list)\n3. Action items or requirements (who needs to do what)\n4. Open questions or risks (anything unresolved)\n5. Critical dates or deadlines\n\nKeep the summary under 500 words.\"\n\nCheck the summary against the original -- did Copilot capture the most important points?",
+          "expectedOutcome": "A structured summary of a long document with categorized sections, demonstrating Copilot's ability to extract and organize key information."
+        },
+        {
+          "id": "3.4",
+          "label": "Coaching Mode: Improve Your Writing",
+          "difficulty": "Beginner",
+          "prompt": "Write (or paste) a draft of something you have been working on -- an email, report section, or proposal paragraph. Then ask Copilot to coach you:\n\n\"Review this draft and provide feedback on:\n1. Clarity -- are there confusing sentences or ambiguous statements?\n2. Conciseness -- what can be cut without losing meaning?\n3. Tone -- does this sound professional and confident, or uncertain and wordy?\n4. Structure -- should the order of ideas change for better flow?\n\nFor each suggestion, explain why the change improves the writing.\"\n\nApply the top 2-3 suggestions and compare before/after.",
+          "expectedOutcome": "Actionable writing feedback with explanations, demonstrating Copilot as an editor that improves your existing work rather than replacing it."
+        }
+      ],
+      "proTip": "The Rewrite feature works best on selected text, not the whole document. Select specific paragraphs you want to improve rather than asking Copilot to rewrite everything at once.",
+      "takeaways": [
+        "Use / references to ground drafts in your actual documents",
+        "Rewrite becomes more valuable than Draft over time -- most work is editing, not creating from scratch",
+        "Always specify structure, audience, and length in summarization prompts",
+        "Copilot coaching gives suggestions without changing your voice -- use it as a review step"
+      ]
+    },
+    {
+      "id": "m4",
+      "number": 4,
+      "title": "Copilot in Excel: Data Basics",
+      "belt": "white",
+      "estimatedMinutes": 25,
+      "description": "Use Copilot to analyze data, create formulas, generate charts, and spot trends in Excel spreadsheets.",
+      "keyConcepts": [
+        "natural language to formula",
+        "data analysis prompts",
+        "chart generation",
+        "highlighting and sorting",
+        "Excel table requirement",
+        "data type awareness"
+      ],
+      "prerequisites": "Module 2 completed. An Excel spreadsheet with at least 50 rows of structured data (formatted as a Table).",
+      "concepts": [
+        {
+          "title": "The Table Requirement",
+          "body": "Excel Copilot requires your data to be formatted as a Table (Insert > Table or Ctrl+T). Raw cell ranges will not work. Tables give Copilot column headers and data boundaries to work with. If Copilot seems unresponsive, the most common fix is converting your data range to a Table first."
+        },
+        {
+          "title": "Natural Language to Formula",
+          "body": "Instead of remembering VLOOKUP, SUMIFS, or INDEX-MATCH syntax, describe what you want in plain English. Copilot translates natural language into Excel formulas. 'Show me total revenue by region' becomes a SUMIFS formula. 'What percentage of deals closed in under 30 days' becomes a COUNTIFS/COUNTA ratio. You can review the formula before accepting it."
+        },
+        {
+          "title": "Insights and Trend Detection",
+          "body": "Beyond formulas, Copilot can analyze your data holistically. Ask 'What are the key trends?' or 'Are there outliers?' and Copilot will highlight patterns, create visualizations, and narrate findings. This is like having a data analyst on demand -- but always verify the conclusions against your domain knowledge."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "4.1",
+          "label": "Natural Language Formulas",
+          "difficulty": "Beginner",
+          "prompt": "Open an Excel spreadsheet with sales or financial data (formatted as a Table). Open Copilot and try these natural language formula requests:\n\n1. \"Calculate total revenue per region\"\n2. \"Find the month with the highest growth rate compared to the previous month\"\n3. \"Show the average deal size for each sales rep\"\n4. \"Count how many transactions were above $10,000\"\n\nFor each, review the formula Copilot generates before accepting. Note how natural language maps to Excel functions.",
+          "expectedOutcome": "Four working formulas generated from plain English descriptions, demonstrating that you no longer need to memorize Excel function syntax."
+        },
+        {
+          "id": "4.2",
+          "label": "Quick Chart Creation",
+          "difficulty": "Beginner",
+          "prompt": "Using your data Table, ask Copilot to create visualizations:\n\n1. \"Create a bar chart of quarterly revenue by product line\"\n2. After it appears, ask: \"Change this to a line chart and add a trendline\"\n3. Then: \"Add data labels and change the color scheme to use blue tones\"\n\nNotice how you can iteratively refine charts through conversation rather than clicking through the Chart Design ribbon.",
+          "expectedOutcome": "A progressively refined chart created and modified through natural language, showing iterative visual refinement."
+        },
+        {
+          "id": "4.3",
+          "label": "Data Insights and Trends",
+          "difficulty": "Beginner",
+          "prompt": "Ask Copilot to analyze your data holistically:\n\n1. \"What are the key trends in this data?\"\n2. \"Are there any outliers or anomalies I should investigate?\"\n3. \"Which category has shown the most consistent growth?\"\n4. \"What would you highlight if you were presenting this data to leadership?\"\n\nReview each response critically -- does Copilot's analysis match your domain knowledge? Note where it provides genuine insight vs where it states the obvious.",
+          "expectedOutcome": "Analytical insights with highlights and narrative explanations, demonstrating Copilot as a data analyst that surfaces patterns you might miss."
+        },
+        {
+          "id": "4.4",
+          "label": "Conditional Formatting via Prompt",
+          "difficulty": "Beginner",
+          "prompt": "Ask Copilot to apply visual formatting to your data:\n\n1. \"Highlight all cells where profit margin is below 15% in red\"\n2. \"Bold the top 5 performing products by revenue\"\n3. \"Add a color scale to the growth column -- green for positive, red for negative\"\n4. \"Sort the table by revenue descending and freeze the header row\"\n\nEach of these translates natural language into formatting rules that would normally require multiple clicks through the conditional formatting dialog.",
+          "expectedOutcome": "Visual data formatting applied through conversational prompts, showing that Copilot handles formatting rules alongside formulas and charts."
+        }
+      ],
+      "proTip": "Always format your data as an Excel Table (Ctrl+T) before using Copilot. Without a Table, Copilot cannot read your column headers or data boundaries and most features will not work.",
+      "takeaways": [
+        "Excel Copilot requires data formatted as a Table -- this is the number one prerequisite",
+        "Describe formulas in plain English; review the generated formula before accepting",
+        "Iterative chart refinement through conversation replaces manual ribbon navigation",
+        "Always verify Copilot's analytical insights against your domain knowledge"
+      ]
+    },
+    {
+      "id": "m5",
+      "number": 5,
+      "title": "PowerPoint, Outlook, and Teams Basics",
+      "belt": "white",
+      "estimatedMinutes": 25,
+      "description": "Get started with Copilot in the three remaining core apps: creating presentations, managing email, and using meeting intelligence.",
+      "keyConcepts": [
+        "create presentation from file/prompt",
+        "email drafting and reply",
+        "email summarization",
+        "Teams meeting recap",
+        "action items extraction"
+      ],
+      "prerequisites": "Modules 1-2 completed. Access to PowerPoint, Outlook, and Teams with Copilot enabled.",
+      "concepts": [
+        {
+          "title": "PowerPoint: From Content to Slides",
+          "body": "PowerPoint Copilot can create presentations from a Word document, a topic prompt, or an outline. It generates slides with appropriate layouts, content hierarchy, and speaker notes. The key insight: Copilot works best when you provide source material (a Word doc or detailed outline) rather than a vague topic. More input context equals better slide output."
+        },
+        {
+          "title": "Outlook: Email Intelligence",
+          "body": "Outlook Copilot handles two primary workflows: drafting new emails and managing existing ones. For drafting, it generates emails with adjustable tone and length. For management, it summarizes long threads, extracts action items, and helps you prioritize. The thread summarization feature is particularly powerful for catching up on conversations you have been CC'd on."
+        },
+        {
+          "title": "Teams: Meeting Intelligence",
+          "body": "Teams Copilot provides meeting intelligence before, during, and after meetings. Before: summarize previous meeting notes and prep materials. During: real-time catch-up if you join late. After: structured recaps with decisions, action items, and follow-ups. The meeting must have transcription enabled for Copilot to work -- this is a prerequisite many users miss."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "5.1",
+          "label": "Create a Presentation from a Document",
+          "difficulty": "Beginner",
+          "prompt": "Open PowerPoint and use Copilot to create a deck:\n\n\"Create a presentation from /[a Word document or report in your OneDrive].\n\nRequirements:\n- 10-12 slides maximum\n- Start with an executive summary slide\n- Include data visualizations where the source document has numbers\n- End with a 'Next Steps' slide with clear action items\n- Use a clean, professional design\n- Add speaker notes to each slide\"\n\nReview the generated deck. How well did Copilot translate document content into visual slides?",
+          "expectedOutcome": "A complete presentation generated from an existing document, demonstrating cross-app content transformation from Word to PowerPoint."
+        },
+        {
+          "id": "5.2",
+          "label": "Draft and Reply to Emails",
+          "difficulty": "Beginner",
+          "prompt": "In Outlook, practice both drafting and replying with Copilot:\n\n1. New email: Click Copilot and draft: \"Write an email to the project team proposing we move the deadline from June 15 to July 1. Explain that the vendor deliverable was delayed by two weeks. Tone: empathetic but firm. Include three bullet points explaining the impact and a request for team availability next week to replan.\"\n\n2. Reply: Find a long email thread and use Copilot to reply: \"Reply summarizing the key decision from this thread and confirming I will handle the next step. Keep it under 100 words.\"\n\nTry the tone adjustment slider -- switch between Direct, Casual, and Formal.",
+          "expectedOutcome": "A drafted email and a thread-aware reply, both with tone control, showing Copilot's email composition and contextual reply capabilities."
+        },
+        {
+          "id": "5.3",
+          "label": "Summarize an Email Thread",
+          "difficulty": "Beginner",
+          "prompt": "Find a long email thread (10+ messages) in your Outlook inbox. Use the thread summary feature:\n\n\"Summarize this email thread. Include:\n1. What is the main topic or decision being discussed?\n2. What are the key positions or opinions expressed?\n3. Are there any unresolved questions or disagreements?\n4. What action items were mentioned and by whom?\n5. What is the current status -- is this resolved or still open?\"\n\nCompare the summary to your understanding of the thread. Did Copilot miss anything important?",
+          "expectedOutcome": "A structured thread summary with decisions, positions, and action items -- demonstrating Copilot's ability to parse multi-party email conversations."
+        },
+        {
+          "id": "5.4",
+          "label": "Teams Meeting Recap",
+          "difficulty": "Beginner",
+          "prompt": "After a Teams meeting with transcription enabled, open the meeting recap and use Copilot:\n\n1. \"Give me a summary of this meeting in 5 bullet points\"\n2. \"What were the key decisions made?\"\n3. \"List all action items with the person responsible for each\"\n4. \"What did [specific person's name] say about [specific topic]?\"\n5. \"Draft a follow-up email based on this meeting's outcomes\"\n\nNote: Transcription must be enabled for these features to work. If your organization has not enabled it, check with your IT admin.",
+          "expectedOutcome": "A meeting summary, decisions list, action items, speaker-specific queries, and a follow-up email draft -- the complete post-meeting intelligence workflow."
+        }
+      ],
+      "proTip": "Enable meeting transcription in Teams Settings before your meetings. Without it, Copilot cannot generate recaps, action items, or answer questions about who said what. This is the most common reason Teams Copilot seems 'broken.'",
+      "takeaways": [
+        "PowerPoint Copilot works best with source material -- reference a Word doc rather than starting from a vague topic",
+        "Outlook Copilot's thread summarization is the killer feature for high-volume email users",
+        "Teams meeting intelligence requires transcription to be enabled -- check this first",
+        "All three apps benefit from the four-part prompt structure learned in Module 2"
+      ]
+    },
+    {
+      "id": "m6",
+      "number": 6,
+      "title": "Advanced Excel Analysis with Copilot",
+      "belt": "brown",
+      "estimatedMinutes": 30,
+      "description": "Go beyond basics with complex analysis prompts, Python in Excel via Copilot, pivot table generation, and multi-step analytical workflows.",
+      "keyConcepts": [
+        "complex formula chains",
+        "Python in Excel",
+        "pivot table generation",
+        "scenario analysis",
+        "what-if prompting"
+      ],
+      "prerequisites": "Module 4 completed. Comfortable with Excel Tables and basic Copilot data prompts.",
+      "concepts": [
+        {
+          "title": "Multi-Step Analysis",
+          "body": "Advanced Excel Copilot usage involves chaining multiple analytical steps in a single conversation. Instead of asking for one formula at a time, describe the full analysis you need: 'Calculate year-over-year growth by category, rank by growth rate, and flag any category declining for two consecutive quarters.' Copilot handles the sequencing and intermediate calculations."
+        },
+        {
+          "title": "Python in Excel",
+          "body": "Excel Copilot can generate Python code that runs directly in Excel cells via the PY() function. This unlocks statistical analysis, machine learning, and advanced visualization that native Excel formulas cannot do. Ask for correlation analysis, regression models, or custom chart types and Copilot will write the Python code, explain what it does, and embed the results in your spreadsheet."
+        },
+        {
+          "title": "Scenario Modeling",
+          "body": "Copilot excels at creating what-if scenarios. Describe the variables you want to test and the outcomes you want to measure, and Copilot will build comparison tables, sensitivity analyses, and scenario summaries. This is particularly powerful for financial planning, pricing analysis, and risk assessment."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "6.1",
+          "label": "Multi-Step Analysis Workflow",
+          "difficulty": "Intermediate",
+          "prompt": "Open a dataset with at least 6 months of transactional data. Ask Copilot to perform a chained analysis:\n\n\"Analyze this data in three steps:\n1. Calculate month-over-month growth rate for each product category\n2. Rank categories by average growth rate over the last 6 months\n3. Flag any category that declined for 2 or more consecutive months\n\nPresent the results in a new summary table with columns: Category, Avg Growth Rate, Consecutive Decline Flag, Trend Direction.\"\n\nReview each step. Did Copilot handle the sequential logic correctly?",
+          "expectedOutcome": "A multi-step analysis with growth calculations, rankings, and decline flags -- demonstrating chained analytical operations in a single conversation."
+        },
+        {
+          "id": "6.2",
+          "label": "Generate Pivot Tables with Natural Language",
+          "difficulty": "Intermediate",
+          "prompt": "Ask Copilot to create pivot table analyses:\n\n1. \"Create a pivot table showing average deal size by sales rep and quarter\"\n2. \"Add a calculated field for quota attainment (actual / target * 100)\"\n3. \"Sort by Q4 performance descending\"\n4. \"Highlight any rep below 80% attainment in the latest quarter\"\n\nNote: Copilot may add new columns or create summary tables rather than formal PivotTable objects. Both approaches achieve the analytical goal.",
+          "expectedOutcome": "A pivot-style analysis with calculated fields, sorting, and conditional highlighting -- created entirely through natural language."
+        },
+        {
+          "id": "6.3",
+          "label": "Python in Excel via Copilot",
+          "difficulty": "Intermediate",
+          "prompt": "Use Copilot's Advanced Analysis feature (which uses Python in Excel):\n\n\"Perform a correlation analysis on this dataset.\n- Which columns are most strongly correlated?\n- Create a correlation heatmap visualization\n- Run a simple linear regression predicting [target column] from the top 3 correlated features\n- Show the R-squared value and interpretation\"\n\nReview the Python code Copilot generates. You do not need to know Python -- but understanding what the code does helps you trust the results.",
+          "expectedOutcome": "A correlation analysis with heatmap and regression results running in Python within Excel, demonstrating advanced analytics without leaving the spreadsheet."
+        },
+        {
+          "id": "6.4",
+          "label": "Scenario Modeling",
+          "difficulty": "Intermediate",
+          "prompt": "Ask Copilot to build a what-if model:\n\n\"Create a scenario comparison for our pricing strategy:\n- Scenario A (Conservative): Price increase of 5%, volume decrease of 3%\n- Scenario B (Moderate): Price increase of 10%, volume decrease of 8%\n- Scenario C (Aggressive): Price increase of 15%, volume decrease of 15%\n\nFor each scenario, calculate: Total Revenue, Revenue Change vs Current, Margin Impact, and Break-Even Volume.\n\nPresent as a comparison table with the current baseline and all three scenarios side by side.\"\n\nVerify the math in at least one scenario manually.",
+          "expectedOutcome": "A scenario comparison table with calculated impacts across three pricing strategies, showing Copilot's ability to build structured business models."
+        }
+      ],
+      "proTip": "Python in Excel via Copilot is the most underused power feature. If you ever think 'Excel can't do this analysis,' try the Advanced Analysis button -- Python probably can.",
+      "takeaways": [
+        "Chain multiple analytical steps in a single prompt for complex workflows",
+        "Python in Excel unlocks statistical analysis and custom visualizations beyond native formulas",
+        "Scenario modeling is a high-value Copilot use case for financial planning and strategy",
+        "Always verify Copilot's calculations manually on at least one data point"
+      ]
+    },
+    {
+      "id": "m7",
+      "number": 7,
+      "title": "Document Drafting and Editing Workflows",
+      "belt": "brown",
+      "estimatedMinutes": 25,
+      "description": "Master multi-document workflows: drafting from multiple sources, maintaining brand voice, version comparison, and collaborative editing with Copilot.",
+      "keyConcepts": [
+        "multi-source drafting",
+        "brand voice consistency",
+        "document comparison",
+        "reference chaining",
+        "template-based generation"
+      ],
+      "prerequisites": "Module 3 completed. Multiple documents available in OneDrive for cross-referencing.",
+      "concepts": [
+        {
+          "title": "Multi-Source Synthesis",
+          "body": "The highest-value Word Copilot workflow is drafting from multiple referenced files. You can reference a client RFP, your pricing sheet, and a case study template to generate a tailored proposal. The / syntax allows up to three file references in a single prompt. This turns Copilot from a writer into a synthesizer that merges information from multiple sources."
+        },
+        {
+          "title": "Brand Voice Enforcement",
+          "body": "Organizations need consistent voice across documents. Provide Copilot with brand guidelines (or reference a style guide document) and ask it to check existing content for compliance. This works as both a generation tool (write in our voice) and a review tool (check this draft against our guidelines)."
+        },
+        {
+          "title": "Template-Based Generation",
+          "body": "Create reusable prompt templates for recurring documents: weekly reports, client updates, meeting minutes. A template captures the structure, sections, and style preferences so you only need to provide the new data each time. This compounds over time -- the templates get better as you refine them."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "7.1",
+          "label": "Draft from Multiple Sources",
+          "difficulty": "Intermediate",
+          "prompt": "Create a deliverable that pulls from multiple files:\n\n\"Draft a client proposal using these three sources:\n- /[Company template or style guide]\n- /[Client requirements document or RFP]\n- /[Pricing or services overview]\n\nMerge them into a single proposal with these sections:\n1. Executive Summary (based on the RFP requirements)\n2. Our Approach (aligned to client needs from the RFP)\n3. Team and Timeline\n4. Investment Summary (from the pricing document)\n5. Why Us (from the company overview)\n\nTone: confident, client-focused. Length: 4-5 pages.\"\n\nReview how Copilot merged information from all three sources.",
+          "expectedOutcome": "A multi-source proposal that synthesizes information from three documents, demonstrating the most powerful enterprise Word Copilot workflow."
+        },
+        {
+          "id": "7.2",
+          "label": "Maintain Brand Voice",
+          "difficulty": "Intermediate",
+          "prompt": "Test Copilot as a brand voice enforcer:\n\n1. First, provide your brand guidelines (or make some up): \"Our brand voice is confident but approachable. We avoid jargon. We use short sentences. We never say 'utilize' (say 'use'). We never use passive voice. We start paragraphs with action verbs.\"\n\n2. Paste a generic paragraph and ask: \"Rewrite this to match our brand voice guidelines above.\"\n\n3. Then take a different document and ask: \"Review this document against our brand guidelines. List every sentence that violates a guideline and suggest a fix.\"\n\nThe review mode is more useful than rewriting at scale -- it lets you maintain voice while keeping human judgment.",
+          "expectedOutcome": "A rewritten paragraph matching brand guidelines plus a compliance review of existing content, showing Copilot as both writer and brand auditor."
+        },
+        {
+          "id": "7.3",
+          "label": "Compare and Merge Documents",
+          "difficulty": "Intermediate",
+          "prompt": "Use Copilot for document comparison:\n\n\"I have two versions of a document. Compare them and tell me:\n1. What sections were added in the newer version?\n2. What sections were removed or significantly changed?\n3. Are there any contradictions between the two versions?\n4. For each major change, is the newer version an improvement? Why or why not?\n\nPresent as a comparison table: Section | Version 1 | Version 2 | Change Type | Recommendation.\"\n\nNote: You may need to paste content from both versions into the prompt if file referencing does not support comparison directly.",
+          "expectedOutcome": "A structured comparison of two document versions with change categorization and recommendations, useful for contract reviews and policy updates."
+        },
+        {
+          "id": "7.4",
+          "label": "Template-Based Generation",
+          "difficulty": "Intermediate",
+          "prompt": "Build a reusable prompt template for a recurring deliverable:\n\n\"Create a weekly status report template with these sections:\n1. Accomplishments This Week (bulleted list)\n2. Blockers and Risks (table: Issue | Impact | Mitigation | Owner)\n3. Plan for Next Week (numbered priorities)\n4. Metrics Dashboard (key numbers with week-over-week comparison)\n5. Shoutouts (team recognition)\n\nNow fill in the template with this week's data: [provide your actual accomplishments, blockers, and metrics].\"\n\nSave the unfilled template as a reusable prompt. Next week, paste it again with updated data.",
+          "expectedOutcome": "A filled weekly report plus a reusable template, demonstrating the compound value of prompt templates for recurring deliverables."
+        }
+      ],
+      "proTip": "Multi-source drafting with / references is the enterprise killer feature. Train your team to keep source documents in shared OneDrive/SharePoint locations so everyone can reference them in Copilot prompts.",
+      "takeaways": [
+        "Reference up to three files with / to create synthesized, multi-source documents",
+        "Brand voice enforcement works as both generation and review -- the review mode scales better",
+        "Build reusable prompt templates for recurring deliverables (reports, updates, proposals)",
+        "Document comparison is powerful for contract reviews and policy change tracking"
+      ]
+    },
+    {
+      "id": "m8",
+      "number": 8,
+      "title": "Presentation Mastery",
+      "belt": "brown",
+      "estimatedMinutes": 25,
+      "description": "Create polished, data-driven presentations using narrative arc design, speaker notes, data visualization integration, and brand consistency.",
+      "keyConcepts": [
+        "narrative arc structuring",
+        "speaker notes generation",
+        "data-to-slide visualization",
+        "slide design refinement",
+        "presentation from outline"
+      ],
+      "prerequisites": "Module 5 completed. A Word document or Excel file to reference for presentation content.",
+      "concepts": [
+        {
+          "title": "Narrative Arc Design",
+          "body": "Great presentations tell a story. Copilot can structure slides along a narrative arc: hook (why should the audience care), problem (what is the challenge), evidence (data and analysis), solution (your recommendation), proof (case studies or metrics), and call to action (what happens next). Providing this framework in your prompt produces dramatically better presentations than 'make slides about X.'"
+        },
+        {
+          "title": "Speaker Notes as a Feature",
+          "body": "Speaker notes are the most overlooked Copilot presentation feature. Ask Copilot to generate notes with key talking points, supporting statistics, timing cues, and transition phrases. This turns a slide deck into a complete presentation kit -- especially valuable when someone else will present your slides."
+        },
+        {
+          "title": "Data Visualization in Slides",
+          "body": "Reference an Excel file and ask Copilot to create data-driven slides. It can pull specific charts, create comparison tables, and generate callout cards from spreadsheet data. The visual quality depends on providing clear instructions about what to emphasize and how to display it."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "8.1",
+          "label": "Build a Narrative Arc Presentation",
+          "difficulty": "Intermediate",
+          "prompt": "Use PowerPoint Copilot to build a story-driven deck:\n\n\"Create a 12-slide presentation with this narrative arc:\n- Slide 1: Title slide with a provocative question or surprising statistic\n- Slides 2-3: The Problem -- what challenge does the audience face? Use real data.\n- Slides 4-6: The Evidence -- analysis and findings that illuminate the problem\n- Slides 7-9: The Solution -- our recommendation with clear benefits\n- Slide 10: Proof -- metrics, case studies, or testimonials\n- Slide 11: Implementation timeline with milestones\n- Slide 12: Call to Action -- exactly what you want the audience to do next\n\nTopic: [your actual topic]. Audience: [your actual audience].\nDesign: clean, minimal, data-forward.\"\n\nReview the narrative flow -- does it tell a compelling story?",
+          "expectedOutcome": "A 12-slide presentation structured as a narrative arc with story progression, showing how presentation structure prompts outperform topic-only prompts."
+        },
+        {
+          "id": "8.2",
+          "label": "Generate Speaker Notes",
+          "difficulty": "Intermediate",
+          "prompt": "For an existing presentation (or the one you just created), ask Copilot to add speaker notes:\n\n\"Add speaker notes to every slide in this presentation. For each slide, include:\n1. Key talking points (3-4 bullets)\n2. One supporting statistic or quote to mention verbally\n3. A transition sentence that connects to the next slide\n4. Timing suggestion (e.g., 'spend 2 minutes on this slide')\n5. A question to ask the audience if this is an interactive presentation\"\n\nReview the notes. Edit for your personal speaking style and domain knowledge.",
+          "expectedOutcome": "Complete speaker notes for every slide with talking points, transitions, and timing cues -- turning a deck into a full presentation kit."
+        },
+        {
+          "id": "8.3",
+          "label": "Data-Driven Slides from Excel",
+          "difficulty": "Intermediate",
+          "prompt": "Create a data-driven presentation by referencing an Excel file:\n\n\"Create slides based on /[your Excel file]:\n\n- Slide 1: Key metrics dashboard -- 4 large KPI callout cards with the most important numbers\n- Slide 2: Trend chart -- line chart showing the primary metric over time with annotations\n- Slide 3: Comparison table -- top vs bottom performers side by side\n- Slide 4: Insights -- 3-4 bullet points of what the data tells us\n- Slide 5: Recommendations -- actions based on the data\n\nUse blue and gray tones. Make data the visual hero -- minimal text, maximum impact.\"\n\nCheck that the numbers on slides match the source Excel data.",
+          "expectedOutcome": "Data-driven slides with KPIs, charts, and tables pulled from Excel, showing the cross-app data visualization pipeline."
+        }
+      ],
+      "proTip": "Always provide the narrative arc structure in your prompt rather than letting Copilot choose the slide order. The default order is informational; a narrative arc is persuasive.",
+      "takeaways": [
+        "Narrative arc prompts (problem-evidence-solution-action) produce better presentations than topic-only prompts",
+        "Speaker notes transform slides into complete presentation kits -- always generate them",
+        "Reference Excel files for data-driven slides with accurate numbers and charts",
+        "Review generated slides for accuracy -- Copilot may hallucinate statistics"
+      ]
+    },
+    {
+      "id": "m9",
+      "number": 9,
+      "title": "Meeting Intelligence and Teams Workflows",
+      "belt": "brown",
+      "estimatedMinutes": 25,
+      "description": "Leverage Copilot in Teams for meeting preparation, real-time assistance, post-meeting recaps, and channel management.",
+      "keyConcepts": [
+        "meeting preparation summaries",
+        "real-time catch-up",
+        "intelligent recap with speakers",
+        "action item tracking",
+        "channel summarization"
+      ],
+      "prerequisites": "Module 5 completed. Access to Teams meetings with transcription enabled.",
+      "concepts": [
+        {
+          "title": "The Meeting Lifecycle",
+          "body": "Teams Copilot assists across three phases: Before (preparation), During (real-time support), and After (recap and follow-up). Before: summarize previous meeting notes, review prep materials, and preview agendas. During: catch up if you join late, take notes, flag action items in real time. After: generate structured recaps, extract commitments, and draft follow-ups. Using Copilot across all three phases creates a complete meeting intelligence system."
+        },
+        {
+          "title": "Speaker-Aware Queries",
+          "body": "Teams Copilot understands who said what during a meeting. You can ask speaker-specific questions: 'What did Sarah say about the timeline?' or 'Did anyone disagree with the proposed budget?' This is powered by the meeting transcript, which attributes statements to specific speakers. It is particularly useful for large meetings where you cannot track every conversation."
+        },
+        {
+          "title": "Channel Intelligence",
+          "body": "Beyond meetings, Copilot can summarize Teams channels and chats. In high-volume channels, ask 'What have I missed in the last 3 days?' or 'What decisions were made this week?' This transforms noisy channels into actionable intelligence without reading every message."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "9.1",
+          "label": "Pre-Meeting Preparation",
+          "difficulty": "Intermediate",
+          "prompt": "Before your next meeting, use Copilot to prepare:\n\n1. In Business Chat: \"Summarize the last meeting with [person/team name] including key decisions and open action items\"\n2. \"What emails have been exchanged about [meeting topic] in the last two weeks?\"\n3. \"What documents were recently modified related to [project name]?\"\n4. \"Based on the meeting agenda, what should I prepare or bring?\"\n\nCompile the answers into a one-page prep brief. Walk into the meeting better prepared than anyone else.",
+          "expectedOutcome": "A pre-meeting intelligence brief compiled from meeting history, emails, and documents -- establishing Copilot as meeting preparation infrastructure."
+        },
+        {
+          "id": "9.2",
+          "label": "Real-Time Catch-Up",
+          "difficulty": "Intermediate",
+          "prompt": "During a Teams meeting (or immediately after), practice real-time intelligence:\n\n1. If you joined late: \"What have I missed so far?\"\n2. Mid-meeting: \"What is the current topic being discussed?\"\n3. If a decision seems to have been made: \"Was a decision made about [topic]? What was it?\"\n4. \"Has anyone raised any concerns or objections?\"\n\nThese queries work in real time during the meeting. They are most useful for back-to-back meetings where you arrive late or need to context-switch quickly.",
+          "expectedOutcome": "Real-time meeting intelligence showing how Copilot lets you catch up and track decisions without asking colleagues to repeat themselves."
+        },
+        {
+          "id": "9.3",
+          "label": "Intelligent Meeting Recap",
+          "difficulty": "Intermediate",
+          "prompt": "After a meeting with transcription, generate a comprehensive recap:\n\n\"Create a structured meeting recap:\n1. Meeting Summary (3-sentence overview)\n2. Key Decisions Made (bulleted list with who made each decision)\n3. Action Items (table: Action | Owner | Due Date | Status)\n4. Unresolved Questions (items that need follow-up)\n5. Parking Lot (topics raised but deferred to future discussion)\n\nThen draft a follow-up email summarizing the outcomes for attendees who missed the meeting.\"\n\nCompare the Copilot recap to your own notes. Where is it more thorough?",
+          "expectedOutcome": "A structured recap with decisions, action items, and a follow-up email draft -- the complete post-meeting automation workflow."
+        },
+        {
+          "id": "9.4",
+          "label": "Channel and Chat Summarization",
+          "difficulty": "Intermediate",
+          "prompt": "Open a busy Teams channel (30+ messages in the last week) and ask Copilot:\n\n1. \"Summarize the key topics discussed in this channel over the last 7 days\"\n2. \"Were any decisions made? List them with who made them.\"\n3. \"Are there any threads where someone is waiting for my input?\"\n4. \"What are the top 3 most important messages I should read?\"\n\nThis turns information overload into actionable intelligence -- especially for channels you monitor but cannot read every message.",
+          "expectedOutcome": "Channel intelligence with topic summaries, decisions, and action-required items -- demonstrating Copilot as a noise filter for high-volume communication."
+        }
+      ],
+      "proTip": "Create a personal post-meeting checklist: (1) Generate recap, (2) Extract action items, (3) Draft follow-up email, (4) Create tasks in Planner. Doing this consistently for every meeting compounds into a reliable system.",
+      "takeaways": [
+        "Use Copilot before, during, and after meetings for full-lifecycle meeting intelligence",
+        "Speaker-aware queries let you ask about specific people's contributions",
+        "Channel summarization is essential for managing high-volume Teams communication",
+        "Post-meeting automation (recap to email to tasks) is a high-ROI workflow"
+      ]
+    },
+    {
+      "id": "m10",
+      "number": 10,
+      "title": "Email Mastery and Communication Workflows",
+      "belt": "brown",
+      "estimatedMinutes": 25,
+      "description": "Become an email power user with inbox triage, priority coaching, batch processing, and sophisticated reply strategies.",
+      "keyConcepts": [
+        "inbox prioritization",
+        "email coaching/tone adjustment",
+        "batch summarization",
+        "thread untangling",
+        "follow-up tracking"
+      ],
+      "prerequisites": "Module 5 completed. An active Outlook inbox with substantial email volume.",
+      "concepts": [
+        {
+          "title": "AI-Powered Inbox Triage",
+          "body": "Business Chat can analyze your entire inbox and prioritize what needs attention. Ask 'What are the most important emails I need to respond to today?' and Copilot uses sender importance, urgency signals, and thread context to rank your inbox. This replaces the manual scan-and-sort workflow that wastes 20-30 minutes every morning."
+        },
+        {
+          "title": "Tone Coaching",
+          "body": "Copilot can review your drafted replies for tone before you send them. This is invaluable for sensitive communications: difficult feedback, escalation emails, client pushback, or cross-cultural communication. Ask Copilot to make a message 'more diplomatic,' 'shorter and more direct,' or 'warmer while maintaining the firm deadline.' The coaching preserves your message while adjusting how it lands."
+        },
+        {
+          "title": "Thread Resolution",
+          "body": "Long email threads often lose their original question in layers of replies. Copilot can untangle threads by identifying the core question, tracking how the conversation evolved, and suggesting a resolution. This is especially powerful for threads where you are CC'd and need to understand the situation quickly."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "10.1",
+          "label": "Inbox Triage",
+          "difficulty": "Intermediate",
+          "prompt": "In Business Chat, run a morning inbox triage:\n\n1. \"What are the 5 most important emails in my inbox that need a response today?\"\n2. \"Categorize my unread emails into: Urgent (needs response today), Important (needs response this week), FYI (no response needed), and Delegate (someone else should handle this)\"\n3. \"Are there any email threads where someone is waiting for my reply for more than 2 days?\"\n\nUse this as your daily email workflow. The 5-minute triage replaces the 30-minute manual scan.",
+          "expectedOutcome": "A prioritized inbox with categorized emails and overdue response flags, establishing Copilot as your daily email triage assistant."
+        },
+        {
+          "id": "10.2",
+          "label": "Tone Coaching on Replies",
+          "difficulty": "Intermediate",
+          "prompt": "Draft a reply to a challenging email (a complaint, a deadline push, or a disagreement). Then ask Copilot to coach your tone:\n\n1. Write your natural reply first\n2. Ask: \"Review this reply for tone. Is it professional? Could it be misread as aggressive, dismissive, or passive-aggressive?\"\n3. \"Rewrite it to be more diplomatic while keeping the core message the same\"\n4. \"Now make it shorter and more direct -- under 100 words\"\n5. \"Finally, make it warmer while maintaining the firm deadline\"\n\nCompare all versions. Which lands best for this specific situation?",
+          "expectedOutcome": "Multiple tone variations of the same reply, demonstrating Copilot as a communication coach for sensitive emails."
+        },
+        {
+          "id": "10.3",
+          "label": "Thread Resolution Workflow",
+          "difficulty": "Intermediate",
+          "prompt": "Find a long, complex email thread (15+ messages with multiple participants). Use Copilot to untangle it:\n\n1. \"What is the core question or decision being discussed in this thread?\"\n2. \"Summarize each person's position in one sentence\"\n3. \"What was the latest proposal or suggestion?\"\n4. \"What is still unresolved?\"\n5. \"Draft a reply that acknowledges the discussion, proposes a clear resolution, and asks for confirmation by [date]\"\n\nThe goal is to turn a messy thread into a clean resolution email.",
+          "expectedOutcome": "A thread analysis with positions, status, and a resolution-focused reply draft -- showing how Copilot untangles complex multi-party email conversations."
+        }
+      ],
+      "proTip": "The 'more diplomatic' rewrite is the most used tone coaching command in enterprise. When in doubt about a sensitive reply, always run it through Copilot's tone check before sending.",
+      "takeaways": [
+        "Daily inbox triage with Copilot replaces the manual scan-and-sort workflow",
+        "Tone coaching is invaluable for sensitive communications -- always check before sending",
+        "Thread resolution turns messy multi-party conversations into clean action items",
+        "Combine triage, coaching, and resolution for a complete email management system"
+      ]
+    },
+    {
+      "id": "m11",
+      "number": 11,
+      "title": "Cross-App Workflows",
+      "belt": "black",
+      "estimatedMinutes": 30,
+      "description": "Chain Copilot across multiple M365 apps to build end-to-end workflows -- data analysis to presentation to distribution.",
+      "keyConcepts": [
+        "app-to-app data flow",
+        "Business Chat as orchestrator",
+        "reference chaining",
+        "workflow automation",
+        "Microsoft Loop integration"
+      ],
+      "prerequisites": "Brown belt modules completed. Comfort with Copilot in all five core M365 apps.",
+      "concepts": [
+        {
+          "title": "The Cross-App Pipeline",
+          "body": "The most powerful M365 Copilot workflows span multiple apps. A typical enterprise pipeline: analyze data in Excel, create a presentation in PowerPoint referencing that analysis, draft a distribution email in Outlook referencing the deck, and send meeting notes in Teams. Each step uses Copilot within its app, but the / reference syntax connects them into a single workflow."
+        },
+        {
+          "title": "Business Chat as Orchestrator",
+          "body": "Business Chat (the standalone Copilot) can see across all apps simultaneously. Use it as the orchestration layer: 'Find the latest sales report in my files, summarize the key trends, and draft an email to the leadership team with the highlights.' Business Chat pulls from OneDrive, Outlook, Teams, and SharePoint in a single query."
+        },
+        {
+          "title": "Microsoft Loop",
+          "body": "Microsoft Loop is a collaborative workspace that integrates deeply with Copilot. Loop pages can pull in live data from other M365 apps and update in real time. Use Loop as the aggregation surface where Copilot outputs from multiple apps come together into a single living document that the whole team can see and edit."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "11.1",
+          "label": "Excel-to-PowerPoint Pipeline",
+          "difficulty": "Advanced",
+          "prompt": "Build the most common enterprise cross-app pipeline:\n\n1. In Excel: Ask Copilot to analyze your quarterly data and create a summary table with the top 5 insights\n2. In PowerPoint: \"Create a board presentation based on /[your Excel file]. Include:\n   - KPI dashboard slide with the 4 most important metrics\n   - Trend slide with the primary chart from the analysis\n   - Comparison slide showing this quarter vs last quarter\n   - Recommendations slide based on the data insights\n   - Next steps slide with timeline\"\n3. Review: Does the PowerPoint accurately reflect the Excel analysis? Fix any discrepancies.\n\nThis pipeline is the backbone of enterprise reporting with M365 Copilot.",
+          "expectedOutcome": "A complete reporting pipeline from data analysis to board-ready presentation, demonstrating the most common cross-app workflow in enterprise."
+        },
+        {
+          "id": "11.2",
+          "label": "Meeting-to-Action Pipeline",
+          "difficulty": "Advanced",
+          "prompt": "Build a complete post-meeting automation pipeline:\n\n1. In Teams: Generate a meeting recap with decisions and action items\n2. In Word: \"Create a formal meeting summary document based on these notes: [paste recap]. Include attendees, decisions, action items with owners and deadlines, and next meeting date.\"\n3. In Outlook: \"Draft a follow-up email to all meeting attendees with the key decisions and their assigned action items. Attach the summary document. Ask everyone to confirm their action items by [date].\"\n4. In Business Chat: \"Create tasks in Planner for each action item from this meeting: [list action items with owners]\"\n\nThis four-step pipeline replaces 30-45 minutes of manual post-meeting work.",
+          "expectedOutcome": "A complete post-meeting pipeline: recap to formal summary to email distribution to task creation -- all powered by Copilot across four apps."
+        },
+        {
+          "id": "11.3",
+          "label": "Research-to-Proposal Pipeline",
+          "difficulty": "Advanced",
+          "prompt": "Build an end-to-end research-to-proposal pipeline using Business Chat:\n\n1. \"Find all emails and documents about [client name] from the last 3 months. Summarize the relationship status, recent discussions, and any open issues.\"\n2. In Word: \"Draft a renewal proposal for [client] based on /[contract template] and /[pricing sheet]. Incorporate the relationship context from my research.\"\n3. In PowerPoint: \"Create a 6-slide pitch deck from /[the proposal you just created]. Focus on value delivered, renewal terms, and growth opportunities.\"\n4. In Outlook: \"Draft an email to [client contact] with the proposal attached. Reference our last conversation about [topic]. Tone: confident, relationship-focused.\"\n\nThe pipeline turns scattered organizational knowledge into a polished client deliverable.",
+          "expectedOutcome": "A complete client pipeline from research to proposal to presentation to outreach email, showing how Copilot synthesizes organizational knowledge into deliverables."
+        },
+        {
+          "id": "11.4",
+          "label": "Loop as a Living Dashboard",
+          "difficulty": "Advanced",
+          "prompt": "Create a Microsoft Loop page as a team intelligence dashboard:\n\n1. Open Loop and create a new page called \"[Project Name] Command Center\"\n2. Ask Copilot to add these sections:\n   - Weekly Status Summary (populated from recent Teams meeting recaps)\n   - Key Metrics (embedded from an Excel tracker)\n   - Open Action Items (compiled from across emails and meetings)\n   - Team Availability This Week (from calendar data)\n   - Decisions Log (running list of decisions from meetings)\n3. Share the Loop page with your team\n4. Ask Copilot to update the content weekly\n\nLoop becomes the single source of truth that aggregates Copilot intelligence across all apps.",
+          "expectedOutcome": "A living Loop dashboard that aggregates intelligence from Teams, Excel, Outlook, and Calendar -- demonstrating Loop as the cross-app integration surface."
+        }
+      ],
+      "proTip": "Business Chat is the secret weapon for cross-app workflows. Use it to research across all your M365 data before switching to individual apps for specific deliverables.",
+      "takeaways": [
+        "The most powerful Copilot workflows chain across multiple apps using / references",
+        "Business Chat is the orchestration layer for cross-app intelligence",
+        "Excel-to-PowerPoint and Meeting-to-Action are the two highest-ROI enterprise pipelines",
+        "Microsoft Loop aggregates Copilot outputs into shared, living documents"
+      ]
+    },
+    {
+      "id": "m12",
+      "number": 12,
+      "title": "Copilot Studio: Custom Agents",
+      "belt": "black",
+      "estimatedMinutes": 30,
+      "description": "Build custom Copilot agents using Copilot Studio for department-specific or task-specific automation.",
+      "keyConcepts": [
+        "declarative agents",
+        "custom instructions",
+        "knowledge sources (SharePoint/files/web)",
+        "agent actions and connectors",
+        "agent testing and publishing"
+      ],
+      "prerequisites": "Black belt modules 11 completed. Familiarity with SharePoint or OneDrive document libraries.",
+      "concepts": [
+        {
+          "title": "What is a Declarative Agent?",
+          "body": "A declarative agent is a custom Copilot that you configure (not code) to answer questions and take actions within a specific domain. You define: what the agent knows (knowledge sources), how it behaves (custom instructions), and what it can do (actions and connectors). It appears as a custom Copilot in Teams, Business Chat, or other M365 surfaces."
+        },
+        {
+          "title": "Knowledge Sources",
+          "body": "Agents can be grounded in SharePoint sites, uploaded files, specific documents, or even external websites. The knowledge source determines what the agent can reference when answering questions. A well-configured knowledge source is the difference between a useful agent and a generic chatbot."
+        },
+        {
+          "title": "Agent Actions",
+          "body": "Beyond answering questions, agents can take actions via connectors. Create a ticket in ServiceNow, update a row in SharePoint, send a notification in Teams, or trigger a Power Automate flow. Actions turn agents from information retrieval tools into workflow automation tools."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "12.1",
+          "label": "Build a Department FAQ Agent",
+          "difficulty": "Advanced",
+          "prompt": "Create your first custom agent in Copilot Studio:\n\n1. Go to copilotstudio.microsoft.com\n2. Create a new agent with:\n   - Name: \"[Department] Assistant\" (e.g., \"HR Policy Assistant\")\n   - Description: \"Answers questions about [department] policies and procedures\"\n   - Instructions: \"You are a helpful assistant for the [department] team. Answer questions based on the knowledge sources provided. If you are unsure about an answer, say so and direct the user to contact [relevant person/team]. Always cite which document your answer comes from.\"\n3. Add knowledge sources: Upload or link your department's key documents (handbooks, policies, FAQs, SOPs)\n4. Test with 10 common questions your team asks\n5. Refine instructions based on test results\n\nDocument which questions it handled well and which need improvement.",
+          "expectedOutcome": "A working FAQ agent grounded in your department's documents, demonstrating end-to-end agent creation from configuration to testing."
+        },
+        {
+          "id": "12.2",
+          "label": "Agent with Actions",
+          "difficulty": "Advanced",
+          "prompt": "Extend your agent with actions that do things (not just answer questions):\n\n1. In Copilot Studio, add an action to your agent:\n   - Option A: Connect a Power Automate flow (e.g., 'Create a support ticket' that adds a row to SharePoint)\n   - Option B: Use a built-in connector (e.g., send an email, post to Teams channel, create a Planner task)\n2. Configure the action trigger: \"When the user asks to submit a request, create a ticket, or report an issue\"\n3. Test the action: Ask the agent to create a ticket and verify it appears in the target system\n4. Add a confirmation step: The agent should confirm what it did before completing the action\n\nActions transform agents from information retrieval into workflow automation.",
+          "expectedOutcome": "An agent that can both answer questions AND take actions (create tickets, send notifications), showing the progression from chatbot to workflow automation."
+        },
+        {
+          "id": "12.3",
+          "label": "Scope and Publish an Agent",
+          "difficulty": "Advanced",
+          "prompt": "Prepare your agent for organizational deployment:\n\n1. Review and finalize instructions, knowledge sources, and actions\n2. Configure scope: Who can access this agent? (Individual, team, department, organization)\n3. Test with 3 colleagues -- have them ask questions you did not anticipate\n4. Review the test results and refine based on edge cases\n5. Publish to Teams (or M365 Chat) so it appears as an available agent\n6. Monitor usage: Check analytics in Copilot Studio for query volume, success rate, and failed queries\n7. Iterate: Update knowledge sources monthly and refine instructions based on failed queries\n\nDocument the full lifecycle: create, test, publish, monitor, iterate.",
+          "expectedOutcome": "A published agent accessible by your team with analytics monitoring, demonstrating the full agent lifecycle from creation through deployment and iteration."
+        }
+      ],
+      "proTip": "Start with a narrow scope (one department, one topic) and expand. A focused agent with great knowledge sources outperforms a broad agent with thin coverage every time.",
+      "takeaways": [
+        "Declarative agents are configured, not coded -- anyone can build one in Copilot Studio",
+        "Knowledge sources are the most important configuration -- they determine agent quality",
+        "Actions transform agents from Q&A bots into workflow automation tools",
+        "Monitor analytics and iterate monthly -- agents get better over time with refinement"
+      ]
+    },
+    {
+      "id": "m13",
+      "number": 13,
+      "title": "Enterprise Prompt Engineering",
+      "belt": "black",
+      "estimatedMinutes": 25,
+      "description": "Design prompt libraries and governance frameworks for organizational-scale Copilot adoption.",
+      "keyConcepts": [
+        "organizational prompt libraries",
+        "role-based templates",
+        "prompt governance",
+        "few-shot examples",
+        "adoption measurement"
+      ],
+      "prerequisites": "All brown belt modules completed. Experience using Copilot in daily work for at least 2 weeks.",
+      "concepts": [
+        {
+          "title": "Prompts as Organizational Assets",
+          "body": "In an enterprise, the best Copilot prompts should not live in individual heads. They should be documented, versioned, and shared like any other business process. A prompt library captures proven prompts for common tasks: client proposals, meeting recaps, data analysis, status reports. Each prompt template includes the four-part structure, placeholders for variable data, and expected output quality criteria."
+        },
+        {
+          "title": "Role-Based Templates",
+          "body": "Different roles need different prompts. A sales rep needs proposal templates, a project manager needs status report templates, a finance analyst needs forecasting templates. Design prompt libraries organized by role and task. This reduces the 'blank page' problem and accelerates Copilot adoption across the organization."
+        },
+        {
+          "title": "Measuring Copilot ROI",
+          "body": "The Copilot Dashboard in Microsoft 365 admin center provides adoption metrics: active users, prompt volume, feature usage, and estimated time savings. Use these metrics to measure ROI, identify training needs, and build the business case for expanded licenses. The organizations that measure adoption systematically are the ones that get the most value from Copilot."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "13.1",
+          "label": "Build a Role-Based Prompt Library",
+          "difficulty": "Advanced",
+          "prompt": "Design a prompt catalog for your organization:\n\n1. Choose 3 roles in your organization (e.g., Sales, Project Management, Finance)\n2. For each role, create 5 prompt templates covering their most common Copilot tasks:\n   - Template structure: Task Name | App | Full Prompt (with placeholders) | Expected Output | Quality Criteria\n3. Use [BRACKETS] for placeholders: [CLIENT NAME], [DATE RANGE], [METRIC], etc.\n4. Include a 'Quick Start' variant (simplified) and a 'Power' variant (detailed) for each template\n5. Store in a shared OneNote or SharePoint document\n\nTest each template with real data. Iterate based on output quality.",
+          "expectedOutcome": "A structured prompt library with 15 templates across 3 roles, demonstrating how to systematize Copilot knowledge at the organizational level."
+        },
+        {
+          "id": "13.2",
+          "label": "Enterprise Few-Shot Templates",
+          "difficulty": "Advanced",
+          "prompt": "Create templates that include examples of desired output (few-shot prompting):\n\n1. Choose a recurring deliverable (e.g., client email, executive summary, status report)\n2. Collect 2-3 real examples of excellent output from your organization\n3. Build a template: \"Create a [deliverable type] following these examples of our standard format and quality level:\n   Example 1: [paste real example]\n   Example 2: [paste real example]\n   Now create one for: [new data/context]\"\n4. Test the few-shot template vs a zero-shot prompt (without examples)\n5. Measure: How much more consistent is the output with examples?\n\nFew-shot templates are the highest-quality prompt technique for enterprise consistency.",
+          "expectedOutcome": "A few-shot template that produces more consistent, higher-quality output than zero-shot prompts, demonstrating example-based prompt engineering."
+        },
+        {
+          "id": "13.3",
+          "label": "Prompt Governance Framework",
+          "difficulty": "Advanced",
+          "prompt": "Design a governance document for your organization's prompt library:\n\n1. Naming Convention: How are prompts named and categorized? (e.g., [Role]-[App]-[Task]-[Version])\n2. Quality Standards: What makes a prompt 'approved'? (min 4-part structure, tested with real data, reviewed by SME)\n3. Review Process: Who approves new prompts? How often are existing prompts reviewed?\n4. Version Control: How are prompt updates tracked? (version numbers, changelogs)\n5. Usage Analytics: How do you measure which prompts are used and which are abandoned?\n6. Training: How do new employees learn the prompt library?\n\nDocument this as a 2-page governance guide that can be shared with leadership.",
+          "expectedOutcome": "A prompt governance framework with naming conventions, quality standards, review process, and analytics -- treating prompts as managed organizational assets."
+        },
+        {
+          "id": "13.4",
+          "label": "Adoption Measurement Dashboard",
+          "difficulty": "Advanced",
+          "prompt": "Build a Copilot ROI measurement system:\n\n1. Access the Microsoft 365 Copilot Dashboard in admin center (admin.microsoft.com)\n2. Document key metrics:\n   - Active Copilot users vs total licensed users (adoption rate)\n   - Average prompts per user per week (engagement depth)\n   - Most-used features by app (where is value concentrated?)\n   - Estimated time savings per user per week\n3. Create a monthly report template:\n   - Executive Summary: adoption rate, engagement trends, ROI estimate\n   - App Breakdown: which apps drive the most value?\n   - Training Needs: which features are underutilized?\n   - Recommendations: where to invest in training and enablement\n4. Calculate ROI: (hours saved * average hourly cost) vs license cost\n\nPresent this to leadership as the business case for Copilot investment.",
+          "expectedOutcome": "A Copilot adoption dashboard with metrics, ROI calculation, and a monthly reporting template, demonstrating how to measure and communicate Copilot value."
+        }
+      ],
+      "proTip": "The organizations that get the most from Copilot treat prompts like code: documented, version-controlled, peer-reviewed, and continuously improved. The ones that struggle treat each prompt as a one-time throwaway.",
+      "takeaways": [
+        "Prompt libraries should be organized by role and task, with placeholders for variable data",
+        "Few-shot templates (with examples) produce dramatically more consistent output than zero-shot prompts",
+        "Prompt governance treats prompts as managed organizational assets with review and versioning",
+        "Measure adoption systematically using the Copilot Dashboard to build the ROI business case"
+      ]
+    },
+    {
+      "id": "m14",
+      "number": 14,
+      "title": "Security, Compliance, and Data Governance",
+      "belt": "black",
+      "estimatedMinutes": 25,
+      "description": "Understand and configure the security boundaries of M365 Copilot: sensitivity labels, DLP, permission boundaries, and audit logging.",
+      "keyConcepts": [
+        "Microsoft Graph permission model",
+        "sensitivity labels",
+        "DLP interaction",
+        "oversharing risk",
+        "audit logs",
+        "Restricted SharePoint Search"
+      ],
+      "prerequisites": "Brown belt completed. Ideally access to Microsoft 365 admin center or Purview (or work with your IT admin).",
+      "concepts": [
+        {
+          "title": "The Permission Inheritance Model",
+          "body": "M365 Copilot respects the existing Microsoft Graph permission model. It can only access content that the user already has permission to view. Copilot never elevates privileges, bypasses DLP policies, or ignores sensitivity labels. This is the fundamental security architecture -- but it also means that overshared content (sites shared with 'Everyone') becomes more visible because Copilot surfaces it."
+        },
+        {
+          "title": "Sensitivity Labels and DLP",
+          "body": "Microsoft Purview sensitivity labels classify content by confidentiality level (Public, Internal, Confidential, Highly Confidential). Copilot respects these labels: it will not surface Highly Confidential content in a response to a user without the right label access. Data Loss Prevention (DLP) policies extend this by blocking Copilot from including certain data types (credit card numbers, SSNs) in responses."
+        },
+        {
+          "title": "The Oversharing Problem",
+          "body": "The biggest Copilot security risk is not a technical vulnerability -- it is overshared content. If a SharePoint site was shared with 'Everyone except external users' years ago and contains sensitive data, Copilot will surface that data to anyone who asks. Before rolling out Copilot, organizations should audit their sharing permissions and apply the principle of least privilege. Tools like SharePoint Advanced Management and Restricted SharePoint Search help."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "14.1",
+          "label": "Test Permission Boundaries",
+          "difficulty": "Advanced",
+          "prompt": "Verify that Copilot respects permissions (requires two test accounts or a colleague):\n\n1. Create a SharePoint site or folder with restricted access (only you)\n2. Upload a test document with distinctive content\n3. Ask Copilot (as yourself): \"Find the document about [distinctive content]\" -- it should find it\n4. Ask a colleague (who does NOT have access) to ask the same question -- it should NOT find it\n5. Now share the site with your colleague and have them ask again -- now it should appear\n\nThis proves the fundamental security guarantee: Copilot inherits user permissions.",
+          "expectedOutcome": "Confirmed permission boundary enforcement: Copilot only surfaces content the user has explicit access to, with before/after sharing comparison."
+        },
+        {
+          "id": "14.2",
+          "label": "Sensitivity Labels in Action",
+          "difficulty": "Advanced",
+          "prompt": "Test how sensitivity labels interact with Copilot:\n\n1. Create two test documents:\n   - Document A: Apply a 'Confidential' sensitivity label\n   - Document B: Apply a 'General' (or no) sensitivity label\n2. Both documents should be in locations accessible to a test user\n3. Ask Copilot to summarize both documents -- does it respect the label restrictions?\n4. Try referencing the Confidential document from a different context (e.g., in a presentation) -- does the label travel with the content?\n5. Document the behavior: which operations are blocked vs allowed based on label level\n\nNote: This depends on your organization's Purview configuration. Work with IT admin if labels are not configured.",
+          "expectedOutcome": "Documented sensitivity label behavior showing how labels control what Copilot can surface and how content classification affects cross-app workflows."
+        },
+        {
+          "id": "14.3",
+          "label": "Oversharing Audit",
+          "difficulty": "Advanced",
+          "prompt": "Conduct an oversharing audit (work with your SharePoint admin if needed):\n\n1. Identify 5 SharePoint sites your team uses regularly\n2. For each site, check: Who has access? Is it shared with 'Everyone'? When was access last reviewed?\n3. Use SharePoint Advanced Management (if available) to scan for overshared content\n4. Create an audit report: Site Name | Current Sharing | Risk Level | Recommended Action\n5. Propose a remediation plan: Which sites need access restricted before Copilot rollout?\n\nOversharing is the #1 security risk for Copilot adoption. This audit is the most important pre-rollout activity.",
+          "expectedOutcome": "An oversharing audit report with risk levels and remediation recommendations, demonstrating the most critical security exercise for Copilot deployment."
+        },
+        {
+          "id": "14.4",
+          "label": "Compliance and Audit Trail",
+          "difficulty": "Advanced",
+          "prompt": "Set up Copilot compliance monitoring (requires admin access or IT admin partnership):\n\n1. In Microsoft Purview (compliance.microsoft.com), navigate to Audit\n2. Search for Copilot-related activities:\n   - Filter by 'Copilot interaction' activity types\n   - Review what content was accessed by Copilot queries\n   - Check for any policy violations or blocked actions\n3. Create an audit report:\n   - How many Copilot interactions occurred in the last 30 days?\n   - Which content sources were accessed most frequently?\n   - Were any DLP policies triggered?\n   - Are there patterns suggesting misuse or oversharing?\n4. Establish a monthly review cadence for Copilot audit logs\n\nThis creates the compliance paper trail required for regulated industries.",
+          "expectedOutcome": "A Copilot audit review with interaction logs, policy compliance checks, and a recurring review process -- essential for regulated environments."
+        }
+      ],
+      "proTip": "Run the oversharing audit BEFORE rolling out Copilot to your organization. Copilot does not create new security risks -- but it amplifies existing oversharing risks by making content more discoverable.",
+      "takeaways": [
+        "M365 Copilot inherits existing permissions -- it never elevates access privileges",
+        "Sensitivity labels and DLP policies are respected by Copilot across all apps",
+        "Oversharing is the biggest risk -- audit sharing permissions before broad Copilot rollout",
+        "Purview audit logs provide the compliance trail for Copilot interactions"
+      ]
+    },
+    {
+      "id": "m15",
+      "number": 15,
+      "title": "Power Workflows and Automation",
+      "belt": "black",
+      "estimatedMinutes": 30,
+      "description": "Combine M365 Copilot with Power Platform to build autonomous workflows and AI-assisted business processes.",
+      "keyConcepts": [
+        "Copilot in Power Automate (describe-a-flow)",
+        "AI Builder",
+        "Copilot-triggered automations",
+        "Power Apps with Copilot",
+        "end-to-end process automation"
+      ],
+      "prerequisites": "Brown belt completed. Access to Power Automate and optionally Power Apps.",
+      "concepts": [
+        {
+          "title": "Describe-a-Flow",
+          "body": "Power Automate's Copilot feature lets you describe a workflow in natural language and generates the flow for you. Instead of dragging connectors and configuring triggers manually, you say 'When a VIP client emails, save attachments to SharePoint, create a Planner task, and notify the account team in Teams.' Copilot generates the entire flow -- you review and refine."
+        },
+        {
+          "title": "AI Builder Integration",
+          "body": "AI Builder adds document processing, text classification, and object detection to your Power Platform workflows. Combined with Copilot, you can build flows that read invoices, extract data, update spreadsheets, and trigger approvals -- all from a natural language description. This is the bridge between M365 Copilot's text intelligence and Power Platform's process automation."
+        },
+        {
+          "title": "Copilot in Power Apps",
+          "body": "Power Apps Copilot generates entire applications from natural language descriptions. 'Create a leave request app with employee submission, manager approval, and HR weekly summary' produces a working app with forms, logic, and data connections. You customize the generated app rather than building from scratch -- dramatically accelerating internal tool development."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "15.1",
+          "label": "Describe-a-Flow in Power Automate",
+          "difficulty": "Advanced",
+          "prompt": "Create an automated workflow using natural language in Power Automate:\n\n1. Go to make.powerautomate.com and click 'Describe it to design it' (or the Copilot icon)\n2. Describe your flow:\n   \"When a VIP client sends me an email (from a specific list of addresses), automatically:\n   - Save any attachments to a SharePoint folder called 'VIP Client Docs'\n   - Create a Planner task assigned to me with the subject line as the task name\n   - Post a notification in our Sales team Teams channel\n   - Add a row to a SharePoint list tracking VIP interactions with date, client, and subject\"\n3. Review the generated flow. Check each step for correctness.\n4. Test with a real or simulated email.\n5. Refine any steps that did not work as expected.\n\nThis replaces manual multi-app workflows with automated processes.",
+          "expectedOutcome": "A working Power Automate flow generated from a natural language description, demonstrating describe-a-flow as the bridge between Copilot intelligence and process automation."
+        },
+        {
+          "id": "15.2",
+          "label": "AI Builder + Copilot Pipeline",
+          "difficulty": "Advanced",
+          "prompt": "Build a document processing pipeline using AI Builder and Power Automate:\n\n1. In Power Automate, describe: \"When a new PDF is added to the 'Invoices' folder in SharePoint, use AI Builder to extract the vendor name, invoice number, date, and total amount. Add these to an Excel tracker. If the amount is over $10,000, send an approval request to the finance manager. After approval, update the tracker status.\"\n2. Review the generated flow and configure the AI Builder document extraction model\n3. Test with a sample invoice PDF\n4. Verify the data appears in the Excel tracker and the approval triggers for large amounts\n\nThis combines document AI with workflow automation for a real-world finance use case.",
+          "expectedOutcome": "An automated invoice processing pipeline using AI Builder for extraction and Power Automate for workflow, showing AI-powered document processing at scale."
+        },
+        {
+          "id": "15.3",
+          "label": "Copilot in Power Apps",
+          "difficulty": "Advanced",
+          "prompt": "Generate an internal business app using Power Apps Copilot:\n\n1. Go to make.powerapps.com and use the 'Describe your app' Copilot feature\n2. Describe: \"Create a leave request application where:\n   - Employees submit leave requests with type (vacation, sick, personal), dates, and reason\n   - Managers receive a notification in Teams and can approve or deny\n   - HR gets a weekly summary report every Monday\n   - Employees can see the status of their requests\n   - The app tracks remaining leave balance per employee\"\n3. Review the generated app: screens, forms, data tables, and logic\n4. Customize: adjust the design, add your company branding, modify the approval flow\n5. Test the full workflow: submit, approve, check status, receive summary\n\nThis builds a complete business app from a paragraph of description.",
+          "expectedOutcome": "A working leave request app with submission forms, approval workflow, and reporting -- generated from a natural language description and customized."
+        },
+        {
+          "id": "15.4",
+          "label": "End-to-End Process Automation",
+          "difficulty": "Advanced",
+          "prompt": "Design a complete process automation combining all Copilot capabilities:\n\nScenario: New Employee Onboarding\n\n1. Copilot Studio: Build an onboarding FAQ agent grounded in the employee handbook and IT setup guides\n2. Power Automate: Create a flow triggered when HR adds a new employee to the SharePoint list:\n   - Send a welcome email via Outlook with first-day instructions\n   - Create a Planner board with 20 onboarding tasks (IT setup, training, introductions)\n   - Post an introduction in the Team's general channel\n   - Schedule a 30-minute welcome meeting with the manager\n3. Power Apps: Build a 'New Hire Checklist' app where the employee and manager track onboarding progress\n4. Business Chat: The new employee can ask the FAQ agent questions about policies, benefits, and setup\n\nDocument the complete system: what each component does, how they connect, and the total time saved.",
+          "expectedOutcome": "A comprehensive onboarding automation system using Copilot Studio, Power Automate, Power Apps, and Business Chat -- the capstone of M365 Copilot mastery."
+        }
+      ],
+      "proTip": "Start with the describe-a-flow feature for your most repetitive multi-app workflow. Even a 5-step automation saves hours per week when it runs automatically.",
+      "takeaways": [
+        "Describe-a-flow generates Power Automate workflows from natural language -- review and refine, do not build from scratch",
+        "AI Builder adds document intelligence (invoice reading, form extraction) to automated workflows",
+        "Power Apps Copilot generates complete business apps from descriptions -- customize the generated output",
+        "The ultimate M365 Copilot skill is combining all surfaces (Copilot Studio, Power Automate, Power Apps, Business Chat) into integrated business processes"
+      ]
+    }
+  ],
+  "capstones": [
+    {
+      "belt": "white",
+      "title": "White Belt Challenge",
+      "difficulty": "Beginner",
+      "description": "Prove you can use M365 Copilot across the core suite for everyday knowledge work.",
+      "tasks": [
+        "Draft a professional document in Word using Copilot with at least 2 referenced source files",
+        "Analyze a dataset in Excel using natural language prompts and generate a chart",
+        "Create a 10-slide presentation from a Word document using PowerPoint Copilot",
+        "Summarize a long email thread in Outlook and draft a response using Copilot",
+        "Generate a meeting recap in Teams with action items and owners"
+      ]
+    },
+    {
+      "belt": "brown",
+      "title": "Brown Belt Challenge",
+      "difficulty": "Intermediate",
+      "description": "Build a complete weekly workflow that chains Copilot across at least three M365 apps to produce a recurring business deliverable.",
+      "tasks": [
+        "Design a weekly analysis pipeline: pull data in Excel, generate insights, create a PowerPoint summary",
+        "Automate meeting follow-ups: Teams recap to Word summary to Outlook distribution",
+        "Build a prompt template library with at least 5 reusable prompts for your role",
+        "Produce a weekly report combining data from email, meetings, and documents using Business Chat"
+      ]
+    },
+    {
+      "belt": "black",
+      "title": "Black Belt Challenge",
+      "difficulty": "Advanced",
+      "description": "Deploy a Copilot-powered solution for your team or department with a custom agent, governed prompt library, and automated workflow.",
+      "tasks": [
+        "Build and publish a Copilot Studio agent grounded in your department's knowledge base",
+        "Create a Power Automate flow that uses Copilot capabilities to process incoming data",
+        "Design and document a prompt governance framework with role-based templates",
+        "Produce a Copilot adoption dashboard showing usage metrics, time saved, and ROI",
+        "Run the full system for one week and document results"
+      ]
+    }
+  ],
+  "bonusPrompts": [
+    {
+      "id": "B.1",
+      "label": "Board Meeting Preparation Pipeline",
+      "module": "m11",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "B.2",
+      "label": "Client Renewal Automation",
+      "module": "m15",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "B.3",
+      "label": "Competitive Analysis with Copilot",
+      "module": "m9",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "B.4",
+      "label": "Financial Modeling with Python in Excel",
+      "module": "m6",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "B.5",
+      "label": "Compliance Review Workflow",
+      "module": "m14",
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "B.6",
+      "label": "Weekly Team Digest Generator",
+      "module": "m7",
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "B.7",
+      "label": "Multi-Department Agent Network",
+      "module": "m12",
+      "difficulty": "Advanced"
+    }
+  ],
+  "references": {
+    "sourceGuides": {
+      "topics": [
+        "Microsoft 365 Copilot Official Docs",
+        "Microsoft Learn Training Paths",
+        "Copilot Studio Documentation",
+        "Power Platform Integration",
+        "Microsoft Graph Developer Docs",
+        "Microsoft Purview Compliance"
+      ],
+      "citations": [
+        "Microsoft, \"Microsoft 365 Copilot Documentation\" (learn.microsoft.com)",
+        "Microsoft Learn, \"Get Started with Microsoft 365 Copilot\" (Training Path)",
+        "Microsoft, \"Copilot Studio Documentation\" (learn.microsoft.com/copilot-studio)",
+        "Microsoft, \"Power Automate with Copilot\" (learn.microsoft.com/power-automate)",
+        "Microsoft, \"Microsoft Graph API Documentation\" (learn.microsoft.com/graph)",
+        "Microsoft, \"Microsoft Purview Compliance Documentation\" (learn.microsoft.com/purview)"
+      ]
+    },
+    "promptFramework": {
+      "topics": [
+        "Four-Part Prompt Structure",
+        "Iterative Refinement",
+        "Tone and Audience Control",
+        "File Reference Syntax",
+        "Few-Shot Templates",
+        "Role-Based Libraries"
+      ],
+      "structure": [
+        "Goal: What you want done (verb + deliverable)",
+        "Context: Background, constraints, and situation",
+        "Source: Specific files or data to reference (use / syntax)",
+        "Expectations: Format, tone, length, audience"
+      ]
+    },
+    "securityFramework": {
+      "topics": [
+        "Permission Inheritance",
+        "Sensitivity Labels",
+        "Data Loss Prevention",
+        "Oversharing Risk",
+        "Audit Logging",
+        "Restricted SharePoint Search"
+      ],
+      "principles": [
+        "Copilot inherits user permissions -- never elevates access",
+        "Sensitivity labels are respected across all Copilot surfaces",
+        "DLP policies block sensitive data types in Copilot responses",
+        "Oversharing is the #1 risk -- audit permissions before rollout",
+        "Purview audit logs track all Copilot interactions for compliance"
+      ]
+    }
+  }
+}

@@ -128,6 +128,33 @@ DOJO_CONFIGS: dict[str, dict] = {
         },
         "default_module": "m14",
     },
+    "m365-copilot": {
+        "label": "Microsoft 365 Copilot Dojo",
+        "data_path": DOJO_DIR / "m365-copilot" / "data.json",
+        "search_queries": [
+            "Microsoft 365 Copilot new features updates",
+            "M365 Copilot tips prompts workflow 2026",
+            "Microsoft Copilot enterprise best practices this week",
+        ],
+        "keyword_map": {
+            "m1":  ["m365 copilot", "what is copilot", "microsoft graph", "business chat"],
+            "m2":  ["prompt anatomy", "prompt structure", "copilot prompt", "prompt crafting"],
+            "m3":  ["word copilot", "document drafting", "rewrite", "summarize document"],
+            "m4":  ["excel copilot", "formula", "chart", "data analysis", "natural language formula"],
+            "m5":  ["powerpoint copilot", "outlook copilot", "teams copilot", "meeting recap"],
+            "m6":  ["advanced excel", "python in excel", "pivot table", "scenario analysis"],
+            "m7":  ["document workflow", "multi-source draft", "brand voice", "template"],
+            "m8":  ["presentation mastery", "speaker notes", "narrative arc", "slide design"],
+            "m9":  ["meeting intelligence", "teams recap", "action items", "channel summary"],
+            "m10": ["email mastery", "inbox triage", "email coaching", "tone adjustment"],
+            "m11": ["cross-app", "workflow chain", "loop", "multi-app", "pipeline"],
+            "m12": ["copilot studio", "custom agent", "declarative agent", "agent builder"],
+            "m13": ["prompt library", "prompt governance", "enterprise prompt", "adoption"],
+            "m14": ["security", "compliance", "sensitivity label", "oversharing", "purview"],
+            "m15": ["power automate", "power apps", "ai builder", "describe a flow"],
+        },
+        "default_module": "m11",
+    },
 }
 
 # Legacy alias for backward compatibility
