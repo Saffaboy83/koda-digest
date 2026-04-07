@@ -34,6 +34,7 @@ STEPS = [
     ("01B", "Discover Tools & Blogs", "01b_discover_tools.py"),
     ("01C", "Competitive Monitor",  "01c_competitive_monitor.py"),
     ("01D", "Changelog Tracker",    "01d_changelog_tracker.py"),
+    ("01E", "Update Pricing",       "01e_update_pricing.py"),
     ("02",  "Gather Newsletters",   "02_gather_newsletters.py"),
     ("03",  "Synthesize Content",   "03_synthesize_content.py"),
     ("03B", "Verify Stats",         "03b_verify_stats.py"),
@@ -52,7 +53,7 @@ STEP_ORDER = {step_id: i for i, (step_id, _, _) in enumerate(STEPS)}
 PARALLEL_STEPS = {"04", "04E", "04R"}
 
 # Non-critical steps: pipeline continues if these fail
-NON_CRITICAL = {"01B", "01C", "01D", "03B", "04", "04E", "04R", "07"}
+NON_CRITICAL = {"01B", "01C", "01D", "01E", "03B", "04", "04E", "04R", "07"}
 
 # Per-step timeouts (seconds)
 STEP_TIMEOUTS = {

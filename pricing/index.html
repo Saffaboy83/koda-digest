@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Token Tracker | Koda Intelligence</title>
-<meta name="description" content="Live comparison of AI API pricing across 9 providers and 85 models. Updated weekly by Koda Intelligence.">
+<meta name="description" content="Live comparison of AI API pricing across 8 providers and 68 models. Updated weekly by Koda Intelligence.">
 <meta property="og:title" content="Token Tracker | Koda Intelligence">
-<meta property="og:description" content="9 providers, 85 models compared. Updated April 03, 2026.">
+<meta property="og:description" content="8 providers, 68 models compared. Updated April 07, 2026.">
 <meta property="og:url" content="https://www.koda.community/pricing/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -109,87 +109,6 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
 @media(max-width:480px){
   .takeaways{grid-template-columns:1fr}
 }
-
-
-
-/* -- Koda Nav V2 -- */
-.kn-topbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(11,19,38,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
-.kn-topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:8px}
-.kn-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;flex-shrink:0}
-.kn-brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0}
-.kn-brand-text{font-size:14px;font-weight:700;color:#3B82F6}
-.kn-brand-sub{font-size:10px;color:#8c909f;display:none}
-@media(min-width:640px){.kn-brand-sub{display:block}}
-
-/* Desktop nav links */
-.kn-links{display:none;align-items:center;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;flex:1;justify-content:center}
-@media(min-width:769px){.kn-links{display:flex}}
-.kn-link{font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 8px;border-radius:6px;text-decoration:none;transition:all 0.2s;white-space:nowrap;color:#8c909f;background:rgba(255,255,255,0.04)}
-.kn-link:hover{color:#dae2fd;background:rgba(255,255,255,0.08)}
-.kn-link-active{color:#3B82F6!important;background:rgba(59,130,246,0.12)!important;border-bottom:2px solid #3B82F6}
-.kn-link .material-symbols-outlined{font-size:13px;vertical-align:-2px;margin-right:2px}
-
-/* Actions (search, hamburger) */
-.kn-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
-.kn-action-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s;text-decoration:none}
-.kn-action-btn:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
-.kn-action-btn .material-symbols-outlined{font-size:20px}
-
-/* Hamburger - visible on mobile only */
-.kn-hamburger{display:flex}
-@media(min-width:769px){.kn-hamburger{display:none}}
-
-/* Desktop social - hidden on mobile (drawer has them) */
-.kn-desktop-social{display:none;align-items:center;gap:4px}
-@media(min-width:769px){.kn-desktop-social{display:flex}}
-
-/* Date picker (briefing pages only) */
-.kn-date-picker{display:none;align-items:center}
-@media(min-width:769px){.kn-date-picker{display:flex}}
-.kn-date-btn{display:flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:#3B82F6;padding:4px 8px;background:rgba(59,130,246,0.1);border-radius:6px;border:none;cursor:pointer;transition:all 0.2s;white-space:nowrap}
-.kn-date-btn:hover{background:rgba(59,130,246,0.2)}
-
-/* Home button - desktop only, in links row */
-.kn-home{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white!important;font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 10px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all 0.2s}
-.kn-home:hover{box-shadow:0 4px 16px rgba(59,130,246,0.3)}
-
-/* ── Drawer ── */
-.kn-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1001;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s}
-.kn-overlay.kn-open{opacity:1;visibility:visible}
-.kn-drawer{position:fixed;top:0;right:0;bottom:0;width:min(280px,85vw);background:rgba(11,19,38,0.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-left:1px solid rgba(173,198,255,0.1);z-index:1002;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);overflow-y:auto;-webkit-overflow-scrolling:touch}
-.kn-drawer.kn-open{transform:translateX(0)}
-@media(prefers-reduced-motion:reduce){.kn-overlay,.kn-drawer{transition-duration:0.01ms!important}}
-
-/* Drawer header */
-.kn-drawer-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06)}
-.kn-drawer-brand{display:flex;align-items:center;gap:10px}
-.kn-drawer-close{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s}
-.kn-drawer-close:hover{background:rgba(239,68,68,0.15);color:#EF4444}
-
-/* Drawer sections */
-.kn-drawer-section{padding:12px 20px 4px;font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#6b7280}
-.kn-drawer-divider{height:1px;background:rgba(255,255,255,0.06);margin:8px 20px}
-
-/* Drawer nav links */
-.kn-drawer-link{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:#c2c6d6;font-size:14px;font-weight:500;transition:all 0.2s;border-left:3px solid transparent}
-.kn-drawer-link:hover{background:rgba(255,255,255,0.04);color:#dae2fd}
-.kn-drawer-link-active{color:#3B82F6!important;border-left-color:#3B82F6;background:rgba(59,130,246,0.08)}
-.kn-drawer-link .material-symbols-outlined{font-size:20px;color:#6b7280;flex-shrink:0}
-.kn-drawer-link-active .material-symbols-outlined{color:#3B82F6}
-
-/* Drawer home link */
-.kn-drawer-home{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:white;font-size:14px;font-weight:600;border-left:3px solid transparent;transition:all 0.2s}
-.kn-drawer-home:hover{background:rgba(59,130,246,0.1)}
-.kn-drawer-home .material-symbols-outlined{font-size:20px;color:#3B82F6}
-
-/* Drawer social row */
-.kn-drawer-social{display:flex;gap:8px;padding:12px 20px}
-.kn-drawer-social a,.kn-drawer-social button{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;text-decoration:none;transition:all 0.2s}
-.kn-drawer-social a:hover,.kn-drawer-social button:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
-
-/* Body scroll lock */
-body.kn-locked{overflow:hidden}
-/* -- End Koda Nav V2 -- */
 </style>
 </head>
 <body>
@@ -197,109 +116,42 @@ body.kn-locked{overflow:hidden}
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- ── Topbar ── -->
-<!-- koda-nav-v2-start -->
-<header class="kn-topbar" id="knTopbar">
-<div class="kn-topbar-inner">
-    <a href="../index.html" class="kn-brand">
-        <div class="kn-brand-icon">K</div>
+<header class="topbar">
+<div class="topbar-inner">
+    <a href="../index.html" class="brand">
+        <div class="brand-icon">K</div>
         <div>
-            <div class="kn-brand-text">Koda Intelligence</div>
-            <div class="kn-brand-sub"><span class="material-symbols-outlined" style="font-size:11px;vertical-align:-1px;margin-right:2px">monitoring</span>Token Tracker</div>
+            <div class="brand-text">Koda Intelligence</div>
+            <div class="brand-sub"><span class="material-symbols-outlined" style="font-size:11px;vertical-align:-1px;margin-right:2px">monitoring</span>Token Tracker</div>
         </div>
     </a>
-    <div class="kn-links">
-                <a href="../morning-briefing-koda.html" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
-        <a href="../editorial/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">explore</span>Deep Dive</a>
-        <a href="../pricing/" class="kn-link kn-link-active"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">monitoring</span>Token Tracker</a>
-        <a href="../benchmarks/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">trophy</span>Leaderboard</a>
-        <a href="../reviews/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">science</span>The Lab</a>
-        <a href="../dojo/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">school</span>The Dojo</a>
-        <a href="../changelog/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">pulse_alert</span>Pulse</a>
-        <a href="../archive/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
-        <a href="../index.html" class="kn-home">&larr; Home</a>
-    </div>
-    <div class="kn-actions">
-        
-        <div class="kn-desktop-social">
-            <a href="https://x.com/intent/tweet?url=https://www.koda.community/pricing/index.html" target="_blank" rel="noopener" class="kn-action-btn" title="Share on X">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/pricing/index.html" target="_blank" rel="noopener" class="kn-action-btn" title="Share on LinkedIn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-            <button class="kn-action-btn" onclick="navigator.clipboard.writeText(window.location.href);this.style.color='#10B981';setTimeout(()=>this.style.color='',1500)" title="Copy link">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
-            </button>
-        </div>
-        <button class="kn-action-btn" id="knSearchBtn" title="Search (Ctrl+K)" aria-label="Search">
-            <span class="material-symbols-outlined">search</span>
-        </button>
-        <button class="kn-action-btn kn-hamburger" id="knMenuBtn" title="Menu" aria-label="Open menu" aria-expanded="false">
-            <span class="material-symbols-outlined">menu</span>
-        </button>
+    <div class="nav-links">
+        <a href="../morning-briefing-koda.html" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+        <a href="../editorial/" class="nav-link nav-link-secondary" style="display:none"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">explore</span>Deep Dive</a>
+        <a href="../index.html" class="nav-link nav-link-home">&larr; Home</a>
     </div>
 </div>
 </header>
-
-<!-- Drawer overlay -->
-<div class="kn-overlay" id="knOverlay"></div>
-
-<!-- Slide-out drawer -->
-<nav class="kn-drawer" id="knDrawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
-    <div class="kn-drawer-header">
-        <div class="kn-drawer-brand">
-            <div class="kn-brand-icon">K</div>
-            <span class="kn-brand-text">Koda</span>
-        </div>
-        <button class="kn-drawer-close" id="knDrawerClose" aria-label="Close menu">
-            <span class="material-symbols-outlined">close</span>
-        </button>
-    </div>
-    <div class="kn-drawer-section">Navigate</div>
-        <a href="../index.html" class="kn-drawer-home"><span class="material-symbols-outlined">home</span>Home</a>
-    <a href="../morning-briefing-koda.html" class="kn-drawer-link"><span class="material-symbols-outlined">bolt</span>The Signal</a>
-    <a href="../editorial/" class="kn-drawer-link"><span class="material-symbols-outlined">explore</span>Deep Dive</a>
-    <a href="../pricing/" class="kn-drawer-link kn-drawer-link-active"><span class="material-symbols-outlined">monitoring</span>Token Tracker</a>
-    <a href="../benchmarks/" class="kn-drawer-link"><span class="material-symbols-outlined">trophy</span>Leaderboard</a>
-    <a href="../reviews/" class="kn-drawer-link"><span class="material-symbols-outlined">science</span>The Lab</a>
-    <a href="../dojo/" class="kn-drawer-link"><span class="material-symbols-outlined">school</span>The Dojo</a>
-    <a href="../changelog/" class="kn-drawer-link"><span class="material-symbols-outlined">pulse_alert</span>Pulse</a>
-    <a href="../archive/" class="kn-drawer-link"><span class="material-symbols-outlined">lock_open</span>The Vault</a>
-    <div class="kn-drawer-divider"></div>
-    <div class="kn-drawer-section">Share</div>
-    <div class="kn-drawer-social">
-        <a href="https://x.com/intent/tweet?url=https://www.koda.community/pricing/index.html" target="_blank" rel="noopener" title="Share on X">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/pricing/index.html" target="_blank" rel="noopener" title="Share on LinkedIn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <button onclick="navigator.clipboard.writeText(window.location.href);this.style.color='#10B981';setTimeout(()=>this.style.color='',1500)" title="Copy link">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
-        </button>
-    </div>
-</nav>
-<!-- koda-nav-v2-end -->
 
 <!-- ── Hero ── -->
 <section class="hero animate-in">
     <div class="badge">Updated Weekly</div>
     <h1><span class="material-symbols-outlined" style="font-size:0.7em;vertical-align:-0.04em;margin-right:8px">monitoring</span>Token Tracker</h1>
-    <p>9 providers, 85 models compared side by side. Sorted by cost. Updated April 03, 2026.</p>
+    <p>8 providers, 68 models compared side by side. Sorted by cost. Updated April 07, 2026.</p>
 </section>
 
 <!-- ── Stats ── -->
 <div class="stats animate-in">
     <div class="stat">
-        <div class="stat-value">9</div>
+        <div class="stat-value">8</div>
         <div class="stat-label">Providers</div>
     </div>
     <div class="stat">
-        <div class="stat-value">85</div>
+        <div class="stat-value">68</div>
         <div class="stat-label">Models</div>
     </div>
     <div class="stat">
-        <div class="stat-value">April 03, 2026</div>
+        <div class="stat-value">April 07, 2026</div>
         <div class="stat-label">Last Scraped</div>
     </div>
 </div>
@@ -337,9 +189,9 @@ body.kn-locked{overflow:hidden}
                     <span class="material-symbols-outlined text-lg" style="color:#06B6D4">data_array</span>
                     <span class="text-[10px] uppercase tracking-wider font-bold" style="color:#06B6D4">Cheapest embedding</span>
                 </div>
-                <div class="text-sm font-bold text-[#dae2fd]">pplx-embed-v1-0.6b</div>
-                <div class="text-xs text-[#8c909f] mt-0.5">Perplexity</div>
-                <div class="text-lg font-black mt-2" style="color:#06B6D4">$0.0040<span class="text-[10px] font-normal text-[#8c909f]"> / 1M input</span></div>
+                <div class="text-sm font-bold text-[#dae2fd]">Gemini Embedding</div>
+                <div class="text-xs text-[#8c909f] mt-0.5">Google Gemini</div>
+                <div class="text-lg font-black mt-2" style="color:#06B6D4">$0.15<span class="text-[10px] font-normal text-[#8c909f]"> / 1M input</span></div>
             </div>
             <div class="p-4 bg-[#131b2e] border border-white/[0.06] rounded-xl hover:bg-[#171f33] transition-colors duration-300">
                 <div class="flex items-center gap-2 mb-2">
@@ -368,8 +220,7 @@ body.kn-locked{overflow:hidden}
             <div class="filter-label"><span class="material-symbols-outlined text-sm">business</span> Provider</div>
             <div class="filter-pills" id="providerFilters">
                 <button class="filter-btn active" data-filter="provider" data-value="all" onclick="toggleFilter(this)">All</button>
-                <button class="filter-btn" data-filter="provider" data-value="AWS Bedrock" style="--btn-color:#F59E0B" onclick="toggleFilter(this)">AWS Bedrock</button>
-<button class="filter-btn" data-filter="provider" data-value="Anthropic" style="--btn-color:#D97706" onclick="toggleFilter(this)">Anthropic</button>
+                <button class="filter-btn" data-filter="provider" data-value="Anthropic" style="--btn-color:#D97706" onclick="toggleFilter(this)">Anthropic</button>
 <button class="filter-btn" data-filter="provider" data-value="Cohere" style="--btn-color:#EF4444" onclick="toggleFilter(this)">Cohere</button>
 <button class="filter-btn" data-filter="provider" data-value="Google Gemini" style="--btn-color:#3B82F6" onclick="toggleFilter(this)">Google Gemini</button>
 <button class="filter-btn" data-filter="provider" data-value="Groq" style="--btn-color:#EC4899" onclick="toggleFilter(this)">Groq</button>
@@ -385,14 +236,17 @@ body.kn-locked{overflow:hidden}
             <div class="filter-pills" id="typeFilters">
                 <button class="filter-btn active" data-filter="type" data-value="all" onclick="toggleFilter(this)">All</button>
                 <button class="filter-btn" data-filter="type" data-value="audio" onclick="toggleFilter(this)">audio</button>
-<button class="filter-btn" data-filter="type" data-value="batch" onclick="toggleFilter(this)">batch</button>
 <button class="filter-btn" data-filter="type" data-value="chat" onclick="toggleFilter(this)">chat</button>
 <button class="filter-btn" data-filter="type" data-value="embedding" onclick="toggleFilter(this)">embedding</button>
 <button class="filter-btn" data-filter="type" data-value="image" onclick="toggleFilter(this)">image</button>
 <button class="filter-btn" data-filter="type" data-value="legacy" onclick="toggleFilter(this)">legacy</button>
+<button class="filter-btn" data-filter="type" data-value="music" onclick="toggleFilter(this)">music</button>
 <button class="filter-btn" data-filter="type" data-value="non-reasoning" onclick="toggleFilter(this)">non-reasoning</button>
 <button class="filter-btn" data-filter="type" data-value="reasoning" onclick="toggleFilter(this)">reasoning</button>
+<button class="filter-btn" data-filter="type" data-value="reranking" onclick="toggleFilter(this)">reranking</button>
 <button class="filter-btn" data-filter="type" data-value="research" onclick="toggleFilter(this)">research</button>
+<button class="filter-btn" data-filter="type" data-value="robotics" onclick="toggleFilter(this)">robotics</button>
+<button class="filter-btn" data-filter="type" data-value="video" onclick="toggleFilter(this)">video</button>
 
             </div>
         </div>
@@ -412,41 +266,13 @@ body.kn-locked{overflow:hidden}
                 </tr>
             </thead>
             <tbody>
-                <tr data-provider="Perplexity" data-type="embedding">
-<td><span style="color:#06B6D4;font-weight:600">Perplexity</span></td>
-<td class="font-mono text-[13px]">pplx-embed-v1-0.6b</td>
-<td class="text-right">$0.0040</td>
-<td class="text-right"><span style="color:#10B981">Free</span></td>
-<td class="text-center" style="color:#64748B">N/A</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#06B6D4;background:#06B6D415">embedding</span></td>
-</tr><tr data-provider="Perplexity" data-type="embedding">
-<td><span style="color:#06B6D4;font-weight:600">Perplexity</span></td>
-<td class="font-mono text-[13px]">pplx-embed-context-v1-0.6b</td>
-<td class="text-right">$0.0080</td>
-<td class="text-right"><span style="color:#10B981">Free</span></td>
-<td class="text-center" style="color:#64748B">N/A</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#06B6D4;background:#06B6D415">embedding</span></td>
-</tr><tr data-provider="Together AI" data-type="chat">
+                <tr data-provider="Together AI" data-type="chat">
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
 <td class="font-mono text-[13px]">Gemma 3n E4B Instruct</td>
 <td class="text-right">$0.02</td>
 <td class="text-right">$0.04</td>
 <td class="text-center" style="color:#64748B">N/A</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#8B5CF6;background:#8B5CF615">chat</span></td>
-</tr><tr data-provider="Perplexity" data-type="embedding">
-<td><span style="color:#06B6D4;font-weight:600">Perplexity</span></td>
-<td class="font-mono text-[13px]">pplx-embed-v1-4b</td>
-<td class="text-right">$0.03</td>
-<td class="text-right"><span style="color:#10B981">Free</span></td>
-<td class="text-center" style="color:#64748B">N/A</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#06B6D4;background:#06B6D415">embedding</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Gemma 3 4B</td>
-<td class="text-right">$0.04</td>
-<td class="text-right">$0.08</td>
-<td class="text-center" style="color:#64748B">N/A</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
 </tr><tr data-provider="Groq" data-type="chat">
 <td><span style="color:#EC4899;font-weight:600">Groq</span></td>
 <td class="font-mono text-[13px]">Llama 3.1 8B Instant 128k</td>
@@ -454,20 +280,13 @@ body.kn-locked{overflow:hidden}
 <td class="text-right">$0.08</td>
 <td class="text-center">128k</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EC4899;background:#EC489915">chat</span></td>
-</tr><tr data-provider="Perplexity" data-type="embedding">
-<td><span style="color:#06B6D4;font-weight:600">Perplexity</span></td>
-<td class="font-mono text-[13px]">pplx-embed-context-v1-4b</td>
-<td class="text-right">$0.05</td>
-<td class="text-right"><span style="color:#10B981">Free</span></td>
-<td class="text-center" style="color:#64748B">N/A</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#06B6D4;background:#06B6D415">embedding</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">GLM 4.7 Flash</td>
+</tr><tr data-provider="Google Gemini" data-type="chat">
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td class="font-mono text-[13px]">Gemini 2.0 Flash-Lite</td>
 <td class="text-right">$0.07</td>
-<td class="text-right">$0.40</td>
-<td class="text-center">128K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
+<td class="text-right">$0.30</td>
+<td class="text-center">not available</td>
+<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">chat</span></td>
 </tr><tr data-provider="Groq" data-type="chat">
 <td><span style="color:#EC4899;font-weight:600">Groq</span></td>
 <td class="font-mono text-[13px]">GPT OSS 20B 128k</td>
@@ -482,26 +301,26 @@ body.kn-locked{overflow:hidden}
 <td class="text-right">$0.30</td>
 <td class="text-center">128k</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EC4899;background:#EC489915">chat</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Gemma 3 12B</td>
-<td class="text-right">$0.09</td>
-<td class="text-right">$0.29</td>
-<td class="text-center" style="color:#64748B">N/A</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
+</tr><tr data-provider="Google Gemini" data-type="music">
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td class="font-mono text-[13px]">Lyria 3 Pro Preview (Full Song)</td>
+<td class="text-right">$0.08</td>
+<td class="text-right"><span style="color:#10B981">Free</span></td>
+<td class="text-center">not available</td>
+<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">music</span></td>
 </tr><tr data-provider="Google Gemini" data-type="chat">
 <td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
 <td class="font-mono text-[13px]">Gemini 2.5 Flash-Lite</td>
 <td class="text-right">$0.10</td>
 <td class="text-right">$0.40</td>
-<td class="text-center">1M</td>
+<td class="text-center">not available</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">chat</span></td>
 </tr><tr data-provider="Google Gemini" data-type="chat">
 <td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
 <td class="font-mono text-[13px]">Gemini 2.0 Flash</td>
 <td class="text-right">$0.10</td>
 <td class="text-right">$0.40</td>
-<td class="text-center">1M</td>
+<td class="text-center">not available</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">chat</span></td>
 </tr><tr data-provider="Together AI" data-type="chat">
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
@@ -531,6 +350,13 @@ body.kn-locked{overflow:hidden}
 <td class="text-right">$0.34</td>
 <td class="text-center">128k</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EC4899;background:#EC489915">chat</span></td>
+</tr><tr data-provider="Google Gemini" data-type="embedding">
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td class="font-mono text-[13px]">Gemini Embedding</td>
+<td class="text-right">$0.15</td>
+<td class="text-right"><span style="color:#10B981">Free</span></td>
+<td class="text-center">not available</td>
+<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">embedding</span></td>
 </tr><tr data-provider="Groq" data-type="chat">
 <td><span style="color:#EC4899;font-weight:600">Groq</span></td>
 <td class="font-mono text-[13px]">GPT OSS 120B 128k</td>
@@ -545,27 +371,6 @@ body.kn-locked{overflow:hidden}
 <td class="text-right">$0.60</td>
 <td class="text-center" style="color:#64748B">N/A</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#8B5CF6;background:#8B5CF615">chat</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">NVIDIA Nemotron 3 Super 120B A12B</td>
-<td class="text-right">$0.15</td>
-<td class="text-right">$0.65</td>
-<td class="text-center">128K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Palmyra Vision 7B</td>
-<td class="text-right">$0.15</td>
-<td class="text-right">$0.60</td>
-<td class="text-center" style="color:#64748B">N/A</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Llama 4 Scout 17B</td>
-<td class="text-right">$0.17</td>
-<td class="text-right">$0.66</td>
-<td class="text-center" style="color:#64748B">N/A</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
 </tr><tr data-provider="OpenAI" data-type="chat">
 <td><span style="color:#10B981;font-weight:600">OpenAI</span></td>
 <td class="font-mono text-[13px]">GPT-5.4 nano</td>
@@ -573,6 +378,13 @@ body.kn-locked{overflow:hidden}
 <td class="text-right">$1.25</td>
 <td class="text-center">270K</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#10B981;background:#10B98115">chat</span></td>
+</tr><tr data-provider="Google Gemini" data-type="embedding">
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td class="font-mono text-[13px]">Gemini Embedding 2 Preview</td>
+<td class="text-right">$0.20</td>
+<td class="text-right"><span style="color:#10B981">Free</span></td>
+<td class="text-center">not available</td>
+<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">embedding</span></td>
 </tr><tr data-provider="Together AI" data-type="chat">
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
 <td class="font-mono text-[13px]">Mistral (7B) Instruct v0.2</td>
@@ -594,26 +406,12 @@ body.kn-locked{overflow:hidden}
 <td class="text-right">$0.50</td>
 <td class="text-center">2M</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#6366F1;background:#6366F115">non-reasoning</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Jamba 1.5 Mini</td>
-<td class="text-right">$0.20</td>
-<td class="text-right">$0.40</td>
-<td class="text-center">256K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Llama 4 Maverick 17B</td>
-<td class="text-right">$0.24</td>
-<td class="text-right">$0.97</td>
-<td class="text-center" style="color:#64748B">N/A</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
 </tr><tr data-provider="Google Gemini" data-type="chat">
 <td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
 <td class="font-mono text-[13px]">Gemini 3.1 Flash-Lite Preview</td>
 <td class="text-right">$0.25</td>
 <td class="text-right">$1.50</td>
-<td class="text-center">1M</td>
+<td class="text-center">200K</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">chat</span></td>
 </tr><tr data-provider="Groq" data-type="chat">
 <td><span style="color:#EC4899;font-weight:600">Groq</span></td>
@@ -634,15 +432,15 @@ body.kn-locked{overflow:hidden}
 <td class="font-mono text-[13px]">Gemini 2.5 Flash Image</td>
 <td class="text-right">$0.30</td>
 <td class="text-right">$0.04</td>
-<td class="text-center">1M</td>
+<td class="text-center">not available</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">image</span></td>
-</tr><tr data-provider="Google Gemini" data-type="chat">
+</tr><tr data-provider="Google Gemini" data-type="robotics">
 <td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
 <td class="font-mono text-[13px]">Gemini Robotics-ER 1.5 Preview</td>
 <td class="text-right">$0.30</td>
 <td class="text-right">$2.50</td>
-<td class="text-center">1M</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">chat</span></td>
+<td class="text-center">not available</td>
+<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">robotics</span></td>
 </tr><tr data-provider="Together AI" data-type="chat">
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
 <td class="font-mono text-[13px]">MiniMax M2.5</td>
@@ -664,40 +462,40 @@ body.kn-locked{overflow:hidden}
 <td class="text-right">$0.60</td>
 <td class="text-center">4K</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EF4444;background:#EF444415">legacy</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Amazon Nova 2 Lite</td>
-<td class="text-right">$0.30</td>
-<td class="text-right">$2.50</td>
-<td class="text-center">128K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Amazon Nova 2 Omni (Preview)</td>
-<td class="text-right">$0.30</td>
-<td class="text-right">$40.00</td>
-<td class="text-center">128K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
+</tr><tr data-provider="Google Gemini" data-type="video">
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td class="font-mono text-[13px]">Veo 3.1</td>
+<td class="text-right">$0.40</td>
+<td class="text-right"><span style="color:#10B981">Free</span></td>
+<td class="text-center">not available</td>
+<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">video</span></td>
 </tr><tr data-provider="Google Gemini" data-type="image">
 <td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
 <td class="font-mono text-[13px]">Gemini 3.1 Flash Image Preview</td>
 <td class="text-right">$0.50</td>
-<td class="text-right">$60.00</td>
-<td class="text-center">1M</td>
+<td class="text-right">$3.00</td>
+<td class="text-center">not available</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">image</span></td>
 </tr><tr data-provider="Google Gemini" data-type="chat">
 <td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
 <td class="font-mono text-[13px]">Gemini 3 Flash Preview</td>
 <td class="text-right">$0.50</td>
 <td class="text-right">$3.00</td>
-<td class="text-center">1M</td>
+<td class="text-center">200K</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">chat</span></td>
 </tr><tr data-provider="Google Gemini" data-type="audio">
 <td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
-<td class="font-mono text-[13px]">Gemini 2.5 Flash Native Audio</td>
+<td class="font-mono text-[13px]">Gemini 2.5 Flash Native Audio (Live API)</td>
 <td class="text-right">$0.50</td>
-<td class="text-right">$12.00</td>
-<td class="text-center">1M</td>
+<td class="text-right">$2.00</td>
+<td class="text-center">not available</td>
+<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">audio</span></td>
+</tr><tr data-provider="Google Gemini" data-type="audio">
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td class="font-mono text-[13px]">Gemini 2.5 Flash Preview TTS</td>
+<td class="text-right">$0.50</td>
+<td class="text-right">$10.00</td>
+<td class="text-center">not available</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">audio</span></td>
 </tr><tr data-provider="Together AI" data-type="chat">
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
@@ -715,32 +513,18 @@ body.kn-locked{overflow:hidden}
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EF4444;background:#EF444415">legacy</span></td>
 </tr><tr data-provider="Cohere" data-type="research">
 <td><span style="color:#EF4444;font-weight:600">Cohere</span></td>
-<td class="font-mono text-[13px]">Aya Expanse 8B</td>
+<td class="font-mono text-[13px]">Aya Expanse (8B)</td>
 <td class="text-right">$0.50</td>
 <td class="text-right">$1.50</td>
 <td class="text-center">8K</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EF4444;background:#EF444415">research</span></td>
 </tr><tr data-provider="Cohere" data-type="research">
 <td><span style="color:#EF4444;font-weight:600">Cohere</span></td>
-<td class="font-mono text-[13px]">Aya Expanse 32B</td>
+<td class="font-mono text-[13px]">Aya Expanse (32B)</td>
 <td class="text-right">$0.50</td>
 <td class="text-right">$1.50</td>
 <td class="text-center">8K</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EF4444;background:#EF444415">research</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Jamba-Instruct</td>
-<td class="text-right">$0.50</td>
-<td class="text-right">$0.70</td>
-<td class="text-center">256K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">DeepSeek-V3.1</td>
-<td class="text-right">$0.58</td>
-<td class="text-right">$1.68</td>
-<td class="text-center">128K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
 </tr><tr data-provider="Groq" data-type="chat">
 <td><span style="color:#EC4899;font-weight:600">Groq</span></td>
 <td class="font-mono text-[13px]">Llama 3.3 70B Versatile 128k</td>
@@ -755,20 +539,6 @@ body.kn-locked{overflow:hidden}
 <td class="text-right">$1.70</td>
 <td class="text-center">128K</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#8B5CF6;background:#8B5CF615">chat</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Palmyra X5</td>
-<td class="text-right">$0.60</td>
-<td class="text-right">$6.00</td>
-<td class="text-center" style="color:#64748B">N/A</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">GLM 4.7</td>
-<td class="text-right">$0.60</td>
-<td class="text-right">$2.20</td>
-<td class="text-center">128K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
 </tr><tr data-provider="OpenAI" data-type="chat">
 <td><span style="color:#10B981;font-weight:600">OpenAI</span></td>
 <td class="font-mono text-[13px]">GPT-5.4 mini</td>
@@ -781,7 +551,7 @@ body.kn-locked{overflow:hidden}
 <td class="font-mono text-[13px]">Gemini 3.1 Flash Live Preview</td>
 <td class="text-right">$0.75</td>
 <td class="text-right">$4.50</td>
-<td class="text-center">1M</td>
+<td class="text-center">200K</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">audio</span></td>
 </tr><tr data-provider="Together AI" data-type="chat">
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
@@ -795,8 +565,15 @@ body.kn-locked{overflow:hidden}
 <td class="font-mono text-[13px]">Claude Haiku 4.5</td>
 <td class="text-right">$1.00</td>
 <td class="text-right">$5.00</td>
-<td class="text-center">200k tokens</td>
+<td class="text-center">200K</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#D97706;background:#D9770615">chat</span></td>
+</tr><tr data-provider="Google Gemini" data-type="audio">
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td class="font-mono text-[13px]">Gemini 2.5 Pro Preview TTS</td>
+<td class="text-right">$1.00</td>
+<td class="text-right">$20.00</td>
+<td class="text-center">not available</td>
+<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">audio</span></td>
 </tr><tr data-provider="Together AI" data-type="chat">
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
 <td class="font-mono text-[13px]">GLM-5</td>
@@ -825,13 +602,6 @@ body.kn-locked{overflow:hidden}
 <td class="text-right">$2.00</td>
 <td class="text-center">4K</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EF4444;background:#EF444415">legacy</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">GLM 5</td>
-<td class="text-right">$1.00</td>
-<td class="text-right">$3.20</td>
-<td class="text-center">128K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
 </tr><tr data-provider="Google Gemini" data-type="chat">
 <td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
 <td class="font-mono text-[13px]">Gemini 2.5 Pro</td>
@@ -839,27 +609,6 @@ body.kn-locked{overflow:hidden}
 <td class="text-right">$10.00</td>
 <td class="text-center">200K</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">chat</span></td>
-</tr><tr data-provider="Google Gemini" data-type="chat">
-<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
-<td class="font-mono text-[13px]">Gemini 2.5 Computer Use Preview</td>
-<td class="text-right">$1.25</td>
-<td class="text-right">$10.00</td>
-<td class="text-center">200K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">chat</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Amazon Nova 2 Pro (Preview)</td>
-<td class="text-right">$1.25</td>
-<td class="text-right">$10.00</td>
-<td class="text-center">128K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">DeepSeek-R1</td>
-<td class="text-right">$1.35</td>
-<td class="text-right">$5.40</td>
-<td class="text-center">128K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
 </tr><tr data-provider="Google Gemini" data-type="chat">
 <td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
 <td class="font-mono text-[13px]">Gemini 3.1 Pro Preview</td>
@@ -895,20 +644,13 @@ body.kn-locked{overflow:hidden}
 <td class="text-right">$8.00</td>
 <td class="text-center" style="color:#64748B">N/A</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#06B6D4;background:#06B6D415">reasoning</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Jamba 1.5 Large</td>
+</tr><tr data-provider="Perplexity" data-type="reasoning">
+<td><span style="color:#06B6D4;font-weight:600">Perplexity</span></td>
+<td class="font-mono text-[13px]">Sonar Deep Research</td>
 <td class="text-right">$2.00</td>
 <td class="text-right">$8.00</td>
-<td class="text-center">256K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Pixtral Large (25.02)</td>
-<td class="text-right">$2.00</td>
-<td class="text-right">$6.00</td>
 <td class="text-center" style="color:#64748B">N/A</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
+<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#06B6D4;background:#06B6D415">reasoning</span></td>
 </tr><tr data-provider="OpenAI" data-type="chat">
 <td><span style="color:#10B981;font-weight:600">OpenAI</span></td>
 <td class="font-mono text-[13px]">GPT-5.4</td>
@@ -923,19 +665,12 @@ body.kn-locked{overflow:hidden}
 <td class="text-right">$10.00</td>
 <td class="text-center">128K</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EF4444;background:#EF444415">legacy</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Palmyra X4</td>
-<td class="text-right">$2.50</td>
-<td class="text-right">$10.00</td>
-<td class="text-center" style="color:#64748B">N/A</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
 </tr><tr data-provider="Anthropic" data-type="chat">
 <td><span style="color:#D97706;font-weight:600">Anthropic</span></td>
 <td class="font-mono text-[13px]">Claude Sonnet 4.6</td>
 <td class="text-right">$3.00</td>
 <td class="text-right">$15.00</td>
-<td class="text-center">1M tokens</td>
+<td class="text-center">1M</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#D97706;background:#D9770615">chat</span></td>
 </tr><tr data-provider="Together AI" data-type="chat">
 <td><span style="color:#8B5CF6;font-weight:600">Together AI</span></td>
@@ -958,60 +693,60 @@ body.kn-locked{overflow:hidden}
 <td class="text-right">$15.00</td>
 <td class="text-center">128K</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EF4444;background:#EF444415">legacy</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Claude Sonnet 4.6</td>
-<td class="text-right">$3.00</td>
-<td class="text-right">$15.00</td>
-<td class="text-center">200K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Amazon Nova 2 Sonic</td>
-<td class="text-right">$3.00</td>
-<td class="text-right">$12.00</td>
-<td class="text-center">128K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Amazon Nova Sonic</td>
-<td class="text-right">$3.40</td>
-<td class="text-right">$13.60</td>
-<td class="text-center">128K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
+</tr><tr data-provider="Cohere" data-type="embedding">
+<td><span style="color:#EF4444;font-weight:600">Cohere</span></td>
+<td class="font-mono text-[13px]">Embed 4 (Small)</td>
+<td class="text-right">$4.00</td>
+<td class="text-right">$2,500.00</td>
+<td class="text-center" style="color:#64748B">N/A</td>
+<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EF4444;background:#EF444415">embedding</span></td>
 </tr><tr data-provider="Anthropic" data-type="chat">
 <td><span style="color:#D97706;font-weight:600">Anthropic</span></td>
 <td class="font-mono text-[13px]">Claude Opus 4.6</td>
 <td class="text-right">$5.00</td>
 <td class="text-right">$25.00</td>
-<td class="text-center">1M tokens</td>
+<td class="text-center">1M</td>
 <td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#D97706;background:#D9770615">chat</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Claude Opus 4.6</td>
+</tr><tr data-provider="Cohere" data-type="embedding">
+<td><span style="color:#EF4444;font-weight:600">Cohere</span></td>
+<td class="font-mono text-[13px]">Embed 4 (Medium)</td>
 <td class="text-right">$5.00</td>
-<td class="text-right">$25.00</td>
-<td class="text-center">200K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Jurassic-2 Mid</td>
-<td class="text-right">$12.50</td>
-<td class="text-right">$12.50</td>
-<td class="text-center">8K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
-</tr><tr data-provider="AWS Bedrock" data-type="batch">
-<td><span style="color:#F59E0B;font-weight:600">AWS Bedrock</span></td>
-<td class="font-mono text-[13px]">Jurassic-2 Ultra</td>
-<td class="text-right">$18.80</td>
-<td class="text-right">$18.80</td>
-<td class="text-center">8K</td>
-<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#F59E0B;background:#F59E0B15">batch</span></td>
+<td class="text-right">$3,250.00</td>
+<td class="text-center" style="color:#64748B">N/A</td>
+<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EF4444;background:#EF444415">embedding</span></td>
+</tr><tr data-provider="Cohere" data-type="reranking">
+<td><span style="color:#EF4444;font-weight:600">Cohere</span></td>
+<td class="font-mono text-[13px]">Rerank 3.5 (Medium)</td>
+<td class="text-right">$5.00</td>
+<td class="text-right">$3,250.00</td>
+<td class="text-center" style="color:#64748B">N/A</td>
+<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EF4444;background:#EF444415">reranking</span></td>
+</tr><tr data-provider="Cohere" data-type="reranking">
+<td><span style="color:#EF4444;font-weight:600">Cohere</span></td>
+<td class="font-mono text-[13px]">Rerank 4 Fast (Medium)</td>
+<td class="text-right">$5.00</td>
+<td class="text-right">$3,250.00</td>
+<td class="text-center" style="color:#64748B">N/A</td>
+<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EF4444;background:#EF444415">reranking</span></td>
+</tr><tr data-provider="Cohere" data-type="reranking">
+<td><span style="color:#EF4444;font-weight:600">Cohere</span></td>
+<td class="font-mono text-[13px]">Rerank 4 Pro (Medium)</td>
+<td class="text-right">$5.00</td>
+<td class="text-right">$3,250.00</td>
+<td class="text-center" style="color:#64748B">N/A</td>
+<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#EF4444;background:#EF444415">reranking</span></td>
+</tr><tr data-provider="Google Gemini" data-type="chat">
+<td><span style="color:#3B82F6;font-weight:600">Google Gemini</span></td>
+<td class="font-mono text-[13px]">Gemma 4</td>
+<td class="text-right"><span style="color:#10B981">Free</span></td>
+<td class="text-right"><span style="color:#10B981">Free</span></td>
+<td class="text-center">not available</td>
+<td class="text-center"><span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color:#3B82F6;background:#3B82F615">chat</span></td>
 </tr>
             </tbody>
         </table>
     </div>
-    <div class="count-badge" id="countBadge">Showing 85 of 85 models</div>
+    <div class="count-badge" id="countBadge">Showing 68 of 68 models</div>
 
 </div>
 
@@ -1032,24 +767,28 @@ body.kn-locked{overflow:hidden}
 </section>
 
 <!-- ── Footer ── -->
-<footer style="background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto">
-    <div style="max-width:40rem;margin:0 auto;text-align:center;padding:64px 24px;position:relative">
-        <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:500px;height:200px;background:linear-gradient(to top,rgba(139,92,246,0.04),transparent);border-radius:50%;filter:blur(48px);pointer-events:none"></div>
-        <div style="position:relative;z-index:1">
-            <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:24px">
-                <div style="width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;box-shadow:0 4px 12px rgba(139,92,246,0.2)">K</div>
-                <span style="font-size:18px;font-weight:700;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Koda Intelligence</span>
-            </div>
-            <p style="color:#c2c6d6;font-size:14px;margin-bottom:32px">Read. Listen. Watch. Every morning.</p>
-            <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:40px;flex-wrap:wrap">
-                <a href="../morning-briefing-koda.html" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color='#3B82F6'" onmouseout="this.style.color='#c2c6d6'"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
-                <span style="color:rgba(140,144,159,0.3)">|</span>
-                <a href="../archive/" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color='#8B5CF6'" onmouseout="this.style.color='#c2c6d6'"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
-                <span style="color:rgba(140,144,159,0.3)">|</span>
-                <a href="https://www.youtube.com/channel/UC8qqiKRGFAd5SwTr_2ZzPJg" target="_blank" rel="noopener" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color='#EC4899'" onmouseout="this.style.color='#c2c6d6'">YouTube</a>
-            </div>
-            <p style="font-size:11px;color:rgba(140,144,159,0.6)">&copy; 2026 Koda Community &middot; <span style="font-family:'JetBrains Mono',monospace">koda.community</span></p>
+<footer style="border-top:1px solid rgba(255,255,255,0.05);padding:64px 24px;position:relative;overflow:hidden">
+    <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:500px;height:200px;background:linear-gradient(to top,rgba(139,92,246,0.04),transparent);border-radius:50%;filter:blur(48px);pointer-events:none"></div>
+    <div style="max-width:40rem;margin:0 auto;text-align:center;position:relative;z-index:1">
+        <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:24px">
+            <a href="https://x.com/intent/tweet?url=https://www.koda.community/pricing/" target="_blank" rel="noopener" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;text-decoration:none" title="Share on X"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/pricing/" target="_blank" rel="noopener" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;text-decoration:none" title="Share on LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <button onclick="navigator.clipboard.writeText('https://www.koda.community/pricing/')" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer" title="Copy link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></button>
+            <a href="../index.html" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;text-decoration:none" title="Search"><span class="material-symbols-outlined" style="font-size:16px">search</span></a>
         </div>
+        <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:24px">
+            <div style="width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;box-shadow:0 4px 12px rgba(139,92,246,0.2)">K</div>
+            <span style="font-size:18px;font-weight:700;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Koda Intelligence</span>
+        </div>
+        <p style="color:#c2c6d6;font-size:14px;margin-bottom:32px">Read. Listen. Watch. Every morning.</p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:40px">
+            <a href="../morning-briefing-koda.html" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+            <span style="color:rgba(140,144,159,0.3)">|</span>
+            <a href="../archive/" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
+            <span style="color:rgba(140,144,159,0.3)">|</span>
+            <a href="https://www.youtube.com/channel/UC8qqiKRGFAd5SwTr_2ZzPJg" target="_blank" rel="noopener" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em">YouTube</a>
+        </div>
+        <p style="font-size:11px;color:rgba(140,144,159,0.6)">&copy; 2026 Koda Community &middot; <span style="font-family:'JetBrains Mono',monospace">koda.community</span></p>
     </div>
 </footer>
 
@@ -1100,7 +839,7 @@ function applyFilters(){
     if(matchProvider&&matchType&&matchSearch){r.style.display='';shown++}
     else{r.style.display='none'}
   });
-  document.getElementById('countBadge').textContent='Showing '+shown+' of 85 models';
+  document.getElementById('countBadge').textContent='Showing '+shown+' of 68 models';
 }
 
 /* Beehiiv Subscribe */
@@ -1115,58 +854,5 @@ function kodaSubscribe(form){
     return false;
 }
 </script>
-
-
-
-<!-- koda-nav-v2-js-start -->
-<script>
-(function(){
-    var btn=document.getElementById('knMenuBtn'),
-        drawer=document.getElementById('knDrawer'),
-        overlay=document.getElementById('knOverlay'),
-        closeBtn=document.getElementById('knDrawerClose'),
-        searchBtn=document.getElementById('knSearchBtn');
-    function open(){
-        drawer.classList.add('kn-open');
-        overlay.classList.add('kn-open');
-        document.body.classList.add('kn-locked');
-        btn.setAttribute('aria-expanded','true');
-        closeBtn.focus();
-    }
-    function close(){
-        drawer.classList.remove('kn-open');
-        overlay.classList.remove('kn-open');
-        document.body.classList.remove('kn-locked');
-        btn.setAttribute('aria-expanded','false');
-        btn.focus();
-    }
-    if(btn) btn.addEventListener('click',open);
-    if(closeBtn) closeBtn.addEventListener('click',close);
-    if(overlay) overlay.addEventListener('click',close);
-    document.addEventListener('keydown',function(e){
-        if(e.key==='Escape' && drawer.classList.contains('kn-open')) close();
-    });
-    /* Search: hook into existing overlay if present, otherwise go to archive */
-    if(searchBtn) searchBtn.addEventListener('click',function(){
-        var so=document.getElementById('searchOverlay');
-        if(so){so.classList.remove('hidden');so.style.display='';var si=document.getElementById('globalSearchInput');if(si)si.focus();}
-        else{window.location.href=searchBtn.closest('.kn-topbar').querySelector('.kn-brand').href.replace('index.html','')+'archive/';}
-    });
-    /* Date picker */
-    var dpBtn=document.getElementById('datePickerBtn'),dpInput=document.getElementById('datePicker');
-    if(dpBtn&&dpInput){
-        dpBtn.addEventListener('click',function(){dpInput.showPicker?dpInput.showPicker():dpInput.click();});
-        dpInput.addEventListener('change',function(){
-            var v=dpInput.value;if(!v)return;
-            var file='morning-briefing-koda-'+v+'.html';
-            fetch(file,{method:'HEAD'}).then(function(r){
-                if(r.ok){window.location.href=file;}
-                else{alert('No digest available for '+v);dpInput.value=document.body.getAttribute('data-digest-date')||'';}
-            }).catch(function(){alert('No digest available for '+v);dpInput.value=document.body.getAttribute('data-digest-date')||'';});
-        });
-    }
-})();
-</script>
-<!-- koda-nav-v2-js-end -->
 </body>
 </html>

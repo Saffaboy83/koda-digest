@@ -33,3 +33,7 @@ email-preview*.html
 video-upload-result.json
 koda-digest-eval-review.html
 *.bak
+content-output/
+viral-content/
+editorial-podcast-raw-*.wav
+gemini_login.py
