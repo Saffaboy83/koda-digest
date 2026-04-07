@@ -36,6 +36,7 @@ import httpx
 MAX_NEW_PROMPTS: int = 5
 MIN_RELEVANCE_SCORE: float = 0.4
 FUZZY_MATCH_THRESHOLD: float = 0.65
+STALE_PROMPT_DAYS: int = 60  # re-synthesise pipeline prompts older than this
 
 DOJO_DIR: Path = Path(__file__).resolve().parent
 BUILD_INDEX_SCRIPT: Path = DOJO_DIR.parent / "build-index.py"
@@ -608,7 +609,89 @@ def generate_prompt_entry(
         "prompt": synthesised["prompt"],
         "expectedOutcome": synthesised["expectedOutcome"],
         "source": discovery.source_url,
+        "addedDate": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
     }
+
+
+# ---------------------------------------------------------------------------
+# Step 5.5: Stale prompt detection and replacement
+# ---------------------------------------------------------------------------
+
+def find_stale_prompts(
+    data: dict[str, Any],
+    stale_days: int,
+) -> list[tuple[str, dict[str, Any]]]:
+    """Return (module_id, prompt_entry) for pipeline prompts older than stale_days.
+
+    Only prompts with both a `source` and an `addedDate` field are candidates.
+    Hand-crafted prompts (no `source`) are never touched.
+    """
+    cutoff = datetime.now(timezone.utc).date()
+    stale: list[tuple[str, dict[str, Any]]] = []
+    for module in data.get("modules", []):
+        for prompt in module.get("prompts", []):
+            if not prompt.get("source") or not prompt.get("addedDate"):
+                continue
+            try:
+                added = datetime.strptime(prompt["addedDate"], "%Y-%m-%d").date()
+            except ValueError:
+                continue
+            if (cutoff - added).days >= stale_days:
+                stale.append((module["id"], prompt))
+    return stale
+
+
+def replace_stale_prompts(
+    data: dict[str, Any],
+    stale: list[tuple[str, dict[str, Any]]],
+    module_lookup: dict[str, dict[str, Any]],
+    dry_run: bool = False,
+) -> tuple[dict[str, Any], int]:
+    """Re-synthesise stale prompts and patch them in-place. Returns (updated_data, count)."""
+    updated = json.loads(json.dumps(data))  # deep copy
+    # Rebuild lookup on the copy so mutations below are reflected
+    updated_module_lookup: dict[str, dict[str, Any]] = {
+        m["id"]: m for m in updated["modules"]
+    }
+
+    replaced = 0
+    for module_id, original_entry in stale:
+        module = updated_module_lookup.get(module_id)
+        if module is None:
+            continue
+
+        print(f"    Stale [{original_entry['id']}] {original_entry['label'][:60]} (added {original_entry['addedDate']})")
+
+        if dry_run:
+            print(f"      [DRY RUN] Would re-synthesise from: {original_entry['source'][:60]}")
+            continue
+
+        discovery = Discovery(
+            title=original_entry["label"],
+            description=original_entry.get("prompt", "")[:200],
+            source_url=original_entry["source"],
+            relevance_score=0.8,
+        )
+        print(f"      Re-synthesising from: {discovery.source_url[:60]}")
+        synthesised = _synthesise_exercise(discovery, module)
+
+        if synthesised is None:
+            print(f"      Synthesis failed — keeping original.")
+            continue
+
+        # Patch the entry in-place inside the copy
+        for prompt in module["prompts"]:
+            if prompt["id"] == original_entry["id"]:
+                prompt["label"] = synthesised["label"]
+                prompt["prompt"] = synthesised["prompt"]
+                prompt["expectedOutcome"] = synthesised["expectedOutcome"]
+                prompt["addedDate"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+                break
+
+        replaced += 1
+        print(f"      Replaced with: {synthesised['label']}")
+
+    return updated, replaced
 
 
 # ---------------------------------------------------------------------------
@@ -670,7 +753,82 @@ def write_data(path: Path, data: dict[str, Any]) -> None:
 
 
 # ---------------------------------------------------------------------------
-# Step 7: Rebuild search index
+# Step 7: Rebuild HTML landing page
+# ---------------------------------------------------------------------------
+
+def rebuild_html() -> None:
+    """Patch dojo/index.html with live prompt counts and module totals from data.json.
+
+    Updates:
+    - Total prompts stat
+    - Per-dojo "N hands-on prompts" in the dojo card descriptions
+    """
+    import re
+
+    html_path = DOJO_DIR / "index.html"
+    if not html_path.exists():
+        print(f"  WARNING: {html_path} not found, skipping HTML update")
+        return
+
+    # Gather live counts from every dojo's data.json
+    total_prompts = 0
+    total_modules = 0
+    dojo_counts: dict[str, int] = {}  # label -> prompt count
+
+    for dojo_key, config in DOJO_CONFIGS.items():
+        data_path: Path = config["data_path"]
+        if not data_path.exists():
+            continue
+        with open(data_path, encoding="utf-8") as f:
+            data = json.load(f)
+        count = data["metadata"].get("totalPrompts", 0)
+        mods = data["metadata"].get("totalModules", 0)
+        label = data["metadata"].get("name", dojo_key)
+        dojo_counts[label] = count
+        total_prompts += count
+        total_modules += mods
+
+    html = html_path.read_text(encoding="utf-8")
+
+    # 1. Update total prompts KPI stat
+    html = re.sub(
+        r'(<div class="stat-value">)\d+(</div><div class="stat-label">Prompts</div>)',
+        lambda m: f"{m.group(1)}{total_prompts}{m.group(2)}",
+        html,
+    )
+
+    # 2. Update total modules KPI stat
+    html = re.sub(
+        r'(<div class="stat-value">)\d+(</div><div class="stat-label">Modules</div>)',
+        lambda m: f"{m.group(1)}{total_modules}{m.group(2)}",
+        html,
+    )
+
+    # 3. Update per-dojo "N hands-on prompts" in card descriptions
+    # Dojos appear in DOJO_CONFIGS order in the HTML; replace sequentially.
+    ordered_counts = [
+        config["data_path"]
+        for config in DOJO_CONFIGS.values()
+        if config["data_path"].exists()
+    ]
+    counts_in_order: list[int] = []
+    for data_path in ordered_counts:
+        with open(data_path, encoding="utf-8") as f:
+            d = json.load(f)
+        counts_in_order.append(d["metadata"].get("totalPrompts", 0))
+
+    occurrences = re.findall(r'\d+ hands-on prompts', html)
+    for i, count in enumerate(counts_in_order):
+        if i >= len(occurrences):
+            break
+        html = html.replace(occurrences[i], f"{count} hands-on prompts", 1)
+
+    html_path.write_text(html, encoding="utf-8")
+    print(f"  dojo/index.html updated — {total_prompts} total prompts across {total_modules} modules")
+
+
+# ---------------------------------------------------------------------------
+# Step 8: Rebuild search index
 # ---------------------------------------------------------------------------
 
 def rebuild_search_index() -> None:
@@ -764,6 +922,27 @@ def refresh_single_dojo(
         return False
 
     data = load_data(data_path)
+    module_lookup: dict[str, dict[str, Any]] = {
+        m["id"]: m for m in data["modules"]
+    }
+
+    # Step 2.5: Replace stale prompts
+    stale = find_stale_prompts(data, STALE_PROMPT_DAYS)
+    stale_replaced = 0
+    if stale:
+        print(f"\n  Step 2.5: Replacing {len(stale)} stale prompt(s)")
+        data, stale_replaced = replace_stale_prompts(
+            data, stale, module_lookup, dry_run=dry_run
+        )
+        # Rebuild module_lookup on updated data
+        module_lookup = {m["id"]: m for m in data["modules"]}
+        if stale_replaced:
+            today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            data["metadata"]["lastUpdated"] = today
+            data["metadata"]["version"] = bump_patch_version(data["metadata"]["version"])
+    else:
+        print("\n  Step 2.5: No stale prompts found")
+
     existing = build_existing_index(data)
     print(f"  Loaded {len(existing)} existing labels/concepts")
 
@@ -774,13 +953,16 @@ def refresh_single_dojo(
 
     if not filtered:
         print("  All discoveries already covered. Nothing to add.")
+        if stale_replaced:
+            # Stale replacements already written to `data`; persist and exit
+            if not dry_run:
+                write_data(data_path, data)
+                print(f"  Written to {data_path} ({stale_replaced} stale prompts replaced)")
+            return stale_replaced > 0
         return False
 
     # Step 4: Module mapping
     print("\n  Step 4: Module mapping")
-    module_lookup: dict[str, dict[str, Any]] = {
-        m["id"]: m for m in data["modules"]
-    }
     mapped: list[tuple[str, Discovery]] = []
     for d in filtered:
         target = map_to_module(d, keyword_map, default_module)
@@ -825,6 +1007,8 @@ def refresh_single_dojo(
     print(f"  Written to {data_path}")
     print(f"  Version: {updated['metadata']['version']}")
     print(f"  Total prompts: {updated['metadata']['totalPrompts']}")
+    if stale_replaced:
+        print(f"  Stale prompts replaced: {stale_replaced}")
     return True
 
 
@@ -866,9 +1050,11 @@ def main() -> None:
         )
         any_changes = any_changes or changed
 
-    # Rebuild search index once after all dojos are updated
+    # Rebuild HTML + search index once after all dojos are updated
     if any_changes:
-        print("\nStep 7: Rebuild search index")
+        print("\nStep 7: Rebuild HTML landing page")
+        rebuild_html()
+        print("\nStep 8: Rebuild search index")
         rebuild_search_index()
 
     print("\n" + "=" * 60)
