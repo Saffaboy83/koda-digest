@@ -458,6 +458,19 @@ body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
         <audio controls preload="none"><source src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/editorial-podcast-2026-04-06.mp3" type="audio/mpeg"></audio>
       </div>
     </div>
+    <div class="media-card media-card--video">
+      <span class="material-symbols-outlined media-card__icon media-card__icon--video">smart_display</span>
+      <div class="media-card__title">Visual Narrative</div>
+      <div class="media-card__subtitle">Animated story breakdown (~2 min)</div>
+      <button class="media-btn media-btn--video" onclick="toggleVideo()">&#9654; Play Video</button>
+      <a href="https://www.youtube.com/watch?v=2dZ68dlV63Y" target="_blank" rel="noopener" class="media-yt-link">or watch on YouTube &rarr;</a>
+      <div class="video-overlay" id="videoOverlay" role="dialog" aria-modal="true" aria-label="Video player" onclick="if(event.target===this)toggleVideo()">
+        <div class="video-overlay-inner">
+          <button class="video-overlay-close" onclick="toggleVideo()" aria-label="Close video">&times;</button>
+          <iframe id="videoFrame" width="100%" style="aspect-ratio:16/9;border:none;border-radius:12px" allowfullscreen title="Editorial video"></iframe>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 <!-- MEDIA_STRIP_END -->
@@ -759,7 +772,7 @@ function toggleVideo() {
         f.src = '';
         document.body.style.overflow = '';
     } else {
-        f.src = 'https://www.youtube.com/embed/?autoplay=1&rel=0';
+        f.src = 'https://www.youtube.com/embed/2dZ68dlV63Y?autoplay=1&rel=0';
         o.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
