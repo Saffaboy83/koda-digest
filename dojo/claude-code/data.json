@@ -2,11 +2,11 @@
   "metadata": {
     "name": "claude-code-dojo",
     "description": "Interactive learning path for mastering Claude Code, from setup to advanced multi-agent orchestration. Covers system prompts, agent harnesses, parallelization, context management, auto research, browser automation, MCP servers, skills, security, and agentic engineering.",
-    "version": "1.0.0",
-    "lastUpdated": "2026-04-04",
+    "version": "1.0.1",
+    "lastUpdated": "2026-04-07",
     "refreshCadence": "weekly",
     "totalModules": 15,
-    "totalPrompts": 44,
+    "totalPrompts": 54,
     "notebookId": "30a51138-18e8-4f37-8603-b0d5ac6d52c7",
     "sourceFiles": [
       "SKILL.md",
@@ -24,7 +24,13 @@
       "belt": "white",
       "estimatedMinutes": 20,
       "description": "Install, configure, and explore the Claude Code terminal interface, keyboard shortcuts, and slash commands.",
-      "keyConcepts": ["installation", "configuration", "keyboard shortcuts", "slash commands", "extended thinking"],
+      "keyConcepts": [
+        "installation",
+        "configuration",
+        "keyboard shortcuts",
+        "slash commands",
+        "extended thinking"
+      ],
       "prerequisites": "Claude Code installed and authenticated (claude --version to verify). A project directory to practice in.",
       "concepts": [
         {
@@ -78,7 +84,13 @@
       "belt": "white",
       "estimatedMinutes": 30,
       "description": "Design and maintain CLAUDE.md files that give Claude persistent project memory across sessions.",
-      "keyConcepts": ["CLAUDE.md", "knowledge compression", "user preferences", "capability declarations", "modular rules"],
+      "keyConcepts": [
+        "CLAUDE.md",
+        "knowledge compression",
+        "user preferences",
+        "capability declarations",
+        "modular rules"
+      ],
       "prerequisites": "Module 1 completed. An existing project to audit or a new project to configure.",
       "concepts": [
         {
@@ -119,6 +131,14 @@
           "difficulty": "Advanced",
           "prompt": "Refactor my CLAUDE.md into a modular rules system. Create separate rule files in .claude/rules/ for:\n1. coding-style.md: Naming conventions, formatting, immutability patterns\n2. testing.md: TDD workflow, coverage requirements, test file organization\n3. git-workflow.md: Commit message format, branch naming, PR template\n4. security.md: Input validation, secret management, auth patterns\n5. architecture.md: Layer boundaries, dependency rules, API response format\n\nKeep CLAUDE.md under 50 lines as an index pointing to each rule file. Each rule file should be self-contained and under 100 lines.",
           "expectedOutcome": "A clean .claude/rules/ directory with focused, maintainable rule files and a slim CLAUDE.md that references them."
+        },
+        {
+          "id": "2.4",
+          "label": "Build a CLAUDE.md with planning rules",
+          "difficulty": "Beginner",
+          "prompt": "In this exercise you will create a CLAUDE.md file that enforces planning discipline and context hygiene inside a small project.\n\n1. Ask Claude to scaffold a new folder called `koda-project` with a basic Node.js structure (package.json, src/index.js, and a tests/ folder).\n2. Ask Claude to create a CLAUDE.md file in the project root that includes: a rule requiring a plan.md to exist before any implementation begins, a rule to keep responses under 150 instructions, and a note reminding Claude to flag when context feels near 60% capacity.\n3. Ask Claude to generate a plan.md for a simple feature: a function that validates an email address. The plan should list the function signature, edge cases to handle, and the test cases to write first (TDD style). Tell Claude explicitly: 'address all notes, don't implement yet.'\n4. Review the plan.md, add at least one inline annotation (e.g., 'also reject emails missing a TLD'), then paste the annotated plan back and ask Claude to revise plan.md only — still no implementation.\n5. Once the plan looks complete, ask Claude to implement the feature test-first: write the tests in tests/email.test.js, confirm they fail, then write src/email.js to make them pass.",
+          "expectedOutcome": "A koda-project folder containing a CLAUDE.md with planning and context rules, a finalized plan.md, and a passing TDD cycle for an email-validation function.",
+          "source": "https://www.datacamp.com/tutorial/claude-code-best-practices"
         }
       ],
       "proTip": "Keep CLAUDE.md under 200 lines. Offload detailed patterns to memory files or .claude/rules/. A bloated CLAUDE.md eats context window space every single session.",
@@ -137,7 +157,13 @@
       "belt": "white",
       "estimatedMinutes": 25,
       "description": "Control what Claude can do autonomously vs what requires approval, and use plan mode for read-only analysis.",
-      "keyConcepts": ["plan mode", "permission modes", "auto-approve", "phase gates", "read-only analysis"],
+      "keyConcepts": [
+        "plan mode",
+        "permission modes",
+        "auto-approve",
+        "phase gates",
+        "read-only analysis"
+      ],
       "prerequisites": "Module 1 completed. Understanding of CLAUDE.md from Module 2.",
       "concepts": [
         {
@@ -174,6 +200,14 @@
           "difficulty": "Advanced",
           "prompt": "I want to build a URL shortener service. Use plan mode first.\n\nPhase 1 (Plan only, no code):\n- Define the API contract (endpoints, request/response shapes)\n- Choose the data model and storage strategy\n- Outline the frontend components needed\n- Identify edge cases (collision handling, expiry, rate limiting)\n- Estimate the file structure\n\nPresent the plan. Wait for my approval before writing any code.\n\nPhase 2 (after approval):\n- Implement the backend API\n- Add input validation and error handling\n- Write tests for all endpoints\n- Build a minimal frontend",
           "expectedOutcome": "A structured implementation plan followed by phased execution only after explicit approval at each gate."
+        },
+        {
+          "id": "3.4",
+          "label": "Use Plan Mode for Complex Tasks",
+          "difficulty": "Beginner",
+          "prompt": "Experience Claude Code's Plan Mode to tackle a multi-step coding task safely before any code is written.\n\n1. Inside Claude Code, press Shift+Tab twice to activate Plan Mode (you'll see the mode indicator change).\n2. Ask Claude to plan the following: 'Refactor a user authentication module to replace session tokens with JWT — outline every file that needs changing, the order of changes, and potential risks.'\n3. Review the plan Claude produces. Press Ctrl+G to edit or refine any step you want to adjust.\n4. Ask Claude to add a self-checking step to the plan: 'After each file change, run the existing test suite and fix any failures before proceeding.'\n5. Press Shift+Tab again to exit Plan Mode, then tell Claude: 'Execute the plan.' Observe how Claude follows the structured steps it laid out.\n6. If Claude goes in an unexpected direction, press Esc to stop it, then press Esc+Esc to open the rewind menu and restore to a safe checkpoint.",
+          "expectedOutcome": "A reviewed and executed Plan Mode session where Claude planned a JWT refactor, incorporated self-checking test steps, and demonstrated safe stop-and-rewind control.",
+          "source": "https://www.builder.io/blog/claude-code-tips-best-practices"
         }
       ],
       "proTip": "Use plan mode as your default starting posture for any non-trivial task. It is cheaper (no tool calls), safer (no changes), and gives you a review checkpoint before committing to an approach.",
@@ -191,7 +225,13 @@
       "belt": "brown",
       "estimatedMinutes": 30,
       "description": "Manage the finite context window to keep sessions productive, using strategic compaction and progress tracking.",
-      "keyConcepts": ["context window", "token optimization", "compaction", "context rot", "phase boundaries"],
+      "keyConcepts": [
+        "context window",
+        "token optimization",
+        "compaction",
+        "context rot",
+        "phase boundaries"
+      ],
       "prerequisites": "Modules 1-3 completed. Experience with at least one long session.",
       "concepts": [
         {
@@ -232,6 +272,22 @@
           "difficulty": "Advanced",
           "prompt": "I am about to start a long session (refactoring authentication across 20+ files). Help me set up a context management strategy:\n\n1. Create a scratchpad file (REFACTOR_PROGRESS.md) to track completed steps\n2. Define natural compaction points (after each major module is refactored)\n3. Write a status template I can ask you to fill at each checkpoint\n4. Identify which files should be re-read after compaction vs remembered from summary\n5. Set up a \"context budget\" for each phase so I know when to compact\n\nGive me the strategy document and the scratchpad template.",
           "expectedOutcome": "A reusable context management strategy with a progress tracking file and checkpoint templates for long multi-phase sessions."
+        },
+        {
+          "id": "4.4",
+          "label": "Build Context-Saving Project Memory",
+          "difficulty": "Advanced",
+          "prompt": "Set up a CLAUDE.md file and .claudeignore to maximize context efficiency in a real project:\n\n1. Ask Claude to create a CLAUDE.md file in your current directory that includes: project purpose, tech stack, coding conventions, common commands, and any context Claude should always remember.\n2. Ask Claude to create a .claudeignore file that excludes node_modules, build artifacts, lock files, and any large generated directories from its context.\n3. Ask Claude to explain how many tokens these two files together are likely to save per session and why.\n4. Use /compact to summarize your current conversation, then ask Claude to verify it still has the key project context from CLAUDE.md after compaction.\n5. Ask Claude to create a custom slash command at .claude/commands/review.md that runs a code review checklist using the conventions defined in your CLAUDE.md.",
+          "expectedOutcome": "A working CLAUDE.md project memory file, a .claudeignore exclusion list, and a custom /review slash command that together reduce token waste and persist project context across compacted sessions.",
+          "source": "https://www.youtube.com/watch?v=T5jylUte3J8"
+        },
+        {
+          "id": "4.5",
+          "label": "Master Context and Course Correction",
+          "difficulty": "Advanced",
+          "prompt": "Practice the core context management and course-correction techniques from Claude Code best practices:\n\n1. Start a new Claude Code session and ask Claude to plan (without executing) how it would refactor a simple function — observe how requesting a plan first keeps context clean before any code changes.\n2. While Claude is mid-response or mid-task, press Escape to interrupt it, then give a more specific follow-up instruction. Notice how interrupting lets you steer without accumulating wasted context.\n3. Ask Claude to make a change you immediately decide you don't want, then press Escape twice (double-Esc) to rewind to before that action — confirm the rewind worked by checking the conversation state.\n4. Now deliberately let a conversation grow long by asking several follow-up questions, then use the /compact command to compress the context. Ask Claude a question afterward to confirm it still has relevant understanding.\n5. Finally, start a fresh session and ask Claude to solve the same task you worked on earlier — this time providing all necessary context upfront in one specific, detailed prompt instead of iterating. Compare how much cleaner the interaction feels.",
+          "expectedOutcome": "The learner will have practiced plan-first prompting, Escape interruption, double-Escape rewind, context compaction, and upfront specificity — experiencing firsthand how each technique preserves context quality and keeps Claude on track.",
+          "source": "https://rosmur.github.io/claudecode-best-practices/"
         }
       ],
       "proTip": "Add a summary prompt when compacting: /compact Preserve: we just finished the auth module refactor. The new pattern uses middleware chains. Tests are passing. Next task is the billing integration.",
@@ -250,7 +306,13 @@
       "belt": "brown",
       "estimatedMinutes": 30,
       "description": "Create, optimize, and deploy SKILL.md files for reusable Claude Code automation.",
-      "keyConcepts": ["SKILL.md", "frontmatter", "skill triggers", "token efficiency", "reusable automation"],
+      "keyConcepts": [
+        "SKILL.md",
+        "frontmatter",
+        "skill triggers",
+        "token efficiency",
+        "reusable automation"
+      ],
       "prerequisites": "Modules 1-4 completed. Understanding of CLAUDE.md structure.",
       "concepts": [
         {
@@ -287,6 +349,14 @@
           "difficulty": "Advanced",
           "prompt": "Review the skill at ~/.claude/skills/[pick any existing skill]/SKILL.md and optimize it for token efficiency:\n\n1. Measure the current token count of the skill file\n2. Identify verbose sections that can be compressed without losing meaning\n3. Replace repetitive instructions with patterns or templates\n4. Convert prose paragraphs to structured bullet points\n5. Remove any instructions that Claude would do by default\n6. Show before/after token counts and the percentage reduction\n\nTarget: 30%+ reduction while maintaining the same behavior.",
           "expectedOutcome": "A leaner skill file with measured token savings, preserving all functional behavior while reducing context cost."
+        },
+        {
+          "id": "5.4",
+          "label": "Build a Custom Slash Command Workflow",
+          "difficulty": "Advanced",
+          "prompt": "You will create and use a custom slash command workflow inside Claude Code to practice structured development habits:\n\n1. Ask Claude to create a custom slash command called `/write-a-prd` in your `.claude/commands/` directory that prompts for a feature idea and outputs a structured Product Requirements Document with goals, user stories, and acceptance criteria.\n2. Invoke your new `/write-a-prd` command with a simple feature idea (e.g., a CLI todo app or a URL shortener).\n3. Ask Claude to create a second slash command called `/prd-to-issues` that takes the PRD output and breaks it into a numbered list of discrete GitHub-style issues with titles and descriptions.\n4. Run `/prd-to-issues` using the PRD Claude just generated and review the resulting issue list.\n5. Ask Claude to create a `/tdd` slash command that, given one of the issues, generates a failing test first, then implements the minimal code to make it pass.\n6. Pick one issue from your list and invoke `/tdd` to produce a test-first implementation cycle.",
+          "expectedOutcome": "A `.claude/commands/` directory containing three working slash commands (`/write-a-prd`, `/prd-to-issues`, `/tdd`) plus a complete PRD, issue list, and one passing test-driven feature implementation generated by running them in sequence.",
+          "source": "https://www.youtube.com/watch?v=EJyuu6zlQCg"
         }
       ],
       "proTip": "Skills can be shared globally (~/.claude/skills/) or scoped per project (.claude/skills/). Use global for cross-project patterns and local for project-specific automation.",
@@ -304,7 +374,13 @@
       "belt": "brown",
       "estimatedMinutes": 30,
       "description": "Add, configure, and chain MCP (Model Context Protocol) servers to extend Claude Code with external tools.",
-      "keyConcepts": ["MCP servers", "tool definitions", "settings.json", "cross-tool workflows", "browser automation"],
+      "keyConcepts": [
+        "MCP servers",
+        "tool definitions",
+        "settings.json",
+        "cross-tool workflows",
+        "browser automation"
+      ],
       "prerequisites": "Modules 1-5 completed. Access to at least one MCP server (filesystem, Chrome, Gmail, etc.).",
       "concepts": [
         {
@@ -358,7 +434,13 @@
       "belt": "brown",
       "estimatedMinutes": 35,
       "description": "Understand the harness model -- Claude Code is the scaffolding around the LLM, not the agent itself. Audit and improve your harness.",
-      "keyConcepts": ["harness vs agent", "action space", "observation format", "recovery contracts", "context budget"],
+      "keyConcepts": [
+        "harness vs agent",
+        "action space",
+        "observation format",
+        "recovery contracts",
+        "context budget"
+      ],
       "prerequisites": "Modules 1-6 completed. Experience running Claude Code on real tasks.",
       "concepts": [
         {
@@ -417,7 +499,13 @@
       "belt": "black",
       "estimatedMinutes": 45,
       "description": "Orchestrate multiple Claude instances with fan-out/fan-in, stochastic consensus, adversarial debate, and sequential pipeline patterns.",
-      "keyConcepts": ["fan-out/fan-in", "stochastic consensus", "adversarial debate", "sequential pipelines", "model routing"],
+      "keyConcepts": [
+        "fan-out/fan-in",
+        "stochastic consensus",
+        "adversarial debate",
+        "sequential pipelines",
+        "model routing"
+      ],
       "prerequisites": "Module 7 completed. Understanding of parallelization concepts. Bash scripting basics.",
       "concepts": [
         {
@@ -483,7 +571,13 @@
       "belt": "black",
       "estimatedMinutes": 40,
       "description": "Build iterative measure-change-remeasure loops for automated optimization, inspired by Karpathy's auto-research pattern.",
-      "keyConcepts": ["auto research", "metric-driven loops", "Karpathy method", "Lighthouse optimization", "regression detection"],
+      "keyConcepts": [
+        "auto research",
+        "metric-driven loops",
+        "Karpathy method",
+        "Lighthouse optimization",
+        "regression detection"
+      ],
       "prerequisites": "Module 8 completed. A measurable metric to optimize (Lighthouse score, test coverage, lint errors, etc.).",
       "concepts": [
         {
@@ -538,7 +632,13 @@
       "belt": "brown",
       "estimatedMinutes": 30,
       "description": "Automate browser interactions from HTTP-level scraping to full Chrome DevTools control and computer use planning.",
-      "keyConcepts": ["HTTP scraping", "Chrome DevTools MCP", "page interaction", "computer use", "multi-step workflows"],
+      "keyConcepts": [
+        "HTTP scraping",
+        "Chrome DevTools MCP",
+        "page interaction",
+        "computer use",
+        "multi-step workflows"
+      ],
       "prerequisites": "Modules 1-6 completed. Chrome MCP server connected (for browser-based prompts). curl available.",
       "concepts": [
         {
@@ -592,7 +692,13 @@
       "belt": "brown",
       "estimatedMinutes": 35,
       "description": "Audit repositories for secrets, vulnerable dependencies, RLS gaps, and configuration risks using structured security prompts.",
-      "keyConcepts": ["secret scanning", "package hallucination", "RLS verification", "MCP security", "pre-commit gates"],
+      "keyConcepts": [
+        "secret scanning",
+        "package hallucination",
+        "RLS verification",
+        "MCP security",
+        "pre-commit gates"
+      ],
       "prerequisites": "Modules 1-6 completed. A repository to audit. Supabase project (for RLS prompts, optional).",
       "concepts": [
         {
@@ -658,7 +764,13 @@
       "belt": "black",
       "estimatedMinutes": 35,
       "description": "Organize workspaces for business/personal separation, use git worktrees for parallel agents, and assess workflows for automation readiness.",
-      "keyConcepts": ["workspace separation", "git worktrees", "parallel agents", "automation readiness", ".claude/ anatomy"],
+      "keyConcepts": [
+        "workspace separation",
+        "git worktrees",
+        "parallel agents",
+        "automation readiness",
+        ".claude/ anatomy"
+      ],
       "prerequisites": "Modules 1-11 completed. Multiple projects or contexts to organize.",
       "concepts": [
         {
@@ -717,7 +829,13 @@
       "belt": "brown",
       "estimatedMinutes": 20,
       "description": "Recognize and avoid the most common mistakes that reduce Claude Code effectiveness.",
-      "keyConcepts": ["context waste", "permission misconfiguration", "vague prompts", "missing recovery", "over-automation"],
+      "keyConcepts": [
+        "context waste",
+        "permission misconfiguration",
+        "vague prompts",
+        "missing recovery",
+        "over-automation"
+      ],
       "prerequisites": "Modules 1-7 completed. Experience with at least a few real Claude Code sessions.",
       "concepts": [
         {
@@ -775,7 +893,13 @@
       "belt": "black",
       "estimatedMinutes": 35,
       "description": "Advanced patterns for daily power users: architecture decision matrices, TDD generation, session handoffs, cost-conscious prompting, and CI/CD integration.",
-      "keyConcepts": ["decision matrices", "TDD generation", "session handoffs", "cost optimization", "JSON pipelines"],
+      "keyConcepts": [
+        "decision matrices",
+        "TDD generation",
+        "session handoffs",
+        "cost optimization",
+        "JSON pipelines"
+      ],
       "prerequisites": "Modules 1-12 completed. Daily Claude Code usage. Familiarity with CI/CD concepts.",
       "concepts": [
         {
@@ -848,7 +972,13 @@
       "belt": "brown",
       "estimatedMinutes": 25,
       "description": "Configure PreToolUse, PostToolUse, and Stop hooks for automated validation, formatting, and security gates.",
-      "keyConcepts": ["PreToolUse hooks", "PostToolUse hooks", "Stop hooks", "command injection prevention", "auto-formatting"],
+      "keyConcepts": [
+        "PreToolUse hooks",
+        "PostToolUse hooks",
+        "Stop hooks",
+        "command injection prevention",
+        "auto-formatting"
+      ],
       "prerequisites": "Modules 1-7 and 11 completed. Understanding of settings.json structure.",
       "concepts": [
         {
@@ -988,7 +1118,16 @@
   "references": {
     "advancedPatterns": {
       "source": "references/advanced-patterns.md",
-      "topics": ["Agent Harnesses", "Fan-out/Fan-in", "Stochastic Consensus", "Debate Pattern", "Sequential Pipelines", "Auto Research (Karpathy Method)", "Agent Teams", "Git Worktrees"],
+      "topics": [
+        "Agent Harnesses",
+        "Fan-out/Fan-in",
+        "Stochastic Consensus",
+        "Debate Pattern",
+        "Sequential Pipelines",
+        "Auto Research (Karpathy Method)",
+        "Agent Teams",
+        "Git Worktrees"
+      ],
       "citations": [
         "Anthropic, \"Building Effective Agents\" (November 2025)",
         "Andrej Karpathy, auto-research (github.com/karpathy/auto-research)",
@@ -998,7 +1137,20 @@
     },
     "workspaceGuide": {
       "source": "references/workspace-guide.md",
-      "topics": ["CLAUDE.md Best Practices", "Four Functions", "Infinity-Loop Workflow", "Global vs Local", "Modular Rules", "Context Management", "Token Optimization", "Context Rot", "Compaction", "Skills vs Sub-agents", "Workspace Organization", "Auto Memory System"],
+      "topics": [
+        "CLAUDE.md Best Practices",
+        "Four Functions",
+        "Infinity-Loop Workflow",
+        "Global vs Local",
+        "Modular Rules",
+        "Context Management",
+        "Token Optimization",
+        "Context Rot",
+        "Compaction",
+        "Skills vs Sub-agents",
+        "Workspace Organization",
+        "Auto Memory System"
+      ],
       "fileHierarchy": [
         "~/.claude/CLAUDE.md (global preferences)",
         "~/.claude/settings.json (global settings)",

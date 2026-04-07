@@ -64,6 +64,11 @@ _load_env()
 
 PERPLEXITY_API_KEY: str = os.environ.get("PERPLEXITY_API_KEY", "")
 FIRECRAWL_API_KEY: str = os.environ.get("FIRECRAWL_API_KEY", "")
+OPENROUTER_API_KEY: str = os.environ.get("OPENROUTER_API_KEY", "")
+
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+SYNTHESIS_MODEL = "anthropic/claude-sonnet-4-6"
+MAX_SCRAPE_CHARS = 3000  # body chars fed to synthesis LLM
 
 # ── Per-dojo configuration ──
 
@@ -344,6 +349,112 @@ def run_discovery(queries: list[str]) -> list[Discovery]:
 
 
 # ---------------------------------------------------------------------------
+# Step 1.5: Scrape + synthesise into real exercises
+# ---------------------------------------------------------------------------
+
+def _firecrawl_scrape(url: str) -> str:
+    """Scrape a URL with Firecrawl and return clean markdown. Returns '' on failure."""
+    if not FIRECRAWL_API_KEY or not url:
+        return ""
+    headers = {
+        "Authorization": f"Bearer {FIRECRAWL_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    payload = {"url": url, "formats": ["markdown"], "onlyMainContent": True, "timeout": 15000}
+    try:
+        resp = httpx.post(
+            f"{FIRECRAWL_API_URL}/scrape",
+            json=payload,
+            headers=headers,
+            timeout=25,
+        )
+        resp.raise_for_status()
+        markdown = resp.json().get("data", {}).get("markdown", "")
+        return markdown[:MAX_SCRAPE_CHARS]
+    except Exception as e:
+        print(f"      Scrape failed ({url[:60]}...): {e}")
+        return ""
+
+
+_SYNTHESIS_SYSTEM = """\
+You are a curriculum designer for the Koda Dojo, an interactive Claude Code learning platform.
+Your job is to turn a web article or video summary into a single, self-contained hands-on exercise.
+
+Rules:
+- The exercise must be something the learner runs INSIDE Claude Code (not just reads about).
+- Write in second-person imperative ("Ask Claude to...", "Create a...", "Configure...").
+- The prompt field should have 3-6 numbered steps or bullet points.
+- expectedOutcome: one sentence describing what the learner will have produced.
+- label: a short (6-word max) action-oriented title, NOT the article title.
+- Respond with ONLY a JSON object — no markdown fences, no explanation.
+  {"label": "...", "prompt": "...", "expectedOutcome": "..."}
+"""
+
+
+def _synthesise_exercise(discovery: Discovery, module: dict[str, Any]) -> dict[str, Any] | None:
+    """Scrape source + call Sonnet to generate a real hands-on exercise.
+
+    Returns a partial entry dict with label/prompt/expectedOutcome, or None if
+    synthesis fails or produces low-quality output.
+    """
+    if not OPENROUTER_API_KEY:
+        return None
+
+    body = _firecrawl_scrape(discovery.source_url)
+
+    user_msg = (
+        f"Module: {module['title']} (belt: {module.get('belt', 'white')})\n"
+        f"Article title: {discovery.title}\n"
+        f"Article summary: {discovery.description}\n"
+    )
+    if body:
+        user_msg += f"\nArticle body (first {MAX_SCRAPE_CHARS} chars):\n{body}"
+
+    headers = {
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://koda.community",
+        "X-Title": "Koda Dojo Refresh",
+    }
+    payload = {
+        "model": SYNTHESIS_MODEL,
+        "messages": [
+            {"role": "system", "content": _SYNTHESIS_SYSTEM},
+            {"role": "user", "content": user_msg},
+        ],
+        "max_tokens": 600,
+        "temperature": 0.4,
+    }
+
+    for attempt in range(3):
+        try:
+            resp = httpx.post(OPENROUTER_URL, json=payload, headers=headers, timeout=60)
+            resp.raise_for_status()
+            raw = resp.json()["choices"][0]["message"]["content"].strip()
+            # Strip fences if the model added them anyway
+            if raw.startswith("```"):
+                raw = raw.split("\n", 1)[-1].rsplit("```", 1)[0].strip()
+            result = json.loads(raw)
+            label = str(result.get("label", "")).strip()
+            prompt = str(result.get("prompt", "")).strip()
+            outcome = str(result.get("expectedOutcome", "")).strip()
+            # Reject if any key field is suspiciously short
+            if len(label) < 5 or len(prompt) < 40 or len(outcome) < 10:
+                print(f"      Synthesis output too short, skipping: {label!r}")
+                return None
+            return {"label": label, "prompt": prompt, "expectedOutcome": outcome}
+        except json.JSONDecodeError as e:
+            print(f"      Synthesis JSON parse error (attempt {attempt + 1}/3): {e}")
+            if attempt < 2:
+                time.sleep(2 ** attempt)
+        except (httpx.TimeoutException, httpx.HTTPStatusError) as e:
+            print(f"      Synthesis API error (attempt {attempt + 1}/3): {e}")
+            if attempt < 2:
+                time.sleep(2 ** attempt)
+    return None
+
+
+# ---------------------------------------------------------------------------
 # Step 2: Load existing content
 # ---------------------------------------------------------------------------
 
@@ -429,22 +540,14 @@ def map_to_module(
 # Step 5: Generate prompt entry
 # ---------------------------------------------------------------------------
 
-def next_prompt_id(module: dict[str, Any]) -> str:
-    """Compute the next sequential prompt ID for a module.
-
-    Existing IDs follow the pattern 'N.M' where N is the module number.
-    Some modules use legacy prefixes (e.g. 'B.4', '11.hooks.3') so we
-    fall back to module_number.next_seq when parsing fails.
-    """
-    module_num = module["number"]
+def _max_seq_in_module(module: dict[str, Any]) -> int:
+    """Return the highest sequence number seen in a module's prompt IDs."""
     max_seq = 0
     for p in module.get("prompts", []):
         parts = str(p["id"]).split(".")
         try:
-            # Standard format: "N.M"
             if len(parts) == 2:
                 seq = int(parts[1])
-            # Extended format: "N.sub.M"
             elif len(parts) == 3:
                 seq = int(parts[2])
             else:
@@ -452,17 +555,33 @@ def next_prompt_id(module: dict[str, Any]) -> str:
         except ValueError:
             seq = 0
         max_seq = max(max_seq, seq)
-    return f"{module_num}.{max_seq + 1}"
+    return max_seq
+
+
+def next_prompt_id(module: dict[str, Any], staged: dict[str, int]) -> str:
+    """Compute the next sequential prompt ID, accounting for already-staged entries.
+
+    `staged` maps module_id -> highest seq assigned this run, so multiple
+    entries targeting the same module get distinct IDs within a single run.
+    """
+    module_id = module["id"]
+    module_num = module["number"]
+    persisted_max = _max_seq_in_module(module)
+    run_max = staged.get(module_id, 0)
+    next_seq = max(persisted_max, run_max) + 1
+    staged[module_id] = next_seq
+    return f"{module_num}.{next_seq}"
 
 
 def generate_prompt_entry(
     discovery: Discovery,
     module: dict[str, Any],
-) -> dict[str, Any]:
-    """Create a prompt entry dict matching the existing data.json format."""
-    prompt_id = next_prompt_id(module)
+    staged: dict[str, int],
+) -> dict[str, Any] | None:
+    """Scrape + synthesise a real hands-on exercise, then wrap it as a prompt entry.
 
-    # Infer difficulty from module belt
+    Returns None if synthesis fails (entry is skipped).
+    """
     belt = module.get("belt", "white")
     difficulty_map = {
         "white": "Beginner",
@@ -474,12 +593,20 @@ def generate_prompt_entry(
     }
     difficulty = difficulty_map.get(belt, "Intermediate")
 
+    print(f"      Synthesising exercise for: {discovery.title[:60]}")
+    synthesised = _synthesise_exercise(discovery, module)
+
+    if synthesised is None:
+        print(f"      Synthesis failed — skipping.")
+        return None
+
+    prompt_id = next_prompt_id(module, staged)
     return {
         "id": prompt_id,
-        "label": discovery.title,
+        "label": synthesised["label"],
         "difficulty": difficulty,
-        "prompt": discovery.description,
-        "expectedOutcome": f"Hands-on practice with {discovery.title.lower()}.",
+        "prompt": synthesised["prompt"],
+        "expectedOutcome": synthesised["expectedOutcome"],
         "source": discovery.source_url,
     }
 
@@ -660,11 +787,14 @@ def refresh_single_dojo(
         print(f"    {d.title} -> {target} ({module_lookup[target]['title']})")
         mapped.append((target, d))
 
-    # Step 5: Generate prompt entries
-    print("\n  Step 5: Generate prompt entries")
+    # Step 5: Synthesise prompt entries via Sonnet
+    print("\n  Step 5: Synthesise prompt entries")
     new_entries: list[tuple[str, dict[str, Any]]] = []
+    staged: dict[str, int] = {}  # tracks assigned seq numbers per module this run
     for module_id, discovery in mapped:
-        entry = generate_prompt_entry(discovery, module_lookup[module_id])
+        entry = generate_prompt_entry(discovery, module_lookup[module_id], staged)
+        if entry is None:
+            continue
         new_entries.append((module_id, entry))
         print(f"    Created {entry['id']}: {entry['label']}")
 

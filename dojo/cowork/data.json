@@ -2,11 +2,11 @@
   "metadata": {
     "name": "claude-cowork-dojo",
     "description": "Interactive learning path for mastering Claude Cowork -- the autonomous desktop agent for knowledge workers. Covers setup, delegation, file management, skills, connectors, plugins, scheduled tasks, projects, sub-agents, computer use, dispatch, advanced skill engineering, power user workflows, and optimization.",
-    "version": "1.0.0",
-    "lastUpdated": "2026-04-04",
+    "version": "1.0.1",
+    "lastUpdated": "2026-04-07",
     "refreshCadence": "weekly",
     "totalModules": 15,
-    "totalPrompts": 46,
+    "totalPrompts": 51,
     "sourceFiles": [
       "Jack Roberts Full Course (1:05:18, 77K views)",
       "Brock Mesarich 15 Skills Tutorial (88K views)",
@@ -25,7 +25,14 @@
       "belt": "white",
       "estimatedMinutes": 15,
       "description": "Understand the three Claude surfaces -- Chat, Cowork, and Code -- and learn when Cowork is the right tool for the job.",
-      "keyConcepts": ["Chat vs Cowork vs Code", "autonomous workflows", "file access", "sub-agents", "deliverables", "VM sandbox"],
+      "keyConcepts": [
+        "Chat vs Cowork vs Code",
+        "autonomous workflows",
+        "file access",
+        "sub-agents",
+        "deliverables",
+        "VM sandbox"
+      ],
       "prerequisites": "A Claude Pro ($20/mo), Max, or Team subscription. Claude Desktop app installed.",
       "concepts": [
         {
@@ -62,6 +69,30 @@
           "difficulty": "Beginner",
           "prompt": "Give me a quick tour of the Cowork interface. Explain:\n1. Where do I type prompts?\n2. How do I see what files Cowork has created or modified?\n3. How do I access Settings to configure Cowork?\n4. How do I switch between Chat and Cowork mode?\n5. What does the activity feed show me?\n6. How do I stop a task that is running too long?",
           "expectedOutcome": "A concise orientation guide to the Cowork interface, helping new users navigate confidently."
+        },
+        {
+          "id": "1.4",
+          "label": "Plan Before You Act With Claude",
+          "difficulty": "Beginner",
+          "prompt": "Experience Claude Code's 'describe the end state, not the steps' principle in action:\n\n1. Create a folder called `cowork-demo` with 3-4 messy, unorganized text files inside (mix of topics like recipes, todo items, and random notes — all in one folder with no structure).\n2. Ask Claude to look at the folder and describe what it sees, then ask it to propose a plan for organizing the files into a logical structure — but NOT to make any changes yet.\n3. Read Claude's plan carefully. Ask it to explain its reasoning for any organizational decision you find surprising.\n4. Tell Claude your desired end state in one sentence (e.g., 'I want each file in a subfolder matching its topic, with a README listing what's inside'). Ask Claude to revise its plan to match that outcome.\n5. Approve the revised plan and let Claude execute it. Verify the final folder structure matches what you described.",
+          "expectedOutcome": "A reorganized folder whose structure matches the end-state description you gave Claude, produced through a plan-first workflow rather than step-by-step instructions.",
+          "source": "https://findskill.ai/blog/claude-cowork-guide/"
+        },
+        {
+          "id": "1.5",
+          "label": "Set Up Your First Cowork Project",
+          "difficulty": "Beginner",
+          "prompt": "Explore Claude Code as an AI agent that can take actions on your computer — not just chat. Follow these steps:\n\n1. Ask Claude to explain the difference between a traditional AI chat (like ChatGPT) and an AI agent like Claude Code, in 3 bullet points.\n2. Ask Claude to create a folder called `cowork-intro` and inside it create a file called `about-me.txt` with a few placeholder lines describing a fictional person's name, role, and top 3 goals.\n3. Ask Claude to read the file back and then rewrite it, making the goals more specific and actionable.\n4. Ask Claude to create a second file called `daily-tasks.md` inside `cowork-intro` that lists 5 realistic daily tasks the fictional person could delegate to an AI agent.\n5. Ask Claude to summarize what it just did across all steps in one short paragraph, as if briefing a new team member.",
+          "expectedOutcome": "A `cowork-intro` folder containing an updated `about-me.txt` and a `daily-tasks.md` file, giving you hands-on experience with Claude Code acting as an agent that reads, writes, and iterates on files autonomously.",
+          "source": "https://www.youtube.com/watch?v=C9gKWTzRukM"
+        },
+        {
+          "id": "1.6",
+          "label": "Build a Reusable Claude Skill",
+          "difficulty": "Beginner",
+          "prompt": "In this exercise, you will explore Claude's 'Skills' concept by building a reusable prompt template inside Claude Code that automates a recurring task.\n\n1. Ask Claude to explain what a 'Skill' is in the context of Claude's ecosystem — a reusable, saved prompt that automates a recurring task without coding.\n2. Ask Claude to help you design a reusable Skill for a specific use case, such as: 'Summarize a weekly team standup update into 3 bullet points with action items.'\n3. Ask Claude to write the full system prompt for that Skill, including placeholders like {{standup_notes}} so it can be reused with different inputs.\n4. Test the Skill by asking Claude to run it with a sample input you provide (e.g., paste in a fake standup update).\n5. Ask Claude to suggest two more Skill ideas suited for marketing, finance, or product teams, and pick one to draft together.",
+          "expectedOutcome": "A reusable Skill prompt template with clear placeholders, tested against a sample input and ready to be saved for repeated use.",
+          "source": "https://www.youtube.com/watch?v=6EFOT6hjvAU"
         }
       ],
       "proTip": "If your task ends with a question mark, use Chat. If it ends with a file, a report, or an action taken on your behalf, use Cowork.",
@@ -79,7 +110,14 @@
       "belt": "white",
       "estimatedMinutes": 25,
       "description": "Configure your Cowork environment with a dedicated work folder, global instructions, and context files that make Claude understand your world.",
-      "keyConcepts": ["work folder", "global instructions", "CLAUDE.md", "context files", "folder structure", "pricing plans"],
+      "keyConcepts": [
+        "work folder",
+        "global instructions",
+        "CLAUDE.md",
+        "context files",
+        "folder structure",
+        "pricing plans"
+      ],
       "prerequisites": "Module 1 completed. Claude Desktop app installed with Pro ($20/mo), Max, or Team plan.",
       "concepts": [
         {
@@ -137,7 +175,14 @@
       "belt": "white",
       "estimatedMinutes": 20,
       "description": "Master the art of delegating to Cowork with end-state prompting, the three-question framework, and change log discipline.",
-      "keyConcepts": ["end-state prompting", "three-question framework", "change logs", "delegation templates", "dummy files", "source tracing"],
+      "keyConcepts": [
+        "end-state prompting",
+        "three-question framework",
+        "change logs",
+        "delegation templates",
+        "dummy files",
+        "source tracing"
+      ],
       "prerequisites": "Module 2 completed. Work folder set up with context files.",
       "concepts": [
         {
@@ -195,7 +240,15 @@
       "belt": "brown",
       "estimatedMinutes": 30,
       "description": "Use Cowork to sort, rename, batch process, and create professional documents -- Excel, PowerPoint, PDF, invoices, and more.",
-      "keyConcepts": ["file sorting", "batch operations", "Excel generation", "PowerPoint creation", "PDF formatting", "invoice generation", "receipt processing"],
+      "keyConcepts": [
+        "file sorting",
+        "batch operations",
+        "Excel generation",
+        "PowerPoint creation",
+        "PDF formatting",
+        "invoice generation",
+        "receipt processing"
+      ],
       "prerequisites": "Module 3 completed. Files in your work folder to practice with.",
       "concepts": [
         {
@@ -232,6 +285,14 @@
           "difficulty": "Intermediate",
           "prompt": "Create an Excel spreadsheet called outputs/q2-budget.xlsx with:\n1. Sheet 1 \"Monthly Budget\": Columns for Category, April, May, June, Q2 Total. Rows for: Payroll, Marketing, Software, Travel, Office, Misc. Add SUM formulas for each month column and Q2 Total. Include sample data.\n2. Sheet 2 \"Actuals vs Budget\": Same categories with Budget, Actual, and Variance columns. Conditional formatting: green if under budget, red if over.\n3. Sheet 3 \"Summary Dashboard\": A summary table pulling totals from both sheets. Include percentage variance calculations.\n\nFormat with professional styling -- bold headers, currency formatting, borders.",
           "expectedOutcome": "A multi-sheet Excel workbook with formulas, conditional formatting, and professional styling ready for use."
+        },
+        {
+          "id": "4.4",
+          "label": "Automate Document Reformatting Pipeline",
+          "difficulty": "Advanced",
+          "prompt": "Build a hands-on document automation workflow inside Claude Code that mimics real-world file management tasks:\n\n1. Ask Claude to create a sample folder structure with three subfolders: `inbox/`, `processed/`, and `archive/`, then populate `inbox/` with three mock invoice text files (invoice_001.txt, invoice_002.txt, invoice_003.txt), each containing realistic fields like vendor name, amount, date, and status.\n2. Ask Claude to write a Python script called `reformat_invoices.py` that reads each file in `inbox/`, extracts the key fields, reformats them into a standardized Markdown summary, saves the output to `processed/`, and moves the original file to `archive/`.\n3. Run the script and ask Claude to verify the output by displaying the contents of one processed Markdown file and confirming all originals have moved to `archive/`.\n4. Ask Claude to extend the script to generate a `weekly_briefing.md` file in the root folder that summarizes all processed invoices — listing total count, combined amount, and any flagged as unpaid.\n5. Ask Claude to add a simple log file (`run_log.txt`) that timestamps each script run and records how many files were processed, so you have an audit trail.",
+          "expectedOutcome": "A working Python automation pipeline that reformats invoice files into structured Markdown summaries, archives originals, generates a weekly briefing report, and maintains a timestamped run log.",
+          "source": "https://claudiaplusai.substack.com/p/claude-cowork-starter-guide-30-examples"
         }
       ],
       "proTip": "Cowork's built-in skills (xlsx, pptx, pdf, docx) are purpose-built for document creation. Invoke them by name or let Cowork auto-detect the right skill from your file extension.",
@@ -249,7 +310,15 @@
       "belt": "brown",
       "estimatedMinutes": 30,
       "description": "Understand the skills system -- built-in skills, custom SKILL.md files, progressive disclosure, and skill stacking.",
-      "keyConcepts": ["SKILL.md", "YAML frontmatter", "built-in skills", "custom skills", "progressive disclosure", "skill stacking", "Skill Creator"],
+      "keyConcepts": [
+        "SKILL.md",
+        "YAML frontmatter",
+        "built-in skills",
+        "custom skills",
+        "progressive disclosure",
+        "skill stacking",
+        "Skill Creator"
+      ],
       "prerequisites": "Module 4 completed. Familiarity with markdown files.",
       "concepts": [
         {
@@ -307,7 +376,15 @@
       "belt": "brown",
       "estimatedMinutes": 25,
       "description": "Connect Cowork to external services -- Gmail, Calendar, Slack, Notion, and 8000+ apps via Zapier MCP.",
-      "keyConcepts": ["built-in connectors", "Gmail", "Calendar", "Slack", "Notion", "Zapier MCP", "connector pairing"],
+      "keyConcepts": [
+        "built-in connectors",
+        "Gmail",
+        "Calendar",
+        "Slack",
+        "Notion",
+        "Zapier MCP",
+        "connector pairing"
+      ],
       "prerequisites": "Module 5 completed. At least one service account (Gmail, Calendar, etc.) to connect.",
       "concepts": [
         {
@@ -361,7 +438,14 @@
       "belt": "brown",
       "estimatedMinutes": 30,
       "description": "Install, customize, and build plugins -- bundles of skills, connectors, sub-agents, and slash commands packaged for distribution.",
-      "keyConcepts": ["plugin architecture", "Plugin Marketplace", "skill bundles", "slash commands", "sub-agents", "plugin customization"],
+      "keyConcepts": [
+        "plugin architecture",
+        "Plugin Marketplace",
+        "skill bundles",
+        "slash commands",
+        "sub-agents",
+        "plugin customization"
+      ],
       "prerequisites": "Module 6 completed. Understanding of skills and connectors.",
       "concepts": [
         {
@@ -415,7 +499,14 @@
       "belt": "brown",
       "estimatedMinutes": 25,
       "description": "Automate recurring work with scheduled tasks -- daily briefings, weekly reports, expense tracking, and more.",
-      "keyConcepts": ["scheduled tasks", "/schedule command", "daily automation", "weekly reports", "cron patterns", "desktop requirements"],
+      "keyConcepts": [
+        "scheduled tasks",
+        "/schedule command",
+        "daily automation",
+        "weekly reports",
+        "cron patterns",
+        "desktop requirements"
+      ],
       "prerequisites": "Module 6 completed. At least one connector configured (Gmail or Calendar).",
       "concepts": [
         {
@@ -452,6 +543,14 @@
           "difficulty": "Intermediate",
           "prompt": "Help me manage my scheduled tasks:\n1. List all currently scheduled tasks with their schedules and last run times\n2. Check if any tasks failed on their last run -- show error details\n3. Pause a specific task temporarily (without deleting it)\n4. Create a monitoring dashboard file: outputs/task-dashboard.md with:\n   - Task name, schedule, last run, status (success/failed/paused)\n   - Next scheduled run time\n   - Any recommended optimizations\n5. Explain how to delete a scheduled task I no longer need",
           "expectedOutcome": "A complete view of all scheduled tasks with status monitoring and management instructions."
+        },
+        {
+          "id": "8.4",
+          "label": "Build a Scheduled Automation Workflow",
+          "difficulty": "Advanced",
+          "prompt": "In this exercise you will design and prototype a recurring task automation using Claude Code as your planning and scripting partner.\n\n1. Ask Claude to help you design a recurring task workflow for a daily report — describe a realistic scenario (e.g., 'every morning at 8am, check a folder for new CSV files, summarize the data, and append a trend note comparing it to yesterday's output').\n2. Ask Claude to generate a cron expression for your chosen schedule and explain what each field means.\n3. Ask Claude to write a shell script (or Python script) that simulates one run of the workflow: it should read a sample input file, produce a summary output file, and append a timestamped trend note.\n4. Create a sample input file (e.g., sales.csv with a few rows of data), then run the script inside Claude Code and verify the output file is generated correctly.\n5. Ask Claude to show you how you would wire this script to a cron job on your system, including the exact crontab entry and any environment variable considerations.",
+          "expectedOutcome": "A working automation script that reads a sample CSV, writes a timestamped summary report, and is paired with a ready-to-use crontab entry for recurring scheduled execution.",
+          "source": "https://www.digitalapplied.com/blog/anthropic-cowork-recurring-tasks-automate-claude-workflows"
         }
       ],
       "proTip": "Schedule your most important automations for times you are definitely at your desk. If you have a daily standup at 9 AM, schedule your briefing for 8:30 AM so it is ready when you need it.",
@@ -469,7 +568,14 @@
       "belt": "brown",
       "estimatedMinutes": 25,
       "description": "Use Projects for persistent workspaces with their own files, instructions, and memory that survive across sessions.",
-      "keyConcepts": ["projects", "persistent workspaces", "folder instructions", "cross-session memory", "CLAUDE.md per project", "reference libraries"],
+      "keyConcepts": [
+        "projects",
+        "persistent workspaces",
+        "folder instructions",
+        "cross-session memory",
+        "CLAUDE.md per project",
+        "reference libraries"
+      ],
       "prerequisites": "Module 2 completed (context files). Module 5 completed (skills).",
       "concepts": [
         {
@@ -523,7 +629,13 @@
       "belt": "brown",
       "estimatedMinutes": 30,
       "description": "Understand how Cowork spawns sub-agents to work in parallel, splitting tasks for dramatic speed improvements.",
-      "keyConcepts": ["sub-agents", "parallel processing", "shared state", "cross-referencing", "performance gains"],
+      "keyConcepts": [
+        "sub-agents",
+        "parallel processing",
+        "shared state",
+        "cross-referencing",
+        "performance gains"
+      ],
       "prerequisites": "Module 5 completed (skills). Experience with multi-step Cowork tasks.",
       "concepts": [
         {
@@ -577,7 +689,13 @@
       "belt": "brown",
       "estimatedMinutes": 25,
       "description": "Control desktop applications directly through screen interaction when APIs and connectors are not available.",
-      "keyConcepts": ["computer use", "screen control", "connector-first", "desktop automation", "macOS and Windows support"],
+      "keyConcepts": [
+        "computer use",
+        "screen control",
+        "connector-first",
+        "desktop automation",
+        "macOS and Windows support"
+      ],
       "prerequisites": "Module 6 completed (connectors). Understanding of when connectors are insufficient.",
       "concepts": [
         {
@@ -631,7 +749,14 @@
       "belt": "black",
       "estimatedMinutes": 20,
       "description": "Assign tasks from your phone to your desktop -- fire-and-forget workflows with Dispatch.",
-      "keyConcepts": ["Dispatch", "mobile-to-desktop", "QR code pairing", "fire-and-forget", "remote workflows", "Pro/Max plans"],
+      "keyConcepts": [
+        "Dispatch",
+        "mobile-to-desktop",
+        "QR code pairing",
+        "fire-and-forget",
+        "remote workflows",
+        "Pro/Max plans"
+      ],
       "prerequisites": "Module 8 completed (scheduled tasks). Pro or Max plan subscription.",
       "concepts": [
         {
@@ -685,7 +810,13 @@
       "belt": "black",
       "estimatedMinutes": 35,
       "description": "Apply Anthropic's official skill building patterns to create production-grade skills across three categories: document creation, workflow automation, and MCP enhancement.",
-      "keyConcepts": ["three skill categories", "success criteria", "testing methodology", "distribution", "Anthropic patterns"],
+      "keyConcepts": [
+        "three skill categories",
+        "success criteria",
+        "testing methodology",
+        "distribution",
+        "Anthropic patterns"
+      ],
       "prerequisites": "Module 5 completed (skills basics). Module 7 completed (plugins). Real-world skill building experience.",
       "concepts": [
         {
@@ -739,7 +870,14 @@
       "belt": "black",
       "estimatedMinutes": 40,
       "description": "Build real-world production workflows -- business OS dashboards, content pipelines, research synthesis, contract review, and email triage automation.",
-      "keyConcepts": ["business OS", "content repurposing", "research synthesis", "contract review", "email triage", "morning briefing"],
+      "keyConcepts": [
+        "business OS",
+        "content repurposing",
+        "research synthesis",
+        "contract review",
+        "email triage",
+        "morning briefing"
+      ],
       "prerequisites": "Modules 1-13 completed. Multiple connectors configured. Custom skills built.",
       "concepts": [
         {
@@ -804,7 +942,15 @@
       "belt": "black",
       "estimatedMinutes": 25,
       "description": "Manage credits, understand safety boundaries, troubleshoot common issues, and optimize your Cowork setup for maximum efficiency.",
-      "keyConcepts": ["credit management", "safety checklist", "VM isolation", "usage limits", "troubleshooting", "optimization", "competitors"],
+      "keyConcepts": [
+        "credit management",
+        "safety checklist",
+        "VM isolation",
+        "usage limits",
+        "troubleshooting",
+        "optimization",
+        "competitors"
+      ],
       "prerequisites": "Modules 1-14 completed. Active Cowork usage for at least 2 weeks.",
       "concepts": [
         {
@@ -941,7 +1087,14 @@
   ],
   "references": {
     "sourceGuides": {
-      "topics": ["Jack Roberts Full Course", "Brock Mesarich Skills Tutorial", "Anthropic Skill Building Guide", "Karo Zieminski Power Tips", "findskill.ai Guide", "o-mega.ai Desktop Guide"],
+      "topics": [
+        "Jack Roberts Full Course",
+        "Brock Mesarich Skills Tutorial",
+        "Anthropic Skill Building Guide",
+        "Karo Zieminski Power Tips",
+        "findskill.ai Guide",
+        "o-mega.ai Desktop Guide"
+      ],
       "citations": [
         "Jack Roberts, \"Claude Cowork Full Course\" (YouTube, 1:05:18, 77K views)",
         "Brock Mesarich, \"15 Claude Skills Tutorial\" (YouTube, 88K views)",
@@ -953,7 +1106,15 @@
       ]
     },
     "skillBuildingPatterns": {
-      "topics": ["Document/Asset Creation", "Workflow Automation", "MCP Enhancement", "Progressive Disclosure", "Skill Stacking", "Testing Methodology", "Distribution"],
+      "topics": [
+        "Document/Asset Creation",
+        "Workflow Automation",
+        "MCP Enhancement",
+        "Progressive Disclosure",
+        "Skill Stacking",
+        "Testing Methodology",
+        "Distribution"
+      ],
       "categories": [
         "Category 1: Document/Asset Creation -- skills that produce files (reports, presentations, spreadsheets)",
         "Category 2: Workflow Automation -- skills that orchestrate multi-step processes",
@@ -961,7 +1122,14 @@
       ]
     },
     "delegationFramework": {
-      "topics": ["Three-Question Framework", "End-State Prompting", "Change Logs", "Dummy Files", "Source Tracing", "Token Tracking"],
+      "topics": [
+        "Three-Question Framework",
+        "End-State Prompting",
+        "Change Logs",
+        "Dummy Files",
+        "Source Tracing",
+        "Token Tracking"
+      ],
       "threeQuestions": [
         "What does 'done' look like? (exact deliverable description)",
         "What context does Claude need? (reference files, examples, brand guides)",
