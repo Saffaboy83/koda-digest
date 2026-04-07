@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-04-06T09:49:29.943323+00:00",
+  "generated_at": "2026-04-07T10:01:02.309505+00:00",
   "company_count": 25,
-  "companies_with_posts": 17,
-  "total_entries": 87,
-  "new_today": 21,
+  "companies_with_posts": 18,
+  "total_entries": 100,
+  "new_today": 18,
   "entries": [
     {
       "company": "Runway",
@@ -22,6 +22,51 @@
       "summary": "Beginning in early May 2026, Git-based deployment for Databricks Apps will be automatically enabled for workspaces that have the compliance security profile enabled, facilitating streamlined CI/CD workflows through direct app deployment from a Git repository.",
       "date": "2026-05-01",
       "category": "Feature"
+    },
+    {
+      "company": "Anthropic",
+      "color": "#D97706",
+      "url": "https://www.anthropic.com/news/google-broadcom-partnership-compute",
+      "title": "Anthropic expands partnership with Google and Broadcom for multiple gigawatts of next-generation compute",
+      "summary": "Anthropic has signed a new agreement with Google and Broadcom to provide multiple gigawatts of next-generation TPU capacity, expected to start in 2027. This partnership aims to enhance compute infrastructure for the Claude models, meeting the growing demand from a rapidly increasing customer base.",
+      "date": "2026-04-06",
+      "category": "Partnership"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "title": "ChatGPT — Release Notes",
+      "summary": "This document provides detailed release notes and changelogs for the latest updates to ChatGPT. Highlights include the introduction of new features like ChatGPT in Apple CarPlay, a simplified sidebar, and various application updates tailored to enhance user experience.",
+      "date": "2026-04-02",
+      "category": "Feature"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://help.openai.com/en/articles/11391654-chatgpt-business-release-notes?ref=thelgtm.dev",
+      "title": "ChatGPT Business - Release Notes",
+      "summary": "This post provides a comprehensive changelog for the updates made to the ChatGPT Business plan, detailing new features, pricing changes, and app integrations. Key highlights include the introduction of new Codex seats, updates to various applications, and modifications to billing procedures.",
+      "date": "2026-04-02",
+      "category": "Feature"
+    },
+    {
+      "company": "Microsoft",
+      "color": "#00A4EF",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/support/upgrade/python-2026-significant-changes",
+      "title": "Python 2026 Significant Changes Guide",
+      "summary": "This document outlines important changes in Python since 2026, highlighting breaking changes and enhancements affecting code. It serves as a reference for developers upgrading between versions to avoid missing crucial updates.",
+      "date": "2026-04-02",
+      "category": "API Update"
+    },
+    {
+      "company": "Databricks",
+      "color": "#FF3621",
+      "url": "https://www.databricks.com/company/newsroom/press-releases/archive/2026",
+      "title": "Databricks joins STATION F to Accelerate AI Adoption for European Founders",
+      "summary": "Databricks has partnered with STATION F to enhance AI adoption among European entrepreneurs. This collaboration aims to streamline access to advanced AI technologies for startups in Europe.",
+      "date": "2026-04-02",
+      "category": "Partnership"
     },
     {
       "company": "OpenAI",
@@ -80,15 +125,6 @@
     {
       "company": "OpenAI",
       "color": "#10B981",
-      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes?ref=thelgtm.dev",
-      "title": "ChatGPT — Release Notes",
-      "summary": "This article provides a comprehensive overview of the latest updates and release notes for ChatGPT, detailing improvements and new features across various functionalities such as user interface, integrations, and model enhancements. Key highlights include the introduction of ChatGPT in Apple CarPlay, updates to existing apps, and enhancements in mobile experiences.",
-      "date": "2026-04-02",
-      "category": "Feature"
-    },
-    {
-      "company": "OpenAI",
-      "color": "#10B981",
       "url": "https://openai.com/news/",
       "title": "OpenAI acquires TBPN",
       "summary": "OpenAI announces the acquisition of TBPN, marking a significant expansion of its capabilities and resources. This move is expected to enhance the company's position in the AI landscape.",
@@ -102,6 +138,15 @@
       "title": "Bring state-of-the-art agentic skills to the edge with Gemma 4",
       "summary": "Google DeepMind has launched Gemma 4, a family of advanced open models that empower developers to create agentic and autonomous AI solutions directly on their devices. With capabilities such as multi-step planning and support for over 140 languages, Gemma 4 marks a significant leap in on-device AI development, making complex workflows and applications more accessible.",
       "date": "2026-04-02",
+      "category": "Feature"
+    },
+    {
+      "company": "Hugging Face",
+      "color": "#FFD21E",
+      "url": "https://huggingface.co/blog/tiiuae/falcon-perception",
+      "title": "Falcon Perception",
+      "summary": "Falcon Perception is a 0.6B-parameter early-fusion Transformer designed for open-vocabulary grounding and segmentation from natural language prompts. The model integrates both image patches and text in a single sequence, producing efficient outputs, and introduces the diagnostic benchmark PBench for assessing performance across various capabilities.",
+      "date": "2026-04-01",
       "category": "Feature"
     },
     {
@@ -312,6 +357,15 @@
       "category": "Partnership"
     },
     {
+      "company": "ElevenLabs",
+      "color": "#F472B6",
+      "url": "https://elevenlabs.io/blog/practical-guide-open-source-agent-frameworks-and-elevenagents",
+      "title": "Practical guide: open-source agent frameworks and ElevenAgents",
+      "summary": "This guide explains how to connect open-source agent frameworks with ElevenLabs voice using Custom LLM. It highlights a three-step pattern applicable across various frameworks, showcasing how voice can be integrated without compromising existing systems.",
+      "date": "2026-03-27",
+      "category": "Feature"
+    },
+    {
       "company": "Cursor",
       "color": "#7DD3FC",
       "url": "https://cursor.com/blog/self-summarization",
@@ -330,21 +384,21 @@
       "category": "Feature"
     },
     {
-      "company": "OpenAI",
-      "color": "#10B981",
-      "url": "https://help.openai.com/zh-hant-hk/articles/11391654-chatgpt-business-release-notes",
-      "title": "ChatGPT Business - Release Notes",
-      "summary": "This article provides a comprehensive changelog of the latest updates for the ChatGPT Business plan, detailing enhancements and new features added to various applications such as Box, Notion, and Google Drive, alongside the introduction of plugins and updates on Microsoft app scopes. Each update includes information on how these features impact workspace administration and user interactions.",
-      "date": "2026-03-27",
-      "category": "API Update"
-    },
-    {
       "company": "Google",
       "color": "#3B82F6",
       "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-updates-march-2026/",
       "title": "Find out what’s new in the Gemini app in March's Gemini Drop",
       "summary": "March's Gemini Drop introduces a range of new features aimed at enhancing user experience, such as transferring AI chat history, free personalized help across Google apps, and upgrades to Gemini Live for more intuitive conversations. Notable additions include the Lyria 3 Pro for composing longer tracks and enhanced visual answers on Google TV.",
       "date": "2026-03-27",
+      "category": "Feature"
+    },
+    {
+      "company": "Google",
+      "color": "#3B82F6",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-live/",
+      "title": "Gemini 3.1 Flash Live: Making audio AI more natural and reliable",
+      "summary": "Gemini 3.1 Flash Live enhances Google's audio model, providing improved precision and lower latency for more fluid voice interactions. This model is now available for developers and enterprises, and it supports over 200 countries, enabling intuitive and reliable real-time dialogue.",
+      "date": "2026-03-26",
       "category": "Feature"
     },
     {
@@ -386,20 +440,29 @@
     {
       "company": "OpenAI",
       "color": "#10B981",
+      "url": "https://openai.com/index/our-approach-to-the-model-spec/",
+      "title": "Inside our approach to the Model Spec",
+      "summary": "OpenAI's Model Spec serves as a public framework outlining the intended behavior of AI systems, emphasizing fairness, safety, and accessibility. The framework evolves with public feedback to ensure AI benefits society while addressing ethical challenges associated with advanced technologies.",
+      "date": "2026-03-25",
+      "category": "Research"
+    },
+    {
+      "company": "Anthropic",
+      "color": "#D97706",
+      "url": "https://docs.anthropic.com/pt/release-notes/claude-apps",
+      "title": "Interactive apps in Claude for iOS and Android",
+      "summary": "The Claude mobile app now supports connectivity to fully interactive apps, allowing users to access live charts, sketch diagrams, and create shareable assets within conversations. This feature enhances user interaction and visualization directly on mobile devices.",
+      "date": "2026-03-25",
+      "category": "Feature"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
       "url": "https://openai.com/news/safety-alignment",
       "title": "Introducing the OpenAI Safety Bug Bounty program",
       "summary": "The OpenAI Safety Bug Bounty program is launched to empower the community in identifying and resolving safety issues in AI systems. This initiative aims to enhance the overall safety of OpenAI's technologies.",
       "date": "2026-03-25",
       "category": "Safety"
-    },
-    {
-      "company": "OpenAI",
-      "color": "#10B981",
-      "url": "https://openai.com/news/research",
-      "title": "Inside our approach to the Model Spec",
-      "summary": "This post delves into OpenAI's innovative strategies for developing and sharing model specifications. It highlights the key principles guiding their approach to transparency and collaboration in AI research.",
-      "date": "2026-03-25",
-      "category": "Research"
     },
     {
       "company": "Databricks",
@@ -474,6 +537,15 @@
       "category": "Feature"
     },
     {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://help.openai.com/en/articles/9624314-model-release-notes?utm_source=syndication&pubDate=20260309",
+      "title": "Model Release Notes",
+      "summary": "This blog post summarizes recent updates and releases related to various models under the GPT-5 framework, including GPT-5.4 mini and the retirement of older versions like GPT-5.1. It highlights enhancements in model performance, usability, and new features aimed at improving user interaction with ChatGPT.",
+      "date": "2026-03-18",
+      "category": "Model Release"
+    },
+    {
       "company": "Perplexity",
       "color": "#F59E0B",
       "url": "https://www.perplexity.ai/hub/blog/meet-comet-for-ios",
@@ -490,15 +562,6 @@
       "summary": "NVIDIA has leveraged Cursor to embed AI throughout the software development lifecycle, resulting in significant efficiency gains and increased code generation by over three times. By adopting Cursor, NVIDIA has been able to automate core production workflows, enhance productivity for developers, and streamline the onboarding process for new hires.",
       "date": "2026-03-18",
       "category": "Feature"
-    },
-    {
-      "company": "OpenAI",
-      "color": "#10B981",
-      "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
-      "title": "Model Release Notes",
-      "summary": "This update details the rollout of GPT-5.4 mini and various model updates for GPT-5.3 and GPT-5.1, highlighting improvements in reasoning, coding capabilities, and user experience. The release also notes the retirement and changes to several existing models, alongside enhancements to the thinking time and response styles in ChatGPT.",
-      "date": "2026-03-18",
-      "category": "Model Release"
     },
     {
       "company": "Together AI",
@@ -571,6 +634,24 @@
       "summary": "The Batch API has expanded its capabilities to include image generation and video generation alongside chat completions. Both server-side and client-side tools are now supported in batch requests, with URLs for image and video results expiring after one hour.",
       "date": "2026-03-15",
       "category": "API Update"
+    },
+    {
+      "company": "ElevenLabs",
+      "color": "#F472B6",
+      "url": "https://elevenlabs.io/blog/how-to-convert-pdfs-to-speech",
+      "title": "How to Convert PDFs to Speech?",
+      "summary": "This blog post explores the innovative technology offered by ElevenLabs that transforms static PDFs into engaging auditory formats. It highlights the importance of transforming textual content into speech for accessibility and convenience, enabling users to consume information while multitasking easily.",
+      "date": "2026-03-14",
+      "category": "Feature"
+    },
+    {
+      "company": "ElevenLabs",
+      "color": "#F472B6",
+      "url": "https://elevenlabs.io/blog/everything-you-need-to-know-about-conversational-ai-agents",
+      "title": "Everything you need to know about conversational AI agents",
+      "summary": "Conversational AI technology has led to the creation of highly realistic chatbots and virtual assistants that understand language patterns and intents, providing human-like responses. These conversational AI agents leverage natural language processing, machine learning, and speech recognition to enhance user interactions and personalizations.",
+      "date": "2026-03-14",
+      "category": "Feature"
     },
     {
       "company": "ElevenLabs",
@@ -681,6 +762,24 @@
       "category": "Policy"
     },
     {
+      "company": "Anthropic",
+      "color": "#D97706",
+      "url": "https://www.anthropic.com/news/claude-partner-network",
+      "title": "Anthropic invests $100 million into the Claude Partner Network",
+      "summary": "Anthropic is launching the Claude Partner Network, committing an initial $100 million to equip partners with training, technical support, and joint market development to aid enterprises in adopting Claude. This initiative emphasizes collaboration with various organizations to navigate the complexities of AI deployment and ensure business needs are met.",
+      "date": "2026-03-12",
+      "category": "Partnership"
+    },
+    {
+      "company": "Samsung",
+      "color": "#1428A0",
+      "url": "https://us.community.samsung.com/t5/Galaxy-S26/LATEST-UPDATE-ON-MY-S26-ULTRA-MARCH-12TH-2026/td-p/3503817",
+      "title": "LATEST UPDATE ON MY S26 ULTRA MARCH 12TH 2026",
+      "summary": "The user reports a significant issue following the March 12th update on the Galaxy S26 Ultra, specifically mentioning that the screen brightness has decreased drastically, making it difficult to use. They express frustration and urge Samsung to resolve the problem as the screen was previously functioning well.",
+      "date": "2026-03-12",
+      "category": "Feature"
+    },
+    {
       "company": "Runway",
       "color": "#00E5FF",
       "url": "https://runwayml.com/news/building-interactive-ai-characters-responsibly",
@@ -732,6 +831,24 @@
       "title": "Introducing Runway Labs",
       "summary": "Runway Labs is an internal incubator launched to explore the next generation of applications for generative video, focusing on how AI can transform various industries. Led by Co-Founder Alejandro Matamala Ortiz, the initiative aims to prototype bold new products and experiences that harness the power of AI video and General World Models.",
       "date": "2026-03-11",
+      "category": "Feature"
+    },
+    {
+      "company": "Microsoft",
+      "color": "#00A4EF",
+      "url": "https://learn.microsoft.com/en-us/answers/questions/5815525/wave-release-updates",
+      "title": "Wave release updates",
+      "summary": "The blog post discusses the upcoming wave release updates for Microsoft products in 2026, detailing the new features and timelines for the Dynamics 365, Microsoft Power Platform, and role-based Copilot offerings. It outlines the structured release waves and their key dates, emphasizing the importance of the 2025 release wave 2 and the upcoming 2026 wave 1 plan.",
+      "date": "2026-03-10",
+      "category": "Feature"
+    },
+    {
+      "company": "Adobe",
+      "color": "#FF0000",
+      "url": "https://blog.adobe.com/en/publish/2026/03/10/image-editing-just-got-smarter-with-ai-photoshop-firefly",
+      "title": "Image editing just got smarter with AI in Photoshop and Firefly",
+      "summary": "Adobe expands the power of conversational AI with new capabilities to edit your photos just by describing what you want with Photoshop’s new AI Assistant and powerful new AI tools in Firefly Image Editor. These innovations enhance user creativity by providing tools that simplify and improve the editing process.",
+      "date": "2026-03-10",
       "category": "Feature"
     },
     {

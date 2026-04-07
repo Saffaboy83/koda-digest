@@ -1,4 +1,68 @@
 {
+  "2026-04-07": {
+    "hook": "Who builds gigawatt AI clusters when Iranian drones are already hitting petrochemical plants next door?",
+    "top_themes": [
+      "Anthropic's Gigawatt Compute Gamble",
+      "Gulf Crisis Hits Midnight",
+      "AI Safety Amid Global Instability"
+    ],
+    "top_stories": [
+      "OpenAI Launches Safety Fellowship for AI Researchers",
+      "Anthropic Partners Google, Broadcom for Gigawatt-Scale Compute",
+      "Microsoft Ships MAI-Transcribe-1 and Voice Models",
+      "UBTech Offers $18M Salary for AI Scientist",
+      "Meta Ships TRIBE v2 Brain Prediction Model",
+      "Harvard Builds Living Robots With Nervous Systems",
+      "Meta Details Four MTIA Chips in Two Years",
+      "Hugging Face Maps Open Source AI Landscape Spring 2026",
+      "GPT-5.4 Thinking Hits 75% on OSWorld Benchmark",
+      "Q1 2026 AI Venture Funding Totals $267.2 Billion",
+      "Industry Release Cadence Now Averages 72 Hours",
+      "Trump Sets Midnight Deadline to Devastate Iran",
+      "Iran Rejects Ceasefire, Vows Escalated Gulf Attacks",
+      "Iranian Drones Strike Saudi SABIC Petrochemical Complex",
+      "Israel Strikes Tehran, Ahvaz, Shiraz Infrastructure",
+      "Markets Plunge, Oil Rises Ahead of Deadline",
+      "Zelenskyy Visits Damascus, Pledges Security Ties",
+      "Artemis II Crew Returns After Lunar Mission",
+      "Australian Veteran Arrested for Afghan War Crimes"
+    ],
+    "featured_tools": [
+      "Blink.new: Describe an App, Get a Full-Stack Build",
+      "Workflow Machine: Automate Tasks for Humans and AI Agents Alike",
+      "Tether AI: Schedule a Personal Agent to Handle Recurring Tasks",
+      "Aider: Git-Native Refactoring From Your Terminal",
+      "Gemma 4: Run Google's Most Capable Open Model Locally",
+      "Klayn: Generate Professional E-Commerce Visuals With AI"
+    ],
+    "source_urls": [
+      "https://openai.com/index/introducing-openai-safety-fellowship/",
+      "https://www.anthropic.com/news/google-broadcom-partnership-compute",
+      "https://www.geekwire.com/2026/microsoft-releases-new-ai-models-to-further-expand-beyond-openai/",
+      "https://www.bloomberg.com/news/articles/2026-04-03/chinese-robot-pioneer-ubtech-offers-18-million-for-ai-scientist",
+      "https://ai.meta.com/blog/tribe-v2-brain-predictive-foundation-model/",
+      "https://spectrum.ieee.org/neurobot-living-robot-nervous-system",
+      "https://ai.meta.com/blog/meta-mtia-scale-ai-chips-for-billions/",
+      "https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026",
+      "https://www.devflokers.com/blog/ai-news-last-24-hours-april-2026-model-releases-breakthroughs",
+      "https://www.devflokers.com/blog/ai-news-last-24-hours-april-2026-model-releases-breakthroughs",
+      "https://www.digitalapplied.com/blog/12-ai-models-released-one-week-march-2026-developer-guide",
+      "https://www.straitstimes.com/world/while-you-were-sleeping-5-stories-you-might-have-missed-april-7-2026",
+      "https://www.gmanetwork.com/news/topstories/nation/982858/live-updates-conflict-in-the-middle-east-april-7-2026/story/",
+      "https://www.gmanetwork.com/news/topstories/nation/982858/live-updates-conflict-in-the-middle-east-april-7-2026/story/",
+      "https://www.gmanetwork.com/news/topstories/nation/982858/live-updates-conflict-in-the-middle-east-april-7-2026/story/",
+      "https://www.gmanetwork.com/news/topstories/nation/982858/live-updates-conflict-in-the-middle-east-april-7-2026/story/",
+      "https://www.gmanetwork.com/news/topstories/nation/982858/live-updates-conflict-in-the-middle-east-april-7-2026/story/",
+      "https://www.gmanetwork.com/news/topstories/nation/982858/live-updates-conflict-in-the-middle-east-april-7-2026/story/",
+      "https://en.wikipedia.org/wiki/Portal:Current_events/2026_April_7"
+    ],
+    "story_angles": [
+      "Anthropic partnered with Google and Broadcom to plan gigawatt-scale compute infr",
+      "Trump set a midnight deadline threatening devastating action against Iran as Isr",
+      "Markets plunged into extreme fear territory as oil prices surged ahead of the mi",
+      "UBTech's $18 million salary offer for a single AI scientist reveals that the tal"
+    ]
+  },
   "2026-04-06": {
     "hook": "Ten trillion parameters meet real missiles hitting data centers: the AI race just collided with its infrastructure nightmare.",
     "top_themes": [

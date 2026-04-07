@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aider: Git-Native Refactoring From Your Terminal | The Lab | Koda Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Inter",sans-serif;background:#0b1326;color:#dae2fd;min-height:100vh;overflow-x:hidden}
+.material-symbols-outlined{font-variation-settings:"FILL" 0,"wght" 400,"GRAD" 0,"opsz" 24;display:inline-block;vertical-align:middle}
+.scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,#3B82F6,#8B5CF6);z-index:1001;transition:width 0.1s linear;pointer-events:none}
+
+/* -- Koda Nav V2 -- */
+.kn-topbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(11,19,38,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.kn-topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.kn-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;flex-shrink:0}
+.kn-brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0}
+.kn-brand-text{font-size:14px;font-weight:700;color:#3B82F6}
+.kn-brand-sub{font-size:10px;color:#8c909f;display:none}
+@media(min-width:640px){.kn-brand-sub{display:block}}
+
+/* Desktop nav links */
+.kn-links{display:none;align-items:center;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;flex:1;justify-content:center}
+@media(min-width:769px){.kn-links{display:flex}}
+.kn-link{font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 8px;border-radius:6px;text-decoration:none;transition:all 0.2s;white-space:nowrap;color:#8c909f;background:rgba(255,255,255,0.04)}
+.kn-link:hover{color:#dae2fd;background:rgba(255,255,255,0.08)}
+.kn-link-active{color:#3B82F6!important;background:rgba(59,130,246,0.12)!important;border-bottom:2px solid #3B82F6}
+.kn-link .material-symbols-outlined{font-size:13px;vertical-align:-2px;margin-right:2px}
+
+/* Actions (search, hamburger) */
+.kn-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.kn-action-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s;text-decoration:none}
+.kn-action-btn:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
+.kn-action-btn .material-symbols-outlined{font-size:20px}
+
+/* Hamburger - visible on mobile only */
+.kn-hamburger{display:flex}
+@media(min-width:769px){.kn-hamburger{display:none}}
+
+/* Desktop social - hidden on mobile (drawer has them) */
+.kn-desktop-social{display:none;align-items:center;gap:4px}
+@media(min-width:769px){.kn-desktop-social{display:flex}}
+
+/* Date picker (briefing pages only) */
+.kn-date-picker{display:none;align-items:center}
+@media(min-width:769px){.kn-date-picker{display:flex}}
+.kn-date-btn{display:flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:#3B82F6;padding:4px 8px;background:rgba(59,130,246,0.1);border-radius:6px;border:none;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.kn-date-btn:hover{background:rgba(59,130,246,0.2)}
+
+/* Home button - desktop only, in links row */
+.kn-home{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white!important;font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 10px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all 0.2s}
+.kn-home:hover{box-shadow:0 4px 16px rgba(59,130,246,0.3)}
+
+/* ── Drawer ── */
+.kn-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1001;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s}
+.kn-overlay.kn-open{opacity:1;visibility:visible}
+.kn-drawer{position:fixed;top:0;right:0;bottom:0;width:min(280px,85vw);background:rgba(11,19,38,0.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-left:1px solid rgba(173,198,255,0.1);z-index:1002;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.kn-drawer.kn-open{transform:translateX(0)}
+@media(prefers-reduced-motion:reduce){.kn-overlay,.kn-drawer{transition-duration:0.01ms!important}}
+
+/* Drawer header */
+.kn-drawer-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.kn-drawer-brand{display:flex;align-items:center;gap:10px}
+.kn-drawer-close{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s}
+.kn-drawer-close:hover{background:rgba(239,68,68,0.15);color:#EF4444}
+
+/* Drawer sections */
+.kn-drawer-section{padding:12px 20px 4px;font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#6b7280}
+.kn-drawer-divider{height:1px;background:rgba(255,255,255,0.06);margin:8px 20px}
+
+/* Drawer nav links */
+.kn-drawer-link{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:#c2c6d6;font-size:14px;font-weight:500;transition:all 0.2s;border-left:3px solid transparent}
+.kn-drawer-link:hover{background:rgba(255,255,255,0.04);color:#dae2fd}
+.kn-drawer-link-active{color:#3B82F6!important;border-left-color:#3B82F6;background:rgba(59,130,246,0.08)}
+.kn-drawer-link .material-symbols-outlined{font-size:20px;color:#6b7280;flex-shrink:0}
+.kn-drawer-link-active .material-symbols-outlined{color:#3B82F6}
+
+/* Drawer home link */
+.kn-drawer-home{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:white;font-size:14px;font-weight:600;border-left:3px solid transparent;transition:all 0.2s}
+.kn-drawer-home:hover{background:rgba(59,130,246,0.1)}
+.kn-drawer-home .material-symbols-outlined{font-size:20px;color:#3B82F6}
+
+/* Drawer social row */
+.kn-drawer-social{display:flex;gap:8px;padding:12px 20px}
+.kn-drawer-social a,.kn-drawer-social button{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;text-decoration:none;transition:all 0.2s}
+.kn-drawer-social a:hover,.kn-drawer-social button:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
+
+/* Body scroll lock */
+body.kn-locked{overflow:hidden}
+
+.animate-in{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.animate-in.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<!-- koda-nav-v2-start -->
+<header class="kn-topbar" id="knTopbar">
+<div class="kn-topbar-inner">
+    <a href="../index.html" class="kn-brand">
+        <div class="kn-brand-icon">K</div>
+        <div>
+            <div class="kn-brand-text">Koda Intelligence</div>
+            <div class="kn-brand-sub"><span class="material-symbols-outlined" style="font-size:11px;vertical-align:-1px;margin-right:2px">science</span>The Lab</div>
+        </div>
+    </a>
+    <div class="kn-links">
+                <a href="../morning-briefing-koda.html" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+        <a href="../editorial/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">explore</span>Deep Dive</a>
+        <a href="../pricing/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">monitoring</span>Token Tracker</a>
+        <a href="../benchmarks/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">trophy</span>Leaderboard</a>
+        <a href="../reviews/" class="kn-link kn-link-active"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">science</span>The Lab</a>
+        <a href="../dojo/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">school</span>The Dojo</a>
+        <a href="../changelog/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">pulse_alert</span>Pulse</a>
+        <a href="../archive/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
+        <a href="../index.html" class="kn-home">&larr; Home</a>
+    </div>
+    <div class="kn-actions">
+        
+        <div class="kn-desktop-social">
+            <a href="https://x.com/intent/tweet?url=https://www.koda.community/reviews/" target="_blank" rel="noopener" class="kn-action-btn" title="Share on X">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/reviews/" target="_blank" rel="noopener" class="kn-action-btn" title="Share on LinkedIn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <button class="kn-action-btn" onclick="navigator.clipboard.writeText(window.location.href);this.style.color='#10B981';setTimeout(()=>this.style.color='',1500)" title="Copy link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            </button>
+        </div>
+        <button class="kn-action-btn" id="knSearchBtn" title="Search (Ctrl+K)" aria-label="Search">
+            <span class="material-symbols-outlined">search</span>
+        </button>
+        <button class="kn-action-btn kn-hamburger" id="knMenuBtn" title="Menu" aria-label="Open menu" aria-expanded="false">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </div>
+</div>
+</header>
+
+<!-- Drawer overlay -->
+<div class="kn-overlay" id="knOverlay"></div>
+
+<!-- Slide-out drawer -->
+<nav class="kn-drawer" id="knDrawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="kn-drawer-header">
+        <div class="kn-drawer-brand">
+            <div class="kn-brand-icon">K</div>
+            <span class="kn-brand-text">Koda</span>
+        </div>
+        <button class="kn-drawer-close" id="knDrawerClose" aria-label="Close menu">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+    <div class="kn-drawer-section">Navigate</div>
+        <a href="../index.html" class="kn-drawer-home"><span class="material-symbols-outlined">home</span>Home</a>
+    <a href="../morning-briefing-koda.html" class="kn-drawer-link"><span class="material-symbols-outlined">bolt</span>The Signal</a>
+    <a href="../editorial/" class="kn-drawer-link"><span class="material-symbols-outlined">explore</span>Deep Dive</a>
+    <a href="../pricing/" class="kn-drawer-link"><span class="material-symbols-outlined">monitoring</span>Token Tracker</a>
+    <a href="../benchmarks/" class="kn-drawer-link"><span class="material-symbols-outlined">trophy</span>Leaderboard</a>
+    <a href="../reviews/" class="kn-drawer-link kn-drawer-link-active"><span class="material-symbols-outlined">science</span>The Lab</a>
+    <a href="../dojo/" class="kn-drawer-link"><span class="material-symbols-outlined">school</span>The Dojo</a>
+    <a href="../changelog/" class="kn-drawer-link"><span class="material-symbols-outlined">pulse_alert</span>Pulse</a>
+    <a href="../archive/" class="kn-drawer-link"><span class="material-symbols-outlined">lock_open</span>The Vault</a>
+    <div class="kn-drawer-divider"></div>
+    <div class="kn-drawer-section">Share</div>
+    <div class="kn-drawer-social">
+        <a href="https://x.com/intent/tweet?url=https://www.koda.community/reviews/" target="_blank" rel="noopener" title="Share on X">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/reviews/" target="_blank" rel="noopener" title="Share on LinkedIn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <button onclick="navigator.clipboard.writeText(window.location.href);this.style.color='#10B981';setTimeout(()=>this.style.color='',1500)" title="Copy link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        </button>
+    </div>
+</nav>
+<!-- koda-nav-v2-end -->
+<style>
+@media (max-width: 768px) {
+  .pricing-grid, .features-grid, .usecases-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-title {
+    font-size: clamp(28px, 6vw, 48px) !important;
+  }
+}
+.animate-in {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeInUp 0.7s ease forwards;
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-in:nth-child(2) { animation-delay: 0.1s; }
+.animate-in:nth-child(3) { animation-delay: 0.15s; }
+.animate-in:nth-child(4) { animation-delay: 0.2s; }
+.animate-in:nth-child(5) { animation-delay: 0.25s; }
+.animate-in:nth-child(6) { animation-delay: 0.3s; }
+.animate-in:nth-child(7) { animation-delay: 0.35s; }
+</style>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<section id="hero" class="animate-in" style="scroll-margin-top:80px; max-width:900px; margin:0 auto; padding:100px 24px 0; text-align:center;">
+  <span style="display:inline-block; background:rgba(139,92,246,0.15); color:#8B5CF6; font-size:13px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; padding:6px 16px; border-radius:20px; border:1px solid rgba(139,92,246,0.25); margin-bottom:20px;">Lab Report</span>
+  <h1 class="hero-title" style="font-size:clamp(28px,5vw,48px); font-weight:800; line-height:1.15; padding-bottom:0.15em; margin:0 0 16px; background:linear-gradient(135deg,#3B82F6,#8B5CF6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Aider: Git-Native Refactoring From Your Terminal</h1>
+  <p style="color:#c2c6d6; font-size:18px; line-height:1.6; max-width:660px; margin:0 auto 32px;">AI pair programming in your terminal. Structured edits across multiple files, clean git commits, and rollbacks that actually work.</p>
+  <a href="https://aider.chat" target="_blank" rel="noopener" style="display:inline-block; padding:14px 36px; background:linear-gradient(135deg,#3B82F6,#8B5CF6); color:#fff; font-size:16px; font-weight:600; border-radius:8px; text-decoration:none; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">Try Aider</a>
+  <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/review-hero-2026-04-07-aider-git-native-refactoring-from-your-terminal.jpg" alt="Aider terminal screenshot" style="max-width:800px;width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.08);margin:24px auto 0;display:block" loading="eager">
+</section>
+
+<section id="verdict" class="animate-in" style="scroll-margin-top:80px; max-width:900px; margin:0 auto; padding:64px 24px 0;">
+  <div style="background:rgba(139,92,246,0.08); border:1px solid rgba(139,92,246,0.2); border-radius:12px; padding:32px;">
+    <h2 style="color:#dae2fd; font-size:24px; font-weight:700; margin:0 0 16px;">
+      <span class="material-icons" style="vertical-align:middle; margin-right:8px; color:#8B5CF6;">gavel</span>The Verdict
+    </h2>
+    <p style="color:#c2c6d6; font-size:17px; line-height:1.7; margin:0;">
+      Aider is the best option for developers who live in the terminal and want AI code generation that respects their git workflow. Every edit becomes a reviewable commit with a clean diff, which means you can audit, cherry-pick, or revert AI changes the same way you handle human contributions. If you are already comfortable with vim, tmux, and command-line git, Aider will feel like a natural extension of your stack. If you prefer visual IDEs with inline suggestions, tools like Cursor or GitHub Copilot will be a better fit.
+    </p>
+  </div>
+</section>
+
+<section id="pricing" class="animate-in" style="scroll-margin-top:80px; max-width:900px; margin:0 auto; padding:64px 24px 0;">
+  <h2 style="color:#dae2fd; font-size:28px; font-weight:700; margin:0 0 8px;">Pricing</h2>
+  <p style="color:#8c909f; font-size:15px; margin:0 0 28px;">Updated April 2026</p>
+  <div class="pricing-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:28px;">
+      <h3 style="color:#dae2fd; font-size:20px; font-weight:700; margin:0 0 8px;">Open Source (Free)</h3>
+      <p style="color:#8B5CF6; font-size:28px; font-weight:800; margin:0 0 16px;">$0</p>
+      <ul style="list-style:none; padding:0; margin:0;">
+        <li style="color:#c2c6d6; font-size:15px; padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.04);">
+          <span class="material-icons" style="font-size:16px; color:#8B5CF6; vertical-align:middle; margin-right:6px;">check_circle</span>Full CLI tool, Apache 2.0 license
+        </li>
+        <li style="color:#c2c6d6; font-size:15px; padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.04);">
+          <span class="material-icons" style="font-size:16px; color:#8B5CF6; vertical-align:middle; margin-right:6px;">check_circle</span>Works with cloud LLMs (OpenAI, Anthropic, etc.)
+        </li>
+        <li style="color:#c2c6d6; font-size:15px; padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.04);">
+          <span class="material-icons" style="font-size:16px; color:#8B5CF6; vertical-align:middle; margin-right:6px;">check_circle</span>Works with local LLMs (Ollama, LM Studio)
+        </li>
+        <li style="color:#c2c6d6; font-size:15px; padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.04);">
+          <span class="material-icons" style="font-size:16px; color:#8B5CF6; vertical-align:middle; margin-right:6px;">check_circle</span>Git integration, linting, testing
+        </li>
+        <li style="color:#c2c6d6; font-size:15px; padding:6px 0;">
+          <span class="material-icons" style="font-size:16px; color:#8B5CF6; vertical-align:middle; margin-right:6px;">check_circle</span>100+ language support
+        </li>
+      </ul>
+    </div>
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:28px;">
+      <h3 style="color:#dae2fd; font-size:20px; font-weight:700; margin:0 0 8px;">LLM API Costs (Separate)</h3>
+      <p style="color:#3B82F6; font-size:28px; font-weight:800; margin:0 0 16px;">Varies</p>
+      <ul style="list-style:none; padding:0; margin:0;">
+        <li style="color:#c2c6d6; font-size:15px; padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.04);">
+          <span class="material-icons" style="font-size:16px; color:#3B82F6; vertical-align:middle; margin-right:6px;">info</span>You bring your own API keys
+        </li>
+        <li style="color:#c2c6d6; font-size:15px; padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.04);">
+          <span class="material-icons" style="font-size:16px; color:#3B82F6; vertical-align:middle; margin-right:6px;">info</span>GPT-4o: ~$2.50/$10 per 1M tokens (in/out)
+        </li>
+        <li style="color:#c2c6d6; font-size:15px; padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.04);">
+          <span class="material-icons" style="font-size:16px; color:#3B82F6; vertical-align:middle; margin-right:6px;">info</span>Claude Sonnet: ~$3/$15 per 1M tokens
+        </li>
+        <li style="color:#c2c6d6; font-size:15px; padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.04);">
+          <span class="material-icons" style="font-size:16px; color:#3B82F6; vertical-align:middle; margin-right:6px;">info</span>DeepSeek, Gemini, and others supported
+        </li>
+        <li style="color:#c2c6d6; font-size:15px; padding:6px 0;">
+          <span class="material-icons" style="font-size:16px; color:#3B82F6; vertical-align:middle; margin-right:6px;">info</span>Local LLMs: $0 (your hardware)
+        </li>
+      </ul>
+    </div>
+  </div>
+  <p style="color:#8c909f; font-size:14px; margin-top:16px; line-height:1.6;">Aider itself is completely free and open source. Your only cost is the LLM API usage, which you control directly. A typical refactoring session with GPT-4o might cost $0.05 to $0.50 depending on codebase size. Running local models eliminates API costs entirely.</p>
+</section>
+
+<section id="features" class="animate-in" style="scroll-margin-top:80px; max-width:900px; margin:0 auto; padding:64px 24px 0;">
+  <h2 style="color:#dae2fd; font-size:28px; font-weight:700; margin:0 0 28px;">Key Features</h2>
+  <div class="features-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+      <span class="material-icons" style="color:#8B5CF6; font-size:28px; margin-bottom:12px; display:block;">commit</span>
+      <h3 style="color:#dae2fd; font-size:17px; font-weight:600; margin:0 0 8px;">Automatic Git Commits</h3>
+      <p style="color:#c2c6d6; font-size:14px; line-height:1.6; margin:0;">Every AI edit is committed with a descriptive message. You get a clean, linear history of changes that you can review, revert, or squash. No more mystery diffs.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+      <span class="material-icons" style="color:#3B82F6; font-size:28px; margin-bottom:12px; display:block;">account_tree</span>
+      <h3 style="color:#dae2fd; font-size:17px; font-weight:600; margin:0 0 8px;">Repo-Wide Codebase Mapping</h3>
+      <p style="color:#c2c6d6; font-size:14px; line-height:1.6; margin:0;">Aider builds a map of your entire repository using tree-sitter, understanding function signatures, class hierarchies, and file relationships. This lets it make coordinated edits across multiple files.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+      <span class="material-icons" style="color:#8B5CF6; font-size:28px; margin-bottom:12px; display:block;">cloud_queue</span>
+      <h3 style="color:#dae2fd; font-size:17px; font-weight:600; margin:0 0 8px;">Cloud and Local LLM Support</h3>
+      <p style="color:#c2c6d6; font-size:14px; line-height:1.6; margin:0;">Use GPT-4o, Claude, Gemini, DeepSeek, or any OpenAI-compatible API. For air-gapped environments or cost control, connect to local models via Ollama or LM Studio.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+      <span class="material-icons" style="color:#3B82F6; font-size:28px; margin-bottom:12px; display:block;">bug_report</span>
+      <h3 style="color:#dae2fd; font-size:17px; font-weight:600; margin:0 0 8px;">Integrated Linting and Testing</h3>
+      <p style="color:#c2c6d6; font-size:14px; line-height:1.6; margin:0;">Aider can run your linter and test suite after making changes. If something breaks, it automatically attempts to fix the issue before committing. This creates a tighter feedback loop than manual review.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+      <span class="material-icons" style="color:#8B5CF6; font-size:28px; margin-bottom:12px; display:block;">mic</span>
+      <h3 style="color:#dae2fd; font-size:17px; font-weight:600; margin:0 0 8px;">Voice-to-Code</h3>
+      <p style="color:#c2c6d6; font-size:14px; line-height:1.6; margin:0;">Dictate your coding instructions instead of typing them. Useful for describing complex refactors or when you want to think out loud about architecture changes while Aider translates intent into edits.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+      <span class="material-icons" style="color:#3B82F6; font-size:28px; margin-bottom:12px; display:block;">image</span>
+      <h3 style="color:#dae2fd; font-size:17px; font-weight:600; margin:0 0 8px;">Image and Web Page Context</h3>
+      <p style="color:#c2c6d6; font-size:14px; line-height:1.6; margin:0;">Pass screenshots, mockups, or web page URLs as context. Aider can use vision-capable models to interpret UI designs and generate corresponding code, bridging the gap between design and implementation.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+      <span class="material-icons" style="color:#8B5CF6; font-size:28px; margin-bottom:12px; display:block;">translate</span>
+      <h3 style="color:#dae2fd; font-size:17px; font-weight:600; margin:0 0 8px;">100+ Language Support</h3>
+      <p style="color:#c2c6d6; font-size:14px; line-height:1.6; margin:0;">Python, JavaScript, TypeScript, Rust, Go, Java, C++, Ruby, and dozens more. The tree-sitter based parsing means Aider understands the structure of your code regardless of language.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+      <span class="material-icons" style="color:#3B82F6; font-size:28px; margin-bottom:12px; display:block;">edit_note</span>
+      <h3 style="color:#dae2fd; font-size:17px; font-weight:600; margin:0 0 8px;">Multi-File Editing</h3>
+      <p style="color:#c2c6d6; font-size:14px; line-height:1.6; margin:0;">Add multiple files to the chat context and Aider will coordinate changes across all of them. Rename a function in one file and it updates the imports, tests, and call sites in others.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="usecases" class="animate-in" style="scroll-margin-top:80px; max-width:900px; margin:0 auto; padding:64px 24px 0;">
+  <h2 style="color:#dae2fd; font-size:28px; font-weight:700; margin:0 0 28px;">Who Should Use This</h2>
+  <div class="usecases-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+      <h3 style="color:#dae2fd; font-size:17px; font-weight:600; margin:0 0 10px;">Terminal-First Developers</h3>
+      <p style="color:#c2c6d6; font-size:14px; line-height:1.6; margin:0;">If your workflow is already built around vim/neovim, tmux, and git on the command line, Aider slots in without requiring you to switch to a different editor or IDE. It respects your existing setup rather than replacing it.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+      <h3 style="color:#dae2fd; font-size:17px; font-weight:600; margin:0 0 10px;">Legacy Codebase Maintainers</h3>
+      <p style="color:#c2c6d6; font-size:14px; line-height:1.6; margin:0;">Point Aider at a sprawling legacy module and ask it to refactor. The automatic git commits mean every change is isolated and reviewable. If the AI makes a bad call, you revert one commit instead of untangling a mess.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+      <h3 style="color:#dae2fd; font-size:17px; font-weight:600; margin:0 0 10px;">Solo Developers and Small Teams</h3>
+      <p style="color:#c2c6d6; font-size:14px; line-height:1.6; margin:0;">When you do not have a second pair of eyes for code review, Aider acts as a pair programmer that can scaffold features, write tests, and debug issues. The git history serves as a built-in audit trail.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+      <h3 style="color:#dae2fd; font-size:17px; font-weight:600; margin:0 0 10px;">Security-Conscious Teams</h3>
+      <p style="color:#c2c6d6; font-size:14px; line-height:1.6; margin:0;">With local LLM support, your code never leaves your machine. Teams in regulated industries or working on proprietary codebases can use Aider with Ollama and keep everything air-gapped.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="limitations" class="animate-in" style="scroll-margin-top:80px; max-width:900px; margin:0 auto; padding:64px 24px 0;">
+  <h2 style="color:#dae2fd; font-size:28px; font-weight:700; margin:0 0 28px;">Limitations</h2>
+  <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:28px;">
+
+    <div style="padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.06);">
+      <h3 style="color:#dae2fd; font-size:16px; font-weight:600; margin:0 0 6px;">
+        <span class="material-icons" style="font-size:18px; color:#f59e0b; vertical-align:middle; margin-right:8px;">warning</span>Steep Learning Curve for Non-Terminal Users
+      </h3>
+      <p style="color:#c2c6d6; font-size:14px; line-height:1.6; margin:0;">If you are not already comfortable with the command line, Aider will feel intimidating. There is no GUI, no drag-and-drop, no visual diff viewer built in. You need to understand git concepts like staging, committing, and reverting to use it effectively.</p>
+    </div>
+
+    <div style="padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.06);">
+      <h3 style="color:#dae2fd; font-size:16px; font-weight:600; margin:0 0 6px;">
+        <span class="material-icons" style="font-size:18px; color:#f59e0b; vertical-align:middle; margin-right:8px;">warning</span>Quality Depends Entirely on the LLM
+      </h3>
+      <p style="color:#c2c6d6; font-size:14px; line-height:1.6; margin:0;">Aider is a harness, not a model. The quality of its output is directly tied to which LLM you connect. GPT-4o and Claude Sonnet produce strong results. Smaller local models can struggle with complex multi-file refactors. You need to experiment to find the right model for your use case and budget.</p>
+    </div>
+
+    <div style="padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.06);">
+      <h3 style="color:#dae2fd; font-size:16px; font-weight:600; margin:0 0 6px;">
+        <span class="material-icons" style="font-size:18px; color:#f59e0b; vertical-align:middle; margin-right:8px;">warning</span>API Costs Can Add Up on Large Codebases
+      </h3>
+      <p style="color:#c2c6d6; font-size:14px; line-height:1.6; margin:0;">When you add many files to context, token usage climbs fast. A session working across a large monorepo with GPT-4o can easily cost several dollars. Aider does not have built-in spending controls or budgets, so you need to monitor your API dashboard separately.</p>
+    </div>
+
+    <div style="padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.06);">
+      <h3 style="color:#dae2fd; font-size:16px; font-weight:600; margin:0 0 6px;">
+        <span class="material-icons" style="font-size:18px; color:#f59e0b; vertical-align:middle; margin-right:8px;">warning</span>No Built-In Collaboration Features</h3>
+      <p style="color:#c2c6d6; font-size:14px; line-height:1.6; margin:0;">Aider is a single-user tool. There is no shared session, no team dashboard, no way to see what prompts a colleague used. For team workflows, you rely on the git history and your existing code review process.</p>
+    </div>
+
+    <div style="padding:16px 0;">
+      <h3 style="color:#dae2fd; font-size:16px; font-weight:600; margin:0 0 6px;">
+        <span class="material-icons" style="font-size:18px; color:#f59e0b; vertical-align:middle; margin-right:8px;">warning</span>Commit Noise in Git History</h3>
+      <p style="color:#c2c6d6; font-size:14px; line-height:1.6; margin:0;">The automatic commit-per-edit approach is great for rollbacks but can clutter your git log. If you make 15 iterative requests to get a feature right, that is 15 commits. You will want to squash before merging to keep your main branch clean.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="animate-in" style="scroll-margin-top:80px; max-width:900px; margin:0 auto; padding:64px 24px 80px; text-align:center;">
+  <div style="background:rgba(23,31,51,0.4); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:48px 32px;">
+    <h2 style="color:#dae2fd; font-size:24px; font-weight:700; margin:0 0 12px;">Ready to try git-native AI coding?</h2>
+    <p style="color:#c2c6d6; font-size:16px; margin:0 0 28px; line-height:1.6;">Aider is free, open source, and installs with a single pip command.</p>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:16px;">
+      <a href="https://aider.chat" target="_blank" rel="noopener" style="display:inline-block; padding:14px 40px; background:linear-gradient(135deg,#3B82F6,#8B5CF6); color:#fff; font-size:16px; font-weight:600; border-radius:8px; text-decoration:none; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">Try Aider</a>
+      <div style="display:flex; gap:24px; flex-wrap:wrap; justify-content:center;">
+        <a href="../reviews/" style="color:#3B82F6; font-size:15px; text-decoration:none; font-weight:500;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">← Back to The Lab</a>
+        <a href="../morning-briefing-koda.html" style="color:#3B82F6; font-size:15px; text-decoration:none; font-weight:500;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">← Back to The Signal</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Subscribe CTA -->
+<section style="width:100%;padding:64px 24px">
+    <div style="max-width:36rem;margin:0 auto;text-align:center">
+        <div style="background:rgba(11,19,38,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:40px;position:relative;overflow:hidden">
+            <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:128px;height:4px;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);border-radius:0 0 4px 4px"></div>
+            <h3 style="font-size:20px;font-weight:700;color:white;margin-bottom:8px">Like what you see?</h3>
+            <p style="color:#c2c6d6;font-size:14px;margin-bottom:24px">Get tomorrow's brief delivered to your inbox.</p>
+            <form style="display:flex;flex-direction:column;gap:8px;max-width:28rem;margin:0 auto;padding:6px;border-radius:9999px;background:#171f33;border:1px solid rgba(255,255,255,0.06)" onsubmit="return kodaSubscribe(this)">
+                <div style="display:flex;gap:8px">
+                    <input type="email" name="email" required style="background:transparent;border:none;outline:none;color:white;padding:12px 20px;width:100%;font-size:14px" placeholder="your@email.com">
+                    <button type="submit" style="background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;padding:12px 24px;border-radius:9999px;font-weight:700;font-size:14px;white-space:nowrap;border:none;cursor:pointer">Subscribe</button>
+                </div>
+            </form>
+            <p style="font-size:10px;color:#8c909f;margin-top:12px">One email per day. Unsubscribe anytime.</p>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+<footer style="background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto">
+    <div style="max-width:40rem;margin:0 auto;text-align:center;padding:64px 24px;position:relative">
+        <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:500px;height:200px;background:linear-gradient(to top,rgba(139,92,246,0.04),transparent);border-radius:50%;filter:blur(48px);pointer-events:none"></div>
+        <div style="position:relative;z-index:1">
+            <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:24px">
+                <div style="width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;box-shadow:0 4px 12px rgba(139,92,246,0.2)">K</div>
+                <span style="font-size:18px;font-weight:700;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Koda Intelligence</span>
+            </div>
+            <p style="color:#c2c6d6;font-size:14px;margin-bottom:32px">Read. Listen. Watch. Every morning.</p>
+            <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:40px;flex-wrap:wrap">
+                <a href="../morning-briefing-koda.html" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em">The Signal</a>
+                <span style="color:rgba(140,144,159,0.3)">|</span>
+                <a href="../archive/" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em">The Vault</a>
+                <span style="color:rgba(140,144,159,0.3)">|</span>
+                <a href="https://www.youtube.com/channel/UC8qqiKRGFAd5SwTr_2ZzPJg" target="_blank" rel="noopener" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em">YouTube</a>
+            </div>
+            <p style="font-size:11px;color:rgba(140,144,159,0.6)">&copy; 2026 Koda Community &middot; <span style="font-family:'JetBrains Mono',monospace">koda.community</span></p>
+        </div>
+    </div>
+</footer>
+<script>
+function kodaSubscribe(form) {
+    var btn = form.querySelector("button");
+    var email = form.querySelector('input[name="email"]').value;
+    btn.textContent = "Subscribing...";
+    btn.disabled = true;
+    fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email })
+    }).then(function(r) {
+        if (r.ok) {
+            btn.textContent = "Subscribed!";
+            btn.style.background = "#10B981";
+            form.querySelector('input[name="email"]').value = "";
+        } else {
+            btn.textContent = "Try again";
+            btn.disabled = false;
+        }
+    }).catch(function() {
+        btn.textContent = "Try again";
+        btn.disabled = false;
+    });
+    return false;
+}
+</script>
+<script>
+window.addEventListener("scroll",function(){var p=document.getElementById("scrollProgress");if(p){var h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=h>0?(window.scrollY/h*100)+"%":"0%"}});
+var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add("visible")});},{threshold:0.1});
+document.querySelectorAll(".animate-in").forEach(function(el){obs.observe(el)});
+</script>
+<!-- koda-nav-v2-js-start -->
+<script>
+(function(){
+    var btn=document.getElementById('knMenuBtn'),
+        drawer=document.getElementById('knDrawer'),
+        overlay=document.getElementById('knOverlay'),
+        closeBtn=document.getElementById('knDrawerClose'),
+        searchBtn=document.getElementById('knSearchBtn');
+    function open(){
+        drawer.classList.add('kn-open');
+        overlay.classList.add('kn-open');
+        document.body.classList.add('kn-locked');
+        btn.setAttribute('aria-expanded','true');
+        closeBtn.focus();
+    }
+    function close(){
+        drawer.classList.remove('kn-open');
+        overlay.classList.remove('kn-open');
+        document.body.classList.remove('kn-locked');
+        btn.setAttribute('aria-expanded','false');
+        btn.focus();
+    }
+    if(btn) btn.addEventListener('click',open);
+    if(closeBtn) closeBtn.addEventListener('click',close);
+    if(overlay) overlay.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){
+        if(e.key==='Escape' && drawer.classList.contains('kn-open')) close();
+    });
+    /* Search: hook into existing overlay if present, otherwise go to archive */
+    if(searchBtn) searchBtn.addEventListener('click',function(){
+        var so=document.getElementById('searchOverlay');
+        if(so){so.classList.remove('hidden');so.style.display='';var si=document.getElementById('globalSearchInput');if(si)si.focus();}
+        else{window.location.href=searchBtn.closest('.kn-topbar').querySelector('.kn-brand').href.replace('index.html','')+'archive/';}
+    });
+    /* Date picker */
+    var dpBtn=document.getElementById('datePickerBtn'),dpInput=document.getElementById('datePicker');
+    if(dpBtn&&dpInput){
+        dpBtn.addEventListener('click',function(){dpInput.showPicker?dpInput.showPicker():dpInput.click();});
+        dpInput.addEventListener('change',function(){
+            var v=dpInput.value;if(!v)return;
+            var file='morning-briefing-koda-'+v+'.html';
+            fetch(file,{method:'HEAD'}).then(function(r){
+                if(r.ok){window.location.href=file;}
+                else{alert('No digest available for '+v);dpInput.value=document.body.getAttribute('data-digest-date')||'';}
+            }).catch(function(){alert('No digest available for '+v);dpInput.value=document.body.getAttribute('data-digest-date')||'';});
+        });
+    }
+})();
+</script>
+<!-- koda-nav-v2-js-end -->
+</body>
+</html>

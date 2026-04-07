@@ -1,6 +1,35 @@
 {
-  "generated": "2026-04-07T02:42:53Z",
+  "generated": "2026-04-07T10:28:12Z",
   "digests": [
+    {
+      "date": "2026-04-07",
+      "dayOfWeek": "Tuesday",
+      "focusTopics": [
+        {
+          "title": "Anthropic's Gigawatt Compute Gamble",
+          "desc": "Anthropic's partnership with Google and Broadcom to build gigawatt-scale data center capacity marks a decisive escalation in compute infrastructure ambitions. The timing is precarious: energy supply chains are under direct threat from Gulf hostilities, and the capital required assumes stable global markets that no longer exist. This bet only pays off in a world that holds together long enough to flip the switch."
+        },
+        {
+          "title": "Gulf Crisis Hits Midnight",
+          "desc": "The convergence of Trump's ultimatum, Iran's rejection of ceasefire terms, and active drone strikes on Saudi petrochemical facilities creates the most dangerous 24-hour window in the Gulf since 2020. Iranian vows to escalate attacks suggest the conflict is widening rather than narrowing. Energy infrastructure across the region is now an active target, with downstream effects on every sector dependent on stable oil flows."
+        },
+        {
+          "title": "AI Safety Amid Global Instability",
+          "desc": "OpenAI's launch of a dedicated safety fellowship for AI researchers arrives at a moment when the gap between model capability and real-world stability is widening fast. Microsoft simultaneously shipped MAI-Transcribe-1 and new voice models, pushing deployment forward on multiple fronts. The question facing the industry is whether safety research can scale as quickly as the geopolitical risks surrounding the infrastructure it depends on."
+        }
+      ],
+      "kpis": {
+        "aiStories": "11",
+        "worldEvents": "8",
+        "marketMood": "Extreme Fear",
+        "toolsFeatured": "6"
+      },
+      "hasPodcast": true,
+      "hasInfographic": true,
+      "hasVideo": true,
+      "youtubeId": "L5qqWVrk954",
+      "file": "morning-briefing-koda-2026-04-07.html"
+    },
     {
       "date": "2026-04-06",
       "dayOfWeek": "Monday",
@@ -496,6 +525,12 @@
     }
   ],
   "editorials": [
+    {
+      "date": "2026-04-07",
+      "title": "AI model release cadence has compressed to one major launch every 72 hours, creating a strategic crisis for builders",
+      "tag": "Strategy",
+      "file": "editorial/2026-04-07-ai-model-release-cadence-has-compressed-to-one-major-launch-.html"
+    },
     {
       "date": "2026-04-06",
       "title": "The case for LLM API abstraction layers as critical infrastructure: why hardcoding a single model provider is now an",

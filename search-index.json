@@ -1,6 +1,253 @@
 {
-  "generated": "2026-04-07T02:42:53Z",
+  "generated": "2026-04-07T10:28:12Z",
   "entries": [
+    {
+      "date": "2026-04-07",
+      "sections": [
+        {
+          "title": "Today's Focus",
+          "items": [
+            {
+              "headline": "Anthropic's Gigawatt Compute Gamble",
+              "text": "Anthropic's partnership with Google and Broadcom to build gigawatt-scale data center capacity marks a decisive escalation in compute infrastructure ambitions. The timing is precarious: energy supply chains are under direct threat from Gulf hostilities, and the capital required assumes stable global markets that no longer exist. This bet only pays off in a world that holds together long enough to flip the switch."
+            },
+            {
+              "headline": "Gulf Crisis Hits Midnight",
+              "text": "The convergence of Trump's ultimatum, Iran's rejection of ceasefire terms, and active drone strikes on Saudi petrochemical facilities creates the most dangerous 24-hour window in the Gulf since 2020. Iranian vows to escalate attacks suggest the conflict is widening rather than narrowing. Energy infrastructure across the region is now an active target, with downstream effects on every sector dependent on stable oil flows."
+            },
+            {
+              "headline": "AI Safety Amid Global Instability",
+              "text": "OpenAI's launch of a dedicated safety fellowship for AI researchers arrives at a moment when the gap between model capability and real-world stability is widening fast. Microsoft simultaneously shipped MAI-Transcribe-1 and new voice models, pushing deployment forward on multiple fronts. The question facing the industry is whether safety research can scale as quickly as the geopolitical risks surrounding the infrastructure it depends on."
+            }
+          ]
+        },
+        {
+          "title": "Markets",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,611.83 (+0.44%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "21,996.34 (+0.54%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$69,066.54 (+0.25%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$2,125.68 (+0.79%)"
+            },
+            {
+              "headline": "Oil",
+              "text": "$108.54 (-2.65%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "11 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "AI Developments",
+          "items": [
+            {
+              "headline": "OpenAI Launches Safety Fellowship for AI Researchers",
+              "text": "OpenAI announced the OpenAI Safety Fellowship, a new program to support researchers and practitioners working on AI safety. The initiative will foster knowledge exchange and collaborative projects aimed at improving the safety landscape across the AI community. This marks a concrete institutional investment in safety research talent beyond OpenAI's internal teams. Source &rarr;"
+            },
+            {
+              "headline": "Anthropic Partners Google, Broadcom for Gigawatt-Scale Compute",
+              "text": "Anthropic announced a major expansion of its partnership with Google and Broadcom targeting multiple gigawatts of next-generation compute capacity. The deal focuses on large-scale AI processing infrastructure, signaling Anthropic's preparation for training runs far beyond current scale. The partnership aligns with Anthropic's rumored Claude Mythos 5 development, which prediction markets expect before April 30. Source &rarr;"
+            },
+            {
+              "headline": "Microsoft Ships MAI-Transcribe-1 and Voice Models",
+              "text": "Microsoft released its MAI model family on April 6, including MAI-Transcribe-1, which the company claims is the most accurate speech-to-text system available at $0.36 per hour. The launch also includes MAI-Voice-1 for speech synthesis and MAI-Image-2 for image generation, all optimized for speed, quality, and safety in human-centric applications. The release further distances Microsoft's in-house AI efforts from its OpenAI dependency. Source &rarr;"
+            },
+            {
+              "headline": "UBTech Offers $18M Salary for AI Scientist",
+              "text": "Chinese robotics company UBTech is offering an annual salary of $approximately 18 million to recruit a top AI scientist, according to Bloomberg. The figure represents an extraordinary escalation in the global talent war for AI researchers, particularly those working at the intersection of embodied intelligence and robotics. UBTech is a leading humanoid robotics firm based in Shenzhen. Source &rarr;"
+            },
+            {
+              "headline": "Meta Ships TRIBE v2 Brain Prediction Model",
+              "text": "Meta AI released TRIBE v2, a predictive foundation model trained on human brain responses to visual, auditory, and linguistic stimuli. The model builds on Meta's Algonauts 2025 work and represents a step toward AI systems that can predict and simulate neural activity. The research has implications for brain-computer interfaces and neuroscience-informed model design. Source &rarr;"
+            },
+            {
+              "headline": "Harvard Builds Living Robots With Nervous Systems",
+              "text": "Harvard researchers have created microscopic 'neurobots,' living robots equipped with functional nervous systems. Published in IEEE Spectrum, the work represents a convergence of synthetic biology and robotics, producing biological machines capable of sensing and responding to their environment through neural signaling rather than electronic circuits. Source &rarr;"
+            },
+            {
+              "headline": "Meta Details Four MTIA Chips in Two Years",
+              "text": "Meta published a detailed technical blog on its MTIA custom silicon program, revealing it has shipped four generations of its in-house AI inference chips in just two years. The chips power AI experiences for billions of users across Meta's platforms, from recommendation systems to generative AI features. The pace underscores Meta's commitment to reducing reliance on NVIDIA for inference workloads. Source &rarr;"
+            },
+            {
+              "headline": "Hugging Face Maps Open Source AI Landscape Spring 2026",
+              "text": "Hugging Face published its State of Open Source report for spring 2026, examining shifts in competition, geography, technical trends, and emerging communities across the open-source AI ecosystem. The report arrives as open-weight model releases have accelerated dramatically, with March 2026 alone logging over 30 distinct launches across multiple labs. The analysis provides a benchmark for how open models are closing the gap with proprietary frontier systems. Source &rarr;"
+            },
+            {
+              "headline": "GPT-5.4 Thinking Hits 75% on OSWorld Benchmark",
+              "text": "OpenAI's GPT-5.4 Thinking variant, which uses test-time compute to 'ponder' problems, scored 75.0% on OSWorld-Verified, surpassing human-level performance and improving 27.7 percentage points over GPT-5.2. The model also reduced claim errors by 33% compared to its predecessor. These results position GPT-5.4 Thinking as the current leader in agentic desktop task completion. Source &rarr;"
+            },
+            {
+              "headline": "Q1 2026 AI Venture Funding Totals $267.2 Billion",
+              "text": "Venture funding for AI companies in Q1 2026 reached a record $267.2 billion, dominated by mega-rounds from OpenAI and Anthropic alongside the landmark SpaceX acquisition of xAI. The figure reflects a systemic industrialization of the AI sector, with capital flowing toward agentic systems and inference infrastructure. The pace of investment has fundamentally altered the competitive dynamics of the industry. Source &rarr;"
+            },
+            {
+              "headline": "Industry Release Cadence Now Averages 72 Hours",
+              "text": "The AI model release cycle has compressed to an average of one major launch every 72 hours, according to multiple tracking sources. March 2026 saw 12 models from six labs in a single week, while April has already delivered releases from Microsoft, Mistral, Anthropic, and Google in its first seven days. Developers now face a monthly, not annual, model selection problem, with specialized models outperforming generalists on narrow tasks by 8 to 14 percentage points. Source &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "World News",
+          "items": [
+            {
+              "headline": "Trump Sets Midnight Deadline to Devastate Iran",
+              "text": "President Trump threatened to destroy every bridge and power plant in Iran if Tehran does not reopen the Strait of Hormuz and accept a Pakistan-brokered ceasefire by midnight EDT on April 7. At a White House press conference, Trump declared \"the entire country can be taken out in one night, and that night might be tomorrow night,\" dismissing accusations that such strikes would constitute war crimes. Defense Secretary Pete Hegseth and Joint Chiefs Chairman Gen. Dan Caine flanked the president during the briefing. Source &rarr;"
+            },
+            {
+              "headline": "Iran Rejects Ceasefire, Vows Escalated Gulf Attacks",
+              "text": "Iran formally rejected the 45-day truce proposal and countered with 10 clauses demanding sanctions relief, an end to regional conflicts, safe strait passage, and reconstruction commitments. Tehran vowed to ramp up attacks on Persian Gulf energy sites. Over 5,200 people have been killed across the Middle East since the war began on February 28, with Pakistani-mediated talks described as reaching a \"critical stage\" by Iran's ambassador. Source &rarr;"
+            },
+            {
+              "headline": "Iranian Drones Strike Saudi SABIC Petrochemical Complex",
+              "text": "Iranian drones hit a SABIC petrochemical facility in Jubail, Saudi Arabia, igniting a fire at one of the kingdom's largest industrial complexes. The attack marked an expansion of Iranian strikes against Arab states, with Saudi Arabia, the UAE, and Bahrain all issuing safety alerts to citizens. The strike underscores Tehran's strategy of targeting Gulf energy infrastructure as leverage against the US-led coalition. Source &rarr;"
+            },
+            {
+              "headline": "Israel Strikes Tehran, Ahvaz, Shiraz Infrastructure",
+              "text": "Israeli airstrikes hit Iranian infrastructure across Tehran, Ahvaz, Shiraz, and other cities, with combined US-Israeli operations reportedly killing over 25 people. A synagogue in Tehran was heavily damaged in the strikes. Separately, Israel struck Hezbollah sites in Beirut as the conflict continued to widen across multiple fronts. Source &rarr;"
+            },
+            {
+              "headline": "Markets Plunge, Oil Rises Ahead of Deadline",
+              "text": "Global futures dropped and oil prices rose for a third consecutive day as investors braced for Trump's midnight EDT deadline. The escalation in Gulf energy infrastructure attacks, including the SABIC strike in Jubail, intensified fears of prolonged supply disruption. Markets are pricing in the possibility of a dramatic US military escalation against Iran beginning as early as Wednesday at 0400 GMT. Source &rarr;"
+            },
+            {
+              "headline": "Zelenskyy Visits Damascus, Pledges Security Ties",
+              "text": "Ukrainian President Volodymyr Zelenskyy traveled to Damascus and pledged deeper security cooperation with Syrian interim President Ahmad al-Shara. The visit signals a broader regional realignment as the Middle East conflict reshapes diplomatic relationships. Details of specific agreements were not immediately disclosed. Source &rarr;"
+            },
+            {
+              "headline": "Artemis II Crew Returns After Lunar Mission",
+              "text": "NASA's Artemis II crew returned safely to Earth after completing a record-breaking mission that took astronauts behind the moon. The mission, which launched on April 2, marked the first crewed lunar flyby in over 50 years. The successful splashdown came amid global attention focused on the Middle East crisis. Source &rarr;"
+            },
+            {
+              "headline": "Australian Veteran Arrested for Afghan War Crimes",
+              "text": "Ben Roberts-Smith, a decorated Australian special forces veteran, was arrested in Sydney on charges of war crimes allegedly committed in Afghanistan between 2009 and 2012. Roberts-Smith, a Victoria Cross recipient, had previously been the subject of a high-profile defamation trial in which a court found media reports of his alleged unlawful killings were substantially true. Source &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "Featured Newsletters",
+          "items": [
+            {
+              "headline": "The Rundown AI",
+              "text": "UBTech offers $18M a year for a single chief AI scientist to lead humanoid robotics research Tiny bot that grows its own nervous system showcases new frontier in bio-inspired robotics Japan turns to robots as its new workforce amid deepening labor shortages Chinese humanoid robotics firm UBTech is offering up to $18 million annually for one chief AI scientist to lead its \"embodied intelligence\" research, translating vision-language-action (VLA) and robotics models into production-grade software for full-size industrial humanoids. The offer reflects an escalating global talent war where Silicon Valley firms have reportedly dangled $20M annual packages and even $100M-plus incentives for elite AI researchers. UBTech's Walker S2 robots were deployed on Airbus aircraft production lines in January 2026, and the company reports full-size humanoid revenue has surged more than 50%. A new gig economy model is emerging to teach humanoid robots how to perform real-world work tasks Japan is actively recruiting robots to fill workforce gaps as demographic pressures intensify A tiny bot capable of growing its own nervous system points to advances in bio-inspired robotics design \"In a talent market where Silicon Valley giants have reportedly put $20M annual pay packages, and even $100M-plus incentives, on the table for elite AI researchers, the price of winning is starting to look absurd.\""
+            },
+            {
+              "headline": "Superhuman",
+              "text": "Pika launches PikaStream 1.0, enabling live video calls with AI agents on Google Meet Anthropic restricts Claude subscriptions, requiring separate billing for third-party platforms like OpenClaw Anything pivots to 'text-to-app' building via iMessage after Apple delists its app Pika rolled out PikaStream 1.0, a video call feature that lets users chat with AI-generated digital clones complete with face, voice, and personality on Google Meet. The release video surpassed 2 million views. Separately, Anthropic announced that Claude Code subscriptions will no longer cover third-party tool integrations, citing engineering challenges from surging demand and a need to 'be more intentional with managing growth.' Anthropic moves Claude Code third-party tool access to a 'pay as you go' billing model, cutting off coverage under existing subscriptions. Anything's text-to-app feature lets users build apps by texting over iMessage, a pivot forced by Apple delisting the company's app from the App Store. The demo video hit 4M+ views. Pika's PikaStream 1.0 model powers real-time video conversations with AI agents, marking one of the first platforms to enable live video chat with digital avatars. \"Anthropic cited engineering challenges due to surging demand for Claude as the company tries to 'be more intentional with managing growth.'\""
+            },
+            {
+              "headline": "TLDR",
+              "text": "Anthropic ended subscription-based OpenClaw usage in Claude Code, shifting third-party integrations to pay-as-you-go pricing Anthropic acquired biotech AI startup Coefficient Bio for $400 million in stock to expand its health and life sciences division Microsoft launched Azure Copilot Migration Agent, using natural language prompts to evaluate readiness, risk, and ROI for cloud migrations Three deep dives explored continual learning architectures for AI agents, distinguishing between model, harness, and context layers where learning can occur. A taxonomy of reinforcement learning environments for LLM agents examined how task distribution, harnesses, verifiers, and state configuration shape agent training. A third piece introduced the LLM Wiki pattern, a framework for building persistent, incrementally maintained knowledge bases where humans curate sources and direct analysis while the model handles structured edits. Coefficient Bio, founded by former Genentech researchers, had a 10-person team that will integrate into Anthropic's health and life sciences division The LLM Wiki framework is designed to be copy-pasted into an LLM agent to enable persistent, incremental knowledge base construction Azure Copilot Migration Agent aims to make cloud migrations better scoped, better justified, and less error-prone through automated planning and analysis \"Most people jump to the model when discussing continual learning, but in reality, an AI system can learn at all three of these levels.\""
+            },
+            {
+              "headline": "The Rundown AI",
+              "text": "The Rundown AI launches 'AI Growth Systems' live training on building competitive intelligence agents Instructor Pietro Montaldo teaches how to replace 40 hours of competitor research with a 1-hour agent setup Three-part training series offers free trial access to first two sessions The Rundown AI is promoting its upcoming 'AI Growth Systems' live training, led by Pietro Montaldo, which focuses on building AI agents for go-to-market workflows. A key module covers competitive intelligence: participants build an agent that monitors competitor activity and generates actionable reports, compressing roughly 40 hours of manual research into a one-hour setup. The training also distinguishes between chatbots, specialized tools, and true agents, clarifying when each is appropriate. AI Growth Systems is a 3-part training spread over 3 weeks, starting approximately April 17, 2026. Pietro Montaldo, who builds agents for clients professionally, leads the sessions with live Q&A and feedback. A 14-day free trial grants access to the first two sessions at no cost. \"Instead of spending 40 hours on competitive research, you're spending 1 hour setting up your agent, and receiving valuable intel that help you make the best decision for your business.\""
+            },
+            {
+              "headline": "TLDR",
+              "text": "Mercury nears $5B+ valuation while acquiring payroll startup Central, accelerating CFO suite consolidation Bolt fires one-third of staff and stops paying vendors including AWS as $11B startup struggles to stay afloat Coinbase receives conditional national bank charter approval from the Office of the Comptroller of the Currency A Battery Ventures survey of 129 CFOs found that while 79% are piloting or planning AI adoption, only 4% report pilot success rates above 50%, with model inaccuracy (71%) and unclear ROI (21%) as the top barriers. Separately, Block is experimenting with using AI to replace traditional middle management layers, building internal 'world models' from remote-first artifacts and real-time transaction data across Cash App and Square to flatten its org chart. Both pieces highlight the tension between AI ambition and execution reality in enterprise finance. Capital One agreed to buy Brex for $5.2B in January; Ramp acquired travel platform Juno last month, continuing a wave of fintech consolidation Bolt CEO Ryan Breslow cited AI as the reason to 'be leaner,' but the company's super app pivot has seen just 5,000 downloads and mostly negative reviews 95% of CFOs surveyed by Battery Ventures plan to buy AI tools rather than build, and 92% are willing to shift labor budget toward AI \"77% of CFOs want AI layered onto existing systems rather than ripping and replacing.\""
+            },
+            {
+              "headline": "TLDR",
+              "text": "Charles Schwab opens waitlist for direct Bitcoin and Ether trading, targeting 46M+ clients and $12T in assets Naoris Protocol launches mainnet with post-quantum cryptography using NIST-finalized ML-DSA standard Ethereum Foundation stakes $93M in ETH, nearing 70,000 ETH target to replace token sales as funding mechanism Charles Schwab launched Schwab Crypto, a new account type for direct spot buying and selling of Bitcoin and Ethereum, with a limited Q2 2026 rollout targeting its massive client base. The Ethereum Foundation deposited 45,034 ETH ($93M) to the Beacon Chain on April 4, bringing its staked total to roughly 69,500 ETH and generating an estimated $3.9M to $5.4M annually at current yields, covering 4-5% of its $100M operating budget while reducing recurring sell pressure. Naoris Protocol went live with post-quantum cryptography baked in from genesis, having processed over 106 million post-quantum transactions and flagged 603 million security threats during its testnet phase. OpenCover launched Covered Vaults, an ERC-7540-based primitive built with Nexus Mutual that adds vault-native risk transfer to any ERC-4626 tokenized vault Naoris Protocol's native NAORIS token carries a $36 million market cap at mainnet launch Schwab has not disclosed pricing, custody mechanics, or an exact go-live date for its crypto offering"
+            }
+          ]
+        },
+        {
+          "title": "Competitive Landscape",
+          "items": [
+            {
+              "headline": "Anthropic",
+              "text": "Anthropic announced a major expansion of its partnership with Google and Broadcom to build out multiple gigawatts of next-generation compute infrastructure, signaling a dramatic scaling of training and inference capacity. The deal complements the company's reported pursuit of a $3 to $5 billion funding round at a potential $170 billion valuation. With Claude Mythos 5 and the Operon lab agent already shipped this week, the compute partnership positions Anthropic to sustain its aggressive release cadence through the rest of 2026."
+            },
+            {
+              "headline": "OpenAI",
+              "text": "OpenAI introduced the OpenAI Safety Fellowship, a new initiative designed to support external researchers and practitioners working on AI safety through knowledge exchange and collaborative projects. The program arrives as the company's corporate restructure remains stalled into 2026 over unresolved negotiations with Microsoft on IP rights and Azure exclusivity. With GPT-5.4 iteration ongoing but no new model launch this cycle, the fellowship signals OpenAI is investing reputational capital in safety governance while its product roadmap holds steady."
+            },
+            {
+              "headline": "Mistral",
+              "text": "Mistral launched Mistral Forge, an enterprise platform that lets organizations train custom AI models from scratch on proprietary data, with early adopters including ASML, Ericsson, the European Space Agency, and several defense-adjacent firms. CEO Arthur Mensch stated the company is on track to surpass $1 billion in annual recurring revenue this year, a milestone that would make Mistral the first European AI lab to reach that threshold. Combined with the Boxrol TTS voice model shipped earlier this week, Mistral is executing a rapid product expansion across both foundation models and vertical tooling."
+            },
+            {
+              "headline": "Meta AI",
+              "text": "Meta released TRIBE v2, a predictive foundation model trained on human brain responses to visual, auditory, and linguistic stimuli, building on its Algonauts 2025 work and marking a notable push into neuroscience-adjacent AI research. Separately, the company detailed its MTIA custom silicon progress, noting four chip generations shipped in two years to power AI experiences for billions of users across Meta's platforms. While Meta has not launched a new flagship language model this cycle, its infrastructure and research investments continue to broaden the scope of its AI portfolio."
+            }
+          ]
+        },
+        {
+          "title": "AI Tool Guide",
+          "items": [
+            {
+              "headline": "Blink.new: Describe an App, Get a Full-Stack Build",
+              "text": "Blink is an AI-powered full-stack app builder that generates mobile apps, web apps, and SaaS products from a plain-language description. Skip the boilerplate: type what you want, review the generated code and UI, then deploy. It is especially useful for validating product ideas before committing engineering hours. Try it &rarr;"
+            },
+            {
+              "headline": "Workflow Machine: Automate Tasks for Humans and AI Agents Alike",
+              "text": "Workflow Machine is a new platform that lets you build automations accessible to both human users and AI agents. Define a multi-step process once, then trigger it manually or let an agent run it on schedule. If you are stitching together tools like email, databases, and messaging, test it as a lighter alternative to enterprise orchestration platforms. Try it &rarr; Lab Report &rarr;"
+            },
+            {
+              "headline": "Tether AI: Schedule a Personal Agent to Handle Recurring Tasks",
+              "text": "Tether AI lets you program and schedule a personal AI agent that automates tasks on your behalf over time. Set it to pull reports, send follow-ups, or triage incoming requests at intervals you define. The value is in delegation: identify one repetitive daily task, hand it to Tether, and measure the time you reclaim over a week. Try it &rarr;"
+            },
+            {
+              "headline": "Aider: Git-Native Refactoring From Your Terminal",
+              "text": "Aider is a CLI-first AI coding agent that works directly with your git repository, making structured edits across multiple files and committing changes with clean diffs. If you prefer terminal workflows over IDE plugins, point Aider at a legacy module and ask it to refactor. Every change is a reviewable git commit, so rollbacks are trivial. Try it &rarr; Lab Report &rarr;"
+            },
+            {
+              "headline": "Gemma 4: Run Google's Most Capable Open Model Locally",
+              "text": "Google DeepMind's Gemma 4 family is now available with native function calling, structured JSON output, and multimodal support for images, video, and audio. It is free to use and designed for agentic workflows. Download it via Hugging Face, wire up function-calling endpoints, and you have a local agent backbone with no API costs. Try it &rarr;"
+            },
+            {
+              "headline": "Klayn: Generate Professional E-Commerce Visuals With AI",
+              "text": "Klayn is an AI tool built specifically for e-commerce platforms that need polished product visuals without a photo studio. Upload your raw product shots and Klayn generates styled, professional images ready for listings. If you run a Shopify or marketplace store, test it against your current product photography workflow to compare speed and quality. Try it &rarr; Lab Report &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,611.83 (+0.44%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "21,996.34 (+0.54%)"
+            },
+            {
+              "headline": "Bitcoin",
+              "text": "$69,066.54 (+0.25%)"
+            },
+            {
+              "headline": "Ethereum",
+              "text": "$2,125.68 (+0.79%)"
+            },
+            {
+              "headline": "Oil Brent",
+              "text": "$108.54 (-2.65%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "11 (Extreme Fear)"
+            }
+          ]
+        }
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-04-07.html"
+    },
     {
       "date": "2026-04-06",
       "sections": [
@@ -3806,6 +4053,60 @@
       "file": "morning-briefing-koda-2026-03-21.html"
     },
     {
+      "date": "2026-04-07",
+      "type": "editorial",
+      "file": "editorial/2026-04-07-ai-model-release-cadence-has-compressed-to-one-major-launch-.html",
+      "title": "AI model release cadence has compressed to one major launch every 72 hours, creating a strategic crisis for builders",
+      "tag": "Strategy",
+      "sections": [
+        {
+          "title": "Introduction",
+          "items": [
+            {
+              "headline": "AI model release cadence has compressed to one major launch every 72 hours, creating a strategic crisis for builders",
+              "text": "March 2026 delivered 30 model releases in 30 days. Six labs. Twelve models in a single week. GPT-5.4 Thinking improved 27.7 percentage points on OSWorld-Verified in one iteration. One iteration. That means the capability floor you designed around on Monday was irrelevant by Thursday. The average gap between major AI releases has compressed to roughly 72 hours. That number comes from tracking over 283 models on LLM Stats as of April 3, 2026. And it creates a problem that no amount of hustle can s"
+            }
+          ]
+        },
+        {
+          "title": "The Obsolescence Treadmill",
+          "items": [
+            {
+              "headline": "The Obsolescence Treadmill",
+              "text": "Here is the framework. I call it the Obsolescence Treadmill. Picture a treadmill that speeds up every 72 hours. You can run faster. You can train harder. But the belt accelerates whether you are ready or not. Builders who try to optimize for the current best model are running on this treadmill. They sprint to integrate GPT-5.4 Thinking, and before they ship, Claude Opus 4.6 drops. Then Gemini 3.1 Pro. Then Qwen 3.5. Then Nemotron 3 Super. The Obsolescence Treadmill has three gears. Gear One: Dec"
+            }
+          ]
+        },
+        {
+          "title": "The Asymmetric Bet: Why Model-Agnostic Architecture Is the Only Durable Position",
+          "items": [
+            {
+              "headline": "The Asymmetric Bet: Why Model-Agnostic Architecture Is the Only Durable Position",
+              "text": "Let me frame this the way I think about asymmetric risk. There are two types of builders in April 2026. The first type picks the \"best\" model, builds tightly around its API, and ships fast. The second type builds an abstraction layer that treats models as interchangeable modules, then ships slightly slower. In month one, the first builder looks smarter. By month six, the second builder has swapped models three times without rewriting a line of application logic. The first builder has rewritten t"
+            }
+          ]
+        },
+        {
+          "title": "2031",
+          "items": [
+            {
+              "headline": "2031",
+              "text": "Zoom out five years. Here is what I believe the 72-hour cadence is actually building toward. By 2031, the concept of \"choosing a model\" will feel as quaint as choosing a specific CPU for your laptop. You do not pick an Intel chip when you buy a MacBook. You pick the MacBook. The chip is an implementation detail. AI models are heading toward the same commodity status. Stanford's 2025 AI Index documented that nearly 90% of notable AI models came from the private sector. The Providence Journal repo"
+            }
+          ]
+        },
+        {
+          "title": "What to Build This Weekend",
+          "items": [
+            {
+              "headline": "What to Build This Weekend",
+              "text": "Stop reading about models. Start building the layer that makes model choice irrelevant. Here is your weekend project. Step one: Pick one small workflow you currently run through a single LLM. A summarization task, a classification job, a content draft. Something you do at least weekly. Step two: Set up an abstraction layer using Blink.new or Workflow Machine from today's digest. Blink lets you describe an app and get a full-stack build. Workflow Machine lets you create automations accessible to "
+            }
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-04-06",
       "type": "editorial",
       "file": "editorial/2026-04-06-the-case-for-llm-api-abstraction-layers-as-critical-infrastr.html",
@@ -4580,6 +4881,226 @@
       ]
     },
     {
+      "date": "2026-04-07",
+      "type": "review",
+      "file": "reviews/2026-04-07-workflow-machine-automate-tasks-for-humans-and-ai-agents-alike.html",
+      "title": "Workflow Machine",
+      "sections": [
+        {
+          "title": "Verdict",
+          "anchor": "verdict",
+          "items": [
+            {
+              "headline": "Workflow Machine",
+              "text": "Workflow Machine is a solid pick for small teams and solo operators who want to build automations that work for both human triggers and AI agents without the overhead of enterprise platforms like Zapier or Make at scale. The free tier is genuinely usable for testing, and the agent/CLI access across all plans is a differentiator worth noting. If your automation needs stay under a few thousand runs per month and you value a clean, debuggable workflow builder over a sprawling integration marketplac"
+            }
+          ]
+        },
+        {
+          "title": "Key Features",
+          "anchor": "features",
+          "items": [
+            {
+              "headline": "Visible Workflow Steps",
+              "text": "Every step in your automation is laid out visually. No black boxes. You can see exactly what runs, in what order, and what data passes between steps."
+            },
+            {
+              "headline": "Agent & CLI Access",
+              "text": "The headline feature. Every plan, including free, lets AI agents and command-line tools trigger workflows. This is the \"dual-mode\" promise: build once, run from anywhere."
+            },
+            {
+              "headline": "Debug & Troubleshoot",
+              "text": "Run records let you inspect each execution step by step. When something breaks, you can pinpoint the exact failure point instead of guessing."
+            },
+            {
+              "headline": "Fast Iteration Loop",
+              "text": "Edit, test, and redeploy workflows quickly. The platform emphasizes a tight feedback loop so you are not waiting minutes between changes and test runs."
+            },
+            {
+              "headline": "Built-in Integrations",
+              "text": "Native connectors for Slack, Gmail, Postmark, Google Docs, Google Slides, Google Tasks, and Microsoft OneDrive. Not a massive library, but the essentials are covered."
+            },
+            {
+              "headline": "Reusable Templates",
+              "text": "Pre-built workflow templates let you skip the blank canvas problem. Clone a template, customize it, and deploy. Useful for common patterns like email-to-Slack routing."
+            },
+            {
+              "headline": "Reliable Background Runs",
+              "text": "Workflows execute in the background with run records for auditing. You do not need to keep a browser tab open or babysit executions."
+            },
+            {
+              "headline": "Version History",
+              "text": "Roll back to previous workflow versions if an edit breaks something. Duration varies by plan (3 to 30 days), but the safety net is there."
+            }
+          ]
+        },
+        {
+          "title": "Use Cases",
+          "anchor": "usecases",
+          "items": [
+            {
+              "headline": "Use Cases",
+              "text": "Workflow Machine targets specific operational patterns. Here is where it fits best. Automate content distribution pipelines. Draft in Google Docs, push notifications to Slack, send follow-ups via Gmail or Postmark. One workflow handles the chain. Route messages between Slack, email, and task systems. Useful for teams that need cross-platform notification workflows without building custom integrations. Triage incoming requests, auto-assign tasks, and send acknowledgment emails. The agent access m"
+            }
+          ]
+        },
+        {
+          "title": "Limitations",
+          "anchor": "limitations",
+          "items": [
+            {
+              "headline": "Limitations",
+              "text": "Where Workflow Machine falls short or requires careful consideration. Seven native integrations is thin. Zapier offers 6,000+. Make has 1,500+. If you need connectors for CRMs like HubSpot, project tools like Jira, or databases like Airtable, you will hit a wall quickly. There is no mention of a webhook or HTTP request step that could bridge the gap, which is a notable absence. 3,000 runs on the Pro plan sounds reasonable until you realize a single polling workflow checking every 5 minutes burns"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-07",
+      "type": "review",
+      "file": "reviews/2026-04-07-klayn-generate-professional-e-commerce-visuals-with-ai.html",
+      "title": "Klayn: Generate Professional E-Commerce Visuals With AI",
+      "sections": [
+        {
+          "title": "Verdict",
+          "anchor": "verdict",
+          "items": [
+            {
+              "headline": "Klayn: Generate Professional E-Commerce Visuals With AI",
+              "text": "Klayn is built for e-commerce sellers who need professional product imagery without the overhead of a photo studio or a freelance retoucher. If you run a Shopify store, sell on Amazon, or manage listings across marketplaces and you are tired of inconsistent product photos slowing down your catalog, this tool can meaningfully compress your workflow. The value proposition is strongest for small to mid-size sellers scaling their SKU count; larger operations with established photography pipelines ma"
+            }
+          ]
+        },
+        {
+          "title": "Key Features",
+          "anchor": "features",
+          "items": [
+            {
+              "headline": "AI-Powered Image Enhancement",
+              "text": "Upload a raw product photo and Klayn handles background removal, lighting correction, and styling automatically. The output is designed to look like a professional studio shot."
+            },
+            {
+              "headline": "E-Commerce Listing Ready",
+              "text": "Generated images are formatted and sized for major platforms like Shopify, Amazon, and Etsy. No additional cropping or resizing needed before uploading to your store."
+            },
+            {
+              "headline": "Multiple Style Options",
+              "text": "Choose from various visual styles and backgrounds tailored to different product categories. Jewelry, apparel, electronics, and home goods each get context-appropriate treatments."
+            },
+            {
+              "headline": "Fast Turnaround",
+              "text": "What used to take hours with a photographer and editor can be done in seconds. Batch processing lets you handle dozens of SKUs in a single session."
+            },
+            {
+              "headline": "Consistent Brand Look",
+              "text": "Every product image comes out with uniform lighting, angles, and styling. This consistency is hard to achieve manually, especially when shooting products over multiple sessions."
+            },
+            {
+              "headline": "Platform Integrations",
+              "text": "Connects with payment gateways and supports direct export workflows. Social media sharing options are built in for sellers who cross-post product visuals to Instagram or Pinterest."
+            }
+          ]
+        },
+        {
+          "title": "Use Cases",
+          "anchor": "usecases",
+          "items": [
+            {
+              "headline": "Use Cases",
+              "text": "If you are listing 50+ products and cannot afford a photographer for each one, Klayn lets you generate consistent, professional visuals from phone photos. The ROI is clearest here. Small, reflective, and detailed products are notoriously hard to photograph well. Klayn's AI styling handles the tricky lighting and background work that makes jewelry pop on screen. Seasonal sellers who need to spin up new product visuals quickly for holidays, weddings, or special promotions. Speed matters when your "
+            }
+          ]
+        },
+        {
+          "title": "Limitations",
+          "anchor": "limitations",
+          "items": [
+            {
+              "headline": "Limitations",
+              "text": "warning Opaque pricing. There is no public pricing page. You cannot compare costs before signing up, which is frustrating when you are trying to budget against your current photography spend. This is a real barrier to evaluation. warning Limited hands-on control. AI-generated visuals are convenient, but you lose the granular control a photographer gives you. If your brand relies on a very specific aesthetic or custom setups, the output may feel generic. warning Region-specific availability. Some"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-07",
+      "type": "review",
+      "file": "reviews/2026-04-07-aider-git-native-refactoring-from-your-terminal.html",
+      "title": "Aider: Git-Native Refactoring From Your Terminal",
+      "sections": [
+        {
+          "title": "Verdict",
+          "anchor": "verdict",
+          "items": [
+            {
+              "headline": "Aider: Git-Native Refactoring From Your Terminal",
+              "text": "Aider is the best option for developers who live in the terminal and want AI code generation that respects their git workflow. Every edit becomes a reviewable commit with a clean diff, which means you can audit, cherry-pick, or revert AI changes the same way you handle human contributions. If you are already comfortable with vim, tmux, and command-line git, Aider will feel like a natural extension of your stack. If you prefer visual IDEs with inline suggestions, tools like Cursor or GitHub Copil"
+            }
+          ]
+        },
+        {
+          "title": "Key Features",
+          "anchor": "features",
+          "items": [
+            {
+              "headline": "Automatic Git Commits",
+              "text": "Every AI edit is committed with a descriptive message. You get a clean, linear history of changes that you can review, revert, or squash. No more mystery diffs."
+            },
+            {
+              "headline": "Repo-Wide Codebase Mapping",
+              "text": "Aider builds a map of your entire repository using tree-sitter, understanding function signatures, class hierarchies, and file relationships. This lets it make coordinated edits across multiple files."
+            },
+            {
+              "headline": "Cloud and Local LLM Support",
+              "text": "Use GPT-4o, Claude, Gemini, DeepSeek, or any OpenAI-compatible API. For air-gapped environments or cost control, connect to local models via Ollama or LM Studio."
+            },
+            {
+              "headline": "Integrated Linting and Testing",
+              "text": "Aider can run your linter and test suite after making changes. If something breaks, it automatically attempts to fix the issue before committing. This creates a tighter feedback loop than manual review."
+            },
+            {
+              "headline": "Voice-to-Code",
+              "text": "Dictate your coding instructions instead of typing them. Useful for describing complex refactors or when you want to think out loud about architecture changes while Aider translates intent into edits."
+            },
+            {
+              "headline": "Image and Web Page Context",
+              "text": "Pass screenshots, mockups, or web page URLs as context. Aider can use vision-capable models to interpret UI designs and generate corresponding code, bridging the gap between design and implementation."
+            },
+            {
+              "headline": "100+ Language Support",
+              "text": "Python, JavaScript, TypeScript, Rust, Go, Java, C++, Ruby, and dozens more. The tree-sitter based parsing means Aider understands the structure of your code regardless of language."
+            },
+            {
+              "headline": "Multi-File Editing",
+              "text": "Add multiple files to the chat context and Aider will coordinate changes across all of them. Rename a function in one file and it updates the imports, tests, and call sites in others."
+            }
+          ]
+        },
+        {
+          "title": "Use Cases",
+          "anchor": "usecases",
+          "items": [
+            {
+              "headline": "Use Cases",
+              "text": "If your workflow is already built around vim/neovim, tmux, and git on the command line, Aider slots in without requiring you to switch to a different editor or IDE. It respects your existing setup rather than replacing it. Point Aider at a sprawling legacy module and ask it to refactor. The automatic git commits mean every change is isolated and reviewable. If the AI makes a bad call, you revert one commit instead of untangling a mess. When you do not have a second pair of eyes for code review, "
+            }
+          ]
+        },
+        {
+          "title": "Limitations",
+          "anchor": "limitations",
+          "items": [
+            {
+              "headline": "Limitations",
+              "text": "If you are not already comfortable with the command line, Aider will feel intimidating. There is no GUI, no drag-and-drop, no visual diff viewer built in. You need to understand git concepts like staging, committing, and reverting to use it effectively. Aider is a harness, not a model. The quality of its output is directly tied to which LLM you connect. GPT-4o and Claude Sonnet produce strong results. Smaller local models can struggle with complex multi-file refactors. You need to experiment to "
+            }
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-04-05",
       "type": "review",
       "file": "reviews/2026-04-05-sleek-analytics-real-time-visitor-tracking-with-one-line-of-code.html",
@@ -5140,6 +5661,86 @@
       ]
     },
     {
+      "date": "2026-04-06",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Anthropic",
+          "items": [
+            {
+              "headline": "Anthropic expands partnership with Google and Broadcom for multiple gigawatts of next-generation compute",
+              "text": "[Partnership] Anthropic has signed a new agreement with Google and Broadcom to provide multiple gigawatts of next-generation TPU capacity, expected to start in 2027. This partnership aims to enhance compute infrastructure for the Claude models, meeting the growing demand from a rapidly increasing customer base."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "ChatGPT — Release Notes",
+              "text": "[Feature] This document provides detailed release notes and changelogs for the latest updates to ChatGPT. Highlights include the introduction of new features like ChatGPT in Apple CarPlay, a simplified sidebar, and various application updates tailored to enhance user experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "ChatGPT Business - Release Notes",
+              "text": "[Feature] This post provides a comprehensive changelog for the updates made to the ChatGPT Business plan, detailing new features, pricing changes, and app integrations. Key highlights include the introduction of new Codex seats, updates to various applications, and modifications to billing procedures."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Microsoft",
+          "items": [
+            {
+              "headline": "Python 2026 Significant Changes Guide",
+              "text": "[API Update] This document outlines important changes in Python since 2026, highlighting breaking changes and enhancements affecting code. It serves as a reference for developers upgrading between versions to avoid missing crucial updates."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Databricks",
+          "items": [
+            {
+              "headline": "Databricks joins STATION F to Accelerate AI Adoption for European Founders",
+              "text": "[Partnership] Databricks has partnered with STATION F to enhance AI adoption among European entrepreneurs. This collaboration aims to streamline access to advanced AI technologies for startups in Europe."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-04-02",
       "type": "changelog",
       "file": "changelog/index.html",
@@ -5244,22 +5845,6 @@
           "title": "OpenAI",
           "items": [
             {
-              "headline": "ChatGPT — Release Notes",
-              "text": "[Feature] This article provides a comprehensive overview of the latest updates and release notes for ChatGPT, detailing improvements and new features across various functionalities such as user interface, integrations, and model enhancements. Key highlights include the introduction of ChatGPT in Apple CarPlay, updates to existing apps, and enhancements in mobile experiences."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-04-02",
-      "type": "changelog",
-      "file": "changelog/index.html",
-      "sections": [
-        {
-          "title": "OpenAI",
-          "items": [
-            {
               "headline": "OpenAI acquires TBPN",
               "text": "[Acquisition] OpenAI announces the acquisition of TBPN, marking a significant expansion of its capabilities and resources. This move is expected to enhance the company's position in the AI landscape."
             }
@@ -5278,6 +5863,22 @@
             {
               "headline": "Bring state-of-the-art agentic skills to the edge with Gemma 4",
               "text": "[Feature] Google DeepMind has launched Gemma 4, a family of advanced open models that empower developers to create agentic and autonomous AI solutions directly on their devices. With capabilities such as multi-step planning and support for over 140 languages, Gemma 4 marks a significant leap in on-device AI development, making complex workflows and applications more accessible."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-01",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Hugging Face",
+          "items": [
+            {
+              "headline": "Falcon Perception",
+              "text": "[Feature] Falcon Perception is a 0.6B-parameter early-fusion Transformer designed for open-vocabulary grounding and segmentation from natural language prompts. The model integrates both image patches and text in a single sequence, producing efficient outputs, and introduces the diagnostic benchmark PBench for assessing performance across various capabilities."
             }
           ]
         }
@@ -5657,6 +6258,22 @@
       "file": "changelog/index.html",
       "sections": [
         {
+          "title": "ElevenLabs",
+          "items": [
+            {
+              "headline": "Practical guide: open-source agent frameworks and ElevenAgents",
+              "text": "[Feature] This guide explains how to connect open-source agent frameworks with ElevenLabs voice using Custom LLM. It highlights a three-step pattern applicable across various frameworks, showcasing how voice can be integrated without compromising existing systems."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-27",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
           "title": "Cursor",
           "items": [
             {
@@ -5689,18 +6306,18 @@
       "file": "changelog/index.html",
       "sections": [
         {
-          "title": "OpenAI",
+          "title": "Google",
           "items": [
             {
-              "headline": "ChatGPT Business - Release Notes",
-              "text": "[API Update] This article provides a comprehensive changelog of the latest updates for the ChatGPT Business plan, detailing enhancements and new features added to various applications such as Box, Notion, and Google Drive, alongside the introduction of plugins and updates on Microsoft app scopes. Each update includes information on how these features impact workspace administration and user interactions."
+              "headline": "Find out what’s new in the Gemini app in March's Gemini Drop",
+              "text": "[Feature] March's Gemini Drop introduces a range of new features aimed at enhancing user experience, such as transferring AI chat history, free personalized help across Google apps, and upgrades to Gemini Live for more intuitive conversations. Notable additions include the Lyria 3 Pro for composing longer tracks and enhanced visual answers on Google TV."
             }
           ]
         }
       ]
     },
     {
-      "date": "2026-03-27",
+      "date": "2026-03-26",
       "type": "changelog",
       "file": "changelog/index.html",
       "sections": [
@@ -5708,8 +6325,8 @@
           "title": "Google",
           "items": [
             {
-              "headline": "Find out what’s new in the Gemini app in March's Gemini Drop",
-              "text": "[Feature] March's Gemini Drop introduces a range of new features aimed at enhancing user experience, such as transferring AI chat history, free personalized help across Google apps, and upgrades to Gemini Live for more intuitive conversations. Notable additions include the Lyria 3 Pro for composing longer tracks and enhanced visual answers on Google TV."
+              "headline": "Gemini 3.1 Flash Live: Making audio AI more natural and reliable",
+              "text": "[Feature] Gemini 3.1 Flash Live enhances Google's audio model, providing improved precision and lower latency for more fluid voice interactions. This model is now available for developers and enterprises, and it supports over 200 countries, enabling intuitive and reliable real-time dialogue."
             }
           ]
         }
@@ -5788,8 +6405,24 @@
           "title": "OpenAI",
           "items": [
             {
-              "headline": "Introducing the OpenAI Safety Bug Bounty program",
-              "text": "[Safety] The OpenAI Safety Bug Bounty program is launched to empower the community in identifying and resolving safety issues in AI systems. This initiative aims to enhance the overall safety of OpenAI's technologies."
+              "headline": "Inside our approach to the Model Spec",
+              "text": "[Research] OpenAI's Model Spec serves as a public framework outlining the intended behavior of AI systems, emphasizing fairness, safety, and accessibility. The framework evolves with public feedback to ensure AI benefits society while addressing ethical challenges associated with advanced technologies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-25",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Anthropic",
+          "items": [
+            {
+              "headline": "Interactive apps in Claude for iOS and Android",
+              "text": "[Feature] The Claude mobile app now supports connectivity to fully interactive apps, allowing users to access live charts, sketch diagrams, and create shareable assets within conversations. This feature enhances user interaction and visualization directly on mobile devices."
             }
           ]
         }
@@ -5804,8 +6437,8 @@
           "title": "OpenAI",
           "items": [
             {
-              "headline": "Inside our approach to the Model Spec",
-              "text": "[Research] This post delves into OpenAI's innovative strategies for developing and sharing model specifications. It highlights the key principles guiding their approach to transparency and collaboration in AI research."
+              "headline": "Introducing the OpenAI Safety Bug Bounty program",
+              "text": "[Safety] The OpenAI Safety Bug Bounty program is launched to empower the community in identifying and resolving safety issues in AI systems. This initiative aims to enhance the overall safety of OpenAI's technologies."
             }
           ]
         }
@@ -5945,6 +6578,22 @@
       "file": "changelog/index.html",
       "sections": [
         {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "Model Release Notes",
+              "text": "[Model Release] This blog post summarizes recent updates and releases related to various models under the GPT-5 framework, including GPT-5.4 mini and the retirement of older versions like GPT-5.1. It highlights enhancements in model performance, usability, and new features aimed at improving user interaction with ChatGPT."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-18",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
           "title": "Perplexity",
           "items": [
             {
@@ -5966,22 +6615,6 @@
             {
               "headline": "NVIDIA's Integration of Cursor for Enhanced AI-driven Software Development",
               "text": "[Feature] NVIDIA has leveraged Cursor to embed AI throughout the software development lifecycle, resulting in significant efficiency gains and increased code generation by over three times. By adopting Cursor, NVIDIA has been able to automate core production workflows, enhance productivity for developers, and streamline the onboarding process for new hires."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-03-18",
-      "type": "changelog",
-      "file": "changelog/index.html",
-      "sections": [
-        {
-          "title": "OpenAI",
-          "items": [
-            {
-              "headline": "Model Release Notes",
-              "text": "[Model Release] This update details the rollout of GPT-5.4 mini and various model updates for GPT-5.3 and GPT-5.1, highlighting improvements in reasoning, coding capabilities, and user experience. The release also notes the retirement and changes to several existing models, alongside enhancements to the thinking time and response styles in ChatGPT."
             }
           ]
         }
@@ -6110,6 +6743,38 @@
             {
               "headline": "Batch API supports Image and Video generation",
               "text": "[API Update] The Batch API has expanded its capabilities to include image generation and video generation alongside chat completions. Both server-side and client-side tools are now supported in batch requests, with URLs for image and video results expiring after one hour."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-14",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "ElevenLabs",
+          "items": [
+            {
+              "headline": "How to Convert PDFs to Speech?",
+              "text": "[Feature] This blog post explores the innovative technology offered by ElevenLabs that transforms static PDFs into engaging auditory formats. It highlights the importance of transforming textual content into speech for accessibility and convenience, enabling users to consume information while multitasking easily."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-14",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "ElevenLabs",
+          "items": [
+            {
+              "headline": "Everything you need to know about conversational AI agents",
+              "text": "[Feature] Conversational AI technology has led to the creation of highly realistic chatbots and virtual assistants that understand language patterns and intents, providing human-like responses. These conversational AI agents leverage natural language processing, machine learning, and speech recognition to enhance user interactions and personalizations."
             }
           ]
         }
@@ -6313,6 +6978,38 @@
       "file": "changelog/index.html",
       "sections": [
         {
+          "title": "Anthropic",
+          "items": [
+            {
+              "headline": "Anthropic invests $100 million into the Claude Partner Network",
+              "text": "[Partnership] Anthropic is launching the Claude Partner Network, committing an initial $100 million to equip partners with training, technical support, and joint market development to aid enterprises in adopting Claude. This initiative emphasizes collaboration with various organizations to navigate the complexities of AI deployment and ensure business needs are met."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-12",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Samsung",
+          "items": [
+            {
+              "headline": "LATEST UPDATE ON MY S26 ULTRA MARCH 12TH 2026",
+              "text": "[Feature] The user reports a significant issue following the March 12th update on the Galaxy S26 Ultra, specifically mentioning that the screen brightness has decreased drastically, making it difficult to use. They express frustration and urge Samsung to resolve the problem as the screen was previously functioning well."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-12",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
           "title": "Runway",
           "items": [
             {
@@ -6398,6 +7095,38 @@
             {
               "headline": "Introducing Runway Labs",
               "text": "[Feature] Runway Labs is an internal incubator launched to explore the next generation of applications for generative video, focusing on how AI can transform various industries. Led by Co-Founder Alejandro Matamala Ortiz, the initiative aims to prototype bold new products and experiences that harness the power of AI video and General World Models."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-10",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Microsoft",
+          "items": [
+            {
+              "headline": "Wave release updates",
+              "text": "[Feature] The blog post discusses the upcoming wave release updates for Microsoft products in 2026, detailing the new features and timelines for the Dynamics 365, Microsoft Power Platform, and role-based Copilot offerings. It outlines the structured release waves and their key dates, emphasizing the importance of the 2025 release wave 2 and the upcoming 2026 wave 1 plan."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-10",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Adobe",
+          "items": [
+            {
+              "headline": "Image editing just got smarter with AI in Photoshop and Firefly",
+              "text": "[Feature] Adobe expands the power of conversational AI with new capabilities to edit your photos just by describing what you want with Photoshop’s new AI Assistant and powerful new AI tools in Firefly Image Editor. These innovations enhance user creativity by providing tools that simplify and improve the editing process."
             }
           ]
         }
