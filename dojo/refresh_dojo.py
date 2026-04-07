@@ -21,10 +21,13 @@ import json
 import os
 import subprocess
 import sys
+import time
 from datetime import datetime, timezone
 from difflib import SequenceMatcher, unified_diff
 from pathlib import Path
 from typing import Any
+
+import httpx
 
 # ---------------------------------------------------------------------------
 # Configuration
@@ -36,6 +39,31 @@ FUZZY_MATCH_THRESHOLD: float = 0.65
 
 DOJO_DIR: Path = Path(__file__).resolve().parent
 BUILD_INDEX_SCRIPT: Path = DOJO_DIR.parent / "build-index.py"
+
+# ── API config ──
+
+PERPLEXITY_URL = "https://api.perplexity.ai/chat/completions"
+PERPLEXITY_MODEL = "sonar"
+FIRECRAWL_API_URL = "https://api.firecrawl.dev/v1"
+MAX_SOURCE_TEXT = 2000  # chars to keep per scraped page
+
+
+def _load_env() -> None:
+    """Load .env from the Digest root directory."""
+    env_path = DOJO_DIR.parent / ".env"
+    if env_path.exists():
+        with open(env_path, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    key, _, value = line.partition("=")
+                    os.environ.setdefault(key.strip(), value.strip())
+
+
+_load_env()
+
+PERPLEXITY_API_KEY: str = os.environ.get("PERPLEXITY_API_KEY", "")
+FIRECRAWL_API_KEY: str = os.environ.get("FIRECRAWL_API_KEY", "")
 
 # ── Per-dojo configuration ──
 
@@ -129,52 +157,188 @@ class Discovery:
 
 
 # ---------------------------------------------------------------------------
-# Step 1: Discovery (placeholder tracks)
+# Step 1: Discovery
 # ---------------------------------------------------------------------------
 
-def discover_official_updates() -> list[Discovery]:
-    """Search Anthropic docs/changelog for new Claude Code features.
+def _firecrawl_search(query: str, limit: int = 5) -> list[dict]:
+    """Search via Firecrawl. Returns list of {url, title, description}."""
+    if not FIRECRAWL_API_KEY:
+        return []
+    headers = {
+        "Authorization": f"Bearer {FIRECRAWL_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    payload = {"query": query, "limit": limit}
+    for attempt in range(3):
+        try:
+            resp = httpx.post(
+                f"{FIRECRAWL_API_URL}/search",
+                json=payload,
+                headers=headers,
+                timeout=25,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            return data.get("data", [])
+        except (httpx.TimeoutException, httpx.HTTPStatusError) as e:
+            print(f"    Firecrawl error (attempt {attempt + 1}/3): {e}")
+            if attempt < 2:
+                time.sleep(2 ** attempt)
+    return []
 
-    Returns an empty list by default. Replace the body with real
-    Firecrawl or Perplexity API calls when environment keys are set.
-    """
+
+def _perplexity_search(query: str) -> dict | None:
+    """Search via Perplexity Sonar. Returns {content, citations}."""
+    if not PERPLEXITY_API_KEY:
+        return None
+    headers = {
+        "Authorization": f"Bearer {PERPLEXITY_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    payload = {
+        "model": PERPLEXITY_MODEL,
+        "messages": [
+            {
+                "role": "system",
+                "content": (
+                    "You are a research assistant. Return a JSON array of discoveries. "
+                    "Each item must have: title (string), description (1-2 sentence summary), "
+                    "source_url (string), relevance_score (0.0-1.0). "
+                    "Only include items published in the last 30 days. "
+                    "Return ONLY the JSON array, no markdown fences."
+                ),
+            },
+            {"role": "user", "content": query},
+        ],
+        "max_tokens": 2000,
+        "temperature": 0.1,
+        "return_citations": True,
+    }
+    for attempt in range(3):
+        try:
+            resp = httpx.post(PERPLEXITY_URL, json=payload, headers=headers, timeout=35)
+            resp.raise_for_status()
+            data = resp.json()
+            content = data["choices"][0]["message"]["content"]
+            citations = data.get("citations", [])
+            if content.strip():
+                return {"content": content, "citations": citations}
+        except (httpx.TimeoutException, httpx.HTTPStatusError) as e:
+            print(f"    Perplexity error (attempt {attempt + 1}/3): {e}")
+            if attempt < 2:
+                time.sleep(2 ** attempt)
+        except Exception as e:
+            print(f"    Perplexity unexpected error: {e}")
+            return None
+    return None
+
+
+def _parse_perplexity_json(result: dict | None) -> list[dict]:
+    """Extract a list of discovery dicts from a Perplexity response."""
+    if not result:
+        return []
+    content = result.get("content", "")
+    # Strip markdown fences if present
+    content = content.strip()
+    if content.startswith("```"):
+        content = content.split("\n", 1)[-1]
+        content = content.rsplit("```", 1)[0]
+    try:
+        items = json.loads(content)
+        if isinstance(items, list):
+            return items
+    except json.JSONDecodeError:
+        pass
+    return []
+
+
+def _score_firecrawl_result(item: dict, dojo_key: str) -> float:
+    """Assign a relevance score to a Firecrawl result based on title/description keywords."""
+    text = f"{item.get('title', '')} {item.get('description', '')}".lower()
+    keywords = {
+        "claude-code": ["claude code", "claude.md", "mcp", "slash command", "hook", "sub-agent",
+                        "plan mode", "claude cli", "agentic"],
+        "cowork": ["cowork", "claude cowork", "skill.md", "desktop agent", "scheduled task",
+                   "computer use", "plugin", "connector"],
+    }
+    hits = sum(1 for kw in keywords.get(dojo_key, []) if kw in text)
+    if hits == 0:
+        return 0.0
+    return min(0.5 + hits * 0.15, 1.0)
+
+
+# Discovery context is set per-dojo run via this module-level var
+_current_dojo_key: str = "claude-code"
+
+
+def discover_official_updates(queries: list[str]) -> list[Discovery]:
+    """Scrape Anthropic docs and changelog via Firecrawl for official updates."""
     print("  [Track 1] Searching Anthropic docs for official updates...")
-    # Example shape of a real result:
-    # return [Discovery(
-    #     title="Claude Code 1.3: New /doctor command",
-    #     description="The /doctor slash command runs diagnostics...",
-    #     source_url="https://docs.anthropic.com/changelog/...",
-    #     relevance_score=0.9,
-    # )]
-    return []
+    results: list[Discovery] = []
+    official_query = f"{queries[0]} site:docs.anthropic.com OR site:anthropic.com"
+    items = _firecrawl_search(official_query, limit=5)
+    for item in items:
+        score = _score_firecrawl_result(item, _current_dojo_key)
+        if score < MIN_RELEVANCE_SCORE:
+            continue
+        results.append(Discovery(
+            title=item.get("title", "Untitled").strip(),
+            description=item.get("description", "")[:300].strip(),
+            source_url=item.get("url", ""),
+            relevance_score=score,
+        ))
+    return results
 
 
-def discover_community_patterns() -> list[Discovery]:
-    """Search blogs and tutorials for Claude Code tips and workflows.
-
-    Returns an empty list by default. Replace the body with real
-    search API calls when environment keys are set.
-    """
+def discover_community_patterns(queries: list[str]) -> list[Discovery]:
+    """Search community blogs and tutorials via Firecrawl."""
     print("  [Track 2] Searching community blogs for patterns and tips...")
-    return []
+    results: list[Discovery] = []
+    items = _firecrawl_search(queries[1], limit=6)
+    for item in items:
+        score = _score_firecrawl_result(item, _current_dojo_key)
+        if score < MIN_RELEVANCE_SCORE:
+            continue
+        results.append(Discovery(
+            title=item.get("title", "Untitled").strip(),
+            description=item.get("description", "")[:300].strip(),
+            source_url=item.get("url", ""),
+            relevance_score=score,
+        ))
+    return results
 
 
-def discover_trending() -> list[Discovery]:
-    """Search for recent Claude Code features trending this week.
-
-    Returns an empty list by default. Replace the body with real
-    search API calls when environment keys are set.
-    """
+def discover_trending(queries: list[str]) -> list[Discovery]:
+    """Search for recently trending content via Perplexity Sonar."""
     print("  [Track 3] Searching for trending Claude Code content...")
-    return []
+    prompt = (
+        f"Find the most useful or notable '{queries[2]}' tips, features, or tutorials "
+        f"published in the last 30 days. Focus on practical, hands-on content."
+    )
+    result = _perplexity_search(prompt)
+    items = _parse_perplexity_json(result)
+    results: list[Discovery] = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        score = float(item.get("relevance_score", 0.5))
+        if score < MIN_RELEVANCE_SCORE:
+            continue
+        results.append(Discovery(
+            title=str(item.get("title", "Untitled")).strip(),
+            description=str(item.get("description", ""))[:300].strip(),
+            source_url=str(item.get("source_url", "")),
+            relevance_score=score,
+        ))
+    return results
 
 
-def run_discovery() -> list[Discovery]:
+def run_discovery(queries: list[str]) -> list[Discovery]:
     """Execute all three discovery tracks and merge results."""
     results: list[Discovery] = []
-    results.extend(discover_official_updates())
-    results.extend(discover_community_patterns())
-    results.extend(discover_trending())
+    results.extend(discover_official_updates(queries))
+    results.extend(discover_community_patterns(queries))
+    results.extend(discover_trending(queries))
     print(f"  -> {len(results)} total discoveries")
     return results
 
@@ -446,9 +610,13 @@ def refresh_single_dojo(
     review: bool = False,
 ) -> bool:
     """Run the refresh pipeline for a single dojo. Returns True if changes were made."""
+    global _current_dojo_key
+    _current_dojo_key = dojo_key
+
     data_path: Path = config["data_path"]
     keyword_map: dict[str, list[str]] = config["keyword_map"]
     default_module: str = config.get("default_module", "m14")
+    queries: list[str] = config.get("search_queries", [dojo_key])
 
     print(f"\n{'-' * 50}")
     print(f"  {config['label']}")
@@ -456,7 +624,7 @@ def refresh_single_dojo(
 
     # Step 1: Discovery
     print("\n  Step 1: Discovery")
-    discoveries = run_discovery()
+    discoveries = run_discovery(queries)
 
     if not discoveries:
         print("  No discoveries found. Skipping this dojo.")

@@ -17,15 +17,28 @@ import argparse
 import subprocess
 import sys
 import os
+from datetime import datetime
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from pipeline.config import DIGEST_DIR, today_str
+
+# Only run on these days of the week (0=Mon, 1=Tue, ..., 4=Fri, 6=Sun)
+SCHEDULED_DAYS = {1, 4}  # Tuesday and Friday
 
 
 def main():
     parser = argparse.ArgumentParser(description="Step 01D: AI Changelog Tracker")
     parser.add_argument("--date", default=today_str(), help="Date (YYYY-MM-DD)")
+    parser.add_argument("--force", action="store_true", help="Run even on non-scheduled days")
     args = parser.parse_args()
+
+    # Skip on non-scheduled days to save Firecrawl tokens
+    run_date = datetime.strptime(args.date, "%Y-%m-%d")
+    if run_date.weekday() not in SCHEDULED_DAYS and not args.force:
+        day_name = run_date.strftime("%A")
+        print(f"[01D] Skipping changelog -- {day_name} is not a scheduled day (Tue/Fri only)")
+        print(f"  Use --force to override")
+        sys.exit(0)
 
     print(f"[01D] AI Changelog Tracker for {args.date}")
 

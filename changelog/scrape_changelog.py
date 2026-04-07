@@ -427,24 +427,29 @@ def map_blog_urls(blog_url: str, company: str) -> list[str]:
     return post_urls
 
 
-def scrape_new_post(url: str) -> dict[str, Any] | None:
+# Companies whose sites are JS-heavy and need longer wait + search-first approach
+JS_HEAVY_COMPANIES = {"Anthropic", "Meta AI", "Hugging Face"}
+
+
+def scrape_new_post(url: str, wait_for: int = 0) -> dict[str, Any] | None:
     """Scrape a single new blog post for title, summary, date, category."""
-    data = firecrawl_request(
-        "scrape",
-        {
-            "url": url,
-            "formats": ["json"],
-            "jsonOptions": {
-                "schema": NEW_POST_SCHEMA,
-                "prompt": (
-                    "Extract the blog post title, a 2-3 sentence summary, publication date "
-                    f"(in YYYY-MM-DD format), and category (one of: {', '.join(CATEGORIES)})."
-                ),
-            },
-            "onlyMainContent": True,
-            "timeout": 15000,
+    payload: dict[str, Any] = {
+        "url": url,
+        "formats": ["json"],
+        "jsonOptions": {
+            "schema": NEW_POST_SCHEMA,
+            "prompt": (
+                "Extract the blog post title, a 2-3 sentence summary, publication date "
+                f"(in YYYY-MM-DD format), and category (one of: {', '.join(CATEGORIES)})."
+            ),
         },
-        timeout=25,
+        "onlyMainContent": True,
+        "timeout": 15000,
+    }
+    if wait_for > 0:
+        payload["waitFor"] = wait_for
+    data = firecrawl_request(
+        "scrape", payload, timeout=30 if wait_for else 25,
     )
     if not data:
         return None
@@ -516,17 +521,25 @@ def main() -> None:
         new_urls = [u for u in all_urls if u not in prev_urls and u not in existing_urls]
 
         if not new_urls:
-            print(f"    {len(all_urls)} total, 0 new")
-            continue
+            # Check if this company has entries already -- if not, retry some URLs
+            company_entries = [e for e in accumulated if e.get("company") == company]
+            if not company_entries and all_urls:
+                # Company has no entries despite having URLs -- re-scrape a sample
+                print(f"    {len(all_urls)} total, 0 new, but 0 entries -- retrying up to 10")
+                new_urls = all_urls[:10]
+            else:
+                print(f"    {len(all_urls)} total, 0 new")
+                continue
 
         # Cap scrapes per company: 5 on cold start (many new), 15 on daily runs (few new)
         scrape_cap = 5 if len(new_urls) > 20 else 15
         print(f"    {len(all_urls)} total, {len(new_urls)} new -> scraping up to {scrape_cap}")
 
         # Scrape new posts
+        wait_ms = 5000 if company in JS_HEAVY_COMPANIES else 0
         scraped = 0
         for post_url in new_urls[:scrape_cap]:
-            data = scrape_new_post(post_url)
+            data = scrape_new_post(post_url, wait_for=wait_ms)
             if not data or not data.get("title"):
                 continue
 

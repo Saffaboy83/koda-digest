@@ -1,188 +1,371 @@
 {
   "date": "2026-04-05",
-  "date_label": "Saturday, April 5, 2026",
+  "date_label": "05 April 2026",
+  "synthesized_at": "2026-04-05T14:37:11.802497",
   "summary": {
-    "hook": "Google's Gemma 4 drops open weights into a world where oil just spiked 11% and fear rules everything."
+    "hook": "Ten trillion parameters meet ten dollar oil spikes: Claude Mythos 5 launches into a world on fire.",
+    "briefs": [
+      {
+        "icon": "ai",
+        "label": "AI",
+        "text": "Anthropic's Claude Mythos 5, reportedly built on 10 trillion parameters, represents the largest known model deployment to date, arriving alongside major releases from Zhipu AI and OpenAI's 900 million weekly user milestone."
+      },
+      {
+        "icon": "world",
+        "label": "World",
+        "text": "Escalating military exchanges between the U.S. and Iran, including drone strikes on Bahrain energy infrastructure and Iran's claim of downing a U.S. C-130 over Isfahan, have thrown Gulf energy security into crisis."
+      },
+      {
+        "icon": "markets",
+        "label": "Markets",
+        "text": "Extreme Fear dominates sentiment as the Gulf conflict disrupts oil supply chains, with OPEC+ scrambling to add 206,000 barrels per day and Nepal slashing its workweek to two days over fuel shortages."
+      },
+      {
+        "icon": "wildcard",
+        "label": "Wild Card",
+        "text": "Criteo's launch of generative AI for ad optimization and AWS rolling out autonomous operations agents suggest enterprise AI adoption is accelerating even as geopolitical instability makes boardrooms deeply cautious about spending."
+      }
+    ],
+    "focus_topics": [
+      {
+        "number": 1,
+        "title": "Claude Mythos 5's Scale Leap",
+        "description": "Anthropic's 10 trillion parameter model dwarfs anything publicly documented, raising immediate questions about inference cost, safety benchmarks, and competitive response. This launch lands in the same week Zhipu AI shipped a fast proprietary update and ChatGPT crossed 900 million weekly users, signaling that the frontier race has entered a new phase of raw scale competition."
+      },
+      {
+        "number": 2,
+        "title": "Gulf Conflict Hits Energy Supply",
+        "description": "Iranian drone strikes on Bahrain's energy infrastructure and claims of shooting down a U.S. C-130 mark a dangerous escalation that directly threatens global oil flows. OPEC+ responded with a modest 206,000 barrel per day output increase, but the move looks insufficient given the scale of disruption. Nepal's decision to cut its workweek to just two days over fuel scarcity illustrates how quickly supply shocks cascade to vulnerable economies."
+      },
+      {
+        "number": 3,
+        "title": "Enterprise AI Pushes Forward",
+        "description": "AWS launched autonomous agents for cloud operations while Criteo introduced generative AI tools for ad optimization, both targeting concrete enterprise workflows rather than general intelligence. These releases suggest that even amid extreme market fear, the commercial AI stack is maturing fast. The gap between frontier research spectacle and production-grade tooling continues to narrow."
+      }
+    ],
+    "kpis": {
+      "ai_stories": 10,
+      "world_events": 7,
+      "market_mood": "Extreme Fear",
+      "tools_featured": 6
+    }
   },
   "ai_news": [
     {
+      "title": "Zhipu AI Ships Fast Proprietary Model Update",
+      "body": "Chinese AI lab Zhipu AI released a fast proprietary model update on April 3, positioned as a significant but non-frontier advancement. The release adds to a wave of Chinese model activity that included Alibaba Cloud's Qwen team shipping a proprietary update on March 31. Zhipu's update was tracked on LLM Stats alongside Google's open-source variants from the same week.",
       "category": "Model Release",
-      "title": "Google Releases Gemma 4 Open Models",
-      "body": "Google launched Gemma 4 on April 2, 2026, calling it the most intelligent open model family it has produced. The release emphasizes advanced reasoning and agentic workflows with what Google describes as unprecedented intelligence-per-parameter efficiency. Hugging Face quickly stood up a Gemma 4 Playground on Spaces with ZeroGPU access, signaling immediate community adoption.",
-      "source_name": "radicaldatascience.wordpress.com",
-      "source_url": "https://radicaldatascience.wordpress.com/2026/04/02/ai-news-briefs-bulletin-board-for-april-2026/"
+      "source_name": "SearchCans",
+      "source_url": "https://www.searchcans.com/blog/ai-model-releases-april-2026-v2/"
     },
     {
+      "title": "OpenAI ChatGPT Super App Hits 900M Weekly Users",
+      "body": "OpenAI unveiled a ChatGPT super app strategy that consolidates chat, coding, search, and agent capabilities into a unified interface. The company now reports 900 million weekly active users and significant enterprise revenue following its $852 billion valuation round. The move signals a shift toward centralizing AI capabilities into a single consumer and enterprise gateway.",
       "category": "Enterprise",
-      "title": "OpenAI Acquires TBPN in Expansion Push",
-      "body": "OpenAI announced it has successfully acquired TBPN, a deal the company says will enhance its capabilities in AI and machine learning applications. Details on TBPN's technology stack and deal terms have not been disclosed. The acquisition follows OpenAI's record $122 billion fundraise and signals continued aggressive expansion beyond model development.",
-      "source_name": "openai.com",
-      "source_url": "https://openai.com/index/openai-acquires-tbpn/"
+      "source_name": "MarketingProfs / The Decoder",
+      "source_url": "https://www.marketingprofs.com/opinions/2026/54505/ai-update-april-3-2026-ai-news-and-views-from-the-past-week"
     },
     {
+      "title": "Criteo GO Brings Generative AI to Ad Optimization",
+      "body": "Criteo launched Criteo GO, a generative AI advertising optimization platform designed to make enterprise-level marketing tools accessible to startups and SMEs. The product was highlighted among April 2026's most practical AI product launches for smaller businesses. It represents a growing trend of AI tools moving from large enterprise exclusivity to broad commercial availability.",
       "category": "Enterprise",
-      "title": "Codex Gets Pay-as-You-Go Team Pricing",
-      "body": "OpenAI introduced flexible, usage-based pricing for its Codex coding platform, replacing fixed-tier plans for teams. The pay-as-you-go model is designed to lower the barrier for smaller developer teams and organizations that do not need always-on capacity. No specific per-token or per-request rates were disclosed in the announcement.",
-      "source_name": "openai.com",
-      "source_url": "https://openai.com/index/codex-flexible-pricing-for-teams/"
+      "source_name": "MEAN CEO Blog",
+      "source_url": "https://blog.mean.ceo/ai-product-launches-news-april-2026/"
     },
     {
+      "title": "AWS Launches Autonomous Agents for Operations",
+      "body": "Amazon Web Services released autonomous AI agents designed to streamline operational tasks for businesses, part of April 2026's wave of practical AI product launches. The agents target workflow automation rather than conversational AI, aligning with the broader industry shift toward agentic systems that execute multi-step processes. Details on pricing and availability were included in the initial rollout.",
+      "category": "Agents",
+      "source_name": "MEAN CEO Blog",
+      "source_url": "https://blog.mean.ceo/ai-product-launches-news-april-2026/"
+    },
+    {
+      "title": "Claude Mythos 5 Emerges With 10T Parameters",
+      "body": "Anthropic's Claude Mythos 5 has surfaced in benchmark tracking with a reported 10 trillion parameters, leading on multi-step planning tasks in cybersecurity and research domains. The model represents a new scale threshold for commercial AI systems. Prediction markets give a Claude Mythos broad release only a 39% probability before April 30, suggesting limited availability so far.",
+      "category": "Model Release",
+      "source_name": "devFlokers",
+      "source_url": "https://www.devflokers.com/blog/ai-news-last-24-hours-april-2026-model-releases-breakthroughs"
+    },
+    {
+      "title": "Gemini 3.1 Ultra Scores 94.3% on GPQA Diamond",
+      "body": "Google DeepMind's Gemini 3.1 Ultra posted a 94.3% score on the GPQA Diamond benchmark, establishing a new high-water mark for graduate-level reasoning evaluation. The model's native multimodal architecture distinguishes it from competitors that bolt on vision or audio capabilities. It sits alongside GPT-5.4 Thinking and Grok 4.20 at the frontier tier.",
+      "category": "Benchmark",
+      "source_name": "devFlokers",
+      "source_url": "https://www.devflokers.com/blog/ai-news-last-24-hours-april-2026-model-releases-breakthroughs"
+    },
+    {
+      "title": "Prediction Markets Price GPT-5.5 at 76% for April",
+      "body": "Manifold prediction markets assign a 76% probability to a GPT-5.5 release before April 30, with DeepSeek V4 at 67% and Claude Mythos at 39%. The crowded pipeline reflects an industry release cadence that has accelerated to one significant model update every 72 hours on average. None of these anticipated releases have been confirmed by their respective companies.",
       "category": "Trend",
-      "title": "April Prediction Markets Show Crowded Pipeline",
-      "body": "Manifold prediction markets now price Gemma 4 at 98.8% resolved for April, with five other models above 55%: MiniMax M3 (65%), Kimi K3 (63%), GPT-5.5 or variant (62%), DeepSeek V4 (58%), and Gemini 3.1 Flash (57%). Claude variants trail at 27% to 35%, while GPT-6 sits at just 10%. The data suggests April could rival March's nine-model output.",
-      "source_name": "manifold.markets",
+      "source_name": "Manifold Markets",
       "source_url": "https://manifold.markets/prismatic/april-2026-ai-model-releases"
     },
     {
-      "category": "Open Source",
-      "title": "Hugging Face Ships TRL v1.0 Training Library",
-      "body": "Hugging Face released TRL v1.0, marking a major overhaul of its post-training library for large language models. The team described the release as a shift from research codebase to production-grade library, built to keep pace with rapidly evolving fine-tuning and alignment techniques. TRL supports reinforcement learning from human feedback and related post-training workflows.",
-      "source_name": "huggingface.co",
-      "source_url": "https://huggingface.co/blog/trl-v1"
-    },
-    {
+      "title": "Grok 4.20 Claims 78% Non-Hallucination Rate",
+      "body": "xAI's Grok 4.20, featuring a four-agent parallel system and a claimed 2 million token context window, reports a 78% non-hallucination rate on factual accuracy benchmarks. The model leads on factual accuracy metrics but trails competitors on reasoning tasks. Its future development path remains uncertain following SpaceX's acquisition of xAI.",
       "category": "Benchmark",
-      "title": "GPT-5.4 Matched Gemini 3.1 Pro at Top",
-      "body": "A detailed March retrospective from WhatLLM confirmed GPT-5.4 (xhigh) scored 57.17 on the Intelligence Index, just 0.01 points behind Gemini 3.1 Pro Preview's 57.18. The report noted nine text models shipped in March, seven of them open-weight, with three using mixture-of-experts architectures. The near-tie at the top received surprisingly little industry attention.",
-      "source_name": "whatllm.org",
-      "source_url": "https://whatllm.org/blog/llm-releases-march-2026"
+      "source_name": "Digital Applied / devFlokers",
+      "source_url": "https://www.digitalapplied.com/blog/12-ai-models-released-one-week-march-2026-developer-guide"
     },
     {
-      "category": "Policy",
-      "title": "Pentagon Labels Anthropic a Supply-Chain Risk",
-      "body": "Multiple U.S. agencies began phasing out Claude models over a six-month transition after Anthropic refused to loosen restrictions on autonomous weapons use, according to WhatLLM's March roundup. Anthropic received a \"supply-chain risk\" designation, a label normally reserved for foreign adversaries. OpenAI moved quickly to secure a new Department of Defense agreement in the wake of the decision.",
-      "source_name": "whatllm.org",
-      "source_url": "https://whatllm.org/blog/llm-releases-march-2026"
-    },
-    {
+      "title": "Microsoft Copilot Adds Anthropic Claude to Workflows",
+      "body": "Microsoft's upgraded Copilot platform now allows multiple AI models, including OpenAI's GPT and Anthropic's Claude, to collaborate within a single workflow. A new Critique feature has one model generate output while another evaluates it, creating an adversarial quality loop. The Cowork agent is rolling out to early access enterprise customers.",
       "category": "Enterprise",
-      "title": "Coder Raises $90M Series C From KKR",
-      "body": "Coder, the enterprise development environment platform, closed a $90 million Series C round led by KKR to advance secure enterprise AI development. The funding reflects growing investor appetite for infrastructure that governs how developers interact with AI coding tools inside corporate environments. No valuation was disclosed.",
-      "source_name": "radicaldatascience.wordpress.com",
-      "source_url": "https://radicaldatascience.wordpress.com/2026/04/02/ai-news-briefs-bulletin-board-for-april-2026/"
+      "source_name": "MarketingProfs / Reuters",
+      "source_url": "https://www.marketingprofs.com/opinions/2026/54505/ai-update-april-3-2026-ai-news-and-views-from-the-past-week"
     },
     {
-      "category": "Open Source",
-      "title": "March Shipped Seven Open-Weight Models in One Month",
-      "body": "Of the nine text models released in March 2026, seven were open-weight, continuing a decisive shift toward accessible model distribution. Alibaba's Qwen 3.5 series spanned 0.8B to 397B parameters across multiple MoE configurations, while the large variant scored 45 on the Intelligence Index. The open-weight dominance is reshaping the competitive landscape from the middle of the leaderboard upward.",
-      "source_name": "whatllm.org",
-      "source_url": "https://whatllm.org/blog/llm-releases-march-2026"
-    },
-    {
-      "category": "Hardware",
-      "title": "NVIDIA Nemotron Coalition Backs Open Frontier Models",
-      "body": "At GTC 2026 in mid-March, NVIDIA announced the Nemotron Coalition with partners including Mistral, Perplexity, and Cursor to develop open frontier models. Jensen Huang also revealed over $1 trillion in infrastructure orders in the pipeline and debuted the Vera Rubin AI platform, which claims roughly 10x training cost reduction for trillion-parameter models. New dedicated inference chips and an open Agent Toolkit were also unveiled.",
-      "source_name": "whatllm.org",
-      "source_url": "https://whatllm.org/blog/llm-releases-march-2026"
+      "title": "March 2026 Logged Over 30 Model Releases",
+      "body": "March 2026 saw more than 30 new AI model releases or significant updates from OpenAI, Anthropic, Google, NVIDIA, and others, creating what developers are calling unprecedented decision fatigue. A single week from March 10 to 16 produced 12 distinct model launches across six labs spanning text, code, image, and audio modalities. Industry analysts now recommend adopting a model portfolio strategy with abstraction layers to manage rapid deprecation cycles.",
+      "category": "Trend",
+      "source_name": "SearchCans / Digital Applied",
+      "source_url": "https://www.searchcans.com/blog/ai-model-releases-april-2026-v2/"
     }
   ],
   "world_news": [
     {
+      "title": "Iranian Drones Strike Bahrain Energy Infrastructure",
+      "body": "Iranian drone strikes hit Bahrain on April 5, igniting an oil tank fire at a Bapco Energies storage facility and severely damaging two power plants and desalination units. Bahrain's electricity and water ministry confirmed the attacks, which mark a significant expansion of Iranian targeting against Gulf Arab states in the widening 2026 Iran war.",
       "category": "Conflict",
-      "title": "Iran Fires Missiles at Israel and Gulf States",
-      "body": "Iran launched a new wave of missile strikes targeting Israel and Gulf state energy infrastructure on April 3, as explosions were reported around Tehran and Isfahan from ongoing U.S. and Israeli counterstrikes. The attacks mark a significant escalation in the fifth day of open warfare, with President Trump claiming most targeted Iranian leaders are now dead and signaling further operations.",
-      "source_name": "ksat.com",
-      "source_url": "https://www.ksat.com/news/world/2026/04/03/the-latest-iran-launches-missiles-at-israel-and-gulf-states-as-explosions-heard-around-tehran/"
+      "source_name": "Wikipedia Current Events",
+      "source_url": "https://en.wikipedia.org/wiki/Portal:Current_events/2026_April_5"
     },
     {
+      "title": "Iran Claims U.S. C-130 Shot Down Over Isfahan",
+      "body": "Iranian state media reported that a U.S. C-130 transport aircraft was shot down over Isfahan province during a search-and-rescue mission for a missing American airman. The incident, part of the ongoing 2026 U.S. pilot rescue operation in Iran, follows the downing of a U.S. F-15 reported on April 4 and represents a second major aircraft loss in days.",
+      "category": "Conflict",
+      "source_name": "Wikipedia Current Events",
+      "source_url": "https://en.wikipedia.org/wiki/Portal:Current_events/2026_April_5"
+    },
+    {
+      "title": "Massive Weekend Strikes Hit Iran's Petrochemical Heartland",
+      "body": "Widespread waves of strikes continued across Iran over the April 3-4 weekend, targeting Tehran air defenses, ballistic missile arrays, and weapons R&D sites. A large-scale strike hit Iran's largest petrochemical complex in Mahshahr, responsible for approximately 70% of domestic gasoline supply. The Bushehr nuclear power plant area was struck for the fourth time, prompting Russia to begin evacuating 198 citizens working at the facility.",
+      "category": "Conflict",
+      "source_name": "Alma Research Center",
+      "source_url": "https://israel-alma.org/daily-report-the-second-iran-war-april-5-2026-1800/"
+    },
+    {
+      "title": "OPEC+ Boosts Output 206,000 Barrels Amid Crisis",
+      "body": "OPEC+ increased oil production quotas by 206,000 barrels per day for the second consecutive month, responding to energy infrastructure damage and maritime disruptions caused by the Strait of Hormuz crisis. The move aims to ease global supply pressure as oil prices remain elevated near multi-year highs.",
       "category": "Economy",
-      "title": "Oil Surges 11.4% to $111.54 on Hormuz Threat",
-      "body": "U.S. crude closed at $111.54 per barrel on April 3, posting an 11.4% single-day gain, the largest since April 2020. The spike was driven by Iran's attacks on Gulf energy infrastructure and its tightening control over the Strait of Hormuz, through which roughly a fifth of global oil transits.",
-      "source_name": "golocalprov.com",
-      "source_url": "https://www.golocalprov.com/news/5-big-news-stories-overnight-friday-april-3-2026"
+      "source_name": "Wikipedia Current Events",
+      "source_url": "https://en.wikipedia.org/wiki/Portal:Current_events/2026_April_5"
     },
     {
+      "title": "Nepal Cuts Workweek to Two Days Over Fuel",
+      "body": "Nepal reduced government and school operations to just two days per week as the global fuel crisis triggered by the 2026 Iran war forces drastic conservation measures. The decision follows similar austerity steps by Bangladesh and Senegal, illustrating how the Hormuz disruption is cascading into developing economies far from the conflict zone.",
+      "category": "Economy",
+      "source_name": "Wikipedia Current Events",
+      "source_url": "https://en.wikipedia.org/wiki/Portal:Current_events/2026_April_5"
+    },
+    {
+      "title": "Hezbollah Claims Strike on Israeli Naval Vessel",
+      "body": "Hezbollah claimed it struck an Israeli military vessel off Lebanon's coast on April 5, while an Israeli airstrike killed five people in Kfar Hatta in Lebanon's South Governorate. The exchange marks continued escalation on the Israel-Lebanon front as the broader regional conflict intensifies.",
       "category": "Conflict",
-      "title": "U.S. Sinks Iranian Warship Off Sri Lanka",
-      "body": "The U.S. military sank the Iranian naval vessel IRIS Dena in the Indian Ocean off Sri Lanka's coast. Sri Lanka's navy recovered 87 bodies and rescued 32 survivors from the wreckage, marking one of the deadliest single naval engagements of the conflict so far.",
-      "source_name": "euronews.com",
-      "source_url": "https://www.euronews.com/2026/03/04"
+      "source_name": "Wikipedia Current Events",
+      "source_url": "https://en.wikipedia.org/wiki/Portal:Current_events/2026_April_5"
     },
     {
-      "category": "Diplomacy",
-      "title": "Spain Refuses U.S. Base Access, Trump Threatens Trade",
-      "body": "Spanish Prime Minister Pedro Sanchez demanded an immediate end to the U.S.-Israeli military campaign against Iran, calling it a \"disaster,\" and denied the U.S. access to Spanish military bases. President Trump responded by threatening a full trade cutoff with Spain, opening a new rift within the Western alliance.",
-      "source_name": "democracynow.org",
-      "source_url": "https://www.democracynow.org/2026/3/4/headlines"
-    },
-    {
+      "title": "350 Palestinian Children Detained, Rights Groups Report",
+      "body": "Human rights organizations marked Palestinian Child's Day by highlighting that 350 Palestinian children are currently held in Israeli prisons. The groups reported worsening detention conditions and allegations of torture, calling for international intervention on behalf of the minors.",
       "category": "Humanitarian",
-      "title": "Anti-U.S. Protests Escalate Across Pakistan",
-      "body": "Violent protests continued across Pakistan after U.S. Marines killed 10 demonstrators who stormed the American consulate in Karachi on Sunday. The State Department ordered the evacuation of consular staff from both Karachi and Lahore, citing deteriorating security conditions in the country.",
-      "source_name": "democracynow.org",
-      "source_url": "https://www.democracynow.org/2026/3/4/headlines"
+      "source_name": "Wikipedia Current Events",
+      "source_url": "https://en.wikipedia.org/wiki/Portal:Current_events/2026_April_5"
+    }
+  ],
+  "markets": {
+    "sp500": {
+      "price": "6,582.69",
+      "change": "+0.11%",
+      "direction": "up",
+      "sparkline": [
+        6591.9,
+        6477.16,
+        6368.85,
+        6343.72,
+        6528.52,
+        6575.32,
+        6582.69
+      ]
+    },
+    "nasdaq": {
+      "price": "21,879.18",
+      "change": "+0.18%",
+      "direction": "up",
+      "sparkline": [
+        21929.82,
+        21408.08,
+        20948.36,
+        20794.64,
+        21590.63,
+        21840.95,
+        21879.18
+      ]
+    },
+    "btc": {
+      "price": "$67,480.54",
+      "change": "+0.28%",
+      "direction": "up",
+      "sparkline": [
+        66691.45,
+        68233.31,
+        68078.55,
+        66888.57,
+        66931.1,
+        67290.52,
+        67480.54
+      ]
+    },
+    "eth": {
+      "price": "$2,065.55",
+      "change": "+0.02%",
+      "direction": "up",
+      "sparkline": [
+        2023.51,
+        2104.71,
+        2138.74,
+        2056.85,
+        2053.39,
+        2065.35,
+        2065.55
+      ]
+    },
+    "oil": {
+      "price": "$109.05",
+      "change": "+2.06%",
+      "direction": "up",
+      "sparkline": [
+        112.57,
+        112.78,
+        118.35,
+        101.16,
+        109.05
+      ]
+    },
+    "sentiment": {
+      "value": "12",
+      "label": "Extreme Fear",
+      "direction": "down"
+    }
+  },
+  "competitive": [
+    {
+      "name": "OpenAI",
+      "status": "COO departure confirmed ahead of planned IPO amid $852B valuation",
+      "body": "OpenAI's COO exit surfaced over the April 4-5 weekend, adding executive turbulence just as the company navigates its transition toward a for-profit structure and a potential public offering. The departure comes shortly after OpenAI closed a record fundraising round that valued it at $852 billion. No new model or product announcements have followed the March 5 launch of GPT-5.4; the company appears focused on organizational and financial milestones rather than shipping.",
+      "source_url": "https://www.theneuron.ai/explainer-articles/-around-the-horn-digest-everything-that-happened-in-ai-this-weekend-saturday-sunday-april-4-5-2026/"
     },
     {
-      "category": "Policy",
-      "title": "Israel Passes Death Penalty for Palestinian Attackers",
-      "body": "The Knesset voted 62 to 48 to enact a death penalty law targeting Palestinians convicted of intentionally killing Israelis to deny the state's existence. Far-right National Security Minister Itamar Ben-Gvir celebrated the passage with champagne. The law drew immediate international condemnation from human rights organizations.",
-      "source_name": "golocalprov.com",
-      "source_url": "https://www.golocalprov.com/news/5-big-news-stories-overnight-friday-april-3-2026"
+      "name": "Anthropic",
+      "status": "Claude Mythos 5 and mid-tier Capabara model unveiled in early April",
+      "body": "Anthropic launched Claude Mythos 5, a 10-trillion-parameter model targeting cybersecurity, coding, and academic reasoning, alongside Capabara, a more accessible mid-sized model designed to broaden its customer base. The dual-launch strategy mirrors the tiered approach competitors have adopted, pairing a frontier flagship with a cost-efficient workhorse. Mythos 5's parameter count represents a significant scale-up and positions Anthropic to compete directly with GPT-5.4 and Gemini 3.1 Pro on specialized professional tasks.",
+      "source_url": "https://blog.mean.ceo/new-ai-model-releases-news-april-2026/"
     },
     {
-      "category": "Economy",
-      "title": "Bangladesh Imposes Austerity Amid Fuel Crisis",
-      "body": "Bangladesh announced sweeping energy austerity measures including shortened office hours, mall closures, a 30% cut to government fuel spending, and bans on decorative lighting. The country, which imports 95% of its fuel, is seeking $2.5 billion in emergency financing as the Iran conflict disrupts global energy supply chains.",
-      "source_name": "ksat.com",
-      "source_url": "https://www.ksat.com/news/world/2026/04/03/the-latest-iran-launches-missiles-at-israel-and-gulf-states-as-explosions-heard-around-tehran/"
+      "name": "Google DeepMind",
+      "status": "Gemma 4 ecosystem expanding as Hugging Face community builds on open models",
+      "body": "Following the April 2 release of Gemma 4 under Apache 2.0, the open model family is gaining traction in the developer community. Hugging Face posts show projects like MEDPAI, a medical imaging analysis tool combining object detection with Gemma 4's multimodal capabilities, illustrating rapid downstream adoption. The Gemma 4 lineup, spanning E2B through 31B Dense variants, gives Google DeepMind a broad open-weight footprint optimized for agentic workflows and advanced reasoning.",
+      "source_url": "https://huggingface.co/posts"
     },
     {
-      "category": "Conflict",
-      "title": "U.S. Deploys Special Forces to Ecuador",
-      "body": "The United States deployed special operations forces to Ecuador, expanding its military footprint in Latin America. The move comes as Washington juggles a widening Middle East conflict with ongoing security partnerships in the Western Hemisphere, though specific mission details remain undisclosed.",
-      "source_name": "democracynow.org",
-      "source_url": "https://www.democracynow.org/2026/3/4/headlines"
+      "name": "Mistral",
+      "status": "Military contracts bolster European AI champion's defense positioning",
+      "body": "Mistral AI has secured military contracts as European defense establishments look for alternatives to U.S.-headquartered AI providers, a trend accelerated by the Pentagon's own moves to deepen ties with domestic labs. The contracts complement Mistral's open-source commercial strategy anchored by Mistral Small 4, which posted a 0.7 GPQA score, competitive with far larger proprietary models. Mistral's dual-track approach, pairing open-source developer adoption with sovereign defense revenue, gives it a differentiated funding base among frontier labs.",
+      "source_url": "https://www.trendingtopics.eu/mistral-ai-military-deals/"
     }
   ],
   "tools": [
     {
-      "category": "",
-      "title": "Fabricate v2.0: Prompt to Deployed App in One Shot",
-      "body": "Fabricate v2.0 turns a single text prompt into a fully working, deployed web application with frontend, backend, database, and hosting included. Skip the boilerplate entirely: describe your app idea in plain English and get a live URL back. Ideal for rapid prototyping, hackathons, or validating a product concept before committing engineering time.",
-      "url": "https://theresanaiforthat.com/ai/fabricate/"
+      "category": "Productivity",
+      "title": "Reclaim.ai: Let AI Defend Your Deep Work Hours",
+      "body": "Reclaim.ai automatically blocks focus time on your calendar and reschedules lower-priority tasks into open gaps when conflicts arise. Instead of manually rearranging your day after every meeting invite, set your deep work preferences once and let the agent optimize around interruptions. Pair it with a daily review habit to ensure the AI's priorities still match yours.",
+      "url": "https://reclaim.ai"
     },
     {
-      "category": "",
-      "title": "Luzo: Open-Source Visual Debugger for Multi-Step API Workflows",
-      "body": "Luzo is a free, desktop-first, open-source tool for building, running, and debugging multi-step API workflows visually. It supports dependency-aware flows and a live timeline execution inspector, so you can trace exactly where a chained API call fails. If your team spends hours debugging webhook sequences or microservice integrations, replace Postman chains with Luzo&#39;s visual canvas.",
-      "url": "https://www.producthunt.com/products/luzo/alternatives",
-      "review_url": "/reviews/2026-04-04-luzo-open-source-visual-debugger-for-multi-step-api-workflows.html",
-      "review_verdict": "Luzo fills a real gap for developers and QA engineers who spend too much time tracing failures across chained API calls, webhook sequences, and microservice integrations.",
-      "review_pricing": "Free / Open Source",
-      "review_hero_url": "https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/review-hero-2026-04-04-luzo-open-source-visual-debugger-for-multi-step-api-workflows.jpg"
+      "category": "Coding",
+      "title": "Kilo Code: A Model-Agnostic Coding Agent Worth Testing",
+      "body": "Spotted in Product Hunt's 2026 roundup of best AI coding agents, Kilo Code lets you swap between different LLM backends while handling multi-file refactoring and pull request workflows. If you are tired of being locked into one model provider, try routing complex refactors through a stronger model and routine completions through a cheaper one. This mix-and-match approach can cut API costs while keeping output quality high.",
+      "url": "https://www.producthunt.com/categories/ai-coding-agents",
+      "review_url": "/reviews/2026-04-05-kilo-code-a-model-agnostic-coding-agent-worth-testing.html",
+      "review_verdict": "Kilo Code is built for developers who refuse to be locked into a single AI provider.",
+      "review_pricing": "Free",
+      "review_hero_url": "https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/review-hero-2026-04-05-kilo-code-a-model-agnostic-coding-agent-worth-testing.jpg"
     },
     {
-      "category": "",
-      "title": "Superhuman&#39;s AI Triage Cuts Email to Decision-Only",
-      "body": "Superhuman, now at $30 per month, uses AI to auto-triage your inbox, draft replies, and surface follow-up reminders so you only touch emails that require a decision. With a Fortune report showing time spent emailing doubled in 2026 while deep focus work fell, aggressive inbox filtering is no longer optional. Set up its split inbox feature to route newsletters, notifications, and FYI threads out of your primary view on day one.",
-      "url": "https://www.producthunt.com/categories/ai-software",
-      "review_url": "/reviews/2026-04-04-superhuman39s-ai-triage-cuts-email-to-decision-only.html",
-      "review_verdict": "Superhuman uses AI to auto-triage your inbox, draft replies, and surface follow-up reminders so you only touch emails that require a decision.",
-      "review_pricing": "From $30/month",
-      "review_hero_url": "https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/review-hero-2026-04-04-superhuman39s-ai-triage-cuts-email-to-decision-only.jpg"
+      "category": "Creativity",
+      "title": "Ollama: Run Large Language Models Locally With Zero Cloud Dependency",
+      "body": "Ollama ranked second among Product Hunt's best products of April 2026, offering the simplest path to running open-weight models like Gemma 4 on your own hardware. Install it, pull a model with a single command, and start prompting without sending data to any external server. For creative writers and developers who need privacy or offline access, this eliminates API latency and usage fees entirely.",
+      "url": "https://ollama.com"
     },
     {
-      "category": "",
-      "title": "Blink.new: Describe an App, Get a Full-Stack Build",
-      "body": "Blink.new is an AI-powered full-stack app builder that generates mobile and web applications from a natural language description. It handles both frontend and backend scaffolding, letting non-engineers or solo founders ship functional prototypes without writing code. Use it to test user flows before investing in a custom codebase.",
-      "url": "https://theresanaiforthat.com/ai/blink-new/"
+      "category": "Productivity",
+      "title": "Clockwise Prism: Resolve Team Calendar Conflicts via Chat",
+      "body": "Clockwise now includes Prism, a chat-based assistant that negotiates scheduling conflicts across your entire team's calendars. Instead of sending five Slack messages to find a meeting slot, ask Prism in natural language and it will propose times that protect everyone's focus blocks. Teams reporting 30% or more of their week lost to meetings should trial this before adding another scheduling tool.",
+      "url": "https://www.getclockwise.com"
     },
     {
-      "category": "",
-      "title": "Noiz AI: Text to Voice to Story in One Flow",
-      "body": "Noiz AI, the top-ranked Product Hunt product for April 2026, chains text generation, voice synthesis, and narrative structuring into a single pipeline. Content creators can go from a rough outline to a narrated audio story without switching between separate writing, TTS, and editing tools. Try it for podcast intros, short-form audio content, or narrated explainers.",
-      "url": "https://www.producthunt.com/products",
-      "review_url": "/reviews/2026-04-04-noiz-ai-text-to-voice-to-story-in-one-flow.html",
-      "review_verdict": "From text to voice to story, all in one flow.",
-      "review_pricing": "From $19/month",
-      "review_hero_url": "https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/review-hero-2026-04-04-noiz-ai-text-to-voice-to-story-in-one-flow.jpg"
+      "category": "Build",
+      "title": "Sleek Analytics: Real-Time Visitor Tracking With One Line of Code",
+      "body": "Sleek Analytics, a Product Hunt Awards winner with a 4.8 rating, gives you a live view of who is on your site right now without the complexity of traditional analytics platforms. Drop a single script tag into your HTML and you get clean, real-time dashboards with no cookie banners required. It is free to start, making it a strong alternative for indie builders who find Google Analytics overwhelming.",
+      "url": "https://www.producthunt.com/products/sleek-analytics",
+      "review_url": "/reviews/2026-04-05-sleek-analytics-real-time-visitor-tracking-with-one-line-of-code.html",
+      "review_verdict": "Sleek Analytics is built for indie makers, solo founders, and small site owners who want to know what is happening on their site without wading through the labyrinth of Google Analytics 4.",
+      "review_pricing": "From $5/month",
+      "review_hero_url": "https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/review-hero-2026-04-05-sleek-analytics-real-time-visitor-tracking-with-one-line-of-code.jpg"
     },
     {
-      "category": "",
-      "title": "SeaOcean: Free 75-Point SEO Audit in Under 30 Seconds",
-      "body": "SeaOcean is a free AI-powered SEO audit tool that runs 75+ checks on any website in under 30 seconds, covering technical SEO, performance, and content gaps. Instead of paying for a Semrush or Ahrefs subscription to run a quick site health check, use SeaOcean for instant diagnostics. Bookmark it as your first stop before any site migration or content overhaul.",
-      "url": "https://theresanaiforthat.com/ai/seaocean/"
+      "category": "Mindset",
+      "title": "Influcio: Let an AI Agent Run Your Influencer Campaigns End to End",
+      "body": "Influcio topped the Product Hunt daily leaderboard on April 5, 2026, positioning itself as an AI marketing agent that handles influencer discovery, outreach, and real-time performance tracking in one workflow. Rather than juggling spreadsheets and DMs, define your campaign goals and let the agent match you with creators based on result-driven analytics. Marketing teams running more than two influencer campaigns simultaneously should test whether this collapses their coordination overhead.",
+      "url": "https://www.producthunt.com/leaderboard/daily/2026/4/5",
+      "review_url": "/reviews/2026-04-05-influcio-let-an-ai-agent-run-your-influencer-campaigns-end-to-end.html",
+      "review_verdict": "Influcio is built for marketing teams that are drowning in influencer coordination across multiple campaigns.",
+      "review_pricing": "From $29/month",
+      "review_hero_url": "https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/review-hero-2026-04-05-influcio-let-an-ai-agent-run-your-influencer-campaigns-end-to-end.jpg"
     }
   ],
-  "markets": {}
+  "newsletters": [
+    {
+      "name": "Superhuman",
+      "date_badge": "Sun, 05 Apr 2026 16:03:05 +0000 (UTC)",
+      "headlines": [
+        "NASA's Artemis II launches first crewed lunar mission in 54 years",
+        "Scientists develop gene therapy injection that may 'reverse' deafness",
+        "NASA qualifies iPhone 17 Pro Max for extended use in orbit for the first time"
+      ],
+      "deep_dives": "Artemis II lifted off from Kennedy Space Center on April 1, carrying four astronauts on a trajectory that will bring them within 8,000 kilometers of the lunar surface, the first crewed Moon mission since the Apollo era. The flight is a stress test of the Orion spacecraft ahead of Artemis IV and V, which are planned to land on the Moon in 2028. Separately, scientists published results from a small but landmark gene therapy trial involving an injection that appears to reverse deafness, though the newsletter content was truncated before full details were provided.",
+      "quick_hits": [
+        "Artemis II crew shared viral photos of Earth from space, captured in part using NASA-issued iPhone 17 Pro Max units qualified for orbital use.",
+        "The Artemis II mission will not land on the Moon; landing missions are slated for Artemis IV and V in 2028.",
+        "A landmark gene therapy trial reported early results suggesting an injection could reverse deafness in patients."
+      ],
+      "tools": [
+        "Viktor (newsletter sponsor, linked in banner)"
+      ],
+      "quote": "It's been one of those weeks where future generations may one day ask us: 'Where were you when it happened?'",
+      "source_link": "https://www.joinsuperhuman.ai"
+    },
+    {
+      "name": "Superhuman",
+      "date_badge": "Sat, 04 Apr 2026 16:03:36 +0000 (UTC)",
+      "headlines": [
+        "Waymo hits 500,000 paid rides per week, a 10x increase in under two years",
+        "Physical Intelligence in talks to raise $1B at an $11B valuation for robot-training AI",
+        "Baidu Apollo Go system failure strands over 100 robotaxis on busy Wuhan roads"
+      ],
+      "deep_dives": "Waymo's explosive growth from 50,000 weekly paid rides in 2024 to 500,000 today anchors this robotics-focused edition. The company expanded into seven Sun Belt markets from Austin to Orlando while maintaining a fleet of roughly 3,000 vehicles and rolling out its 6th-generation self-driving system. Meanwhile, the Baidu Apollo Go incident in Wuhan, where a system-wide failure simultaneously froze over 100 robotaxis in traffic, underscores the fragility risks that remain as autonomous fleets scale rapidly.",
+      "quick_hits": [
+        "Physical Intelligence, a two-year-old startup founded by ex-DeepMind staff, is building AI models that teach robots to fold clothes, make coffee, and assemble boxes, potentially reaching valuations near rivals Skild AI ($14B) and Figure AI ($39B).",
+        "Waymo added seven new Sun Belt markets in the past year alone, with its 6th-gen self-driving system already in early development.",
+        "Baidu's Apollo Go fleet suffered a simultaneous system failure in Wuhan, triggering unprecedented traffic disruption as stranded robotaxis blocked busy roads."
+      ],
+      "tools": [
+        "Waymo (autonomous ride-hailing, 6th-gen self-driving system)",
+        "Baidu Apollo Go (robotaxi fleet)",
+        "Physical Intelligence (AI models for robot task learning)"
+      ],
+      "quote": "",
+      "source_link": "https://www.joinsuperhuman.ai"
+    }
+  ]
 }

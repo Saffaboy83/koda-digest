@@ -1262,6 +1262,81 @@ def _generate_editorial_audio_direction(
     )
 
 
+def _upload_editorial_to_supabase(date: str) -> str | None:
+    """Upload editorial podcast MP3 to Supabase Storage. Returns public URL or None."""
+    if not SUPABASE_URL or not SUPABASE_SERVICE_ROLE_KEY:
+        print("  Supabase: skipping editorial upload (credentials not set)")
+        return None
+
+    filepath = DIGEST_DIR / f"editorial-podcast-{date}.mp3"
+    if not filepath.exists():
+        print(f"  Supabase: skipping (editorial-podcast-{date}.mp3 not found)")
+        return None
+
+    sys.path.insert(0, str(DIGEST_DIR))
+    try:
+        from supabase_upload import upload_file
+    except ImportError:
+        print("  Supabase: skipping (supabase_upload.py not found)")
+        return None
+
+    size_mb = filepath.stat().st_size / (1024 * 1024)
+    print(f"  Uploading editorial podcast ({size_mb:.1f} MB) to Supabase...")
+    try:
+        url = upload_file(str(filepath), SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
+        print(f"  OK: {url}")
+        return url
+    except Exception as e:
+        print(f"  FAILED: {e}")
+        return None
+
+
+def _upload_editorial_to_youtube(date: str, article_title: str) -> dict | None:
+    """Upload editorial video MP4 to YouTube. Returns {video_id, url} or None."""
+    video_path = DIGEST_DIR / f"editorial-video-{date}.mp4"
+    if not video_path.exists():
+        print(f"  YouTube: skipping (editorial-video-{date}.mp4 not found)")
+        return None
+
+    print("  Uploading editorial video to YouTube...")
+    title = article_title[:60] + " | Koda Deep Dive"
+    description = (
+        f"Koda Editorial for {date}.\n\n"
+        f"Full article: https://www.koda.community/editorial/\n\n"
+        f"Generated with AI assistance via NotebookLM.\n"
+        f"Subscribe at https://www.koda.community for daily briefings."
+    )
+
+    cmd = [
+        sys.executable, str(DIGEST_DIR / "youtube_upload.py"),
+        "--file", str(video_path),
+        "--title", title,
+        "--description", description,
+        "--privacy", "public",
+        "--output-json", str(DIGEST_DIR / "editorial-youtube-result.json"),
+        "--date", date,
+    ]
+
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
+        if result.returncode == 0:
+            yt_path = DIGEST_DIR / "editorial-youtube-result.json"
+            if yt_path.exists():
+                with open(yt_path, "r") as f:
+                    yt_data = json.load(f)
+                print(f"  YouTube upload OK: {yt_data.get('url', 'unknown')}")
+                return yt_data
+        else:
+            print(f"  YouTube upload failed (exit code {result.returncode})")
+            if result.stderr:
+                print(f"  {result.stderr[-300:]}")
+    except subprocess.TimeoutExpired:
+        print("  YouTube upload timed out (600s)")
+    except Exception as e:
+        print(f"  YouTube upload error: {e}")
+    return None
+
+
 def _generate_editorial_media(
     article: str, topic: dict, date: str, *, dry_run: bool = False,
 ) -> dict | None:
@@ -1519,6 +1594,26 @@ def main() -> None:
 
     # Step 05F: Generate editorial media (brief anime video + brief audio)
     editorial_media = _generate_editorial_media(article, topic, args.date, dry_run=args.dry_run)
+
+    # Step 05G: Upload editorial media to Supabase + YouTube
+    if editorial_media and not args.dry_run:
+        print("\n  Step 05G: Uploading editorial media...")
+        audio_url = _upload_editorial_to_supabase(args.date)
+        if audio_url:
+            editorial_media["editorial_audio"]["url"] = audio_url
+
+        # Derive article title (same logic as render_html)
+        article_title = _truncate_title(topic.get("topic", "Today's Analysis"), max_len=120)
+        yt_result = _upload_editorial_to_youtube(args.date, article_title)
+        if yt_result:
+            editorial_media["editorial_video"]["youtube_id"] = yt_result.get("video_id", "")
+            editorial_media["editorial_video"]["youtube_url"] = yt_result.get("url", "")
+
+        # Re-write editorial-media-status.json with uploaded URLs
+        status_path = DIGEST_DIR / "editorial-media-status.json"
+        with open(status_path, "w", encoding="utf-8") as f:
+            json.dump(editorial_media, f, indent=2)
+        print("  Updated editorial-media-status.json with upload URLs")
 
     # Step 06E: Render HTML
     print("\n  Step 06E: Rendering HTML...")

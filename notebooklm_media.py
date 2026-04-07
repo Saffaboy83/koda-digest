@@ -699,6 +699,25 @@ async def run_editorial_pipeline(
             results.append(make_status("clean_sources", False, str(e)))
             print(f"  Warning: Could not clean sources: {e}")
 
+        # Clean old studio artifacts (editorial audio, video, etc.)
+        print("  Cleaning old editorial artifacts...")
+        try:
+            artifacts = await client.artifacts.list(notebook_id)
+            art_deleted = 0
+            for art in artifacts:
+                try:
+                    await client.artifacts.delete(notebook_id, art.id)
+                    art_deleted += 1
+                    await asyncio.sleep(1)
+                except Exception as e:
+                    print(f"    Warning: Could not delete artifact {art.id}: {e}")
+            results.append(make_status("clean_editorial_artifacts", True,
+                           f"Deleted {art_deleted} old artifacts"))
+            print(f"  Deleted {art_deleted} old editorial artifacts.")
+        except Exception as e:
+            results.append(make_status("clean_editorial_artifacts", False, str(e)))
+            print(f"  Warning: Could not clean editorial artifacts: {e}")
+
         await asyncio.sleep(2)
 
         # ── Step E2: Upload editorial sources ───────────────────────────

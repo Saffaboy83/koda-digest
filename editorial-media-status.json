@@ -4,10 +4,13 @@
   "exit_code": 0,
   "editorial_audio": {
     "success": true,
-    "path": "C:\\Users\\arno_\\Digest\\editorial-podcast-2026-04-05.mp3"
+    "path": "C:\\Users\\arno_\\Digest\\editorial-podcast-2026-04-05.mp3",
+    "url": "https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/editorial-podcast-2026-04-05.mp3"
   },
   "editorial_video": {
     "success": true,
-    "path": "C:\\Users\\arno_\\Digest\\editorial-video-2026-04-05.mp4"
+    "path": "C:\\Users\\arno_\\Digest\\editorial-video-2026-04-05.mp4",
+    "youtube_id": "kYzlFnPHDz0",
+    "youtube_url": "https://www.youtube.com/watch?v=kYzlFnPHDz0"
   }
 }

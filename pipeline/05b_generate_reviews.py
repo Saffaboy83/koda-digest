@@ -228,27 +228,36 @@ def select_tools_for_review(
     )
 
     candidates = []
+    print(f"  Tool selection ({len(tools)} tools, {len(recently_reviewed)} recently reviewed):")
     for tool in tools:
         url = tool.get("url", "").strip()
         title = tool.get("title", "").strip()
         if not url or not url.startswith("http"):
+            print(f"    SKIP {title or '(no title)'} -- no valid URL")
             continue
         if not title:
+            print(f"    SKIP (no title) -- url={url}")
             continue
         if any(known in title.lower() for known in WELL_KNOWN_TOOLS):
+            print(f"    SKIP {title} -- well-known tool")
             continue
         # Skip aggregator/directory URLs (they 408 and aren't the actual tool)
         if any(domain in url for domain in AGGREGATOR_DOMAINS):
-            print(f"    Skipping {title} (aggregator URL: {url})")
+            print(f"    SKIP {title} -- aggregator URL: {url}")
             continue
         if slugify(title) in recently_reviewed:
-            print(f"    Skipping {title} (reviewed within {REVIEW_COOLDOWN_DAYS} days)")
+            print(f"    SKIP {title} -- reviewed within {REVIEW_COOLDOWN_DAYS} days")
             continue
+        body_len = len(tool.get("body", ""))
+        print(f"    OK   {title} -- url={url}, body={body_len}")
         candidates.append(tool)
 
     # Sort by body length (richer descriptions first) as a proxy for quality
     candidates.sort(key=lambda t: len(t.get("body", "")), reverse=True)
-    return candidates[:MAX_REVIEWS_PER_DAY]
+    selected = candidates[:MAX_REVIEWS_PER_DAY]
+    if candidates:
+        print(f"  Selected {len(selected)} of {len(candidates)} candidates for review")
+    return selected
 
 
 def slugify(text: str) -> str:
