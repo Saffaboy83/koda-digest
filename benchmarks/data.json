@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-03T03:17:23.278917+00:00",
+  "generated_at": "2026-04-07T02:21:06.860807+00:00",
   "benchmark_count": 3,
   "total_models": 54,
   "benchmarks": [
@@ -8,7 +8,7 @@
       "category": "General",
       "description": "Human preference rankings from blind A/B comparisons (5.7M+ votes)",
       "source_url": "https://arena.ai/leaderboard/text",
-      "scraped_at": "2026-04-03T03:17:04.833120+00:00",
+      "scraped_at": "2026-04-07T02:20:28.169838+00:00",
       "model_count": 20,
       "models": [
         {
@@ -111,31 +111,31 @@
         },
         {
           "rank": 15,
+          "model_name": "dola-seed-2.0-pro",
+          "elo_score": 1465,
+          "provider": "Bytedance",
+          "context_window": "N/A"
+        },
+        {
+          "rank": 16,
           "model_name": "gpt-5.4",
           "elo_score": 1464,
           "provider": "OpenAI",
           "context_window": "1.1M"
         },
         {
-          "rank": 16,
+          "rank": 17,
           "model_name": "gemini-3-flash (thinking-minimal)",
           "elo_score": 1463,
           "provider": "Google",
           "context_window": "1M"
         },
         {
-          "rank": 17,
+          "rank": 18,
           "model_name": "claude-sonnet-4-6",
           "elo_score": 1462,
           "provider": "Anthropic",
           "context_window": "1M"
-        },
-        {
-          "rank": 18,
-          "model_name": "dola-seed-2.0-preview",
-          "elo_score": 1462,
-          "provider": "Bytedance",
-          "context_window": "N/A"
         },
         {
           "rank": 19,
@@ -158,7 +158,7 @@
       "category": "Reasoning",
       "description": "Contamination-free benchmark with monthly-refreshed questions",
       "source_url": "https://livebench.ai/",
-      "scraped_at": "2026-04-03T03:17:16.238352+00:00",
+      "scraped_at": "2026-04-07T02:20:49.807186+00:00",
       "model_count": 20,
       "models": [
         {
@@ -288,7 +288,7 @@
       "category": "Coding",
       "description": "Real-world software engineering task completion",
       "source_url": "https://www.swebench.com/",
-      "scraped_at": "2026-04-03T03:17:23.278917+00:00",
+      "scraped_at": "2026-04-07T02:21:06.860807+00:00",
       "model_count": 14,
       "models": [
         {
@@ -325,7 +325,7 @@
           "rank": 6,
           "model_name": "GLM-5 (high reasoning)",
           "score": 72.8,
-          "provider": "Z-AI"
+          "provider": "ZAI"
         },
         {
           "rank": 7,
@@ -349,7 +349,7 @@
           "rank": 10,
           "model_name": "Kimi K2.5 (high reasoning)",
           "score": 70.8,
-          "provider": "Kimi"
+          "provider": "Moonshot AI"
         },
         {
           "rank": 11,

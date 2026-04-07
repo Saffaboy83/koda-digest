@@ -14,6 +14,7 @@ from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from nav_component import build_nav_v2
 
 CATEGORY_COLORS: dict[str, str] = {
     "General": "#3B82F6",
@@ -125,7 +126,15 @@ def build_html(data: dict) -> str:
                 <div class="text-lg font-black mt-2" style="color:{color}">{score}</div>
             </div>'''
 
-    return f'''<!DOCTYPE html>
+    nav_css, nav_html, nav_js = build_nav_v2(
+        current_page="benchmarks",
+        url_prefix="../",
+        page_subtitle="Leaderboard",
+        page_icon="trophy",
+        share_url="https://www.koda.community/benchmarks/",
+    )
+
+    html_head = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -142,19 +151,6 @@ def build_html(data: dict) -> str:
 body{{font-family:'Inter',sans-serif;background:#0b1326;color:#dae2fd;min-height:100vh;overflow-x:hidden}}
 .material-symbols-outlined{{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;display:inline-block;vertical-align:middle}}
 .scroll-progress{{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,#3B82F6,#8B5CF6);z-index:1001;transition:width 0.1s linear;pointer-events:none}}
-.topbar{{position:fixed;top:0;width:100%;z-index:50;background:rgba(11,19,38,0.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}}
-.topbar-inner{{max-width:1280px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}}
-.brand{{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}}
-.brand-icon{{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px}}
-.brand-text{{font-size:14px;font-weight:700;color:#3B82F6}}
-.brand-sub{{font-size:10px;color:#8c909f;display:none}}
-@media(min-width:640px){{.brand-sub{{display:block}}}}
-.nav-links{{display:flex;align-items:center;gap:8px}}
-.nav-link{{font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:6px 12px;border-radius:8px;text-decoration:none;transition:all 0.2s}}
-.nav-link-home{{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white}}
-.nav-link-home:hover{{box-shadow:0 4px 16px rgba(59,130,246,0.3)}}
-.nav-link-secondary{{color:#8c909f;background:rgba(255,255,255,0.04)}}
-.nav-link-secondary:hover{{color:#dae2fd;background:rgba(255,255,255,0.08)}}
 .hero{{padding:100px 24px 40px;text-align:center;background:radial-gradient(ellipse 80% 50% at 20% 60%,rgba(59,130,246,0.12) 0%,transparent 100%),radial-gradient(ellipse 60% 40% at 80% 30%,rgba(139,92,246,0.08) 0%,transparent 100%)}}
 .hero h1{{font-size:clamp(28px,5vw,48px);font-weight:900;background:linear-gradient(135deg,#3B82F6 0%,#8B5CF6 50%,#EC4899 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;letter-spacing:-0.02em}}
 .hero p{{color:#c2c6d6;font-size:15px;max-width:600px;margin:0 auto}}
@@ -201,20 +197,14 @@ footer .inner{{max-width:1280px;margin:0 auto;display:flex;flex-direction:column
   .leaders{{grid-template-columns:1fr 1fr}}
 }}
 @media(max-width:480px){{.leaders{{grid-template-columns:1fr}}}}
+'''
+
+    page_body = nav_css + '''
 </style>
 </head>
 <body>
 <div class="scroll-progress" id="scrollProgress"></div>
-<header class="topbar">
-<div class="topbar-inner">
-    <a href="../index.html" class="brand"><div class="brand-icon">K</div><div><div class="brand-text">Koda Intelligence</div><div class="brand-sub"><span class="material-symbols-outlined" style="font-size:11px;vertical-align:-1px;margin-right:2px">trophy</span>Leaderboard</div></div></a>
-    <div class="nav-links">
-        <a href="../morning-briefing-koda.html" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
-        <a href="../pricing/" class="nav-link nav-link-secondary"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">monitoring</span>Token Tracker</a>
-        <a href="../index.html" class="nav-link nav-link-home">&larr; Home</a>
-    </div>
-</div>
-</header>
+''' + nav_html + f'''
 <section class="hero animate-in">
     <div class="badge">Live Leaderboards</div>
     <h1><span class="material-symbols-outlined" style="font-size:0.7em;vertical-align:-0.04em;margin-right:8px">trophy</span>Leaderboard</h1>
@@ -301,8 +291,11 @@ function kodaSubscribe(form){{
     return false;
 }}
 </script>
+''' + nav_js + '''
 </body>
 </html>'''
+
+    return html_head + page_body
 
 
 def main() -> None:
