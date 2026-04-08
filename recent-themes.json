@@ -1,4 +1,62 @@
 {
+  "2026-04-08": {
+    "hook": "A two-week ceasefire calms missiles but not markets, while Meta quietly maps the human brain with AI.",
+    "top_themes": [
+      "Meta's Neuroscience AI Ambitions",
+      "Ceasefire's Fragile Calculus",
+      "Open Reasoning Models Surge"
+    ],
+    "top_stories": [
+      "Satellite Mirrors Could Disrupt Global Ecosystems",
+      "Apple Foldable iPhone Hits Engineering Setbacks",
+      "Hugging Face Releases Darwin-31B-Opus Reasoning Model",
+      "Meta Unveils TRIBE v2 Brain Prediction Model",
+      "Meta's DINOv2 Powers Cancer and Reforestation Efforts",
+      "DeepSeek V4 Predicted at 84% for April",
+      "Hugging Face Maps Open Source Spring 2026 Landscape",
+      "Qwen 3.6 Plus Posts 0.9 GPQA Score",
+      "US, Israel, Iran Agree Two-Week Ceasefire",
+      "Israel Excludes Lebanon From Ceasefire Framework",
+      "Global Markets Surge on Ceasefire Announcement",
+      "Pope Leo XIV Condemns Trump Iran Threats",
+      "Vance Backs Orbán Ahead of Hungarian Elections",
+      "Shooting Outside Israeli Consulate in Istanbul",
+      "French Couple Freed After Four Years in Iran",
+      "Greek Parliament Targets Lawmakers in Subsidy Scandal"
+    ],
+    "featured_tools": [
+      "Zenfox: An Agentic OS That Connects Your Actual Work Tools",
+      "Augment Code Intent: Delegate Monorepo Refactors to Parallel Specialist Agents",
+      "CrewAI Studio: Build Multi-Agent Crews With Drag-and-Drop, No Code Required",
+      "OpenHands: Pair an Autonomous Coding Agent With a Live Browsing Agent",
+      "Chattee AI App Builder: Go From Text Prompt to Full-Stack Web App",
+      "ParliAI: AI-Powered Decision Support for Complex Group Choices"
+    ],
+    "source_urls": [
+      "https://www.theguardian.com/science/2026/apr/05/satellite-mirror-plans-could-disrupt-sleep-and-ecosystems-worldwide-scientists-say",
+      "https://www.reuters.com/business/apples-foldable-iphone-encounters-engineering-snags-faces-potential-shipment-2026-04-07/",
+      "https://huggingface.co/posts",
+      "https://ai.meta.com/blog/tribe-v2-brain-predictive-foundation-model/",
+      "https://ai.meta.com/blog/",
+      "https://manifold.markets/prismatic/april-2026-ai-model-releases",
+      "https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026",
+      "https://llm-stats.com/llm-updates",
+      "https://www.ksat.com/news/world/2026/04/08/us-israel-and-iran-agree-to-a-2-week-ceasefire-though-firings-continue/",
+      "https://www.theguardian.com/world/live/2026/apr/08/iran-war-ceasefire-live-updates-trump-deadline-middle-east-crisis-latest-news",
+      "https://www.nzherald.co.nz/nz/nz-herald-headlines-wednesday-april-8-2026/PXL54EEQFGCR3S6ULII6HOWIJE/",
+      "https://www.pbs.org/newshour/world/watch-pope-leo-xiv-calls-trumps-iran-threat-truly-unacceptable",
+      "https://www.democracynow.org/2026/4/7/headlines",
+      "https://www.democracynow.org/2026/4/7/headlines",
+      "https://www.democracynow.org/2026/4/7/headlines",
+      "https://www.democracynow.org/2026/4/7/headlines"
+    ],
+    "story_angles": [
+      "Hugging Face released Darwin-31B-Opus, a new open reasoning model that signals t",
+      "The US, Israel, and Iran agreed to a fragile two-week ceasefire, though Israel's",
+      "Global markets surged on the ceasefire headline, yet sentiment remains locked at",
+      "Meta's DINOv2 vision model is simultaneously being used to detect cancer in medi"
+    ]
+  },
   "2026-04-07": {
     "hook": "Who builds gigawatt AI clusters when Iranian drones are already hitting petrochemical plants next door?",
     "top_themes": [

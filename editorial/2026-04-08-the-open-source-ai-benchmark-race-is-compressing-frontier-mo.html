@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The open-source AI benchmark race is compressing frontier model timelines so fast that prediction markets now price | Koda Deep Dive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%236366F1'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='system-ui' font-weight='800'>K</text></svg>">
+    <meta property="og:title" content="The open-source AI benchmark race is compressing frontier model timelines so fast that prediction markets now price | Koda Deep Dive">
+    <meta property="og:description" content="Nine frontier AI models shipped in 90 days between November 2025 and February 2026. Meanwhile, OpenAI's own product roadmap has spawned seven GPT-5 variants in five months, a pace so chaotic that even">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.koda.community/editorial/2026-04-08-the-open-source-ai-benchmark-race-is-compressing-frontier-mo.html">
+    <meta property="og:site_name" content="Koda Digest">
+    <meta name="description" content="Nine frontier AI models shipped in 90 days between November 2025 and February 2026. Meanwhile, OpenAI's own product roadmap has spawned seven GPT-5 variants in five months, a pace so chaotic that even">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The open-source AI benchmark race is compressing frontier model timelines so fast that prediction markets now price",
+        "datePublished": "2026-04-08",
+        "description": "Nine frontier AI models shipped in 90 days between November 2025 and February 2026. Meanwhile, OpenAI's own product roadmap has spawned seven GPT-5 variants in five months, a pace so chaotic that even",
+        "author": {"@type": "Organization", "name": "Koda Deep Dive"},
+        "publisher": {"@type": "Organization", "name": "Koda Intelligence", "url": "https://www.koda.community"},
+        "mainEntityOfPage": "https://www.koda.community/editorial/2026-04-08-the-open-source-ai-benchmark-race-is-compressing-frontier-mo.html",
+        "wordCount": "1337",
+        "timeRequired": "PT5M"
+    }
+    </script>
+    <style>
+
+/* ── Reset & Base ──────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.7;
+    color: #1a1a2e;
+    background: #fafbfe;
+}
+
+/* ── Dark Mode ─────────────────────────────────────────────────── */
+body.dark {
+    color: #dae2fd;
+    background: #0b1326;
+}
+body.dark .topbar { background: rgba(11, 19, 38, 0.92); border-color: rgba(255,255,255,0.06); }
+body.dark .article-card { background: rgba(23, 31, 51, 0.6); border-color: rgba(255,255,255,0.06); }
+body.dark .hero-section { background: linear-gradient(180deg, #0f1a33 0%, #0b1326 100%); }
+body.dark .pull-quote { background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.3); }
+body.dark .data-viz { background: rgba(23, 31, 51, 0.8); border-color: rgba(255,255,255,0.08); }
+body.dark .tag { background: rgba(99, 102, 241, 0.15); color: #a5b4fc; }
+body.dark h1, body.dark h2, body.dark h3 { color: #f1f5ff; }
+body.dark a { color: #818cf8; }
+
+/* ── Light Mode ────────────────────────────────────────────────── */
+.topbar { background: rgba(255,255,255,0.92); border-bottom: 1px solid rgba(0,0,0,0.06); }
+.article-card { background: white; border: 1px solid rgba(0,0,0,0.06); }
+.hero-section { background: linear-gradient(180deg, #f0f4ff 0%, #fafbfe 100%); }
+.pull-quote { background: rgba(99, 102, 241, 0.04); border-left: 4px solid #6366F1; }
+.data-viz { background: #f8fafc; border: 1px solid rgba(0,0,0,0.06); }
+.tag { background: rgba(99, 102, 241, 0.08); color: #4f46e5; }
+
+/* ── Canonical Nav ────────────────────────────────────────────── */
+.topbar{position:fixed;top:0;width:100%;z-index:50;background:rgba(11,19,38,0.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.topbar-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px}
+.brand-text{font-size:14px;font-weight:700;color:#3B82F6}
+.brand-sub{font-size:10px;color:#8c909f;display:none}
+@media(min-width:640px){.brand-sub{display:block}}
+.koda-nav-links{display:flex;align-items:center;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.koda-nav-link{font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 8px;border-radius:6px;text-decoration:none;transition:all 0.2s;white-space:nowrap}
+.koda-nav-home{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white}
+.koda-nav-home:hover{box-shadow:0 4px 16px rgba(59,130,246,0.3)}
+.koda-nav-secondary{color:#8c909f;background:rgba(255,255,255,0.04)}
+.koda-nav-secondary:hover{color:#dae2fd;background:rgba(255,255,255,0.08)}
+.koda-nav-active{color:#3B82F6;background:rgba(59,130,246,0.12);border-bottom:2px solid #3B82F6}
+@media(max-width:768px){.koda-nav-link:not(.koda-nav-home):not(.koda-nav-active){display:none}}
+
+/* ── Theme Toggle ──────────────────────────────────────────────── */
+.theme-toggle {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: transparent; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; transition: all 0.2s;
+}
+body.dark .theme-toggle { border-color: rgba(255,255,255,0.1); }
+
+/* ── Scroll Progress ───────────────────────────────────────────── */
+.scroll-progress {
+    position: fixed; top: 0; left: 0;
+    width: 0%; height: 3px;
+    background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+    z-index: 1001; transition: width 0.1s linear;
+    pointer-events: none;
+}
+
+/* ── Hero ───────────────────────────────────────────────────────── */
+.hero-section {
+    padding: 96px 24px 48px;
+    text-align: center;
+}
+.hero-inner { max-width: 720px; margin: 0 auto; }
+.hero-meta {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; margin-bottom: 20px;
+    font-size: 13px; font-weight: 500; opacity: 0.7;
+    font-family: 'JetBrains Mono', monospace;
+}
+.hero-title {
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 800; letter-spacing: -0.03em;
+    line-height: 1.15; margin-bottom: 16px;
+}
+.hero-subtitle {
+    font-size: 17px; line-height: 1.6;
+    opacity: 0.75; max-width: 600px; margin: 0 auto;
+}
+.tag {
+    display: inline-block; padding: 4px 12px;
+    border-radius: 20px; font-size: 12px;
+    font-weight: 600; letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+/* ── Hero Image ────────────────────────────────────────────────── */
+.hero-image {
+    max-width: 800px; margin: 32px auto 0;
+    border-radius: 16px; overflow: hidden;
+}
+.hero-image img {
+    width: 100%; height: auto; display: block;
+    border-radius: 16px;
+}
+
+/* ── Article Body ──────────────────────────────────────────────── */
+.article-body {
+    max-width: 720px; margin: 0 auto;
+    padding: 48px 24px 64px;
+}
+.article-body h2 {
+    font-size: 24px; font-weight: 800;
+    letter-spacing: -0.02em; margin: 48px 0 16px;
+    line-height: 1.2;
+}
+.article-body h3 {
+    font-size: 18px; font-weight: 700;
+    margin: 32px 0 12px; line-height: 1.3;
+}
+.article-body p {
+    font-size: 17px; line-height: 1.75;
+    margin-bottom: 20px;
+}
+.article-body a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ── Pull Quote ────────────────────────────────────────────────── */
+.pull-quote {
+    margin: 40px 0;
+    padding: 24px 28px;
+    border-radius: 12px;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.5;
+    font-style: italic;
+}
+.pull-quote-attribution {
+    display: block; margin-top: 12px;
+    font-size: 13px; font-weight: 600;
+    font-style: normal; opacity: 0.6;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── Data Visualization ────────────────────────────────────────── */
+.data-viz {
+    margin: 32px 0;
+    padding: 24px;
+    border-radius: 16px;
+}
+.data-viz-title {
+    font-size: 14px; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 16px; opacity: 0.6;
+}
+
+/* ── Comparison Table ──────────────────────────────────────────── */
+.comparison-table {
+    width: 100%; border-collapse: collapse;
+    margin: 24px 0; font-size: 15px;
+}
+.comparison-table th {
+    text-align: left; padding: 12px 16px;
+    font-size: 12px; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+}
+.comparison-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
+
+/* ── CTA Bar ───────────────────────────────────────────────────── */
+.cta-bar {
+    max-width: 720px; margin: 0 auto 48px;
+    padding: 32px 24px;
+    text-align: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.08));
+    border: 1px solid rgba(99,102,241,0.15);
+}
+.cta-bar p { font-size: 16px; margin-bottom: 16px; font-weight: 500; }
+.cta-btn {
+    display: inline-block; padding: 12px 28px;
+    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    color: white; font-weight: 700; font-size: 14px;
+    border-radius: 10px; text-decoration: none;
+    transition: all 0.2s;
+}
+.cta-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* ── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+    .hero-section { padding: 80px 16px 32px; }
+    .article-body { padding: 32px 16px 48px; }
+    .article-body p { font-size: 16px; }
+    .pull-quote { font-size: 17px; padding: 20px; }
+    .hero-meta { flex-direction: column; gap: 8px; }
+}
+
+/* ── Fade-in Animation ─────────────────────────────────────────── */
+.fade-in {
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Media Strip ──────────────────────────────────────────────── */
+.media-strip { max-width: 900px; margin: 32px auto; padding: 0 24px; }
+.media-strip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+.media-card {
+    padding: 24px;
+    background: linear-gradient(135deg, #0f1629, #162040);
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.media-card--audio { border: 1px solid rgba(99, 102, 241, 0.2); }
+.media-card--video { border: 1px solid rgba(236, 72, 153, 0.2); }
+.media-card__icon { font-size: 28px; display: block; margin-bottom: 8px; }
+.media-card__icon--audio { color: #6366F1; }
+.media-card__icon--video { color: #EC4899; }
+.media-card__title { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+.media-card__subtitle { font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+
+/* Media buttons */
+.media-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 8px 20px; border-radius: 9999px; font-size: 12px;
+    font-weight: 700; cursor: pointer; transition: all 0.25s;
+    border: none; font-family: 'Inter', sans-serif;
+}
+.media-btn--podcast { background: linear-gradient(135deg, #6366F1, #8B5CF6); color: white; }
+.media-btn--podcast:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4); }
+.media-btn--video { background: linear-gradient(135deg, #EC4899, #8B5CF6); color: white; }
+.media-btn--video:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4); }
+.media-btn:active { transform: scale(0.97); }
+
+/* Podcast player smooth reveal */
+.ed-podcast-wrap {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.4s ease;
+    margin-top: 0;
+}
+.ed-podcast-wrap.active {
+    max-height: 120px;
+    opacity: 1;
+    margin-top: 12px;
+}
+.ed-podcast-wrap audio {
+    width: 100%; max-width: 300px;
+    display: block; margin: 0 auto;
+}
+
+/* YouTube fallback link */
+.media-yt-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    margin-top: 8px; font-size: 11px;
+    color: rgba(255,255,255,0.35); text-decoration: none;
+    transition: color 0.2s;
+}
+.media-yt-link:hover { color: rgba(255,255,255,0.6); }
+
+/* Video overlay */
+.video-overlay {
+    display: none; position: fixed; inset: 0;
+    z-index: 9999; background: rgba(0, 0, 0, 0.92);
+    align-items: center; justify-content: center; padding: 16px;
+}
+.video-overlay.active { display: flex; }
+.video-overlay-inner { width: 100%; max-width: 1100px; position: relative; }
+.video-overlay-close {
+    position: absolute; top: -44px; right: 0;
+    background: none; border: none; color: white;
+    font-size: 32px; cursor: pointer; padding: 8px;
+    opacity: 0.7; transition: opacity 0.2s;
+    min-width: 44px; min-height: 44px;
+    display: flex; align-items: center; justify-content: center;
+}
+.video-overlay-close:hover { opacity: 1; }
+
+/* ── Media Strip Responsive ───────────────────────────────────── */
+@media (min-width: 768px) {
+    .media-btn { padding: 12px 28px; font-size: 13px; min-height: 44px; }
+    .video-overlay { padding: 32px; }
+    .video-overlay-inner { max-width: min(1100px, calc(100vw - 64px)); }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .media-strip { max-width: min(900px, calc(100vw - 48px)); padding: 0 32px; }
+    .media-strip-grid { gap: 20px; }
+    .media-card { padding: 28px 24px; }
+}
+@media (max-width: 640px) {
+    .media-strip { padding: 0 16px; margin: 24px auto; }
+    .media-strip-grid { grid-template-columns: 1fr; gap: 12px; }
+    .media-card { padding: 20px 16px; }
+}
+    
+    </style>
+</head>
+<body class="dark">
+<div class="scroll-progress" id="scrollProgress"></div>
+<!-- koda-nav-v2-start -->
+<header class="kn-topbar" id="knTopbar">
+<div class="kn-topbar-inner">
+    <a href="../index.html" class="kn-brand">
+        <div class="kn-brand-icon">K</div>
+        <div>
+            <div class="kn-brand-text">Koda Intelligence</div>
+            <div class="kn-brand-sub"><span class="material-symbols-outlined" style="font-size:11px;vertical-align:-1px;margin-right:2px">explore</span>Deep Dive</div>
+        </div>
+    </a>
+    <div class="kn-links">
+                <a href="../morning-briefing-koda.html" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+        <a href="../editorial/" class="kn-link kn-link-active"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">explore</span>Deep Dive</a>
+        <a href="../pricing/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">monitoring</span>Token Tracker</a>
+        <a href="../benchmarks/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">trophy</span>Leaderboard</a>
+        <a href="../reviews/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">science</span>The Lab</a>
+        <a href="../dojo/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">school</span>The Dojo</a>
+        <a href="../changelog/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">pulse_alert</span>Pulse</a>
+        <a href="../archive/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
+        <a href="../index.html" class="kn-home">&larr; Home</a>
+    </div>
+    <div class="kn-actions">
+        
+        <div class="kn-desktop-social">
+            <a href="https://x.com/intent/tweet?url=https://www.koda.community/editorial/" target="_blank" rel="noopener" class="kn-action-btn" title="Share on X">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/editorial/" target="_blank" rel="noopener" class="kn-action-btn" title="Share on LinkedIn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <button class="kn-action-btn" onclick="navigator.clipboard.writeText(window.location.href);this.style.color='#10B981';setTimeout(()=>this.style.color='',1500)" title="Copy link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            </button>
+        </div>
+        <button class="kn-action-btn" id="knSearchBtn" title="Search (Ctrl+K)" aria-label="Search">
+            <span class="material-symbols-outlined">search</span>
+        </button>
+        <button class="kn-action-btn kn-hamburger" id="knMenuBtn" title="Menu" aria-label="Open menu" aria-expanded="false">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </div>
+</div>
+</header>
+
+<!-- Drawer overlay -->
+<div class="kn-overlay" id="knOverlay"></div>
+
+<!-- Slide-out drawer -->
+<nav class="kn-drawer" id="knDrawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="kn-drawer-header">
+        <div class="kn-drawer-brand">
+            <div class="kn-brand-icon">K</div>
+            <span class="kn-brand-text">Koda</span>
+        </div>
+        <button class="kn-drawer-close" id="knDrawerClose" aria-label="Close menu">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+    <div class="kn-drawer-section">Navigate</div>
+        <a href="../index.html" class="kn-drawer-home"><span class="material-symbols-outlined">home</span>Home</a>
+    <a href="../morning-briefing-koda.html" class="kn-drawer-link"><span class="material-symbols-outlined">bolt</span>The Signal</a>
+    <a href="../editorial/" class="kn-drawer-link kn-drawer-link-active"><span class="material-symbols-outlined">explore</span>Deep Dive</a>
+    <a href="../pricing/" class="kn-drawer-link"><span class="material-symbols-outlined">monitoring</span>Token Tracker</a>
+    <a href="../benchmarks/" class="kn-drawer-link"><span class="material-symbols-outlined">trophy</span>Leaderboard</a>
+    <a href="../reviews/" class="kn-drawer-link"><span class="material-symbols-outlined">science</span>The Lab</a>
+    <a href="../dojo/" class="kn-drawer-link"><span class="material-symbols-outlined">school</span>The Dojo</a>
+    <a href="../changelog/" class="kn-drawer-link"><span class="material-symbols-outlined">pulse_alert</span>Pulse</a>
+    <a href="../archive/" class="kn-drawer-link"><span class="material-symbols-outlined">lock_open</span>The Vault</a>
+    <div class="kn-drawer-divider"></div>
+    <div class="kn-drawer-section">Share</div>
+    <div class="kn-drawer-social">
+        <a href="https://x.com/intent/tweet?url=https://www.koda.community/editorial/" target="_blank" rel="noopener" title="Share on X">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/editorial/" target="_blank" rel="noopener" title="Share on LinkedIn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <button onclick="navigator.clipboard.writeText(window.location.href);this.style.color='#10B981';setTimeout(()=>this.style.color='',1500)" title="Copy link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        </button>
+    </div>
+</nav>
+<!-- koda-nav-v2-end -->
+<header class="hero-section">
+    <div class="hero-inner">
+        <div class="hero-meta">
+            <span class="tag">Strategy</span>
+            <span>08 April 2026</span>
+            <span>5 min read</span>
+        </div>
+        <h1 class="hero-title">The open-source AI benchmark race is compressing frontier model timelines so fast that prediction markets now price</h1>
+        <p class="hero-subtitle">Nine frontier AI models shipped in 90 days between November 2025 and February 2026. Meanwhile, OpenAI's own product roadmap has spawned seven GPT-5 variants in five months, a pace so chaotic that even</p>
+    </div>
+    <div class="hero-image fade-in" style="max-width:800px;max-height:420px;margin:32px auto 0;border-radius:16px;overflow:hidden;">
+        <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/editorial-hero-2026-04-08.jpg" alt="The open-source AI benchmark race is compressing frontier model timelines so fast that prediction markets now price" loading="eager" style="width:100%;height:420px;object-fit:cover;object-position:center;display:block;border-radius:16px;">
+    </div>
+</header>
+
+<article class="article-body">
+
+<!-- MEDIA_STRIP_START -->
+<section class="media-strip fade-in">
+  <div class="media-strip-grid">
+    <div class="media-card media-card--audio">
+      <span class="material-symbols-outlined media-card__icon media-card__icon--audio">headphones</span>
+      <div class="media-card__title">Expert Analysis</div>
+      <div class="media-card__subtitle">Two-minute conversation (~2 min)</div>
+      <button class="media-btn media-btn--podcast" id="edPodBtn" onclick="toggleEditorialPodcast()" aria-expanded="false" aria-controls="editorialPodcastPlayer">&#9654; Listen Now</button>
+      <div class="ed-podcast-wrap" id="editorialPodcastPlayer">
+        <audio controls preload="none"><source src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/editorial-podcast-2026-04-05.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+    <div class="media-card media-card--video">
+      <span class="material-symbols-outlined media-card__icon media-card__icon--video">smart_display</span>
+      <div class="media-card__title">Visual Narrative</div>
+      <div class="media-card__subtitle">Animated story breakdown (~2 min)</div>
+      <button class="media-btn media-btn--video" onclick="toggleVideo()">&#9654; Play Video</button>
+      <a href="https://www.youtube.com/watch?v=kYzlFnPHDz0" target="_blank" rel="noopener" class="media-yt-link">or watch on YouTube &rarr;</a>
+      <div class="video-overlay" id="videoOverlay" role="dialog" aria-modal="true" aria-label="Video player" onclick="if(event.target===this)toggleVideo()">
+        <div class="video-overlay-inner">
+          <button class="video-overlay-close" onclick="toggleVideo()" aria-label="Close video">&times;</button>
+          <iframe id="videoFrame" width="100%" style="aspect-ratio:16/9;border:none;border-radius:12px" allowfullscreen title="Editorial video"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- MEDIA_STRIP_END -->
+
+    <p>Nine frontier AI models shipped in 90 days between November 2025 and February 2026. Meanwhile, OpenAI's own product roadmap has spawned seven GPT-5 variants in five months, a pace so chaotic that even internal teams struggle to track what ships next.</p>
+    <p>Here is the strange part. Crowds of anonymous bettors on Manifold and Polymarket are calling release dates with more precision than the companies building the models. The Hugging Face Spring 2026 report documents measurable geographic and technical shifts in the open-source ecosystem within a single season.</p>
+    <p>The benchmarks are saturating. The timelines are compressing. And the best forecasting tool for what comes next is not a corporate slide deck. It is a prediction market.</p>
+    <p>I think this marks a genuine inflection point in how the AI industry prices its own future. Let me explain why.</p>
+
+    <h2>The Benchmark Paradox</h2>
+    <p>Here is the framework to remember: the faster benchmarks saturate, the less they measure capability and the more they measure velocity.</p>
+    <p>Call it the Benchmark Paradox. It becomes a timestamp. It tells you nothing about which model is better. It tells you everything about how fast the field is moving.</p>
+    <p>The Benchmark Paradox has three properties. First, saturation compresses perceived gaps between open and closed models to near zero. Kimi K2.5 hits 98.5%. The remaining distance to 100% is noise, not signal. Second, compressed gaps accelerate release cycles because no lab wants to sit on a model while a competitor closes the last 2%. Third, accelerated cycles make traditional roadmaps unreliable because plans drafted in Q3 are obsolete by Q1.</p>
+    <p>This paradox explains why prediction markets have become the default forecasting layer. Markets aggregate thousands of signals, including benchmark leaks, compute purchases, hiring patterns, and API pricing changes, into a single probability. A product roadmap aggregates the opinion of one planning committee.</p>
+
+    <h2>The Impermanence of Frontier Status</h2>
+    <p>There is a concept in Zen Buddhism called impermanence. Nothing holds its form. The river you step into today is not the river of yesterday. Apply shoshin, beginner's mind, to the AI landscape and you see the same principle operating at industrial scale.</p>
+    <p>Consider the contrast pair. In January 2025, a "frontier model" meant a system trained by one of three American labs with billions of dollars in compute. These are not American labs. These are not closed-source systems. The geography of frontier AI has shifted in 15 months.</p>
+    <p>LawrenceC's April 2026 analysis on LessWrong puts it bluntly: "We're actually running out of benchmarks to upper bound AI capabilities." When your measurement tools break, you lose the ability to distinguish leaders from followers. And when you lose that ability, the market structure changes.</p>
+    <p>The asymmetric advantage has flipped. In 2024, closed labs held the edge because they had proprietary data, massive compute, and benchmark leads measured in double digits. By early 2026, open-weight models close those gaps to single-digit margins on most reasoning tasks. The Multivac's February 2026 investigation documented that Meta, OpenAI, Google, and Amazon all engaged in selective benchmark submission. A SurgeAI audit found evaluators disagreed with 52% of LMArena votes. The benchmarks are not just saturating. According to multiple independent audits, they are compromised.</p>
+    <p>This is where prediction markets enter the picture. Markets do not care about self-reported scores. They care about observable events. Did the model ship? Did the API go live? Did the pricing change? These are binary outcomes that cannot be gamed with selective benchmark submission.</p>
+    <p>It is unclear whether prediction markets will maintain this accuracy advantage as labs begin to treat release timing as strategically sensitive information. But for now, the crowd is beating the boardroom.</p>
+    <p>My read on this: the real story is not that open-source is "winning." It is that the concept of winning has become impermanent. Frontier status lasts weeks, not years. The Costco hot dog principle applies here. Costco has sold its hot dog combo for $1.50 since 1985 because the hot dog is not the product. The hot dog is the signal that Costco will never compromise on value. Similarly, open-source models are not the product. They are the signal that frontier capability is now a commodity. The product is whatever you build on top.</p>
+    <p>The compounding effect matters most. Every open-weight release creates a new baseline that the next team builds on. DeepSeek's architecture innovations get absorbed by Qwen. Qwen's efficiency gains get absorbed by the next entrant. This is a flywheel, not a race. And flywheels do not slow down. They accelerate.</p>
+    <p>One more contrast pair worth holding. Salary buys furniture. Equity buys your future. Benchmarks buy press releases. Prediction markets buy clarity. The organizations that will navigate the next 18 months successfully are the ones treating market signals as leading indicators and roadmaps as lagging ones.</p>
+
+    <h2>2031</h2>
+    <p>Zoom out five years. If benchmark saturation continues at its current pace, and the evidence from AIME 2025, GPQA Diamond, and HumanEval suggests it will, then by 2031 the distinction between "open" and "closed" AI models will be as meaningful as the distinction between "on-premise" and "cloud" servers was by 2020. TeamAI's analysis already suggests that by 2027, closed models may require justification akin to on-premise servers.</p>
+    <p>The 5-year arc looks like this. From 2024 to 2026, benchmark compression eliminates the capability moat. From 2026 to 2028, the competition shifts from model quality to infrastructure quality: who can serve, fine-tune, and orchestrate models most efficiently. From 2028 to 2031, the value migrates entirely to the application layer. The model becomes the operating system. Nobody brags about running Linux. They brag about what they built on it.</p>
+    <p>The counterpositioning opportunity is enormous. While every major lab spends billions chasing the next benchmark point, builders who focus on vertical applications, domain-specific fine-tuning, and agent orchestration will capture disproportionate value. The 70% rule for decision velocity applies: if you are 70% confident that open-weight models will reach parity with closed systems by Q4 2026, that is enough confidence to start building now.</p>
+    <p>It is unclear whether prediction markets will evolve into formal instruments that enterprises use for procurement decisions. But the structural logic points that direction. When your vendor's roadmap is less reliable than a Manifold contract, something fundamental has changed about how technology gets priced.</p>
+
+    <h2>What to Build This Weekend</h2>
+    <p>Stop watching the benchmark race. Start building on top of it. Here are three concrete steps you can take before Monday.</p>
+    <p>First, set up a prediction market tracker. Create a simple dashboard that monitors Manifold and Polymarket contracts for the 5 models most relevant to your work. You do not need to bet. You need to watch. When a model's release probability jumps 15 points in a week, that is a signal to prepare your integration plan. OpenHands, the open-source coding agent platform, now includes a browsing agent that can scrape and summarize market movements for you automatically.</p>
+    <p>Second, build a model-switching pipeline. If you are locked into one provider, you are exposed to the Benchmark Paradox. Use CrewAI Studio's free-tier visual editor to design a multi-agent workflow where different tasks route to different models based on cost and capability. Define one agent for reasoning tasks, one for code generation, one for content. CrewAI's drag-and-drop interface means you do not need a CS degree to set this up. When the next frontier model drops, you swap one node instead of rewriting your entire stack.</p>
+    <p>Third, test Zenfox for cross-tool orchestration. Zenfox launched this week as a RAG-native agentic platform that connects email, calendars, and work tools into a single reasoning layer. The value here is not the AI model underneath. It is the integration layer on top. Plug it into your existing workflow and see where it breaks. Expect it to break. That is the point. Every failure teaches you where the real bottleneck lives.</p>
+    <p>The models will keep getting better. The benchmarks will keep saturating. The prediction markets will keep getting smarter. Your job is not to predict which model wins next quarter. Your job is to build systems flexible enough that it does not matter.</p>
+
+</article>
+
+<section style="max-width:48rem;margin:0 auto;padding:64px 24px 16px;text-align:center;">
+    <div style="background:rgba(11,19,38,0.6);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:32px 40px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:128px;height:4px;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);border-radius:0 0 4px 4px;"></div>
+        <h3 style="font-size:20px;font-weight:700;color:white;margin-bottom:8px;">Want this every morning?</h3>
+        <p style="color:#c2c6d6;font-size:14px;margin-bottom:24px;">AI analysis, world news, markets, and tools. One briefing, delivered free.</p>
+        <form style="display:flex;gap:8px;max-width:28rem;margin:0 auto;padding:6px;border-radius:9999px;background:#171f33;border:1px solid rgba(255,255,255,0.06);" onsubmit="return kodaSubscribe(this)">
+            <input type="email" name="email" required style="background:transparent;border:none;outline:none;color:white;padding:0 20px;width:100%;font-size:14px;font-family:'Inter',system-ui,sans-serif;" placeholder="your@email.com">
+            <button type="submit" style="background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;padding:12px 24px;border-radius:9999px;font-weight:700;font-size:14px;white-space:nowrap;border:none;cursor:pointer;">Subscribe</button>
+        </form>
+        <p style="font-size:10px;color:#8c909f;margin-top:12px;">One email per day. No spam. Unsubscribe anytime.</p>
+    </div>
+</section>
+
+<script>
+function kodaSubscribe(form) {
+    var btn = form.querySelector('button');
+    var email = form.querySelector('input[name="email"]').value;
+    btn.textContent = 'Subscribing...'; btn.disabled = true;
+    fetch('/api/subscribe', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({email:email}) })
+    .then(function(r) { btn.textContent = r.ok ? 'Subscribed!' : 'Try again'; btn.disabled = false; })
+    .catch(function() { btn.textContent = 'Try again'; btn.disabled = false; });
+    return false;
+}
+</script>
+
+<script>
+window.addEventListener('scroll', function() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+    document.getElementById('scrollProgress').style.width = pct + '%';
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+<div id="searchOverlay" style="position:fixed;inset:0;z-index:2000;display:none;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);">
+    <div style="max-width:640px;margin:80px auto 0;padding:0 16px;">
+        <div style="background:#171f33;border:1px solid rgba(66,71,84,0.4);border-radius:16px;box-shadow:0 25px 50px rgba(0,0,0,0.5);overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.05);">
+                <span class="material-symbols-outlined" style="color:#adc6ff;font-size:20px;">search</span>
+                <input type="text" id="globalSearchInput" autocomplete="off" placeholder="Search digests and editorials..." style="flex:1;background:transparent;border:none;outline:none;font-size:16px;color:#dae2fd;font-family:Inter,system-ui,sans-serif;">
+                <kbd style="font-size:10px;font-family:'JetBrains Mono',monospace;color:#64748b;border:1px solid #475569;border-radius:4px;padding:2px 6px;">ESC</kbd>
+            </div>
+            <div id="globalSearchResults" style="max-height:60vh;overflow-y:auto;"></div>
+        </div>
+    </div>
+</div>
+<style>
+.koda-sr-item{padding:14px 18px;border-bottom:1px solid rgba(173,198,255,0.05);cursor:pointer;transition:background 0.15s;text-decoration:none;display:block;color:inherit;}
+.koda-sr-item:hover{background:rgba(99,102,241,0.1);}
+.koda-sr-meta{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.koda-sr-date{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#adc6ff;padding:2px 8px;background:rgba(173,198,255,0.12);border-radius:4px;}
+.koda-sr-section{font-size:11px;color:#c2c6d6;text-transform:uppercase;letter-spacing:0.5px;}
+.koda-sr-headline{font-size:14px;font-weight:600;color:#dae2fd;margin-bottom:4px;}
+.koda-sr-snippet{font-size:13px;color:#c2c6d6;line-height:1.5;}
+.koda-sr-snippet mark{background:rgba(173,198,255,0.25);color:#dae2fd;border-radius:2px;padding:0 2px;}
+.koda-sr-badge{display:inline-flex;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;padding:2px 7px;border-radius:4px;}
+.koda-sr-badge.digest{background:rgba(59,130,246,0.12);color:#60a5fa;}
+.koda-sr-badge.editorial{background:rgba(139,92,246,0.12);color:#a78bfa;}
+.koda-sr-empty{padding:20px;text-align:center;color:#c2c6d6;font-size:14px;}
+
+/* -- Koda Nav V2 -- */
+.kn-topbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(11,19,38,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.kn-topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.kn-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;flex-shrink:0}
+.kn-brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0}
+.kn-brand-text{font-size:14px;font-weight:700;color:#3B82F6}
+.kn-brand-sub{font-size:10px;color:#8c909f;display:none}
+@media(min-width:640px){.kn-brand-sub{display:block}}
+
+/* Desktop nav links */
+.kn-links{display:none;align-items:center;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;flex:1;justify-content:center}
+@media(min-width:769px){.kn-links{display:flex}}
+.kn-link{font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 8px;border-radius:6px;text-decoration:none;transition:all 0.2s;white-space:nowrap;color:#8c909f;background:rgba(255,255,255,0.04)}
+.kn-link:hover{color:#dae2fd;background:rgba(255,255,255,0.08)}
+.kn-link-active{color:#3B82F6!important;background:rgba(59,130,246,0.12)!important;border-bottom:2px solid #3B82F6}
+.kn-link .material-symbols-outlined{font-size:13px;vertical-align:-2px;margin-right:2px}
+
+/* Actions (search, hamburger) */
+.kn-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.kn-action-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s;text-decoration:none}
+.kn-action-btn:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
+.kn-action-btn .material-symbols-outlined{font-size:20px}
+
+/* Hamburger - visible on mobile only */
+.kn-hamburger{display:flex}
+@media(min-width:769px){.kn-hamburger{display:none}}
+
+/* Desktop social - hidden on mobile (drawer has them) */
+.kn-desktop-social{display:none;align-items:center;gap:4px}
+@media(min-width:769px){.kn-desktop-social{display:flex}}
+
+/* Date picker (briefing pages only) */
+.kn-date-picker{display:none;align-items:center}
+@media(min-width:769px){.kn-date-picker{display:flex}}
+.kn-date-btn{display:flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:#3B82F6;padding:4px 8px;background:rgba(59,130,246,0.1);border-radius:6px;border:none;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.kn-date-btn:hover{background:rgba(59,130,246,0.2)}
+
+/* Home button - desktop only, in links row */
+.kn-home{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white!important;font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 10px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all 0.2s}
+.kn-home:hover{box-shadow:0 4px 16px rgba(59,130,246,0.3)}
+
+/* ── Drawer ── */
+.kn-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1001;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s}
+.kn-overlay.kn-open{opacity:1;visibility:visible}
+.kn-drawer{position:fixed;top:0;right:0;bottom:0;width:min(280px,85vw);background:rgba(11,19,38,0.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-left:1px solid rgba(173,198,255,0.1);z-index:1002;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.kn-drawer.kn-open{transform:translateX(0)}
+@media(prefers-reduced-motion:reduce){.kn-overlay,.kn-drawer{transition-duration:0.01ms!important}}
+
+/* Drawer header */
+.kn-drawer-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.kn-drawer-brand{display:flex;align-items:center;gap:10px}
+.kn-drawer-close{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s}
+.kn-drawer-close:hover{background:rgba(239,68,68,0.15);color:#EF4444}
+
+/* Drawer sections */
+.kn-drawer-section{padding:12px 20px 4px;font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#6b7280}
+.kn-drawer-divider{height:1px;background:rgba(255,255,255,0.06);margin:8px 20px}
+
+/* Drawer nav links */
+.kn-drawer-link{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:#c2c6d6;font-size:14px;font-weight:500;transition:all 0.2s;border-left:3px solid transparent}
+.kn-drawer-link:hover{background:rgba(255,255,255,0.04);color:#dae2fd}
+.kn-drawer-link-active{color:#3B82F6!important;border-left-color:#3B82F6;background:rgba(59,130,246,0.08)}
+.kn-drawer-link .material-symbols-outlined{font-size:20px;color:#6b7280;flex-shrink:0}
+.kn-drawer-link-active .material-symbols-outlined{color:#3B82F6}
+
+/* Drawer home link */
+.kn-drawer-home{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:white;font-size:14px;font-weight:600;border-left:3px solid transparent;transition:all 0.2s}
+.kn-drawer-home:hover{background:rgba(59,130,246,0.1)}
+.kn-drawer-home .material-symbols-outlined{font-size:20px;color:#3B82F6}
+
+/* Drawer social row */
+.kn-drawer-social{display:flex;gap:8px;padding:12px 20px}
+.kn-drawer-social a,.kn-drawer-social button{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;text-decoration:none;transition:all 0.2s}
+.kn-drawer-social a:hover,.kn-drawer-social button:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
+
+/* Body scroll lock */
+body.kn-locked{overflow:hidden}
+/* -- End Koda Nav V2 -- */
+</style>
+<script>
+(function(){
+    var overlay=document.getElementById('searchOverlay'),input=document.getElementById('globalSearchInput'),results=document.getElementById('globalSearchResults'),idx=null,timer=null;
+    function open(){overlay.style.display='block';input.value='';results.innerHTML='';setTimeout(function(){input.focus();},50);}
+    function close(){overlay.style.display='none';}
+    var tsb=document.getElementById('topbarSearchBtn')||document.getElementById('knSearchBtn');if(tsb)tsb.addEventListener('click',open);
+    overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+    document.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();open();}if(e.key==='Escape'&&overlay.style.display!=='none')close();});
+    input.addEventListener('input',function(){clearTimeout(timer);var q=input.value.trim();if(q.length<2){results.innerHTML='';return;}timer=setTimeout(function(){search(q);},200);});
+    function search(q){if(!idx){fetch('../search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;run(q);}).catch(function(){results.innerHTML='<div class="koda-sr-empty">Search unavailable.</div>';});}else run(q);}
+    function run(q){
+        var terms=q.toLowerCase().split(/\s+/).filter(function(t){return t.length>0;});if(!terms.length){results.innerHTML='';return;}
+        var hits=[],entries=idx.entries||idx.days||[];
+        for(var i=0;i<entries.length;i++){var en=entries[i],tp=en.type||'digest',fl=en.file||('morning-briefing-koda-'+en.date+'.html'),secs=en.sections||[];
+            for(var j=0;j<secs.length;j++){var sec=secs[j],items=sec.items||[];
+                for(var k=0;k<items.length;k++){var it=items[k],hl=(it.headline||'').toLowerCase(),bt=(it.text||'').toLowerCase(),ft=hl+' '+bt,sc=0,mt=0;
+                    for(var t=0;t<terms.length;t++){var tm=terms[t];if(ft.indexOf(tm)!==-1){mt++;sc+=10;if(hl.indexOf(tm)!==-1)sc+=15;}else{var ws=ft.split(/[\s,.\-\/]+/);for(var w=0;w<ws.length;w++){if(ws[w].indexOf(tm)===0&&tm.length>=3){mt++;sc+=5;break;}}}}
+                    if(mt>0){if(mt===terms.length)sc+=20;sc-=i*2;hits.push({date:en.date,type:tp,section:sec.title,headline:it.headline,text:it.text,file:fl,score:sc});}
+                }}}
+        hits.sort(function(a,b){return a.date<b.date?1:a.date>b.date?-1:b.score-a.score;});hits=hits.slice(0,20);
+        if(!hits.length){results.innerHTML='<div class="koda-sr-empty">No results for "'+esc(q)+'"</div>';return;}
+        var h='';for(var r=0;r<hits.length;r++){var rs=hits[r],sn=snippet(rs.text,terms[0],80),sa=rs.type==='editorial'?'':slug(rs.section),href='../'+rs.file+(sa?'#'+sa:'');
+            h+='<a href="'+href+'" class="koda-sr-item"><div class="koda-sr-meta"><span class="koda-sr-badge '+rs.type+'">'+(rs.type==='editorial'?'Deep Dive':'The Signal')+'</span><span class="koda-sr-date">'+fmtDate(rs.date)+'</span><span class="koda-sr-section">'+esc(rs.section)+'</span></div><div class="koda-sr-headline">'+hilight(esc(rs.headline),terms)+'</div><div class="koda-sr-snippet">'+hilight(sn,terms)+'</div></a>';}
+        results.innerHTML=h;
+    }
+    function snippet(t,tm,c){if(!t)return '';var l=t.toLowerCase(),i=l.indexOf(tm.toLowerCase());if(i===-1)return t.substring(0,c*2);var s=Math.max(0,i-c),e=Math.min(t.length,i+tm.length+c),r=t.substring(s,e);if(s>0)r='...'+r;if(e<t.length)r+='...';return r;}
+    function hilight(t,terms){for(var i=0;i<terms.length;i++){t=t.replace(new RegExp('('+terms[i].replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<mark>$1</mark>');}return t;}
+    function slug(t){return t.toLowerCase().replace(/['']/g,'').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');}
+    function fmtDate(d){var p=d.split('-'),m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];return m[parseInt(p[1])-1]+' '+parseInt(p[2])+', '+p[0];}
+    function esc(s){return s?s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):'';}
+})();
+</script>
+<!-- koda-nav-v2-js-start -->
+<script>
+(function(){
+    var btn=document.getElementById('knMenuBtn'),
+        drawer=document.getElementById('knDrawer'),
+        overlay=document.getElementById('knOverlay'),
+        closeBtn=document.getElementById('knDrawerClose'),
+        searchBtn=document.getElementById('knSearchBtn');
+    function open(){
+        drawer.classList.add('kn-open');
+        overlay.classList.add('kn-open');
+        document.body.classList.add('kn-locked');
+        btn.setAttribute('aria-expanded','true');
+        closeBtn.focus();
+    }
+    function close(){
+        drawer.classList.remove('kn-open');
+        overlay.classList.remove('kn-open');
+        document.body.classList.remove('kn-locked');
+        btn.setAttribute('aria-expanded','false');
+        btn.focus();
+    }
+    if(btn) btn.addEventListener('click',open);
+    if(closeBtn) closeBtn.addEventListener('click',close);
+    if(overlay) overlay.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){
+        if(e.key==='Escape' && drawer.classList.contains('kn-open')) close();
+    });
+    /* Search: hook into existing overlay if present, otherwise go to archive */
+    if(searchBtn) searchBtn.addEventListener('click',function(){
+        var so=document.getElementById('searchOverlay');
+        if(so){so.classList.remove('hidden');so.style.display='';var si=document.getElementById('globalSearchInput');if(si)si.focus();}
+        else{window.location.href=searchBtn.closest('.kn-topbar').querySelector('.kn-brand').href.replace('index.html','')+'archive/';}
+    });
+    /* Date picker */
+    var dpBtn=document.getElementById('datePickerBtn'),dpInput=document.getElementById('datePicker');
+    if(dpBtn&&dpInput){
+        dpBtn.addEventListener('click',function(){dpInput.showPicker?dpInput.showPicker():dpInput.click();});
+        dpInput.addEventListener('change',function(){
+            var v=dpInput.value;if(!v)return;
+            var file='morning-briefing-koda-'+v+'.html';
+            fetch(file,{method:'HEAD'}).then(function(r){
+                if(r.ok){window.location.href=file;}
+                else{alert('No digest available for '+v);dpInput.value=document.body.getAttribute('data-digest-date')||'';}
+            }).catch(function(){alert('No digest available for '+v);dpInput.value=document.body.getAttribute('data-digest-date')||'';});
+        });
+    }
+})();
+</script>
+<!-- koda-nav-v2-js-end -->
+
+<script>
+function toggleEditorialPodcast() {
+    var player = document.getElementById('editorialPodcastPlayer');
+    var btn = document.getElementById('edPodBtn');
+    if (!player || !btn) return;
+    if (player.classList.contains('active')) {
+        player.classList.remove('active');
+        btn.innerHTML = '&#9654; Listen Now';
+        btn.setAttribute('aria-expanded', 'false');
+        var audio = player.querySelector('audio');
+        if (audio) audio.pause();
+    } else {
+        player.classList.add('active');
+        btn.innerHTML = '&#9646;&#9646; Pause';
+        btn.setAttribute('aria-expanded', 'true');
+        var audio = player.querySelector('audio');
+        if (audio) audio.play();
+    }
+}
+function toggleVideo() {
+    var o = document.getElementById('videoOverlay'), f = document.getElementById('videoFrame');
+    if (!o || !f) return;
+    if (o.classList.contains('active')) {
+        o.classList.remove('active');
+        f.src = '';
+        document.body.style.overflow = '';
+    } else {
+        f.src = 'https://www.youtube.com/embed/kYzlFnPHDz0?autoplay=1&rel=0';
+        o.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+</script>
+</body>
+</html>

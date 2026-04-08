@@ -1,6 +1,35 @@
 {
-  "generated": "2026-04-07T10:28:12Z",
+  "generated": "2026-04-08T09:48:24Z",
   "digests": [
+    {
+      "date": "2026-04-08",
+      "dayOfWeek": "Wednesday",
+      "focusTopics": [
+        {
+          "title": "Meta's Neuroscience AI Ambitions",
+          "desc": "Meta unveiled TRIBE v2, a model designed to predict brain activity patterns with unprecedented accuracy. Combined with DINOv2's real-world deployments in oncology and environmental monitoring, Meta is quietly assembling the most diverse applied-AI portfolio outside of Google. The strategic logic is clear: prove that open research translates into measurable impact before regulators decide otherwise."
+        },
+        {
+          "title": "Ceasefire's Fragile Calculus",
+          "desc": "The US-brokered two-week truce between Israel and Iran offers the first diplomatic off-ramp in months, but Israel's decision to exclude Lebanon introduces an immediate fault line. Pope Leo XIV's public condemnation of Trump's prior Iran threats adds Vatican pressure to an already volatile negotiation. Markets rallied on the news, yet the Extreme Fear reading suggests institutional investors are hedging against collapse."
+        },
+        {
+          "title": "Open Reasoning Models Surge",
+          "desc": "Hugging Face's Darwin-31B-Opus joins a growing wave of open-weight reasoning models challenging the dominance of closed systems from OpenAI and Anthropic. At 31 billion parameters, it targets a practical sweet spot: powerful enough for complex chain-of-thought tasks, small enough to run on high-end consumer hardware. The release accelerates a trend where reasoning capability, once a moat for frontier labs, becomes a commodity."
+        }
+      ],
+      "kpis": {
+        "aiStories": "8",
+        "worldEvents": "8",
+        "marketMood": "Extreme Fear",
+        "toolsFeatured": "6"
+      },
+      "hasPodcast": false,
+      "hasInfographic": false,
+      "hasVideo": false,
+      "youtubeId": "",
+      "file": "morning-briefing-koda-2026-04-08.html"
+    },
     {
       "date": "2026-04-07",
       "dayOfWeek": "Tuesday",
@@ -525,6 +554,12 @@
     }
   ],
   "editorials": [
+    {
+      "date": "2026-04-08",
+      "title": "The open-source AI benchmark race is compressing frontier model timelines so fast that prediction markets now price",
+      "tag": "Strategy",
+      "file": "editorial/2026-04-08-the-open-source-ai-benchmark-race-is-compressing-frontier-mo.html"
+    },
     {
       "date": "2026-04-07",
       "title": "AI model release cadence has compressed to one major launch every 72 hours, creating a strategic crisis for builders",

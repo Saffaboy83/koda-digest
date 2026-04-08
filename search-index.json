@@ -1,6 +1,245 @@
 {
-  "generated": "2026-04-07T10:28:12Z",
+  "generated": "2026-04-08T09:48:24Z",
   "entries": [
+    {
+      "date": "2026-04-08",
+      "sections": [
+        {
+          "title": "Today's Focus",
+          "items": [
+            {
+              "headline": "Meta's Neuroscience AI Ambitions",
+              "text": "Meta unveiled TRIBE v2, a model designed to predict brain activity patterns with unprecedented accuracy. Combined with DINOv2's real-world deployments in oncology and environmental monitoring, Meta is quietly assembling the most diverse applied-AI portfolio outside of Google. The strategic logic is clear: prove that open research translates into measurable impact before regulators decide otherwise."
+            },
+            {
+              "headline": "Ceasefire's Fragile Calculus",
+              "text": "The US-brokered two-week truce between Israel and Iran offers the first diplomatic off-ramp in months, but Israel's decision to exclude Lebanon introduces an immediate fault line. Pope Leo XIV's public condemnation of Trump's prior Iran threats adds Vatican pressure to an already volatile negotiation. Markets rallied on the news, yet the Extreme Fear reading suggests institutional investors are hedging against collapse."
+            },
+            {
+              "headline": "Open Reasoning Models Surge",
+              "text": "Hugging Face's Darwin-31B-Opus joins a growing wave of open-weight reasoning models challenging the dominance of closed systems from OpenAI and Anthropic. At 31 billion parameters, it targets a practical sweet spot: powerful enough for complex chain-of-thought tasks, small enough to run on high-end consumer hardware. The release accelerates a trend where reasoning capability, once a moat for frontier labs, becomes a commodity."
+            }
+          ]
+        },
+        {
+          "title": "Markets",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,616.85 (+0.08%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "22,017.85 (+0.10%)"
+            },
+            {
+              "headline": "BTC",
+              "text": "$71,714.25 (-0.30%)"
+            },
+            {
+              "headline": "ETH",
+              "text": "$2,252.16 (+0.51%)"
+            },
+            {
+              "headline": "Oil",
+              "text": "$93.85 (-0.90%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "17 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "AI Developments",
+          "items": [
+            {
+              "headline": "Satellite Mirrors Could Disrupt Global Ecosystems",
+              "text": "Scientists have written letters to a U.S. agency raising concerns over startup plans to deploy satellite mirrors that would reflect sunlight back to Earth, effectively hacking the night sky. Researchers warn the artificial illumination could disrupt human sleep cycles and damage ecosystems worldwide, drawing comparisons to the light pollution already caused by SpaceX Starlink constellations. Source &rarr;"
+            },
+            {
+              "headline": "Apple Foldable iPhone Hits Engineering Setbacks",
+              "text": "Apple's first foldable iPhone has encountered setbacks during its engineering test phase that could delay mass production and shipment schedules, according to a Reuters report citing Nikkei Asia sources published April 7. The snags add uncertainty to one of Apple's most anticipated hardware launches, as competitors Samsung and Huawei continue to iterate on their own foldable designs. Source &rarr;"
+            },
+            {
+              "headline": "Hugging Face Releases Darwin-31B-Opus Reasoning Model",
+              "text": "The Hugging Face community has released Darwin-31B-Opus, a reasoning-enhanced model created by merging Google's Gemma-4-31B-it with TeichAI's Claude Opus Distill using the Darwin V6 engine. The hybrid approach aims to combine Gemma 4's open-weight architecture with distilled reasoning capabilities from Anthropic's Opus line, offering an open source alternative to proprietary reasoning models. Source &rarr;"
+            },
+            {
+              "headline": "Meta Unveils TRIBE v2 Brain Prediction Model",
+              "text": "Meta AI announced TRIBE v2, described as its first AI model of human brain responses to sights, sounds, and language. Building on the Algonauts 2025 challenge, the predictive foundation model maps neural activity patterns across sensory modalities. The research could advance brain-computer interfaces and deepen understanding of how biological neural networks process multimodal information. Source &rarr;"
+            },
+            {
+              "headline": "Meta's DINOv2 Powers Cancer and Reforestation Efforts",
+              "text": "Meta highlighted two real-world applications of its DINOv2 vision model: Orakl Oncology is using it to accelerate cancer treatment discovery, while the UK government has deployed DINO to reduce costs in reforestation monitoring. The dual use cases illustrate how open foundation vision models are finding traction in both healthcare and environmental domains outside traditional tech applications. Source &rarr;"
+            },
+            {
+              "headline": "DeepSeek V4 Predicted at 84% for April",
+              "text": "Prediction markets on Manifold are pricing an April 2026 release of DeepSeek V4 at 84% probability, with GPT-5.5 at 76%. Neither model has launched yet, but the high confidence reflects the current 72-hour average cadence between major releases. DeepSeek's V3.2, released in February with a 1M+ token context window, set a high bar for the anticipated successor. Source &rarr;"
+            },
+            {
+              "headline": "Hugging Face Maps Open Source Spring 2026 Landscape",
+              "text": "Hugging Face published its State of Open Source on Hugging Face: Spring 2026 report, examining shifts in competition, geography, technical trends, and emerging communities across the open source AI ecosystem. The report arrives as open-weight models from Google (Gemma 4), DeepSeek, and Alibaba (Qwen 3.6) increasingly challenge proprietary systems on key benchmarks. Source &rarr;"
+            },
+            {
+              "headline": "Qwen 3.6 Plus Posts 0.9 GPQA Score",
+              "text": "Alibaba Cloud's Qwen team released Qwen 3.6 Plus on March 31, posting a 0.9 score on the GPQA benchmark. The result places the Chinese model in competitive range with Western frontier systems on graduate-level science reasoning, continuing the trend of Chinese labs closing the gap with OpenAI and Anthropic on standardized evaluations. Source &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "World News",
+          "items": [
+            {
+              "headline": "US, Israel, Iran Agree Two-Week Ceasefire",
+              "text": "President Trump announced a two-week ceasefire with Iran on April 7, pulling back from threats to devastate the country. Iran has agreed to reopen the Strait of Hormuz, though Tehran tabled a 10-point set of demands including potential toll mechanisms for ships transiting the waterway. Negotiations are expected to resume in Islamabad, with Pakistan's PM urging Trump to extend the deadline further. Source &rarr;"
+            },
+            {
+              "headline": "Israel Excludes Lebanon From Ceasefire Framework",
+              "text": "Despite Pakistan's PM stating the ceasefire would cover Lebanon, Israel confirmed it is excluded from the agreement. The IDF said it continues fighting and ground operations against Hezbollah. Displaced Lebanese families gathered in the southern port city of Sidon, hoping the deal would allow them to return home. Source &rarr;"
+            },
+            {
+              "headline": "Global Markets Surge on Ceasefire Announcement",
+              "text": "Oil prices dropped below $100 per barrel following the pause in strikes, reversing weeks of war-driven spikes. Euro Stoxx futures jumped 5%, posting their largest gain since mid-2023, while Treasuries rallied and Asian stocks opened sharply higher. Brent crude fell steeply as the Strait of Hormuz reopening eased supply fears. Source &rarr;"
+            },
+            {
+              "headline": "Pope Leo XIV Condemns Trump Iran Threats",
+              "text": "Pope Leo XIV called President Trump's earlier threat that 'a whole civilisation will die tonight' truly unacceptable, marking a sharp rebuke from the Vatican. The statement came hours before the ceasefire was announced, adding diplomatic pressure from a major global moral authority during the crisis. Source &rarr;"
+            },
+            {
+              "headline": "Vance Backs Orbán Ahead of Hungarian Elections",
+              "text": "Vice President JD Vance arrived in Budapest to support Prime Minister Viktor Orbán, calling him a 'defender of Western civilization' and accusing the EU of interfering in Hungary's campaign. Opposition polling shows the Caesar party leading with 56% among decided voters ahead of this weekend's vote, suggesting Orbán faces his toughest electoral challenge yet. Source &rarr;"
+            },
+            {
+              "headline": "Shooting Outside Israeli Consulate in Istanbul",
+              "text": "A man was killed and two others wounded in a shootout with police outside the Israeli consulate in Istanbul. The incident comes amid heightened regional tensions over the Iran conflict and Israel's ongoing military operations in Lebanon. Turkish authorities have not yet disclosed the attacker's identity or motive. Source &rarr;"
+            },
+            {
+              "headline": "French Couple Freed After Four Years in Iran",
+              "text": "Cecil Ker and Jacare, a French couple detained in Iran since May 2022, have been released. Their freedom coincided with the broader ceasefire negotiations, though it remains unclear whether their release was part of a diplomatic exchange or a separate arrangement. Source &rarr;"
+            },
+            {
+              "headline": "Greek Parliament Targets Lawmakers in Subsidy Scandal",
+              "text": "The Greek Parliament recommended lifting immunity for 11 lawmakers whose names appeared in a farm subsidy scandal. The move signals a rare willingness by the legislature to hold its own members accountable and could lead to criminal proceedings against sitting politicians. Source &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "Featured Newsletters",
+          "items": [
+            {
+              "headline": "The Rundown AI",
+              "text": "California startup Reflect Orbital seeks FCC approval to launch thousands of orbital mirrors that redirect sunlight to Earth after dark Apple's foldable iPhone reportedly hits engineering snag Netflix launches ad-free gaming app for kids Reflect Orbital, a California startup founded in 2021 with $35M in funding, is building satellites equipped with large mirrors designed to illuminate ground targets on demand after sunset. Its demo satellite, Earendil-1, would deploy 60-foot mirrors from a 625 km orbit to light up 5 km ground areas, with a target launch this year. Presidents of four international scientific organizations and other top researchers are warning that commercialized 'daylight on demand' could disrupt sleep patterns and ecosystems worldwide. Apple's foldable iPhone encounters an engineering snag during development Netflix launches a dedicated ad-free gaming app aimed at children A new pair of smart glasses is being marketed as lacking the 'creepy' vibes associated with competitors"
+            },
+            {
+              "headline": "TLDR",
+              "text": "OpenAI tests next-gen Image V2 model on ChatGPT and LM Arena in three variants, showing improvements in UI design rendering, prompt adherence, and compositional understanding Google develops Jules V2 ('Jitro') coding agent designed to autonomously manage high-level development goals driven by KPIs rather than specific task-based commands Anthropic signs agreement with Google and Broadcom for multiple gigawatts of next-generation TPU capacity expected to come online starting in 2027 OpenAI's Image V2 model is being tested across three variants on both ChatGPT and LM Arena, with early results suggesting meaningful gains in compositional understanding and UI rendering fidelity. The outcome could strengthen OpenAI's competitive position against Google's image generation offerings. Separately, Google's Jules V2 agent represents a philosophical shift in AI-assisted coding, moving from discrete task execution to autonomous pursuit of broader engineering KPIs, though trust and unpredictability remain open challenges. Meta is close to releasing new AI models, with some eventually getting an open-source license as part of a hybrid proprietary and open-source strategy Anthropic's expanded compute deal with Google and Broadcom will site the vast majority of new capacity in the US to serve exponential customer growth Google's Jules V2 will launch via waitlist, targeting teams managing large codebases"
+            },
+            {
+              "headline": "Superhuman",
+              "text": "OpenAI publishes sweeping policy blueprint for the Intelligence Age, proposing 4-day workweek and public wealth funds Meta prepares to open source its first AI models built under new Chief AI Officer Alexandr Wang OpenAI and Anthropic are growing revenue fast but burning cash even faster, with profitability years away OpenAI released a policy paper outlining proposals to distribute AI-driven abundance, reduce societal risk, and ensure broad access to AI capabilities. Specific ideas include a four-day workweek, portable benefits that follow workers between jobs, robot taxes, and a public wealth fund. Sam Altman framed the proposals as a new social contract necessary for the arrival of superintelligence. OpenAI expects to burn a cumulative $85B by 2028 before reaching profitability in 2030; Anthropic projects 2026 as its biggest loss year, with profitability expected by 2029. Meta is readying its first models since spending $14.3B for a 49% stake in Scale AI and building out its superintelligence team, with open-source releases planned. The newsletter also teased coverage of adding AI agents to calls with Pika Labs, plus trending prompts and social posts."
+            },
+            {
+              "headline": "TLDR",
+              "text": "Higgsfield's Soul 2 model brings art-directed AI image generation to professional creators YouTube tests AI-generated summaries replacing video titles on Android home feed Microsoft launches MAI-Image-2, MAI-Transcribe-1, and MAI-Voice-1 high-speed models Anthropic's head of design, Joel Lewenstein, revealed that Claude's pushback behavior is a deliberate design choice meant to create a collaborative sparring partner rather than a passive tool. He noted that cost and response time constraints explain why Claude does not automatically self-verify outputs. Despite concerns that AI will flatten design roles, Lewenstein said he is actively expanding his design team as every product group requests more human designers. Separately, Figma is integrating AI agents directly into its canvas workflow. Higgsfield's Soul ID feature lets users train the Soul 2 model on as few as 20 photos for campaign-ready personalization, with integrated tools like OpenAI's Sora and Google's Veo for a one-stop production workflow. Microsoft's MAI-Image-2 generates images up to 1,024x1,024 pixels at twice the speed of its predecessor, while MAI-Transcribe-1 runs 2.5x faster with a 3.9% word error rate across 25 languages. YouTube's AI summary experiment on Android is raising concerns from creators about reduced click-through rates, accuracy issues, and degraded browsing experience if titles are hidden."
+            },
+            {
+              "headline": "TLDR",
+              "text": "CISA orders emergency patch for actively exploited Fortinet FortiClient EMS zero-day Anthropic expands Google Cloud and TPU commitment, with new capacity expected by 2027 Cloudflare launches Organizations layer in public beta to unify enterprise multi-account management Enterprise AI adoption in networking is stalling despite years of investment, with IDC reporting most organizations have not moved beyond early, selective use cases due to rising network complexity. Separately, healthcare security experts argue that modern healthcare IT environments have shifted from merely complicated to truly complex systems, requiring adaptive, system-level security models rather than traditional layered controls. Apple's unified Apple Business platform launches April 14, combining ABM, Business Essentials, and Business Connect into a single free portal with built-in MDM and zero-touch deployment Anthropic's expanded Google Cloud deal signals that enterprise AI infrastructure demand continues to drive larger, longer-term cloud and accelerator commitments CISA's rapid mandate on the Fortinet flaw indicates attackers are already inside federal environments, with a patch deadline measured in days \"When CISA moves this fast and mandates action, it means attackers are already inside environments and the window to respond is measured in days, not weeks.\""
+            },
+            {
+              "headline": "TLDR",
+              "text": "SEC crypto safe harbor proposal nearing completion, headed to White House for interagency review Circle unveils quantum-resistant roadmap for Arc L1 blockchain ahead of 2026 mainnet launch Chaos Labs terminates risk management engagement with Aave after three years, citing misalignment on risk philosophy SEC Chair Paul Atkins confirmed the commission's crypto safe harbor framework is nearly finalized, featuring a startup exemption allowing raises up to $5M over four years, a fundraising exemption up to $75M within 12 months for established projects, and an investment contract safe harbor defining when tokens should no longer be treated as securities. The proposal represents the most concrete SEC regulatory relief since Atkins took the chair and arrives alongside the joint SEC-CFTC \"Project Crypto\" modernization effort. Separately, Circle's phased post-quantum security roadmap for Arc L1 targets quantum-resistant wallets at mainnet launch, responding to Google and Caltech research suggesting cryptographic-breaking quantum computers may arrive sooner than expected. Chaos Labs CEO Omer Goldberg cited core Aave contributors departing, V4's expanded scope, and philosophical disagreements on risk as reasons for leaving, despite a $5M retention offer from the DAO. During Chaos Labs' tenure, Aave grew from $5.2B to over $26B in TVL, processed $2.5T in cumulative deposit volume, and achieved zero material bad debt. Circle's Arc L1 public testnet has attracted over 100 institutional participants including BlackRock and Visa, with Google's research ranking Algorand as the most quantum-ready blockchain."
+            }
+          ]
+        },
+        {
+          "title": "Competitive Landscape",
+          "items": [
+            {
+              "headline": "Anthropic",
+              "text": "Anthropic released Claude Mythos Preview, its most powerful frontier model, as the centerpiece of Project Glasswing, a cybersecurity coalition spanning Amazon, Apple, Google, Microsoft, NVIDIA, CrowdStrike, and the Linux Foundation. The model autonomously detected thousands of zero-day vulnerabilities and is available in private preview on Google Cloud's Vertex AI. Anthropic is backing the initiative with $100M in usage credits and $4M in donations to open-source security organizations, a significant pivot toward positioning its flagship model as critical infrastructure defense tooling."
+            },
+            {
+              "headline": "Google DeepMind",
+              "text": "Google released the AI Edge Gallery app, enabling on-device AI inference on iPhone models, a notable expansion of its edge deployment strategy beyond Android. The move complements the Gemma 4 open model family, which has now surpassed 400M cumulative downloads across prior versions. Google Cloud is also serving as the initial hosting platform for Anthropic's Claude Mythos Preview on Vertex AI, reinforcing its role as the neutral compute layer for competing frontier labs."
+            },
+            {
+              "headline": "OpenAI",
+              "text": "OpenAI moved quickly to secure a U.S. Department of Defense contract after President Trump ordered a federal ban on Anthropic for refusing to remove guardrails on autonomous weapons and mass surveillance applications. The Pentagon deal marks a sharp strategic divergence between the two leading frontier labs on military AI policy. Separately, OpenAI announced the Safety Fellowship, a new initiative providing resources and support for researchers working on AI safety projects, an effort that reads partly as reputation management amid its deepening defense ties."
+            },
+            {
+              "headline": "Meta AI",
+              "text": "Meta released TRIBE v2, its first AI model of human brain responses to sights, sounds, and language, building on the lab's Algonauts 2025 research. The company also highlighted real-world deployments of its DINOv2 vision model: the UK government is using it to reduce costs in reforestation monitoring, while Orakl Oncology is applying it to accelerate cancer treatment discovery. These application-layer wins signal Meta's strategy of driving adoption through open models embedded in domain-specific workflows rather than competing solely on benchmark performance."
+            },
+            {
+              "headline": "Hugging Face",
+              "text": "Hugging Face released its State of Open Source on Hugging Face: Spring 2026 report, mapping shifts in competition, geography, technical trends, and emerging communities across the open-source AI landscape. On the community side, a notable release is Darwin-31B-Opus, a reasoning-enhanced model merging Google's Gemma-4-31B-it with a Claude Opus distillation using the Darwin V6 engine. The platform continues to function as the connective tissue between frontier lab releases and the broader developer ecosystem."
+            }
+          ]
+        },
+        {
+          "title": "AI Tool Guide",
+          "items": [
+            {
+              "headline": "Zenfox: An Agentic OS That Connects Your Actual Work Tools",
+              "text": "Launched today out of London, Zenfox is a RAG-native agentic platform that bridges email, calendars, CRMs, and project management tools into a single AI execution layer. Early adopters report 40% workflow acceleration over chat-based AI assistants. Sign up for the public launch at zenfox.ai and connect your existing stack to test autonomous task execution across tools. Try it &rarr;"
+            },
+            {
+              "headline": "Augment Code Intent: Delegate Monorepo Refactors to Parallel Specialist Agents",
+              "text": "This standalone macOS workspace uses a Coordinator agent that breaks complex tasks into specs and delegates them to parallel specialist agents, each with full context awareness across your codebase. It is purpose-built for enterprise monorepos and legacy code management. If your team spends days on cross-repo refactors, point Intent at the task and let the coordinator divide the work. Try it &rarr; Lab Report &rarr;"
+            },
+            {
+              "headline": "CrewAI Studio: Build Multi-Agent Crews With Drag-and-Drop, No Code Required",
+              "text": "CrewAI's free-tier Studio now includes a visual editor and AI copilot that lets you define agent roles, assign tasks, and deploy collaborative 'crews' using natural language and drag-and-drop. It is ideal for SMBs that want role-based agent orchestration without writing Python. Start by describing a workflow in plain English, assign specialist agents to each step, and deploy from the browser. Try it &rarr; Lab Report &rarr;"
+            },
+            {
+              "headline": "OpenHands: Pair an Autonomous Coding Agent With a Live Browsing Agent",
+              "text": "This open-source platform recently added a specialized browsing agent that performs live web research alongside its autonomous coding agents. The combination means your agent can look up documentation, check API references, and write implementation code in one loop. Clone the repo, spin up both agents, and point them at a feature ticket that requires external research. Try it &rarr;"
+            },
+            {
+              "headline": "Chattee AI App Builder: Go From Text Prompt to Full-Stack Web App",
+              "text": "Chattee generates complex, full-stack web applications through natural language prompts, handling both frontend and backend scaffolding in one pass. It is a strong option for non-technical founders who need a working prototype before hiring engineers. Describe your app's core user flow in a few sentences, review the generated code, and deploy directly from the platform. Try it &rarr;"
+            },
+            {
+              "headline": "ParliAI: AI-Powered Decision Support for Complex Group Choices",
+              "text": "ParliAI gathers structured responses from multiple stakeholders, synthesizes arguments, and surfaces consensus points to accelerate group decision-making. It is useful for leadership teams stuck in circular debates or committees evaluating competing proposals. Feed it a decision prompt, invite participants to submit their positions, and let the tool map areas of agreement and conflict. Try it &rarr; Lab Report &rarr;"
+            }
+          ]
+        },
+        {
+          "title": "Market Snapshot",
+          "items": [
+            {
+              "headline": "S&P 500",
+              "text": "6,616.85 (+0.08%)"
+            },
+            {
+              "headline": "NASDAQ",
+              "text": "22,017.85 (+0.10%)"
+            },
+            {
+              "headline": "Bitcoin",
+              "text": "$71,714.25 (-0.30%)"
+            },
+            {
+              "headline": "Ethereum",
+              "text": "$2,252.16 (+0.51%)"
+            },
+            {
+              "headline": "Oil Brent",
+              "text": "$93.85 (-0.90%)"
+            },
+            {
+              "headline": "Sentiment",
+              "text": "17 (Extreme Fear)"
+            }
+          ]
+        }
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-04-08.html"
+    },
     {
       "date": "2026-04-07",
       "sections": [
@@ -4053,6 +4292,60 @@
       "file": "morning-briefing-koda-2026-03-21.html"
     },
     {
+      "date": "2026-04-08",
+      "type": "editorial",
+      "file": "editorial/2026-04-08-the-open-source-ai-benchmark-race-is-compressing-frontier-mo.html",
+      "title": "The open-source AI benchmark race is compressing frontier model timelines so fast that prediction markets now price",
+      "tag": "Strategy",
+      "sections": [
+        {
+          "title": "Introduction",
+          "items": [
+            {
+              "headline": "The open-source AI benchmark race is compressing frontier model timelines so fast that prediction markets now price",
+              "text": "Nine frontier AI models shipped in 90 days between November 2025 and February 2026. Meanwhile, OpenAI's own product roadmap has spawned seven GPT-5 variants in five months, a pace so chaotic that even internal teams struggle to track what ships next. Here is the strange part. Crowds of anonymous bettors on Manifold and Polymarket are calling release dates with more precision than the companies building the models. The Hugging Face Spring 2026 report documents measurable geographic and technical "
+            }
+          ]
+        },
+        {
+          "title": "The Benchmark Paradox",
+          "items": [
+            {
+              "headline": "The Benchmark Paradox",
+              "text": "Here is the framework to remember: the faster benchmarks saturate, the less they measure capability and the more they measure velocity. Call it the Benchmark Paradox. It becomes a timestamp. It tells you nothing about which model is better. It tells you everything about how fast the field is moving. The Benchmark Paradox has three properties. First, saturation compresses perceived gaps between open and closed models to near zero. Kimi K2.5 hits 98.5%. The remaining distance to 100% is noise, not"
+            }
+          ]
+        },
+        {
+          "title": "The Impermanence of Frontier Status",
+          "items": [
+            {
+              "headline": "The Impermanence of Frontier Status",
+              "text": "There is a concept in Zen Buddhism called impermanence. Nothing holds its form. The river you step into today is not the river of yesterday. Apply shoshin, beginner's mind, to the AI landscape and you see the same principle operating at industrial scale. Consider the contrast pair. In January 2025, a \"frontier model\" meant a system trained by one of three American labs with billions of dollars in compute. These are not American labs. These are not closed-source systems. The geography of frontier"
+            }
+          ]
+        },
+        {
+          "title": "2031",
+          "items": [
+            {
+              "headline": "2031",
+              "text": "Zoom out five years. If benchmark saturation continues at its current pace, and the evidence from AIME 2025, GPQA Diamond, and HumanEval suggests it will, then by 2031 the distinction between \"open\" and \"closed\" AI models will be as meaningful as the distinction between \"on-premise\" and \"cloud\" servers was by 2020. TeamAI's analysis already suggests that by 2027, closed models may require justification akin to on-premise servers. The 5-year arc looks like this. From 2024 to 2026, benchmark compr"
+            }
+          ]
+        },
+        {
+          "title": "What to Build This Weekend",
+          "items": [
+            {
+              "headline": "What to Build This Weekend",
+              "text": "Stop watching the benchmark race. Start building on top of it. Here are three concrete steps you can take before Monday. First, set up a prediction market tracker. Create a simple dashboard that monitors Manifold and Polymarket contracts for the 5 models most relevant to your work. You do not need to bet. You need to watch. When a model's release probability jumps 15 points in a week, that is a signal to prepare your integration plan. OpenHands, the open-source coding agent platform, now include"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-04-07",
       "type": "editorial",
       "file": "editorial/2026-04-07-ai-model-release-cadence-has-compressed-to-one-major-launch-.html",
@@ -4875,6 +5168,210 @@
             {
               "headline": "What to Build This Weekend",
               "text": "Stop reading about open-weight models. Start using one. Here is your weekend plan: 1. Pick one model and run it locally. Download Qwen3.5-7B or Mistral Small 4 via Ollama. This takes 15 minutes. You now have a model running on your laptop with zero API costs and zero data leaving your machine. 2. Fine-tune it on your domain. Use Unsloth or Axolotl to fine-tune on 500 examples from your industry. Customer support tickets, internal docs, sales emails. Whatever your team touches daily. Three hours "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-08",
+      "type": "review",
+      "file": "reviews/2026-04-08-parliai-ai-powered-decision-support-for-complex-group-choices.html",
+      "title": "ParliAI",
+      "sections": [
+        {
+          "title": "Verdict",
+          "anchor": "verdict",
+          "items": [
+            {
+              "headline": "ParliAI",
+              "text": "ParliAI is not a collaboration tool for humans in the traditional sense. It is a multi-model AI debate engine: you pose a decision, and councils of AI models from Anthropic, OpenAI, Google, and xAI argue it out, surfacing consensus and conflict. This is genuinely useful for solo decision-makers or small leadership teams who want to stress-test a choice against multiple reasoning styles before committing. If you are looking for a tool where your actual team members submit positions and vote, this"
+            }
+          ]
+        },
+        {
+          "title": "Key Features",
+          "anchor": "features",
+          "items": [
+            {
+              "headline": "Multi-Provider AI Council",
+              "text": "Assemble councils from models across Anthropic, OpenAI, Google, and xAI. Each model brings different reasoning tendencies, which means you get genuine diversity of perspective rather than one model's blind spots repeated."
+            },
+            {
+              "headline": "Multi-Round Debate Mode",
+              "text": "Models do not just give one-shot answers. They engage in structured multi-round debates, responding to each other's arguments. This surfaces nuances that a single prompt to a single model would miss entirely."
+            },
+            {
+              "headline": "Express One-on-One Chat",
+              "text": "Not every decision needs a full council. The fast chat mode lets you query a single model quickly for simpler questions, conserving credits for the decisions that actually warrant multi-model deliberation."
+            },
+            {
+              "headline": "Transparent Audit Trails",
+              "text": "Every decision comes with a full record of which models said what, how consensus was reached, and where disagreements persisted. This is critical for teams that need to justify decisions to stakeholders after the fact."
+            },
+            {
+              "headline": "Customizable Council Presets",
+              "text": "Save council configurations for recurring decision types. A product strategy council might weight Claude and GPT differently than a technical architecture council. Presets eliminate setup friction for repeated workflows."
+            },
+            {
+              "headline": "Consensus Mapping",
+              "text": "The platform synthesizes outputs to highlight where models agree and where they diverge. Instead of reading four separate responses and doing the comparison yourself, ParliAI does the analytical heavy lifting."
+            }
+          ]
+        },
+        {
+          "title": "Use Cases",
+          "anchor": "usecases",
+          "items": [
+            {
+              "headline": "Use Cases",
+              "text": "If you are making high-stakes decisions without a sounding board, ParliAI gives you structured opposition. It is not a replacement for human advisors, but it is a fast way to identify blind spots in your reasoning before you commit to a direction. Before bringing a proposal to the full team, run it through a council to pre-surface the strongest counterarguments. This tightens your pitch and helps you prepare for the objections that will inevitably come up in the room. If you regularly compare mo"
+            }
+          ]
+        },
+        {
+          "title": "Limitations",
+          "anchor": "limitations",
+          "items": [
+            {
+              "headline": "Limitations",
+              "text": "It is AI debating AI, not humans debating The name and framing suggest group decision support for teams, but the actual product is a multi-model AI council. Your human stakeholders are not submitting positions here. If you need actual stakeholder input collection and synthesis, this is not the right tool. Credit system is opaque The difference between \"express,\" \"standard,\" and \"premium\" decisions is not immediately clear from the pricing page. A premium decision costs roughly 20x more credits t"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-08",
+      "type": "review",
+      "file": "reviews/2026-04-08-crewai-studio-build-multi-agent-crews-with-drag-and-drop-no-code-required.html",
+      "title": "CrewAI Studio",
+      "sections": [
+        {
+          "title": "Verdict",
+          "anchor": "verdict",
+          "items": [
+            {
+              "headline": "CrewAI Studio",
+              "text": "CrewAI Studio is the most accessible entry point into multi-agent AI orchestration available today. If you are an SMB operator, a non-technical founder, or a small team that wants to chain specialized AI agents together without touching Python, the free tier gives you a genuinely useful sandbox with up to five agents. The $49/month Pro plan unlocks unlimited agents and priority support, making it a reasonable step up once your workflows outgrow the basics. This is not a toy; it is a real orchest"
+            }
+          ]
+        },
+        {
+          "title": "Key Features",
+          "anchor": "features",
+          "items": [
+            {
+              "headline": "Visual Drag-and-Drop Editor",
+              "text": "Build entire multi-agent workflows by dragging agent nodes onto a canvas and connecting them. No IDE, no terminal, no YAML files. You define agent roles, set task dependencies, and wire up the execution order visually."
+            },
+            {
+              "headline": "AI Copilot for Crew Design",
+              "text": "Describe your workflow in plain English and the copilot generates a suggested crew structure, complete with agent roles, task assignments, and tool bindings. You can then refine the output manually or iterate with follow-up prompts."
+            },
+            {
+              "headline": "Role-Based Agent Orchestration",
+              "text": "Each agent gets a defined role, goal, and backstory. This is not just prompt chaining. Agents operate with distinct personas and can delegate sub-tasks to other agents in the crew, creating genuinely collaborative behavior."
+            },
+            {
+              "headline": "Native Integrations",
+              "text": "Connect crews to Gmail, Slack, Microsoft Teams, Notion, HubSpot, and Salesforce out of the box. Agents can read from and write to these tools as part of their task execution, which means your workflows actually touch real systems."
+            },
+            {
+              "headline": "Browser-Based Deployment",
+              "text": "Deploy your crews directly from the Studio interface. No server provisioning, no Docker containers, no CI/CD pipeline to configure. Click deploy, and your crew is live. This is a significant reduction in friction for non-engineering teams."
+            },
+            {
+              "headline": "Automated Workflow Execution",
+              "text": "Set crews to run on triggers or schedules. Combine this with integrations and you get things like: \"Every Monday, pull new leads from HubSpot, research each one, draft personalized outreach, and post a summary to Slack.\" All hands-free."
+            }
+          ]
+        },
+        {
+          "title": "Use Cases",
+          "anchor": "usecases",
+          "items": [
+            {
+              "headline": "Use Cases",
+              "text": "If your team spends hours on lead research, content drafting, or data entry across multiple tools, CrewAI Studio lets you build a crew that handles the entire chain. The free tier is enough to prototype and validate before committing budget. Marketing, ops, and sales teams that want agent-powered automation without waiting on engineering. The natural language copilot and visual editor make it possible to go from idea to deployed crew in under an hour. If you are already familiar with CrewAI's Py"
+            }
+          ]
+        },
+        {
+          "title": "Limitations",
+          "anchor": "limitations",
+          "items": [
+            {
+              "headline": "Limitations",
+              "text": "Five agents is enough for simple workflows, but any moderately complex process (say, a content pipeline with research, writing, editing, SEO, and distribution) will hit the ceiling fast. You will need to upgrade to Pro at $49/month sooner than you might expect. The native integrations with Gmail, Slack, and HubSpot work well for straightforward read/write operations. But if you need conditional logic, custom API calls, or multi-step authentication flows, the visual editor starts to feel limiting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-08",
+      "type": "review",
+      "file": "reviews/2026-04-08-augment-code-intent-delegate-monorepo-refactors-to-parallel-specialist-agents.html",
+      "title": "Augment Code Intent",
+      "sections": [
+        {
+          "title": "Verdict",
+          "anchor": "verdict",
+          "items": [
+            {
+              "headline": "Augment Code Intent",
+              "text": "Augment Code Intent is built for engineering teams drowning in cross-repository refactors, migration projects, and legacy code untangling. If your monorepo has dozens of packages and a single rename cascades through hundreds of files, the Coordinator/specialist agent architecture is a genuine time multiplier. At $49/month for Pro, it is competitively priced against Cursor and Copilot Workspace, but the real value unlocks at the Enterprise tier where unlimited usage and dedicated support justify "
+            }
+          ]
+        },
+        {
+          "title": "Key Features",
+          "anchor": "features",
+          "items": [
+            {
+              "headline": "Coordinator + Specialist Agents",
+              "text": "A top-level Coordinator agent decomposes your task into discrete specs, then dispatches parallel specialist agents. Each specialist works on its assigned scope simultaneously, collapsing multi-day refactors into minutes."
+            },
+            {
+              "headline": "Context Engine (Full Codebase Awareness)",
+              "text": "Every agent has indexed access to your entire repository. This is not a naive RAG lookup. Augment builds a semantic graph of your codebase so agents understand type hierarchies, import chains, and cross-package dependencies."
+            },
+            {
+              "headline": "Automatic Session Memories",
+              "text": "Intent remembers decisions, patterns, and conventions across sessions. If you told it last week that your team uses barrel exports, it will not ask again. This compounds over time and reduces prompt overhead significantly."
+            },
+            {
+              "headline": "Full Terminal Integration",
+              "text": "Agents can run build commands, execute tests, and inspect output directly. When a specialist finishes a refactor, it can verify the build passes before handing results back to the Coordinator. No copy-paste loops."
+            },
+            {
+              "headline": "In-line GitHub PR Comments",
+              "text": "Augment can post contextual review comments directly on GitHub pull requests. Useful for automated code review workflows where you want the agent to flag potential issues before a human reviewer looks at the diff."
+            },
+            {
+              "headline": "IDE and CLI Integrations",
+              "text": "Works with VS Code, JetBrains IDEs, GitHub, Slack, and a standalone CLI. The macOS workspace app (Intent) is the flagship experience, but you can trigger agent tasks from wherever your team already works."
+            }
+          ]
+        },
+        {
+          "title": "Use Cases",
+          "anchor": "usecases",
+          "items": [
+            {
+              "headline": "Use Cases",
+              "text": "Intent is not a general-purpose autocomplete. It is a power tool for specific, high-leverage scenarios. If you manage 10+ packages in a monorepo and a single API change touches dozens of consumers, this is the primary use case. The Coordinator breaks the migration into per-package tasks and runs them in parallel. Migrating from CommonJS to ESM, upgrading framework versions, or converting class components to hooks across a large codebase. Intent's full-context awareness means it understands the d"
+            }
+          ]
+        },
+        {
+          "title": "Limitations",
+          "anchor": "limitations",
+          "items": [
+            {
+              "headline": "Limitations",
+              "text": "Where Intent falls short or requires caution. warning Free tier is very limited. The basic features and restricted usage quota make it hard to evaluate the parallel agent architecture properly. You will hit limits quickly on any real monorepo task. Budget for Pro if you want a meaningful test. warning macOS only for the flagship workspace. The Intent standalone app is a macOS-native experience. If your team is on Linux or Windows, you are limited to the VS Code/JetBrains extensions and CLI, whic"
             }
           ]
         }
