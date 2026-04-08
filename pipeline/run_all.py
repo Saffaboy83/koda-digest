@@ -58,7 +58,7 @@ NON_CRITICAL = {"01B", "01C", "01D", "01E", "01F", "03B", "04", "04E", "04R", "0
 
 # Per-step timeouts (seconds)
 STEP_TIMEOUTS = {
-    "04":  3600,  # Veo 3 cinematic video: 30-45 min
+    "04":  3660,  # Inner timeout 3600s + 60s cleanup buffer for Supabase/YouTube uploads
     "04E": 2400,  # Editorial: research + draft + fact-check + hero + media: up to 40 min
     "04R":  600,  # Reviews: 3 tools x scrape + LLM: ~10 min
     "01D":  900,  # Changelog: scrape 25 companies: up to 15 min

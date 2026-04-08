@@ -878,7 +878,16 @@ def main():
 
     print(f"  Running notebooklm_media.py...")
     # Cinematic video (Veo 3) takes 30-45 min to render; allow 60 min total
-    result = subprocess.run(cmd, env=env, capture_output=False, timeout=3600)
+    try:
+        result = subprocess.run(cmd, env=env, capture_output=False, timeout=3600)
+    except subprocess.TimeoutExpired:
+        print(f"\n  WARNING: notebooklm_media.py timed out after 3600s")
+        print(f"  Will attempt to upload any media generated before timeout...")
+
+        class _TimeoutResult:
+            returncode = 124  # standard timeout exit code
+
+        result = _TimeoutResult()
 
     # Read the status file that notebooklm_media.py writes
     status_path = DIGEST_DIR / "media-status.json"

@@ -99,7 +99,7 @@ def generate_email_hero(digest: dict, date: str) -> str | None:
             print(f"  Infographic generation started (task: {status.task_id})")
 
             await client.artifacts.wait_for_completion(
-                NOTEBOOK_ID, status.task_id, timeout=120.0
+                NOTEBOOK_ID, status.task_id, timeout=300.0
             )
 
             # Download the infographic
