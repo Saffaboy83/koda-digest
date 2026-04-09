@@ -1,58 +1,60 @@
 {
   "2026-04-09": {
-    "hook": "DeepSeek V4 sits at 94% on prediction markets while U.S. strikes erase a historic Tehran synagogue.",
+    "hook": "Defensive AI is the new arms race: Anthropic launches Claude Mythos while real missiles fly and tariffs spike.",
     "top_themes": [
-      "DeepSeek V4 Nears Launch",
-      "Ceasefire Collapse Risks Escalation",
-      "Meta's Vertical AI Stack"
+      "Cybersecurity Models Go Mainstream",
+      "Tariff Spiral Hits 125%",
+      "Small Teams, Big Models"
     ],
     "top_stories": [
-      "OpenAI Announces Next Phase of Enterprise AI",
-      "Prediction Markets Price DeepSeek V4 at 94%",
-      "Hugging Face Releases Darwin-31B-Opus Reasoning Merge",
-      "Meta Ships Four MTIA Chips in Two Years",
-      "Meta Unveils TRIBE v2 Brain Prediction Model",
-      "Hugging Face Maps Open Source AI Spring 2026",
-      "Benchmarks Called Misleading Due to Data Contamination",
-      "April 2026 Model Cadence Reaches Eight in Seven Days",
-      "Israel Pounds Lebanon, Threatening Fragile Iran Ceasefire",
-      "Trump Slaps 50% Tariffs on Iran Arms Suppliers",
-      "U.S. Strikes Destroy Historic Tehran Synagogue",
-      "Asian Markets Slide on Ceasefire Doubts",
-      "NPR Questions What U.S. Iran War Accomplished",
-      "JP Morgan's Dimon Warns of Economic Fallout",
-      "Trump Renews NATO Criticism Amid Iran Crisis"
+      "Anthropic Unveils Claude Mythos for Defensive Cybersecurity",
+      "Microsoft MAI-Transcribe-1 Built by 10-Person Team",
+      "Google AI Edge Eloquent Ships Offline Dictation",
+      "DeepSeek V4 Priced at 86% for April Launch",
+      "Clicky v3 Ships as Open Source AI Tool",
+      "26-Person Startup Ships Competitive Open Source LLM",
+      "March 2026 Averaged One Model Every 24 Hours",
+      "Meta Plans Partial Open Sourcing of AI Models",
+      "Suleyman Pivots Microsoft AI Toward Superintelligence",
+      "Pakistan to Host U.S.-Iran Peace Talks Friday",
+      "North Korea Tests Hwasongpho-11 Ka Tactical Missile",
+      "Trump Raises China Tariffs to 125%",
+      "Trump Slashes $1.3B in World Food Aid",
+      "Ukraine Sends Negotiators for Minerals-Weapons Deal",
+      "Russia Profits From Iran Crisis Oil Surge",
+      "Israeli Forces Kill Palestinian in West Bank"
     ],
     "featured_tools": [
-      "Superhuman: AI Email Triage at $30/mo",
-      "Glide: Turn Spreadsheets Into Internal Apps Without Code",
-      "Zed Editor: Lightweight IDE With Multi-Model Agent Support",
-      "MemSync: Give Every App a Shared AI Memory Layer",
-      "deepidv: Add AI-Ready KYC and Biometrics to Your App",
-      "Chatforce: Describe a Game Idea, Play It in Minutes"
+      "Taskade AI Agents: Assign Autonomous Sub-Agents to Every Project",
+      "Codeium Windsurf Flows: Chain Multi-File Edits Into a Single Prompt",
+      "Zapier Central Bots: Deploy Always-On AI Agents Across 7,000 Apps",
+      "Ideogram 3.0: Generate Typography-Accurate Images for Marketing",
+      "Audit Your AI Tool Stack Before Adding Another One",
+      "Test Huawei 950PR Inference Locally for Regional AI Workloads"
     ],
     "source_urls": [
-      "https://openai.com/index/next-phase-of-enterprise-ai/",
+      "https://www.anthropic.com/glasswing",
+      "https://www.geekwire.com/2026/microsoft-releases-new-ai-models-to-further-expand-beyond-openai/",
+      "https://9to5google.com/2026/04/06/google-ai-edge-eloquent-app/",
       "https://manifold.markets/prismatic/april-2026-ai-model-releases",
-      "https://huggingface.co/posts",
-      "https://ai.meta.com/blog/meta-mtia-scale-ai-chips-for-billions/",
-      "https://ai.meta.com/blog/tribe-v2-brain-predictive-foundation-model/",
-      "https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026",
+      "https://github.com/farzaa/clicky/releases",
+      "https://www.youtube.com/watch?v=ghVOr9j5NZQ",
       "https://www.searchcans.com/blog/ai-model-releases-april-2026-v2/",
-      "https://whatllm.org/blog/new-ai-models-april-2026",
-      "https://www.straitstimes.com/world/while-you-were-sleeping-5-stories-you-might-have-missed-april-9-2026",
+      "https://www.youtube.com/watch?v=ghVOr9j5NZQ",
+      "https://www.geekwire.com/2026/microsoft-releases-new-ai-models-to-further-expand-beyond-openai/",
+      "https://abcnews.com/International/momentary-relief-world-leaders-react-us-iran-ceasefire/story?id=131831434",
+      "https://en.wikipedia.org/wiki/Portal:Current_events/2026_April_9",
       "https://www.democracynow.org/2026/4/8/headlines",
       "https://www.democracynow.org/2026/4/8/headlines",
-      "https://www.straitstimes.com/world/while-you-were-sleeping-5-stories-you-might-have-missed-april-9-2026",
-      "https://www.npr.org/sections/world/",
-      "https://www.golocalprov.com/news/5-big-news-stories-overnight-tuesday-april-7-2026",
-      "https://www.straitstimes.com/world/while-you-were-sleeping-5-stories-you-might-have-missed-april-9-2026"
+      "https://www.democracynow.org/2026/4/8/headlines",
+      "https://www.democracynow.org/2026/4/8/headlines",
+      "https://www.democracynow.org/2026/4/8/headlines"
     ],
     "story_angles": [
-      "OpenAI announced its next phase of enterprise AI deployment as prediction market",
-      "Israel intensified strikes across Lebanon, threatening the fragile Iran ceasefir",
-      "Asian markets slid on growing doubts that the Iran ceasefire will hold, pushing ",
-      "Meta shipped its fourth custom MTIA silicon chip in just two years and simultane"
+      "Anthropic unveiled Claude Mythos, a model purpose-built for defensive cybersecur",
+      "Pakistan will host U.S.-Iran peace talks on Friday, a diplomatic gambit unfoldin",
+      "Sentiment sits at Extreme Fear as a 125% China tariff wall, slashed food aid, an",
+      "Microsoft's MAI-Transcribe-1, built by just 10 people, and Google's offline dict"
     ]
   },
   "2026-04-08": {

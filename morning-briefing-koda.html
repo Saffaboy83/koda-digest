@@ -45,7 +45,7 @@ tailwind.config = {
 .kn-link .material-symbols-outlined{font-size:13px;vertical-align:-2px;margin-right:2px}
 .kn-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
 .kn-desktop-social{display:none;align-items:center;gap:4px}@media(min-width:769px){.kn-desktop-social{display:flex}}
-.kn-hamburger{display:none}@media(max-width:768px){.kn-hamburger{display:flex}}
+.kn-hamburger{display:none!important}@media(max-width:768px){.kn-hamburger{display:flex!important}}
 .kn-action-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s;text-decoration:none}
 .kn-action-btn:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
 .kn-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1001;opacity:0;visibility:hidden;transition:opacity 0.3s}
@@ -118,6 +118,9 @@ body.kn-locked{overflow:hidden}
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
             </button>
         </div>
+        <button class="kn-action-btn" id="knSearchBtn" title="Search (Ctrl+K)" aria-label="Search">
+            <span class="material-symbols-outlined">search</span>
+        </button>
         <button class="kn-action-btn kn-hamburger" id="knMenuBtn" title="Menu" aria-label="Open menu">
             <span class="material-symbols-outlined">menu</span>
         </button>
