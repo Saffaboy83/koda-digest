@@ -1,361 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koda Intelligence | 9 April 2026</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%236366F1'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='system-ui' font-weight='800'>K</text></svg>">
-    <meta property="og:title" content="The Signal | 9 April 2026">
-    <meta property="og:description" content="DeepSeek V4 sits at 94% on prediction markets while U.S. strikes erase a historic Tehran synagogue.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.koda.community/morning-briefing-koda-2026-04-09.html">
-    <meta property="og:site_name" content="Koda Digest">
-    <meta property="og:image" content="https://www.koda.community/og-image.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="description" content="DeepSeek V4 sits at 94% on prediction markets while U.S. strikes erase a historic Tehran synagogue.">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "NewsArticle",
-        "headline": "The Signal | 9 April 2026",
-        "datePublished": "2026-04-09",
-        "description": "DeepSeek V4 sits at 94% on prediction markets while U.S. strikes erase a historic Tehran synagogue.",
-        "publisher": {"@type": "Organization", "name": "Koda Intelligence", "url": "https://www.koda.community"},
-        "mainEntityOfPage": "https://www.koda.community/morning-briefing-koda-2026-04-09.html"
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Signal | 09 April 2026 | Koda Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,600;0,800;0,900;1,400;1,700;1,900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%236366F1'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='system-ui' font-weight='800'>K</text></svg>">
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: { extend: {
+    colors: {
+      "surface": "#0b1326", "surface-container": "#171f33", "surface-container-low": "#131b2e",
+      "surface-container-high": "#222a3d", "surface-container-highest": "#2d3449",
+      "surface-container-lowest": "#060e20", "surface-bright": "#31394d",
+      "primary": "#3B82F6", "primary-dim": "#6366F1", "primary-container": "#3B82F6",
+      "secondary": "#8B5CF6", "tertiary": "#EC4899", "accent-cyan": "#06B6D4",
+      "error": "#EF4444", "success": "#10B981", "warning": "#F59E0B",
+      "on-surface": "#dae2fd", "on-surface-variant": "#c2c6d6",
+      "outline": "#8c909f", "outline-variant": "#424754",
+    },
+    fontFamily: {
+      headline: ["Inter", "system-ui", "sans-serif"],
+      body: ["Inter", "system-ui", "sans-serif"],
+      label: ["JetBrains Mono", "monospace"],
     }
-    </script>
-    <script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                fontFamily: {
-                    sans: ['Inter', 'system-ui', 'sans-serif'],
-                    mono: ['JetBrains Mono', 'monospace'],
-                }
-            }
-        }
-    }
-    </script>
-    <style>/* ── Material Symbols ─────────────────────────────────────────────────── */
-.material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    display: inline-block;
-    vertical-align: middle;
+  }}
 }
-
-/* ── Gradient Text ───────────────────────────────────────────────────── */
-.gradient-text {
-    background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #EC4899 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    padding-bottom: 0.15em;
-    margin-bottom: -0.15em;
-}
-
-/* ── Hero Gradient Background ────────────────────────────────────────── */
-.hero-gradient {
-    background:
-        radial-gradient(ellipse 80% 50% at 20% 60%, rgba(59, 130, 246, 0.12) 0%, transparent 100%),
-        radial-gradient(ellipse 60% 40% at 80% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 100%),
-        linear-gradient(180deg, rgba(11, 19, 38, 0.45) 0%, rgba(11, 19, 38, 0.6) 40%, rgba(6, 14, 32, 0.92) 100%);
-}
-
-/* ── Scroll Progress Bar ─────────────────────────────────────────────── */
-.scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    background: linear-gradient(90deg, #3B82F6, #8B5CF6);
-    z-index: 1001;
-    transition: width 0.1s linear;
-    pointer-events: none;
-}
-
-/* ── Back to Top Button ──────────────────────────────────────────────── */
-.back-to-top {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: rgba(23, 31, 51, 0.9);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #dae2fd;
-    font-size: 18px;
-    cursor: pointer;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 0.3s, transform 0.3s, background 0.2s;
-    pointer-events: none;
-}
-.back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
-.back-to-top:hover { background: #6366F1; color: white; }
-
-/* ── Day Navigation Buttons ──────────────────────────────────────────── */
-.day-nav-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 6px 12px;
-    font-size: 12px;
-    font-weight: 600;
-    font-family: 'JetBrains Mono', monospace;
-    color: #dae2fd;
-    background: rgba(23, 31, 51, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 6px;
-    text-decoration: none;
-    transition: all 0.2s;
-}
-.day-nav-btn:hover:not(.disabled) { background: #6366F1; color: white; border-color: #6366F1; }
-.day-nav-btn.disabled { opacity: 0.3; cursor: default; pointer-events: none; }
-
-/* ── Media Buttons ───────────────────────────────────────────────────── */
-.media-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 20px;
-    border-radius: 9999px;
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.25s;
-    border: none;
-    font-family: 'Inter', sans-serif;
-}
-.media-btn.podcast-btn { background: linear-gradient(135deg, #6366F1, #8B5CF6); color: white; }
-.media-btn.podcast-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4); }
-.media-btn.video-btn { background: linear-gradient(135deg, #EF4444, #EC4899); color: white; }
-.media-btn.video-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4); }
-.media-btn.expand-btn {
-    background: rgba(99, 102, 241, 0.1);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    color: #a78bfa;
-    font-size: 10px;
-    padding: 5px 14px;
-    margin-top: 4px;
-}
-.media-btn.expand-btn:hover { background: rgba(99, 102, 241, 0.2); }
-
-/* ── Video Overlay ───────────────────────────────────────────────────── */
-.video-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.92);
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-}
-.video-overlay.active { display: flex; }
-.video-overlay-inner { width: 100%; max-width: 1100px; position: relative; }
-.video-overlay-close {
-    position: absolute;
-    top: -44px;
-    right: 0;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 32px;
-    cursor: pointer;
-    padding: 8px;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-    min-width: 44px;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.video-overlay-close:hover { opacity: 1; }
-
-/* ── Infographic Lightbox ────────────────────────────────────────────── */
-.infographic-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.95);
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    cursor: zoom-out;
-}
-.infographic-overlay.active { display: flex; }
-.infographic-overlay img {
-    max-width: 100%;
-    max-height: 100vh;
-    object-fit: contain;
-    cursor: default;
-    border-radius: 8px;
-}
-.infographic-overlay-close {
-    position: fixed;
-    top: 16px;
-    right: 16px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s;
-    z-index: 10000;
-}
-.infographic-overlay-close:hover { background: rgba(255, 255, 255, 0.2); }
-
-/* ── Podcast Player ──────────────────────────────────────────────────── */
-.podcast-player-wrap { display: none; }
-.podcast-player-wrap.active { display: block; }
-
-/* ── Expandable Sections (Mobile Accordions) ─────────────────────────── */
-.expandable-header {
-    background: none;
-    border: none;
-    color: inherit;
-    font: inherit;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    cursor: pointer;
-}
-@media (min-width: 1024px) {
-    .expandable-header {
-        padding: 0;
-        border-bottom: none;
-    }
-}
-
-/* ── Section Scroll Margin ───────────────────────────────────────────── */
-.section { scroll-margin-top: 80px; }
-
-/* ── Sidebar Scroll ──────────────────────────────────────────────────── */
-.sidebar-scroll {
-    max-height: calc(100vh - 5rem);
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.08) transparent;
-}
-.sidebar-scroll::-webkit-scrollbar { width: 4px; }
-.sidebar-scroll::-webkit-scrollbar-track { background: transparent; }
-.sidebar-scroll::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.08); border-radius: 2px; }
-.sidebar-scroll::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.15); }
-
-/* ── Focus Styles (Accessibility) ────────────────────────────────────── */
-:focus-visible { outline: 2px solid #3B82F6; outline-offset: 2px; border-radius: 4px; }
-
-/* ── Print ───────────────────────────────────────────────────────────── */
-@media print {
-    header, .scroll-progress, .back-to-top, .video-overlay, #dayNav { display: none !important; }
-    body { background: white !important; color: black !important; }
-    .section { break-inside: avoid; }
-    .gradient-text { -webkit-text-fill-color: #0F172A; }
-    .hero-gradient { background: white !important; }
-    aside { position: static !important; }
-    aside > div { position: static !important; }
-}
-
-/* -- Koda Nav V2 -- */
+</script>
+<style>
+/* Koda Nav V2 */
 .kn-topbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(11,19,38,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
 .kn-topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:8px}
 .kn-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;flex-shrink:0}
-.kn-brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0}
+.kn-brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px}
 .kn-brand-text{font-size:14px;font-weight:700;color:#3B82F6}
-.kn-brand-sub{font-size:10px;color:#8c909f;display:none}
-@media(min-width:640px){.kn-brand-sub{display:block}}
-.kn-links{display:none;align-items:center;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;flex:1;justify-content:center}
-@media(min-width:769px){.kn-links{display:flex}}
+.kn-brand-sub{font-size:10px;color:#8c909f;display:none}@media(min-width:640px){.kn-brand-sub{display:block}}
+.kn-links{display:none;align-items:center;gap:2px;overflow-x:auto;flex:1;justify-content:center}@media(min-width:769px){.kn-links{display:flex}}
 .kn-link{font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 8px;border-radius:6px;text-decoration:none;transition:all 0.2s;white-space:nowrap;color:#8c909f;background:rgba(255,255,255,0.04)}
 .kn-link:hover{color:#dae2fd;background:rgba(255,255,255,0.08)}
 .kn-link-active{color:#3B82F6!important;background:rgba(59,130,246,0.12)!important;border-bottom:2px solid #3B82F6}
 .kn-link .material-symbols-outlined{font-size:13px;vertical-align:-2px;margin-right:2px}
 .kn-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.kn-desktop-social{display:none;align-items:center;gap:4px}@media(min-width:769px){.kn-desktop-social{display:flex}}
+.kn-hamburger{display:none}@media(max-width:768px){.kn-hamburger{display:flex}}
 .kn-action-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s;text-decoration:none}
 .kn-action-btn:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
-.kn-action-btn .material-symbols-outlined{font-size:20px}
-.kn-hamburger{display:flex}
-@media(min-width:769px){.kn-hamburger{display:none}}
-.kn-desktop-social{display:none;align-items:center;gap:4px}
-@media(min-width:769px){.kn-desktop-social{display:flex}}
-.kn-home{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white!important;font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 10px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all 0.2s}
-.kn-home:hover{box-shadow:0 4px 16px rgba(59,130,246,0.3)}
-.kn-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1001;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s}
+.kn-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1001;opacity:0;visibility:hidden;transition:opacity 0.3s}
 .kn-overlay.kn-open{opacity:1;visibility:visible}
-.kn-drawer{position:fixed;top:0;right:0;bottom:0;width:min(280px,85vw);background:rgba(11,19,38,0.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-left:1px solid rgba(173,198,255,0.1);z-index:1002;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.kn-drawer{position:fixed;top:0;right:0;bottom:0;width:min(280px,85vw);background:rgba(11,19,38,0.98);backdrop-filter:blur(24px);border-left:1px solid rgba(173,198,255,0.1);z-index:1002;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);overflow-y:auto}
 .kn-drawer.kn-open{transform:translateX(0)}
-@media(prefers-reduced-motion:reduce){.kn-overlay,.kn-drawer{transition-duration:0.01ms!important}}
 .kn-drawer-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06)}
 .kn-drawer-brand{display:flex;align-items:center;gap:10px}
-.kn-drawer-close{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s}
-.kn-drawer-close:hover{background:rgba(239,68,68,0.15);color:#EF4444}
+.kn-drawer-close{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer}
 .kn-drawer-section{padding:12px 20px 4px;font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#6b7280}
-.kn-drawer-divider{height:1px;background:rgba(255,255,255,0.06);margin:8px 20px}
-.kn-drawer-link{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:#c2c6d6;font-size:14px;font-weight:500;transition:all 0.2s;border-left:3px solid transparent}
-.kn-drawer-link:hover{background:rgba(255,255,255,0.04);color:#dae2fd}
+.kn-drawer-link{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:#c2c6d6;font-size:14px;font-weight:500;border-left:3px solid transparent}
 .kn-drawer-link-active{color:#3B82F6!important;border-left-color:#3B82F6;background:rgba(59,130,246,0.08)}
-.kn-drawer-link .material-symbols-outlined{font-size:20px;color:#6b7280;flex-shrink:0}
+.kn-drawer-link .material-symbols-outlined{font-size:20px;color:#6b7280}
 .kn-drawer-link-active .material-symbols-outlined{color:#3B82F6}
-.kn-drawer-home{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:white;font-size:14px;font-weight:600;border-left:3px solid transparent;transition:all 0.2s}
-.kn-drawer-home:hover{background:rgba(59,130,246,0.1)}
+.kn-drawer-home{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:white;font-size:14px;font-weight:600;border-left:3px solid transparent}
 .kn-drawer-home .material-symbols-outlined{font-size:20px;color:#3B82F6}
-.kn-drawer-social{display:flex;gap:8px;padding:12px 20px}
-.kn-drawer-social a,.kn-drawer-social button{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;text-decoration:none;transition:all 0.2s}
-.kn-drawer-social a:hover,.kn-drawer-social button:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
 body.kn-locked{overflow:hidden}
-/* -- End Koda Nav V2 -- */
+
+/* Stitch cinematic design system */
+.glass-card { background:rgba(13,19,33,0.7); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px) }
+.cinematic-shadow { box-shadow:0 40px 100px -20px rgba(0,0,0,0.8) }
+.text-gradient { background:linear-gradient(135deg,#3B82F6 0%,#8B5CF6 50%,#EC4899 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; padding-bottom:0.15em }
+.sparkline-up { background:linear-gradient(90deg,transparent,rgba(16,185,129,0.2),transparent) }
+.sparkline-down { background:linear-gradient(90deg,transparent,rgba(239,68,68,0.2),transparent) }
+.fear-pulse { animation:pf 2s ease-in-out infinite }
+@keyframes pf { 0%,100%{opacity:1} 50%{opacity:0.5} }
+
+/* Mobile responsive */
+@media(max-width:768px){
+  .min-h-\[70vh\]{min-height:60vh}
+  h1{font-size:2.5rem!important}
+  section{overflow-x:hidden}
+}
 </style>
 </head>
-<body class="bg-[#0b1326] text-[#dae2fd] font-sans antialiased min-h-screen flex flex-col" data-digest-date="2026-04-09" data-youtube-id="B3YlxwSe1t0">
+<body class="bg-surface text-on-surface font-body overflow-x-hidden">
 
-
-<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-<button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
-
-
-<!-- koda-nav-v2-start -->
-<header class="kn-topbar" id="knTopbar">
-<div class="kn-topbar-inner">
-    <a href="./index.html" class="kn-brand">
-        <div class="kn-brand-icon">K</div>
-        <div>
-            <div class="kn-brand-text">Koda Intelligence</div>
-            <div class="kn-brand-sub"><span class="material-symbols-outlined" style="font-size:11px;vertical-align:-1px;margin-right:2px">bolt</span>The Signal</div>
-        </div>
-    </a>
+<!-- Koda Nav V2 -->
+<header class="kn-topbar"><div class="kn-topbar-inner">
+    <a href="./index.html" class="kn-brand"><div class="kn-brand-icon">K</div><div><div class="kn-brand-text">Koda Intelligence</div><div class="kn-brand-sub"><span class="material-symbols-outlined" style="font-size:11px;vertical-align:-1px;margin-right:2px">bolt</span>The Signal</div></div></a>
     <div class="kn-links">
-        <a href="./morning-briefing-koda.html" class="kn-link kn-link-active"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
-        <a href="./editorial/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">explore</span>Deep Dive</a>
-        <a href="./pricing/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">monitoring</span>Token Tracker</a>
-        <a href="./benchmarks/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">trophy</span>Leaderboard</a>
-        <a href="./reviews/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">science</span>The Lab</a>
-        <a href="./dojo/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">school</span>The Dojo</a>
-        <a href="./changelog/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">pulse_alert</span>Pulse</a>
-        <a href="./archive/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
-        <a href="./index.html" class="kn-home">&larr; Home</a>
+        <a href="./morning-briefing-koda.html" class="kn-link kn-link-active"><span class="material-symbols-outlined">bolt</span>The Signal</a>
+        <a href="./editorial/" class="kn-link"><span class="material-symbols-outlined">explore</span>Deep Dive</a>
+        <a href="./pricing/" class="kn-link"><span class="material-symbols-outlined">monitoring</span>Token Tracker</a>
+        <a href="./benchmarks/" class="kn-link"><span class="material-symbols-outlined">trophy</span>Leaderboard</a>
+        <a href="./reviews/" class="kn-link"><span class="material-symbols-outlined">science</span>The Lab</a>
+        <a href="./dojo/" class="kn-link"><span class="material-symbols-outlined">school</span>The Dojo</a>
+        <a href="./changelog/" class="kn-link"><span class="material-symbols-outlined">pulse_alert</span>Pulse</a>
+        <a href="./archive/" class="kn-link"><span class="material-symbols-outlined">lock_open</span>The Vault</a>
+        <a href="./index.html" class="kn-link" style="background:linear-gradient(135deg,#3B82F6,#6366F1);color:white!important">&larr; Home</a>
     </div>
     <div class="kn-actions">
-        
         <div class="hidden md:flex items-center" id="dayNav">
             <div class="relative">
                 <button id="datePickerBtn" class="flex items-center gap-1 font-mono text-[10px] font-bold text-[#3B82F6] px-2 py-1 bg-[#3B82F6]/10 rounded-md hover:bg-[#3B82F6]/20 transition-all cursor-pointer border-none" title="Jump to date">
@@ -376,1278 +118,564 @@ body.kn-locked{overflow:hidden}
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
             </button>
         </div>
-        <button class="kn-action-btn" id="knSearchBtn" title="Search (Ctrl+K)" aria-label="Search">
-            <span class="material-symbols-outlined">search</span>
-        </button>
-        <button class="kn-action-btn kn-hamburger" id="knMenuBtn" title="Menu" aria-label="Open menu" aria-expanded="false">
+        <button class="kn-action-btn kn-hamburger" id="knMenuBtn" title="Menu" aria-label="Open menu">
             <span class="material-symbols-outlined">menu</span>
         </button>
     </div>
-</div>
-</header>
-
-<!-- Drawer overlay -->
+</div></header>
 <div class="kn-overlay" id="knOverlay"></div>
-
-<!-- Slide-out drawer -->
-<nav class="kn-drawer" id="knDrawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
-    <div class="kn-drawer-header">
-        <div class="kn-drawer-brand">
-            <div class="kn-brand-icon">K</div>
-            <span class="kn-brand-text">Koda</span>
-        </div>
-        <button class="kn-drawer-close" id="knDrawerClose" aria-label="Close menu">
-            <span class="material-symbols-outlined">close</span>
-        </button>
-    </div>
+<nav class="kn-drawer" id="knDrawer">
+    <div class="kn-drawer-header"><div class="kn-drawer-brand"><div class="kn-brand-icon">K</div><span class="kn-brand-text">Koda</span></div><button class="kn-drawer-close" id="knDrawerClose"><span class="material-symbols-outlined">close</span></button></div>
     <div class="kn-drawer-section">Navigate</div>
     <a href="./index.html" class="kn-drawer-home"><span class="material-symbols-outlined">home</span>Home</a>
     <a href="./morning-briefing-koda.html" class="kn-drawer-link kn-drawer-link-active"><span class="material-symbols-outlined">bolt</span>The Signal</a>
     <a href="./editorial/" class="kn-drawer-link"><span class="material-symbols-outlined">explore</span>Deep Dive</a>
-    <a href="./pricing/" class="kn-drawer-link"><span class="material-symbols-outlined">monitoring</span>Token Tracker</a>
-    <a href="./benchmarks/" class="kn-drawer-link"><span class="material-symbols-outlined">trophy</span>Leaderboard</a>
     <a href="./reviews/" class="kn-drawer-link"><span class="material-symbols-outlined">science</span>The Lab</a>
     <a href="./dojo/" class="kn-drawer-link"><span class="material-symbols-outlined">school</span>The Dojo</a>
-    <a href="./changelog/" class="kn-drawer-link"><span class="material-symbols-outlined">pulse_alert</span>Pulse</a>
     <a href="./archive/" class="kn-drawer-link"><span class="material-symbols-outlined">lock_open</span>The Vault</a>
-    <div class="kn-drawer-divider"></div>
-    <div class="kn-drawer-section">Share</div>
-    <div class="kn-drawer-social">
-        <a href="https://x.com/intent/tweet?url=https://www.koda.community/morning-briefing-koda.html" target="_blank" rel="noopener" title="Share on X">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/morning-briefing-koda.html" target="_blank" rel="noopener" title="Share on LinkedIn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <button onclick="navigator.clipboard.writeText(window.location.href);this.style.color='#10B981';setTimeout(()=>this.style.color='',1500)" title="Copy link">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
-        </button>
-    </div>
 </nav>
-<!-- koda-nav-v2-end -->
 
+<main class="min-h-screen">
 
-<section class="relative w-full pt-14 overflow-hidden">
-    
+<!-- HERO -->
+<section class="relative w-full min-h-[70vh] flex items-center px-8 md:px-16 overflow-hidden">
     <div class="absolute inset-0 z-0">
-        <img src="./hero-2026-04-09.jpg" class="w-full h-full object-cover object-center opacity-50 scale-105" alt="" aria-hidden="true">
+        <img alt="" class="w-full h-full object-cover brightness-[0.3] scale-105" src="./hero-2026-04-09.jpg"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-surface via-transparent to-transparent"></div>
     </div>
-    
-    <div class="hero-gradient absolute inset-0 z-[1]"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-12 md:pt-24 md:pb-20 flex flex-col md:flex-row items-end justify-between gap-8">
-        <div class="max-w-3xl">
-            <p class="font-mono text-xs text-[#3B82F6] mb-3 tracking-[0.2em] uppercase">9 April 2026</p>
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[1.15] mb-4 gradient-text pb-4">
-                <span class="material-symbols-outlined" style="font-size:0.5em;vertical-align:0.05em;margin-right:8px">bolt</span>The Signal
-            </h1>
-            
-            <p class="text-base md:text-lg text-[#c2c6d6] font-light tracking-tight leading-relaxed max-w-2xl">DeepSeek V4 sits at 94% on prediction markets while U.S. strikes erase a historic Tehran synagogue.</p>
-            
-        </div>
-        
-    </div>
-</section>
-
-
-<div class="max-w-7xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-12">
-
-
-<div class="lg:w-[65%] space-y-16">
-
-    
-    
-    <section class="section" id="daily-summary">
-        <div class="section-title flex items-center gap-4 mb-8">
-            <h3 class="text-2xl font-black tracking-tight uppercase">The Signal</h3>
-            <div class="h-px flex-grow bg-white/[0.1]"></div>
-        </div>
-        <div class="space-y-3">
-            
-            
-            
-            
-            
-            <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors duration-300 group">
-                <div class="flex justify-between items-start mb-1.5">
-                    <span class="text-[11px] uppercase tracking-[0.1em] font-bold" style="color: #3B82F6">AI</span>
-                    <span class="material-symbols-outlined text-[#8c909f] text-lg transition-colors">smart_toy</span>
-                </div>
-                <p class="text-sm text-[#c2c6d6] leading-relaxed">OpenAI announced its next phase of enterprise AI deployment as prediction markets price DeepSeek V4&#39;s imminent release at 94%, signaling another inflection point in the open-vs-closed model race.</p>
-            </div>
-            
-            
-            
-            <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors duration-300 group">
-                <div class="flex justify-between items-start mb-1.5">
-                    <span class="text-[11px] uppercase tracking-[0.1em] font-bold" style="color: #EF4444">World</span>
-                    <span class="material-symbols-outlined text-[#8c909f] text-lg transition-colors">public</span>
-                </div>
-                <p class="text-sm text-[#c2c6d6] leading-relaxed">Israel intensified strikes across Lebanon, threatening the fragile Iran ceasefire, while a U.S. airstrike destroyed a historic synagogue in Tehran, drawing international condemnation and raising questions about targeting protocols.</p>
-            </div>
-            
-            
-            
-            <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors duration-300 group">
-                <div class="flex justify-between items-start mb-1.5">
-                    <span class="text-[11px] uppercase tracking-[0.1em] font-bold" style="color: #10B981">Markets</span>
-                    <span class="material-symbols-outlined text-[#8c909f] text-lg transition-colors">trending_up</span>
-                </div>
-                <p class="text-sm text-[#c2c6d6] leading-relaxed">Asian markets slid on growing doubts that the Iran ceasefire will hold, pushing sentiment deeper into Extreme Fear territory for the second consecutive week.</p>
-            </div>
-            
-            
-            
-            <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors duration-300 group">
-                <div class="flex justify-between items-start mb-1.5">
-                    <span class="text-[11px] uppercase tracking-[0.1em] font-bold" style="color: #F59E0B">Wild Card</span>
-                    <span class="material-symbols-outlined text-[#8c909f] text-lg transition-colors">bolt</span>
-                </div>
-                <p class="text-sm text-[#c2c6d6] leading-relaxed">Meta shipped its fourth custom MTIA silicon chip in just two years and simultaneously unveiled TRIBE v2, a brain prediction model: the company is now building both the hardware and the neuroscience layer for next-generation AI.</p>
-            </div>
-            
-        </div>
-    </section>
-    
-
-    
-    
-    
-    <section class="section lg:hidden">
-        <div class="section-title flex items-center gap-4 mb-6">
-            <h3 class="text-lg font-black tracking-tight uppercase">Markets</h3>
-            <div class="h-px flex-grow bg-white/[0.1]"></div>
-        </div>
-        <div class="grid grid-cols-3 gap-2">
-            
-            
-            
-            
-            
-            
-            
-            <div class="bg-[#131b2e] p-3 text-center">
-                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">S&amp;P 500</div>
-                <div class="market-price text-[13px] font-mono font-bold">6,782.81</div>
-                <div class="market-change text-[10px] font-mono" style="color: #10B981">+2.51%</div>
-            </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            <div class="bg-[#131b2e] p-3 text-center">
-                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">NASDAQ</div>
-                <div class="market-price text-[13px] font-mono font-bold">22,634.99</div>
-                <div class="market-change text-[10px] font-mono" style="color: #10B981">+2.80%</div>
-            </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            <div class="bg-[#131b2e] p-3 text-center">
-                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">BTC</div>
-                <div class="market-price text-[13px] font-mono font-bold">$71,277.81</div>
-                <div class="market-change text-[10px] font-mono" style="color: #10B981">+0.23%</div>
-            </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            <div class="bg-[#131b2e] p-3 text-center">
-                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">ETH</div>
-                <div class="market-price text-[13px] font-mono font-bold">$2,184.18</div>
-                <div class="market-change text-[10px] font-mono" style="color: #EF4444">-0.27%</div>
-            </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            <div class="bg-[#131b2e] p-3 text-center">
-                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">Oil</div>
-                <div class="market-price text-[13px] font-mono font-bold">$97.67</div>
-                <div class="market-change text-[10px] font-mono" style="color: #10B981">+1.09%</div>
-            </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            <div class="bg-[#131b2e] p-3 text-center">
-                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">Sentiment</div>
-                <div class="market-price text-[13px] font-mono font-bold">14</div>
-                <div class="market-change text-[10px] font-mono" style="color: #EF4444">Extreme Fear</div>
-            </div>
-            
-            
-        </div>
-    </section>
-    
-
-    
-    <section class="section grid grid-cols-1 sm:grid-cols-2 gap-4">
-        
-        <div class="p-5 bg-gradient-to-br from-[#0f1629] to-[#162040] border border-[#6366F1]/20 rounded-xl text-center flex flex-col items-center gap-1.5">
-            <span class="material-symbols-outlined text-[#6366F1] text-2xl">headphones</span>
-            <div class="text-sm font-bold">Daily Podcast</div>
-            <div class="text-[11px] text-white/40 mb-2">AI-generated deep-dive briefing</div>
-            <button class="podcast-btn media-btn" onclick="togglePodcast()" aria-expanded="false" aria-controls="podcastPlayer">&#9654; Listen Now</button>
-            <div class="podcast-player-wrap w-full md:max-w-[300px] mt-3" id="podcastPlayer">
-                <audio controls style="width:100%" preload="none" aria-label="Daily podcast"><source src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/podcast-2026-04-09.mp3" type="audio/mpeg"></audio>
-            </div>
-        </div>
-        
-
-        
-        <div class="p-5 bg-gradient-to-br from-[#0f1629] to-[#162040] border border-[#EC4899]/20 rounded-xl text-center flex flex-col items-center gap-1.5">
-            <span class="material-symbols-outlined text-[#EC4899] text-2xl">smart_display</span>
-            <div class="text-sm font-bold">Video Briefing</div>
-            <div class="text-[11px] text-white/40 mb-2">AI-generated cinematic explainer</div>
-            <a href="https://www.youtube.com/watch?v=B3YlxwSe1t0" target="_blank" rel="noopener" class="media-btn video-btn no-underline inline-block">&#9654; Watch on YouTube</a>
-            <button class="media-btn expand-btn" onclick="toggleVideo()">&#9654; Watch Inline</button>
-            <div class="video-overlay" id="videoOverlay" role="dialog" aria-modal="true" aria-label="Video player" onclick="if(event.target===this)toggleVideo()">
-                <div class="video-overlay-inner">
-                    <button class="video-overlay-close" onclick="toggleVideo()" aria-label="Close video">&times;</button>
-                    <iframe id="videoFrame" width="100%" style="aspect-ratio:16/9;border:none;border-radius:12px" allowfullscreen title="Video briefing"></iframe>
-                </div>
-            </div>
-        </div>
-        
-    </section>
-
-    
-    
-    <section class="section" id="infographic">
-        <div class="section-title flex items-center gap-4 mb-8">
-            <h3 class="text-2xl font-black tracking-tight uppercase">Daily Infographic</h3>
-            <div class="h-px flex-grow bg-white/[0.1]"></div>
-        </div>
-        <div class="bg-[#131b2e] border border-white/[0.06] rounded-xl p-4 text-center cursor-zoom-in" onclick="openInfographic('https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/infographic-2026-04-09.jpg')">
-            <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/infographic-2026-04-09.jpg" alt="Koda Daily Infographic 2026-04-09" class="max-w-full rounded-lg">
-            <p class="text-[10px] text-[#8c909f] mt-2">Click to expand</p>
-        </div>
-    </section>
-    
-    <div class="infographic-overlay" id="infographicOverlay" onclick="if(event.target===this)closeInfographic()">
-        <button class="infographic-overlay-close" onclick="closeInfographic()" aria-label="Close infographic">&times;</button>
-        <img id="infographicFull" src="" alt="Koda Daily Infographic 2026-04-09" />
-    </div>
-    
-
-    
-    
-    <section class="section" id="todays-editorial">
-        <div class="flex items-center gap-1.5 mb-4">
-            <span class="material-symbols-outlined text-sm text-[#8B5CF6]">edit_note</span>
-            <span class="text-xs font-black tracking-[0.15em] uppercase text-[#8c909f]"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:3px">explore</span>Deep Dive</span>
-        </div>
-        <a href="./editorial/2026-04-09-ai-benchmarks-are-systematically-misleading-due-to-training-.html" target="_blank" class="block p-5 bg-[#131b2e] hover:bg-[#171f33] border-l-4 border-[#8B5CF6] transition-colors no-underline group">
-            <div class="flex flex-wrap items-center gap-2 mb-2.5">
-                <span class="text-[10px] font-bold uppercase tracking-widest bg-[#8B5CF6]/10 text-[#8B5CF6] px-2 py-0.5 rounded">Strategy</span>
-                <span class="text-[11px] text-[#8c909f]">7 min read</span>
-            </div>
-            <h3 class="text-[15px] font-bold text-[#dae2fd] leading-snug mb-3 group-hover:text-white transition-colors">AI benchmarks are systematically misleading due to training data contamination, meaning the metrics builders rely on to</h3>
-            <span class="text-[11px] font-bold uppercase tracking-widest text-[#8B5CF6]">Read Analysis &rarr;</span>
-        </a>
-    </section>
-    
-
-    
-    
-    
-    <section class="section" id="todays-focus">
-        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
-            <div class="flex items-center gap-4 flex-grow min-w-0">
-                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">Today's Focus</h3>
-                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
-            </div>
-            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
-        </button>
-        <div class="expandable-content hidden mt-4 lg:mt-0">
-        <div class="space-y-3">
-            
-            
-            <div class="flex gap-4 items-start p-5 bg-[#131b2e]">
-                <div class="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm text-white flex-shrink-0" style="background: linear-gradient(135deg, #3B82F6, #8B5CF6)">1</div>
-                <div>
-                    <div class="focus-content-title text-sm font-bold mb-1">DeepSeek V4 Nears Launch</div>
-                    <div class="focus-content-body text-[13px] text-[#c2c6d6] leading-relaxed">Prediction markets now assign a 94% probability to the release of DeepSeek V4, which would represent China&#39;s most capable frontier model to date. Hugging Face&#39;s simultaneous release of Darwin-31B-Opus, a reasoning-focused merge, underscores how the open-weight ecosystem is accelerating independently of any single lab. OpenAI&#39;s enterprise push looks increasingly like a race to lock in customers before the next wave of competitive open models lands.</div>
-                </div>
-            </div>
-            
-            <div class="flex gap-4 items-start p-5 bg-[#131b2e]">
-                <div class="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm text-white flex-shrink-0" style="background: linear-gradient(135deg, #8B5CF6, #8B5CF6)">2</div>
-                <div>
-                    <div class="focus-content-title text-sm font-bold mb-1">Ceasefire Collapse Risks Escalation</div>
-                    <div class="focus-content-body text-[13px] text-[#c2c6d6] leading-relaxed">Israeli bombardment of Lebanon and fresh U.S. strikes inside Iran, including one that destroyed a centuries-old Tehran synagogue, are eroding whatever diplomatic progress the two-week ceasefire achieved. NPR&#39;s pointed questioning of what the U.S. campaign has accomplished reflects growing domestic skepticism. Trump&#39;s new 50% tariffs on Iran arms suppliers add economic pressure but may also harden Tehran&#39;s posture.</div>
-                </div>
-            </div>
-            
-            <div class="flex gap-4 items-start p-5 bg-[#131b2e]">
-                <div class="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm text-white flex-shrink-0" style="background: linear-gradient(135deg, #10B981, #8B5CF6)">3</div>
-                <div>
-                    <div class="focus-content-title text-sm font-bold mb-1">Meta&#39;s Vertical AI Stack</div>
-                    <div class="focus-content-body text-[13px] text-[#c2c6d6] leading-relaxed">Shipping four generations of custom MTIA inference chips in 24 months gives Meta a silicon cadence rivaling Apple&#39;s. Pairing that hardware trajectory with TRIBE v2, a model that predicts brain activity from visual stimuli, signals Meta&#39;s ambition to own the full stack from transistor to neuroscience. The combination could reshape both the cost structure of large-scale inference and the frontier of brain-computer interface research.</div>
-                </div>
-            </div>
-            
-        </div>
-        </div>
-    </section>
-    
-
-    
-    
-    
-    <section class="section" id="ai-developments">
-        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
-            <div class="flex items-center gap-4 flex-grow min-w-0">
-                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">AI Developments</h3>
-                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
-            </div>
-            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
-        </button>
-        <div class="expandable-content hidden mt-4 lg:mt-0">
-        <div class="grid md:grid-cols-2 gap-4">
-            
-            
-            
-            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
-                <div class="flex gap-2 mb-2">
-                    <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #10B981; background: #10B98115">Enterprise</span>
-                </div>
-                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">OpenAI Announces Next Phase of Enterprise AI</h4>
-                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">OpenAI published a new initiative focused on enhancing enterprise AI solutions, aiming to integrate advanced AI capabilities into business workflows. The announcement, posted to OpenAI&#39;s official blog, signals a strategic push beyond consumer chatbots into deeper enterprise tooling, though specific product details remain sparse. <a href="https://openai.com/index/next-phase-of-enterprise-ai/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #10B981">Source &rarr;</a></p>
-            </article>
-            
-            
-            
-            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
-                <div class="flex gap-2 mb-2">
-                    <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #8B5CF6; background: #8B5CF615">Trend</span>
-                </div>
-                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Prediction Markets Price DeepSeek V4 at 94%</h4>
-                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Manifold prediction markets now give DeepSeek V4 a 94% probability of releasing in April 2026, up from 84% earlier in the week. GPT-5.5 sits at 88% probability for an April launch. Neither model has been confirmed by its respective company, but the high confidence reflects insider signals and leaked benchmarks circulating in developer communities. <a href="https://manifold.markets/prismatic/april-2026-ai-model-releases" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #8B5CF6">Source &rarr;</a></p>
-            </article>
-            
-            
-            
-            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
-                <div class="flex gap-2 mb-2">
-                    <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #10B981; background: #10B98115">Open Source</span>
-                </div>
-                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Hugging Face Releases Darwin-31B-Opus Reasoning Merge</h4>
-                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Hugging Face community members released Darwin-31B-Opus, a reasoning-enhanced model that merges Google&#39;s Gemma-4-31B-it with TeichAI&#39;s Claude Opus Distill using the Darwin V6 merging engine. The model targets improved chain-of-thought performance and is available on the Hugging Face Hub, illustrating how open-source model merging is becoming a distinct competitive strategy. <a href="https://huggingface.co/posts" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #10B981">Source &rarr;</a></p>
-            </article>
-            
-            
-            
-            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
-                <div class="flex gap-2 mb-2">
-                    <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #F59E0B; background: #F59E0B15">Hardware</span>
-                </div>
-                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Meta Ships Four MTIA Chips in Two Years</h4>
-                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Meta detailed its accelerated custom silicon roadmap, revealing it has shipped four generations of its MTIA (Meta Training and Inference Accelerator) chips in just two years. The chips power AI-driven experiences for billions of users across Meta&#39;s platforms, from personalized recommendations to generative AI features. The pace underscores Meta&#39;s commitment to reducing dependence on third-party GPU suppliers. <a href="https://ai.meta.com/blog/meta-mtia-scale-ai-chips-for-billions/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #F59E0B">Source &rarr;</a></p>
-            </article>
-            
-            
-            
-            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
-                <div class="flex gap-2 mb-2">
-                    <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #EC4899; background: #EC489915">Biotech</span>
-                </div>
-                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Meta Unveils TRIBE v2 Brain Prediction Model</h4>
-                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Meta announced TRIBE v2, described as its first AI foundation model trained to predict human brain responses to sights, sounds, and language. Building on the Algonauts 2025 challenge, the model maps neural activity patterns across sensory modalities. The research positions Meta at the intersection of neuroscience and AI, with potential applications in brain-computer interfaces and content optimization. <a href="https://ai.meta.com/blog/tribe-v2-brain-predictive-foundation-model/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #EC4899">Source &rarr;</a></p>
-            </article>
-            
-            
-            
-            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
-                <div class="flex gap-2 mb-2">
-                    <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #8B5CF6; background: #8B5CF615">Trend</span>
-                </div>
-                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Hugging Face Maps Open Source AI Spring 2026</h4>
-                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Hugging Face published its &#34;State of Open Source on Hugging Face: Spring 2026&#34; report, examining shifts in competition, geography, technical trends, and emerging communities across the open-source AI landscape. The report tracks how open-weight model releases have surged and how geographic diversity in contributors, particularly from China and the Middle East, has expanded significantly since late 2025. <a href="https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #8B5CF6">Source &rarr;</a></p>
-            </article>
-            
-            
-            
-            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
-                <div class="flex gap-2 mb-2">
-                    <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #8B5CF6; background: #8B5CF615">Benchmark</span>
-                </div>
-                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Benchmarks Called Misleading Due to Data Contamination</h4>
-                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Multiple developer-focused publications this week flagged that public AI benchmarks are increasingly unreliable due to training data contamination and environment-specific performance variations. SearchCans noted that adopting a &#34;model portfolio&#34; strategy, where different LLMs handle tasks based on cost-performance ratios, is now essential because no single benchmark reliably predicts real-world utility. <a href="https://www.searchcans.com/blog/ai-model-releases-april-2026-v2/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #8B5CF6">Source &rarr;</a></p>
-            </article>
-            
-            
-            
-            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
-                <div class="flex gap-2 mb-2">
-                    <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: #8B5CF6; background: #8B5CF615">Trend</span>
-                </div>
-                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">April 2026 Model Cadence Reaches Eight in Seven Days</h4>
-                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">The first week of April 2026 saw at least eight distinct model releases in seven days, spanning Anthropic&#39;s gated Claude Mythos, Zhipu AI&#39;s open-source GLM-5.1, Google&#39;s Gemma 4 family, Alibaba&#39;s Qwen 3.6-Plus, Microsoft&#39;s MAI suite, and PrismML&#39;s Bonsai 8B. WhatLLM noted the price range across the week&#39;s releases spans from free self-hosting to $125 per million output tokens, marking a philosophical split between open and closed AI development. <a href="https://whatllm.org/blog/new-ai-models-april-2026" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #8B5CF6">Source &rarr;</a></p>
-            </article>
-            
-        </div>
-        </div>
-    </section>
-    
-
-    
-    
-    
-    <section class="section" id="world-news">
-        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
-            <div class="flex items-center gap-4 flex-grow min-w-0">
-                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">World News</h3>
-                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
-            </div>
-            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
-        </button>
-        <div class="expandable-content hidden mt-4 lg:mt-0">
-        <div class="grid md:grid-cols-2 gap-4">
-            
-            
-            
-            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
-                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #EF4444; background: #EF444415">Conflict</span>
-                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Israel Pounds Lebanon, Threatening Fragile Iran Ceasefire</h4>
-                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Israel launched its heaviest airstrikes yet on Lebanon on April 8, killing hundreds in Beirut&#39;s Corniche al-Mazraa neighborhood. Iran accused the attacks of violating the two-week ceasefire brokered by Pakistan just one day earlier, with officials warning their &#34;hands remain on the trigger.&#34; Talks scheduled for April 11 in Pakistan will be led by U.S. Vice President J.D. Vance opposite Iranian Parliament Speaker Mohammad Baqer Qalibaf and Foreign Minister Abbas Araqchi. <a href="https://www.straitstimes.com/world/while-you-were-sleeping-5-stories-you-might-have-missed-april-9-2026" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #EF4444">Source &rarr;</a></p>
-            </article>
-            
-            
-            
-            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
-                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #8B5CF6; background: #8B5CF615">Policy</span>
-                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Trump Slaps 50% Tariffs on Iran Arms Suppliers</h4>
-                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Hours after the ceasefire announcement on April 8, President Trump declared immediate 50% tariffs on imports from countries supplying Iran with weapons, targeting China and Russia. The move escalates economic pressure alongside five weeks of U.S. airstrikes on Iranian military sites including Kharg Island oil facilities. The tariffs add a new economic front to the conflict as diplomatic talks approach. <a href="https://www.democracynow.org/2026/4/8/headlines" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #8B5CF6">Source &rarr;</a></p>
-            </article>
-            
-            
-            
-            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
-                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #F59E0B; background: #F59E0B15">Humanitarian</span>
-                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">U.S. Strikes Destroy Historic Tehran Synagogue</h4>
-                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">U.S. and Israeli attacks on April 8 completely leveled the Rafi-Nia Synagogue in Tehran, one of Iran&#39;s few remaining Jewish community sites. The destruction followed Trump&#39;s pre-ceasefire threats to demolish Iran&#39;s power plants and bridges. The incident is likely to intensify international criticism of the targeting scope in the ongoing campaign. <a href="https://www.democracynow.org/2026/4/8/headlines" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #F59E0B">Source &rarr;</a></p>
-            </article>
-            
-            
-            
-            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
-                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #10B981; background: #10B98115">Economy</span>
-                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Asian Markets Slide on Ceasefire Doubts</h4>
-                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">Markets in Tokyo, Seoul, and Sydney opened lower on April 9 as investors questioned whether the U.S.-Iran truce would hold. Federal Reserve minutes flagged two-sided risks from the Iran war, while the Chinese yuan hit a three-year high. The Strait of Hormuz remains largely blocked despite Iran&#39;s agreement to reopen it, continuing to disrupt global shipping routes including Hyundai&#39;s supply lines. <a href="https://www.straitstimes.com/world/while-you-were-sleeping-5-stories-you-might-have-missed-april-9-2026" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #10B981">Source &rarr;</a></p>
-            </article>
-            
-            
-            
-            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
-                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #3B82F6; background: #3B82F615">Diplomacy</span>
-                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">NPR Questions What U.S. Iran War Accomplished</h4>
-                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">NPR published an analysis on April 8 arguing that Trump&#39;s stated goals for the Iran war look &#34;mostly unmet&#34; after five weeks of conflict. The piece examines whether the campaign has achieved its objectives on the Strait of Hormuz, Iran&#39;s nuclear program, and regional stability. The assessment lands as both sides prepare for fragile negotiations in Pakistan. <a href="https://www.npr.org/sections/world/" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
-            </article>
-            
-            
-            
-            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
-                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #10B981; background: #10B98115">Economy</span>
-                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">JP Morgan&#39;s Dimon Warns of Economic Fallout</h4>
-                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">JP Morgan CEO Jamie Dimon warned in his annual letter of &#34;truly adverse consequences&#34; if the U.S. fails to bolster economic alliances amid the Iran conflict, now in its sixth week. Dimon urged stronger coordination with allies to manage the economic disruption from blocked shipping lanes and energy supply shocks. <a href="https://www.golocalprov.com/news/5-big-news-stories-overnight-tuesday-april-7-2026" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #10B981">Source &rarr;</a></p>
-            </article>
-            
-            
-            
-            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
-                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: #3B82F6; background: #3B82F615">Diplomacy</span>
-                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">Trump Renews NATO Criticism Amid Iran Crisis</h4>
-                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">In an April 9 statement, Trump warned that NATO &#34;won&#39;t be there if we need them again,&#34; linking longstanding alliance grievances to the ongoing Iran conflict. The remarks come as the U.S. pursues largely unilateral military operations in the Middle East alongside Israel, with European allies largely sidelined from both the campaign and upcoming peace talks. <a href="https://www.straitstimes.com/world/while-you-were-sleeping-5-stories-you-might-have-missed-april-9-2026" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: #3B82F6">Source &rarr;</a></p>
-            </article>
-            
-        </div>
-        </div>
-    </section>
-    
-
-    
-    
-    <section class="section" id="newsletter-intelligence">
-        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
-            <div class="flex items-center gap-4 flex-grow min-w-0">
-                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">Featured Newsletters</h3>
-                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
-            </div>
-            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
-        </button>
-        <div class="expandable-content hidden mt-4 lg:mt-0">
-        <p class="text-[13px] text-[#c2c6d6] mb-4 leading-relaxed">We read and recommend these newsletters. Here is what they are covering today. Subscribe to them directly for the full experience.</p>
-        
-        <div class="newsletter-card bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
-            <div class="newsletter-name text-[15px] font-bold mb-3">TLDR</div>
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Headlines</div>
-                <ul class="list-none p-0 m-0">
-                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Anthropic&#39;s Claude Mythos Preview autonomously identified thousands of zero-day vulnerabilities across major operating systems and browsers as part of Project Glasswing, a coordinated cybersecurity initiative with major tech companies</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Z.ai released GLM-5.1, a flagship agentic model achieving state-of-the-art performance on SWE-Bench Pro, capable of sustaining optimization over hundreds of rounds and thousands of tool calls on long-horizon tasks</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Weights &amp; Biases published a new guide on advancing physical AI, focusing on closing the sim-to-real gap for embodied intelligence and robotics systems</li>
-                </ul>
-            </div>
-            
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Deep Dives</div>
-                <div class="newsletter-item text-[13px] text-[#c2c6d6]">Ryan Greenblatt, chief scientist at Redwood Research, published a detailed forecast of the current AI landscape covering R&amp;D access regulations, engineering capabilities, misalignment risks, cyber and bioweapons concerns, and economic effects. Anthropic released a 31-minute detailed evaluation of Claude Mythos Preview, highlighting its strong performance in discovering zero-day vulnerabilities and reverse-engineering exploits, which prompted coordinated disclosure efforts across the industry.</div>
-            </div>
-            
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Quick Hits</div>
-                <ul class="list-none p-0 m-0">
-                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Project Glasswing partners Anthropic with major tech companies to detect and fix software vulnerabilities at scale using Claude Mythos</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">GLM-5.1 breaks complex problems down, runs experiments, reads results, and identifies blockers with real precision across extended agent sessions</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Redwood Research&#39;s Ryan Greenblatt notes some AI scenario claims remain highly speculative while others are better grounded in current evidence</li>
-                </ul>
-            </div>
-            
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Trending Tools</div>
-                <div class="flex flex-wrap gap-1.5">
-                    <span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Claude Mythos Preview: Anthropic&#39;s autonomous cybersecurity model capable of identifying thousands of zero-day vulnerabilities</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">GLM-5.1: Z.ai&#39;s agentic model built for long-horizon task performance with state-of-the-art SWE-Bench Pro results</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Weights &amp; Biases: Released a guide on physical AI workflows including multimodal model training and sim-to-real gap techniques</span>
-                </div>
-            </div>
-            
-            
-            
-            <a href="https://tldr.tech" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline">Read the full newsletter &rarr;</a>
-            
-        </div>
-        
-        <div class="newsletter-card bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
-            <div class="newsletter-name text-[15px] font-bold mb-3">Superhuman</div>
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Headlines</div>
-                <ul class="list-none p-0 m-0">
-                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Anthropic announces Claude Mythos model, withholds public release citing safety concerns around discovered cybersecurity vulnerabilities</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Clicky, an on-screen AI teaching tool, goes viral with 1M+ views on its launch video</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Google quietly releases AI Edge Eloquent, a free offline dictation app powered by Gemma models</li>
-                </ul>
-            </div>
-            
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Deep Dives</div>
-                <div class="newsletter-item text-[13px] text-[#c2c6d6]">Anthropic&#39;s upcoming Claude Mythos model has allegedly discovered thousands of cybersecurity vulnerabilities in web browsers and operating systems. To address this, Anthropic launched Project Glasswing, an initiative giving tech providers early access so they can patch defenses before the model&#39;s public release. The newsletter questions whether the safety delay is genuine caution or a recurring marketing pattern among AI labs, noting that benchmark comparisons against Opus 4.6 have already drawn 1.5 million views.</div>
-            </div>
-            
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Quick Hits</div>
-                <ul class="list-none p-0 m-0">
-                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Clicky uses Claude for reasoning and ElevenLabs for voice, watches your screen only when a hotkey is pressed, and guides users step by step on where to click to learn new software skills.</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Google AI Edge Eloquent is a free iOS app that transcribes speech in real time, strips filler words automatically, runs offline, and has no usage caps.</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Alex Albert shared benchmark comparisons showing how Claude Mythos stacks up against Opus 4.6, garnering 1.5 million views on X.</li>
-                </ul>
-            </div>
-            
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Trending Tools</div>
-                <div class="flex flex-wrap gap-1.5">
-                    <span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Clicky: open-source on-screen AI tutor using Claude and ElevenLabs, available on GitHub</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Google AI Edge Eloquent: free offline AI dictation app for iOS powered by Gemma models</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Spinach AI: AI meeting assistant (sponsor)</span>
-                </div>
-            </div>
-            
-            
-            <blockquote class="newsletter-quote border-l-[3px] border-[#8B5CF6] pl-4 py-2 my-3 italic text-[13px] text-[#c2c6d6]">"Some AI labs have a familiar pattern when releasing new AI models: Release new model, tell everyone it&#39;s extremely dangerous, nothing happens, repeat again in 6 months."</blockquote>
-            
-            
-            <a href="https://www.joinsuperhuman.ai" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline">Read the full newsletter &rarr;</a>
-            
-        </div>
-        
-        <div class="newsletter-card bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
-            <div class="newsletter-name text-[15px] font-bold mb-3">TLDR</div>
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Headlines</div>
-                <ul class="list-none p-0 m-0">
-                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Cluely CEO admitted to inflating ARR figures, spotlighting a widespread trust problem with AI startup growth metrics</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Databricks&#39; 2026 State of AI Agents report shows multi-agent systems grew 327% in under four months across 20,000+ organizations</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Agent skills are emerging as the new SDK: developer infrastructure companies must adapt their products for AI coding agents or fall behind</li>
-                </ul>
-            </div>
-            
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Deep Dives</div>
-                <div class="newsletter-item text-[13px] text-[#c2c6d6]">Databricks&#39; annual State of AI Agents report, drawing on telemetry from over 20,000 organizations including 60%+ of the Fortune 500, reveals that more than 80% of databases are now built by AI agents and companies with AI governance frameworks push 12x more projects to production. Of the top 15 enterprise use cases, 40% center on customer experience and engagement. Separately, the lack of standardization around ARR as a growth metric is enabling manipulation by AI startups, raising investor trust concerns while experts caution against heavy auditing in favor of transparency.</div>
-            </div>
-            
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Quick Hits</div>
-                <ul class="list-none p-0 m-0">
-                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">AI is reshaping SaaS activation: products that fail to deliver value in the first session are already falling behind competitors that use AI to accelerate onboarding</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Agent skills remove the bottleneck of developer bandwidth, effectively providing a 10x solutions engineer for every customer account</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">ARR lacks standardization across startups, allowing for manipulation; experts advocate for transparency over heavy auditing</li>
-                </ul>
-            </div>
-            
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Trending Tools</div>
-                <div class="flex flex-wrap gap-1.5">
-                    <span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Lightfield: AI-native CRM that learns sales routines described in plain English via its new SKILLS feature, used by 2,500+ startups</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Databricks: published the 2026 State of AI Agents report based on telemetry from 20,000+ organizations</span>
-                </div>
-            </div>
-            
-            
-            <blockquote class="newsletter-quote border-l-[3px] border-[#8B5CF6] pl-4 py-2 my-3 italic text-[13px] text-[#c2c6d6]">"Companies with AI governance frameworks pushed 12x more projects to production."</blockquote>
-            
-            
-            <a href="https://tldr.tech" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline">Read the full newsletter &rarr;</a>
-            
-        </div>
-        
-        <div class="newsletter-card bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
-            <div class="newsletter-name text-[15px] font-bold mb-3">TLDR</div>
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Headlines</div>
-                <ul class="list-none p-0 m-0">
-                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">ElevenLabs launches ElevenMusic iOS app that generates 3-minute songs from text prompts</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Leaked dummy units reveal Apple&#39;s foldable iPhone dimensions, featuring a ~7.8-inch unfolded display</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Marvel fans criticize new minimalist Wonder Man logo as a downgrade from the original serif design</li>
-                </ul>
-            </div>
-            
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Deep Dives</div>
-                <div class="newsletter-item text-[13px] text-[#c2c6d6]">A design system architect detailed a self-healing AI infrastructure using Claude Code as an orchestration layer, connecting six specialized agents to Figma, GitHub, Storybook, and other tools via MCP. The system automatically detects design drift, scores violations, generates fix PRs, and updates documentation, turning every human correction into a learning signal. A trust-level matrix ensures high-risk changes always require human review, reflecting the principle that full autonomy is never the goal.</div>
-            </div>
-            
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Quick Hits</div>
-                <ul class="list-none p-0 m-0">
-                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">ElevenMusic offers seven free AI-generated songs daily, with a $9.99/month Pro tier providing up to 500 tracks and competing directly with Google Lyria 3 Pro, Suno, and Udio</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Apple&#39;s foldable iPhone is expected to feature an almost invisible crease, use Touch ID instead of Face ID, and measure under 5 mm thick when unfolded</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Marvel&#39;s Wonder Man logo redesign, featuring a gray gradient impact-style font, drew widespread fan backlash for lacking the personality of branding seen in WandaVision and The Punisher</li>
-                </ul>
-            </div>
-            
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Trending Tools</div>
-                <div class="flex flex-wrap gap-1.5">
-                    <span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">ElevenMusic: iOS app by ElevenLabs for AI music generation from text prompts</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Claude Code: used as an orchestration layer for a self-healing design system connecting Figma, GitHub, and Storybook via MCP</span>
-                </div>
-            </div>
-            
-            
-            
-            <a href="https://tldr.tech" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline">Read the full newsletter &rarr;</a>
-            
-        </div>
-        
-        <div class="newsletter-card bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
-            <div class="newsletter-name text-[15px] font-bold mb-3">TLDR</div>
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Headlines</div>
-                <ul class="list-none p-0 m-0">
-                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Anthropic launches Project Glasswing, giving select organizations access to its unreleased Mythos Preview model for defensive cybersecurity</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Microsoft device code phishing campaign bypasses MFA by abusing legitimate authentication flows to capture tokens</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Router hijacking campaign disrupted after attackers stole Microsoft 365 credentials and OAuth tokens via compromised DNS settings</li>
-                </ul>
-            </div>
-            
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Deep Dives</div>
-                <div class="newsletter-item text-[13px] text-[#c2c6d6]">Analysis pieces highlight a growing gap between AI infrastructure enthusiasm and actual ROI, with most enterprise AI bets still failing to deliver durable operational value. Projects that survive scrutiny are those that demonstrably reduce toil, shrink mean time to recovery, or cut infrastructure spend in ways finance teams can verify. Channel and enterprise buyers are increasingly punishing vendors that offer AI demos without concrete operational outcomes, exposing pilots that lack clear business value.</div>
-            </div>
-            
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Quick Hits</div>
-                <ul class="list-none p-0 m-0">
-                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">91% of service management organizations report AI saves them money, according to Atlassian research; 93% say it increases efficiency</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">21% more teams are reporting cost savings from AI compared to 2024</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Law enforcement and private sector partners collaborated to disrupt DNS hijacking campaigns targeting Microsoft 365 logins on compromised routers</li>
-                </ul>
-            </div>
-            
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Trending Tools</div>
-                <div class="flex flex-wrap gap-1.5">
-                    <span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Anthropic Mythos Preview model (via Project Glasswing) for defensive cybersecurity</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Atlassian AI-powered virtual agents and self-service solutions for service management</span>
-                </div>
-            </div>
-            
-            
-            
-            <a href="https://tldr.tech" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline">Read the full newsletter &rarr;</a>
-            
-        </div>
-        
-        <div class="newsletter-card bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
-            <div class="newsletter-name text-[15px] font-bold mb-3">TLDR</div>
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Headlines</div>
-                <ul class="list-none p-0 m-0">
-                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Fox Corporation to integrate Kalshi prediction market data across its news broadcasts</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Split Capital winds down as founder Zaheer Ebtikar joins Thiel-backed stablecoin startup Plasma</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">CME Group to launch AVAX and SUI futures on May 4</li>
-                </ul>
-            </div>
-            
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Deep Dives</div>
-                <div class="newsletter-item text-[13px] text-[#c2c6d6]">trade[xyz] on Hyperliquid is emerging as the category leader in TradFi perpetual futures, extending perps to equities, commodities, and macro instruments with annualized fees approaching $100M and an official S&amp;P 500 partnership. The protocol demonstrated superior price discovery during the Iran strikes by repricing crude oil markets ahead of official confirmation, while weekend commodity volumes surged 7x to over $1B. Applying Geoffrey Moore&#39;s Gorilla Game framework, trade[xyz] holds dominant positioning but faces threats from VC-backed competitors like Lighter, regional entrants such as edgeX, and potential regulatory pressure from incumbents including Robinhood.</div>
-            </div>
-            
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Quick Hits</div>
-                <ul class="list-none p-0 m-0">
-                    <li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Kalshi reports roughly 70% of its visitors use the platform primarily to view forecasts rather than to trade, highlighting prediction markets&#39; growing role as a mainstream information layer.</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Plasma, the stablecoin startup Ebtikar is joining, raised $24M led by Framework Ventures and Bitfinex and offers near-instant, fee-free USDT transfers.</li><li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">Frontier opportunities in TradFi perps include cross-exchange arbitrage, rates trading, and high-yield consumer products incorporating equity and commodity basis, with protocols like Liminal and Ethena already building in this direction.</li>
-                </ul>
-            </div>
-            
-            
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Trending Tools</div>
-                <div class="flex flex-wrap gap-1.5">
-                    <span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Kalshi: prediction market platform now integrated into Fox broadcasts</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">trade[xyz]: Hyperliquid-based protocol for TradFi perpetual futures</span><span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">Plasma: Peter Thiel-backed stablecoin startup for fee-free USDT transfers</span>
-                </div>
-            </div>
-            
-            
-            
-            <a href="https://tldr.tech" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline">Read the full newsletter &rarr;</a>
-            
-        </div>
-        
-        </div>
-    </section>
-    
-
-    
-    
-    <section class="section" id="competitive-landscape">
-        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
-            <div class="flex items-center gap-4 flex-grow min-w-0">
-                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">Competitive Landscape</h3>
-                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
-            </div>
-            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
-        </button>
-        <div class="expandable-content hidden mt-4">
-            <div class="grid md:grid-cols-2 gap-4">
-                
-                
-                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
-                    <span class="comp-name text-[15px] font-bold block mb-1">OpenAI</span>
-                    <span class="text-[10px] text-[#3B82F6] font-semibold uppercase tracking-wider block mb-2 line-clamp-1">Launches enterprise AI initiative alongside Child Safety Blueprint</span>
-                    <p class="comp-body text-[13px] text-[#c2c6d6] leading-relaxed">OpenAI is rolling out a new enterprise AI phase aimed at deeper workflow integration for business customers, signaling a push to compete with Anthropic and Google on enterprise adoption. Separately, the company published its Child Safety Blueprint, providing developers with concrete strategies and tools for building safer AI applications. The enterprise push comes as OpenAI has been notably quiet on frontier model releases while rivals ship aggressively.</p>
-                    <a href="https://openai.com/index/next-phase-of-enterprise-ai/" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline block mt-2">Source &rarr;</a>
-                </div>
-                
-                
-            </div>
-        </div>
-    </section>
-    
-
-    
-    
-    <section class="section" id="ai-tool-guide">
-        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
-            <div class="flex items-center gap-4 flex-grow min-w-0">
-                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">AI Tool Guide</h3>
-                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
-            </div>
-            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
-        </button>
-        <div class="expandable-content hidden mt-4">
-            <div class="grid md:grid-cols-2 gap-4">
-                
-                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
-                    <strong class="tool-title block text-[14px] font-bold mb-1.5">Superhuman: AI Email Triage at $30/mo</strong>
-                    <span class="tool-body text-[13px] text-[#c2c6d6] leading-relaxed">Superhuman combines AI drafting, automatic message triaging, and follow-up cues so nothing slips through your inbox. At $30 per month it targets busy professionals and collaborative teams who need to process high volumes of email without context-switching. Try it for one billing cycle and measure whether your average reply time drops below the two-hour mark. <a href="https://superhuman.com" target="_blank" class="text-[#3B82F6] no-underline text-[11px] hover:underline">Try it &rarr;</a></span>
-                </div>
-                
-                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
-                    <strong class="tool-title block text-[14px] font-bold mb-1.5">Glide: Turn Spreadsheets Into Internal Apps Without Code</strong>
-                    <span class="tool-body text-[13px] text-[#c2c6d6] leading-relaxed">Glide lets you point at a Google Sheet or Airtable base and generate a working internal app with AI-assisted layouts and logic. It is especially useful for startups that need a customer portal, inventory tracker, or field-ops tool but lack front-end engineering bandwidth. Start with one painful spreadsheet workflow and ship a prototype in an afternoon. <a href="https://www.glideapps.com" target="_blank" class="text-[#3B82F6] no-underline text-[11px] hover:underline">Try it &rarr;</a></span>
-                </div>
-                
-                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
-                    <strong class="tool-title block text-[14px] font-bold mb-1.5">Zed Editor: Lightweight IDE With Multi-Model Agent Support</strong>
-                    <span class="tool-body text-[13px] text-[#c2c6d6] leading-relaxed">Zed is an open-source code editor built for speed that now lets you swap between coding models like Claude, GPT, and Gemini directly inside the editor. Unlike heavier IDEs, it keeps latency low while still offering inline suggestions, refactoring, and debugging from whichever LLM fits the task. Pair it with a local model via Ollama for air-gapped work or route to a cloud API for complex refactors. <a href="https://zed.dev" target="_blank" class="text-[#3B82F6] no-underline text-[11px] hover:underline">Try it &rarr;</a></span>
-                </div>
-                
-                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
-                    <strong class="tool-title block text-[14px] font-bold mb-1.5">MemSync: Give Every App a Shared AI Memory Layer</strong>
-                    <span class="tool-body text-[13px] text-[#c2c6d6] leading-relaxed">MemSync creates a unified, privacy-focused memory layer that persists context across your apps, notes, and APIs so your AI tools stop forgetting what you told them yesterday. It is free to start and works well for anyone juggling multiple LLM-powered workflows that each lose context in isolation. Install it, connect your top three daily tools, and test whether repeated prompts shrink by at least half. <a href="https://www.producthunt.com/categories/llm-memory" target="_blank" class="text-[#3B82F6] no-underline text-[11px] hover:underline">Try it &rarr;</a> <a href="/reviews/2026-04-09-memsync-give-every-app-a-shared-ai-memory-layer.html" target="_blank" class="text-[#8B5CF6] no-underline text-[11px] hover:underline ml-2">Lab Report &rarr;</a></span>
-                </div>
-                
-                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
-                    <strong class="tool-title block text-[14px] font-bold mb-1.5">deepidv: Add AI-Ready KYC and Biometrics to Your App</strong>
-                    <span class="tool-body text-[13px] text-[#c2c6d6] leading-relaxed">Newly launched on Product Hunt, deepidv layers AI-powered identity verification, biometric checks, and risk scoring on top of existing auth stacks like Firebase or Clerk. If your startup handles payments, onboarding, or regulated data, this can replace a patchwork of manual review steps with a single API call. A free tier is available, so you can validate the integration before committing to a paid plan. <a href="https://www.producthunt.com/categories/authentication-identity" target="_blank" class="text-[#3B82F6] no-underline text-[11px] hover:underline">Try it &rarr;</a> <a href="/reviews/2026-04-09-deepidv-add-ai-ready-kyc-and-biometrics-to-your-app.html" target="_blank" class="text-[#8B5CF6] no-underline text-[11px] hover:underline ml-2">Lab Report &rarr;</a></span>
-                </div>
-                
-                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
-                    <strong class="tool-title block text-[14px] font-bold mb-1.5">Chatforce: Describe a Game Idea, Play It in Minutes</strong>
-                    <span class="tool-body text-[13px] text-[#c2c6d6] leading-relaxed">Chatforce is an AI-powered game studio that converts a text description of your game concept into a playable, shareable prototype within minutes. It is useful for rapid prototyping during game jams, for educators building interactive lessons, or for marketers who want a branded mini-game without hiring a dev team. Describe the core mechanic, let the AI scaffold the logic, then iterate on the output. <a href="https://theresanaiforthat.com/ai/chatforce/" target="_blank" class="text-[#3B82F6] no-underline text-[11px] hover:underline">Try it &rarr;</a> <a href="/reviews/2026-04-09-chatforce-describe-a-game-idea-play-it-in-minutes.html" target="_blank" class="text-[#8B5CF6] no-underline text-[11px] hover:underline ml-2">Lab Report &rarr;</a></span>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-    
-
-
-</div>
-
-
-
-<aside class="hidden lg:block lg:w-[35%]">
-    <div class="lg:sticky lg:top-20 sidebar-scroll space-y-8">
-
-        
-        
-        <section class="section">
-            <div class="flex items-center gap-1.5 mb-4">
-                <span class="material-symbols-outlined text-sm text-[#8c909f]">pulse_alert</span>
-                <span class="text-xs font-black tracking-[0.15em] uppercase text-[#8c909f]">Today's Pulse</span>
-            </div>
-            <div class="grid grid-cols-2 gap-3">
-                <div class="bg-[#131b2e] p-4 border-l-2 border-[#3B82F6]">
-                    <span class="kpi-label block text-[9px] text-[#8c909f] uppercase tracking-widest mb-1">AI Stories</span>
-                    <span class="kpi-value text-2xl font-black font-mono text-[#3B82F6]">8</span>
-                </div>
-                <div class="bg-[#131b2e] p-4 border-l-2 border-[#EF4444]">
-                    <span class="kpi-label block text-[9px] text-[#8c909f] uppercase tracking-widest mb-1">World Events</span>
-                    <span class="kpi-value text-2xl font-black font-mono text-[#EF4444]">7</span>
-                </div>
-                <div class="bg-[#131b2e] p-4 border-l-2 border-[#F59E0B]">
-                    <span class="kpi-label block text-[9px] text-[#8c909f] uppercase tracking-widest mb-1">Market Mood</span>
-                    <span class="kpi-value text-lg font-black text-[#F59E0B]">Extreme Fear</span>
-                </div>
-                <div class="bg-[#131b2e] p-4 border-l-2 border-[#8B5CF6]">
-                    <span class="kpi-label block text-[9px] text-[#8c909f] uppercase tracking-widest mb-1">Tools Featured</span>
-                    <span class="kpi-value text-2xl font-black font-mono text-[#8B5CF6]">6</span>
-                </div>
-            </div>
-        </section>
-
-        
-        <section class="section" id="market-snapshot">
-            <div class="flex items-center gap-1.5 mb-5">
-                <span class="material-symbols-outlined text-sm text-[#8c909f]">monitoring</span>
-                <span class="section-title text-xs font-black tracking-[0.15em] uppercase text-[#8c909f]">Market Snapshot</span>
-            </div>
-            
-            <div class="space-y-1">
-                
-                
-                
-                
-                
-                
-                
-                <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
-                    <div>
-                        <span class="market-ticker block text-xs font-bold">S&amp;P 500</span>
-                        <span class="text-[10px] text-[#8c909f]">INDEXSP</span>
-                    </div>
-                    <div class="text-right">
-                        <span class="market-price block text-sm font-mono font-bold">6,782.81</span>
-                        <span class="market-change text-[10px] font-mono" style="color: #10B981">+2.51%</span>
-                    </div>
-                </div>
-                
-                
-                
-                
-                
-                
-                
-                
-                <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
-                    <div>
-                        <span class="market-ticker block text-xs font-bold">NASDAQ</span>
-                        <span class="text-[10px] text-[#8c909f]">INDEXNASDAQ</span>
-                    </div>
-                    <div class="text-right">
-                        <span class="market-price block text-sm font-mono font-bold">22,634.99</span>
-                        <span class="market-change text-[10px] font-mono" style="color: #10B981">+2.80%</span>
-                    </div>
-                </div>
-                
-                
-                
-                
-                
-                
-                
-                
-                <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
-                    <div>
-                        <span class="market-ticker block text-xs font-bold">Bitcoin</span>
-                        <span class="text-[10px] text-[#8c909f]">BTC/USD</span>
-                    </div>
-                    <div class="text-right">
-                        <span class="market-price block text-sm font-mono font-bold">$71,277.81</span>
-                        <span class="market-change text-[10px] font-mono" style="color: #10B981">+0.23%</span>
-                    </div>
-                </div>
-                
-                
-                
-                
-                
-                
-                
-                
-                <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
-                    <div>
-                        <span class="market-ticker block text-xs font-bold">Ethereum</span>
-                        <span class="text-[10px] text-[#8c909f]">ETH/USD</span>
-                    </div>
-                    <div class="text-right">
-                        <span class="market-price block text-sm font-mono font-bold">$2,184.18</span>
-                        <span class="market-change text-[10px] font-mono" style="color: #EF4444">-0.27%</span>
-                    </div>
-                </div>
-                
-                
-                
-                
-                
-                
-                
-                
-                <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
-                    <div>
-                        <span class="market-ticker block text-xs font-bold">Oil Brent</span>
-                        <span class="text-[10px] text-[#8c909f]">CRUDE</span>
-                    </div>
-                    <div class="text-right">
-                        <span class="market-price block text-sm font-mono font-bold">$97.67</span>
-                        <span class="market-change text-[10px] font-mono" style="color: #10B981">+1.09%</span>
-                    </div>
-                </div>
-                
-                
-                
-                
-                
-                
-                
-                
-                <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
-                    <div>
-                        <span class="market-ticker block text-xs font-bold">Sentiment</span>
-                        <span class="text-[10px] text-[#8c909f]">F&amp;G Index</span>
-                    </div>
-                    <div class="text-right">
-                        <span class="market-price block text-sm font-mono font-bold">14</span>
-                        <span class="market-change text-[10px] font-mono" style="color: #EF4444">Extreme Fear</span>
-                    </div>
-                </div>
-                
-                
-            </div>
-        </section>
-    </div>
-</aside>
-
-
-</div>
-
-
-
-
-<!-- Subscribe CTA -->
-<section class="w-full py-16 px-6">
-    <div class="max-w-xl mx-auto text-center">
-        <div class="bg-[#0b1326]/60 backdrop-blur-xl border border-white/[0.06] rounded-2xl p-8 md:p-10 relative overflow-hidden">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899] rounded-b-full"></div>
-            <h3 class="text-xl font-bold text-white mb-2">Like what you see?</h3>
-            <p class="text-[#c2c6d6] text-sm mb-6">Get tomorrow's brief delivered to your inbox.</p>
-            <form class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto p-1.5 rounded-full bg-[#171f33] border border-white/[0.06]" onsubmit="return kodaSubscribe(this)">
-                <input type="email" name="email" required class="bg-transparent border-none outline-none text-white px-5 py-3 sm:py-0 w-full text-sm" placeholder="your@email.com">
-                <button type="submit" class="bg-gradient-to-r from-[#3B82F6] to-[#6366F1] text-white px-6 py-3 rounded-full font-bold text-sm whitespace-nowrap hover:shadow-lg hover:shadow-[#3B82F6]/20 transition-all">Subscribe</button>
-            </form>
-            <p class="text-[10px] text-[#8c909f] mt-3">One email per day. Unsubscribe anytime.</p>
+    <div class="relative z-10 max-w-6xl">
+        <p class="font-label uppercase tracking-[0.3em] text-primary font-bold mb-4 text-xs opacity-90">Intelligence Report &bull; 09 April 2026</p>
+        <h1 class="text-[10vw] md:text-[5rem] leading-[0.95] font-black tracking-tight text-gradient mb-6 drop-shadow-2xl">The Signal</h1>
+        <p class="max-w-2xl font-body text-base md:text-lg text-on-surface-variant leading-relaxed mb-8 font-light">DeepSeek V4 sits at 94% on prediction markets while U.S. strikes erase a historic Tehran synagogue.</p>
+        <div class="flex flex-wrap gap-4">
+            <a href="#lead" class="px-8 py-3 bg-primary text-white font-black rounded-lg hover:brightness-110 active:scale-[0.98] transition-all shadow-xl shadow-primary/20 uppercase tracking-widest text-sm">Read Briefing</a>
+            <a href="#markets" class="px-8 py-3 border border-outline-variant text-on-surface font-bold rounded-lg glass-card hover:bg-white/10 transition-all uppercase tracking-widest text-sm">View Markets</a>
         </div>
     </div>
 </section>
 
+<!-- LEAD STORY + BRIEF + MARKETS -->
+<section id="lead" class="px-6 md:px-12 -mt-12 relative z-20 pb-10">
+<div class="max-w-[1440px] mx-auto space-y-6">
+    <div class="glass-card rounded-2xl border border-outline-variant/20 overflow-hidden cinematic-shadow">
+        <div class="p-6 md:p-8 border-b border-outline-variant/10">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="inline-block px-2.5 py-1 bg-error/15 text-error font-label text-[10px] tracking-widest uppercase rounded font-bold">Lead Story</span>
+                <span class="inline-block px-2.5 py-1 bg-primary/10 text-primary font-label text-[10px] tracking-widest uppercase rounded font-bold">Enterprise</span>
+                <span class="font-label text-[10px] text-outline ml-auto">OpenAI</span>
+            </div>
+            <h2 class="text-xl md:text-2xl font-extrabold tracking-tight leading-snug mb-3 text-on-surface">OpenAI Announces Next Phase of Enterprise AI</h2>
+            <p class="text-on-surface-variant text-sm leading-relaxed max-w-3xl mb-4">OpenAI published a new initiative focused on enhancing enterprise AI solutions, aiming to integrate advanced AI capabilities into business workflows. The announcement, posted to OpenAI's official blog, signals a strategic push beyond consumer chatbots into deeper enterprise tooling, though specific product details remain sparse.</p>
+            <a class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline group/link" href="https://openai.com/index/next-phase-of-enterprise-ai/" target="_blank">
+                Continue Reading <span class="material-symbols-outlined text-base group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-outline-variant/10">
+            <div class="p-5 hover:bg-white/[0.02] transition-colors">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1;color:#3B82F6">smart_toy</span>
+                    <span class="font-label text-[10px] uppercase tracking-wider font-bold" style="color:#3B82F6">AI</span>
+                </div>
+                <p class="text-on-surface-variant text-xs leading-relaxed">OpenAI announced its next phase of enterprise AI deployment as prediction markets price DeepSeek V4's imminent release at 94%, signaling another inflection point in the open-vs-closed model race.</p>
+            </div>
+            <div class="p-5 hover:bg-white/[0.02] transition-colors">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1;color:#EF4444">public</span>
+                    <span class="font-label text-[10px] uppercase tracking-wider font-bold" style="color:#EF4444">World</span>
+                </div>
+                <p class="text-on-surface-variant text-xs leading-relaxed">Israel intensified strikes across Lebanon, threatening the fragile Iran ceasefire, while a U.S. airstrike destroyed a historic synagogue in Tehran, drawing international condemnation and raising questions about targeting protocols.</p>
+            </div>
+            <div class="p-5 hover:bg-white/[0.02] transition-colors">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1;color:#10B981">trending_up</span>
+                    <span class="font-label text-[10px] uppercase tracking-wider font-bold" style="color:#10B981">Markets</span>
+                </div>
+                <p class="text-on-surface-variant text-xs leading-relaxed">Asian markets slid on growing doubts that the Iran ceasefire will hold, pushing sentiment deeper into Extreme Fear territory for the second consecutive week.</p>
+            </div>
+            <div class="p-5 hover:bg-white/[0.02] transition-colors">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1;color:#F59E0B">bolt</span>
+                    <span class="font-label text-[10px] uppercase tracking-wider font-bold" style="color:#F59E0B">Wild Card</span>
+                </div>
+                <p class="text-on-surface-variant text-xs leading-relaxed">Meta shipped its fourth custom MTIA silicon chip in just two years and simultaneously unveiled TRIBE v2, a brain prediction model: the company is now building both the hardware and the neuroscience layer for next-generation AI.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="markets" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2 glass-card rounded-2xl border border-outline-variant/20 p-6">
+            <div class="flex items-center justify-between mb-5">
+                <h3 class="text-sm font-extrabold uppercase tracking-wider">Market Snapshot</h3>
+                <span class="material-symbols-outlined text-outline text-lg">query_stats</span>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="p-3 rounded-lg bg-surface-container/60">
+                    <p class="font-label text-[9px] text-outline uppercase tracking-widest">S&P 500</p>
+                    <p class="text-lg font-bold mt-1">6,782.81</p>
+                    <p class="text-xs font-bold mt-0.5" style="color:#10B981">+2.51%</p>
+                    <div class="h-0.5 w-full sparkline-up rounded-full mt-2 opacity-60"></div>
+                </div>
+                <div class="p-3 rounded-lg bg-surface-container/60">
+                    <p class="font-label text-[9px] text-outline uppercase tracking-widest">Nasdaq</p>
+                    <p class="text-lg font-bold mt-1">22,634.99</p>
+                    <p class="text-xs font-bold mt-0.5" style="color:#10B981">+2.80%</p>
+                    <div class="h-0.5 w-full sparkline-up rounded-full mt-2 opacity-60"></div>
+                </div>
+                <div class="p-3 rounded-lg bg-surface-container/60">
+                    <p class="font-label text-[9px] text-outline uppercase tracking-widest">Bitcoin</p>
+                    <p class="text-lg font-bold mt-1">$71,277.81</p>
+                    <p class="text-xs font-bold mt-0.5" style="color:#10B981">+0.23%</p>
+                    <div class="h-0.5 w-full sparkline-up rounded-full mt-2 opacity-60"></div>
+                </div>
+                <div class="p-3 rounded-lg bg-surface-container/60">
+                    <p class="font-label text-[9px] text-outline uppercase tracking-widest">ETH</p>
+                    <p class="text-lg font-bold mt-1">$2,184.18</p>
+                    <p class="text-xs font-bold mt-0.5" style="color:#EF4444">-0.27%</p>
+                    <div class="h-0.5 w-full sparkline-down rounded-full mt-2 opacity-60"></div>
+                </div>
+                <div class="p-3 rounded-lg bg-surface-container/60">
+                    <p class="font-label text-[9px] text-outline uppercase tracking-widest">Crude Oil</p>
+                    <p class="text-lg font-bold mt-1">$97.67</p>
+                    <p class="text-xs font-bold mt-0.5" style="color:#10B981">+1.09%</p>
+                    <div class="h-0.5 w-full sparkline-up rounded-full mt-2 opacity-60"></div>
+                </div>
+                <div class="p-3 rounded-lg bg-surface-container/60 border border-error/20">
+                    <p class="font-label text-[9px] text-outline uppercase tracking-widest">Fear &amp; Greed</p>
+                    <p class="text-lg font-bold mt-1 text-error fear-pulse">14</p>
+                    <p class="text-xs font-bold text-error mt-0.5">Extreme Fear</p>
+                </div>
+            </div>
+        </div>
+        <div class="glass-card rounded-2xl border border-outline-variant/20 p-6">
+            <h3 class="font-label text-[10px] tracking-[0.2em] uppercase text-primary font-bold mb-5">Today's Focus</h3>
+            <div class="space-y-4">
+                <div class="flex gap-4 items-start group cursor-pointer">
+                    <span class="text-2xl font-black text-primary/15 group-hover:text-primary transition-colors leading-none font-label">01</span>
+                    <div><p class="text-sm font-semibold leading-snug">DeepSeek V4 and the Prediction Market Signal</p><p class="text-xs text-on-surface-variant mt-1 line-clamp-2">Prediction markets price DeepSeek V4 at 94% for April release, outpacing GPT-5.5.</p></div>
+                </div>
+                <div class="flex gap-4 items-start group cursor-pointer">
+                    <span class="text-2xl font-black text-primary/15 group-hover:text-primary transition-colors leading-none font-label">02</span>
+                    <div><p class="text-sm font-semibold leading-snug">Enterprise AI Goes Vertical</p><p class="text-xs text-on-surface-variant mt-1 line-clamp-2">OpenAI pivots to deep enterprise integration while Meta builds full-stack AI infrastructure.</p></div>
+                </div>
+                <div class="flex gap-4 items-start group cursor-pointer">
+                    <span class="text-2xl font-black text-primary/15 group-hover:text-primary transition-colors leading-none font-label">03</span>
+                    <div><p class="text-sm font-semibold leading-snug">The Ceasefire Illusion</p><p class="text-xs text-on-surface-variant mt-1 line-clamp-2">Israel strikes Lebanon hours after Iran ceasefire, with markets pricing in fragility.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- LISTEN & WATCH -->
+<section class="w-full bg-surface-container-lowest py-10 border-y border-outline-variant/10 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+        <div class="flex items-center gap-4 mb-6">
+            <h2 class="text-sm font-extrabold uppercase tracking-wider">Listen & Watch</h2>
+            <div class="h-px flex-grow bg-outline-variant/15"></div>
+            <span class="font-label text-[9px] tracking-widest text-outline uppercase font-bold">Daily Broadcasts</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="rounded-xl overflow-hidden bg-surface-container/80 border border-outline-variant/10 hover:border-primary/20 transition-all">
+                <div class="relative aspect-video overflow-hidden cursor-pointer" onclick="document.getElementById('podcastLightbox').style.display='flex'">
+                    <img alt="Daily Deep Dive" class="w-full h-full object-cover object-top" src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/email-hero-2026-04-09.jpg"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+                    <div class="absolute top-3 left-3 flex gap-1.5">
+                        <span class="px-2 py-0.5 bg-primary/20 backdrop-blur-sm text-primary text-[9px] font-bold uppercase rounded font-label tracking-wider">Podcast</span>
+                        <span class="px-2 py-0.5 bg-black/30 backdrop-blur-sm text-white text-[9px] font-bold rounded font-label">~22 min</span>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h4 class="text-sm font-bold mb-1">Daily Deep Dive</h4>
+                    <audio controls class="w-full" preload="none" style="height:36px;border-radius:6px"><source src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/podcast-2026-04-09.mp3" type="audio/mpeg"></audio>
+                </div>
+            </div>
+            <div class="rounded-xl overflow-hidden bg-surface-container/80 border border-outline-variant/10 hover:border-tertiary/20 transition-all group">
+                <div class="relative aspect-video cursor-pointer" id="ytPlayer" onclick="this.innerHTML='<iframe width=100% height=100% src=https://www.youtube.com/embed/B3YlxwSe1t0?autoplay=1 frameborder=0 allow=autoplay allowfullscreen style=position:absolute;inset:0></iframe>';this.onclick=null;this.style.cursor='default'">
+                    <img alt="Video Briefing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://img.youtube.com/vi/B3YlxwSe1t0/maxresdefault.jpg"/>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/25 group-hover:bg-black/40 transition-colors">
+                        <div class="w-14 h-14 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center border border-white/25 group-hover:bg-white/25 transition-colors">
+                            <span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings:'FILL' 1">play_arrow</span>
+                        </div>
+                    </div>
+                    <div class="absolute top-3 left-3 flex gap-1.5">
+                        <span class="px-2 py-0.5 bg-tertiary/20 backdrop-blur-sm text-tertiary text-[9px] font-bold uppercase rounded font-label tracking-wider">Video</span>
+                    </div>
+                </div>
+                <div class="p-4"><h4 class="text-sm font-bold mb-1">Video Briefing</h4></div>
+            </div>
+            <div class="rounded-xl overflow-hidden bg-surface-container/80 border border-outline-variant/10 hover:border-secondary/20 transition-all group cursor-pointer" onclick="document.getElementById('infographicLightbox').style.display='flex'">
+                <div class="relative aspect-video overflow-hidden">
+                    <img alt="Daily Infographic" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/infographic-2026-04-09.jpg"/>
+                    <div class="absolute top-3 left-3 flex gap-1.5">
+                        <span class="px-2 py-0.5 bg-secondary/20 backdrop-blur-sm text-secondary text-[9px] font-bold uppercase rounded font-label tracking-wider">Infographic</span>
+                    </div>
+                </div>
+                <div class="p-4"><h4 class="text-sm font-bold mb-1 group-hover:text-secondary transition-colors">Intelligence Map</h4></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DEEP DIVE -->
+<section class="max-w-[1440px] mx-auto px-6 md:px-12 py-10">
+    <div class="flex items-center gap-4 mb-6">
+        <h2 class="text-sm font-extrabold uppercase tracking-wider">Deep Dive</h2>
+        <div class="h-px flex-grow bg-outline-variant/15"></div>
+        <a href="./editorial/" class="font-label text-[9px] tracking-widest text-primary uppercase font-bold hover:underline flex items-center gap-1">All Editorials <span class="material-symbols-outlined text-xs">east</span></a>
+    </div>
+    <a href="./editorial/2026-04-09-ai-benchmarks-are-systematically-misleading-due-to-training-.html" class="block rounded-2xl overflow-hidden bg-surface-container/80 border border-outline-variant/15 hover:border-primary/30 transition-all group" style="box-shadow:0 20px 60px -15px rgba(0,0,0,0.5)">
+        <div class="grid grid-cols-1 md:grid-cols-5">
+            <div class="md:col-span-2 relative h-44 md:h-auto overflow-hidden">
+                <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/editorial-hero-2026-04-09.jpg" alt="Editorial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent to-[#171f33]/90 hidden md:block"></div>
+            </div>
+            <div class="md:col-span-3 p-6 flex flex-col justify-center">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings:'FILL' 1">explore</span>
+                    <span class="font-label text-[9px] text-secondary uppercase tracking-widest font-bold">Today's Editorial</span>
+                    <span class="font-label text-[9px] text-outline ml-auto">5 min read</span>
+                </div>
+                <h3 class="text-lg font-extrabold tracking-tight leading-snug mb-2 group-hover:text-primary transition-colors">AI benchmarks are systematically misleading due to training data contamination</h3>
+                <p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2">The metrics builders rely on to compare models are increasingly unreliable. What should replace them?</p>
+                <span class="inline-flex items-center gap-1.5 text-primary text-xs font-bold mt-3 group-hover:underline">Read Full Analysis <span class="material-symbols-outlined text-xs group-hover:translate-x-1 transition-transform">arrow_forward</span></span>
+            </div>
+        </div>
+    </a>
+</section>
+
+<!-- THE WIRE -->
+<section class="mt-10 px-8 md:px-12 max-w-[1920px] mx-auto pb-14">
+    <div class="flex items-baseline justify-between mb-8 border-b border-outline-variant/30 pb-6">
+        <h2 class="text-2xl font-extrabold tracking-tight">The Wire</h2>
+        <span class="font-label text-xs uppercase tracking-[0.3em] text-on-surface-variant font-bold">AI Intelligence</span>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-7 flex flex-col gap-8">
+            <a href="https://openai.com/index/next-phase-of-enterprise-ai/" target="_blank" class="relative h-[350px] rounded-xl overflow-hidden group shadow-2xl block bg-surface-container-high">
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface/30 to-transparent p-12 flex flex-col justify-end">
+                    <span class="font-label text-xs uppercase tracking-[0.4em] text-secondary mb-6 font-black">Enterprise</span>
+                    <h3 class="text-lg font-extrabold tracking-tight mb-4 text-white max-w-2xl leading-[1.1]">OpenAI Announces Next Phase of Enterprise AI</h3>
+                    <span class="text-white/40 text-xs font-bold uppercase tracking-widest">OpenAI</span>
+                </div>
+            </a>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <a href="https://manifold.markets/prismatic/april-2026-ai-model-releases" target="_blank" class="space-y-4 group cursor-pointer block">
+                    <span class="font-label text-[10px] tracking-widest uppercase font-black" style="color:#F59E0B">Trend</span>
+                    <h4 class="text-xl font-bold leading-tight group-hover:opacity-80 transition-colors">Prediction Markets Price DeepSeek V4 at 94%</h4>
+                    <p class="text-on-surface-variant leading-relaxed text-sm">Manifold prediction markets now give DeepSeek V4 a 94% probability of releasing in April 2026, up from 84% earlier in the week. GPT-5.5 sits at 88% pr...</p>
+                    <p class="text-on-surface-variant text-xs">Manifold</p>
+                </a>
+                <a href="https://huggingface.co/posts" target="_blank" class="space-y-4 group cursor-pointer block">
+                    <span class="font-label text-[10px] tracking-widest uppercase font-black" style="color:#10B981">Open Source</span>
+                    <h4 class="text-xl font-bold leading-tight group-hover:opacity-80 transition-colors">Hugging Face Releases Darwin-31B-Opus Reasoning Merge</h4>
+                    <p class="text-on-surface-variant leading-relaxed text-sm">Hugging Face community members released Darwin-31B-Opus, a reasoning-enhanced model that merges Google's Gemma-4-31B-it with TeichAI's Claude Opus Dis...</p>
+                    <p class="text-on-surface-variant text-xs">Hugging Face</p>
+                </a>
+            </div>
+        </div>
+        <div class="lg:col-span-5 flex flex-col gap-6">
+            <a href="https://ai.meta.com/blog/meta-mtia-scale-ai-chips-for-billions/" target="_blank" class="group cursor-pointer p-6 glass-card rounded-xl border border-outline-variant/20 hover:border-[#3B82F6]/30 transition-all block">
+                <span class="font-label text-[10px] tracking-widest uppercase font-black" style="color:#3B82F6">Hardware</span>
+                <h4 class="text-lg font-bold mt-3 mb-2 group-hover:opacity-80 transition-colors leading-snug">Meta Ships Four MTIA Chips in Two Years</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2">Meta detailed its accelerated custom silicon roadmap, revealing it has shipped four generations of its MTIA (Meta Training and Inference Accelerator) chips in just two years. The c...</p>
+                <p class="text-on-surface-variant text-xs mt-2">Meta</p>
+            </a>
+            <a href="https://ai.meta.com/blog/tribe-v2-brain-predictive-foundation-model/" target="_blank" class="group cursor-pointer p-6 glass-card rounded-xl border border-outline-variant/20 hover:border-[#8B5CF6]/30 transition-all block">
+                <span class="font-label text-[10px] tracking-widest uppercase font-black" style="color:#8B5CF6">Biotech</span>
+                <h4 class="text-lg font-bold mt-3 mb-2 group-hover:opacity-80 transition-colors leading-snug">Meta Unveils TRIBE v2 Brain Prediction Model</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2">Meta announced TRIBE v2, described as its first AI foundation model trained to predict human brain responses to sights, sounds, and language. Building on the Algonauts 2025 challen...</p>
+                <p class="text-on-surface-variant text-xs mt-2">Meta</p>
+            </a>
+            <a href="https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026" target="_blank" class="group cursor-pointer p-6 glass-card rounded-xl border border-outline-variant/20 hover:border-[#EC4899]/30 transition-all block">
+                <span class="font-label text-[10px] tracking-widest uppercase font-black" style="color:#EC4899">Trend</span>
+                <h4 class="text-lg font-bold mt-3 mb-2 group-hover:opacity-80 transition-colors leading-snug">Hugging Face Maps Open Source AI Spring 2026</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2">Hugging Face published its "State of Open Source on Hugging Face: Spring 2026" report, examining shifts in competition, geography, technical trends, and emerging communities across...</p>
+                <p class="text-on-surface-variant text-xs mt-2">Hugging Face</p>
+            </a>
+            <a href="https://www.searchcans.com/blog/ai-model-releases-april-2026-v2/" target="_blank" class="group cursor-pointer p-6 glass-card rounded-xl border border-outline-variant/20 hover:border-[#06B6D4]/30 transition-all block">
+                <span class="font-label text-[10px] tracking-widest uppercase font-black" style="color:#06B6D4">Benchmark</span>
+                <h4 class="text-lg font-bold mt-3 mb-2 group-hover:opacity-80 transition-colors leading-snug">Benchmarks Called Misleading Due to Data Contamination</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2">Multiple developer-focused publications this week flagged that public AI benchmarks are increasingly unreliable due to training data contamination and environment-specific performa...</p>
+                <p class="text-on-surface-variant text-xs mt-2">SearchCans</p>
+            </a>
+            <a href="https://whatllm.org/blog/new-ai-models-april-2026" target="_blank" class="group cursor-pointer p-6 glass-card rounded-xl border border-outline-variant/20 hover:border-[#10B981]/30 transition-all block">
+                <span class="font-label text-[10px] tracking-widest uppercase font-black" style="color:#10B981">Trend</span>
+                <h4 class="text-lg font-bold mt-3 mb-2 group-hover:opacity-80 transition-colors leading-snug">April 2026 Model Cadence Reaches Eight in Seven Days</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2">The first week of April 2026 saw at least eight distinct model releases in seven days, spanning Anthropic's gated Claude Mythos, Zhipu AI's open-source GLM-5.1, Google's Gemma 4 fa...</p>
+                <p class="text-on-surface-variant text-xs mt-2">WhatLLM</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- THE GLOBE -->
+<section class="px-8 md:px-12 max-w-[1920px] mx-auto pb-14">
+    <div class="flex items-baseline justify-between mb-8 border-b border-outline-variant/30 pb-6">
+        <h2 class="text-2xl font-extrabold tracking-tight">The Globe</h2>
+        <span class="font-label text-xs uppercase tracking-[0.3em] text-on-surface-variant font-bold">World Affairs</span>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-7">
+            <a href="https://www.straitstimes.com/world/while-you-were-sleeping-5-stories-you-might-have-missed-april-9-2026" target="_blank" class="relative h-[300px] rounded-xl overflow-hidden group shadow-2xl block bg-surface-container-high">
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface/40 to-transparent p-12 flex flex-col justify-end">
+                    <span class="font-label text-xs uppercase tracking-[0.4em] text-error mb-4 font-black">Conflict</span>
+                    <h3 class="text-lg font-extrabold tracking-tight mb-4 text-white leading-[1.1]">Israel Pounds Lebanon, Threatening Fragile Iran Ceasefire</h3>
+                </div>
+            </a>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <a href="https://www.democracynow.org/2026/4/8/headlines" target="_blank" class="space-y-4 group cursor-pointer block">
+                    <span class="font-label text-[10px] tracking-widest uppercase font-black" style="color:#3B82F6">Policy</span>
+                    <h4 class="text-xl font-bold leading-tight group-hover:opacity-80 transition-colors">Trump Slaps 50% Tariffs on Iran Arms Suppliers</h4>
+                    <p class="text-on-surface-variant leading-relaxed text-sm">Hours after the ceasefire announcement on April 8, President Trump declared immediate 50% tariffs on imports from countries supplying Iran with weapon...</p>
+                </a>
+                <a href="https://www.democracynow.org/2026/4/8/headlines" target="_blank" class="space-y-4 group cursor-pointer block">
+                    <span class="font-label text-[10px] tracking-widest uppercase font-black" style="color:#F59E0B">Humanitarian</span>
+                    <h4 class="text-xl font-bold leading-tight group-hover:opacity-80 transition-colors">U.S. Strikes Destroy Historic Tehran Synagogue</h4>
+                    <p class="text-on-surface-variant leading-relaxed text-sm">U.S. and Israeli attacks on April 8 completely leveled the Rafi-Nia Synagogue in Tehran, one of Iran's few remaining Jewish community sites. The destr...</p>
+                </a>
+            </div>
+        </div>
+        <div class="lg:col-span-5 flex flex-col gap-6">
+            <a href="https://www.straitstimes.com/world/while-you-were-sleeping-5-stories-you-might-have-missed-april-9-2026" target="_blank" class="group cursor-pointer p-6 glass-card rounded-xl border border-outline-variant/20 hover:border-[#3B82F6]/30 transition-all block">
+                <span class="font-label text-[10px] tracking-widest uppercase font-black" style="color:#3B82F6">Economy</span>
+                <h4 class="text-lg font-bold mt-3 mb-2 group-hover:opacity-80 transition-colors leading-snug">Asian Markets Slide on Ceasefire Doubts</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2">Markets in Tokyo, Seoul, and Sydney opened lower on April 9 as investors questioned whether the U.S.-Iran truce would hold. Federal Reserve minutes flagged two-sided risks from the...</p>
+            </a>
+            <a href="https://www.npr.org/sections/world/" target="_blank" class="group cursor-pointer p-6 glass-card rounded-xl border border-outline-variant/20 hover:border-[#8B5CF6]/30 transition-all block">
+                <span class="font-label text-[10px] tracking-widest uppercase font-black" style="color:#8B5CF6">Diplomacy</span>
+                <h4 class="text-lg font-bold mt-3 mb-2 group-hover:opacity-80 transition-colors leading-snug">NPR Questions What U.S. Iran War Accomplished</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2">NPR published an analysis on April 8 arguing that Trump's stated goals for the Iran war look "mostly unmet" after five weeks of conflict. The piece examines whether the campaign ha...</p>
+            </a>
+            <a href="https://www.golocalprov.com/news/5-big-news-stories-overnight-tuesday-april-7-2026" target="_blank" class="group cursor-pointer p-6 glass-card rounded-xl border border-outline-variant/20 hover:border-[#EC4899]/30 transition-all block">
+                <span class="font-label text-[10px] tracking-widest uppercase font-black" style="color:#EC4899">Economy</span>
+                <h4 class="text-lg font-bold mt-3 mb-2 group-hover:opacity-80 transition-colors leading-snug">JP Morgan's Dimon Warns of Economic Fallout</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2">JP Morgan CEO Jamie Dimon warned in his annual letter of "truly adverse consequences" if the U.S. fails to bolster economic alliances amid the Iran conflict, now in its sixth week....</p>
+            </a>
+            <a href="https://www.straitstimes.com/world/while-you-were-sleeping-5-stories-you-might-have-missed-april-9-2026" target="_blank" class="group cursor-pointer p-6 glass-card rounded-xl border border-outline-variant/20 hover:border-[#06B6D4]/30 transition-all block">
+                <span class="font-label text-[10px] tracking-widest uppercase font-black" style="color:#06B6D4">Diplomacy</span>
+                <h4 class="text-lg font-bold mt-3 mb-2 group-hover:opacity-80 transition-colors leading-snug">Trump Renews NATO Criticism Amid Iran Crisis</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2">In an April 9 statement, Trump warned that NATO "won't be there if we need them again," linking longstanding alliance grievances to the ongoing Iran conflict. The remarks come as t...</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- THE FEED -->
+<section class="px-8 md:px-12 max-w-[1920px] mx-auto pb-14">
+    <div class="flex items-baseline justify-between mb-8 border-b border-outline-variant/30 pb-6">
+        <h2 class="text-2xl font-extrabold tracking-tight">The Feed</h2>
+        <span class="font-label text-xs uppercase tracking-[0.3em] text-on-surface-variant font-bold">Newsletter Intelligence</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-card rounded-xl border border-outline-variant/20 p-6 flex flex-col">
+            <div class="flex items-center justify-between mb-4">
+                <span class="text-sm font-extrabold">TLDR</span>
+                <span class="font-label text-[9px] text-outline">9 Apr 2026</span>
+            </div>
+            <ul class="space-y-2 mb-4 flex-grow">
+                <li class="text-xs text-on-surface-variant leading-relaxed flex gap-2"><span style="color:#3B82F6" class="mt-0.5">&#8226;</span>Claude Mythos Preview discovered thousands of zero-day vulnerabilities via Project Glasswing</li>
+                <li class="text-xs text-on-surface-variant leading-relaxed flex gap-2"><span style="color:#3B82F6" class="mt-0.5">&#8226;</span>GLM-5.1 achieves SOTA on SWE-Bench Pro with sustained agentic optimization</li>
+                <li class="text-xs text-on-surface-variant leading-relaxed flex gap-2"><span style="color:#3B82F6" class="mt-0.5">&#8226;</span>Weights & Biases published guide on advancing physical AI for embodied intelligence</li>
+            </ul>
+            <a href="https://tldr.tech/" target="_blank" class="text-xs font-bold hover:underline mt-auto" style="color:#3B82F6">Read TLDR &rarr;</a>
+        </div>
+        <div class="glass-card rounded-xl border border-outline-variant/20 p-6 flex flex-col">
+            <div class="flex items-center justify-between mb-4">
+                <span class="text-sm font-extrabold">Superhuman</span>
+                <span class="font-label text-[9px] text-outline">9 Apr 2026</span>
+            </div>
+            <ul class="space-y-2 mb-4 flex-grow">
+                <li class="text-xs text-on-surface-variant leading-relaxed flex gap-2"><span style="color:#8B5CF6" class="mt-0.5">&#8226;</span>Claude Mythos withheld from public citing safety; launches Project Glasswing</li>
+                <li class="text-xs text-on-surface-variant leading-relaxed flex gap-2"><span style="color:#8B5CF6" class="mt-0.5">&#8226;</span>Clicky on-screen AI teaching tool goes viral with 1M+ views</li>
+                <li class="text-xs text-on-surface-variant leading-relaxed flex gap-2"><span style="color:#8B5CF6" class="mt-0.5">&#8226;</span>Google releases AI Edge Eloquent, free offline dictation powered by Gemma</li>
+            </ul>
+            <a href="https://www.joinsuperhuman.ai/" target="_blank" class="text-xs font-bold hover:underline mt-auto" style="color:#8B5CF6">Read Superhuman &rarr;</a>
+        </div>
+        <div class="glass-card rounded-xl border border-outline-variant/20 p-6 flex flex-col">
+            <div class="flex items-center justify-between mb-4">
+                <span class="text-sm font-extrabold">TLDR</span>
+                <span class="font-label text-[9px] text-outline">9 Apr 2026</span>
+            </div>
+            <ul class="space-y-2 mb-4 flex-grow">
+                <li class="text-xs text-on-surface-variant leading-relaxed flex gap-2"><span style="color:#EC4899" class="mt-0.5">&#8226;</span>Cluely CEO admitted to inflating ARR, spotlighting AI startup trust issues</li>
+                <li class="text-xs text-on-surface-variant leading-relaxed flex gap-2"><span style="color:#EC4899" class="mt-0.5">&#8226;</span>Databricks: multi-agent systems grew 327% in under four months across 20K+ orgs</li>
+                <li class="text-xs text-on-surface-variant leading-relaxed flex gap-2"><span style="color:#EC4899" class="mt-0.5">&#8226;</span>Agent skills emerging as the new SDK for developer infrastructure</li>
+            </ul>
+            <a href="https://tldr.tech/" target="_blank" class="text-xs font-bold hover:underline mt-auto" style="color:#EC4899">Read TLDR &rarr;</a>
+        </div>
+    </div>
+</section>
+
+<!-- THE LAB -->
+<section class="px-8 md:px-12 max-w-[1920px] mx-auto pb-14">
+    <div class="flex items-baseline justify-between mb-8 border-b border-outline-variant/30 pb-6">
+        <h2 class="text-2xl font-extrabold tracking-tight">The Lab</h2>
+        <a class="font-label text-xs uppercase tracking-[0.3em] text-on-surface-variant hover:text-primary transition-all font-bold group flex items-center gap-2" href="./reviews/">All Reviews <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">east</span></a>
+    </div>
+    <div class="mb-8 p-5 rounded-xl bg-surface-container-low/60 border border-primary/10">
+        <h3 class="font-label text-[10px] tracking-[0.2em] uppercase text-primary font-bold mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">science</span>Today's Lab Reports</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <a href="./reviews/2026-04-09-novavoice-control-apps-and-dictate-with-a-single-voice-layer.html" class="flex items-center gap-3 p-3 rounded-lg bg-surface-container/60 hover:bg-surface-container-high/60 transition-colors group">
+                <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1">mic</span>
+                <div><p class="text-sm font-bold group-hover:text-primary transition-colors">NovaVoice</p><p class="text-[10px] text-on-surface-variant">Voice control + dictation layer</p></div>
+                <span class="font-label text-[9px] text-primary ml-auto">Lab Report &rarr;</span>
+            </a>
+            <a href="./reviews/2026-04-09-nebils-test-drive-120-ai-models-in-one-social-feed.html" class="flex items-center gap-3 p-3 rounded-lg bg-surface-container/60 hover:bg-surface-container-high/60 transition-colors group">
+                <span class="material-symbols-outlined text-secondary text-lg" style="font-variation-settings:'FILL' 1">hub</span>
+                <div><p class="text-sm font-bold group-hover:text-secondary transition-colors">Nebils</p><p class="text-[10px] text-on-surface-variant">Test 120+ AI models in one feed</p></div>
+                <span class="font-label text-[9px] text-secondary ml-auto">Lab Report &rarr;</span>
+            </a>
+            <a href="./reviews/2026-04-09-ignitvio-ai-powered-lead-response-for-local-service-businesses.html" class="flex items-center gap-3 p-3 rounded-lg bg-surface-container/60 hover:bg-surface-container-high/60 transition-colors group">
+                <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings:'FILL' 1">local_fire_department</span>
+                <div><p class="text-sm font-bold group-hover:text-tertiary transition-colors">Ignitvio</p><p class="text-[10px] text-on-surface-variant">AI lead response for local businesses</p></div>
+                <span class="font-label text-[9px] text-tertiary ml-auto">Lab Report &rarr;</span>
+            </a>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <article class="group cursor-pointer p-6 glass-card rounded-xl border border-outline-variant/20 hover:border-[#3B82F6]/30 transition-all flex flex-col">
+            <span class="px-3 py-1 font-label text-[10px] tracking-widest uppercase w-fit rounded mb-6" style="background:#3B82F615;color:#3B82F6">AI Email Triage</span>
+            <h4 class="text-2xl font-bold leading-tight mb-4 group-hover:opacity-80 transition-colors">Superhuman</h4>
+            <p class="text-on-surface-variant text-sm leading-relaxed flex-grow">AI-powered email client that helps you process your inbox twice as fast with intelligent triage, scheduling, and response suggestions.</p>
+            <a href="https://superhuman.com/" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm mt-6 hover:underline" style="color:#3B82F6">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </article>
+        <article class="group cursor-pointer p-6 glass-card rounded-xl border border-outline-variant/20 hover:border-[#8B5CF6]/30 transition-all flex flex-col">
+            <span class="px-3 py-1 font-label text-[10px] tracking-widest uppercase w-fit rounded mb-6" style="background:#8B5CF615;color:#8B5CF6">No Code App Builder</span>
+            <h4 class="text-2xl font-bold leading-tight mb-4 group-hover:opacity-80 transition-colors">Glide</h4>
+            <p class="text-on-surface-variant text-sm leading-relaxed flex-grow">Build custom business apps from spreadsheets without writing code. Ideal for internal tools, client portals, and operational dashboards.</p>
+            <a href="https://www.glideapps.com/" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm mt-6 hover:underline" style="color:#8B5CF6">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </article>
+        <article class="group cursor-pointer p-6 glass-card rounded-xl border border-outline-variant/20 hover:border-[#EC4899]/30 transition-all flex flex-col">
+            <span class="px-3 py-1 font-label text-[10px] tracking-widest uppercase w-fit rounded mb-6" style="background:#EC489915;color:#EC4899">Code Editor</span>
+            <h4 class="text-2xl font-bold leading-tight mb-4 group-hover:opacity-80 transition-colors">Zed Editor</h4>
+            <p class="text-on-surface-variant text-sm leading-relaxed flex-grow">High-performance multiplayer code editor built in Rust with native AI integration for pair programming with language models.</p>
+            <a href="https://zed.dev/" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm mt-6 hover:underline" style="color:#EC4899">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </article>
+        <article class="group cursor-pointer p-6 glass-card rounded-xl border border-outline-variant/20 hover:border-[#06B6D4]/30 transition-all flex flex-col">
+            <span class="px-3 py-1 font-label text-[10px] tracking-widest uppercase w-fit rounded mb-6" style="background:#06B6D415;color:#06B6D4">AI Memory Layer</span>
+            <h4 class="text-2xl font-bold leading-tight mb-4 group-hover:opacity-80 transition-colors">MemSync</h4>
+            <p class="text-on-surface-variant text-sm leading-relaxed flex-grow">Persistent memory layer for AI applications that lets chatbots and agents remember context across sessions.</p>
+            <a href="https://www.producthunt.com/categories/llm-memory" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm mt-6 hover:underline" style="color:#06B6D4">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </article>
+        <article class="group cursor-pointer p-6 glass-card rounded-xl border border-outline-variant/20 hover:border-[#10B981]/30 transition-all flex flex-col">
+            <span class="px-3 py-1 font-label text-[10px] tracking-widest uppercase w-fit rounded mb-6" style="background:#10B98115;color:#10B981">Identity Verification</span>
+            <h4 class="text-2xl font-bold leading-tight mb-4 group-hover:opacity-80 transition-colors">deepidv</h4>
+            <p class="text-on-surface-variant text-sm leading-relaxed flex-grow">AI-powered identity verification for onboarding flows. Validates documents and biometrics in seconds.</p>
+            <a href="https://www.producthunt.com/categories/authentication-identity" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm mt-6 hover:underline" style="color:#10B981">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </article>
+        <article class="group cursor-pointer p-6 glass-card rounded-xl border border-outline-variant/20 hover:border-[#F59E0B]/30 transition-all flex flex-col">
+            <span class="px-3 py-1 font-label text-[10px] tracking-widest uppercase w-fit rounded mb-6" style="background:#F59E0B15;color:#F59E0B">Game Prototyper</span>
+            <h4 class="text-2xl font-bold leading-tight mb-4 group-hover:opacity-80 transition-colors">Chatforce</h4>
+            <p class="text-on-surface-variant text-sm leading-relaxed flex-grow">Prototype game mechanics and storylines using AI. Describe your game concept and get a playable demo.</p>
+            <a href="https://theresanaiforthat.com/ai/chatforce/" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm mt-6 hover:underline" style="color:#F59E0B">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </article>
+    </div>
+</section>
+
+<!-- THE ARENA -->
+<section class="px-8 md:px-12 max-w-[1920px] mx-auto pb-14">
+    <div class="flex items-baseline justify-between mb-8 border-b border-outline-variant/30 pb-6">
+        <h2 class="text-lg font-extrabold tracking-tight">The Arena</h2>
+        <span class="font-label text-xs uppercase tracking-[0.3em] text-on-surface-variant font-bold">Competitive Intel</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="p-8 glass-card rounded-xl border-l-4 cinematic-shadow relative overflow-hidden" style="border-left-color:#3B82F6">
+            <div class="absolute -top-12 -right-12 w-32 h-32 rounded-full blur-3xl" style="background:#3B82F608"></div>
+            <p class="font-label text-[10px] tracking-widest uppercase font-black mb-4" style="color:#3B82F6">OpenAI</p>
+            <h4 class="text-2xl font-extrabold mb-4">Launching enterprise AI initiative alongside Child Safety Blueprint</h4>
+        </div>
+        <div class="p-8 glass-card rounded-xl border-l-4 cinematic-shadow relative overflow-hidden" style="border-left-color:#10B981">
+            <div class="absolute -top-12 -right-12 w-32 h-32 rounded-full blur-3xl" style="background:#10B98108"></div>
+            <p class="font-label text-[10px] tracking-widest uppercase font-black mb-4" style="color:#10B981">Meta</p>
+            <h4 class="text-2xl font-extrabold mb-4">Building full stack for next-generation AI with MTIA chips and TRIBE v2</h4>
+        </div>
+        <div class="p-8 glass-card rounded-xl border-l-4 cinematic-shadow relative overflow-hidden" style="border-left-color:#F59E0B">
+            <div class="absolute -top-12 -right-12 w-32 h-32 rounded-full blur-3xl" style="background:#F59E0B08"></div>
+            <p class="font-label text-[10px] tracking-widest uppercase font-black mb-4" style="color:#F59E0B">Hugging Face</p>
+            <h4 class="text-2xl font-extrabold mb-4">Releasing new models and mapping the open-source AI landscape</h4>
+        </div>
+    </div>
+</section>
+
+<!-- SUBSCRIBE -->
+<section class="px-8 md:px-12 max-w-7xl mx-auto mb-32">
+    <div class="bg-surface-container-low p-10 md:p-14 rounded-2xl relative overflow-hidden border border-outline-variant/20 shadow-2xl">
+        <div class="absolute -top-48 -right-48 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]"></div>
+        <div class="absolute -bottom-48 -left-48 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[100px]"></div>
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-2xl font-extrabold tracking-tight mb-8 leading-tight">Never miss a Signal.</h2>
+                <p class="text-on-surface-variant text-xl leading-relaxed font-light">Join intelligence professionals who receive our daily deep-dive into AI, geopolitics, and markets.</p>
+            </div>
+            <div class="flex flex-col gap-6">
+                <div class="flex flex-col md:flex-row gap-0">
+                    <input class="flex-grow bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary transition-all px-6 py-5 text-on-surface text-lg font-light placeholder:text-outline-variant" placeholder="Your email address" type="email"/>
+                    <button class="bg-primary text-white font-black px-12 py-5 hover:brightness-110 transition-all uppercase tracking-[0.2em] text-sm">Subscribe</button>
+                </div>
+                <p class="font-label text-[10px] text-on-surface-variant uppercase tracking-[0.3em] font-black opacity-60">Daily intelligence. No spam. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- Koda Footer -->
 <footer class="w-full py-16 px-8 border-t border-white/5 relative overflow-hidden">
-    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-gradient-to-t from-[#8B5CF6]/4 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-gradient-to-t from-secondary/4 to-transparent rounded-full blur-3xl pointer-events-none"></div>
     <div class="max-w-2xl mx-auto text-center relative z-10">
         <div class="inline-flex items-center gap-3 mb-6">
-            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] flex items-center justify-center text-white font-black text-sm shadow-lg shadow-[#8B5CF6]/20">K</div>
-            <span class="text-lg font-bold bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899] bg-clip-text text-transparent">Koda Intelligence</span>
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-black text-sm shadow-lg shadow-secondary/20">K</div>
+            <span class="text-lg font-bold bg-gradient-to-r from-primary via-secondary to-tertiary bg-clip-text text-transparent">Koda Intelligence</span>
         </div>
-        <p class="text-[#c2c6d6] text-sm mb-8">Read. Listen. Watch. Every morning.</p>
+        <p class="text-on-surface-variant text-sm mb-8">Read. Listen. Watch. Every morning.</p>
         <div class="flex items-center justify-center gap-6 mb-10">
-            <a href="./morning-briefing-koda.html" class="text-xs font-semibold text-[#c2c6d6] hover:text-[#3B82F6] transition-colors uppercase tracking-wider no-underline"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
-            <span class="text-[#8c909f]/30">|</span>
-            <a href="./archive/" class="text-xs font-semibold text-[#c2c6d6] hover:text-[#8B5CF6] transition-colors uppercase tracking-wider no-underline"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
-            <span class="text-[#8c909f]/30">|</span>
-            <a href="https://www.youtube.com/channel/UC8qqiKRGFAd5SwTr_2ZzPJg" target="_blank" rel="noopener" class="text-xs font-semibold text-[#c2c6d6] hover:text-[#EC4899] transition-colors uppercase tracking-wider no-underline">YouTube</a>
+            <a href="./morning-briefing-koda.html" class="text-xs font-semibold text-on-surface-variant hover:text-primary transition-colors uppercase tracking-wider no-underline"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+            <span class="text-outline/30">|</span>
+            <a href="./archive/" class="text-xs font-semibold text-on-surface-variant hover:text-secondary transition-colors uppercase tracking-wider no-underline"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
+            <span class="text-outline/30">|</span>
+            <a href="https://www.youtube.com/channel/UC8qqiKRGFAd5SwTr_2ZzPJg" target="_blank" class="text-xs font-semibold text-on-surface-variant hover:text-tertiary transition-colors uppercase tracking-wider no-underline">YouTube</a>
         </div>
-        <p class="text-[11px] text-[#8c909f]/60">&copy; 2026 Koda Community &middot; <span class="font-mono">koda.community</span></p>
+        <p class="text-[11px] text-outline/60">&copy; 2026 Koda Community &middot; <span class="font-label">koda.community</span></p>
     </div>
 </footer>
 
-<script>// Share buttons
-function shareDigest(platform) {
-    var url = window.location.href;
-    var title = document.title;
-    var text = document.querySelector('meta[name="description"]');
-    text = text ? text.content : 'Daily AI intelligence briefing';
-    if (platform === 'x') {
-        window.open('https://x.com/intent/tweet?text=' + encodeURIComponent(title + ' - ' + text) + '&url=' + encodeURIComponent(url), '_blank');
-    } else if (platform === 'linkedin') {
-        window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url), '_blank');
-    } else if (platform === 'copy') {
-        navigator.clipboard.writeText(url).then(function() {
-            var btn = document.querySelector('[title="Copy link"]');
-            if (btn) { btn.style.color = '#10B981'; setTimeout(function() { btn.style.color = ''; }, 1500); }
-        });
-    }
-}
+<!-- Podcast Image Lightbox -->
+<div id="podcastLightbox" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:24px" onclick="if(event.target===this)this.style.display='none'">
+    <button onclick="document.getElementById('podcastLightbox').style.display='none'" style="position:absolute;top:20px;right:20px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:24px;backdrop-filter:blur(8px);z-index:10000;transition:all 0.2s" onmouseover="this.style.background='rgba(239,68,68,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">&times;</button>
+    <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/email-hero-2026-04-09.jpg" alt="Daily Deep Dive" style="max-width:95%;max-height:95vh;object-fit:contain;border-radius:12px;box-shadow:0 40px 100px rgba(0,0,0,0.8)"/>
+</div>
 
-// Expandable sections (works on both mobile and desktop)
-function toggleExpand(btn) {
-    var content = btn.nextElementSibling;
-    var chevron = btn.querySelector('.expand-chevron');
-    if (!content) return;
-    // Check if currently hidden (class or inline style)
-    var isHidden = content.classList.contains('hidden') || content.style.display === 'none';
-    if (isHidden) {
-        content.classList.remove('hidden');
-        content.style.display = '';
-        btn.setAttribute('aria-expanded', 'true');
-        if (chevron) chevron.style.transform = 'rotate(180deg)';
-    } else {
-        // Use inline style so it overrides lg:block on desktop
-        content.style.display = 'none';
-        btn.setAttribute('aria-expanded', 'false');
-        if (chevron) chevron.style.transform = '';
-    }
-}
+<!-- Infographic Lightbox -->
+<div id="infographicLightbox" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:24px" onclick="if(event.target===this)this.style.display='none'">
+    <button onclick="document.getElementById('infographicLightbox').style.display='none'" style="position:absolute;top:20px;right:20px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:24px;backdrop-filter:blur(8px);z-index:10000;transition:all 0.2s" onmouseover="this.style.background='rgba(239,68,68,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">&times;</button>
+    <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/infographic-2026-04-09.jpg" alt="Daily Infographic" style="max-width:95%;max-height:95vh;object-fit:contain;border-radius:12px;box-shadow:0 40px 100px rgba(0,0,0,0.8)"/>
+</div>
 
-// All sections start collapsed - no auto-expand needed
-
-// Infographic lightbox
-function openInfographic(src) {
-    var overlay = document.getElementById('infographicOverlay');
-    var img = document.getElementById('infographicFull');
-    if (!overlay || !img) return;
-    img.src = src;
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    var closeBtn = overlay.querySelector('.infographic-overlay-close');
-    if (closeBtn) closeBtn.focus();
-}
-function closeInfographic() {
-    var overlay = document.getElementById('infographicOverlay');
-    if (!overlay) return;
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-// Podcast player toggle
-function togglePodcast() {
-    var w = document.getElementById('podcastPlayer');
-    var btn = document.querySelector('.podcast-btn');
-    if (!w) return;
-    w.classList.toggle('active');
-    if (btn) btn.setAttribute('aria-expanded', w.classList.contains('active'));
-}
-
-// Video overlay toggle
-function toggleVideo() {
-    var o = document.getElementById('videoOverlay');
-    var f = document.getElementById('videoFrame');
-    if (!o) return;
-    if (o.classList.contains('active')) {
-        o.classList.remove('active');
-        document.body.style.overflow = '';
-        if (f) f.src = '';
-    } else {
-        o.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        var ytId = document.body.getAttribute('data-youtube-id');
-        if (f && ytId && /^[A-Za-z0-9_-]{11}$/.test(ytId)) {
-            f.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1';
-        }
-        var closeBtn = o.querySelector('.video-overlay-close');
-        if (closeBtn) closeBtn.focus();
-    }
-}
-
-// Escape key closes overlays
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        var vid = document.getElementById('videoOverlay');
-        if (vid && vid.classList.contains('active')) { toggleVideo(); return; }
-        var info = document.getElementById('infographicOverlay');
-        if (info && info.classList.contains('active')) { closeInfographic(); return; }
-    }
-});
-
-// Date picker navigation
-(function() {
-    var btn = document.getElementById('datePickerBtn');
-    var picker = document.getElementById('datePicker');
-    if (!btn || !picker) return;
-    btn.addEventListener('click', function() { picker.showPicker ? picker.showPicker() : picker.click(); });
-    picker.addEventListener('change', function() {
-        var v = picker.value;
-        if (!v) return;
-        var file = 'morning-briefing-koda-' + v + '.html';
-        fetch(file, {method: 'HEAD'}).then(function(r) {
-            if (r.ok) { window.location.href = file; }
-            else { alert('No digest available for ' + v); picker.value = document.body.getAttribute('data-digest-date'); }
-        }).catch(function() { alert('No digest available for ' + v); picker.value = document.body.getAttribute('data-digest-date'); });
-    });
-})();
-
-// Scroll-in animations (respects reduced motion)
-if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    var obs = new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) {
-            if (e.isIntersecting) {
-                e.target.style.opacity = '1';
-                e.target.style.transform = 'translateY(0)';
-                obs.unobserve(e.target);
-            }
-        });
-    }, {threshold: 0.08});
-    document.querySelectorAll('.section').forEach(function(s) {
-        s.style.opacity = '0';
-        s.style.transform = 'translateY(16px)';
-        s.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
-        obs.observe(s);
-    });
-}
-
-// Hash scrolling with auto-expand for collapsed sections
-if (window.location.hash) {
-    var hashTarget = document.querySelector(window.location.hash);
-    if (hashTarget) {
-        var expandable = hashTarget.querySelector('.expandable-content');
-        if (expandable && (expandable.classList.contains('hidden') || expandable.style.display === 'none')) {
-            expandable.classList.remove('hidden');
-            expandable.style.display = '';
-            var btn = expandable.previousElementSibling;
-            if (btn && btn.classList.contains('expandable-header')) {
-                btn.setAttribute('aria-expanded', 'true');
-                var chev = btn.querySelector('.expand-chevron');
-                if (chev) chev.style.transform = 'rotate(180deg)';
-            }
-        }
-        setTimeout(function() { hashTarget.scrollIntoView({behavior: 'smooth'}); }, 300);
-    }
-}
-
-// Scroll progress bar + back-to-top
-(function() {
-    var bar = document.getElementById('scrollProgress');
-    var btn = document.getElementById('backToTop');
-    if (!bar) return;
-    var ticking = false;
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            requestAnimationFrame(function() {
-                var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                if (docHeight > 0) {
-                    bar.style.width = Math.min((scrollTop / docHeight) * 100, 100) + '%';
-                }
-                if (btn) {
-                    if (scrollTop > 600) btn.classList.add('visible');
-                    else btn.classList.remove('visible');
-                }
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
-})();
-
-/* ── Beehiiv Subscribe ──────────────────────────────────────── */
-function kodaSubscribe(form) {
-    var btn = form.querySelector('button');
-    var email = form.querySelector('input[name="email"]').value;
-    btn.textContent = 'Subscribing...';
-    btn.disabled = true;
-    fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email })
-    }).then(function(r) {
-        if (r.ok) {
-            btn.textContent = 'Subscribed!';
-            btn.style.background = '#10B981';
-            form.querySelector('input[name="email"]').value = '';
-        } else {
-            btn.textContent = 'Try again';
-            btn.disabled = false;
-        }
-    }).catch(function() {
-        btn.textContent = 'Try again';
-        btn.disabled = false;
-    });
-    return false;
-}
-</script>
-<!-- koda-nav-v2-js-start -->
 <script>
 (function(){
-    var btn=document.getElementById('knMenuBtn'),
-        drawer=document.getElementById('knDrawer'),
-        overlay=document.getElementById('knOverlay'),
-        closeBtn=document.getElementById('knDrawerClose'),
-        searchBtn=document.getElementById('knSearchBtn');
-    function open(){
-        drawer.classList.add('kn-open');
-        overlay.classList.add('kn-open');
-        document.body.classList.add('kn-locked');
-        btn.setAttribute('aria-expanded','true');
-        closeBtn.focus();
+    var btn=document.getElementById('knMenuBtn'),drawer=document.getElementById('knDrawer'),overlay=document.getElementById('knOverlay'),closeBtn=document.getElementById('knDrawerClose');
+    function open(){drawer.classList.add('kn-open');overlay.classList.add('kn-open');document.body.classList.add('kn-locked')}
+    function close(){drawer.classList.remove('kn-open');overlay.classList.remove('kn-open');document.body.classList.remove('kn-locked')}
+    if(btn)btn.addEventListener('click',open);
+    if(closeBtn)closeBtn.addEventListener('click',close);
+    if(overlay)overlay.addEventListener('click',close);
+    // Close lightbox on Escape
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.getElementById('infographicLightbox').style.display='none';document.getElementById('podcastLightbox').style.display='none'}});
+    // Date picker
+    var dpBtn=document.getElementById('datePickerBtn'),dp=document.getElementById('datePicker');
+    if(dpBtn&&dp){
+        dpBtn.addEventListener('click',function(){dp.showPicker?dp.showPicker():dp.click()});
+        dp.addEventListener('change',function(){
+            var d=this.value;if(!d)return;
+            var url='./morning-briefing-koda-'+d+'.html';
+            fetch(url,{method:'HEAD'}).then(function(r){if(r.ok)window.location.href=url;else alert('No briefing found for '+d)}).catch(function(){alert('No briefing found for '+d)});
+        });
     }
-    function close(){
-        drawer.classList.remove('kn-open');
-        overlay.classList.remove('kn-open');
-        document.body.classList.remove('kn-locked');
-        btn.setAttribute('aria-expanded','false');
-        btn.focus();
-    }
-    if(btn) btn.addEventListener('click',open);
-    if(closeBtn) closeBtn.addEventListener('click',close);
-    if(overlay) overlay.addEventListener('click',close);
-    document.addEventListener('keydown',function(e){
-        if(e.key==='Escape' && drawer.classList.contains('kn-open')) close();
-    });
-    if(searchBtn) searchBtn.addEventListener('click',function(){
-        var so=document.getElementById('searchOverlay');
-        if(so){so.classList.remove('hidden');so.style.display='';var si=document.getElementById('globalSearchInput');if(si)si.focus();}
-        else{window.location.href='./archive/';}
-    });
 })();
 </script>
-<!-- koda-nav-v2-js-end -->
 </body>
 </html>
