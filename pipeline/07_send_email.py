@@ -14,6 +14,7 @@ import base64
 import hashlib
 import hmac
 import json
+import subprocess
 import sys
 import os
 import httpx
@@ -49,20 +50,14 @@ def _media_url(filename: str) -> str:
 
 def generate_email_hero(digest: dict, date: str) -> str | None:
     """Generate a concise sketch-note infographic via NotebookLM for the email hero.
-    Uses the permanent notebook (sources already loaded by step 04).
+
+    Runs in a SUBPROCESS to avoid OOM kills -- by step 07 the main process has
+    accumulated significant memory from media generation (steps 04/04E/04R).
+    The subprocess gets fresh memory and prints the Supabase URL to stdout.
+
     Returns the Supabase public URL if successful, None otherwise."""
-    import asyncio
 
     hero_path = DIGEST_DIR / "pipeline" / "data" / f"email-hero-{date}.jpg"
-    if hero_path.exists():
-        print(f"  Email sketch-note already exists: {hero_path.name}")
-        return _upload_hero_to_supabase(hero_path, date)
-
-    try:
-        from notebooklm import NotebookLMClient, InfographicOrientation, InfographicDetail
-    except ImportError:
-        print("  WARNING: notebooklm-py not installed, skipping email hero")
-        return None
 
     # Build instructions from the day's top stories
     hook = digest.get("summary", {}).get("hook", "AI intelligence briefing")
@@ -85,47 +80,38 @@ def generate_email_hero(digest: dict, date: str) -> str | None:
         f"STRICT: No recognizable political figures or heads of state."
     )
 
-    async def _generate():
-        client_cm = await NotebookLMClient.from_storage()
-        client = await client_cm.__aenter__()
-        try:
-            print("  Generating sketch-note infographic via NotebookLM (square, concise)...")
-            status = await client.artifacts.generate_infographic(
-                NOTEBOOK_ID,
-                instructions=instructions,
-                orientation=InfographicOrientation.SQUARE,
-                detail_level=InfographicDetail.CONCISE,
-            )
-            print(f"  Infographic generation started (task: {status.task_id})")
-
-            await client.artifacts.wait_for_completion(
-                NOTEBOOK_ID, status.task_id, timeout=300.0
-            )
-
-            # Download the infographic
-            png_path = hero_path.with_suffix(".png")
-            await client.artifacts.download_infographic(NOTEBOOK_ID, str(png_path))
-            print(f"  Downloaded infographic PNG: {png_path.stat().st_size // 1024}KB")
-
-            # Convert PNG to JPG for smaller size
-            try:
-                from PIL import Image
-                with Image.open(png_path) as img:
-                    rgb = img.convert("RGB")
-                    rgb.save(str(hero_path), "JPEG", quality=90)
-                png_path.unlink(missing_ok=True)
-                print(f"  Converted to JPG: {hero_path.stat().st_size // 1024}KB")
-            except ImportError:
-                # No PIL, just rename
-                png_path.rename(hero_path)
-        finally:
-            await client_cm.__aexit__(None, None, None)
-
     try:
-        asyncio.run(_generate())
-        return _upload_hero_to_supabase(hero_path, date)
+        print("  Generating sketch-note infographic via subprocess...")
+        result = subprocess.run(
+            [
+                sys.executable, "-m", "pipeline.generate_sketch_note",
+                "--date", date,
+                "--instructions", instructions,
+                "--output", str(hero_path),
+            ],
+            capture_output=True,
+            text=True,
+            timeout=420,  # 7 min max (300s generation + upload buffer)
+            cwd=str(DIGEST_DIR),
+            env={**os.environ, "PYTHONUTF8": "1"},
+        )
+        # Forward stderr (progress logs) to our stdout
+        if result.stderr:
+            for line in result.stderr.strip().splitlines():
+                print(line)
+
+        if result.returncode == 0 and result.stdout.strip():
+            url = result.stdout.strip()
+            print(f"  Email hero URL: {url}")
+            return url
+        else:
+            print(f"  WARNING: sketch-note subprocess exited {result.returncode}")
+            return None
+    except subprocess.TimeoutExpired:
+        print("  WARNING: sketch-note subprocess timed out (420s)")
+        return None
     except Exception as e:
-        print(f"  WARNING: NotebookLM sketch-note generation failed: {e}")
+        print(f"  WARNING: sketch-note generation failed: {e}")
         return None
 
 
