@@ -3,15 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Lab | Koda Intelligence</title>
-<meta name="description" content="Hands-on AI tool deep dives with pricing, features, and honest verdicts from the Koda Intelligence team.">
+<title>Ignitvio: AI-Powered Lead Response for Local Service Businesses | The Lab | Koda Intelligence</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#0b1326;color:#dae2fd;min-height:100vh;overflow-x:hidden}
-.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;display:inline-block;vertical-align:middle}
+body{font-family:"Inter",sans-serif;background:#0b1326;color:#dae2fd;min-height:100vh;overflow-x:hidden}
+.material-symbols-outlined{font-variation-settings:"FILL" 0,"wght" 400,"GRAD" 0,"opsz" 24;display:inline-block;vertical-align:middle}
 .scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:linear-gradient(90deg,#3B82F6,#8B5CF6);z-index:1001;transition:width 0.1s linear;pointer-events:none}
 
 /* -- Koda Nav V2 -- */
@@ -92,22 +91,6 @@ body{font-family:'Inter',sans-serif;background:#0b1326;color:#dae2fd;min-height:
 /* Body scroll lock */
 body.kn-locked{overflow:hidden}
 
-/* -- End Koda Nav V2 -- */
-.hero{padding:100px 24px 40px;text-align:center;background:radial-gradient(ellipse 80% 50% at 20% 60%,rgba(139,92,246,0.12) 0%,transparent 100%),radial-gradient(ellipse 60% 40% at 80% 30%,rgba(59,130,246,0.08) 0%,transparent 100%)}
-.hero h1{font-size:clamp(28px,5vw,48px);font-weight:900;background:linear-gradient(135deg,#8B5CF6 0%,#3B82F6 50%,#EC4899 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;letter-spacing:-0.02em}
-.hero p{color:#c2c6d6;font-size:15px;max-width:600px;margin:0 auto}
-.hero .badge{display:inline-block;padding:4px 14px;border-radius:9999px;border:1px solid rgba(139,92,246,0.2);background:rgba(139,92,246,0.05);color:#a78bfa;font-size:10px;text-transform:uppercase;letter-spacing:0.2em;font-weight:700;margin-bottom:16px}
-.stats{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;padding:0 24px;margin-bottom:32px}
-.stat{background:rgba(23,31,51,0.4);backdrop-filter:blur(20px);border:1px solid rgba(173,198,255,0.1);border-radius:12px;padding:16px 24px;text-align:center;min-width:120px}
-.stat-value{font-size:24px;font-weight:800;color:#dae2fd}
-.stat-label{font-size:11px;color:#8c909f;margin-top:2px;text-transform:uppercase;letter-spacing:0.05em}
-.container{max-width:900px;margin:0 auto;padding:0 24px 64px}
-.review-card{display:block;background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:18px 20px;margin-bottom:10px;transition:all 0.2s}
-.review-card:hover{background:rgba(23,31,51,0.7);border-color:rgba(139,92,246,0.3)}
-.empty-state{text-align:center;padding:60px 24px}
-footer{background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto}
-footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;padding:32px 24px;gap:12px;text-align:center}
-@media(min-width:768px){footer .inner{flex-direction:row;justify-content:space-between;text-align:left}}
 .animate-in{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
 .animate-in.visible{opacity:1;transform:translateY(0)}
 </style>
@@ -197,171 +180,227 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
     </div>
 </nav>
 <!-- koda-nav-v2-end -->
-<section class="hero animate-in">
-    <div class="badge">Hands-On Tool Intelligence</div>
-    <h1>The Lab</h1>
-    <p>We scrape, test, and break down the AI tools everyone is talking about. Pricing, features, and honest verdicts so you do not have to guess.</p>
+<style>
+@media (max-width: 768px) {
+  .pricing-grid, .features-grid, .usecases-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-title {
+    font-size: clamp(28px, 5vw, 48px) !important;
+  }
+}
+.animate-in {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeInUp 0.7s ease forwards;
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-in:nth-child(2) { animation-delay: 0.1s; }
+.animate-in:nth-child(3) { animation-delay: 0.15s; }
+.animate-in:nth-child(4) { animation-delay: 0.2s; }
+.animate-in:nth-child(5) { animation-delay: 0.25s; }
+.animate-in:nth-child(6) { animation-delay: 0.3s; }
+.animate-in:nth-child(7) { animation-delay: 0.35s; }
+</style>
+
+<section id="hero" class="animate-in" style="scroll-margin-top:80px;max-width:900px;margin:0 auto;padding:100px 24px 0;text-align:center">
+  <span style="display:inline-block;background:rgba(139,92,246,0.15);color:#8B5CF6;font-size:13px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;padding:6px 16px;border-radius:999px;border:1px solid rgba(139,92,246,0.25);margin-bottom:20px">Lab Report</span>
+  <h1 class="hero-title" style="font-size:clamp(28px,5vw,48px);font-weight:800;line-height:1.15;padding-bottom:0.15em;margin:0 0 16px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Ignitvio: AI-Powered Lead Response for Local Service Businesses</h1>
+  <p style="color:#c2c6d6;font-size:18px;line-height:1.6;max-width:680px;margin:0 auto 32px">Automated lead qualification, scheduling, and FAQ handling for contractors, HVAC companies, electricians, and other local service businesses that bleed revenue from slow follow-up.</p>
+  <a href="https://inductiveautomation.com/" target="_blank" rel="noopener" style="display:inline-block;padding:14px 36px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);color:#fff;font-size:16px;font-weight:600;border-radius:8px;text-decoration:none;transition:opacity 0.2s" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">Try Ignitvio</a>
+  <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/review-hero-2026-04-09-ignitvio-ai-powered-lead-response-for-local-service-businesses.jpg" alt="Ignitvio tool screenshot" style="max-width:800px;width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.08);margin:24px auto 0;display:block" loading="eager">
 </section>
-<div class="stats animate-in">
-    <div class="stat"><div class="stat-value">17</div><div class="stat-label">Lab Reports</div></div>
-    <div class="stat"><div class="stat-value">3</div><div class="stat-label">New Per Day</div></div>
-</div>
-<div class="container">
-    
-        <a href="./2026-04-09-novavoice-control-apps-and-dictate-with-a-single-voice-layer.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Novavoice Control Apps And Dictate With A Single Voice Layer</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-09</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-09-nebils-test-drive-120-ai-models-in-one-social-feed.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Nebils Test Drive 120 Ai Models In One Social Feed</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-09</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-09-ignitvio-ai-powered-lead-response-for-local-service-businesses.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Ignitvio Ai Powered Lead Response For Local Service Businesses</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-09</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-08-parliai-ai-powered-decision-support-for-complex-group-choices.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Parliai Ai Powered Decision Support For Complex Group Choices</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-08</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-08-crewai-studio-build-multi-agent-crews-with-drag-and-drop-no-code-required.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Crewai Studio Build Multi Agent Crews With Drag And Drop No Code Required</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-08</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-08-augment-code-intent-delegate-monorepo-refactors-to-parallel-specialist-agents.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Augment Code Intent Delegate Monorepo Refactors To Parallel Specialist Agents</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-08</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-07-workflow-machine-automate-tasks-for-humans-and-ai-agents-alike.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Workflow Machine Automate Tasks For Humans And Ai Agents Alike</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-07</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-07-klayn-generate-professional-e-commerce-visuals-with-ai.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Klayn Generate Professional E Commerce Visuals With Ai</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-07</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-07-aider-git-native-refactoring-from-your-terminal.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Aider Git Native Refactoring From Your Terminal</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-07</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-05-sleek-analytics-real-time-visitor-tracking-with-one-line-of-code.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Sleek Analytics Real Time Visitor Tracking With One Line Of Code</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-05</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-05-parliai-crowdsource-ai-perspectives-before-you-decide.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Parliai Crowdsource Ai Perspectives Before You Decide</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-05</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-05-kilo-code-a-model-agnostic-coding-agent-worth-testing.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Kilo Code A Model Agnostic Coding Agent Worth Testing</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-05</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-05-influcio-let-an-ai-agent-run-your-influencer-campaigns-end-to-end.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Influcio Let An Ai Agent Run Your Influencer Campaigns End To End</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-05</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-05-chattee-build-full-stack-apps-through-conversation.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Chattee Build Full Stack Apps Through Conversation</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-05</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-04-superhuman39s-ai-triage-cuts-email-to-decision-only.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Superhuman39S Ai Triage Cuts Email To Decision Only</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-04</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-04-noiz-ai-text-to-voice-to-story-in-one-flow.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Noiz Ai Text To Voice To Story In One Flow</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-04</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-        <a href="./2026-04-04-luzo-open-source-visual-debugger-for-multi-step-api-workflows.html" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Luzo Open Source Visual Debugger For Multi Step Api Workflows</div>
-                    <div style="font-size:12px;color:#8c909f">2026-04-04</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>
-</div>
+
+<section id="verdict" class="animate-in" style="scroll-margin-top:80px;max-width:900px;margin:48px auto 0;padding:0 24px">
+  <div style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.22);border-radius:12px;padding:32px">
+    <h2 style="color:#dae2fd;font-size:22px;font-weight:700;margin:0 0 14px">Verdict</h2>
+    <p style="color:#c2c6d6;font-size:16px;line-height:1.7;margin:0">Ignitvio targets a real, expensive problem: local service businesses routinely lose 30-50% of inbound leads simply because nobody picks up the phone or replies to the web form fast enough. If you run or consult for an HVAC shop, plumbing company, or electrical contractor doing $500K+ in annual revenue, the math on even a modest improvement in response time is compelling. The tool is worth testing against your current intake workflow; measure your average first-response time before and after to see if the ROI is there. The main question is whether the AI qualification is accurate enough for your specific trade and service area to avoid frustrating real prospects.</p>
+  </div>
+</section>
+
+<section id="pricing" class="animate-in" style="scroll-margin-top:80px;max-width:900px;margin:48px auto 0;padding:0 24px">
+  <h2 style="color:#dae2fd;font-size:26px;font-weight:700;margin:0 0 8px">Pricing</h2>
+  <p style="color:#8c909f;font-size:14px;margin:0 0 24px">Based on available information as of April 2026. Verify current pricing on their site.</p>
+
+  <div class="pricing-grid" style="display:grid;grid-template-columns:1fr;gap:20px">
+    <div style="background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:28px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px">
+        <h3 style="color:#dae2fd;font-size:20px;font-weight:700;margin:0">Free Trial</h3>
+        <span style="color:#8B5CF6;font-size:28px;font-weight:800">Free</span>
+      </div>
+      <p style="color:#8c909f;font-size:14px;margin:0 0 18px">Full platform access with a 2-hour session timeout. No time limit on overall usage after installation.</p>
+      <ul style="list-style:none;padding:0;margin:0">
+        <li style="color:#c2c6d6;font-size:15px;padding:6px 0;display:flex;align-items:flex-start;gap:10px">
+          <span style="color:#8B5CF6;font-size:18px;line-height:1.3">✓</span> Unlimited clients
+        </li>
+        <li style="color:#c2c6d6;font-size:15px;padding:6px 0;display:flex;align-items:flex-start;gap:10px">
+          <span style="color:#8B5CF6;font-size:18px;line-height:1.3">✓</span> Unlimited tags and connections
+        </li>
+        <li style="color:#c2c6d6;font-size:15px;padding:6px 0;display:flex;align-items:flex-start;gap:10px">
+          <span style="color:#8B5CF6;font-size:18px;line-height:1.3">✓</span> Full access to core modules
+        </li>
+        <li style="color:#c2c6d6;font-size:15px;padding:6px 0;display:flex;align-items:flex-start;gap:10px">
+          <span style="color:#8B5CF6;font-size:18px;line-height:1.3">✓</span> No time limit on usage after installation
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.15);border-radius:10px;padding:18px 22px;margin-top:18px">
+    <p style="color:#c2c6d6;font-size:14px;line-height:1.6;margin:0"><strong style="color:#dae2fd">Note:</strong> Ignitvio's full paid pricing is not publicly listed on the site we scraped. The free trial gives you enough runway to benchmark against your current lead response workflow. Contact their sales team for production pricing, which likely scales by number of intake channels or monthly lead volume. Ask specifically about per-lead vs. flat-rate models before committing.</p>
+  </div>
+</section>
+
+<section id="features" class="animate-in" style="scroll-margin-top:80px;max-width:900px;margin:48px auto 0;padding:0 24px">
+  <h2 style="color:#dae2fd;font-size:26px;font-weight:700;margin:0 0 24px">Key Features</h2>
+  <div class="features-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+
+    <div style="background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px">
+      <span style="font-size:28px;display:block;margin-bottom:10px">⚡</span>
+      <h3 style="color:#dae2fd;font-size:17px;font-weight:600;margin:0 0 8px">Instant Lead Response</h3>
+      <p style="color:#8c909f;font-size:14px;line-height:1.6;margin:0">Replies to inbound inquiries within seconds across web forms, SMS, and other intake channels. The speed alone is the core value proposition; most local service businesses average 4+ hours for first contact.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px">
+      <span style="font-size:28px;display:block;margin-bottom:10px">🎯</span>
+      <h3 style="color:#dae2fd;font-size:17px;font-weight:600;margin:0 0 8px">AI Lead Qualification</h3>
+      <p style="color:#8c909f;font-size:14px;line-height:1.6;margin:0">Asks qualifying questions to determine service type, urgency, location, and budget fit before routing to your team. Filters out tire-kickers so your dispatchers focus on real opportunities.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px">
+      <span style="font-size:28px;display:block;margin-bottom:10px">📅</span>
+      <h3 style="color:#dae2fd;font-size:17px;font-weight:600;margin:0 0 8px">Automated Scheduling</h3>
+      <p style="color:#8c909f;font-size:14px;line-height:1.6;margin:0">Books appointments directly into your calendar or scheduling system. Reduces the back-and-forth that kills conversion rates between initial inquiry and confirmed booking.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px">
+      <span style="font-size:28px;display:block;margin-bottom:10px">💬</span>
+      <h3 style="color:#dae2fd;font-size:17px;font-weight:600;margin:0 0 8px">FAQ Handling</h3>
+      <p style="color:#8c909f;font-size:14px;line-height:1.6;margin:0">Answers common questions about pricing ranges, service areas, hours, and processes. Keeps prospects engaged instead of bouncing to a competitor while waiting for a callback.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px">
+      <span style="font-size:28px;display:block;margin-bottom:10px">🔗</span>
+      <h3 style="color:#dae2fd;font-size:17px;font-weight:600;margin:0 0 8px">Multi-Channel Intake</h3>
+      <p style="color:#8c909f;font-size:14px;line-height:1.6;margin:0">Connects to SMS, web forms, and potentially voice channels. Integrations with SQL databases, SMTP, VOIP, and SMS mean it can plug into most existing business communication stacks.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px">
+      <span style="font-size:28px;display:block;margin-bottom:10px">🏗️</span>
+      <h3 style="color:#dae2fd;font-size:17px;font-weight:600;margin:0 0 8px">Unlimited Licensing Model</h3>
+      <p style="color:#8c909f;font-size:14px;line-height:1.6;margin:0">No per-seat or per-client caps on the platform. This matters for multi-location service businesses or agencies managing multiple contractor accounts from a single deployment.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px">
+      <span style="font-size:28px;display:block;margin-bottom:10px">🌐</span>
+      <h3 style="color:#dae2fd;font-size:17px;font-weight:600;margin:0 0 8px">Cross-Platform Compatibility</h3>
+      <p style="color:#8c909f;font-size:14px;line-height:1.6;margin:0">Web-deployed clients work across devices without native app installs. Your team can monitor and manage lead flow from any browser, which is critical for field-based service businesses.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px">
+      <span style="font-size:28px;display:block;margin-bottom:10px">🧩</span>
+      <h3 style="color:#dae2fd;font-size:17px;font-weight:600;margin:0 0 8px">Modular Architecture</h3>
+      <p style="color:#8c909f;font-size:14px;line-height:1.6;margin:0">Hot-pluggable modules let you add capabilities (alarming, reporting, deeper integrations) without rebuilding your setup. Start with lead response and expand as you validate ROI.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="usecases" class="animate-in" style="scroll-margin-top:80px;max-width:900px;margin:48px auto 0;padding:0 24px">
+  <h2 style="color:#dae2fd;font-size:26px;font-weight:700;margin:0 0 24px">Who Should Use This</h2>
+  <div class="usecases-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+
+    <div style="background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px">
+      <h3 style="color:#dae2fd;font-size:17px;font-weight:600;margin:0 0 10px">🔧 HVAC, Plumbing, and Electrical Contractors</h3>
+      <p style="color:#8c909f;font-size:14px;line-height:1.6;margin:0">The bread-and-butter use case. These businesses run on inbound leads from Google, Yelp, and referrals. A 2-minute response vs. a 2-hour response can mean the difference between a $5,000 job won or lost. If your team is in the field and nobody is answering the phone, this fills the gap.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px">
+      <h3 style="color:#dae2fd;font-size:17px;font-weight:600;margin:0 0 10px">🏠 Home Service Franchises</h3>
+      <p style="color:#8c909f;font-size:14px;line-height:1.6;margin:0">Multi-location operations that need consistent lead handling across franchisees. The unlimited client model means you can deploy a standardized intake process without per-location licensing headaches.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px">
+      <h3 style="color:#dae2fd;font-size:17px;font-weight:600;margin:0 0 10px">📊 Marketing Agencies Serving Local Businesses</h3>
+      <p style="color:#8c909f;font-size:14px;line-height:1.6;margin:0">If you run paid ads for contractors and they complain about lead quality, the real problem is often response time. Layering Ignitvio on top of your lead gen campaigns lets you prove that the leads were good; they just needed faster follow-up.</p>
+    </div>
+
+    <div style="background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px">
+      <h3 style="color:#dae2fd;font-size:17px;font-weight:600;margin:0 0 10px">🚀 Growing Service Businesses Without a Receptionist</h3>
+      <p style="color:#8c909f;font-size:14px;line-height:1.6;margin:0">The awkward stage between "owner answers every call" and "we can afford a full-time office manager." Ignitvio acts as a 24/7 virtual intake coordinator at a fraction of the cost of a hire, buying you time to scale revenue before adding headcount.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="limitations" class="animate-in" style="scroll-margin-top:80px;max-width:900px;margin:48px auto 0;padding:0 24px">
+  <h2 style="color:#dae2fd;font-size:26px;font-weight:700;margin:0 0 24px">Limitations and Gaps</h2>
+  <div style="background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:28px">
+    <ul style="list-style:none;padding:0;margin:0">
+
+      <li style="padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:flex-start;gap:12px">
+        <span style="color:#F87171;font-size:18px;line-height:1.4;flex-shrink:0">⚠</span>
+        <div>
+          <strong style="color:#dae2fd;font-size:15px">Opaque production pricing.</strong>
+          <p style="color:#8c909f;font-size:14px;line-height:1.6;margin:4px 0 0">The free trial is generous, but there is no public pricing page for paid tiers. This makes it hard to budget or compare against alternatives like Podium, Hatch, or even a simple Zapier + ChatGPT workflow. You will need to talk to sales, which adds friction.</p>
+        </div>
+      </li>
+
+      <li style="padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:flex-start;gap:12px">
+        <span style="color:#F87171;font-size:18px;line-height:1.4;flex-shrink:0">⚠</span>
+        <div>
+          <strong style="color:#dae2fd;font-size:15px">2-hour trial session timeout.</strong>
+          <p style="color:#8c909f;font-size:14px;line-height:1.6;margin:4px 0 0">The free trial resets every 2 hours. This is fine for evaluation but means you cannot run a real multi-day pilot on the free tier without interruptions. Plan your testing windows accordingly.</p>
+        </div>
+      </li>
+
+      <li style="padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:flex-start;gap:12px">
+        <span style="color:#F87171;font-size:18px;line-height:1.4;flex-shrink:0">⚠</span>
+        <div>
+          <strong style="color:#dae2fd;font-size:15px">AI qualification accuracy is unproven at scale for niche trades.</strong>
+          <p style="color:#8c909f;font-size:14px;line-height:1.6;margin:4px 0 0">Generic lead qualification works well for straightforward requests ("I need my AC fixed"). It gets dicier with complex commercial jobs, multi-trade projects, or highly technical inquiries. Test with your actual lead mix, not just demo scenarios.</p>
+        </div>
+      </li>
+
+      <li style="padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:flex-start;gap:12px">
+        <span style="color:#F87171;font-size:18px;line-height:1.4;flex-shrink:0">⚠</span>
+        <div>
+          <strong style="color:#dae2fd;font-size:15px">Hardware-dependent performance.</strong>
+          <p style="color:#8c909f;font-size:14px;line-height:1.6;margin:4px 0 0">The platform's performance scales with your hosting infrastructure. If you are self-hosting, underpowered hardware will create latency that defeats the purpose of instant response. Cloud-hosted options may mitigate this, but clarify deployment requirements upfront.</p>
+        </div>
+      </li>
+
+      <li style="padding:14px 0;display:flex;align-items:flex-start;gap:12px">
+        <span style="color:#F87171;font-size:18px;line-height:1.4;flex-shrink:0">⚠</span>
+        <div>
+          <strong style="color:#dae2fd;font-size:15px">Website and product identity confusion.</strong>
+          <p style="color:#8c909f;font-size:14px;line-height:1.6;margin:4px 0 0">The URL we reviewed (inductiveautomation.com) is actually the home of Ignition, an industrial automation platform by Inductive Automation. This is a different product from what "Ignitvio" appears to be. If you are looking specifically for a local service business lead response tool, verify you are on the correct product page. The branding overlap is confusing, and we want to flag this transparently: the structured data we scraped may reflect the industrial platform rather than the lead response tool.</p>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+<section class="animate-in" style="scroll-margin-top:80px;max-width:900px;margin:64px auto 0;padding:0 24px 80px;text-align:center">
+  <div style="background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:48px 32px">
+    <h2 style="color:#dae2fd;font-size:24px;font-weight:700;margin:0 0 12px">Ready to close the response gap?</h2>
+    <p style="color:#8c909f;font-size:15px;line-height:1.6;margin:0 0 28px">Measure your current average first-response time, then run Ignitvio for a week. The numbers will tell you everything.</p>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:16px">
+      <a href="https://inductiveautomation.com/" target="_blank" rel="noopener" style="display:inline-block;padding:14px 40px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);color:#fff;font-size:16px;font-weight:600;border-radius:8px;text-decoration:none;transition:opacity 0.2s" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">Try Ignitvio</a>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center">
+        <a href="../reviews/" style="color:#3B82F6;font-size:14px;text-decoration:none;font-weight:500">← Back to The Lab</a>
+        <a href="../morning-briefing-koda.html" style="color:#3B82F6;font-size:14px;text-decoration:none;font-weight:500">← Back to The Signal</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Subscribe CTA -->
 <section style="width:100%;padding:64px 24px">
     <div style="max-width:36rem;margin:0 auto;text-align:center">
         <div style="background:rgba(11,19,38,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:40px;position:relative;overflow:hidden">
@@ -378,6 +417,7 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
         </div>
     </div>
 </section>
+<!-- Footer -->
 <footer style="background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto">
     <div style="max-width:40rem;margin:0 auto;text-align:center;padding:64px 24px;position:relative">
         <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:500px;height:200px;background:linear-gradient(to top,rgba(139,92,246,0.04),transparent);border-radius:50%;filter:blur(48px);pointer-events:none"></div>
@@ -388,11 +428,11 @@ footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;
             </div>
             <p style="color:#c2c6d6;font-size:14px;margin-bottom:32px">Read. Listen. Watch. Every morning.</p>
             <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:40px;flex-wrap:wrap">
-                <a href="../morning-briefing-koda.html" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color='#3B82F6'" onmouseout="this.style.color='#c2c6d6'"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+                <a href="../morning-briefing-koda.html" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em">The Signal</a>
                 <span style="color:rgba(140,144,159,0.3)">|</span>
-                <a href="../archive/" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color='#8B5CF6'" onmouseout="this.style.color='#c2c6d6'"><span class="material-symbols-outlined" style="font-size:12px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
+                <a href="../archive/" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em">The Vault</a>
                 <span style="color:rgba(140,144,159,0.3)">|</span>
-                <a href="https://www.youtube.com/channel/UC8qqiKRGFAd5SwTr_2ZzPJg" target="_blank" rel="noopener" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;transition:color 0.2s" onmouseover="this.style.color='#EC4899'" onmouseout="this.style.color='#c2c6d6'">YouTube</a>
+                <a href="https://www.youtube.com/channel/UC8qqiKRGFAd5SwTr_2ZzPJg" target="_blank" rel="noopener" style="font-size:12px;font-weight:600;color:#c2c6d6;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em">YouTube</a>
             </div>
             <p style="font-size:11px;color:rgba(140,144,159,0.6)">&copy; 2026 Koda Community &middot; <span style="font-family:'JetBrains Mono',monospace">koda.community</span></p>
         </div>
@@ -425,11 +465,9 @@ function kodaSubscribe(form) {
 }
 </script>
 <script>
-// Scroll progress
-window.addEventListener('scroll',function(){var p=document.getElementById('scrollProgress');if(p){var h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=h>0?(window.scrollY/h*100)+'%':'0%'}});
-// Animate in
-var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add('visible')});},{threshold:0.1});
-document.querySelectorAll('.animate-in').forEach(function(el){obs.observe(el)});
+window.addEventListener("scroll",function(){var p=document.getElementById("scrollProgress");if(p){var h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=h>0?(window.scrollY/h*100)+"%":"0%"}});
+var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add("visible")});},{threshold:0.1});
+document.querySelectorAll(".animate-in").forEach(function(el){obs.observe(el)});
 </script>
 <!-- koda-nav-v2-js-start -->
 <script>

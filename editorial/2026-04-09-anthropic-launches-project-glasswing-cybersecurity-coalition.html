@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthropic Launches Project Glasswing Cybersecurity Coalition | Koda Deep Dive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%236366F1'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='system-ui' font-weight='800'>K</text></svg>">
+    <meta property="og:title" content="Anthropic Launches Project Glasswing Cybersecurity Coalition | Koda Deep Dive">
+    <meta property="og:description" content="Anthropic just mass-recruited its biggest competitors to fix the internet's plumbing. On April 8, 2026, the company launched Project Glasswing, a cybersecurity coalition that includes AWS, Apple, Goog">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.koda.community/editorial/2026-04-09-anthropic-launches-project-glasswing-cybersecurity-coalition.html">
+    <meta property="og:site_name" content="Koda Digest">
+    <meta name="description" content="Anthropic just mass-recruited its biggest competitors to fix the internet's plumbing. On April 8, 2026, the company launched Project Glasswing, a cybersecurity coalition that includes AWS, Apple, Goog">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Anthropic Launches Project Glasswing Cybersecurity Coalition",
+        "datePublished": "2026-04-09",
+        "description": "Anthropic just mass-recruited its biggest competitors to fix the internet's plumbing. On April 8, 2026, the company launched Project Glasswing, a cybersecurity coalition that includes AWS, Apple, Goog",
+        "author": {"@type": "Organization", "name": "Koda Deep Dive"},
+        "publisher": {"@type": "Organization", "name": "Koda Intelligence", "url": "https://www.koda.community"},
+        "mainEntityOfPage": "https://www.koda.community/editorial/2026-04-09-anthropic-launches-project-glasswing-cybersecurity-coalition.html",
+        "wordCount": "1478",
+        "timeRequired": "PT5M"
+    }
+    </script>
+    <style>
+
+/* ── Reset & Base ──────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.7;
+    color: #1a1a2e;
+    background: #fafbfe;
+}
+
+/* ── Dark Mode ─────────────────────────────────────────────────── */
+body.dark {
+    color: #dae2fd;
+    background: #0b1326;
+}
+body.dark .topbar { background: rgba(11, 19, 38, 0.92); border-color: rgba(255,255,255,0.06); }
+body.dark .article-card { background: rgba(23, 31, 51, 0.6); border-color: rgba(255,255,255,0.06); }
+body.dark .hero-section { background: linear-gradient(180deg, #0f1a33 0%, #0b1326 100%); }
+body.dark .pull-quote { background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.3); }
+body.dark .data-viz { background: rgba(23, 31, 51, 0.8); border-color: rgba(255,255,255,0.08); }
+body.dark .tag { background: rgba(99, 102, 241, 0.15); color: #a5b4fc; }
+body.dark h1, body.dark h2, body.dark h3 { color: #f1f5ff; }
+body.dark a { color: #818cf8; }
+
+/* ── Light Mode ────────────────────────────────────────────────── */
+.topbar { background: rgba(255,255,255,0.92); border-bottom: 1px solid rgba(0,0,0,0.06); }
+.article-card { background: white; border: 1px solid rgba(0,0,0,0.06); }
+.hero-section { background: linear-gradient(180deg, #f0f4ff 0%, #fafbfe 100%); }
+.pull-quote { background: rgba(99, 102, 241, 0.04); border-left: 4px solid #6366F1; }
+.data-viz { background: #f8fafc; border: 1px solid rgba(0,0,0,0.06); }
+.tag { background: rgba(99, 102, 241, 0.08); color: #4f46e5; }
+
+/* ── Canonical Nav ────────────────────────────────────────────── */
+.topbar{position:fixed;top:0;width:100%;z-index:50;background:rgba(11,19,38,0.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.topbar-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px}
+.brand-text{font-size:14px;font-weight:700;color:#3B82F6}
+.brand-sub{font-size:10px;color:#8c909f;display:none}
+@media(min-width:640px){.brand-sub{display:block}}
+.koda-nav-links{display:flex;align-items:center;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.koda-nav-link{font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 8px;border-radius:6px;text-decoration:none;transition:all 0.2s;white-space:nowrap}
+.koda-nav-home{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white}
+.koda-nav-home:hover{box-shadow:0 4px 16px rgba(59,130,246,0.3)}
+.koda-nav-secondary{color:#8c909f;background:rgba(255,255,255,0.04)}
+.koda-nav-secondary:hover{color:#dae2fd;background:rgba(255,255,255,0.08)}
+.koda-nav-active{color:#3B82F6;background:rgba(59,130,246,0.12);border-bottom:2px solid #3B82F6}
+@media(max-width:768px){.koda-nav-link:not(.koda-nav-home):not(.koda-nav-active){display:none}}
+
+/* ── Theme Toggle ──────────────────────────────────────────────── */
+.theme-toggle {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: transparent; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; transition: all 0.2s;
+}
+body.dark .theme-toggle { border-color: rgba(255,255,255,0.1); }
+
+/* ── Scroll Progress ───────────────────────────────────────────── */
+.scroll-progress {
+    position: fixed; top: 0; left: 0;
+    width: 0%; height: 3px;
+    background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+    z-index: 1001; transition: width 0.1s linear;
+    pointer-events: none;
+}
+
+/* ── Hero ───────────────────────────────────────────────────────── */
+.hero-section {
+    padding: 96px 24px 48px;
+    text-align: center;
+}
+.hero-inner { max-width: 720px; margin: 0 auto; }
+.hero-meta {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; margin-bottom: 20px;
+    font-size: 13px; font-weight: 500; opacity: 0.7;
+    font-family: 'JetBrains Mono', monospace;
+}
+.hero-title {
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 800; letter-spacing: -0.03em;
+    line-height: 1.15; margin-bottom: 16px;
+}
+.hero-subtitle {
+    font-size: 17px; line-height: 1.6;
+    opacity: 0.75; max-width: 600px; margin: 0 auto;
+}
+.tag {
+    display: inline-block; padding: 4px 12px;
+    border-radius: 20px; font-size: 12px;
+    font-weight: 600; letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+/* ── Hero Image ────────────────────────────────────────────────── */
+.hero-image {
+    max-width: 800px; margin: 32px auto 0;
+    border-radius: 16px; overflow: hidden;
+}
+.hero-image img {
+    width: 100%; height: auto; display: block;
+    border-radius: 16px;
+}
+
+/* ── Article Body ──────────────────────────────────────────────── */
+.article-body {
+    max-width: 720px; margin: 0 auto;
+    padding: 48px 24px 64px;
+}
+.article-body h2 {
+    font-size: 24px; font-weight: 800;
+    letter-spacing: -0.02em; margin: 48px 0 16px;
+    line-height: 1.2;
+}
+.article-body h3 {
+    font-size: 18px; font-weight: 700;
+    margin: 32px 0 12px; line-height: 1.3;
+}
+.article-body p {
+    font-size: 17px; line-height: 1.75;
+    margin-bottom: 20px;
+}
+.article-body a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ── Pull Quote ────────────────────────────────────────────────── */
+.pull-quote {
+    margin: 40px 0;
+    padding: 24px 28px;
+    border-radius: 12px;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.5;
+    font-style: italic;
+}
+.pull-quote-attribution {
+    display: block; margin-top: 12px;
+    font-size: 13px; font-weight: 600;
+    font-style: normal; opacity: 0.6;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── Data Visualization ────────────────────────────────────────── */
+.data-viz {
+    margin: 32px 0;
+    padding: 24px;
+    border-radius: 16px;
+}
+.data-viz-title {
+    font-size: 14px; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 16px; opacity: 0.6;
+}
+
+/* ── Comparison Table ──────────────────────────────────────────── */
+.comparison-table {
+    width: 100%; border-collapse: collapse;
+    margin: 24px 0; font-size: 15px;
+}
+.comparison-table th {
+    text-align: left; padding: 12px 16px;
+    font-size: 12px; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+}
+.comparison-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+body.dark .comparison-table td { border-color: rgba(255,255,255,0.06); }
+
+/* ── CTA Bar ───────────────────────────────────────────────────── */
+.cta-bar {
+    max-width: 720px; margin: 0 auto 48px;
+    padding: 32px 24px;
+    text-align: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.08));
+    border: 1px solid rgba(99,102,241,0.15);
+}
+.cta-bar p { font-size: 16px; margin-bottom: 16px; font-weight: 500; }
+.cta-btn {
+    display: inline-block; padding: 12px 28px;
+    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    color: white; font-weight: 700; font-size: 14px;
+    border-radius: 10px; text-decoration: none;
+    transition: all 0.2s;
+}
+.cta-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* ── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+    .hero-section { padding: 80px 16px 32px; }
+    .article-body { padding: 32px 16px 48px; }
+    .article-body p { font-size: 16px; }
+    .pull-quote { font-size: 17px; padding: 20px; }
+    .hero-meta { flex-direction: column; gap: 8px; }
+}
+
+/* ── Fade-in Animation ─────────────────────────────────────────── */
+.fade-in {
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Media Strip ──────────────────────────────────────────────── */
+.media-strip { max-width: 900px; margin: 32px auto; padding: 0 24px; }
+.media-strip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+.media-card {
+    padding: 24px;
+    background: linear-gradient(135deg, #0f1629, #162040);
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.media-card--audio { border: 1px solid rgba(99, 102, 241, 0.2); }
+.media-card--video { border: 1px solid rgba(236, 72, 153, 0.2); }
+.media-card__icon { font-size: 28px; display: block; margin-bottom: 8px; }
+.media-card__icon--audio { color: #6366F1; }
+.media-card__icon--video { color: #EC4899; }
+.media-card__title { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+.media-card__subtitle { font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+
+/* Media buttons */
+.media-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 8px 20px; border-radius: 9999px; font-size: 12px;
+    font-weight: 700; cursor: pointer; transition: all 0.25s;
+    border: none; font-family: 'Inter', sans-serif;
+}
+.media-btn--podcast { background: linear-gradient(135deg, #6366F1, #8B5CF6); color: white; }
+.media-btn--podcast:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4); }
+.media-btn--video { background: linear-gradient(135deg, #EC4899, #8B5CF6); color: white; }
+.media-btn--video:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4); }
+.media-btn:active { transform: scale(0.97); }
+
+/* Podcast player smooth reveal */
+.ed-podcast-wrap {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.4s ease;
+    margin-top: 0;
+}
+.ed-podcast-wrap.active {
+    max-height: 120px;
+    opacity: 1;
+    margin-top: 12px;
+}
+.ed-podcast-wrap audio {
+    width: 100%; max-width: 300px;
+    display: block; margin: 0 auto;
+}
+
+/* YouTube fallback link */
+.media-yt-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    margin-top: 8px; font-size: 11px;
+    color: rgba(255,255,255,0.35); text-decoration: none;
+    transition: color 0.2s;
+}
+.media-yt-link:hover { color: rgba(255,255,255,0.6); }
+
+/* Video overlay */
+.video-overlay {
+    display: none; position: fixed; inset: 0;
+    z-index: 9999; background: rgba(0, 0, 0, 0.92);
+    align-items: center; justify-content: center; padding: 16px;
+}
+.video-overlay.active { display: flex; }
+.video-overlay-inner { width: 100%; max-width: 1100px; position: relative; }
+.video-overlay-close {
+    position: absolute; top: -44px; right: 0;
+    background: none; border: none; color: white;
+    font-size: 32px; cursor: pointer; padding: 8px;
+    opacity: 0.7; transition: opacity 0.2s;
+    min-width: 44px; min-height: 44px;
+    display: flex; align-items: center; justify-content: center;
+}
+.video-overlay-close:hover { opacity: 1; }
+
+/* ── Media Strip Responsive ───────────────────────────────────── */
+@media (min-width: 768px) {
+    .media-btn { padding: 12px 28px; font-size: 13px; min-height: 44px; }
+    .video-overlay { padding: 32px; }
+    .video-overlay-inner { max-width: min(1100px, calc(100vw - 64px)); }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .media-strip { max-width: min(900px, calc(100vw - 48px)); padding: 0 32px; }
+    .media-strip-grid { gap: 20px; }
+    .media-card { padding: 28px 24px; }
+}
+@media (max-width: 640px) {
+    .media-strip { padding: 0 16px; margin: 24px auto; }
+    .media-strip-grid { grid-template-columns: 1fr; gap: 12px; }
+    .media-card { padding: 20px 16px; }
+}
+    
+    </style>
+</head>
+<body class="dark">
+<div class="scroll-progress" id="scrollProgress"></div>
+<!-- koda-nav-v2-start -->
+<header class="kn-topbar" id="knTopbar">
+<div class="kn-topbar-inner">
+    <a href="../index.html" class="kn-brand">
+        <div class="kn-brand-icon">K</div>
+        <div>
+            <div class="kn-brand-text">Koda Intelligence</div>
+            <div class="kn-brand-sub"><span class="material-symbols-outlined" style="font-size:11px;vertical-align:-1px;margin-right:2px">explore</span>Deep Dive</div>
+        </div>
+    </a>
+    <div class="kn-links">
+                <a href="../morning-briefing-koda.html" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">bolt</span>The Signal</a>
+        <a href="../editorial/" class="kn-link kn-link-active"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">explore</span>Deep Dive</a>
+        <a href="../pricing/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">monitoring</span>Token Tracker</a>
+        <a href="../benchmarks/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">trophy</span>Leaderboard</a>
+        <a href="../reviews/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">science</span>The Lab</a>
+        <a href="../dojo/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">school</span>The Dojo</a>
+        <a href="../changelog/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">pulse_alert</span>Pulse</a>
+        <a href="../archive/" class="kn-link"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:2px">lock_open</span>The Vault</a>
+        <a href="../index.html" class="kn-home">&larr; Home</a>
+    </div>
+    <div class="kn-actions">
+        
+        <div class="kn-desktop-social">
+            <a href="https://x.com/intent/tweet?url=https://www.koda.community/editorial/" target="_blank" rel="noopener" class="kn-action-btn" title="Share on X">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/editorial/" target="_blank" rel="noopener" class="kn-action-btn" title="Share on LinkedIn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <button class="kn-action-btn" onclick="navigator.clipboard.writeText(window.location.href);this.style.color='#10B981';setTimeout(()=>this.style.color='',1500)" title="Copy link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            </button>
+        </div>
+        <button class="kn-action-btn" id="knSearchBtn" title="Search (Ctrl+K)" aria-label="Search">
+            <span class="material-symbols-outlined">search</span>
+        </button>
+        <button class="kn-action-btn kn-hamburger" id="knMenuBtn" title="Menu" aria-label="Open menu" aria-expanded="false">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </div>
+</div>
+</header>
+
+<!-- Drawer overlay -->
+<div class="kn-overlay" id="knOverlay"></div>
+
+<!-- Slide-out drawer -->
+<nav class="kn-drawer" id="knDrawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="kn-drawer-header">
+        <div class="kn-drawer-brand">
+            <div class="kn-brand-icon">K</div>
+            <span class="kn-brand-text">Koda</span>
+        </div>
+        <button class="kn-drawer-close" id="knDrawerClose" aria-label="Close menu">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+    <div class="kn-drawer-section">Navigate</div>
+        <a href="../index.html" class="kn-drawer-home"><span class="material-symbols-outlined">home</span>Home</a>
+    <a href="../morning-briefing-koda.html" class="kn-drawer-link"><span class="material-symbols-outlined">bolt</span>The Signal</a>
+    <a href="../editorial/" class="kn-drawer-link kn-drawer-link-active"><span class="material-symbols-outlined">explore</span>Deep Dive</a>
+    <a href="../pricing/" class="kn-drawer-link"><span class="material-symbols-outlined">monitoring</span>Token Tracker</a>
+    <a href="../benchmarks/" class="kn-drawer-link"><span class="material-symbols-outlined">trophy</span>Leaderboard</a>
+    <a href="../reviews/" class="kn-drawer-link"><span class="material-symbols-outlined">science</span>The Lab</a>
+    <a href="../dojo/" class="kn-drawer-link"><span class="material-symbols-outlined">school</span>The Dojo</a>
+    <a href="../changelog/" class="kn-drawer-link"><span class="material-symbols-outlined">pulse_alert</span>Pulse</a>
+    <a href="../archive/" class="kn-drawer-link"><span class="material-symbols-outlined">lock_open</span>The Vault</a>
+    <div class="kn-drawer-divider"></div>
+    <div class="kn-drawer-section">Share</div>
+    <div class="kn-drawer-social">
+        <a href="https://x.com/intent/tweet?url=https://www.koda.community/editorial/" target="_blank" rel="noopener" title="Share on X">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.koda.community/editorial/" target="_blank" rel="noopener" title="Share on LinkedIn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <button onclick="navigator.clipboard.writeText(window.location.href);this.style.color='#10B981';setTimeout(()=>this.style.color='',1500)" title="Copy link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        </button>
+    </div>
+</nav>
+<!-- koda-nav-v2-end -->
+<header class="hero-section">
+    <div class="hero-inner">
+        <div class="hero-meta">
+            <span class="tag">Strategy</span>
+            <span>09 April 2026</span>
+            <span>5 min read</span>
+        </div>
+        <h1 class="hero-title">Anthropic Launches Project Glasswing Cybersecurity Coalition</h1>
+        <p class="hero-subtitle">Anthropic just mass-recruited its biggest competitors to fix the internet's plumbing. On April 8, 2026, the company launched Project Glasswing, a cybersecurity coalition that includes AWS, Apple, Goog</p>
+    </div>
+    <div class="hero-image fade-in" style="max-width:800px;max-height:420px;margin:32px auto 0;border-radius:16px;overflow:hidden;">
+        <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/editorial-hero-2026-04-09.jpg" alt="Anthropic Launches Project Glasswing Cybersecurity Coalition" loading="eager" style="width:100%;height:420px;object-fit:cover;object-position:center;display:block;border-radius:16px;">
+    </div>
+</header>
+
+<article class="article-body">
+
+<!-- MEDIA_STRIP_START -->
+<section class="media-strip fade-in">
+  <div class="media-strip-grid">
+    <div class="media-card media-card--audio">
+      <span class="material-symbols-outlined media-card__icon media-card__icon--audio">headphones</span>
+      <div class="media-card__title">Expert Analysis</div>
+      <div class="media-card__subtitle">Two-minute conversation (~2 min)</div>
+      <button class="media-btn media-btn--podcast" id="edPodBtn" onclick="toggleEditorialPodcast()" aria-expanded="false" aria-controls="editorialPodcastPlayer">&#9654; Listen Now</button>
+      <div class="ed-podcast-wrap" id="editorialPodcastPlayer">
+        <audio controls preload="none"><source src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/editorial-podcast-2026-04-09.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+    <div class="media-card media-card--video">
+      <span class="material-symbols-outlined media-card__icon media-card__icon--video">smart_display</span>
+      <div class="media-card__title">Visual Narrative</div>
+      <div class="media-card__subtitle">Animated story breakdown (~2 min)</div>
+      <button class="media-btn media-btn--video" onclick="toggleVideo()">&#9654; Play Video</button>
+      <a href="https://www.youtube.com/watch?v=koUjn4XIVeI" target="_blank" rel="noopener" class="media-yt-link">or watch on YouTube &rarr;</a>
+      <div class="video-overlay" id="videoOverlay" role="dialog" aria-modal="true" aria-label="Video player" onclick="if(event.target===this)toggleVideo()">
+        <div class="video-overlay-inner">
+          <button class="video-overlay-close" onclick="toggleVideo()" aria-label="Close video">&times;</button>
+          <iframe id="videoFrame" width="100%" style="aspect-ratio:16/9;border:none;border-radius:12px" allowfullscreen title="Editorial video"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- MEDIA_STRIP_END -->
+
+    <p>Anthropic just mass-recruited its biggest competitors to fix the internet's plumbing. On April 8, 2026, the company launched Project Glasswing, a cybersecurity coalition that includes AWS, Apple, Google, Microsoft, NVIDIA, Cisco, CrowdStrike, JPMorgan Chase, Broadcom, Palo Alto Networks, and the Linux Foundation. Over 50 organizations total. The weapon of choice: Claude Mythos Preview, an unreleased frontier model that has already found thousands of high-severity vulnerabilities in every major operating system and web browser. Some of those flaws hid in plain sight for 27 years. Anthropic is committing up to $100 million in usage credits and $4 million in direct donations to open-source security groups. It is too dangerous.</p>
+    <p>I think this is the most consequential defensive move any AI lab has made. It is also one of the most uncomfortable. Here is why.</p>
+
+    <h2>The Preemptive Shield Principle</h2>
+    <p>Call this the Preemptive Shield Principle: the strategic bet that building a dangerous capability first, then distributing it exclusively to defenders, creates a window of asymmetric advantage before attackers catch up.</p>
+    <p>This is not a new idea. It is the logic behind every vaccine. You study the pathogen to build the antidote. But the uncomfortable truth is that studying the pathogen makes you better at weaponizing it too. Anthropic is betting that a coordinated 50-organization defense sprint can outrun the inevitable proliferation of offensive AI cyber tools.</p>
+    <p>The framework has three moving parts. First, capability concentration: restrict the model to vetted partners only. Second, coordinated scanning: every partner turns the model against its own systems simultaneously. Third, ecosystem propagation: patches flow through standard software updates to billions of devices. The Preemptive Shield only works if all three parts hold. If any one breaks, the advantage collapses.</p>
+    <p>Dan Martell would call this a 10-80-10 problem. Anthropic owns the first 10% (build the model, set the rules). Partners own the 80% (scan, find, patch). The final 10% is the part nobody controls: whether adversaries replicate the capability before the patches land.</p>
+
+    <h2>The Deeply Uncomfortable Bet</h2>
+    <p>Let me frame this with a contrast pair that matters.</p>
+    <p>Salary buys furniture. Equity buys your future. In cybersecurity, patching buys you today. But the structural question is whether you can buy tomorrow. Project Glasswing is Anthropic's attempt to buy tomorrow for the entire software ecosystem. The price is building something that could destroy it.</p>
+    <p>Platformer's Casey Newton, whose fiancé works at Anthropic, wrote that Mythos Preview "presages an upcoming wave of models that can exploit vulnerabilities in ways that far outpace the efforts of defenders." CrowdStrike's Falcon platform processes one trillion endpoint events daily and tracks over 280 adversary groups. Their 2026 Global Threat Report showed an 89% year-on-year increase in attacks by AI-using adversaries. The trendline is not ambiguous.</p>
+    <p>Here is where shoshin, beginner's mind, becomes essential. Most people hear "AI cybersecurity coalition" and think defense. But the real story is about impermanence. Every advantage in security is temporary. Anthropic's own announcement concedes this: capabilities "will not be long before such capabilities proliferate, potentially beyond actors who are committed to deploying them safely."</p>
+    <p>Consider the asymmetric risk framing. If Glasswing works, patches propagate through standard updates and billions of devices get safer. The upside compounds silently. If Glasswing fails, if patching lags behind AI capability growth, or if Mythos-class models leak to adversaries, the downside is catastrophic. Cybercrime already costs hundreds of billions annually. Hospitals and utilities face rising attacks.</p>
+    <p>Three structural tensions make this bet precarious.</p>
+    <p>According to Platformer, "it's not clear the government is taking them up on the offer." The Pentagon labeled Anthropic a "supply chain risk" after the company refused to remove guardrails for mass surveillance and autonomous weapons use. A judge blocked the designation, but litigation continues. The defender coalition is missing its most important potential member.</p>
+    <p>That is not just a scanning tool. It is a simulated attacker of extraordinary sophistication. But normalizing this level of automated exploitation, even for defense, lowers the conceptual barrier for everyone else.</p>
+    <p><strong>Tension 3: Open-source coverage gaps.</strong> The Linux Foundation is a partner. Over 40 additional organizations have access. But the long tail of open-source maintainers, individual developers running critical packages downloaded millions of times, may not participate or act quickly enough. The $4 million in donations is meaningful but modest relative to the scale of the problem.</p>
+    <p>Cisco's CISO Anthony Grieco said "AI capabilities have crossed a threshold that fundamentally changes the urgency." I agree with the urgency. It is unclear whether the coalition's structure matches it. My read on this: the Preemptive Shield Principle requires speed that bureaucratic coordination historically cannot deliver.</p>
+    <p>There is also the deeper philosophical question that theMITmonk's contrast-pair thinking forces us to confront. Amateurs say "we found the vulnerabilities." Leaders ask "can we patch them faster than adversaries can replicate the finding capability?" Only the second question matters. And nobody in the coalition has answered it yet.</p>
+    <p>The 70% rule for decision velocity applies here. Anthropic had roughly 70% confidence that launching Glasswing was the right call. Waiting for 100% confidence would mean waiting until adversaries had equivalent models. The decision to move at 70% is correct. But let's not pretend the remaining 30% is trivial. It includes scenarios where this accelerates the very arms race it aims to prevent.</p>
+
+    <h2>2031</h2>
+    <p>Five years from now, Project Glasswing will either look like the Manhattan Project of cyber defense or the most expensive security theater in tech history. There is very little middle ground.</p>
+    <p>The compounding scenario goes like this. By 2028, every major software vendor has integrated AI-powered vulnerability scanning into its CI/CD pipeline. The 27-year-old bugs are gone. New code ships with dramatically fewer exploitable flaws. The flywheel spins: better scanning produces better training data, which produces better models, which find subtler bugs. CrowdStrike's trillion daily endpoint events become training signal for next-generation defense. Cybercrime costs plateau and begin declining for the first time in two decades.</p>
+    <p>The collapse scenario is equally plausible. By 2028, three or four other labs have models matching Mythos Preview's capabilities. At least one model leaks. Nation-state actors, who were already investing heavily in AI cyber tools according to DigiCert and Veracode analysts, gain autonomous exploitation chains. The patch-before-exploit race becomes unwinnable because attackers need to find one flaw while defenders must find all of them. The asymmetry favors offense, as it always has in cybersecurity, and AI simply amplifies the existing imbalance.</p>
+    <p>The counterpositioning play is what makes Anthropic's strategy fascinating regardless of outcome. By convening Apple, Google, and Microsoft under one roof, Anthropic becomes the Switzerland of AI security. That is a durable strategic position even if the specific model becomes obsolete. Nvidia survived near-bankruptcy in the late 1990s by becoming infrastructure. Anthropic is attempting the same move: become the infrastructure layer for AI-era defense. Only cash is real, the rest is accounting. And $100 million in credits is not cash. But the relationships are worth more than the credits.</p>
+    <p>I think the most likely outcome sits between the two extremes. Glasswing accelerates patching meaningfully for the 50 participating organizations. It does not solve the long-tail open-source problem. Governments eventually engage, but 18 to 24 months late. The net effect is a modest but real defensive advantage that buys the ecosystem 2 to 3 years of breathing room. Whether that breathing room gets used wisely is a separate question entirely.</p>
+
+    <h2>What to Build This Weekend</h2>
+    <p>You do not need Mythos Preview to improve your security posture this week. Here is what you can actually do.</p>
+    <p>Step 1: Run a dependency audit on your most critical project. Use Cursor's new Agents Window to spin up a parallel coding agent that scans your repo for known vulnerabilities in open-source packages. It takes 20 minutes. You will find something. Everybody does.</p>
+    <p>Step 2: Build a simple vulnerability monitoring agent. Use Pensieve to give an AI agent persistent memory of your company's infrastructure. Connect it to public vulnerability databases like the National Vulnerability Database. Set it to flag any new CVE that matches your dependency list. This is not Mythos. It is a tripwire. Tripwires save lives.</p>
+    <p>Step 3: Test your assumptions. Nebils lets you test drive over 120 AI models in one interface. Take the same prompt, "find a security flaw in this code snippet," and run it across 5 different models. Compare the results. You will learn which models catch what. That knowledge compounds.</p>
+    <p>Step 4: Talk to your team. The biggest vulnerability in most organizations is not code. It is the gap between what leadership thinks is patched and what actually is. Glasswing's real lesson is not about frontier models. It is about coordinated action. Start a 15-minute weekly security standup. It costs nothing.</p>
+    <p>The Preemptive Shield Principle works at every scale. You do not need a $100 million budget. You need to find your vulnerabilities before someone else does. Start this weekend. The bugs are not waiting.</p>
+
+</article>
+
+<section style="max-width:48rem;margin:0 auto;padding:64px 24px 16px;text-align:center;">
+    <div style="background:rgba(11,19,38,0.6);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:32px 40px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:128px;height:4px;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899);border-radius:0 0 4px 4px;"></div>
+        <h3 style="font-size:20px;font-weight:700;color:white;margin-bottom:8px;">Want this every morning?</h3>
+        <p style="color:#c2c6d6;font-size:14px;margin-bottom:24px;">AI analysis, world news, markets, and tools. One briefing, delivered free.</p>
+        <form style="display:flex;gap:8px;max-width:28rem;margin:0 auto;padding:6px;border-radius:9999px;background:#171f33;border:1px solid rgba(255,255,255,0.06);" onsubmit="return kodaSubscribe(this)">
+            <input type="email" name="email" required style="background:transparent;border:none;outline:none;color:white;padding:0 20px;width:100%;font-size:14px;font-family:'Inter',system-ui,sans-serif;" placeholder="your@email.com">
+            <button type="submit" style="background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;padding:12px 24px;border-radius:9999px;font-weight:700;font-size:14px;white-space:nowrap;border:none;cursor:pointer;">Subscribe</button>
+        </form>
+        <p style="font-size:10px;color:#8c909f;margin-top:12px;">One email per day. No spam. Unsubscribe anytime.</p>
+    </div>
+</section>
+
+<script>
+function kodaSubscribe(form) {
+    var btn = form.querySelector('button');
+    var email = form.querySelector('input[name="email"]').value;
+    btn.textContent = 'Subscribing...'; btn.disabled = true;
+    fetch('/api/subscribe', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({email:email}) })
+    .then(function(r) { btn.textContent = r.ok ? 'Subscribed!' : 'Try again'; btn.disabled = false; })
+    .catch(function() { btn.textContent = 'Try again'; btn.disabled = false; });
+    return false;
+}
+</script>
+
+<script>
+window.addEventListener('scroll', function() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+    document.getElementById('scrollProgress').style.width = pct + '%';
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+<div id="searchOverlay" style="position:fixed;inset:0;z-index:2000;display:none;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);">
+    <div style="max-width:640px;margin:80px auto 0;padding:0 16px;">
+        <div style="background:#171f33;border:1px solid rgba(66,71,84,0.4);border-radius:16px;box-shadow:0 25px 50px rgba(0,0,0,0.5);overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.05);">
+                <span class="material-symbols-outlined" style="color:#adc6ff;font-size:20px;">search</span>
+                <input type="text" id="globalSearchInput" autocomplete="off" placeholder="Search digests and editorials..." style="flex:1;background:transparent;border:none;outline:none;font-size:16px;color:#dae2fd;font-family:Inter,system-ui,sans-serif;">
+                <kbd style="font-size:10px;font-family:'JetBrains Mono',monospace;color:#64748b;border:1px solid #475569;border-radius:4px;padding:2px 6px;">ESC</kbd>
+            </div>
+            <div id="globalSearchResults" style="max-height:60vh;overflow-y:auto;"></div>
+        </div>
+    </div>
+</div>
+<style>
+.koda-sr-item{padding:14px 18px;border-bottom:1px solid rgba(173,198,255,0.05);cursor:pointer;transition:background 0.15s;text-decoration:none;display:block;color:inherit;}
+.koda-sr-item:hover{background:rgba(99,102,241,0.1);}
+.koda-sr-meta{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.koda-sr-date{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#adc6ff;padding:2px 8px;background:rgba(173,198,255,0.12);border-radius:4px;}
+.koda-sr-section{font-size:11px;color:#c2c6d6;text-transform:uppercase;letter-spacing:0.5px;}
+.koda-sr-headline{font-size:14px;font-weight:600;color:#dae2fd;margin-bottom:4px;}
+.koda-sr-snippet{font-size:13px;color:#c2c6d6;line-height:1.5;}
+.koda-sr-snippet mark{background:rgba(173,198,255,0.25);color:#dae2fd;border-radius:2px;padding:0 2px;}
+.koda-sr-badge{display:inline-flex;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;padding:2px 7px;border-radius:4px;}
+.koda-sr-badge.digest{background:rgba(59,130,246,0.12);color:#60a5fa;}
+.koda-sr-badge.editorial{background:rgba(139,92,246,0.12);color:#a78bfa;}
+.koda-sr-empty{padding:20px;text-align:center;color:#c2c6d6;font-size:14px;}
+
+/* -- Koda Nav V2 -- */
+.kn-topbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(11,19,38,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.kn-topbar-inner{max-width:1280px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.kn-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;flex-shrink:0}
+.kn-brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0}
+.kn-brand-text{font-size:14px;font-weight:700;color:#3B82F6}
+.kn-brand-sub{font-size:10px;color:#8c909f;display:none}
+@media(min-width:640px){.kn-brand-sub{display:block}}
+
+/* Desktop nav links */
+.kn-links{display:none;align-items:center;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;flex:1;justify-content:center}
+@media(min-width:769px){.kn-links{display:flex}}
+.kn-link{font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 8px;border-radius:6px;text-decoration:none;transition:all 0.2s;white-space:nowrap;color:#8c909f;background:rgba(255,255,255,0.04)}
+.kn-link:hover{color:#dae2fd;background:rgba(255,255,255,0.08)}
+.kn-link-active{color:#3B82F6!important;background:rgba(59,130,246,0.12)!important;border-bottom:2px solid #3B82F6}
+.kn-link .material-symbols-outlined{font-size:13px;vertical-align:-2px;margin-right:2px}
+
+/* Actions (search, hamburger) */
+.kn-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.kn-action-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s;text-decoration:none}
+.kn-action-btn:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
+.kn-action-btn .material-symbols-outlined{font-size:20px}
+
+/* Hamburger - visible on mobile only */
+.kn-hamburger{display:flex}
+@media(min-width:769px){.kn-hamburger{display:none}}
+
+/* Desktop social - hidden on mobile (drawer has them) */
+.kn-desktop-social{display:none;align-items:center;gap:4px}
+@media(min-width:769px){.kn-desktop-social{display:flex}}
+
+/* Date picker (briefing pages only) */
+.kn-date-picker{display:none;align-items:center}
+@media(min-width:769px){.kn-date-picker{display:flex}}
+.kn-date-btn{display:flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:#3B82F6;padding:4px 8px;background:rgba(59,130,246,0.1);border-radius:6px;border:none;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.kn-date-btn:hover{background:rgba(59,130,246,0.2)}
+
+/* Home button - desktop only, in links row */
+.kn-home{background:linear-gradient(135deg,#3B82F6,#6366F1);color:white!important;font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:5px 10px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all 0.2s}
+.kn-home:hover{box-shadow:0 4px 16px rgba(59,130,246,0.3)}
+
+/* ── Drawer ── */
+.kn-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1001;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s}
+.kn-overlay.kn-open{opacity:1;visibility:visible}
+.kn-drawer{position:fixed;top:0;right:0;bottom:0;width:min(280px,85vw);background:rgba(11,19,38,0.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-left:1px solid rgba(173,198,255,0.1);z-index:1002;transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.kn-drawer.kn-open{transform:translateX(0)}
+@media(prefers-reduced-motion:reduce){.kn-overlay,.kn-drawer{transition-duration:0.01ms!important}}
+
+/* Drawer header */
+.kn-drawer-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.kn-drawer-brand{display:flex;align-items:center;gap:10px}
+.kn-drawer-close{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;transition:all 0.2s}
+.kn-drawer-close:hover{background:rgba(239,68,68,0.15);color:#EF4444}
+
+/* Drawer sections */
+.kn-drawer-section{padding:12px 20px 4px;font-size:9px;font-family:'JetBrains Mono',monospace;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#6b7280}
+.kn-drawer-divider{height:1px;background:rgba(255,255,255,0.06);margin:8px 20px}
+
+/* Drawer nav links */
+.kn-drawer-link{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:#c2c6d6;font-size:14px;font-weight:500;transition:all 0.2s;border-left:3px solid transparent}
+.kn-drawer-link:hover{background:rgba(255,255,255,0.04);color:#dae2fd}
+.kn-drawer-link-active{color:#3B82F6!important;border-left-color:#3B82F6;background:rgba(59,130,246,0.08)}
+.kn-drawer-link .material-symbols-outlined{font-size:20px;color:#6b7280;flex-shrink:0}
+.kn-drawer-link-active .material-symbols-outlined{color:#3B82F6}
+
+/* Drawer home link */
+.kn-drawer-home{display:flex;align-items:center;gap:12px;padding:12px 20px;text-decoration:none;color:white;font-size:14px;font-weight:600;border-left:3px solid transparent;transition:all 0.2s}
+.kn-drawer-home:hover{background:rgba(59,130,246,0.1)}
+.kn-drawer-home .material-symbols-outlined{font-size:20px;color:#3B82F6}
+
+/* Drawer social row */
+.kn-drawer-social{display:flex;gap:8px;padding:12px 20px}
+.kn-drawer-social a,.kn-drawer-social button{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#8c909f;border:none;cursor:pointer;text-decoration:none;transition:all 0.2s}
+.kn-drawer-social a:hover,.kn-drawer-social button:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
+
+/* Body scroll lock */
+body.kn-locked{overflow:hidden}
+/* -- End Koda Nav V2 -- */
+</style>
+<script>
+(function(){
+    var overlay=document.getElementById('searchOverlay'),input=document.getElementById('globalSearchInput'),results=document.getElementById('globalSearchResults'),idx=null,timer=null;
+    function open(){overlay.style.display='block';input.value='';results.innerHTML='';setTimeout(function(){input.focus();},50);}
+    function close(){overlay.style.display='none';}
+    var tsb=document.getElementById('topbarSearchBtn')||document.getElementById('knSearchBtn');if(tsb)tsb.addEventListener('click',open);
+    overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+    document.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();open();}if(e.key==='Escape'&&overlay.style.display!=='none')close();});
+    input.addEventListener('input',function(){clearTimeout(timer);var q=input.value.trim();if(q.length<2){results.innerHTML='';return;}timer=setTimeout(function(){search(q);},200);});
+    function search(q){if(!idx){fetch('../search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;run(q);}).catch(function(){results.innerHTML='<div class="koda-sr-empty">Search unavailable.</div>';});}else run(q);}
+    function run(q){
+        var terms=q.toLowerCase().split(/\s+/).filter(function(t){return t.length>0;});if(!terms.length){results.innerHTML='';return;}
+        var hits=[],entries=idx.entries||idx.days||[];
+        for(var i=0;i<entries.length;i++){var en=entries[i],tp=en.type||'digest',fl=en.file||('morning-briefing-koda-'+en.date+'.html'),secs=en.sections||[];
+            for(var j=0;j<secs.length;j++){var sec=secs[j],items=sec.items||[];
+                for(var k=0;k<items.length;k++){var it=items[k],hl=(it.headline||'').toLowerCase(),bt=(it.text||'').toLowerCase(),ft=hl+' '+bt,sc=0,mt=0;
+                    for(var t=0;t<terms.length;t++){var tm=terms[t];if(ft.indexOf(tm)!==-1){mt++;sc+=10;if(hl.indexOf(tm)!==-1)sc+=15;}else{var ws=ft.split(/[\s,.\-\/]+/);for(var w=0;w<ws.length;w++){if(ws[w].indexOf(tm)===0&&tm.length>=3){mt++;sc+=5;break;}}}}
+                    if(mt>0){if(mt===terms.length)sc+=20;sc-=i*2;hits.push({date:en.date,type:tp,section:sec.title,headline:it.headline,text:it.text,file:fl,score:sc});}
+                }}}
+        hits.sort(function(a,b){return a.date<b.date?1:a.date>b.date?-1:b.score-a.score;});hits=hits.slice(0,20);
+        if(!hits.length){results.innerHTML='<div class="koda-sr-empty">No results for "'+esc(q)+'"</div>';return;}
+        var h='';for(var r=0;r<hits.length;r++){var rs=hits[r],sn=snippet(rs.text,terms[0],80),sa=rs.type==='editorial'?'':slug(rs.section),href='../'+rs.file+(sa?'#'+sa:'');
+            h+='<a href="'+href+'" class="koda-sr-item"><div class="koda-sr-meta"><span class="koda-sr-badge '+rs.type+'">'+(rs.type==='editorial'?'Deep Dive':'The Signal')+'</span><span class="koda-sr-date">'+fmtDate(rs.date)+'</span><span class="koda-sr-section">'+esc(rs.section)+'</span></div><div class="koda-sr-headline">'+hilight(esc(rs.headline),terms)+'</div><div class="koda-sr-snippet">'+hilight(sn,terms)+'</div></a>';}
+        results.innerHTML=h;
+    }
+    function snippet(t,tm,c){if(!t)return '';var l=t.toLowerCase(),i=l.indexOf(tm.toLowerCase());if(i===-1)return t.substring(0,c*2);var s=Math.max(0,i-c),e=Math.min(t.length,i+tm.length+c),r=t.substring(s,e);if(s>0)r='...'+r;if(e<t.length)r+='...';return r;}
+    function hilight(t,terms){for(var i=0;i<terms.length;i++){t=t.replace(new RegExp('('+terms[i].replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<mark>$1</mark>');}return t;}
+    function slug(t){return t.toLowerCase().replace(/['']/g,'').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');}
+    function fmtDate(d){var p=d.split('-'),m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];return m[parseInt(p[1])-1]+' '+parseInt(p[2])+', '+p[0];}
+    function esc(s){return s?s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):'';}
+})();
+</script>
+<!-- koda-nav-v2-js-start -->
+<script>
+(function(){
+    var btn=document.getElementById('knMenuBtn'),
+        drawer=document.getElementById('knDrawer'),
+        overlay=document.getElementById('knOverlay'),
+        closeBtn=document.getElementById('knDrawerClose'),
+        searchBtn=document.getElementById('knSearchBtn');
+    function open(){
+        drawer.classList.add('kn-open');
+        overlay.classList.add('kn-open');
+        document.body.classList.add('kn-locked');
+        btn.setAttribute('aria-expanded','true');
+        closeBtn.focus();
+    }
+    function close(){
+        drawer.classList.remove('kn-open');
+        overlay.classList.remove('kn-open');
+        document.body.classList.remove('kn-locked');
+        btn.setAttribute('aria-expanded','false');
+        btn.focus();
+    }
+    if(btn) btn.addEventListener('click',open);
+    if(closeBtn) closeBtn.addEventListener('click',close);
+    if(overlay) overlay.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){
+        if(e.key==='Escape' && drawer.classList.contains('kn-open')) close();
+    });
+    /* Search: hook into existing overlay if present, otherwise go to archive */
+    if(searchBtn) searchBtn.addEventListener('click',function(){
+        var so=document.getElementById('searchOverlay');
+        if(so){so.classList.remove('hidden');so.style.display='';var si=document.getElementById('globalSearchInput');if(si)si.focus();}
+        else{window.location.href=searchBtn.closest('.kn-topbar').querySelector('.kn-brand').href.replace('index.html','')+'archive/';}
+    });
+    /* Date picker */
+    var dpBtn=document.getElementById('datePickerBtn'),dpInput=document.getElementById('datePicker');
+    if(dpBtn&&dpInput){
+        dpBtn.addEventListener('click',function(){dpInput.showPicker?dpInput.showPicker():dpInput.click();});
+        dpInput.addEventListener('change',function(){
+            var v=dpInput.value;if(!v)return;
+            var file='morning-briefing-koda-'+v+'.html';
+            fetch(file,{method:'HEAD'}).then(function(r){
+                if(r.ok){window.location.href=file;}
+                else{alert('No digest available for '+v);dpInput.value=document.body.getAttribute('data-digest-date')||'';}
+            }).catch(function(){alert('No digest available for '+v);dpInput.value=document.body.getAttribute('data-digest-date')||'';});
+        });
+    }
+})();
+</script>
+<!-- koda-nav-v2-js-end -->
+
+<script>
+function toggleEditorialPodcast() {
+    var player = document.getElementById('editorialPodcastPlayer');
+    var btn = document.getElementById('edPodBtn');
+    if (!player || !btn) return;
+    if (player.classList.contains('active')) {
+        player.classList.remove('active');
+        btn.innerHTML = '&#9654; Listen Now';
+        btn.setAttribute('aria-expanded', 'false');
+        var audio = player.querySelector('audio');
+        if (audio) audio.pause();
+    } else {
+        player.classList.add('active');
+        btn.innerHTML = '&#9646;&#9646; Pause';
+        btn.setAttribute('aria-expanded', 'true');
+        var audio = player.querySelector('audio');
+        if (audio) audio.play();
+    }
+}
+function toggleVideo() {
+    var o = document.getElementById('videoOverlay'), f = document.getElementById('videoFrame');
+    if (!o || !f) return;
+    if (o.classList.contains('active')) {
+        o.classList.remove('active');
+        f.src = '';
+        document.body.style.overflow = '';
+    } else {
+        f.src = 'https://www.youtube.com/embed/koUjn4XIVeI?autoplay=1&rel=0';
+        o.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+</script>
+</body>
+</html>

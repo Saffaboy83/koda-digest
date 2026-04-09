@@ -1,6 +1,35 @@
 {
-  "generated": "2026-04-08T09:48:24Z",
+  "generated": "2026-04-09T02:27:15Z",
   "digests": [
+    {
+      "date": "2026-04-09",
+      "dayOfWeek": "Thursday",
+      "focusTopics": [
+        {
+          "title": "Open-Source Giants Go Global",
+          "desc": "Zhipu AI's decision to release GLM-5.1 at 744B parameters under MIT is a direct challenge to Meta's Llama and Google's Gemma 4, which also shipped this week under Apache 2.0. The move signals that Chinese labs are no longer just matching Western scale; they are competing on openness and licensing terms. Developers worldwide now have multiple frontier-class open models to choose from, accelerating downstream innovation."
+        },
+        {
+          "title": "Ceasefire Fragility in Isfahan",
+          "desc": "Explosions in Isfahan hours after world leaders expressed cautious optimism reveal the gap between diplomatic language and battlefield reality. Israel continues striking Hezbollah targets despite the Iran truce framework, suggesting the ceasefire is more aspiration than enforcement. NPR's pointed questioning of what the U.S. involvement accomplished reflects growing domestic skepticism about the conflict's strategic returns."
+        },
+        {
+          "title": "AI Safety as Competitive Moat",
+          "desc": "Anthropic launched Project Glasswing, a cybersecurity coalition, on the same day OpenAI published a child safety blueprint for AI systems. Both moves position safety infrastructure as a differentiator for enterprise and government contracts rather than a compliance afterthought. As open-weight models proliferate, closed-model providers increasingly need trust and governance frameworks to justify their premium."
+        }
+      ],
+      "kpis": {
+        "aiStories": "10",
+        "worldEvents": "7",
+        "marketMood": "Extreme Fear",
+        "toolsFeatured": "6"
+      },
+      "hasPodcast": true,
+      "hasInfographic": true,
+      "hasVideo": true,
+      "youtubeId": "DHmmyvKj4fE",
+      "file": "morning-briefing-koda-2026-04-09.html"
+    },
     {
       "date": "2026-04-08",
       "dayOfWeek": "Wednesday",
@@ -554,6 +583,12 @@
     }
   ],
   "editorials": [
+    {
+      "date": "2026-04-09",
+      "title": "Anthropic Launches Project Glasswing Cybersecurity Coalition",
+      "tag": "Strategy",
+      "file": "editorial/2026-04-09-anthropic-launches-project-glasswing-cybersecurity-coalition.html"
+    },
     {
       "date": "2026-04-08",
       "title": "The open-source AI benchmark race is compressing frontier model timelines so fast that prediction markets now price",
