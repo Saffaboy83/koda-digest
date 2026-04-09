@@ -1,25 +1,25 @@
 {
-  "generated": "2026-04-09T02:27:15Z",
+  "generated": "2026-04-09T10:13:33Z",
   "digests": [
     {
       "date": "2026-04-09",
       "dayOfWeek": "Thursday",
       "focusTopics": [
         {
-          "title": "Open-Source Giants Go Global",
-          "desc": "Zhipu AI's decision to release GLM-5.1 at 744B parameters under MIT is a direct challenge to Meta's Llama and Google's Gemma 4, which also shipped this week under Apache 2.0. The move signals that Chinese labs are no longer just matching Western scale; they are competing on openness and licensing terms. Developers worldwide now have multiple frontier-class open models to choose from, accelerating downstream innovation."
+          "title": "DeepSeek V4 Nears Launch",
+          "desc": "Prediction markets now assign a 94% probability to the release of DeepSeek V4, which would represent China's most capable frontier model to date. Hugging Face's simultaneous release of Darwin-31B-Opus, a reasoning-focused merge, underscores how the open-weight ecosystem is accelerating independently of any single lab. OpenAI's enterprise push looks increasingly like a race to lock in customers before the next wave of competitive open models lands."
         },
         {
-          "title": "Ceasefire Fragility in Isfahan",
-          "desc": "Explosions in Isfahan hours after world leaders expressed cautious optimism reveal the gap between diplomatic language and battlefield reality. Israel continues striking Hezbollah targets despite the Iran truce framework, suggesting the ceasefire is more aspiration than enforcement. NPR's pointed questioning of what the U.S. involvement accomplished reflects growing domestic skepticism about the conflict's strategic returns."
+          "title": "Ceasefire Collapse Risks Escalation",
+          "desc": "Israeli bombardment of Lebanon and fresh U.S. strikes inside Iran, including one that destroyed a centuries-old Tehran synagogue, are eroding whatever diplomatic progress the two-week ceasefire achieved. NPR's pointed questioning of what the U.S. campaign has accomplished reflects growing domestic skepticism. Trump's new 50% tariffs on Iran arms suppliers add economic pressure but may also harden Tehran's posture."
         },
         {
-          "title": "AI Safety as Competitive Moat",
-          "desc": "Anthropic launched Project Glasswing, a cybersecurity coalition, on the same day OpenAI published a child safety blueprint for AI systems. Both moves position safety infrastructure as a differentiator for enterprise and government contracts rather than a compliance afterthought. As open-weight models proliferate, closed-model providers increasingly need trust and governance frameworks to justify their premium."
+          "title": "Meta's Vertical AI Stack",
+          "desc": "Shipping four generations of custom MTIA inference chips in 24 months gives Meta a silicon cadence rivaling Apple's. Pairing that hardware trajectory with TRIBE v2, a model that predicts brain activity from visual stimuli, signals Meta's ambition to own the full stack from transistor to neuroscience. The combination could reshape both the cost structure of large-scale inference and the frontier of brain-computer interface research."
         }
       ],
       "kpis": {
-        "aiStories": "10",
+        "aiStories": "8",
         "worldEvents": "7",
         "marketMood": "Extreme Fear",
         "toolsFeatured": "6"
@@ -27,7 +27,7 @@
       "hasPodcast": true,
       "hasInfographic": true,
       "hasVideo": true,
-      "youtubeId": "DHmmyvKj4fE",
+      "youtubeId": "B3YlxwSe1t0",
       "file": "morning-briefing-koda-2026-04-09.html"
     },
     {
@@ -588,6 +588,12 @@
       "title": "Anthropic Launches Project Glasswing Cybersecurity Coalition",
       "tag": "Strategy",
       "file": "editorial/2026-04-09-anthropic-launches-project-glasswing-cybersecurity-coalition.html"
+    },
+    {
+      "date": "2026-04-09",
+      "title": "AI benchmarks are systematically misleading due to training data contamination, meaning the metrics builders rely on to",
+      "tag": "Strategy",
+      "file": "editorial/2026-04-09-ai-benchmarks-are-systematically-misleading-due-to-training-.html"
     },
     {
       "date": "2026-04-08",

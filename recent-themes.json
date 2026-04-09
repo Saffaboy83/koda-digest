@@ -1,61 +1,58 @@
 {
   "2026-04-09": {
-    "hook": "Zhipu AI just open-sourced 744 billion parameters under MIT while ceasefire explosions rattle Isfahan again.",
+    "hook": "DeepSeek V4 sits at 94% on prediction markets while U.S. strikes erase a historic Tehran synagogue.",
     "top_themes": [
-      "Open-Source Giants Go Global",
-      "Ceasefire Fragility in Isfahan",
-      "AI Safety as Competitive Moat"
+      "DeepSeek V4 Nears Launch",
+      "Ceasefire Collapse Risks Escalation",
+      "Meta's Vertical AI Stack"
     ],
     "top_stories": [
-      "Anthropic Launches Project Glasswing Cybersecurity Coalition",
-      "Zhipu AI Open-Sources 744B GLM-5.1 Under MIT",
-      "Google Releases AI Edge Eloquent Dictation App",
-      "OpenAI Publishes Child Safety Blueprint for AI",
-      "Google Gemma 4 Family Ships Under Apache 2.0",
-      "Alibaba Ships Qwen 3.6-Plus With 1M Context",
-      "PrismML Ships Bonsai 8B 1-Bit Quantized Model",
-      "Clicky v3 Ships as Open Source AI Tool",
-      "Meta Details Four MTIA Chips in Two Years",
-      "April Model Cadence Hits One Release Every 72 Hours",
-      "Explosions Reported in Isfahan Amid Ceasefire Uncertainty",
+      "OpenAI Announces Next Phase of Enterprise AI",
+      "Prediction Markets Price DeepSeek V4 at 94%",
+      "Hugging Face Releases Darwin-31B-Opus Reasoning Merge",
+      "Meta Ships Four MTIA Chips in Two Years",
+      "Meta Unveils TRIBE v2 Brain Prediction Model",
+      "Hugging Face Maps Open Source AI Spring 2026",
+      "Benchmarks Called Misleading Due to Data Contamination",
+      "April 2026 Model Cadence Reaches Eight in Seven Days",
+      "Israel Pounds Lebanon, Threatening Fragile Iran Ceasefire",
+      "Trump Slaps 50% Tariffs on Iran Arms Suppliers",
+      "U.S. Strikes Destroy Historic Tehran Synagogue",
+      "Asian Markets Slide on Ceasefire Doubts",
       "NPR Questions What U.S. Iran War Accomplished",
-      "Israel Strikes Hezbollah Despite Iran Truce Framework",
-      "World Leaders Voice Cautious Relief Over Ceasefire",
-      "Oil Plunges 16% Then Stabilizes Below $100",
-      "U.S.-Iran Enrichment Talks Hit Immediate Impasse",
-      "American Hostage Freed in Iraqi Militia Swap"
+      "JP Morgan's Dimon Warns of Economic Fallout",
+      "Trump Renews NATO Criticism Amid Iran Crisis"
     ],
     "featured_tools": [
-      "Nebils: Test Drive 120+ AI Models in One Social Feed",
-      "Pensieve: Give Your AI Agents Persistent Company Memory",
-      "Cursor Agents Window: Run Parallel Coding Agents Across Repos",
-      "WriteSong AI: Turn a Mood Description Into a Complete Track",
-      "Ignitvio: AI-Powered Lead Response for Local Service Businesses",
-      "NovaVoice: Control Apps and Dictate With a Single Voice Layer"
+      "Superhuman: AI Email Triage at $30/mo",
+      "Glide: Turn Spreadsheets Into Internal Apps Without Code",
+      "Zed Editor: Lightweight IDE With Multi-Model Agent Support",
+      "MemSync: Give Every App a Shared AI Memory Layer",
+      "deepidv: Add AI-Ready KYC and Biometrics to Your App",
+      "Chatforce: Describe a Game Idea, Play It in Minutes"
     ],
     "source_urls": [
-      "https://www.anthropic.com/glasswing",
-      "https://whatllm.org/blog/new-ai-models-april-2026",
-      "https://9to5google.com/2026/04/06/google-ai-edge-eloquent-app/",
-      "https://openai.com/index/introducing-child-safety-blueprint/",
-      "https://whatllm.org/blog/new-ai-models-april-2026",
-      "https://whatllm.org/blog/new-ai-models-april-2026",
-      "https://whatllm.org/blog/new-ai-models-april-2026",
-      "https://github.com/farzaa/clicky/releases",
+      "https://openai.com/index/next-phase-of-enterprise-ai/",
+      "https://manifold.markets/prismatic/april-2026-ai-model-releases",
+      "https://huggingface.co/posts",
       "https://ai.meta.com/blog/meta-mtia-scale-ai-chips-for-billions/",
+      "https://ai.meta.com/blog/tribe-v2-brain-predictive-foundation-model/",
+      "https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026",
+      "https://www.searchcans.com/blog/ai-model-releases-april-2026-v2/",
       "https://whatllm.org/blog/new-ai-models-april-2026",
-      "https://www.youtube.com/watch?v=v4ce-xiBb70",
-      "https://www.npr.org/2026/04/08/nx-s1-5771492/iran-war-goals-unmet-ceasefire-strait-hormuz-trump",
-      "https://www.9news.com.au/world/us-israel-iran-war-update-ceasefire-agreed-though-some-attacks-continue/0ed415cd-df12-4d77-8294-29eadeee1535",
-      "https://abcnews.com/International/momentary-relief-world-leaders-react-us-iran-ceasefire/story?id=131831434",
+      "https://www.straitstimes.com/world/while-you-were-sleeping-5-stories-you-might-have-missed-april-9-2026",
       "https://www.democracynow.org/2026/4/8/headlines",
-      "https://www.youtube.com/watch?v=ZyAmK8M9oGw"
+      "https://www.democracynow.org/2026/4/8/headlines",
+      "https://www.straitstimes.com/world/while-you-were-sleeping-5-stories-you-might-have-missed-april-9-2026",
+      "https://www.npr.org/sections/world/",
+      "https://www.golocalprov.com/news/5-big-news-stories-overnight-tuesday-april-7-2026",
+      "https://www.straitstimes.com/world/while-you-were-sleeping-5-stories-you-might-have-missed-april-9-2026"
     ],
     "story_angles": [
-      "China's Zhipu AI released GLM-5.1, a 744-billion-parameter model under the MIT l",
-      "Fresh explosions were reported in Isfahan even as world leaders voiced cautious ",
-      "Oil plunged 16% before stabilizing below $100 a barrel, but sentiment remains lo",
-      "Anthropic's new Project Glasswing cybersecurity coalition and OpenAI's child saf"
+      "OpenAI announced its next phase of enterprise AI deployment as prediction market",
+      "Israel intensified strikes across Lebanon, threatening the fragile Iran ceasefir",
+      "Asian markets slid on growing doubts that the Iran ceasefire will hold, pushing ",
+      "Meta shipped its fourth custom MTIA silicon chip in just two years and simultane"
     ]
   },
   "2026-04-08": {
