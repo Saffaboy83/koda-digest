@@ -1,4 +1,66 @@
 {
+  "2026-04-10": {
+    "hook": "JPMorgan just called a single AI product launch a turning point for the world's sixth-largest company.",
+    "top_themes": [
+      "Meta's Superintelligence Bet Pays Off",
+      "Lebanon Crisis Deepens Fast",
+      "Open Source AI Surge Continues"
+    ],
+    "top_stories": [
+      "Meta Launches Muse Spark From Superintelligence Labs",
+      "Meta Ships Canopy Height Maps v2 With WRI",
+      "JPMorgan Calls Muse Spark a Meta Turning Point",
+      "Google Gemma 4 Ships Four Open Source Variants",
+      "Clone Robotics Prices Synthetic Human at $20K",
+      "Zhipu AI GLM-5.1 Ships 744B MoE Under MIT",
+      "Hugging Face Charts Open Source AI Spring 2026",
+      "PrismML Bonsai 8B Ships as 1-Bit Quantized Model",
+      "Morgan Stanley Warns AI Leap Coming in 2026",
+      "Prediction Markets Eye DeepSeek V4 and GPT-5.5",
+      "Israel Strikes Lebanon, Killing Over 250",
+      "Trump Accuses Iran of Violating Strait Agreement",
+      "Iran Keeps Military Posture Despite Ceasefire Deal",
+      "U.S. Service Member Still Missing Inside Iran",
+      "Artemis II Crew Splashes Down After Moon Trip",
+      "Cyclone Vaianu Threatens New Zealand, Pacific Region",
+      "Melania Trump Denies Epstein Ties Publicly",
+      "Russia, Ukraine Agree Orthodox Easter Truce"
+    ],
+    "featured_tools": [
+      "NovaVoice: Control Apps and Dictate With a Single Voice Layer",
+      "Lessie AI: Describe Your Target Customer, Let the Agent Find Them",
+      "OrbitMeet: Get Real-Time Transcription and Action Items During Calls",
+      "Google Colab Learn Mode: Turn Gemini Into a Personal Coding Tutor",
+      "VeloChat: Share Ideas as Quick Video Messages Instead of Walls of Text",
+      "WidgetVox: Add a Voice AI Agent to Your Website in Minutes"
+    ],
+    "source_urls": [
+      "https://ai.meta.com/blog/introducing-muse-spark-msl/",
+      "https://ai.meta.com/blog/",
+      "https://www.cnbc.com/2026/04/09/meta-released-a-new-ai-model-this-week-jpmorgan-sees-it-as-a-turning-point-for-the-stock.html",
+      "https://whatllm.org/blog/new-ai-models-april-2026",
+      "https://robotnews.therundown.ai/p/clone-20k-synthetic-human",
+      "https://whatllm.org/blog/new-ai-models-april-2026",
+      "https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026",
+      "https://whatllm.org/blog/new-ai-models-april-2026",
+      "https://fortune.com/2026/03/13/elon-musk-morgan-stanley-ai-leap-2026/",
+      "https://manifold.markets/prismatic/april-2026-ai-model-releases",
+      "https://www.democracynow.org/2026/4/9/israeli_escalation_in_lebanon",
+      "https://www.bbc.com/news/articles/cge0xre3d27o",
+      "https://www.democracynow.org/2026/4/8/headlines",
+      "https://www.youtube.com/watch?v=Mbvh99Rv2Rg",
+      "https://www.pbs.org/newshour/science/watch-live-artemis-ii-crew-splashes-down-on-earth-after-historic-trip-around-the-moon",
+      "https://www.1news.co.nz/2026/04/10/news-in-90-seconds-april-10/",
+      "https://www.1news.co.nz/2026/04/10/news-in-90-seconds-april-10/",
+      "https://www.bbc.com/news/world"
+    ],
+    "story_angles": [
+      "Meta released Muse Spark from its Superintelligence Labs division, prompting JPM",
+      "Israeli strikes on Lebanon killed over 250 people as tensions with Iran escalate",
+      "Sentiment sits at Extreme Fear as Middle East escalation, unresolved hostage sit",
+      "Clone Robotics priced its synthetic human body at $20,000, roughly the cost of a"
+    ]
+  },
   "2026-04-09": {
     "hook": "Defensive AI is the new arms race: Anthropic launches Claude Mythos while real missiles fly and tariffs spike.",
     "top_themes": [

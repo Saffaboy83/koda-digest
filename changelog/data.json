@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-04-07T10:01:02.309505+00:00",
+  "generated_at": "2026-04-10T10:00:43.797446+00:00",
   "company_count": 25,
   "companies_with_posts": 18,
-  "total_entries": 100,
-  "new_today": 18,
+  "total_entries": 105,
+  "new_today": 14,
   "entries": [
     {
       "company": "Runway",
@@ -24,6 +24,51 @@
       "category": "Feature"
     },
     {
+      "company": "Microsoft",
+      "color": "#00A4EF",
+      "url": "https://microsoftpartners.microsoft.com/abs/Blog/?title=Microsoft%20365%20Copilot%20Chat%20Update%3A%20Effective%20April%2015%2C%202026",
+      "title": "Microsoft 365 Copilot Chat Update: Effective April 15, 2026",
+      "summary": "This blog post discusses the upcoming updates to Microsoft 365 Copilot Chat, scheduled to take effect on April 15, 2026. Key enhancements are explored, highlighting improved functionalities aimed at enhancing user experience.",
+      "date": "2026-04-15",
+      "category": "Feature"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://openai.com/index/next-phase-of-enterprise-ai/",
+      "title": "The next phase of enterprise AI",
+      "summary": "Denise Dresser, Chief Revenue Officer at OpenAI, reflects on her first 90 days and the rapid adoption of AI in enterprise settings. With AI transforming workflows, companies are eager to explore how to leverage AI beyond individual tools, aiming for a unified operational layer that enhances productivity across the board.",
+      "date": "2026-04-08",
+      "category": "Feature"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://developers.openai.com/codex/changelog",
+      "title": "Codex model availability update",
+      "summary": "On April 7, we're updating Codex model availability for users signing in with ChatGPT. Models such as `gpt-5.2-codex` and others will be removed from Codex for ChatGPT sign-in, while newer models like `gpt-5.4` will still be accessible.",
+      "date": "2026-04-07",
+      "category": "API Update"
+    },
+    {
+      "company": "Google",
+      "color": "#3B82F6",
+      "url": "https://blog.google/products-and-platforms/platforms/android/android-xr-immersive-features-update-april-2026/",
+      "title": "5 new features for Android XR",
+      "summary": "Android XR has introduced a significant update featuring five immersive enhancements designed to elevate user experience. Users can now enjoy transforming 2D apps into 3D, pinning applications to walls, and easily resuming sessions where they left off, alongside other improvements in hand and eye tracking.",
+      "date": "2026-04-07",
+      "category": "Feature"
+    },
+    {
+      "company": "ElevenLabs",
+      "color": "#F472B6",
+      "url": "https://elevenlabs.io/blog/how-to-convert-text-to-mp3",
+      "title": "How to convert text to MP3",
+      "summary": "This blog post provides a comprehensive guide on converting text files to audio using advanced text-to-speech tools like ElevenLabs. It discusses the steps involved in the conversion process, tips for creating high-quality audio, and the benefits of converting text to audio files, such as enhanced accessibility and content versatility.",
+      "date": "2026-04-07",
+      "category": "Feature"
+    },
+    {
       "company": "Anthropic",
       "color": "#D97706",
       "url": "https://www.anthropic.com/news/google-broadcom-partnership-compute",
@@ -31,6 +76,15 @@
       "summary": "Anthropic has signed a new agreement with Google and Broadcom to provide multiple gigawatts of next-generation TPU capacity, expected to start in 2027. This partnership aims to enhance compute infrastructure for the Claude models, meeting the growing demand from a rapidly increasing customer base.",
       "date": "2026-04-06",
       "category": "Partnership"
+    },
+    {
+      "company": "xAI",
+      "color": "#8B5CF6",
+      "url": "https://docs.x.ai/developers/models/voice-agent-api",
+      "title": "Voice Agent API",
+      "summary": "The Voice Agent API enables real-time voice conversations over WebSocket and is billed at a flat rate per minute of connection time. It supports function calling with various search tools and collections, facilitating extensive interaction capabilities.",
+      "date": "2026-04-04",
+      "category": "API Update"
     },
     {
       "company": "OpenAI",
@@ -138,6 +192,15 @@
       "title": "Bring state-of-the-art agentic skills to the edge with Gemma 4",
       "summary": "Google DeepMind has launched Gemma 4, a family of advanced open models that empower developers to create agentic and autonomous AI solutions directly on their devices. With capabilities such as multi-step planning and support for over 140 languages, Gemma 4 marks a significant leap in on-device AI development, making complex workflows and applications more accessible.",
       "date": "2026-04-02",
+      "category": "Feature"
+    },
+    {
+      "company": "Microsoft",
+      "color": "#00A4EF",
+      "url": "https://learn.microsoft.com/en-us/dynamics365/release-plan/2026wave1/",
+      "title": "Dynamics 365 2026 Release Wave 1 Plan",
+      "summary": "The Dynamics 365 release plan for 2026 announces the latest features and updates being rolled out from April to September 2026. It provides an overview of new innovations across various Dynamics 365 applications, designed to enhance business operations and customer experiences.",
+      "date": "2026-04-01",
       "category": "Feature"
     },
     {
@@ -303,6 +366,15 @@
       "category": "Feature"
     },
     {
+      "company": "xAI",
+      "color": "#8B5CF6",
+      "url": "https://docs.x.ai/overview",
+      "title": "Welcome to xAI Documentation",
+      "summary": "This documentation provides an overview of Grok, a powerful AI model designed to provide truthful and insightful answers. It includes sections on getting started, API integration, and the latest features of Grok 4.20, highlighting its speed and precision in generating responses.",
+      "date": "2026-03-30",
+      "category": "Feature"
+    },
+    {
       "company": "Adobe",
       "color": "#FF0000",
       "url": "https://experienceleague.adobe.com/en/docs/analytics/release-notes/latest",
@@ -438,6 +510,15 @@
       "category": "Feature"
     },
     {
+      "company": "Adobe",
+      "color": "#FF0000",
+      "url": "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/release-notes/release-notes/2026/2026-2-0",
+      "title": "2026.2.0 Release Notes for Adobe Experience Manager as a Cloud Service",
+      "summary": "The 2026.2.0 release notes detail the latest features and updates for Adobe Experience Manager as a Cloud Service, including enhancements in asset management and new beta programs. The publication covers important notifications regarding deprecated APIs, maintenance updates, and early access features.",
+      "date": "2026-03-25",
+      "category": "SDK Release"
+    },
+    {
       "company": "OpenAI",
       "color": "#10B981",
       "url": "https://openai.com/index/our-approach-to-the-model-spec/",
@@ -463,6 +544,24 @@
       "summary": "The OpenAI Safety Bug Bounty program is launched to empower the community in identifying and resolving safety issues in AI systems. This initiative aims to enhance the overall safety of OpenAI's technologies.",
       "date": "2026-03-25",
       "category": "Safety"
+    },
+    {
+      "company": "xAI",
+      "color": "#8B5CF6",
+      "url": "https://docs.x.ai/developers/advanced-api-usage/provisioned-throughput",
+      "title": "Provisioned Throughput",
+      "summary": "Provisioned Throughput allows enterprise customers to purchase dedicated input and output token capacity for specific models, ensuring predictable and high-performance API access. This feature includes benefits like predictable latency, uncapped scale, and high reliability, with a minimum 30-day commitment for usage.",
+      "date": "2026-03-24",
+      "category": "Pricing"
+    },
+    {
+      "company": "Cursor",
+      "color": "#7DD3FC",
+      "url": "https://cursor.com/blog/warp-decode",
+      "title": "Warp Decode: Enhancing MoE Inference Performance",
+      "summary": "Warp decode reorganizes MoE inference systems by focusing on outputs instead of experts, leading to significant performance gains and improved accuracy. This method achieves a 1.84x throughput boost on Blackwell GPUs while generating outputs that are 1.4x closer to the full FP32 reference.",
+      "date": "2026-03-24",
+      "category": "Research"
     },
     {
       "company": "Databricks",
@@ -564,6 +663,24 @@
       "category": "Feature"
     },
     {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://developers.openai.com/api/docs/changelog",
+      "title": "Changelog",
+      "summary": "This blog post provides a comprehensive changelog detailing updates, features, and fixes made to OpenAI's products and APIs throughout 2024 and early 2025. It highlights significant new model releases, enhancements to existing APIs, and improvements in performance and usability.",
+      "date": "2026-03-17",
+      "category": "Feature"
+    },
+    {
+      "company": "OpenAI",
+      "color": "#10B981",
+      "url": "https://openai.com/index/introducing-gpt-5-4-mini-and-nano/",
+      "title": "Introducing GPT‑5.4 mini and nano",
+      "summary": "OpenAI has announced the release of GPT‑5.4 mini and nano, designed for coding and high-volume workloads. These models are optimized for faster performance while maintaining strong capabilities in coding, reasoning, and multimodal understanding.",
+      "date": "2026-03-17",
+      "category": "Feature"
+    },
+    {
       "company": "Together AI",
       "color": "#EC4899",
       "url": "https://www.together.ai/blog/mamba-3",
@@ -596,15 +713,6 @@
       "url": "https://platform.openai.com/docs/changelog",
       "title": "GPT-5.4 Release Note",
       "summary": "The GPT-5.4 mini and nano models were recently released for the Chat Completions and Responses API, enhancing performance and efficiency for high-volume workloads. These models bring significant improvements to speed and are optimized for simpler tasks and high-volume usage.",
-      "date": "2026-03-17",
-      "category": "Feature"
-    },
-    {
-      "company": "OpenAI",
-      "color": "#10B981",
-      "url": "https://developers.openai.com/api/docs/changelog/",
-      "title": "Changelog",
-      "summary": "This is a detailed changelog of the OpenAI API updates, features, model releases, and fixes dating back to January 2024. Key updates include the release of GPT-5.4 mini and nano models, enhancements in the Responses API, and various features aimed at optimizing performance and user experience.",
       "date": "2026-03-17",
       "category": "Feature"
     },
@@ -762,6 +870,15 @@
       "category": "Policy"
     },
     {
+      "company": "ElevenLabs",
+      "color": "#F472B6",
+      "url": "https://elevenlabs.io/blog/webinar-recap-how-ai-is-revolutionizing-learning",
+      "title": "Webinar Recap: How AI Is Revolutionizing Learning",
+      "summary": "This blog post recaps a webinar showcasing how AI is transforming education, demonstrating real-time interactive tutoring and multimodal learning. With 92% of students utilizing AI, it's highlighted as an essential tool in addressing the challenges in modern education systems.",
+      "date": "2026-03-12",
+      "category": "Feature"
+    },
+    {
       "company": "Anthropic",
       "color": "#D97706",
       "url": "https://www.anthropic.com/news/claude-partner-network",
@@ -831,78 +948,6 @@
       "title": "Introducing Runway Labs",
       "summary": "Runway Labs is an internal incubator launched to explore the next generation of applications for generative video, focusing on how AI can transform various industries. Led by Co-Founder Alejandro Matamala Ortiz, the initiative aims to prototype bold new products and experiences that harness the power of AI video and General World Models.",
       "date": "2026-03-11",
-      "category": "Feature"
-    },
-    {
-      "company": "Microsoft",
-      "color": "#00A4EF",
-      "url": "https://learn.microsoft.com/en-us/answers/questions/5815525/wave-release-updates",
-      "title": "Wave release updates",
-      "summary": "The blog post discusses the upcoming wave release updates for Microsoft products in 2026, detailing the new features and timelines for the Dynamics 365, Microsoft Power Platform, and role-based Copilot offerings. It outlines the structured release waves and their key dates, emphasizing the importance of the 2025 release wave 2 and the upcoming 2026 wave 1 plan.",
-      "date": "2026-03-10",
-      "category": "Feature"
-    },
-    {
-      "company": "Adobe",
-      "color": "#FF0000",
-      "url": "https://blog.adobe.com/en/publish/2026/03/10/image-editing-just-got-smarter-with-ai-photoshop-firefly",
-      "title": "Image editing just got smarter with AI in Photoshop and Firefly",
-      "summary": "Adobe expands the power of conversational AI with new capabilities to edit your photos just by describing what you want with Photoshop’s new AI Assistant and powerful new AI tools in Firefly Image Editor. These innovations enhance user creativity by providing tools that simplify and improve the editing process.",
-      "date": "2026-03-10",
-      "category": "Feature"
-    },
-    {
-      "company": "Hugging Face",
-      "color": "#FFD21E",
-      "url": "https://huggingface.co/blog/storage-buckets",
-      "title": "Introducing Storage Buckets on the Hugging Face Hub",
-      "summary": "Hugging Face has launched Storage Buckets, a flexible S3-like object storage solution tailored for machine learning artifacts. This feature allows seamless management of mutable storage for datasets, checkpoints, and other intermediate files, optimizing efficiency and speed for ML workflows.",
-      "date": "2026-03-10",
-      "category": "Feature"
-    },
-    {
-      "company": "Adobe",
-      "color": "#FF0000",
-      "url": "https://community.adobe.com/announcements-327/adobe-express-2026-updates-1553068",
-      "title": "Adobe Express: 2026 Updates",
-      "summary": "Adobe Express has introduced numerous enhancements aimed at improving workflows in creation, video editing, and brand management. Key features include faster presentation generation, improved video editing capabilities, new export options, and better support for various image formats.",
-      "date": "2026-03-10",
-      "category": "Feature"
-    },
-    {
-      "company": "Adobe",
-      "color": "#FF0000",
-      "url": "https://helpx.adobe.com/security/products/illustrator/apsb26-18.html",
-      "title": "Security Updates Available for Adobe Illustrator | APSB26-18",
-      "summary": "Adobe has released an update for Adobe Illustrator to address important and critical vulnerabilities that could potentially lead to arbitrary code execution and memory exposure. There are no known exploits in the wild for the issues resolved in this update.",
-      "date": "2026-03-10",
-      "category": "Safety"
-    },
-    {
-      "company": "OpenAI",
-      "color": "#10B981",
-      "url": "https://help.openai.com/zh-hant-hk/articles/12591856-chatgpt-atlas-release-notes",
-      "title": "ChatGPT Atlas - Release Notes",
-      "summary": "This post outlines the latest updates and features included in the ChatGPT Atlas browser, released on various dates in early 2026. Notable enhancements include multiple ChatGPT logins, improved tab searching, and functionalities such as Save Prompts and Agent Mode that allow for smarter interactions and better user experience.",
-      "date": "2026-03-10",
-      "category": "Feature"
-    },
-    {
-      "company": "Runway",
-      "color": "#00E5FF",
-      "url": "https://runwayml.com/changelog",
-      "title": "New updates and improvements to Runway",
-      "summary": "Runway has introduced multiple updates across its platform, including the launch of Runway Characters, advanced image generation models, and improved audio features. Users can now enjoy real-time avatars, new video models, and enhanced workflows to streamline their creative processes.",
-      "date": "2026-03-09",
-      "category": "Feature"
-    },
-    {
-      "company": "Runway",
-      "color": "#00E5FF",
-      "url": "https://runwayml.com/news/introducing-runway-characters",
-      "title": "Introducing Runway Characters",
-      "summary": "Runway has launched Runway Characters, a real-time video agent API enabling the creation of fully custom conversational characters from a single image. These characters can adapt in appearance and style, offering extensive customization in voice, personality, and actions, paving the way for a new era in online interactions.",
-      "date": "2026-03-09",
       "category": "Feature"
     }
   ]

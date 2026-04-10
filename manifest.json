@@ -1,6 +1,35 @@
 {
-  "generated": "2026-04-10T02:07:05Z",
+  "generated": "2026-04-10T10:36:06Z",
   "digests": [
+    {
+      "date": "2026-04-10",
+      "dayOfWeek": "Friday",
+      "focusTopics": [
+        {
+          "title": "Meta's Superintelligence Bet Pays Off",
+          "desc": "Muse Spark is the first public product from Meta's Superintelligence Labs, and JPMorgan's immediate upgrade suggests the market is ready to reward companies that ship frontier AI, not just train it. The analyst note frames Spark as a potential revenue catalyst on par with Meta's original pivot to Reels. Combined with Meta's partnership with WRI on Canopy Height Maps v2, the company is projecting AI competence across both consumer and scientific domains."
+        },
+        {
+          "title": "Lebanon Crisis Deepens Fast",
+          "desc": "Over 250 killed in a single day of Israeli strikes marks one of the deadliest escalations since the broader conflict reignited. Iran's refusal to stand down its military posture despite a ceasefire framework, paired with a missing U.S. service member on Iranian soil, creates multiple flashpoints that could widen the war. Markets are pricing in the worst-case scenario, and energy supply disruption risk through the Strait of Hormuz remains elevated."
+        },
+        {
+          "title": "Open Source AI Surge Continues",
+          "desc": "Google shipped four variants of Gemma 4 with open weights, extending a trend where frontier labs release capable models freely to build ecosystem lock-in. This arrives alongside Clone Robotics making embodied AI affordable, suggesting the open source wave is now reaching hardware as well as software. For enterprises navigating Extreme Fear markets, freely available models and cheaper robotics lower the barrier to AI adoption precisely when budgets are tightening."
+        }
+      ],
+      "kpis": {
+        "aiStories": "",
+        "worldEvents": "",
+        "marketMood": "",
+        "toolsFeatured": ""
+      },
+      "hasPodcast": true,
+      "hasInfographic": true,
+      "hasVideo": true,
+      "youtubeId": "vdTnJnfZkXY",
+      "file": "morning-briefing-koda-2026-04-10.html"
+    },
     {
       "date": "2026-04-09",
       "dayOfWeek": "Thursday",
@@ -583,6 +612,12 @@
     }
   ],
   "editorials": [
+    {
+      "date": "2026-04-10",
+      "title": "1-bit quantized models like Bonsai 8B signal a coming shift where on-device AI becomes the default deployment target,",
+      "tag": "Tools",
+      "file": "editorial/2026-04-10-1-bit-quantized-models-like-bonsai-8b-signal-a-coming-shift-.html"
+    },
     {
       "date": "2026-04-09",
       "title": "Anthropic Launches Project Glasswing Cybersecurity Coalition",

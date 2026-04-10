@@ -1,6 +1,208 @@
 {
-  "generated": "2026-04-10T02:07:05Z",
+  "generated": "2026-04-10T10:36:06Z",
   "entries": [
+    {
+      "date": "2026-04-10",
+      "sections": [
+        {
+          "title": "Today's Focus",
+          "items": [
+            {
+              "headline": "Meta's Superintelligence Bet Pays Off",
+              "text": "Muse Spark is the first public product from Meta's Superintelligence Labs, and JPMorgan's immediate upgrade suggests the market is ready to reward companies that ship frontier AI, not just train it. The analyst note frames Spark as a potential revenue catalyst on par with Meta's original pivot to Reels. Combined with Meta's partnership with WRI on Canopy Height Maps v2, the company is projecting AI competence across both consumer and scientific domains."
+            },
+            {
+              "headline": "Lebanon Crisis Deepens Fast",
+              "text": "Over 250 killed in a single day of Israeli strikes marks one of the deadliest escalations since the broader conflict reignited. Iran's refusal to stand down its military posture despite a ceasefire framework, paired with a missing U.S. service member on Iranian soil, creates multiple flashpoints that could widen the war. Markets are pricing in the worst-case scenario, and energy supply disruption risk through the Strait of Hormuz remains elevated."
+            },
+            {
+              "headline": "Open Source AI Surge Continues",
+              "text": "Google shipped four variants of Gemma 4 with open weights, extending a trend where frontier labs release capable models freely to build ecosystem lock-in. This arrives alongside Clone Robotics making embodied AI affordable, suggesting the open source wave is now reaching hardware as well as software. For enterprises navigating Extreme Fear markets, freely available models and cheaper robotics lower the barrier to AI adoption precisely when budgets are tightening."
+            }
+          ]
+        },
+        {
+          "title": "Meta Launches Muse Spark From Superintelligence Labs",
+          "items": [
+            {
+              "headline": "Market Snapshot",
+              "text": ""
+            },
+            {
+              "headline": "Today's Focus",
+              "text": ""
+            },
+            {
+              "headline": "Daily Deep Dive",
+              "text": ""
+            },
+            {
+              "headline": "Video Briefing",
+              "text": ""
+            },
+            {
+              "headline": "Intelligence Map",
+              "text": ""
+            },
+            {
+              "headline": "1-bit quantized models like Bonsai 8B signal a coming shift where on-device AI becomes the default deployment target,",
+              "text": ""
+            }
+          ]
+        },
+        {
+          "title": "AI Developments",
+          "items": [
+            {
+              "headline": "Meta Launches Muse Spark From Superintelligence Labs",
+              "text": ""
+            },
+            {
+              "headline": "Meta Ships Canopy Height Maps v2 With WRI",
+              "text": "Meta AI released Canopy Height Maps v2 (CHMv2) in partnership with the World Resources Institute, an open source model that generates world-scale forest canopy height maps. The tool builds on..."
+            },
+            {
+              "headline": "JPMorgan Calls Muse Spark a Meta Turning Point",
+              "text": "JPMorgan analysts said Meta's Muse Spark launch should improve investor confidence in the company's AI scaling trajectory. The bank reaffirmed its $825 price target, implying 34.7% upside from..."
+            },
+            {
+              "headline": "Google Gemma 4 Ships Four Open Source Variants",
+              "text": "Google released the Gemma 4 family on April 2, comprising four open source model variants under the Apache 2.0 license. The models are tracked on LLM Stats and target developer accessibility. A community merge, Darwin-31B-Opus, already combines..."
+            },
+            {
+              "headline": "Clone Robotics Prices Synthetic Human at $20K",
+              "text": "Clone Robotics revealed a $20,000 price point for its synthetic human android, which mimics human skeletal, muscular, vascular, and nervous structures. The company first unveiled the prototype in early 2025 and has now moved toward commercial..."
+            },
+            {
+              "headline": "Zhipu AI GLM-5.1 Ships 744B MoE Under MIT",
+              "text": "Chinese AI lab Zhipu AI released GLM-5.1, a 744-billion-parameter mixture-of-experts model with 40 billion active parameters, under the MIT license. The company also shipped GLM-5V-Turbo, a multimodal variant with coding capabilities. Both models..."
+            },
+            {
+              "headline": "Hugging Face Charts Open Source AI Spring 2026",
+              "text": "Hugging Face published its State of Open Source Spring 2026 report, mapping shifts in competition, geography, technical trends, and emerging communities across the open source AI landscape. The report arrives as the platform hosts an accelerating..."
+            },
+            {
+              "headline": "PrismML Bonsai 8B Ships as 1-Bit Quantized Model",
+              "text": "PrismML released Bonsai 8B, a 1-bit quantized language model designed to run efficiently on constrained hardware. The release reflects a growing trend toward extreme quantization as a path to on-device inference. Bonsai 8B joins a wave of April..."
+            },
+            {
+              "headline": "Morgan Stanley Warns AI Leap Coming in 2026",
+              "text": "Morgan Stanley published a note in March warning that an AI breakthrough is approaching in 2026 and that most of the world is not prepared. The analysis points to accelerating model capabilities and infrastructure buildouts as precursors to a..."
+            },
+            {
+              "headline": "Prediction Markets Eye DeepSeek V4 and GPT-5.5",
+              "text": "Prediction markets on Manifold price DeepSeek V4 at roughly 85% probability for an April 2026 launch, while GPT-5.5 variants sit at approximately 76%. No confirmed release dates have been announced by either company. The markets reflect growing..."
+            }
+          ]
+        },
+        {
+          "title": "World News",
+          "items": [
+            {
+              "headline": "Israel Strikes Lebanon, Killing Over 250",
+              "text": ""
+            },
+            {
+              "headline": "Trump Accuses Iran of Violating Strait Agreement",
+              "text": "President Trump accused Iran of \"doing a very poor job\" managing the Strait of Hormuz, saying the situation is \"not the agreement we have,\" according to the BBC. Shipping traffic through the..."
+            },
+            {
+              "headline": "Iran Keeps Military Posture Despite Ceasefire Deal",
+              "text": "Tehran accepted a 10-point peace plan but warned its \"hands remain on the trigger\" as the fragile ceasefire faces multiple stress points. Street gatherings in Iran reflected cautious celebration,..."
+            },
+            {
+              "headline": "U.S. Service Member Still Missing Inside Iran",
+              "text": "Search efforts continue for an American weapons specialist missing inside Iran after a U.S. warplane was downed during the conflict's second month. A pilot from the same incident was previously rescued by U.S. special forces. The unresolved case..."
+            },
+            {
+              "headline": "Artemis II Crew Splashes Down After Moon Trip",
+              "text": "The Artemis II crew splashed down on Earth after completing a historic trip around the moon, according to PBS NewsHour. The mission marks NASA's first crewed lunar flyby since the Apollo era. The successful return comes amid a turbulent global..."
+            },
+            {
+              "headline": "Cyclone Vaianu Threatens New Zealand, Pacific Region",
+              "text": "New Zealand's Metservice issued fresh warnings about Cyclone Vaianu, cautioning that the storm's worst weather could arrive before its eye makes landfall. Westpac economists noted the storm could trigger lasting fuel price hikes in the region...."
+            },
+            {
+              "headline": "Melania Trump Denies Epstein Ties Publicly",
+              "text": "First Lady Melania Trump issued a White House statement rejecting rumors of any friendship with convicted sex offender Jeffrey Epstein and denying she played any role in introducing Epstein to President Trump. The statement comes amid ongoing..."
+            },
+            {
+              "headline": "Russia, Ukraine Agree Orthodox Easter Truce",
+              "text": "Russia and Ukraine agreed to a temporary truce for Orthodox Easter, with Vladimir Putin announcing the ceasefire, according to the BBC. The pause comes as both nations continue to suffer from prolonged conflict, with Russia recently killing three..."
+            }
+          ]
+        },
+        {
+          "title": "Featured Newsletters",
+          "items": [
+            {
+              "headline": "The Rundown AI",
+              "text": "•Clone Robotics unveils $20K android roadmap with 'synthetic human' milestones through 2028 | •GEN-1 robot demonstrates high-accuracy manipulation: folding boxes, fixing vacuums | •Hermeus secures $350M for Mach 5 unmanned aircraft development"
+            },
+            {
+              "headline": "Superhuman",
+              "text": "•Meta launches Muse Spark, the first model from Alexandr Wang's Meta Superintelligence Labs | •Perplexity opens Billion Dollar Build competition with $1M in seed funding for startups built on its Computer agent | •Anthropic releases Claude Managed Agents in public beta, letting anyone build custom cloud-based agents"
+            },
+            {
+              "headline": "TLDR",
+              "text": "•Meta introduced Muse Spark, a multimodal reasoning model with tool use, visual chain-of-thought, and multi-agent orchestration, as part of its push toward personal superintelligence. | •Anthropic launched Managed Agents, a hosted system that separates agent interfaces from underlying implementations to support long-running tasks as models evolve. | •Google Colab enhanced its Gemini integration with Custom Instructions and Learn Mode, enabling personalized AI assistance and step-by-step coding guidance instead of complete solutions."
+            },
+            {
+              "headline": "TLDR",
+              "text": "•Anthropic plans $200M investment into $1B venture with Blackstone, General Atlantic, and Hellman & Friedman to deploy AI across portfolio companies | •White House economists argue stablecoin yield rewards pose minimal threat to traditional banking, estimating a ban would boost bank lending by just 0.02% | •AI application layer retains structural advantages over raw models through orchestration, token efficiency, and proprietary workflow knowledge"
+            },
+            {
+              "headline": "TLDR",
+              "text": "•Windows 'BlueHammer' zero-day exploit code publicly released before Microsoft patch | •Iranian-affiliated actors actively targeting US water, energy, and government infrastructure | •Tech tariffs return, forcing companies to rethink supply chains and procurement strategy"
+            },
+            {
+              "headline": "TLDR",
+              "text": "•NYT investigation suggests Adam Back may be Satoshi Nakamoto, citing stylometric analysis and timeline gaps | •Polymarket deploying CTF Exchange V2 with optimized orders, EIP-1271 support, and new Polymarket USD collateral | •White House study finds stablecoin yields pose minimal risk to banks, undercutting industry lobbying against the GENIUS Act"
+            }
+          ]
+        },
+        {
+          "title": "AI Tool Guide",
+          "items": [
+            {
+              "headline": "NovaVoice: Control Apps and Dictate With a Single Voice Layer",
+              "text": "NovaVoice, the top-ranked product on Product Hunt for April 2026, combines smart dictation, an AI assistant, and full app control through voice commands. Instead of toggling between Siri, dictation apps, and automation tools, try NovaVoice as a unified voice interface across your desktop workflow. It is especially useful for hands-free task switching during deep work sessions."
+            },
+            {
+              "headline": "Lessie AI: Describe Your Target Customer, Let the Agent Find Them",
+              "text": "Lessie AI replaces traditional lead-gen filters with natural language targeting. Describe the type of person or company you want to reach, and Lessie crawls the web to surface high-quality matches and automate personalized outreach. Sales teams spending hours on LinkedIn Boolean searches should test this as a first-pass prospecting layer before manual qualification."
+            },
+            {
+              "headline": "OrbitMeet: Get Real-Time Transcription and Action Items During Calls",
+              "text": "OrbitMeet acts as a meeting co-pilot that transcribes conversations in real time and surfaces instant summaries and action items as the call progresses. Rather than reviewing a 45-minute recording after the fact, you can confirm takeaways with participants before hanging up. Plug it into your next client call to test whether it catches commitments your note-taking misses."
+            },
+            {
+              "headline": "Google Colab Learn Mode: Turn Gemini Into a Personal Coding Tutor",
+              "text": "Google Colab just added Learn Mode to its Gemini integration, transforming the notebook environment into an interactive coding tutor. Instead of generating code for you, Learn Mode asks guiding questions and explains concepts step by step. Pair it with Custom Instructions to focus on your weak spots, whether that is pandas data wrangling or PyTorch model training."
+            },
+            {
+              "headline": "VeloChat: Share Ideas as Quick Video Messages Instead of Walls of Text",
+              "text": "Velo, ranked second on Product Hunt's April 2026 leaderboard, lets you share anything as short video messages. For creative teams drowning in Slack threads and Loom links, Velo streamlines async feedback by making screen-and-camera recording as fast as typing a message. Test it for design reviews or bug reports where visual context beats written descriptions."
+            },
+            {
+              "headline": "WidgetVox: Add a Voice AI Agent to Your Website in Minutes",
+              "text": "WidgetVox lets you embed an AI voice agent directly on your site to interact with visitors through spoken conversation. Unlike chatbots that require typing, voice agents reduce friction for mobile users and accessibility-focused audiences. If you run a service business, deploy WidgetVox on your pricing or FAQ page and measure whether it reduces support ticket volume within a week."
+            }
+          ]
+        },
+        {
+          "title": "Competitive Landscape",
+          "items": [
+            {
+              "headline": "Muse Spark launches as first model from reorganized Superintelligence Labs, alongside Canopy Height Maps v2 for global reforestation tracking.",
+              "text": ""
+            }
+          ]
+        }
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-04-10.html"
+    },
     {
       "date": "2026-04-09",
       "sections": [
@@ -4593,6 +4795,60 @@
       "file": "morning-briefing-koda-2026-03-21.html"
     },
     {
+      "date": "2026-04-10",
+      "type": "editorial",
+      "file": "editorial/2026-04-10-1-bit-quantized-models-like-bonsai-8b-signal-a-coming-shift-.html",
+      "title": "1-bit quantized models like Bonsai 8B signal a coming shift where on-device AI becomes the default deployment target,",
+      "tag": "Tools",
+      "sections": [
+        {
+          "title": "Introduction",
+          "items": [
+            {
+              "headline": "1-bit quantized models like Bonsai 8B signal a coming shift where on-device AI becomes the default deployment target,",
+              "text": "An 8-billion-parameter model now fits in 1.15 GB of memory. Read that again. A standard 8B model in 16-bit precision needs roughly 16 GB. Bonsai needs 1.15 GB. That is 14x smaller. It completes 50 agentic tasks in the time a full-precision model finishes 6. And they open-sourced it under Apache 2.0. The standard 16-bit version of an 8B model cannot even load on an iPhone. Bonsai runs circles on one. I think this is the most important model release of 2026 so far, and almost nobody in the builder"
+            }
+          ]
+        },
+        {
+          "title": "The Compression Principle",
+          "items": [
+            {
+              "headline": "The Compression Principle",
+              "text": "The core idea is simple enough to fit on a napkin. Intelligence per gigabyte matters more than intelligence per parameter. PrismML calls their metric \"intelligence density.\" Bonsai 8B scores 1.06 per GB. That is a 10x difference in useful intelligence delivered per unit of storage. The framework I want you to remember is The Compression Principle: the winner in on-device AI is not the smartest model. It is the model that delivers the most capability per byte of memory, per milliwatt of power, an"
+            }
+          ]
+        },
+        {
+          "title": "Why 1-Bit Changes the Builder Math",
+          "items": [
+            {
+              "headline": "Why 1-Bit Changes the Builder Math",
+              "text": "Alright, let me show you exactly why this matters if you are building anything with AI right now. Traditional quantization is like taking a photograph and reducing the color depth after the picture is already taken. You lose detail. Bonsai does something fundamentally different. One bit. And the model is trained natively at that precision. According to PrismML's technical documentation, this covers embeddings, attention layers, MLP layers, and the language model head. No higher-precision escape "
+            }
+          ]
+        },
+        {
+          "title": "2031",
+          "items": [
+            {
+              "headline": "2031",
+              "text": "Pull back five years from now. The Hugging Face State of Open Source Spring 2026 report independently flagged on-device deployment as a top emerging trend. PrismML is not alone. Apple has been investing in MLX, its on-device ML framework, since 2023. Qualcomm's AI Engine on Snapdragon chips gets more capable every generation. Google shipped Gemini Nano for on-device use in the Pixel 8 back in late 2023. By 2031, I expect the default deployment target for most consumer AI features to be the devic"
+            }
+          ]
+        },
+        {
+          "title": "What to Build This Weekend",
+          "items": [
+            {
+              "headline": "What to Build This Weekend",
+              "text": "You do not need a CS degree to run Bonsai on your own machine. Here is exactly what to do. Step 1: Download and run Bonsai 8B locally. If you have a Mac with Apple Silicon (M1 or later), install MLX from the PrismML GitHub repo. The model is 1.15 GB. It will download in minutes on most connections. If you have an Nvidia GPU, use llama.cpp with CUDA support instead. Step 2: Test it against your actual use case. Do not run benchmarks. Run your workflow. Feed it customer support tickets, meeting no"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-04-09",
       "type": "editorial",
       "file": "editorial/2026-04-09-anthropic-launches-project-glasswing-cybersecurity-coalition.html",
@@ -5568,6 +5824,218 @@
             {
               "headline": "What to Build This Weekend",
               "text": "Stop reading about open-weight models. Start using one. Here is your weekend plan: 1. Pick one model and run it locally. Download Qwen3.5-7B or Mistral Small 4 via Ollama. This takes 15 minutes. You now have a model running on your laptop with zero API costs and zero data leaving your machine. 2. Fine-tune it on your domain. Use Unsloth or Axolotl to fine-tune on 500 examples from your industry. Customer support tickets, internal docs, sales emails. Whatever your team touches daily. Three hours "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-10",
+      "type": "review",
+      "file": "reviews/2026-04-10-widgetvox-add-a-voice-ai-agent-to-your-website-in-minutes.html",
+      "title": "WidgetVox",
+      "sections": [
+        {
+          "title": "Verdict",
+          "anchor": "verdict",
+          "items": [
+            {
+              "headline": "WidgetVox",
+              "text": "WidgetVox is built for service businesses, e-commerce operators, and agencies that want to reduce support friction without building a custom voice solution. If your audience skews mobile or you serve accessibility-conscious users, the voice-first approach is a genuine differentiator over standard text chatbots. At $49/month to start, it is worth testing on a high-traffic FAQ or pricing page for a week to see if it measurably cuts support tickets. The token-based pricing model means you need to w"
+            }
+          ]
+        },
+        {
+          "title": "Key Features",
+          "anchor": "features",
+          "items": [
+            {
+              "headline": "AI Voice Technology",
+              "text": "Real-time voice interaction powered by natural speech recognition. Visitors speak; the agent responds audibly. No typing required."
+            },
+            {
+              "headline": "Minutes-Fast Setup",
+              "text": "Embed via a code snippet on WordPress, Wix, or Shopify. No developer needed. Copy, paste, and you are live."
+            },
+            {
+              "headline": "Customizable Widget Appearance",
+              "text": "Match the widget to your brand colors, positioning, and style. The Business plan adds full white-label removal of WidgetVox branding."
+            },
+            {
+              "headline": "Real-Time Analytics Dashboard",
+              "text": "Track conversation volume, completion rates, and user engagement. Pro and Business tiers unlock advanced and full analytics respectively."
+            },
+            {
+              "headline": "Natural Speech Recognition",
+              "text": "Handles accents, pauses, and conversational phrasing. This is the core differentiator over text-based chatbot alternatives."
+            },
+            {
+              "headline": "Enterprise Features",
+              "text": "White labeling, dedicated support, and up to 100 widgets on the Business plan. Designed for agencies managing multiple client sites."
+            }
+          ]
+        },
+        {
+          "title": "Use Cases",
+          "anchor": "usecases",
+          "items": [
+            {
+              "headline": "Use Cases",
+              "text": "Specific scenarios where WidgetVox makes sense. Deploy on your FAQ or pricing page. Let the voice agent handle the repetitive \"how much does X cost\" and \"do you serve my area\" questions. Measure ticket reduction within a week. Voice agents can guide shoppers through product selection, answer sizing questions, and capture leads who would otherwise bounce. The native Shopify integration makes this a quick test. For audiences with visual impairments or motor difficulties, voice interaction removes "
+            }
+          ]
+        },
+        {
+          "title": "Limitations",
+          "anchor": "limitations",
+          "items": [
+            {
+              "headline": "Limitations",
+              "text": "What to know before you commit. 1,000 tokens on the Starter plan sounds reasonable until you realize a single voice conversation can burn through 10 to 30 tokens. That could mean as few as 33 conversations per month at $49. WidgetVox does not clearly publish token-per-conversation estimates, which makes budgeting difficult. Three widgets and basic analytics only. If you want to test on more than three pages or need meaningful data to justify the spend, you are looking at $149/month minimum. The "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-10",
+      "type": "review",
+      "file": "reviews/2026-04-10-orbitmeet-get-real-time-transcription-and-action-items-during-calls.html",
+      "title": "OrbitMeet: Real-Time Transcription and Action Items During Calls",
+      "sections": [
+        {
+          "title": "Verdict",
+          "anchor": "verdict",
+          "items": [
+            {
+              "headline": "OrbitMeet: Real-Time Transcription and Action Items During Calls",
+              "text": "OrbitMeet is built for professionals and teams who lose track of commitments across back-to-back calls. The real-time angle is the differentiator: instead of waiting for a post-meeting summary email, you can confirm action items with everyone still on the line. If your workflow involves client calls, cross-functional syncs, or any meeting where accountability matters, this is worth testing on the free tier. The tool is still maturing, though. Pricing details remain unpublished, and the feature s"
+            }
+          ]
+        },
+        {
+          "title": "Key Features",
+          "anchor": "features",
+          "items": [
+            {
+              "headline": "Real-Time Transcription",
+              "text": "Live transcription runs as you speak, so you can reference what was said without waiting for a post-call export. Useful for catching exact phrasing on commitments."
+            },
+            {
+              "headline": "Instant Action Items",
+              "text": "The AI identifies commitments and tasks as they surface in conversation. You can review and confirm them before the call ends, reducing the \"who said they'd do what?\" problem."
+            },
+            {
+              "headline": "Theme-Based Organization (Orbits)",
+              "text": "Messages and meeting notes are grouped into themed clusters called Orbits. This keeps project-related conversations together across email, chat, and calls."
+            },
+            {
+              "headline": "Daily Digest Summaries",
+              "text": "A daily rollup of your messages and meeting outcomes, delivered as a concise summary. Good for catching up on days packed with calls."
+            },
+            {
+              "headline": "Urgent Alerts",
+              "text": "The system flags critical messages that need immediate attention, cutting through the noise of low-priority notifications. Available on Pro and Enterprise tiers."
+            },
+            {
+              "headline": "Privacy-First Architecture",
+              "text": "Data is encrypted in transit and at rest. For a tool that processes meeting audio and messages, this is table stakes, but it is good to see it emphasized upfront."
+            },
+            {
+              "headline": "Cross-Platform Integrations",
+              "text": "Connects to email providers, calendar services, and messaging apps. The goal is to unify your communication streams into one view rather than forcing you to check five different tools."
+            },
+            {
+              "headline": "In-Call Summaries",
+              "text": "Summaries are generated while the meeting is still happening. This is the core differentiator versus tools like Otter.ai or Fireflies, which typically deliver summaries after the call ends."
+            }
+          ]
+        },
+        {
+          "title": "Use Cases",
+          "anchor": "usecases",
+          "items": [
+            {
+              "headline": "Use Cases",
+              "text": "OrbitMeet is not for everyone. Here is where it makes the most sense. Consultants, account managers, and agencies who run multiple client calls daily. Confirming deliverables and deadlines before hanging up eliminates the \"I thought you said Tuesday\" email chain. Teams coordinating across engineering, design, and product. When five people leave a standup with five different interpretations of what was decided, real-time action items fix that. People juggling school events, family logistics, and "
+            }
+          ]
+        },
+        {
+          "title": "Limitations",
+          "anchor": "limitations",
+          "items": [
+            {
+              "headline": "Limitations",
+              "text": "What to know before committing. warning No published pricing. All three tiers list \"N/A\" for price. This makes it impossible to budget or compare against competitors like Otter ($16.99/mo) or Fireflies ($18/mo). You are committing time to a waitlist without knowing the cost. warning No offline access. If your internet drops mid-call, the transcription and action item capture stop. For users in areas with unreliable connectivity, or those who travel frequently, this is a real gap. warning Free pl"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-10",
+      "type": "review",
+      "file": "reviews/2026-04-10-lessie-ai-describe-your-target-customer-let-the-agent-find-them.html",
+      "title": "Lessie AI",
+      "sections": [
+        {
+          "title": "Verdict",
+          "anchor": "verdict",
+          "items": [
+            {
+              "headline": "Lessie AI",
+              "text": "Lessie AI is built for sales teams, founders, and recruiters who are tired of constructing elaborate Boolean searches and manually scrolling through LinkedIn results. At $29/month for the Pro plan, it is a genuinely affordable first-pass prospecting layer that replaces filter gymnastics with plain English descriptions. If your pipeline depends on outbound and you spend more than a few hours a week sourcing leads, this is worth testing immediately; just know the free tier is quite limited and you"
+            }
+          ]
+        },
+        {
+          "title": "Key Features",
+          "anchor": "features",
+          "items": [
+            {
+              "headline": "Natural Language Search",
+              "text": "Describe your ideal customer in plain English instead of wrestling with Boolean operators and filter dropdowns. The AI interprets intent, not just keywords."
+            },
+            {
+              "headline": "Multi-Source Intelligence",
+              "text": "Crawls 100+ platforms including LinkedIn, Twitter, YouTube, and GitHub. This breadth means you are not limited to a single data silo for prospecting."
+            },
+            {
+              "headline": "Smart Matching and Scoring",
+              "text": "Contacts are ranked by relevance to your description. Enhanced lead scoring on Pro helps prioritize who to reach out to first, reducing wasted effort."
+            },
+            {
+              "headline": "Automated Outreach and Follow-ups",
+              "text": "Goes beyond list building. Lessie can generate personalized messages and schedule follow-up sequences, collapsing the gap between finding a lead and contacting them."
+            },
+            {
+              "headline": "Analytics and Reporting",
+              "text": "Track outreach performance, open rates, and response metrics. Useful for iterating on your targeting descriptions and understanding what messaging resonates."
+            },
+            {
+              "headline": "Platform Integrations",
+              "text": "Connects with LinkedIn, Twitter, YouTube, GitHub, and email platforms. Enterprise users get API access for custom workflows and CRM syncing."
+            }
+          ]
+        },
+        {
+          "title": "Use Cases",
+          "anchor": "usecases",
+          "items": [
+            {
+              "headline": "Use Cases",
+              "text": "The core use case. If your SDRs spend hours each week building prospect lists from LinkedIn Sales Navigator, Lessie can compress that into minutes. Describe your ICP in natural language, get a scored list, and start outreach from the same tool. Instead of manually searching YouTube and Twitter for creators in your niche, describe the type of influencer you want. Lessie surfaces matches across platforms, which is especially useful for micro-influencer campaigns where discovery is the bottleneck. "
+            }
+          ]
+        },
+        {
+          "title": "Limitations",
+          "anchor": "limitations",
+          "items": [
+            {
+              "headline": "Limitations",
+              "text": "The free plan offers \"limited access to features\" and restricted data storage, which is vague. You may not get a clear picture of Lessie's actual capabilities without committing to the $29/month Pro plan. A more generous trial would help users build confidence before paying. Lessie acknowledges geographic limitations for some searches. If you are targeting prospects in specific regions outside the US and Western Europe, verify coverage before relying on it as your primary sourcing tool. This is "
             }
           ]
         }
@@ -6990,6 +7458,86 @@
       ]
     },
     {
+      "date": "2026-04-15",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Microsoft",
+          "items": [
+            {
+              "headline": "Microsoft 365 Copilot Chat Update: Effective April 15, 2026",
+              "text": "[Feature] This blog post discusses the upcoming updates to Microsoft 365 Copilot Chat, scheduled to take effect on April 15, 2026. Key enhancements are explored, highlighting improved functionalities aimed at enhancing user experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-08",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "The next phase of enterprise AI",
+              "text": "[Feature] Denise Dresser, Chief Revenue Officer at OpenAI, reflects on her first 90 days and the rapid adoption of AI in enterprise settings. With AI transforming workflows, companies are eager to explore how to leverage AI beyond individual tools, aiming for a unified operational layer that enhances productivity across the board."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-07",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "Codex model availability update",
+              "text": "[API Update] On April 7, we're updating Codex model availability for users signing in with ChatGPT. Models such as `gpt-5.2-codex` and others will be removed from Codex for ChatGPT sign-in, while newer models like `gpt-5.4` will still be accessible."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-07",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Google",
+          "items": [
+            {
+              "headline": "5 new features for Android XR",
+              "text": "[Feature] Android XR has introduced a significant update featuring five immersive enhancements designed to elevate user experience. Users can now enjoy transforming 2D apps into 3D, pinning applications to walls, and easily resuming sessions where they left off, alongside other improvements in hand and eye tracking."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-07",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "ElevenLabs",
+          "items": [
+            {
+              "headline": "How to convert text to MP3",
+              "text": "[Feature] This blog post provides a comprehensive guide on converting text files to audio using advanced text-to-speech tools like ElevenLabs. It discusses the steps involved in the conversion process, tips for creating high-quality audio, and the benefits of converting text to audio files, such as enhanced accessibility and content versatility."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-04-06",
       "type": "changelog",
       "file": "changelog/index.html",
@@ -7000,6 +7548,22 @@
             {
               "headline": "Anthropic expands partnership with Google and Broadcom for multiple gigawatts of next-generation compute",
               "text": "[Partnership] Anthropic has signed a new agreement with Google and Broadcom to provide multiple gigawatts of next-generation TPU capacity, expected to start in 2027. This partnership aims to enhance compute infrastructure for the Claude models, meeting the growing demand from a rapidly increasing customer base."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "xAI",
+          "items": [
+            {
+              "headline": "Voice Agent API",
+              "text": "[API Update] The Voice Agent API enables real-time voice conversations over WebSocket and is billed at a flat rate per minute of connection time. It supports function calling with various search tools and collections, facilitating extensive interaction capabilities."
             }
           ]
         }
@@ -7192,6 +7756,22 @@
             {
               "headline": "Bring state-of-the-art agentic skills to the edge with Gemma 4",
               "text": "[Feature] Google DeepMind has launched Gemma 4, a family of advanced open models that empower developers to create agentic and autonomous AI solutions directly on their devices. With capabilities such as multi-step planning and support for over 140 languages, Gemma 4 marks a significant leap in on-device AI development, making complex workflows and applications more accessible."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-01",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Microsoft",
+          "items": [
+            {
+              "headline": "Dynamics 365 2026 Release Wave 1 Plan",
+              "text": "[Feature] The Dynamics 365 release plan for 2026 announces the latest features and updates being rolled out from April to September 2026. It provides an overview of new innovations across various Dynamics 365 applications, designed to enhance business operations and customer experiences."
             }
           ]
         }
@@ -7491,6 +8071,22 @@
       "file": "changelog/index.html",
       "sections": [
         {
+          "title": "xAI",
+          "items": [
+            {
+              "headline": "Welcome to xAI Documentation",
+              "text": "[Feature] This documentation provides an overview of Grok, a powerful AI model designed to provide truthful and insightful answers. It includes sections on getting started, API integration, and the latest features of Grok 4.20, highlighting its speed and precision in generating responses."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-30",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
           "title": "Adobe",
           "items": [
             {
@@ -7731,6 +8327,22 @@
       "file": "changelog/index.html",
       "sections": [
         {
+          "title": "Adobe",
+          "items": [
+            {
+              "headline": "2026.2.0 Release Notes for Adobe Experience Manager as a Cloud Service",
+              "text": "[SDK Release] The 2026.2.0 release notes detail the latest features and updates for Adobe Experience Manager as a Cloud Service, including enhancements in asset management and new beta programs. The publication covers important notifications regarding deprecated APIs, maintenance updates, and early access features."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-25",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
           "title": "OpenAI",
           "items": [
             {
@@ -7768,6 +8380,38 @@
             {
               "headline": "Introducing the OpenAI Safety Bug Bounty program",
               "text": "[Safety] The OpenAI Safety Bug Bounty program is launched to empower the community in identifying and resolving safety issues in AI systems. This initiative aims to enhance the overall safety of OpenAI's technologies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "xAI",
+          "items": [
+            {
+              "headline": "Provisioned Throughput",
+              "text": "[Pricing] Provisioned Throughput allows enterprise customers to purchase dedicated input and output token capacity for specific models, ensuring predictable and high-performance API access. This feature includes benefits like predictable latency, uncapped scale, and high reliability, with a minimum 30-day commitment for usage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "Cursor",
+          "items": [
+            {
+              "headline": "Warp Decode: Enhancing MoE Inference Performance",
+              "text": "[Research] Warp decode reorganizes MoE inference systems by focusing on outputs instead of experts, leading to significant performance gains and improved accuracy. This method achieves a 1.84x throughput boost on Blackwell GPUs while generating outputs that are 1.4x closer to the full FP32 reference."
             }
           ]
         }
@@ -7955,6 +8599,38 @@
       "file": "changelog/index.html",
       "sections": [
         {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "Changelog",
+              "text": "[Feature] This blog post provides a comprehensive changelog detailing updates, features, and fixes made to OpenAI's products and APIs throughout 2024 and early 2025. It highlights significant new model releases, enhancements to existing APIs, and improvements in performance and usability."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-17",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
+          "title": "OpenAI",
+          "items": [
+            {
+              "headline": "Introducing GPT‑5.4 mini and nano",
+              "text": "[Feature] OpenAI has announced the release of GPT‑5.4 mini and nano, designed for coding and high-volume workloads. These models are optimized for faster performance while maintaining strong capabilities in coding, reasoning, and multimodal understanding."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-17",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
           "title": "Together AI",
           "items": [
             {
@@ -8008,22 +8684,6 @@
             {
               "headline": "GPT-5.4 Release Note",
               "text": "[Feature] The GPT-5.4 mini and nano models were recently released for the Chat Completions and Responses API, enhancing performance and efficiency for high-volume workloads. These models bring significant improvements to speed and are optimized for simpler tasks and high-volume usage."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-03-17",
-      "type": "changelog",
-      "file": "changelog/index.html",
-      "sections": [
-        {
-          "title": "OpenAI",
-          "items": [
-            {
-              "headline": "Changelog",
-              "text": "[Feature] This is a detailed changelog of the OpenAI API updates, features, model releases, and fixes dating back to January 2024. Key updates include the release of GPT-5.4 mini and nano models, enhancements in the Responses API, and various features aimed at optimizing performance and user experience."
             }
           ]
         }
@@ -8307,6 +8967,22 @@
       "file": "changelog/index.html",
       "sections": [
         {
+          "title": "ElevenLabs",
+          "items": [
+            {
+              "headline": "Webinar Recap: How AI Is Revolutionizing Learning",
+              "text": "[Feature] This blog post recaps a webinar showcasing how AI is transforming education, demonstrating real-time interactive tutoring and multimodal learning. With 92% of students utilizing AI, it's highlighted as an essential tool in addressing the challenges in modern education systems."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-12",
+      "type": "changelog",
+      "file": "changelog/index.html",
+      "sections": [
+        {
           "title": "Anthropic",
           "items": [
             {
@@ -8424,134 +9100,6 @@
             {
               "headline": "Introducing Runway Labs",
               "text": "[Feature] Runway Labs is an internal incubator launched to explore the next generation of applications for generative video, focusing on how AI can transform various industries. Led by Co-Founder Alejandro Matamala Ortiz, the initiative aims to prototype bold new products and experiences that harness the power of AI video and General World Models."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-03-10",
-      "type": "changelog",
-      "file": "changelog/index.html",
-      "sections": [
-        {
-          "title": "Microsoft",
-          "items": [
-            {
-              "headline": "Wave release updates",
-              "text": "[Feature] The blog post discusses the upcoming wave release updates for Microsoft products in 2026, detailing the new features and timelines for the Dynamics 365, Microsoft Power Platform, and role-based Copilot offerings. It outlines the structured release waves and their key dates, emphasizing the importance of the 2025 release wave 2 and the upcoming 2026 wave 1 plan."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-03-10",
-      "type": "changelog",
-      "file": "changelog/index.html",
-      "sections": [
-        {
-          "title": "Adobe",
-          "items": [
-            {
-              "headline": "Image editing just got smarter with AI in Photoshop and Firefly",
-              "text": "[Feature] Adobe expands the power of conversational AI with new capabilities to edit your photos just by describing what you want with Photoshop’s new AI Assistant and powerful new AI tools in Firefly Image Editor. These innovations enhance user creativity by providing tools that simplify and improve the editing process."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-03-10",
-      "type": "changelog",
-      "file": "changelog/index.html",
-      "sections": [
-        {
-          "title": "Hugging Face",
-          "items": [
-            {
-              "headline": "Introducing Storage Buckets on the Hugging Face Hub",
-              "text": "[Feature] Hugging Face has launched Storage Buckets, a flexible S3-like object storage solution tailored for machine learning artifacts. This feature allows seamless management of mutable storage for datasets, checkpoints, and other intermediate files, optimizing efficiency and speed for ML workflows."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-03-10",
-      "type": "changelog",
-      "file": "changelog/index.html",
-      "sections": [
-        {
-          "title": "Adobe",
-          "items": [
-            {
-              "headline": "Adobe Express: 2026 Updates",
-              "text": "[Feature] Adobe Express has introduced numerous enhancements aimed at improving workflows in creation, video editing, and brand management. Key features include faster presentation generation, improved video editing capabilities, new export options, and better support for various image formats."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-03-10",
-      "type": "changelog",
-      "file": "changelog/index.html",
-      "sections": [
-        {
-          "title": "Adobe",
-          "items": [
-            {
-              "headline": "Security Updates Available for Adobe Illustrator | APSB26-18",
-              "text": "[Safety] Adobe has released an update for Adobe Illustrator to address important and critical vulnerabilities that could potentially lead to arbitrary code execution and memory exposure. There are no known exploits in the wild for the issues resolved in this update."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-03-10",
-      "type": "changelog",
-      "file": "changelog/index.html",
-      "sections": [
-        {
-          "title": "OpenAI",
-          "items": [
-            {
-              "headline": "ChatGPT Atlas - Release Notes",
-              "text": "[Feature] This post outlines the latest updates and features included in the ChatGPT Atlas browser, released on various dates in early 2026. Notable enhancements include multiple ChatGPT logins, improved tab searching, and functionalities such as Save Prompts and Agent Mode that allow for smarter interactions and better user experience."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-03-09",
-      "type": "changelog",
-      "file": "changelog/index.html",
-      "sections": [
-        {
-          "title": "Runway",
-          "items": [
-            {
-              "headline": "New updates and improvements to Runway",
-              "text": "[Feature] Runway has introduced multiple updates across its platform, including the launch of Runway Characters, advanced image generation models, and improved audio features. Users can now enjoy real-time avatars, new video models, and enhanced workflows to streamline their creative processes."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-03-09",
-      "type": "changelog",
-      "file": "changelog/index.html",
-      "sections": [
-        {
-          "title": "Runway",
-          "items": [
-            {
-              "headline": "Introducing Runway Characters",
-              "text": "[Feature] Runway has launched Runway Characters, a real-time video agent API enabling the creation of fully custom conversational characters from a single image. These characters can adapt in appearance and style, offering extensive customization in voice, personality, and actions, paving the way for a new era in online interactions."
             }
           ]
         }
