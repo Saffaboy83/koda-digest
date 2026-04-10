@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koda Intelligence | {{ date_label }}</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -31,14 +31,26 @@
     </script>
     <script>
     tailwind.config = {
-        theme: {
-            extend: {
-                fontFamily: {
-                    sans: ['Inter', 'system-ui', 'sans-serif'],
-                    mono: ['JetBrains Mono', 'monospace'],
-                }
+        darkMode: "class",
+        theme: { extend: {
+            colors: {
+                "surface": "#0b1326", "surface-container": "#171f33", "surface-container-low": "#131b2e",
+                "surface-container-high": "#222a3d", "surface-container-highest": "#2d3449",
+                "surface-container-lowest": "#060e20", "surface-bright": "#31394d",
+                "primary": "#3B82F6", "primary-dim": "#6366F1",
+                "secondary": "#8B5CF6", "tertiary": "#EC4899", "accent-cyan": "#06B6D4",
+                "error": "#EF4444", "success": "#10B981", "warning": "#F59E0B",
+                "on-surface": "#dae2fd", "on-surface-variant": "#c2c6d6",
+                "outline": "#8c909f", "outline-variant": "#424754",
+            },
+            fontFamily: {
+                sans: ['Inter', 'system-ui', 'sans-serif'],
+                mono: ['JetBrains Mono', 'monospace'],
+                headline: ['Inter', 'system-ui', 'sans-serif'],
+                body: ['Inter', 'system-ui', 'sans-serif'],
+                label: ['JetBrains Mono', 'monospace'],
             }
-        }
+        }}
     }
     </script>
     <style>{{ css | safe }}
@@ -90,9 +102,15 @@
 .kn-drawer-social a:hover,.kn-drawer-social button:hover{background:rgba(59,130,246,0.15);color:#3B82F6}
 body.kn-locked{overflow:hidden}
 /* -- End Koda Nav V2 -- */
+/* -- Mobile responsive overrides -- */
+@media(max-width:768px){
+  .min-h-\[70vh\]{min-height:60vh}
+  h1{font-size:2.5rem!important}
+  section{overflow-x:hidden}
+}
 </style>
 </head>
-<body class="bg-[#0b1326] text-[#dae2fd] font-sans antialiased min-h-screen flex flex-col" data-digest-date="{{ date }}" data-youtube-id="{{ youtube_id }}">
+<body class="bg-surface text-on-surface font-body antialiased overflow-x-hidden" data-digest-date="{{ date }}" data-youtube-id="{{ youtube_id }}">
 
 {# ── Scroll Progress ─────────────────────────────────────────────────────── #}
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
@@ -192,471 +210,569 @@ body.kn-locked{overflow:hidden}
 </nav>
 <!-- koda-nav-v2-end -->
 
-{# ── Hero ────────────────────────────────────────────────────────────────── #}
-<section class="relative w-full pt-14 overflow-hidden">
+<!-- Search Overlay -->
+<div id="searchOverlay" class="search-overlay" style="display:none">
+    <div class="search-backdrop" onclick="closeSearch()"></div>
+    <div class="search-modal">
+        <div class="search-header">
+            <span class="material-symbols-outlined search-icon">search</span>
+            <input type="text" id="globalSearchInput" class="search-input" placeholder="Search this briefing..." autocomplete="off" spellcheck="false">
+            <kbd class="search-kbd">ESC</kbd>
+        </div>
+        <div id="searchResults" class="search-results"></div>
+        <div id="searchEmpty" class="search-empty" style="display:none">
+            <span class="material-symbols-outlined" style="font-size:40px;color:#424754">search_off</span>
+            <p>No matching sections found</p>
+        </div>
+    </div>
+</div>
+
+<main class="min-h-screen">
+
+{# ════════════════════════════════════════════════════════════════════════════
+   HERO (Stitch: full-screen, massive title, image behind at 30% brightness)
+   ════════════════════════════════════════════════════════════════════════════ #}
+<section class="relative w-full min-h-[70vh] flex items-center px-8 md:px-16 overflow-hidden">
     {% if has_hero_image %}
     <div class="absolute inset-0 z-0">
-        <img src="./hero-{{ date }}.jpg" class="w-full h-full object-cover object-center opacity-50 scale-105" alt="" aria-hidden="true">
+        <img alt="" class="w-full h-full object-cover brightness-[0.3] scale-105" src="./hero-{{ date }}.jpg" aria-hidden="true">
+        <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-surface via-transparent to-transparent"></div>
     </div>
     {% elif has_infographic %}
     <div class="absolute inset-0 z-0">
-        <img src="{{ infographic_url }}" class="w-full h-full object-cover object-center opacity-40 blur-[3px] scale-110" alt="" aria-hidden="true">
+        <img alt="" class="w-full h-full object-cover brightness-[0.3] scale-110 blur-[3px]" src="{{ infographic_url }}" aria-hidden="true">
+        <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-surface via-transparent to-transparent"></div>
     </div>
+    {% else %}
+    <div class="absolute inset-0 z-0 hero-gradient"></div>
     {% endif %}
-    <div class="hero-gradient absolute inset-0 z-[1]"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-12 md:pt-24 md:pb-20 flex flex-col md:flex-row items-end justify-between gap-8">
-        <div class="max-w-3xl">
-            <p class="font-mono text-xs text-[#3B82F6] mb-3 tracking-[0.2em] uppercase">{{ date_label }}</p>
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[1.15] mb-4 gradient-text pb-4">
-                <span class="material-symbols-outlined" style="font-size:0.5em;vertical-align:0.05em;margin-right:8px">bolt</span>The Signal
-            </h1>
-            {% if summary.hook %}
-            <p class="text-base md:text-lg text-[#c2c6d6] font-light tracking-tight leading-relaxed max-w-2xl">{{ summary.hook | no_em_dash }}</p>
-            {% else %}
-            <p class="text-base md:text-lg text-[#c2c6d6] font-light tracking-tight">AI. <span class="text-[#3B82F6]">Markets.</span> Geopolitics.</p>
-            {% endif %}
+    <div class="relative z-10 max-w-6xl">
+        <p class="font-label uppercase tracking-[0.3em] text-primary font-bold mb-4 text-xs opacity-90">Intelligence Report &bull; {{ date_label }}</p>
+        <h1 class="text-[10vw] md:text-[5rem] leading-[0.95] font-black tracking-tight text-gradient mb-6 drop-shadow-2xl">
+            The Signal
+        </h1>
+        {% if summary.hook %}
+        <p class="max-w-2xl font-body text-base md:text-lg text-on-surface-variant leading-relaxed mb-8 font-light">{{ summary.hook | no_em_dash }}</p>
+        {% else %}
+        <p class="max-w-2xl font-body text-base md:text-lg text-on-surface-variant leading-relaxed mb-8 font-light">AI. Markets. Geopolitics.</p>
+        {% endif %}
+        <div class="flex flex-wrap gap-4">
+            <a href="#lead" class="px-8 py-3 bg-primary text-white font-black rounded-lg hover:brightness-110 active:scale-[0.98] transition-all shadow-xl shadow-primary/20 uppercase tracking-widest text-sm no-underline">Read Briefing</a>
+            {% if markets %}<a href="#market-snapshot" class="px-8 py-3 border border-outline-variant text-on-surface font-bold rounded-lg glass-card hover:bg-white/10 transition-all uppercase tracking-widest text-sm no-underline">View Markets</a>{% endif %}
         </div>
-        {% set kpis = summary.kpis or {} %}
     </div>
 </section>
 
-{# ── Two-Column Layout ──────────────────────────────────────────────────── #}
-<div class="max-w-7xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-12">
-
-{# ── Left Column: Primary Content ────────────────────────────────────────── #}
-<div class="{% if markets %}lg:w-[65%]{% endif %} space-y-16">
-
-    {# ── The Briefing ────────────────────────────────────────────────────── #}
-    {% if summary.briefs %}
-    <section class="section" id="daily-summary">
-        <div class="section-title flex items-center gap-4 mb-8">
-            <h3 class="text-2xl font-black tracking-tight uppercase">The Signal</h3>
-            <div class="h-px flex-grow bg-white/[0.1]"></div>
+{# ════════════════════════════════════════════════════════════════════════════
+   LEAD STORY + EXECUTIVE BRIEF (glass-card with ai_news[0] + 4-col briefs)
+   ════════════════════════════════════════════════════════════════════════════ #}
+{% if ai_news %}
+{% set lead = ai_news[0] %}
+{% set ai_cat_colors = {
+    "Model Release": "#3B82F6", "Benchmark": "#8B5CF6", "Agents": "#6366F1",
+    "Hardware": "#F59E0B", "Enterprise": "#10B981", "Policy": "#EF4444",
+    "Biotech": "#EC4899", "Design": "#06B6D4", "Trend": "#8B5CF6",
+    "China": "#EF4444", "Consolidation": "#F59E0B", "Open Source": "#10B981",
+} %}
+<section id="lead" class="section px-6 md:px-12 -mt-12 relative z-20 pb-10" style="scroll-margin-top:80px">
+<div class="max-w-[1440px] mx-auto space-y-6">
+    <div id="daily-summary" class="glass-card rounded-2xl border border-outline-variant/20 overflow-hidden cinematic-shadow" style="scroll-margin-top:80px">
+        <div class="p-6 md:p-8 border-b border-outline-variant/10">
+            <div class="flex items-center gap-3 mb-4">
+                {% set lead_cat = lead.category or "Trend" %}
+                {% set lead_color = ai_cat_colors.get(lead_cat, "#3B82F6") %}
+                <span class="inline-block px-2.5 py-1 bg-error/15 text-error font-label text-[10px] tracking-widest uppercase rounded font-bold">Breaking</span>
+                <span class="inline-block px-2.5 py-1 font-label text-[10px] tracking-widest uppercase rounded font-bold" style="color: {{ lead_color }}; background: {{ lead_color }}15">{{ lead_cat }}</span>
+                {% if lead.source_name %}<span class="font-label text-[10px] text-outline ml-auto">{{ lead.source_name }}</span>{% endif %}
+            </div>
+            <h2 class="text-xl md:text-2xl font-extrabold tracking-tight leading-snug mb-3 text-on-surface">{{ (lead.title or "") | no_em_dash }}</h2>
+            <p class="text-on-surface-variant text-sm leading-relaxed max-w-3xl">{{ (lead.body or "") | no_em_dash }}</p>
+            {% if lead.source_url %}
+            <a class="inline-flex items-center gap-2 font-bold text-sm mt-4 hover:underline group/link no-underline" href="{{ lead.source_url | safe_url }}" target="_blank" style="color: {{ lead_color }}">
+                Continue Reading <span class="material-symbols-outlined text-base group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+            {% endif %}
         </div>
-        <div class="space-y-3">
-            {% set brief_icons = {"ai": "smart_toy", "world": "public", "markets": "trending_up", "wildcard": "bolt"} %}
-            {% set brief_colors = {"ai": "#3B82F6", "world": "#EF4444", "markets": "#10B981", "wildcard": "#F59E0B"} %}
+        {# Executive Brief strip #}
+        {% if summary.briefs %}
+        {% set brief_icons = {"ai": "smart_toy", "world": "public", "markets": "trending_down", "wildcard": "bolt"} %}
+        {% set brief_semantic = {"ai": "primary", "world": "error", "markets": "success", "wildcard": "warning"} %}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-outline-variant/10">
             {% for brief in summary.briefs %}
             {% set icon = brief_icons.get(brief.icon, "fiber_manual_record") %}
-            {% set color = brief_colors.get(brief.icon, "#3B82F6") %}
-            <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors duration-300 group">
-                <div class="flex justify-between items-start mb-1.5">
-                    <span class="text-[11px] uppercase tracking-[0.1em] font-bold" style="color: {{ color }}">{{ brief.label or "" }}</span>
-                    <span class="material-symbols-outlined text-[#8c909f] text-lg transition-colors">{{ icon }}</span>
+            {% set sem = brief_semantic.get(brief.icon, "primary") %}
+            <div class="p-5 hover:bg-white/[0.02] transition-colors">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-{{ sem }} text-base" style="font-variation-settings:'FILL' 1">{{ icon }}</span>
+                    <span class="font-label text-[10px] text-{{ sem }} uppercase tracking-wider font-bold">{{ brief.label or "" }}</span>
                 </div>
-                <p class="text-sm text-[#c2c6d6] leading-relaxed">{{ (brief.text or "") | no_em_dash }}</p>
+                <p class="text-on-surface-variant text-xs leading-relaxed">{{ (brief.text or "") | no_em_dash }}</p>
             </div>
             {% endfor %}
         </div>
-    </section>
-    {% endif %}
-
-    {# ── Mobile Market Snapshot (visible only on mobile, before stories) ── #}
-    {% if markets %}
-    {% set mticker = [
-        ("sp500", "S&P 500"), ("nasdaq", "NASDAQ"), ("btc", "BTC"),
-        ("eth", "ETH"), ("oil", "Oil"), ("sentiment", "Sentiment"),
-    ] %}
-    <section class="section lg:hidden">
-        <div class="section-title flex items-center gap-4 mb-6">
-            <h3 class="text-lg font-black tracking-tight uppercase">Markets</h3>
-            <div class="h-px flex-grow bg-white/[0.1]"></div>
-        </div>
-        <div class="grid grid-cols-3 gap-2">
-            {% for key, label in mticker %}
-            {% set data = markets.get(key, {}) %}
-            {% if data is mapping %}
-            {% set price = data.price or data.value or "N/A" %}
-            {% set change = data.change or data.label or "" %}
-            {% set direction = data.direction or "neutral" %}
-            {% if direction == "up" %}{% set mcolor = "#10B981" %}{% elif direction == "down" %}{% set mcolor = "#EF4444" %}{% else %}{% set mcolor = "#F59E0B" %}{% endif %}
-            <div class="bg-[#131b2e] p-3 text-center">
-                <div class="market-ticker text-[9px] font-bold text-[#8c909f] uppercase tracking-wider mb-1">{{ label }}</div>
-                <div class="market-price text-[13px] font-mono font-bold">{{ price }}</div>
-                <div class="market-change text-[10px] font-mono" style="color: {{ mcolor }}">{{ change }}</div>
-            </div>
-            {% endif %}
-            {% endfor %}
-        </div>
-    </section>
-    {% endif %}
-
-    {# ── Media Strip ─────────────────────────────────────────────────────── #}
-    <section class="section grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {% if has_podcast %}
-        <div class="p-5 bg-gradient-to-br from-[#0f1629] to-[#162040] border border-[#6366F1]/20 rounded-xl text-center flex flex-col items-center gap-1.5">
-            <span class="material-symbols-outlined text-[#6366F1] text-2xl">headphones</span>
-            <div class="text-sm font-bold">Daily Podcast</div>
-            <div class="text-[11px] text-white/40 mb-2">AI-generated deep-dive briefing</div>
-            <button class="podcast-btn media-btn" onclick="togglePodcast()" aria-expanded="false" aria-controls="podcastPlayer">&#9654; Listen Now</button>
-            <div class="podcast-player-wrap w-full md:max-w-[300px] mt-3" id="podcastPlayer">
-                <audio controls style="width:100%" preload="none" aria-label="Daily podcast"><source src="{{ podcast_url }}" type="audio/mpeg"></audio>
-            </div>
-        </div>
-        {% else %}
-        <div class="p-5 bg-gradient-to-br from-[#0f1629] to-[#162040] border border-white/[0.06] rounded-xl text-center flex flex-col items-center gap-1.5 opacity-50">
-            <span class="material-symbols-outlined text-[#8c909f] text-2xl">headphones</span>
-            <div class="text-sm font-bold">Daily Podcast</div>
-            <div class="text-[11px] text-white/40">Not available today</div>
-        </div>
         {% endif %}
-
-        {% if youtube_id %}
-        <div class="p-5 bg-gradient-to-br from-[#0f1629] to-[#162040] border border-[#EC4899]/20 rounded-xl text-center flex flex-col items-center gap-1.5">
-            <span class="material-symbols-outlined text-[#EC4899] text-2xl">smart_display</span>
-            <div class="text-sm font-bold">Video Briefing</div>
-            <div class="text-[11px] text-white/40 mb-2">AI-generated cinematic explainer</div>
-            <a href="https://www.youtube.com/watch?v={{ youtube_id }}" target="_blank" rel="noopener" class="media-btn video-btn no-underline inline-block">&#9654; Watch on YouTube</a>
-            <button class="media-btn expand-btn" onclick="toggleVideo()">&#9654; Watch Inline</button>
-            <div class="video-overlay" id="videoOverlay" role="dialog" aria-modal="true" aria-label="Video player" onclick="if(event.target===this)toggleVideo()">
-                <div class="video-overlay-inner">
-                    <button class="video-overlay-close" onclick="toggleVideo()" aria-label="Close video">&times;</button>
-                    <iframe id="videoFrame" width="100%" style="aspect-ratio:16/9;border:none;border-radius:12px" allowfullscreen title="Video briefing"></iframe>
-                </div>
-            </div>
-        </div>
-        {% else %}
-        <div class="p-5 bg-gradient-to-br from-[#0f1629] to-[#162040] border border-white/[0.06] rounded-xl text-center flex flex-col items-center gap-1.5 opacity-50">
-            <span class="material-symbols-outlined text-[#8c909f] text-2xl">smart_display</span>
-            <div class="text-sm font-bold">Video Briefing</div>
-            <div class="text-[11px] text-white/40">Not available today</div>
-        </div>
-        {% endif %}
-    </section>
-
-    {# ── Infographic ─────────────────────────────────────────────────────── #}
-    {% if has_infographic %}
-    <section class="section" id="infographic">
-        <div class="section-title flex items-center gap-4 mb-8">
-            <h3 class="text-2xl font-black tracking-tight uppercase">Daily Infographic</h3>
-            <div class="h-px flex-grow bg-white/[0.1]"></div>
-        </div>
-        <div class="bg-[#131b2e] border border-white/[0.06] rounded-xl p-4 text-center cursor-zoom-in" onclick="openInfographic('{{ infographic_url }}')">
-            <img src="{{ infographic_url }}" alt="Koda Daily Infographic {{ date }}" class="max-w-full rounded-lg">
-            <p class="text-[10px] text-[#8c909f] mt-2">Click to expand</p>
-        </div>
-    </section>
-    {# Infographic fullscreen overlay #}
-    <div class="infographic-overlay" id="infographicOverlay" onclick="if(event.target===this)closeInfographic()">
-        <button class="infographic-overlay-close" onclick="closeInfographic()" aria-label="Close infographic">&times;</button>
-        <img id="infographicFull" src="" alt="Koda Daily Infographic {{ date }}" />
     </div>
-    {% endif %}
 
-    {# ── Today's Editorial ───────────────────────────────────────────────── #}
-    {% if editorial %}
-    <section class="section" id="todays-editorial">
-        <div class="flex items-center gap-1.5 mb-4">
-            <span class="material-symbols-outlined text-sm text-[#8B5CF6]">edit_note</span>
-            <span class="text-xs font-black tracking-[0.15em] uppercase text-[#8c909f]"><span class="material-symbols-outlined" style="font-size:13px;vertical-align:-2px;margin-right:3px">explore</span>Deep Dive</span>
-        </div>
-        <a href="./editorial/{{ editorial.filename }}" target="_blank" class="block p-5 bg-[#131b2e] hover:bg-[#171f33] border-l-4 border-[#8B5CF6] transition-colors no-underline group">
-            <div class="flex flex-wrap items-center gap-2 mb-2.5">
-                <span class="text-[10px] font-bold uppercase tracking-widest bg-[#8B5CF6]/10 text-[#8B5CF6] px-2 py-0.5 rounded">{{ editorial.tag or "Analysis" }}</span>
-                {% if editorial.word_count %}<span class="text-[11px] text-[#8c909f]">{{ ((editorial.word_count / 250) | int) + 1 }} min read</span>{% endif %}
+    {# ── Markets + Focus side by side ────────────────────────────────────────── #}
+    {% if markets %}
+    <div id="market-snapshot" class="grid grid-cols-1 lg:grid-cols-3 gap-6 section" style="scroll-margin-top:80px">
+        <div class="lg:col-span-2 glass-card rounded-2xl border border-outline-variant/20 p-6">
+            <div class="flex items-center justify-between mb-5">
+                <h3 class="text-sm font-extrabold uppercase tracking-wider">Market Snapshot</h3>
+                <span class="material-symbols-outlined text-outline text-lg">query_stats</span>
             </div>
-            <h3 class="text-[15px] font-bold text-[#dae2fd] leading-snug mb-3 group-hover:text-white transition-colors">{{ (editorial.title or editorial.topic or "Today's Analysis") | no_em_dash }}</h3>
-            <span class="text-[11px] font-bold uppercase tracking-widest text-[#8B5CF6]">Read Analysis &rarr;</span>
-        </a>
-    </section>
-    {% endif %}
-
-    {# ── Today's Focus ───────────────────────────────────────────────────── #}
-    {% set focus_topics = summary.focus_topics or [] %}
-    {% if focus_topics %}
-    <section class="section" id="todays-focus">
-        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
-            <div class="flex items-center gap-4 flex-grow min-w-0">
-                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">Today's Focus</h3>
-                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
-            </div>
-            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
-        </button>
-        <div class="expandable-content hidden mt-4 lg:mt-0">
-        <div class="space-y-3">
-            {% set focus_colors = ["#3B82F6", "#8B5CF6", "#10B981"] %}
-            {% for topic in focus_topics %}
-            <div class="flex gap-4 items-start p-5 bg-[#131b2e]">
-                <div class="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm text-white flex-shrink-0" style="background: linear-gradient(135deg, {{ focus_colors[loop.index0 % 3] }}, #8B5CF6)">{{ topic.number or loop.index }}</div>
-                <div>
-                    <div class="focus-content-title text-sm font-bold mb-1">{{ (topic.title or "") | no_em_dash }}</div>
-                    <div class="focus-content-body text-[13px] text-[#c2c6d6] leading-relaxed">{{ (topic.description or "") | no_em_dash }}</div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-        </div>{# /expandable-content #}
-    </section>
-    {% endif %}
-
-    {# ── AI Developments ─────────────────────────────────────────────────── #}
-    {% if ai_news %}
-    {% set ai_cat_colors = {
-        "Model Release": "#3B82F6", "Benchmark": "#8B5CF6", "Agents": "#6366F1",
-        "Hardware": "#F59E0B", "Enterprise": "#10B981", "Policy": "#EF4444",
-        "Biotech": "#EC4899", "Design": "#06B6D4", "Trend": "#8B5CF6",
-        "China": "#EF4444", "Consolidation": "#F59E0B", "Open Source": "#10B981",
-    } %}
-    <section class="section" id="ai-developments">
-        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
-            <div class="flex items-center gap-4 flex-grow min-w-0">
-                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">AI Developments</h3>
-                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
-            </div>
-            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
-        </button>
-        <div class="expandable-content hidden mt-4 lg:mt-0">
-        <div class="grid md:grid-cols-2 gap-4">
-            {% for story in ai_news %}
-            {% set cat = story.category or "Trend" %}
-            {% set color = ai_cat_colors.get(cat, "#3B82F6") %}
-            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
-                <div class="flex gap-2 mb-2">
-                    <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style="color: {{ color }}; background: {{ color }}15">{{ cat }}</span>
-                </div>
-                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">{{ (story.title or "") | no_em_dash }}</h4>
-                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">{{ (story.body or "") | no_em_dash }}{% if story.source_url %} <a href="{{ story.source_url | safe_url }}" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: {{ color }}">Source &rarr;</a>{% endif %}</p>
-            </article>
-            {% endfor %}
-        </div>
-        </div>{# /expandable-content #}
-    </section>
-    {% endif %}
-
-    {# ── World News ──────────────────────────────────────────────────────── #}
-    {% if world_news %}
-    {% set world_cat_colors = {
-        "Conflict": "#EF4444", "Diplomacy": "#3B82F6", "Economy": "#10B981",
-        "Policy": "#8B5CF6", "Humanitarian": "#F59E0B", "Infrastructure": "#06B6D4",
-        "Climate": "#10B981", "Technology": "#6366F1",
-    } %}
-    <section class="section" id="world-news">
-        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
-            <div class="flex items-center gap-4 flex-grow min-w-0">
-                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">World News</h3>
-                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
-            </div>
-            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
-        </button>
-        <div class="expandable-content hidden mt-4 lg:mt-0">
-        <div class="grid md:grid-cols-2 gap-4">
-            {% for story in world_news %}
-            {% set cat = story.category or "World" %}
-            {% set color = world_cat_colors.get(cat, "#3B82F6") %}
-            <article class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-all duration-300">
-                <span class="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full inline-block mb-2" style="color: {{ color }}; background: {{ color }}15">{{ cat }}</span>
-                <h4 class="card-title text-[15px] font-bold mb-2 tracking-tight">{{ (story.title or "") | no_em_dash }}</h4>
-                <p class="card-body text-[13px] text-[#c2c6d6] leading-relaxed">{{ (story.body or "") | no_em_dash }}{% if story.source_url %} <a href="{{ story.source_url | safe_url }}" target="_blank" class="text-[11px] font-bold uppercase tracking-widest no-underline hover:underline" style="color: {{ color }}">Source &rarr;</a>{% endif %}</p>
-            </article>
-            {% endfor %}
-        </div>
-        </div>{# /expandable-content #}
-    </section>
-    {% endif %}
-
-    {# ── Newsletter Intelligence ─────────────────────────────────────────── #}
-    {% if newsletters %}
-    <section class="section" id="newsletter-intelligence">
-        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
-            <div class="flex items-center gap-4 flex-grow min-w-0">
-                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">Featured Newsletters</h3>
-                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
-            </div>
-            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
-        </button>
-        <div class="expandable-content hidden mt-4 lg:mt-0">
-        <p class="text-[13px] text-[#c2c6d6] mb-4 leading-relaxed">We read and recommend these newsletters. Here is what they are covering today. Subscribe to them directly for the full experience.</p>
-        {% for nl in newsletters %}
-        <div class="newsletter-card bg-[#060e20] border-l-4 border-[#3B82F6] p-6 mb-4">
-            <div class="newsletter-name text-[15px] font-bold mb-3">{{ nl.name or "Newsletter" }}</div>
-            {% if nl.headlines %}
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Headlines</div>
-                <ul class="list-none p-0 m-0">
-                    {% for h in nl.headlines %}<li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">{{ h | no_em_dash }}</li>{% endfor %}
-                </ul>
-            </div>
-            {% endif %}
-            {% if nl.deep_dives %}
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Deep Dives</div>
-                <div class="newsletter-item text-[13px] text-[#c2c6d6]">{{ nl.deep_dives | no_em_dash }}</div>
-            </div>
-            {% endif %}
-            {% if nl.quick_hits %}
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Quick Hits</div>
-                <ul class="list-none p-0 m-0">
-                    {% for q in nl.quick_hits %}<li class="newsletter-item text-[13px] text-[#c2c6d6] py-0.5">{{ q | no_em_dash }}</li>{% endfor %}
-                </ul>
-            </div>
-            {% endif %}
-            {% if nl.tools %}
-            <div class="mb-3">
-                <div class="text-[11px] font-bold uppercase tracking-widest text-[#8c909f] mb-2">Trending Tools</div>
-                <div class="flex flex-wrap gap-1.5">
-                    {% for t in nl.tools %}{% if t %}<span class="text-[11px] font-semibold bg-[#6366F1]/10 text-[#6366F1] px-2.5 py-0.5 rounded">{{ t | no_em_dash }}</span>{% endif %}{% endfor %}
-                </div>
-            </div>
-            {% endif %}
-            {% if nl.quote %}
-            <blockquote class="newsletter-quote border-l-[3px] border-[#8B5CF6] pl-4 py-2 my-3 italic text-[13px] text-[#c2c6d6]">"{{ nl.quote | no_em_dash }}"</blockquote>
-            {% endif %}
-            {% if nl.source_link %}
-            <a href="{{ nl.source_link | safe_url }}" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline">Read the full newsletter &rarr;</a>
-            {% endif %}
-        </div>
-        {% endfor %}
-        </div>{# /expandable-content #}
-    </section>
-    {% endif %}
-
-    {# ── Competitive Landscape ───────────────────────────────────────────── #}
-    {% if competitive %}
-    <section class="section" id="competitive-landscape">
-        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
-            <div class="flex items-center gap-4 flex-grow min-w-0">
-                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">Competitive Landscape</h3>
-                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
-            </div>
-            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
-        </button>
-        <div class="expandable-content hidden mt-4">
-            <div class="grid md:grid-cols-2 gap-4">
-                {% for comp in competitive %}
-                {% if comp.source_url %}
-                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
-                    <span class="comp-name text-[15px] font-bold block mb-1">{{ comp.name or "" }}</span>
-                    <span class="text-[10px] text-[#3B82F6] font-semibold uppercase tracking-wider block mb-2 line-clamp-1">{{ (comp.status or "") | no_em_dash }}</span>
-                    <p class="comp-body text-[13px] text-[#c2c6d6] leading-relaxed">{{ (comp.body or "") | no_em_dash }}</p>
-                    <a href="{{ comp.source_url | safe_url }}" target="_blank" class="text-[11px] text-[#3B82F6] no-underline hover:underline block mt-2">Source &rarr;</a>
-                </div>
-                {% endif %}
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    {% endif %}
-
-    {# ── AI Tool Guide ───────────────────────────────────────────────────── #}
-    {% if tools %}
-    <section class="section" id="ai-tool-guide">
-        <button class="expandable-header w-full flex items-center justify-between lg:mb-8" onclick="toggleExpand(this)" aria-expanded="false">
-            <div class="flex items-center gap-4 flex-grow min-w-0">
-                <h3 class="section-title text-2xl font-black tracking-tight uppercase flex-shrink-0">AI Tool Guide</h3>
-                <div class="h-px flex-grow bg-white/[0.1] hidden lg:block"></div>
-            </div>
-            <span class="material-symbols-outlined text-[#8c909f] text-lg expand-chevron transition-transform duration-300 flex-shrink-0 ml-3">expand_more</span>
-        </button>
-        <div class="expandable-content hidden mt-4">
-            <div class="grid md:grid-cols-2 gap-4">
-                {% for tool in tools %}
-                <div class="p-5 bg-[#131b2e] hover:bg-[#171f33] transition-colors">
-                    <strong class="tool-title block text-[14px] font-bold mb-1.5">{{ (tool.title or "") | no_em_dash }}</strong>
-                    <span class="tool-body text-[13px] text-[#c2c6d6] leading-relaxed">{{ (tool.body or "") | no_em_dash }}{% if tool.url %} <a href="{{ tool.url | safe_url }}" target="_blank" class="text-[#3B82F6] no-underline text-[11px] hover:underline">Try it &rarr;</a>{% endif %}{% if tool.review_url %} <a href="{{ tool.review_url }}" target="_blank" class="text-[#8B5CF6] no-underline text-[11px] hover:underline ml-2">Lab Report &rarr;</a>{% endif %}</span>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    {% endif %}
-
-
-</div>{# /left column #}
-
-{# ── Right Sidebar ───────────────────────────────────────────────────────── #}
-{% if markets %}
-<aside class="hidden lg:block lg:w-[35%]">
-    <div class="lg:sticky lg:top-20 sidebar-scroll space-y-8">
-
-        {# ── Today's Pulse KPIs ──────────────────────────────────────────── #}
-        {% set kpis = summary.kpis or {} %}
-        <section class="section">
-            <div class="flex items-center gap-1.5 mb-4">
-                <span class="material-symbols-outlined text-sm text-[#8c909f]">pulse_alert</span>
-                <span class="text-xs font-black tracking-[0.15em] uppercase text-[#8c909f]">Today's Pulse</span>
-            </div>
-            <div class="grid grid-cols-2 gap-3">
-                <div class="bg-[#131b2e] p-4 border-l-2 border-[#3B82F6]">
-                    <span class="kpi-label block text-[9px] text-[#8c909f] uppercase tracking-widest mb-1">AI Stories</span>
-                    <span class="kpi-value text-2xl font-black font-mono text-[#3B82F6]">{{ kpis.ai_stories or "0" }}</span>
-                </div>
-                <div class="bg-[#131b2e] p-4 border-l-2 border-[#EF4444]">
-                    <span class="kpi-label block text-[9px] text-[#8c909f] uppercase tracking-widest mb-1">World Events</span>
-                    <span class="kpi-value text-2xl font-black font-mono text-[#EF4444]">{{ kpis.world_events or "0" }}</span>
-                </div>
-                <div class="bg-[#131b2e] p-4 border-l-2 border-[#F59E0B]">
-                    <span class="kpi-label block text-[9px] text-[#8c909f] uppercase tracking-widest mb-1">Market Mood</span>
-                    <span class="kpi-value text-lg font-black text-[#F59E0B]">{{ kpis.market_mood or "Mixed" }}</span>
-                </div>
-                <div class="bg-[#131b2e] p-4 border-l-2 border-[#8B5CF6]">
-                    <span class="kpi-label block text-[9px] text-[#8c909f] uppercase tracking-widest mb-1">Tools Featured</span>
-                    <span class="kpi-value text-2xl font-black font-mono text-[#8B5CF6]">{{ kpis.tools_featured or "0" }}</span>
-                </div>
-            </div>
-        </section>
-
-        {# ── Market Snapshot ─────────────────────────────────────────────── #}
-        <section class="section" id="market-snapshot">
-            <div class="flex items-center gap-1.5 mb-5">
-                <span class="material-symbols-outlined text-sm text-[#8c909f]">monitoring</span>
-                <span class="section-title text-xs font-black tracking-[0.15em] uppercase text-[#8c909f]">Market Snapshot</span>
-            </div>
-            {% set ticker_config = [
-                ("sp500", "S&P 500", "INDEXSP"),
-                ("nasdaq", "NASDAQ", "INDEXNASDAQ"),
-                ("btc", "Bitcoin", "BTC/USD"),
-                ("eth", "Ethereum", "ETH/USD"),
-                ("oil", "Oil Brent", "CRUDE"),
-                ("sentiment", "Sentiment", "F&G Index"),
-            ] %}
-            <div class="space-y-1">
-                {% for key, label, sub in ticker_config %}
+            {% set market_keys = [("sp500", "S&P 500"), ("nasdaq", "Nasdaq"), ("btc", "Bitcoin"), ("oil", "Oil Brent"), ("sentiment", "Fear & Greed")] %}
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                {% for key, label in market_keys %}
                 {% set data = markets.get(key, {}) %}
                 {% if data is mapping %}
                 {% set price = data.price or data.value or "N/A" %}
                 {% set change = data.change or data.label or "" %}
                 {% set direction = data.direction or "neutral" %}
-                {% if direction == "up" %}{% set change_color = "#10B981" %}{% elif direction == "down" %}{% set change_color = "#EF4444" %}{% else %}{% set change_color = "#F59E0B" %}{% endif %}
-                <div class="flex items-center justify-between p-3 bg-[#131b2e]/50 hover:bg-[#171f33] transition-all">
-                    <div>
-                        <span class="market-ticker block text-xs font-bold">{{ label }}</span>
-                        <span class="text-[10px] text-[#8c909f]">{{ sub }}</span>
-                    </div>
-                    <div class="text-right">
-                        <span class="market-price block text-sm font-mono font-bold">{{ price }}</span>
-                        <span class="market-change text-[10px] font-mono" style="color: {{ change_color }}">{{ change }}</span>
-                    </div>
+                {% if direction == "up" %}{% set mcolor = "#10B981" %}{% set spark = "sparkline-up" %}{% elif direction == "down" %}{% set mcolor = "#EF4444" %}{% set spark = "sparkline-down" %}{% else %}{% set mcolor = "#F59E0B" %}{% set spark = "" %}{% endif %}
+                <div class="p-3 rounded-lg bg-surface-container/60{% if key == 'sentiment' and direction == 'down' %} border border-error/20{% endif %}">
+                    <p class="font-label text-[9px] text-outline uppercase tracking-widest">{{ label }}</p>
+                    <p class="text-lg font-bold mt-1{% if key == 'sentiment' and direction == 'down' %} text-error fear-pulse{% endif %}">{{ price }}</p>
+                    <p class="text-xs font-bold mt-0.5" style="color: {{ mcolor }}">{{ change }}</p>
+                    {% if spark %}<div class="h-0.5 w-full {{ spark }} rounded-full mt-2 opacity-60"></div>{% endif %}
                 </div>
                 {% endif %}
                 {% endfor %}
             </div>
-        </section>
+        </div>
+        {% set focus_topics = summary.focus_topics or [] %}
+        {% if focus_topics %}
+        <div id="todays-focus" class="glass-card rounded-2xl border border-outline-variant/20 p-6" style="scroll-margin-top:80px">
+            <h3 class="font-label text-[10px] tracking-[0.2em] uppercase text-primary font-bold mb-5">Today's Focus</h3>
+            <div class="space-y-4">
+                {% for topic in focus_topics[:3] %}
+                <div class="flex gap-4 items-start group cursor-pointer">
+                    <span class="text-2xl font-black text-primary/15 group-hover:text-primary transition-colors leading-none font-label">{{ "%02d" | format(topic.number or loop.index) }}</span>
+                    <div>
+                        <p class="text-sm font-semibold leading-snug">{{ (topic.title or "") | no_em_dash }}</p>
+                        <p class="text-xs text-on-surface-variant mt-1 leading-relaxed hidden lg:block">{{ (topic.description or "") | no_em_dash }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
     </div>
-</aside>
+    {% endif %}
+</div>
+</section>
 {% endif %}
 
-</div>{# /two-column layout #}
+{# ════════════════════════════════════════════════════════════════════════════
+   LISTEN & WATCH (3-column media strip on dark band)
+   ════════════════════════════════════════════════════════════════════════════ #}
+<section id="infographic" class="section w-full bg-surface-container-lowest py-10 border-y border-outline-variant/10 relative overflow-hidden" style="scroll-margin-top:80px">
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+        <div class="flex items-center gap-4 mb-6">
+            <h2 class="text-sm font-extrabold uppercase tracking-wider">Listen & Watch</h2>
+            <div class="h-px flex-grow bg-outline-variant/15"></div>
+            <span class="font-label text-[9px] tracking-widest text-outline uppercase font-bold">Daily Broadcasts</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {# Podcast card #}
+            {% if has_podcast %}
+            <div class="rounded-xl overflow-hidden bg-surface-container/80 border border-outline-variant/10 hover:border-primary/20 transition-all">
+                <div class="relative aspect-video overflow-hidden cursor-pointer" onclick="openPodcastLightbox()">
+                    <img alt="Daily Deep Dive" class="w-full h-full object-cover object-top" src="{{ focus_hero_url }}">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 hover:opacity-100 transition-opacity">
+                        <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center border border-white/25">
+                            <span class="material-symbols-outlined text-white text-xl" style="font-variation-settings:'FILL' 1">zoom_in</span>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+                    <div class="absolute top-3 left-3 flex gap-1.5">
+                        <span class="px-2 py-0.5 bg-primary/20 backdrop-blur-sm text-primary text-[9px] font-bold uppercase rounded font-label tracking-wider">Podcast</span>
+                        <span class="px-2 py-0.5 bg-black/30 backdrop-blur-sm text-white text-[9px] font-bold rounded font-label">~22 min</span>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h4 class="text-sm font-bold mb-1">Daily Deep Dive</h4>
+                    <p class="text-on-surface-variant text-xs leading-relaxed mb-3">AI-generated deep-dive briefing covering today's top stories.</p>
+                    <audio controls class="w-full" preload="none" style="height:36px;border-radius:6px"><source src="{{ podcast_url }}" type="audio/mpeg"></audio>
+                </div>
+            </div>
+            {% else %}
+            <div class="rounded-xl overflow-hidden bg-surface-container/80 border border-outline-variant/10 opacity-50 flex flex-col items-center justify-center p-8 text-center">
+                <span class="material-symbols-outlined text-outline text-3xl mb-2">headphones</span>
+                <div class="text-sm font-bold">Daily Podcast</div>
+                <div class="text-xs text-on-surface-variant mt-1">Not available today</div>
+            </div>
+            {% endif %}
 
-{# Subscribe CTA is in the canonical footer below #}
+            {# Video card #}
+            {% if youtube_id %}
+            <div class="rounded-xl overflow-hidden bg-surface-container/80 border border-outline-variant/10 hover:border-tertiary/20 transition-all group">
+                <div class="relative aspect-video cursor-pointer" onclick="playInlineVideo(this,'{{ youtube_id }}')">
+                    <img alt="Video Briefing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://img.youtube.com/vi/{{ youtube_id }}/maxresdefault.jpg">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/25 group-hover:bg-black/40 transition-colors">
+                        <div class="w-14 h-14 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center border border-white/25 group-hover:bg-white/25 transition-colors">
+                            <span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings:'FILL' 1">play_arrow</span>
+                        </div>
+                    </div>
+                    <div class="absolute top-3 left-3 flex gap-1.5">
+                        <span class="px-2 py-0.5 bg-tertiary/20 backdrop-blur-sm text-tertiary text-[9px] font-bold uppercase rounded font-label tracking-wider">Video</span>
+                        <span class="px-2 py-0.5 bg-black/30 backdrop-blur-sm text-white text-[9px] font-bold rounded font-label">Cinematic</span>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h4 class="text-sm font-bold mb-1">Video Briefing</h4>
+                    <p class="text-on-surface-variant text-xs leading-relaxed">Cinematic overview of today's intelligence landscape.</p>
+                </div>
+            </div>
+            {% else %}
+            <div class="rounded-xl overflow-hidden bg-surface-container/80 border border-outline-variant/10 opacity-50 flex flex-col items-center justify-center p-8 text-center">
+                <span class="material-symbols-outlined text-outline text-3xl mb-2">smart_display</span>
+                <div class="text-sm font-bold">Video Briefing</div>
+                <div class="text-xs text-on-surface-variant mt-1">Not available today</div>
+            </div>
+            {% endif %}
 
-{# ── Footer ──────────────────────────────────────────────────────────────── #}
-<!-- Subscribe CTA -->
-<section class="w-full py-16 px-6">
-    <div class="max-w-xl mx-auto text-center">
-        <div class="bg-[#0b1326]/60 backdrop-blur-xl border border-white/[0.06] rounded-2xl p-8 md:p-10 relative overflow-hidden">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899] rounded-b-full"></div>
-            <h3 class="text-xl font-bold text-white mb-2">Like what you see?</h3>
-            <p class="text-[#c2c6d6] text-sm mb-6">Get tomorrow's brief delivered to your inbox.</p>
-            <form class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto p-1.5 rounded-full bg-[#171f33] border border-white/[0.06]" onsubmit="return kodaSubscribe(this)">
-                <input type="email" name="email" required class="bg-transparent border-none outline-none text-white px-5 py-3 sm:py-0 w-full text-sm" placeholder="your@email.com">
-                <button type="submit" class="bg-gradient-to-r from-[#3B82F6] to-[#6366F1] text-white px-6 py-3 rounded-full font-bold text-sm whitespace-nowrap hover:shadow-lg hover:shadow-[#3B82F6]/20 transition-all">Subscribe</button>
-            </form>
-            <p class="text-[10px] text-[#8c909f] mt-3">One email per day. Unsubscribe anytime.</p>
+            {# Infographic card #}
+            {% if has_infographic %}
+            <div class="rounded-xl overflow-hidden bg-surface-container/80 border border-outline-variant/10 hover:border-secondary/20 transition-all group cursor-pointer" onclick="openInfographic('{{ infographic_url }}')">
+                <div class="relative aspect-video overflow-hidden">
+                    <img alt="Daily Infographic" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" src="{{ infographic_url }}">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/15 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="w-14 h-14 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center border border-white/25">
+                            <span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings:'FILL' 1">zoom_in</span>
+                        </div>
+                    </div>
+                    <div class="absolute top-3 left-3 flex gap-1.5">
+                        <span class="px-2 py-0.5 bg-secondary/20 backdrop-blur-sm text-secondary text-[9px] font-bold uppercase rounded font-label tracking-wider">Infographic</span>
+                        <span class="px-2 py-0.5 bg-black/30 backdrop-blur-sm text-white text-[9px] font-bold rounded font-label">Tap to expand</span>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h4 class="text-sm font-bold mb-1 group-hover:text-secondary transition-colors">Intelligence Map</h4>
+                    <p class="text-on-surface-variant text-xs leading-relaxed">Visual breakdown of AI, geopolitics, and market movements.</p>
+                </div>
+            </div>
+            {% else %}
+            <div class="rounded-xl overflow-hidden bg-surface-container/80 border border-outline-variant/10 opacity-50 flex flex-col items-center justify-center p-8 text-center">
+                <span class="material-symbols-outlined text-outline text-3xl mb-2">image</span>
+                <div class="text-sm font-bold">Infographic</div>
+                <div class="text-xs text-on-surface-variant mt-1">Not available today</div>
+            </div>
+            {% endif %}
         </div>
     </div>
 </section>
 
+{# ── Infographic fullscreen overlay (existing) ──────────────────────────── #}
+{% if has_infographic %}
+<div class="infographic-overlay" id="infographicOverlay" onclick="if(event.target===this)closeInfographic()">
+    <button class="infographic-overlay-close" onclick="closeInfographic()" aria-label="Close infographic">&times;</button>
+    <img id="infographicFull" src="" alt="Koda Daily Infographic {{ date }}">
+</div>
+{% endif %}
+
+{# ── Podcast image lightbox ─────────────────────────────────────────────── #}
+{% if has_podcast %}
+<div class="lightbox-overlay" id="podcastLightbox" onclick="if(event.target===this)closePodcastLightbox()">
+    <button class="lightbox-close" onclick="closePodcastLightbox()" aria-label="Close">&times;</button>
+    <img src="{{ focus_hero_url }}" alt="Daily Deep Dive">
+</div>
+{% endif %}
+
+{# ════════════════════════════════════════════════════════════════════════════
+   DEEP DIVE EDITORIAL (image left, text right)
+   ════════════════════════════════════════════════════════════════════════════ #}
+{% if editorial %}
+<section id="todays-editorial" class="section max-w-[1440px] mx-auto px-6 md:px-12 py-10" style="scroll-margin-top:80px">
+    <div class="flex items-center gap-4 mb-6">
+        <h2 class="text-sm font-extrabold uppercase tracking-wider">Deep Dive</h2>
+        <div class="h-px flex-grow bg-outline-variant/15"></div>
+        <a href="./editorial/" class="font-label text-[9px] tracking-widest text-primary uppercase font-bold hover:underline flex items-center gap-1 no-underline" target="_blank">All Editorials <span class="material-symbols-outlined text-xs">east</span></a>
+    </div>
+    <a href="./editorial/{{ editorial.filename }}" target="_blank" class="block rounded-2xl overflow-hidden bg-surface-container/80 border border-outline-variant/15 hover:border-primary/30 transition-all group no-underline" style="box-shadow:0 20px 60px -15px rgba(0,0,0,0.5)">
+        <div class="grid grid-cols-1 md:grid-cols-5">
+            {% if editorial_hero_url %}
+            <div class="md:col-span-2 relative h-44 md:h-auto overflow-hidden">
+                <img src="{{ editorial_hero_url }}" alt="Editorial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent to-surface-container/90 hidden md:block"></div>
+            </div>
+            {% endif %}
+            <div class="{% if editorial_hero_url %}md:col-span-3{% else %}md:col-span-5{% endif %} p-6 flex flex-col justify-center">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings:'FILL' 1">explore</span>
+                    <span class="font-label text-[9px] text-secondary uppercase tracking-widest font-bold">Today's Editorial</span>
+                    {% if editorial.word_count %}<span class="font-label text-[9px] text-outline ml-auto">{{ ((editorial.word_count / 250) | int) + 1 }} min read &middot; {{ editorial.word_count | int }} words</span>{% endif %}
+                </div>
+                <h3 class="text-lg font-extrabold tracking-tight leading-snug mb-2 group-hover:text-primary transition-colors">{{ (editorial.title or editorial.topic or "Today's Analysis") | no_em_dash }}</h3>
+                {% if editorial.topic %}<p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2">{{ editorial.topic | no_em_dash }}</p>{% endif %}
+                <span class="inline-flex items-center gap-1.5 text-primary text-xs font-bold mt-3 group-hover:underline">Read Full Analysis <span class="material-symbols-outlined text-xs group-hover:translate-x-1 transition-transform">arrow_forward</span></span>
+            </div>
+        </div>
+    </a>
+</section>
+{% endif %}
+
+{# ════════════════════════════════════════════════════════════════════════════
+   THE WIRE / AI NEWS (asymmetric 7/5 grid)
+   ════════════════════════════════════════════════════════════════════════════ #}
+{% if ai_news and ai_news|length > 1 %}
+{% set wire_colors = ["primary", "secondary", "tertiary", "accent-cyan", "success", "warning"] %}
+<section id="ai-developments" class="section mt-24 px-8 md:px-12 max-w-[1920px] mx-auto pb-14" style="scroll-margin-top:80px">
+    <div class="flex items-baseline justify-between mb-8 border-b border-outline-variant/30 pb-6">
+        <h2 class="text-2xl font-extrabold tracking-tight">The Wire</h2>
+        <span class="font-label text-xs uppercase tracking-[0.3em] text-on-surface-variant font-bold">AI Intelligence</span>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {# Left: feature card + 2 smaller #}
+        <div class="lg:col-span-7 flex flex-col gap-8">
+            {% set feature = ai_news[1] %}
+            {% set feat_cat = feature.category or "Trend" %}
+            {% set feat_color = ai_cat_colors.get(feat_cat, "#3B82F6") %}
+            <a href="{{ feature.source_url | safe_url }}" target="_blank" class="relative h-[350px] rounded-xl overflow-hidden group shadow-2xl block bg-surface-container-high no-underline">
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface/30 to-transparent p-8 md:p-12 flex flex-col justify-end">
+                    <span class="font-label text-xs uppercase tracking-[0.4em] mb-4 font-black" style="color: {{ feat_color }}">{{ feat_cat }}</span>
+                    <h3 class="text-lg font-extrabold tracking-tight mb-4 text-white max-w-2xl leading-[1.1]">{{ (feature.title or "") | no_em_dash }}</h3>
+                    <p class="text-on-surface-variant max-w-xl leading-relaxed text-sm">{{ (feature.body or "") | no_em_dash }}</p>
+                    <div class="flex items-center gap-8 mt-4">
+                        <span class="text-white border-b-2 border-primary pb-1 font-black text-sm tracking-widest uppercase group-hover:text-primary transition-colors">Read More</span>
+                        {% if feature.source_name %}<span class="text-white/40 text-xs font-bold uppercase tracking-widest">{{ feature.source_name }}</span>{% endif %}
+                    </div>
+                </div>
+            </a>
+            {% if ai_news|length > 2 %}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {% for story in ai_news[2:4] %}
+                {% set scat = story.category or "Trend" %}
+                {% set scolor = ai_cat_colors.get(scat, "#3B82F6") %}
+                <article class="space-y-4 group cursor-pointer">
+                    <span class="font-label text-[10px] tracking-widest uppercase font-black" style="color: {{ scolor }}">{{ scat }}</span>
+                    <h4 class="text-2xl font-bold leading-tight group-hover:text-primary transition-colors">{{ (story.title or "") | no_em_dash }}</h4>
+                    <p class="text-on-surface-variant leading-relaxed text-sm font-light">{{ (story.body or "") | no_em_dash }}{% if story.source_url %} <a href="{{ story.source_url | safe_url }}" target="_blank" class="text-[11px] font-bold uppercase tracking-widest hover:underline no-underline" style="color: {{ scolor }}">Source &rarr;</a>{% endif %}</p>
+                </article>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {# Right: sidebar stack #}
+        {% if ai_news|length > 4 %}
+        <div class="lg:col-span-5 flex flex-col gap-10">
+            {% for story in ai_news[4:] %}
+            {% set scat = story.category or "Trend" %}
+            {% set scolor = ai_cat_colors.get(scat, "#3B82F6") %}
+            {% set border_sem = wire_colors[loop.index0 % wire_colors|length] %}
+            <article class="group cursor-pointer p-6 glass-card rounded-xl border border-outline-variant/20 hover:border-{{ border_sem }}/30 transition-all">
+                <span class="font-label text-[10px] tracking-widest uppercase font-black" style="color: {{ scolor }}">{{ scat }}</span>
+                <h4 class="text-xl font-bold font-headline mt-3 mb-3 group-hover:text-{{ border_sem }} transition-colors leading-snug">{{ (story.title or "") | no_em_dash }}</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">{{ (story.body or "") | no_em_dash }}{% if story.source_url %} <a href="{{ story.source_url | safe_url }}" target="_blank" class="text-[11px] font-bold uppercase tracking-widest hover:underline no-underline" style="color: {{ scolor }}">Source &rarr;</a>{% endif %}</p>
+            </article>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endif %}
+
+{# ════════════════════════════════════════════════════════════════════════════
+   THE GLOBE / WORLD NEWS (asymmetric 7/5 grid)
+   ════════════════════════════════════════════════════════════════════════════ #}
+{% if world_news %}
+{% set world_cat_colors = {
+    "Conflict": "#EF4444", "Diplomacy": "#3B82F6", "Economy": "#10B981",
+    "Policy": "#8B5CF6", "Humanitarian": "#F59E0B", "Infrastructure": "#06B6D4",
+    "Climate": "#10B981", "Technology": "#6366F1",
+} %}
+{% set globe_borders = ["error", "primary", "success", "accent-cyan", "secondary", "warning"] %}
+<section id="world-news" class="section px-8 md:px-12 max-w-[1920px] mx-auto pb-14" style="scroll-margin-top:80px">
+    <div class="flex items-baseline justify-between mb-8 border-b border-outline-variant/30 pb-6">
+        <h2 class="text-2xl font-extrabold tracking-tight">The Globe</h2>
+        <span class="font-label text-xs uppercase tracking-[0.3em] text-on-surface-variant font-bold">World Affairs</span>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-7 flex flex-col gap-8">
+            {# Feature card #}
+            {% set wfeat = world_news[0] %}
+            {% set wcat = wfeat.category or "World" %}
+            {% set wcolor = world_cat_colors.get(wcat, "#3B82F6") %}
+            <div class="relative h-[300px] rounded-xl overflow-hidden group shadow-2xl bg-surface-container-high">
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface/40 to-transparent p-8 md:p-12 flex flex-col justify-end">
+                    <span class="font-label text-xs uppercase tracking-[0.4em] mb-4 font-black" style="color: {{ wcolor }}">{{ wcat }}</span>
+                    <h3 class="text-lg font-extrabold tracking-tight mb-4 text-white leading-[1.1]">{{ (wfeat.title or "") | no_em_dash }}</h3>
+                    <p class="text-on-surface-variant max-w-xl leading-relaxed">{{ (wfeat.body or "") | no_em_dash }}</p>
+                    {% if wfeat.source_url %}<a href="{{ wfeat.source_url | safe_url }}" target="_blank" class="text-white border-b-2 border-primary pb-1 font-black text-sm tracking-widest uppercase mt-4 inline-block hover:text-primary transition-colors no-underline">Source &rarr;</a>{% endif %}
+                </div>
+            </div>
+            {# Smaller cards below #}
+            {% if world_news|length > 1 %}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {% for story in world_news[1:3] %}
+                {% set scat = story.category or "World" %}
+                {% set scolor = world_cat_colors.get(scat, "#3B82F6") %}
+                <article class="space-y-4 group cursor-pointer">
+                    <span class="font-label text-[10px] tracking-widest uppercase font-black" style="color: {{ scolor }}">{{ scat }}</span>
+                    <h4 class="text-2xl font-bold leading-tight group-hover:text-primary transition-colors">{{ (story.title or "") | no_em_dash }}</h4>
+                    <p class="text-on-surface-variant leading-relaxed text-sm font-light">{{ (story.body or "") | no_em_dash }}{% if story.source_url %} <a href="{{ story.source_url | safe_url }}" target="_blank" class="text-[11px] font-bold uppercase tracking-widest hover:underline no-underline" style="color: {{ scolor }}">Source &rarr;</a>{% endif %}</p>
+                </article>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {# Sidebar stack #}
+        {% if world_news|length > 3 %}
+        <div class="lg:col-span-5 flex flex-col gap-10">
+            {% for story in world_news[3:] %}
+            {% set scat = story.category or "World" %}
+            {% set scolor = world_cat_colors.get(scat, "#3B82F6") %}
+            {% set border_sem = globe_borders[loop.index0 % globe_borders|length] %}
+            <article class="group cursor-pointer p-6 glass-card rounded-xl border border-outline-variant/20 hover:border-{{ border_sem }}/30 transition-all">
+                <span class="font-label text-[10px] tracking-widest uppercase font-black" style="color: {{ scolor }}">{{ scat }}</span>
+                <h4 class="text-xl font-bold font-headline mt-3 mb-3 group-hover:text-{{ border_sem }} transition-colors leading-snug">{{ (story.title or "") | no_em_dash }}</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">{{ (story.body or "") | no_em_dash }}{% if story.source_url %} <a href="{{ story.source_url | safe_url }}" target="_blank" class="text-[11px] font-bold uppercase tracking-widest hover:underline no-underline" style="color: {{ scolor }}">Source &rarr;</a>{% endif %}</p>
+            </article>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endif %}
+
+{# ════════════════════════════════════════════════════════════════════════════
+   NEWSLETTER INTELLIGENCE (adapted to glass-card style)
+   ════════════════════════════════════════════════════════════════════════════ #}
+{% if newsletters %}
+<section id="newsletter-intelligence" class="section px-8 md:px-12 max-w-[1920px] mx-auto pb-14" style="scroll-margin-top:80px">
+    <div class="flex items-baseline justify-between mb-8 border-b border-outline-variant/30 pb-6">
+        <h2 class="text-2xl font-extrabold tracking-tight">The Feed</h2>
+        <span class="font-label text-xs uppercase tracking-[0.3em] text-on-surface-variant font-bold">Newsletter Intelligence</span>
+    </div>
+    <p class="text-sm text-on-surface-variant mb-6 leading-relaxed max-w-3xl">We read and recommend these newsletters. Here is what they are covering today. Subscribe to them directly for the full experience.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {% for nl in newsletters %}
+        <div class="glass-card rounded-xl border-l-4 border-primary p-6">
+            <div class="text-[15px] font-bold mb-3">{{ nl.name or "Newsletter" }}</div>
+            {% if nl.headlines %}
+            <div class="mb-3">
+                <div class="font-label text-[10px] font-bold uppercase tracking-widest text-outline mb-2">Headlines</div>
+                <ul class="list-none p-0 m-0 space-y-1">
+                    {% for h in nl.headlines %}<li class="text-[13px] text-on-surface-variant">{{ h | no_em_dash }}</li>{% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            {% if nl.deep_dives %}
+            <div class="mb-3">
+                <div class="font-label text-[10px] font-bold uppercase tracking-widest text-outline mb-2">Deep Dives</div>
+                <div class="text-[13px] text-on-surface-variant">{{ nl.deep_dives | no_em_dash }}</div>
+            </div>
+            {% endif %}
+            {% if nl.quick_hits %}
+            <div class="mb-3">
+                <div class="font-label text-[10px] font-bold uppercase tracking-widest text-outline mb-2">Quick Hits</div>
+                <ul class="list-none p-0 m-0 space-y-1">
+                    {% for q in nl.quick_hits %}<li class="text-[13px] text-on-surface-variant">{{ q | no_em_dash }}</li>{% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            {% if nl.tools %}
+            <div class="mb-3">
+                <div class="font-label text-[10px] font-bold uppercase tracking-widest text-outline mb-2">Trending Tools</div>
+                <div class="flex flex-wrap gap-1.5">
+                    {% for t in nl.tools %}{% if t %}<span class="text-[11px] font-semibold bg-primary-dim/10 text-primary-dim px-2.5 py-0.5 rounded">{{ t | no_em_dash }}</span>{% endif %}{% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% if nl.quote %}
+            <blockquote class="border-l-[3px] border-secondary pl-4 py-2 my-3 text-[13px] text-on-surface-variant">"{{ nl.quote | no_em_dash }}"</blockquote>
+            {% endif %}
+            {% if nl.source_link %}
+            <a href="{{ nl.source_link | safe_url }}" target="_blank" class="text-[11px] text-primary no-underline hover:underline font-bold">Read the full newsletter &rarr;</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{# ════════════════════════════════════════════════════════════════════════════
+   THE LAB / TOOLS (3-column glass-card grid)
+   ════════════════════════════════════════════════════════════════════════════ #}
+{% if tools %}
+{% set tool_colors = ["primary", "secondary", "success", "tertiary", "warning", "accent-cyan"] %}
+<section id="ai-tool-guide" class="section px-8 md:px-12 max-w-[1920px] mx-auto pb-14" style="scroll-margin-top:80px">
+    <div class="flex items-baseline justify-between mb-8 border-b border-outline-variant/30 pb-6">
+        <h2 class="text-2xl font-extrabold tracking-tight">The Lab</h2>
+        <a class="font-label text-xs uppercase tracking-[0.3em] text-on-surface-variant hover:text-primary transition-all font-bold group flex items-center gap-2 no-underline" href="./reviews/" target="_blank">All Reviews <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">east</span></a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {% for tool in tools %}
+        {% set tc = tool_colors[loop.index0 % tool_colors|length] %}
+        <article class="group cursor-pointer p-6 glass-card rounded-xl border border-outline-variant/20 hover:border-{{ tc }}/30 transition-all flex flex-col">
+            <span class="px-3 py-1 bg-{{ tc }}/10 text-{{ tc }} font-label text-[10px] tracking-widest uppercase w-fit rounded mb-6 font-bold">{{ tool.category or "Tool" }}</span>
+            <h4 class="text-2xl font-bold leading-tight mb-4 group-hover:text-{{ tc }} transition-colors">{{ (tool.title or "") | no_em_dash }}</h4>
+            <p class="text-on-surface-variant text-sm leading-relaxed flex-grow">{{ (tool.body or "") | no_em_dash }}</p>
+            <div class="flex items-center gap-4 mt-6">
+                {% if tool.url %}<a href="{{ tool.url | safe_url }}" target="_blank" class="inline-flex items-center gap-2 text-{{ tc }} font-bold text-sm hover:underline no-underline">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>{% endif %}
+                {% if tool.review_url %}<a href="{{ tool.review_url }}" target="_blank" class="inline-flex items-center gap-2 text-secondary font-bold text-sm hover:underline no-underline">Lab Report <span class="material-symbols-outlined text-sm">arrow_forward</span></a>{% endif %}
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{# ════════════════════════════════════════════════════════════════════════════
+   THE ARENA / COMPETITIVE (2-column glass-cards with left borders + orbs)
+   ════════════════════════════════════════════════════════════════════════════ #}
+{% if competitive %}
+{% set arena_colors = ["primary", "success", "secondary", "tertiary", "warning", "accent-cyan"] %}
+<section id="competitive-landscape" class="section px-8 md:px-12 max-w-[1920px] mx-auto pb-14" style="scroll-margin-top:80px">
+    <div class="flex items-baseline justify-between mb-8 border-b border-outline-variant/30 pb-6">
+        <h2 class="text-lg font-extrabold tracking-tight">The Arena</h2>
+        <span class="font-label text-xs uppercase tracking-[0.3em] text-on-surface-variant font-bold">Competitive Intel</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {% for comp in competitive %}
+        {% if comp.source_url %}
+        {% set ac = arena_colors[loop.index0 % arena_colors|length] %}
+        <div class="p-8 glass-card rounded-xl border-l-4 border-{{ ac }} cinematic-shadow relative overflow-hidden">
+            <div class="absolute -top-12 -right-12 w-32 h-32 bg-{{ ac }}/5 rounded-full blur-3xl"></div>
+            <p class="font-label text-[10px] tracking-widest text-{{ ac }} uppercase font-black mb-4">{{ comp.name or "" }}</p>
+            <h4 class="text-2xl font-extrabold mb-4">{{ (comp.status or "") | no_em_dash }}</h4>
+            <p class="text-on-surface-variant leading-relaxed">{{ (comp.body or "") | no_em_dash }}</p>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+</main>
+
+{# ════════════════════════════════════════════════════════════════════════════
+   SUBSCRIBE CTA
+   ════════════════════════════════════════════════════════════════════════════ #}
+<section class="px-8 md:px-12 max-w-7xl mx-auto mb-32">
+    <div class="bg-surface-container-low p-10 md:p-14 rounded-2xl relative overflow-hidden border border-outline-variant/20 shadow-2xl">
+        <div class="absolute -top-48 -right-48 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]"></div>
+        <div class="absolute -bottom-48 -left-48 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[100px]"></div>
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-2xl font-extrabold tracking-tight mb-8 leading-tight">Never miss a Signal.</h2>
+                <p class="text-on-surface-variant text-xl leading-relaxed font-light">Join intelligence professionals who receive our daily deep-dive into AI, geopolitics, and markets.</p>
+            </div>
+            <div class="flex flex-col gap-6">
+                <form class="flex flex-col md:flex-row gap-0" onsubmit="return kodaSubscribe(this)">
+                    <input class="flex-grow bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary transition-all px-6 py-5 text-on-surface text-lg font-light placeholder:text-outline-variant" placeholder="Your email address" type="email" name="email" required>
+                    <button type="submit" class="bg-primary text-white font-black px-12 py-5 hover:brightness-110 transition-all uppercase tracking-[0.2em] text-sm">Subscribe</button>
+                </form>
+                <p class="font-label text-[10px] text-on-surface-variant uppercase tracking-[0.3em] font-black opacity-60">Daily intelligence. No spam. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ── Footer ──────────────────────────────────────────────────────────────── #}
 <footer class="w-full py-16 px-8 border-t border-white/5 relative overflow-hidden">
     <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-gradient-to-t from-[#8B5CF6]/4 to-transparent rounded-full blur-3xl pointer-events-none"></div>
     <div class="max-w-2xl mx-auto text-center relative z-10">
@@ -706,9 +822,7 @@ body.kn-locked{overflow:hidden}
         if(e.key==='Escape' && drawer.classList.contains('kn-open')) close();
     });
     if(searchBtn) searchBtn.addEventListener('click',function(){
-        var so=document.getElementById('searchOverlay');
-        if(so){so.classList.remove('hidden');so.style.display='';var si=document.getElementById('globalSearchInput');if(si)si.focus();}
-        else{window.location.href='./archive/';}
+        if(typeof openSearch==='function') openSearch();
     });
 })();
 </script>
