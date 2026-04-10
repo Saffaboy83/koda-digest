@@ -111,6 +111,19 @@ def parse_with_regex(filepath):
     if not focus_matches:
         focus_matches = focus_pattern_v1.findall(html)
 
+    # v4: Stitch-style "Today's Focus" heading + flex items with paired <p> tags (April 2026+)
+    if not focus_matches:
+        focus_section = re.search(
+            r"Today.s Focus</h3>\s*(.*?)(?=</section>|<h3\b)",
+            html, re.DOTALL,
+        )
+        if focus_section:
+            focus_matches = re.findall(
+                r'<p[^>]*class="[^"]*\bfont-semibold\b[^"]*"[^>]*>(.*?)</p>\s*'
+                r'<p[^>]*class="[^"]*\btext-on-surface-variant\b[^"]*"[^>]*>(.*?)</p>',
+                focus_section.group(1), re.DOTALL,
+            )
+
     for title_html, desc_html in focus_matches:
         title = strip_html(title_html)
         desc = strip_html(desc_html)

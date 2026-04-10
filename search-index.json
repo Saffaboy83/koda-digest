@@ -1,9 +1,27 @@
 {
-  "generated": "2026-04-10T00:58:47Z",
+  "generated": "2026-04-10T01:47:54Z",
   "entries": [
     {
       "date": "2026-04-09",
-      "sections": [],
+      "sections": [
+        {
+          "title": "Today's Focus",
+          "items": [
+            {
+              "headline": "DeepSeek V4 and the Prediction Market Signal",
+              "text": "Prediction markets price DeepSeek V4 at 94% for April release, outpacing GPT-5.5."
+            },
+            {
+              "headline": "Enterprise AI Goes Vertical",
+              "text": "OpenAI pivots to deep enterprise integration while Meta builds full-stack AI infrastructure."
+            },
+            {
+              "headline": "The Ceasefire Illusion",
+              "text": "Israel strikes Lebanon hours after Iran ceasefire, with markets pricing in fragility."
+            }
+          ]
+        }
+      ],
       "type": "digest",
       "file": "morning-briefing-koda-2026-04-09.html"
     },

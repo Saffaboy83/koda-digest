@@ -1,10 +1,23 @@
 {
-  "generated": "2026-04-10T00:58:47Z",
+  "generated": "2026-04-10T01:47:54Z",
   "digests": [
     {
       "date": "2026-04-09",
       "dayOfWeek": "Thursday",
-      "focusTopics": [],
+      "focusTopics": [
+        {
+          "title": "DeepSeek V4 and the Prediction Market Signal",
+          "desc": "Prediction markets price DeepSeek V4 at 94% for April release, outpacing GPT-5.5."
+        },
+        {
+          "title": "Enterprise AI Goes Vertical",
+          "desc": "OpenAI pivots to deep enterprise integration while Meta builds full-stack AI infrastructure."
+        },
+        {
+          "title": "The Ceasefire Illusion",
+          "desc": "Israel strikes Lebanon hours after Iran ceasefire, with markets pricing in fragility."
+        }
+      ],
       "kpis": {
         "aiStories": "",
         "worldEvents": "",
