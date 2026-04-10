@@ -1,0 +1,986 @@
+{
+  "metadata": {
+    "name": "notebooklm-dojo",
+    "description": "Master NotebookLM from your first notebook to advanced research systems with audio overviews, mind maps, and Gemini integration",
+    "version": "1.0.0",
+    "lastUpdated": "2026-04-09",
+    "refreshCadence": "weekly",
+    "totalModules": 15,
+    "totalPrompts": 49,
+    "sourceFiles": [
+      "https://www.jeffsu.org/notebooklm-changed-completely-heres-what-matters-in-2026/",
+      "https://www.shareuhack.com/en/posts/notebooklm-advanced-guide-2026",
+      "https://www.datacamp.com/tutorial/notebooklm",
+      "https://workspaceupdates.googleblog.com/2026/03/new-ways-to-customize-and-interact-with-your-content-in-NotebookLM.html",
+      "https://pub.towardsai.net/the-notebooklm-workflow-that-changed-how-i-learn-any-technology-373f430a17e5",
+      "https://sites.google.com/view/notebook-lm/tutorial",
+      "https://growwithaiguide.substack.com/p/10-notebooklm-tricks-every-power"
+    ]
+  },
+  "modules": [
+    {
+      "id": "m1",
+      "number": 1,
+      "title": "What Is NotebookLM and When to Use It",
+      "belt": "white",
+      "estimatedMinutes": 20,
+      "description": "Understand what makes NotebookLM different from ChatGPT, Claude, and Perplexity -- and when it is the right tool for the job.",
+      "keyConcepts": [
+        "Source-grounded AI",
+        "Closed knowledge base",
+        "Inline citations",
+        "When to use vs. alternatives"
+      ],
+      "prerequisites": "None",
+      "concepts": [
+        {
+          "title": "Source-Grounded AI vs. General-Purpose AI",
+          "body": "NotebookLM only answers from documents you upload -- it never draws from its training data. This means zero hallucination risk on your content. ChatGPT and Claude generate from their full training set, which is powerful for brainstorming but risky when accuracy matters. NotebookLM trades creativity for fidelity."
+        },
+        {
+          "title": "The Three-Column Layout",
+          "body": "NotebookLM organizes your workspace into three panels. The Sources panel (left) holds your uploaded documents. The Chat panel (center) is where you ask questions and get cited answers. The Studio panel (right) generates deliverables like audio overviews, reports, mind maps, and infographics."
+        },
+        {
+          "title": "When NotebookLM Beats the Alternatives",
+          "body": "Use NotebookLM when you already know which documents contain the answers, those sources span multiple formats (PDFs, slides, videos, web pages), and the stakes are too high for AI fabrication. Use Perplexity for real-time web research. Use ChatGPT or Claude for open-ended brainstorming and drafting."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "1.1",
+          "label": "Navigate the Three-Column Interface",
+          "difficulty": "Beginner",
+          "prompt": "Go to notebooklm.google.com and sign in with your Google account. Create a new notebook by clicking the + New Notebook button. Once inside, identify all three panels: Sources (left), Chat (center), and Studio (right). Click on each panel header to confirm you can see it.",
+          "expectedOutcome": "A new empty notebook is created. You can see all three panels -- Sources on the left showing an empty source list, Chat in the center with a text input and suggested questions area, and Studio on the right with output type options."
+        },
+        {
+          "id": "1.2",
+          "label": "Compare NotebookLM to a General AI Chat",
+          "difficulty": "Beginner",
+          "prompt": "In your empty notebook, type the question 'What are the latest developments in artificial intelligence?' in the Chat panel and press Enter. Read the response carefully. Then open ChatGPT or Claude in a separate tab and ask the exact same question. Compare both responses.",
+          "expectedOutcome": "NotebookLM declines to answer or states it has no sources to reference, while ChatGPT or Claude provides a detailed answer from training data. This demonstrates NotebookLM's source-grounded design -- it only answers from uploaded documents."
+        },
+        {
+          "id": "1.3",
+          "label": "Add a Source and See Citations Appear",
+          "difficulty": "Beginner",
+          "prompt": "In your notebook, click the + button in the Sources panel. Select 'Website' and paste this URL: https://blog.google/technology/ai/notebooklm-google-ai/. Wait for it to load. Now ask in Chat: 'What is NotebookLM designed to do?' Read the response and click on any numbered citation to see the source passage it references.",
+          "expectedOutcome": "NotebookLM provides a grounded answer with inline numbered citations. Clicking a citation highlights the exact passage in the source document that supports that claim. This is the core value proposition -- every answer is traceable."
+        }
+      ],
+      "proTip": "Think of NotebookLM as your personal research assistant that only reads what you give it. If the answer is not in your sources, NotebookLM will tell you rather than guessing.",
+      "takeaways": [
+        "NotebookLM only answers from uploaded sources -- never from training data",
+        "Every response includes inline citations linking to exact source passages",
+        "Use NotebookLM for accuracy-critical work; use ChatGPT or Claude for creative brainstorming",
+        "The three-column layout separates sources, chat, and output generation"
+      ]
+    },
+    {
+      "id": "m2",
+      "number": 2,
+      "title": "Create Your First Notebook and Add Sources",
+      "belt": "white",
+      "estimatedMinutes": 20,
+      "description": "Build a notebook with diverse source types -- PDFs, URLs, YouTube videos, and pasted text -- and learn how source management works.",
+      "keyConcepts": [
+        "Notebook creation",
+        "Source types",
+        "Source limits",
+        "Google Drive sync"
+      ],
+      "prerequisites": "m1",
+      "concepts": [
+        {
+          "title": "Supported Source Types",
+          "body": "NotebookLM accepts PDFs, Google Docs, Google Slides, Google Sheets, web URLs, YouTube video URLs (auto-transcribed), audio files, video files, EPUB files, images, and pasted text. Each source can hold up to 500,000 words on the free tier. The free tier supports up to 50 sources per notebook."
+        },
+        {
+          "title": "Google Drive Live Sync",
+          "body": "Google Docs and Slides auto-sync with NotebookLM -- when you edit the original document, NotebookLM picks up the changes. PDFs and pasted text are static snapshots taken at upload time. If you update a PDF, you need to re-upload it. This distinction matters for living documents that change frequently."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "2.1",
+          "label": "Create a Research Notebook with Three Source Types",
+          "difficulty": "Beginner",
+          "prompt": "Create a new notebook and name it 'My Research Project'. Add three different source types: (1) Paste a paragraph of text by clicking + > Copied text and typing or pasting 300+ words about any topic you know well. (2) Add a web URL by clicking + > Website and pasting any blog post or article URL. (3) Add a YouTube video by clicking + > Website and pasting any YouTube URL with a transcript. Verify all three sources appear in the Sources panel.",
+          "expectedOutcome": "Three sources appear in the Sources panel with different icons indicating their type -- text, web page, and YouTube video. Each source shows a title and preview. The notebook is ready for cross-source queries."
+        },
+        {
+          "id": "2.2",
+          "label": "Upload a PDF and Verify Content Extraction",
+          "difficulty": "Beginner",
+          "prompt": "Find any PDF on your computer (a report, paper, or manual). In your notebook, click + > File upload and select the PDF. Wait for processing to complete. Click on the source name in the Sources panel to expand it. Verify that NotebookLM extracted the text content correctly by comparing a section with the original PDF.",
+          "expectedOutcome": "The PDF appears in the Sources panel. Clicking it reveals the extracted text content. Key sections, headers, and body text from the PDF are preserved and searchable in NotebookLM's chat."
+        },
+        {
+          "id": "2.3",
+          "label": "Test Cross-Source Questioning",
+          "difficulty": "Beginner",
+          "prompt": "With at least 3 sources in your notebook, ask a question in Chat that requires information from multiple sources. For example: 'What are the main topics covered across all my sources? List them with which source each topic comes from.' Check that the response cites multiple sources by their names.",
+          "expectedOutcome": "NotebookLM returns a synthesis that references at least two different sources, with numbered citations linking back to specific passages in each source. This demonstrates cross-source analysis."
+        }
+      ],
+      "proTip": "Name your notebooks by project, not by date. 'Q2 Market Analysis' is more useful than 'April Research'. You can rename any notebook by clicking the title at the top.",
+      "takeaways": [
+        "NotebookLM supports 10+ source types including PDFs, URLs, YouTube, Google Docs, and audio files",
+        "Google Docs and Slides auto-sync; PDFs and pasted text are static snapshots",
+        "The free tier allows 50 sources per notebook with up to 500,000 words each",
+        "Cross-source questioning is NotebookLM's superpower -- it synthesizes across all your documents"
+      ]
+    },
+    {
+      "id": "m3",
+      "number": 3,
+      "title": "Ask Questions, Read Citations, and Save Notes",
+      "belt": "white",
+      "estimatedMinutes": 25,
+      "description": "Master the chat workflow -- ask targeted questions, trace citations to source passages, and save important answers as persistent notes.",
+      "keyConcepts": [
+        "Targeted questioning",
+        "Citation tracing",
+        "Notes system",
+        "Suggested questions"
+      ],
+      "prerequisites": "m1-m2",
+      "concepts": [
+        {
+          "title": "Citation Tracing",
+          "body": "Every NotebookLM response includes numbered inline citations like [1], [2], [3]. Clicking a citation scrolls to and highlights the exact passage in the source document. This lets you verify every claim the AI makes. No other AI tool provides this level of traceability by default."
+        },
+        {
+          "title": "Notes as Persistent Memory",
+          "body": "When NotebookLM gives you a great response, click 'Save to note' to preserve it. Notes persist across sessions and can even be converted into sources themselves. This creates a feedback loop -- your best AI-generated insights become part of the knowledge base for future queries."
+        },
+        {
+          "title": "Suggested Questions",
+          "body": "NotebookLM auto-generates suggested questions based on your sources. These are often surprisingly good starting points for exploration. They appear in the Chat panel when you first load a notebook and update as you add new sources. Use them when you are not sure where to start."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "3.1",
+          "label": "Trace a Citation to Its Source Passage",
+          "difficulty": "Beginner",
+          "prompt": "Open a notebook with at least 2 sources. Ask: 'What is the most important claim made in my sources?' When the response appears with numbered citations, click on citation [1]. Read the highlighted passage in the source panel. Then click citation [2] if present. Verify both citations accurately support the claims made.",
+          "expectedOutcome": "Clicking each citation number highlights the specific paragraph or sentence in the source document that supports the AI's claim. You can verify the AI did not fabricate or misrepresent the source material."
+        },
+        {
+          "id": "3.2",
+          "label": "Save a Response as a Note and Convert It to a Source",
+          "difficulty": "Beginner",
+          "prompt": "Ask your notebook a detailed question like: 'Create a summary of the key themes across all my sources, organized by topic.' When the response appears, click 'Save to note' (the pin or bookmark icon). Navigate to the Notes section. Find your saved note. Now click the three-dot menu on the note and select 'Add to sources' to convert it into a source for future queries.",
+          "expectedOutcome": "The response is saved as a note accessible from the Notes panel. After converting it to a source, it appears in the Sources panel with a note icon. Future queries can now reference your synthesized summary as a first-class source."
+        },
+        {
+          "id": "3.3",
+          "label": "Use Suggested Questions to Discover Insights",
+          "difficulty": "Beginner",
+          "prompt": "Open a notebook with 3+ sources. Look at the suggested questions that NotebookLM displays in the Chat panel (usually shown as clickable chips or cards). Click on one of the suggested questions. Read the response and its citations. Then click a second suggested question. Compare the depth and focus of both responses.",
+          "expectedOutcome": "NotebookLM provides tailored responses to each suggested question with relevant citations. The suggested questions often surface angles you had not considered, demonstrating the AI's understanding of your source material."
+        }
+      ],
+      "proTip": "Delete your chat history periodically to prevent AI drift. Over long conversations, NotebookLM can start giving repetitive answers. Clear the chat and start fresh -- your sources and notes are preserved.",
+      "takeaways": [
+        "Every citation is clickable and links to the exact source passage -- always verify important claims",
+        "Save valuable responses as notes to build persistent knowledge across sessions",
+        "Notes can be converted to sources, creating a feedback loop for future queries",
+        "Suggested questions are auto-generated from your sources and surface non-obvious angles",
+        "Clear chat history periodically to prevent repetitive or drifting responses"
+      ]
+    },
+    {
+      "id": "m4",
+      "number": 4,
+      "title": "Source Mastery: Upload, Manage, Sync, and Discover",
+      "belt": "brown",
+      "estimatedMinutes": 30,
+      "description": "Go beyond basic uploads -- organize large source sets, use Drive search, handle source limits, and keep living documents in sync.",
+      "keyConcepts": [
+        "Source organization",
+        "Drive search",
+        "Source toggling",
+        "Merge strategies",
+        "Sync and refresh"
+      ],
+      "prerequisites": "m1-m3",
+      "concepts": [
+        {
+          "title": "Source Toggling for Focused Queries",
+          "body": "You can select or deselect individual sources before asking a question. This constrains the AI to answer only from the selected sources. This is powerful when you have 20+ sources but want to compare just two, or when you want to isolate a specific document's perspective on a topic."
+        },
+        {
+          "title": "Drive Search for Source Discovery",
+          "body": "NotebookLM can search your Google Drive to find and import documents you already have. Click the + button and choose 'Google Drive' to browse or search your Drive. This is faster than downloading and re-uploading files, and Google Docs imported this way auto-sync with the original."
+        },
+        {
+          "title": "Managing Source Limits on Free Tier",
+          "body": "The free tier allows 50 sources per notebook. If you hit the limit, consider merging related documents into a single file before uploading. You can also split your research across multiple notebooks and use Gemini integration (covered in Module 12) to query across them."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "4.1",
+          "label": "Toggle Sources for Focused Comparison",
+          "difficulty": "Intermediate",
+          "prompt": "Open a notebook with 4+ sources. In the Sources panel, deselect all sources by unchecking them. Then select only 2 sources that cover a similar topic. Ask: 'Where do these two sources agree? Where do they disagree? Present your findings in a comparison table.' Now deselect those two and select 2 different sources. Ask the same question. Compare the tables.",
+          "expectedOutcome": "NotebookLM produces two distinct comparison tables, each grounded only in the selected sources. The tables show different agreements and disagreements depending on which sources are active, demonstrating source-level isolation."
+        },
+        {
+          "id": "4.2",
+          "label": "Import Documents from Google Drive",
+          "difficulty": "Intermediate",
+          "prompt": "In your notebook, click the + button in the Sources panel and select 'Google Drive'. Use the search bar to find a Google Doc or Google Slides file you have stored in Drive. Select it and import it. Verify it appears in the Sources panel. Make an edit to the original Google Doc, then return to NotebookLM and check if the change is reflected.",
+          "expectedOutcome": "The Google Doc or Slides file appears in the Sources panel. After editing the original document, the changes sync to NotebookLM (may take a few moments). This demonstrates live sync for Google Workspace documents."
+        },
+        {
+          "id": "4.3",
+          "label": "Create a Notebook Guide Source",
+          "difficulty": "Intermediate",
+          "prompt": "Create a new source using Copied text. Title it 'Notebook Guide'. In the text, write 5 key questions you want this notebook to answer, 3 themes to focus on, and any specific terminology definitions relevant to your research. Save it. Then ask NotebookLM: 'Based on my notebook guide, what are the most relevant sections across my other sources?' Check that the AI uses your guide to prioritize its analysis.",
+          "expectedOutcome": "NotebookLM uses your Notebook Guide to frame its analysis, focusing on the themes and questions you defined. The response references your guide source alongside other sources, showing how a guide document shapes all subsequent queries."
+        }
+      ],
+      "proTip": "Add a 'Notebook Guide' source to every notebook. This 1-page document with your key questions and themes acts like a system prompt for all of NotebookLM's outputs -- including audio overviews and reports.",
+      "takeaways": [
+        "Toggle individual sources on or off to constrain queries to specific documents",
+        "Google Drive import provides live-syncing for Docs and Slides",
+        "A Notebook Guide source shapes all AI outputs including audio overviews and reports",
+        "Merge related documents to stay within the 50-source free tier limit",
+        "Source management is the foundation of NotebookLM quality -- garbage in, garbage out"
+      ]
+    },
+    {
+      "id": "m5",
+      "number": 5,
+      "title": "Custom Instructions: Control Every Output",
+      "belt": "brown",
+      "estimatedMinutes": 25,
+      "description": "Configure NotebookLM's behavior with custom instructions that shape every chat response, report, and audio overview.",
+      "keyConcepts": [
+        "Configure Chat",
+        "Persona prompts",
+        "Response length control",
+        "Instruction templates"
+      ],
+      "prerequisites": "m1-m3",
+      "concepts": [
+        {
+          "title": "Configure Chat: The Highest-Impact Feature",
+          "body": "Click the Configure Chat button (gear icon) in the Chat panel. You can write up to 10,000 characters of custom instructions that affect every response -- including Studio outputs like audio overviews and reports. This is the single highest-impact feature most users ignore. It transforms NotebookLM from a generic Q&A tool into a specialized assistant."
+        },
+        {
+          "title": "Persona-Based Instructions",
+          "body": "The most effective custom instructions define a persona with clear rules. For example: 'You are a research advisor. Always cite specific page numbers. Flag contradictions between sources. Distinguish facts from inferences. Rate your confidence on each claim.' This produces dramatically better output than the default behavior."
+        },
+        {
+          "title": "Response Length and Preset Modes",
+          "body": "NotebookLM offers three presets: Default, Learning Guide, and Custom. Learning Guide mode never gives direct answers -- it asks guiding questions instead. You can also set response length to Shorter, Default, or Longer. Shorter works well for quick lookups; Longer for detailed analysis."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "5.1",
+          "label": "Set Up a Research Advisor Persona",
+          "difficulty": "Intermediate",
+          "prompt": "Open a notebook with 3+ sources. Click the Configure Chat button (gear icon near the chat input). Select 'Custom' mode. In the instructions field, paste: 'You are a senior research advisor. For every response: (1) Cite exact passages with source names. (2) Flag any contradictions between sources. (3) Distinguish confirmed facts from inferences. (4) Rate your confidence as HIGH, MEDIUM, or LOW for each major claim.' Set response length to Longer. Ask a substantive question about your sources.",
+          "expectedOutcome": "NotebookLM responds with structured analysis including explicit source citations, contradiction flags if any exist, fact-vs-inference labels, and confidence ratings. The output quality is noticeably higher than the default behavior."
+        },
+        {
+          "id": "5.2",
+          "label": "Switch to Learning Guide Mode",
+          "difficulty": "Intermediate",
+          "prompt": "In the same notebook, click Configure Chat again. Switch from Custom to 'Learning Guide' preset. Now ask the same question you asked in 5.1. Compare the two responses side by side (save the first one as a note if needed).",
+          "expectedOutcome": "Instead of a direct answer, NotebookLM asks you guiding questions to help you arrive at the answer yourself. It references sources but does not give conclusions directly. This demonstrates how presets fundamentally change the interaction style."
+        },
+        {
+          "id": "5.3",
+          "label": "Create a Content Strategist Persona",
+          "difficulty": "Intermediate",
+          "prompt": "Click Configure Chat and switch back to Custom mode. Replace the instructions with: 'You are a content strategist. For every topic: (1) List 5 questions a reader would ask. (2) Use comparison tables when relevant. (3) Identify content gaps -- what topics should be covered but are missing from the sources. (4) End with 3 actionable recommendations.' Set response length to Longer. Ask: 'What content opportunities exist based on my sources?'",
+          "expectedOutcome": "NotebookLM produces a structured content strategy with reader questions, comparison tables where applicable, identified gaps in the source material, and specific actionable recommendations. Each point is grounded in source citations."
+        }
+      ],
+      "proTip": "Custom instructions affect Studio outputs too -- your audio overviews, reports, and infographics will all follow your configured persona. Set it once and every output improves.",
+      "takeaways": [
+        "Configure Chat accepts up to 10,000 characters that shape every response and Studio output",
+        "Persona-based instructions (research advisor, content strategist) produce dramatically better results",
+        "Learning Guide preset switches from direct answers to Socratic questioning",
+        "Response length control (Shorter, Default, Longer) tailors output depth to your needs"
+      ]
+    },
+    {
+      "id": "m6",
+      "number": 6,
+      "title": "Reports and Briefing Docs: Structured Deliverables",
+      "belt": "brown",
+      "estimatedMinutes": 30,
+      "description": "Generate polished reports, study guides, FAQs, and timelines from your sources -- ready to share or export.",
+      "keyConcepts": [
+        "Report formats",
+        "Briefing docs",
+        "Study guides",
+        "Export options"
+      ],
+      "prerequisites": "m1-m3",
+      "concepts": [
+        {
+          "title": "Report Types and Format Selection",
+          "body": "NotebookLM's Studio panel offers multiple report formats: Briefing Doc, Study Guide, FAQ, and Timeline. The suggested formats change dynamically based on your source content. NotebookLM analyzes your sources and recommends the most useful format -- but you can override and pick any type."
+        },
+        {
+          "title": "Source Selection for Targeted Reports",
+          "body": "Before generating a report, toggle which sources should be included. A report from 3 focused sources will be tighter and more useful than one from 30 loosely related sources. Think of source selection as scoping your report before writing it."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "6.1",
+          "label": "Generate a Briefing Doc from Selected Sources",
+          "difficulty": "Intermediate",
+          "prompt": "Open a notebook with 4+ sources. In the Sources panel, select only the 2-3 most important sources for your topic. In the Studio panel (right side), click 'Report'. Select 'Briefing Doc' as the format. Click Generate. Read the output and verify it cites only your selected sources. Export it by clicking the export button and choosing Google Docs.",
+          "expectedOutcome": "A structured briefing document is generated with an executive summary, key findings, and supporting evidence -- all cited from your selected sources only. The exported Google Doc preserves formatting and citations."
+        },
+        {
+          "id": "6.2",
+          "label": "Create a Study Guide with Key Concepts",
+          "difficulty": "Intermediate",
+          "prompt": "With all sources selected, go to Studio > Report and choose 'Study Guide' format. Generate it. Review the output for completeness -- it should include key concepts, definitions, and review questions. Save the study guide as a note for future reference.",
+          "expectedOutcome": "A study guide appears with organized sections covering main concepts, definitions, relationships between ideas, and review questions -- all grounded in your source material. Saving it as a note makes it accessible across sessions."
+        },
+        {
+          "id": "6.3",
+          "label": "Generate a Competitive Timeline",
+          "difficulty": "Intermediate",
+          "prompt": "If your sources contain any chronological information (product launches, events, milestones), go to Studio > Report and choose 'Timeline' format. If Timeline is not suggested, use the search or 'Create Your Own' option and describe: 'Create a chronological timeline of all events, milestones, and developments mentioned across my sources.' Generate and review.",
+          "expectedOutcome": "A chronological timeline is generated showing events, dates, and milestones extracted from your sources, with citations linking each entry to its source document. Events are ordered by date with context for each."
+        }
+      ],
+      "proTip": "Use 'Create Your Own' report format when the preset formats do not fit. Describe exactly what structure you want -- for example, 'Create a SWOT analysis based on my sources' -- and NotebookLM will build a custom report format.",
+      "takeaways": [
+        "Reports come in multiple formats: Briefing Doc, Study Guide, FAQ, Timeline, and custom",
+        "Source selection before generation controls report scope and quality",
+        "Reports export to Google Docs with formatting and citations preserved",
+        "Custom report formats let you define any structure you need"
+      ]
+    },
+    {
+      "id": "m7",
+      "number": 7,
+      "title": "Audio Overviews: Create Podcasts from Your Documents",
+      "belt": "brown",
+      "estimatedMinutes": 30,
+      "description": "Generate podcast-style audio discussions from your sources -- from quick summaries to deep dives with custom focus prompts.",
+      "keyConcepts": [
+        "Audio formats",
+        "Focus prompts",
+        "Language selection",
+        "Interactive mode",
+        "Download and distribution"
+      ],
+      "prerequisites": "m1-m3",
+      "concepts": [
+        {
+          "title": "Audio Overview Formats",
+          "body": "NotebookLM offers four audio formats. Deep Dive is a 10-20 minute two-host discussion that explores your sources in depth. Brief is a 5-8 minute single-narrator summary. Lecture is a longer 30-minute structured presentation. You can also create Debate and Critique formats by specifying them in the Customize field."
+        },
+        {
+          "title": "Focus Prompts: Steering the Conversation",
+          "body": "The Customize field (up to 500 characters) lets you direct what the audio overview covers. Instead of letting NotebookLM choose the focus, you can say 'Focus on the three most controversial findings and explain why experts disagree.' This dramatically improves relevance for your specific needs."
+        },
+        {
+          "title": "Interactive Mode",
+          "body": "During audio playback, you can pause and ask NotebookLM a question about what was just discussed. The AI answers from your sources, then playback resumes. This transforms passive listening into an interactive learning experience -- like having a conversation with the podcast hosts."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "7.1",
+          "label": "Generate a Deep Dive Audio Overview",
+          "difficulty": "Intermediate",
+          "prompt": "Open a notebook with 3-5 focused sources. In the Studio panel, click 'Audio Overview'. Select 'Deep Dive' format. Leave the Customize field empty for now. Click Generate and wait for the audio to be created (usually 2-5 minutes). Play the generated audio and listen to the first 3 minutes to evaluate the quality.",
+          "expectedOutcome": "A 10-20 minute podcast-style audio plays with two AI hosts discussing your source material. The hosts reference specific points from your documents, introduce topics naturally, and build on each other's points. The audio is downloadable as MP3."
+        },
+        {
+          "id": "7.2",
+          "label": "Use a Focus Prompt to Steer the Discussion",
+          "difficulty": "Intermediate",
+          "prompt": "Generate a second audio overview, but this time fill in the Customize field with: 'Focus on practical applications and actionable takeaways. Explain technical concepts in simple terms that a non-expert would understand. End with three specific things the listener should do this week.' Compare this audio with the first one you generated.",
+          "expectedOutcome": "The second audio overview has a noticeably different focus -- more practical, more accessible language, and ending with specific action items. The contrast between the unfocused and focused versions demonstrates the power of the Customize field."
+        },
+        {
+          "id": "7.3",
+          "label": "Generate a Brief Summary in a Different Language",
+          "difficulty": "Intermediate",
+          "prompt": "Generate a third audio overview. Select 'Brief' format instead of Deep Dive. In the language dropdown, select a language other than English (Spanish, French, Japanese, or any language you understand). Generate and listen. Verify the content accurately reflects your sources even in the other language.",
+          "expectedOutcome": "A 5-8 minute single-narrator audio is generated in your chosen language. The content covers key points from your sources with accurate translation of concepts. NotebookLM supports 80+ languages for audio overviews."
+        },
+        {
+          "id": "7.4",
+          "label": "Use Interactive Mode During Playback",
+          "difficulty": "Intermediate",
+          "prompt": "Play an audio overview you generated. When you hear an interesting point, click the pause button. In the Interactive Mode prompt that appears, type a follow-up question about what was just discussed -- for example, 'Can you give me more details about that last point?' Read the AI response (grounded in your sources), then resume playback.",
+          "expectedOutcome": "NotebookLM pauses playback and provides a source-grounded answer to your question. The answer includes citations to your uploaded documents. Playback resumes from where you paused, creating an interactive podcast experience."
+        }
+      ],
+      "proTip": "Add a 'Notebook Guide' source (from Module 4) before generating audio. The guide's key questions and themes will steer the audio discussion, giving you a quasi-custom podcast every time.",
+      "takeaways": [
+        "Four audio formats: Deep Dive (two hosts, 10-20 min), Brief (single narrator, 5-8 min), Lecture (30 min), and custom Debate/Critique",
+        "Focus prompts up to 500 characters dramatically improve audio relevance",
+        "Interactive mode lets you pause and ask questions mid-playback",
+        "Audio overviews support 80+ languages",
+        "Download as MP3 for distribution or further editing"
+      ]
+    },
+    {
+      "id": "m8",
+      "number": 8,
+      "title": "Visual Intelligence: Mind Maps, Infographics, and Data Tables",
+      "belt": "brown",
+      "estimatedMinutes": 30,
+      "description": "Transform your sources into interactive mind maps, styled infographics, and structured data tables.",
+      "keyConcepts": [
+        "Mind map interaction",
+        "Infographic styles",
+        "Data table extraction",
+        "Export workflows"
+      ],
+      "prerequisites": "m1-m3",
+      "concepts": [
+        {
+          "title": "Interactive Mind Maps",
+          "body": "Mind maps visualize concept relationships from your sources as an interactive tree. Click any branch to expand or collapse it. The unique feature is that clicking a node opens a source-grounded chat about that specific topic. This makes mind maps a navigation tool, not just a visualization."
+        },
+        {
+          "title": "Infographic Styles",
+          "body": "NotebookLM offers 10 infographic styles: Sketch Note, Kawaii, Professional, Scientific, Anime, Clay, Editorial, Instructional, Bento Grid, and Bricks. Each produces a distinct visual treatment. You can also upload brand guidelines as a source to get branded infographics."
+        },
+        {
+          "title": "Data Tables: Structured Extraction",
+          "body": "Data tables extract scattered information from your sources into sortable, filterable tables. This is particularly valuable when your sources contain specifications, comparisons, or lists buried in prose. Tables can be exported to Google Sheets for further analysis."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "8.1",
+          "label": "Generate and Explore an Interactive Mind Map",
+          "difficulty": "Intermediate",
+          "prompt": "Open a notebook with 3+ sources. In the Studio panel, click 'Mind Map'. Click Generate. When the mind map appears, click on 3 different branches to expand them. Then click on a leaf node (an end point) and read the source-grounded chat response that appears. Download the mind map as an image using the download button.",
+          "expectedOutcome": "An interactive mind map displays the main concepts and their relationships across your sources. Clicking branches expands sub-topics. Clicking a leaf node opens a chat panel with a detailed, cited explanation of that concept. The mind map downloads as a PNG image."
+        },
+        {
+          "id": "8.2",
+          "label": "Create a Branded Infographic",
+          "difficulty": "Intermediate",
+          "prompt": "In the Studio panel, click 'Infographic'. Browse the style options and select 'Professional'. Add a focus prompt such as: 'Highlight the top 4 findings from my sources with key statistics.' Click Generate. Then generate a second infographic with the 'Sketch Note' style using the same focus prompt. Compare both visuals.",
+          "expectedOutcome": "Two infographics are generated with distinctly different visual styles but the same content focus. The Professional version is clean and corporate. The Sketch Note version is hand-drawn and informal. Both accurately represent your source material."
+        },
+        {
+          "id": "8.3",
+          "label": "Extract a Data Table and Export to Sheets",
+          "difficulty": "Intermediate",
+          "prompt": "In the Studio panel, click 'Data Table'. In the description field, write: 'Create a comparison table of all products, tools, or entities mentioned in my sources. Include columns for name, key features, strengths, and weaknesses.' Click Generate. Review the table for accuracy. Export it to Google Sheets using the export button.",
+          "expectedOutcome": "A structured table appears with rows for each entity found in your sources and columns as specified. The data is grounded in source citations. Exporting to Google Sheets creates a new spreadsheet with the same structure and data."
+        }
+      ],
+      "proTip": "Generate a mind map first when starting with a new set of sources. It gives you a visual overview of all concepts and their relationships before you dive into detailed queries.",
+      "takeaways": [
+        "Mind maps are interactive -- click nodes to open source-grounded chats about each concept",
+        "10 infographic styles available; upload brand guidelines for branded output",
+        "Data tables extract scattered information into sortable, exportable structures",
+        "All visual outputs are grounded in your sources with traceable citations",
+        "Export mind maps as images, infographics as images, and data tables to Google Sheets"
+      ]
+    },
+    {
+      "id": "m9",
+      "number": 9,
+      "title": "Slide Decks and Video Overviews: Presentation Outputs",
+      "belt": "brown",
+      "estimatedMinutes": 30,
+      "description": "Generate AI-powered slide decks with revision capability and cinematic video overviews from your source material.",
+      "keyConcepts": [
+        "Slide generation",
+        "Per-slide revisions",
+        "Video formats",
+        "PPTX export"
+      ],
+      "prerequisites": "m1-m3",
+      "concepts": [
+        {
+          "title": "AI-Generated Slide Decks",
+          "body": "NotebookLM generates complete slide presentations from your sources. The AI structures the narrative, selects key points, and creates a logical flow. You can leave per-slide revision instructions -- for example, 'Add a comparison chart to slide 3' -- and NotebookLM rebuilds that slide while keeping the rest intact. Export as PPTX for editing in PowerPoint or Google Slides."
+        },
+        {
+          "title": "Video Overviews",
+          "body": "Video overviews are animated narrated summaries of your sources. Two formats are available: Explainer (standard animated) and Cinematic (using Google's Veo 3 for higher production value). Cinematic videos take longer to generate but produce professional-quality output. Videos can be shared directly or embedded in presentations."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "9.1",
+          "label": "Generate a Slide Deck and Request Revisions",
+          "difficulty": "Intermediate",
+          "prompt": "Open a notebook with focused sources. In the Studio panel, click 'Slide Deck'. Select 'Detailed Deck' format. Click Generate. Review the slides. For any slide you want to improve, leave a revision comment such as: 'Add a comparison table to this slide' or 'Make this slide more visual with bullet points instead of paragraphs.' Regenerate the revised deck. Export as PPTX.",
+          "expectedOutcome": "An initial slide deck is generated with a logical narrative structure. After revision instructions, specific slides are rebuilt while the overall structure is preserved. The PPTX export opens correctly in PowerPoint or Google Slides with all content intact."
+        },
+        {
+          "id": "9.2",
+          "label": "Create a Video Overview of Your Sources",
+          "difficulty": "Intermediate",
+          "prompt": "In the Studio panel, click 'Video Overview'. Select 'Explainer' format. Add a focus prompt: 'Create a 2-minute overview that explains the 3 most important takeaways from my sources.' Click Generate and wait for the video to render (this may take 5-10 minutes). Watch the complete video.",
+          "expectedOutcome": "An animated video plays with narration covering the three key takeaways from your sources. The video includes visual elements, transitions, and a structured narrative. The content is grounded in your uploaded source material."
+        },
+        {
+          "id": "9.3",
+          "label": "Compare Explainer vs. Detailed Slide Formats",
+          "difficulty": "Intermediate",
+          "prompt": "Generate a second slide deck, this time selecting 'Presenter Slides' format instead of 'Detailed Deck'. Compare the two decks side by side. Note the differences in text density, visual layout, and presentation style. Save the one that better fits your needs.",
+          "expectedOutcome": "Presenter Slides have less text per slide with more visual emphasis, designed for live presentations where the speaker adds context. Detailed Deck has more comprehensive text, suitable for standalone documents. Both cover the same source material with different presentation approaches."
+        }
+      ],
+      "proTip": "Use slide decks for narrative brainstorming, not final design. Generate the deck for structure and content, then export to PPTX and polish the visuals in PowerPoint or Google Slides.",
+      "takeaways": [
+        "Slide decks auto-structure your source content into a logical presentation narrative",
+        "Per-slide revision instructions let you refine individual slides without regenerating the whole deck",
+        "Export as PPTX for further editing in PowerPoint or Google Slides",
+        "Video overviews come in Explainer (standard) and Cinematic (Veo 3) formats",
+        "Use slides for structure and narrative -- polish visuals in your preferred presentation tool"
+      ]
+    },
+    {
+      "id": "m10",
+      "number": 10,
+      "title": "Study Mode: Quizzes, Flashcards, and Active Learning",
+      "belt": "brown",
+      "estimatedMinutes": 25,
+      "description": "Use NotebookLM's study tools to test your understanding, build retention with flashcards, and practice the Feynman technique.",
+      "keyConcepts": [
+        "Quiz generation",
+        "Flashcard difficulty levels",
+        "Progress tracking",
+        "Feynman technique"
+      ],
+      "prerequisites": "m1-m3",
+      "concepts": [
+        {
+          "title": "Quiz Generation from Sources",
+          "body": "NotebookLM generates multiple-choice quizzes grounded in your sources. Questions test contextual understanding, not just recall. You can track progress with 'Got it' and 'Missed it' buttons that persist across sessions. This is valuable for certification prep, onboarding, and knowledge verification."
+        },
+        {
+          "title": "Flashcards with Difficulty Levels",
+          "body": "Flashcards are generated at Easy, Medium, or Hard difficulty levels. Easy cards test basic terminology. Medium cards test relationships between concepts. Hard cards test application and synthesis. Cards can be shuffled and progress is saved across sessions."
+        },
+        {
+          "title": "The Feynman Technique with NotebookLM",
+          "body": "The Feynman technique involves explaining a concept in your own words to test understanding. With NotebookLM, you can explain a concept in chat and ask: 'Evaluate my explanation. What did I get right? What did I miss or get wrong? Use my sources to correct me.' NotebookLM becomes your study partner."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "10.1",
+          "label": "Generate and Take a Quiz",
+          "difficulty": "Intermediate",
+          "prompt": "Open a notebook with sources you want to study. In the Studio panel, click 'Quiz'. Set difficulty to Medium and question count to 5. Click Generate. Answer each question, then click 'Got it' or 'Missed it' for each one. Review your score and read the source-cited explanations for any questions you missed.",
+          "expectedOutcome": "A 5-question multiple-choice quiz appears with questions grounded in your source material. Each answer reveals the correct option with a cited explanation from your sources. Your progress (Got it / Missed it) is saved for future sessions."
+        },
+        {
+          "id": "10.2",
+          "label": "Create Flashcards at Different Difficulty Levels",
+          "difficulty": "Intermediate",
+          "prompt": "In the Studio panel, click 'Flashcards'. Generate a set at 'Easy' difficulty. Review 5 cards by flipping them. Then generate a second set at 'Hard' difficulty. Compare the complexity of questions between Easy and Hard sets. Shuffle the Hard set and study 10 cards.",
+          "expectedOutcome": "Easy flashcards test basic definitions and terminology. Hard flashcards require synthesis across sources and application of concepts. The shuffle feature randomizes card order. Progress is tracked per card across sessions."
+        },
+        {
+          "id": "10.3",
+          "label": "Practice the Feynman Technique",
+          "difficulty": "Intermediate",
+          "prompt": "Choose a concept from your sources. In the Chat panel, write your own explanation of it in 3-5 sentences -- without looking at the sources. Then ask: 'Evaluate my explanation above. What did I get right? What did I miss? What did I get wrong? Use my sources to provide corrections and additions.' Read the AI's evaluation and identify gaps in your understanding.",
+          "expectedOutcome": "NotebookLM evaluates your explanation against the source material, identifying correct points, missing elements, and any errors. The corrections include specific citations to source passages, showing exactly where the correct information can be found."
+        }
+      ],
+      "proTip": "Generate quizzes after every deep study session. The act of testing yourself forces active recall, which research shows is 2-3x more effective for retention than re-reading.",
+      "takeaways": [
+        "Quizzes test contextual understanding with source-cited explanations for every answer",
+        "Flashcard difficulty levels (Easy, Medium, Hard) target different knowledge depths",
+        "Progress tracking persists across sessions for both quizzes and flashcards",
+        "The Feynman technique -- explain then get corrected -- is a powerful study workflow in NotebookLM"
+      ]
+    },
+    {
+      "id": "m11",
+      "number": 11,
+      "title": "Deep Research: Automated Web and Drive Discovery",
+      "belt": "brown",
+      "estimatedMinutes": 30,
+      "description": "Use NotebookLM's built-in research tools to automatically discover, evaluate, and import new sources from the web and Google Drive.",
+      "keyConcepts": [
+        "Fast vs. Deep Research",
+        "Web research workflow",
+        "Drive research",
+        "Source import and curation"
+      ],
+      "prerequisites": "m1-m4",
+      "concepts": [
+        {
+          "title": "Fast Research vs. Deep Research",
+          "body": "Fast Research takes about 30 seconds and finds roughly 10 sources from the web or Drive. Deep Research takes up to 5 minutes and discovers around 40 sources with a generated report. Fast is for quick augmentation. Deep is for comprehensive literature reviews and competitive analysis."
+        },
+        {
+          "title": "The Deep Research Workflow",
+          "body": "Deep Research automates what would take hours manually: it searches the web across multiple sites, evaluates relevance, generates a structured report with citations, and offers one-click import of all discovered sources into your notebook. After import, every source is available for Chat, Audio Overviews, and all other Studio tools."
+        },
+        {
+          "title": "Source Curation After Research",
+          "body": "Deep Research imports many sources, but not all are equally valuable. After import, review the source list and remove low-quality or irrelevant sources. The quality of your notebook's outputs depends directly on source quality. Curation is not optional -- it is part of the research process."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "11.1",
+          "label": "Run a Fast Web Research Query",
+          "difficulty": "Intermediate",
+          "prompt": "In your notebook, look for the Research button (or use the + menu). Select 'Web' as the source and 'Fast' as the mode. Enter a specific research query related to your notebook's topic -- for example, 'Recent developments in [your topic] 2026'. Wait 30 seconds for results. Review the discovered sources and import the 3 most relevant ones.",
+          "expectedOutcome": "Fast Research returns approximately 10 web sources within 30 seconds. Each source shows a title, URL, and relevance preview. After selecting and importing 3 sources, they appear in your Sources panel and are immediately available for Chat queries."
+        },
+        {
+          "id": "11.2",
+          "label": "Run Deep Research for Competitive Analysis",
+          "difficulty": "Intermediate",
+          "prompt": "Use Deep Research (select 'Deep' mode) with a competitive analysis query: 'Products and companies that compete with [a product in your sources], comparing features, pricing, and user sentiment.' Wait up to 5 minutes for the research to complete. Read the generated report. Import all discovered sources with one click. Then ask Chat: 'Based on the deep research findings, what are the top 3 competitive threats?'",
+          "expectedOutcome": "Deep Research returns a structured report with approximately 40 sources, organized by relevance. The report includes comparisons, pricing data, and sentiment analysis. After one-click import, all sources are available for cross-referencing in Chat with full citation support."
+        },
+        {
+          "id": "11.3",
+          "label": "Search Google Drive for Internal Documents",
+          "difficulty": "Intermediate",
+          "prompt": "Use the Research feature and select 'Drive' as the source instead of 'Web'. Search for documents related to your notebook's topic using keywords you know exist in your Drive files. Review the results and import any relevant documents. Verify they appear in the Sources panel with the Google Drive icon.",
+          "expectedOutcome": "Drive Research finds Google Docs, Slides, and Sheets from your Drive that match the search query. Imported Drive documents appear in the Sources panel with Drive icons and auto-sync with the originals. This is faster than manually downloading and re-uploading files."
+        }
+      ],
+      "proTip": "Run Deep Research before starting any major project. It discovers sources you would never find manually and gives you a head start on comprehensive analysis. Budget 5 minutes for the research and 10 minutes for source curation.",
+      "takeaways": [
+        "Fast Research finds 10 sources in 30 seconds; Deep Research finds 40 sources in 5 minutes",
+        "Deep Research generates a structured report with citations before source import",
+        "Drive Research finds and imports Google Workspace documents with live sync",
+        "Source curation after research is mandatory -- remove low-quality sources for better outputs",
+        "Deep Research replaces hours of manual searching and source gathering"
+      ]
+    },
+    {
+      "id": "m12",
+      "number": 12,
+      "title": "Gemini Integration and Cross-Notebook Queries",
+      "belt": "black",
+      "estimatedMinutes": 35,
+      "description": "Break the notebook silo by mounting multiple notebooks in Gemini -- query across your entire knowledge base with real-time web augmentation.",
+      "keyConcepts": [
+        "Gemini App integration",
+        "Cross-notebook queries",
+        "Web augmentation",
+        "Multi-notebook strategy"
+      ],
+      "prerequisites": "m1-m5",
+      "concepts": [
+        {
+          "title": "Mounting Notebooks in Gemini",
+          "body": "In the Gemini App, click the + button and select NotebookLM notebooks to mount. Once mounted, you can query across multiple notebooks simultaneously. Gemini adds its own web search capability, so you get source-grounded answers augmented with real-time information. This solves the biggest limitation of NotebookLM -- notebook isolation."
+        },
+        {
+          "title": "Cross-Notebook Knowledge Architecture",
+          "body": "Design your notebooks as modular knowledge bases: one for market research, one for product specs, one for competitor analysis. When mounted in Gemini, you can ask questions that span all three. This architecture scales far beyond the 50-source-per-notebook limit."
+        },
+        {
+          "title": "Web Augmentation in Gemini",
+          "body": "When a question goes beyond what your notebooks contain, Gemini automatically supplements with web search results. It clearly distinguishes between source-grounded answers (from your notebooks) and web-sourced answers. This gives you the best of both worlds -- source fidelity plus real-time information."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "12.1",
+          "label": "Mount a Notebook in Gemini and Query It",
+          "difficulty": "Advanced",
+          "prompt": "Open the Gemini App (gemini.google.com). Click the + button or look for the NotebookLM integration option. Select one of your NotebookLM notebooks to mount. Once mounted, ask Gemini a question about your notebook's content. Compare the response with what you get by asking the same question directly in NotebookLM.",
+          "expectedOutcome": "Gemini provides a response that draws from your mounted notebook content with citations, plus optional web augmentation for context beyond your sources. The response may be broader than what NotebookLM alone provides, since Gemini adds its own knowledge."
+        },
+        {
+          "id": "12.2",
+          "label": "Query Across Multiple Mounted Notebooks",
+          "difficulty": "Advanced",
+          "prompt": "Create or use 2 different notebooks on related but distinct topics. Mount both in Gemini. Ask a question that requires information from both notebooks -- for example, 'How does the technical approach in Notebook A compare to the business strategy in Notebook B?' Check that the response cites sources from both notebooks.",
+          "expectedOutcome": "Gemini synthesizes information from both mounted notebooks, citing sources from each. The response demonstrates cross-notebook analysis that is not possible within a single NotebookLM instance. Source attributions clearly indicate which notebook each piece of information comes from."
+        },
+        {
+          "id": "12.3",
+          "label": "Test Web Augmentation with a Time-Sensitive Question",
+          "difficulty": "Advanced",
+          "prompt": "With a notebook mounted in Gemini, ask a question that combines your source material with current events -- for example, 'Based on my sources about [topic], how does this compare to the latest developments this week?' Observe how Gemini distinguishes between notebook-sourced and web-sourced information in the response.",
+          "expectedOutcome": "Gemini provides a response that blends your notebook content (with citations) and real-time web results. The response clearly labels or distinguishes which information comes from your sources versus from web search, giving you both fidelity and freshness."
+        }
+      ],
+      "proTip": "Design notebooks as modular building blocks -- each covering a distinct knowledge domain. Mount them in Gemini for cross-domain queries. This architecture scales to hundreds of sources across multiple notebooks without hitting per-notebook limits.",
+      "takeaways": [
+        "Gemini integration breaks the notebook isolation barrier -- query across all your notebooks",
+        "Web augmentation adds real-time information to your source-grounded answers",
+        "Design notebooks as modular knowledge bases for scalable cross-domain querying",
+        "Gemini clearly distinguishes between notebook-sourced and web-sourced information"
+      ]
+    },
+    {
+      "id": "m13",
+      "number": 13,
+      "title": "Advanced Workflows: Tool Chaining and Cross-Source Synthesis",
+      "belt": "black",
+      "estimatedMinutes": 35,
+      "description": "Chain NotebookLM with external tools and master cross-source synthesis techniques for professional-grade research.",
+      "keyConcepts": [
+        "Tool chaining",
+        "Cross-source synthesis",
+        "Red-teaming your analysis",
+        "Prompt chaining"
+      ],
+      "prerequisites": "m1-m7",
+      "concepts": [
+        {
+          "title": "Tool Chaining: Perplexity + NotebookLM + Claude",
+          "body": "The most powerful research workflow chains three tools. Use Perplexity to discover the latest sources on a topic. Import those URLs into NotebookLM for deep, cited analysis. Export key findings and use Claude or ChatGPT for creative synthesis and content generation. Each tool handles what it does best."
+        },
+        {
+          "title": "Cross-Source Synthesis Techniques",
+          "body": "Move beyond simple Q&A by asking synthesis questions: 'Where do sources A and B agree? Where do they conflict? What framework resolves these differences?' Request comparison matrices across multiple dimensions. Ask for 'the strongest counterargument to...' based on your sources. These prompts produce insights that no single source contains."
+        },
+        {
+          "title": "Red-Teaming Your Own Analysis",
+          "body": "Use NotebookLM to challenge your conclusions. After building an analysis, ask: 'What are the weaknesses in this argument? What evidence in my sources contradicts this conclusion? What assumptions am I making that the sources do not support?' This adversarial approach strengthens your work before you share it."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "13.1",
+          "label": "Build a Perplexity-to-NotebookLM Pipeline",
+          "difficulty": "Advanced",
+          "prompt": "Open Perplexity (perplexity.ai) and search for the latest research on a topic relevant to your work. Copy the 5 best source URLs from Perplexity's citations. Return to NotebookLM and add each URL as a source using + > Website. Once all 5 are loaded, ask NotebookLM: 'Synthesize the key findings across all sources. Where do they agree? Where do they conflict?'",
+          "expectedOutcome": "NotebookLM produces a synthesis of the 5 Perplexity-discovered sources with cited agreements and conflicts. This pipeline combines Perplexity's real-time discovery with NotebookLM's deep citation-backed analysis -- better than either tool alone."
+        },
+        {
+          "id": "13.2",
+          "label": "Generate a Cross-Source Comparison Matrix",
+          "difficulty": "Advanced",
+          "prompt": "In a notebook with 4+ sources, ask: 'Create a comparison matrix with my sources as columns and the following dimensions as rows: main thesis, methodology, key evidence, limitations, and practical implications. Fill in each cell with specific details from that source.' Review the matrix for gaps and contradictions.",
+          "expectedOutcome": "A detailed comparison matrix appears with each source in a column and analytical dimensions in rows. Each cell contains specific, cited information from the respective source. The matrix reveals patterns, gaps, and contradictions that are not visible when reading sources individually."
+        },
+        {
+          "id": "13.3",
+          "label": "Red-Team Your Own Conclusions",
+          "difficulty": "Advanced",
+          "prompt": "Write a 3-sentence conclusion about your topic based on your research so far. Paste it into Chat and ask: 'I have reached this conclusion: [your conclusion]. Red-team this analysis. What are the weaknesses? What evidence in my sources contradicts it? What assumptions am I making that the sources do not support? Be rigorous and specific.'",
+          "expectedOutcome": "NotebookLM identifies specific weaknesses, contradicting evidence, and unsupported assumptions in your conclusion. Each critique is backed by citations to source passages. This adversarial analysis strengthens your final argument before you share it."
+        },
+        {
+          "id": "13.4",
+          "label": "Chain Audio Overview Output as a New Source",
+          "difficulty": "Advanced",
+          "prompt": "Generate an audio overview from your sources. After it generates, look for the transcript option. Save or copy the transcript. Add it back into NotebookLM as a new pasted text source titled 'Audio Synthesis v1'. Now ask Chat: 'Compare the audio synthesis with the original sources. What nuances were lost in the audio version? What new connections did the audio hosts make that are not explicit in any single source?'",
+          "expectedOutcome": "NotebookLM compares the audio transcript against original sources, identifying both information loss and emergent insights. This recursive technique -- feeding outputs back as inputs -- surfaces meta-level insights about how your sources connect."
+        }
+      ],
+      "proTip": "Red-team every major conclusion before publishing. The 30 seconds it takes to ask NotebookLM to challenge your analysis can save you from embarrassing errors and strengthen your argument significantly.",
+      "takeaways": [
+        "Chain Perplexity (discovery) + NotebookLM (analysis) + Claude (synthesis) for maximum research power",
+        "Cross-source comparison matrices reveal patterns invisible when reading sources individually",
+        "Red-teaming your conclusions with NotebookLM catches weaknesses before your audience does",
+        "Feeding outputs back as sources creates recursive insight loops"
+      ]
+    },
+    {
+      "id": "m14",
+      "number": 14,
+      "title": "Domain Playbooks: Research, Business, Education, and Content",
+      "belt": "black",
+      "estimatedMinutes": 40,
+      "description": "Apply NotebookLM to real professional domains -- academic research, competitive analysis, course design, and content creation pipelines.",
+      "keyConcepts": [
+        "Academic research workflow",
+        "Competitive analysis",
+        "Course and training design",
+        "Content creation pipeline"
+      ],
+      "prerequisites": "m1-m8",
+      "concepts": [
+        {
+          "title": "Academic Research: Literature Review Pipeline",
+          "body": "Upload 20-50 research papers. Use Deep Research to find additional sources. Generate a mind map to visualize the research landscape. Use comparison matrices to identify agreements and contradictions across papers. Generate a study guide for exam prep. Create audio overviews for commute-time review. Export reports for thesis chapters."
+        },
+        {
+          "title": "Business: Competitive Intelligence System",
+          "body": "Create a notebook per competitor. Upload their public filings, product pages, blog posts, and press releases. Use Deep Research for market coverage. Generate comparison tables across competitors. Create briefing docs for executive presentations. Update monthly by re-running Deep Research and refreshing Google Docs sources."
+        },
+        {
+          "title": "Education: Course Design and Student Support",
+          "body": "Upload your syllabus, textbooks, and lecture notes. Generate study guides for each unit. Create quizzes at progressive difficulty levels. Build flashcard sets for terminology review. Generate audio overviews students can listen to while commuting. Use Custom Instructions to set NotebookLM as a 'Learning Coach' that guides rather than gives answers."
+        },
+        {
+          "title": "Content Creation: Multi-Channel Pipeline",
+          "body": "Upload source materials (reports, interviews, data). Generate multiple content angles using different Chat personas. Create audio overviews for podcast distribution. Build slide decks for webinar presentations. Export briefing docs as blog post outlines. Each output serves a different channel from the same source material."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "14.1",
+          "label": "Build a Literature Review Notebook",
+          "difficulty": "Advanced",
+          "prompt": "Create a new notebook called 'Literature Review'. Upload 5 research papers or articles on a topic you are studying (PDFs or URLs). Run Deep Research to find additional related papers. Generate a mind map to visualize the research landscape. Then ask: 'Identify the top 3 areas of consensus and the top 3 areas of disagreement across these papers. Cite specific authors and findings.'",
+          "expectedOutcome": "A mind map shows the conceptual landscape of your research field. The Chat response identifies specific areas of consensus and disagreement with citations to individual papers and their findings. This is the foundation of a proper literature review."
+        },
+        {
+          "id": "14.2",
+          "label": "Create a Competitive Intelligence Briefing",
+          "difficulty": "Advanced",
+          "prompt": "Create a notebook called 'Competitive Analysis'. Add 3-4 competitor websites as URL sources (their product pages, pricing pages, and blog). Run Deep Research: 'Products competing with [your product/company], features, pricing, market position.' Generate a Report in Briefing Doc format. Generate an infographic in Professional style with focus: 'Compare pricing and key differentiators across competitors.'",
+          "expectedOutcome": "A comprehensive competitive briefing doc is generated with executive summary, competitor profiles, feature comparisons, and market positioning. The infographic provides a visual comparison of pricing and differentiators. Both outputs are grounded in discovered sources with full citations."
+        },
+        {
+          "id": "14.3",
+          "label": "Design a Course Module with Study Materials",
+          "difficulty": "Advanced",
+          "prompt": "Create a notebook for a course you teach or study. Upload the course materials (syllabus, textbook chapters, lecture slides). Set Custom Instructions to 'Learning Guide' mode. Generate a Study Guide report. Generate flashcards at Medium difficulty. Generate a quiz with 10 questions. Generate an audio overview with focus: 'Key concepts a student must understand for the final exam.'",
+          "expectedOutcome": "Four study artifacts are generated: a structured study guide, a flashcard set, a 10-question quiz with cited explanations, and a podcast-style audio overview. All are grounded in the uploaded course materials and can be shared with students directly."
+        },
+        {
+          "id": "14.4",
+          "label": "Build a Content Creation Pipeline",
+          "difficulty": "Advanced",
+          "prompt": "Create a notebook called 'Content Pipeline'. Upload 3 source documents (industry reports, interview transcripts, or data sets). Set Custom Instructions to 'Content Strategist' mode (from Module 5). Ask: 'What are the top 5 content angles from these sources? For each angle, suggest a blog post title, key talking points, and target audience.' Generate an audio overview with focus on the top angle. Generate a slide deck for the same angle.",
+          "expectedOutcome": "Five distinct content angles are identified with titles, talking points, and audiences. An audio overview covers the top angle in podcast format. A slide deck provides a presentation framework for the same angle. All three outputs serve different channels from the same source material."
+        }
+      ],
+      "proTip": "Create template notebooks for each domain workflow. A 'Literature Review Template' notebook with your standard Notebook Guide and Custom Instructions saves 15 minutes of setup every time you start a new review.",
+      "takeaways": [
+        "Academic research: upload papers, run Deep Research, generate mind maps and comparison matrices",
+        "Business intelligence: competitor notebooks with monthly Deep Research refreshes",
+        "Education: Learning Coach mode + quizzes + flashcards + audio overviews for complete study systems",
+        "Content creation: one source set generates blog posts, podcasts, slides, and social content"
+      ]
+    },
+    {
+      "id": "m15",
+      "number": 15,
+      "title": "Building Your NotebookLM System: Templates and Daily Workflows",
+      "belt": "black",
+      "estimatedMinutes": 35,
+      "description": "Design a personal knowledge management system with notebook templates, prompt libraries, daily workflows, and long-term maintenance strategies.",
+      "keyConcepts": [
+        "Notebook architecture",
+        "Template notebooks",
+        "Prompt libraries",
+        "Maintenance workflows",
+        "Scaling strategies"
+      ],
+      "prerequisites": "m1-m11",
+      "concepts": [
+        {
+          "title": "Notebook Architecture: Organizing Your Knowledge",
+          "body": "Design your notebooks as modular units: one per project, topic, or domain. Use consistent naming conventions (e.g., 'Research -- AI Ethics 2026', 'Client -- Acme Corp'). Each notebook should have a Notebook Guide source and configured Custom Instructions. When you outgrow the 50-source limit, split into sub-notebooks and connect via Gemini."
+        },
+        {
+          "title": "Prompt Template Notebook",
+          "body": "Create a dedicated 'Prompt Templates' notebook. Add your best custom instruction configurations, synthesis questions, and analysis frameworks as pasted text sources. When starting a new project, reference this notebook for proven prompts instead of writing from scratch. This is your institutional knowledge of what works."
+        },
+        {
+          "title": "Daily and Weekly Maintenance Workflows",
+          "body": "For active projects, follow a rhythm: daily -- check for new source updates and run quick queries. Weekly -- refresh Drive sources, run Fast Research for new developments, review and prune stale sources, generate updated reports. Monthly -- run Deep Research, regenerate audio overviews, archive or merge aging notebooks."
+        },
+        {
+          "title": "Scaling Beyond Free Tier",
+          "body": "When free tier limits constrain you, evaluate the upgrade path. Plus ($14/month) doubles source limits to 100. Pro ($20/month) adds 300 sources, more daily interactions, and cinematic video. Ultra ($250/month) is for power users who need 600 sources and 5,000 daily chats. Most professionals find Pro sufficient."
+        }
+      ],
+      "prompts": [
+        {
+          "id": "15.1",
+          "label": "Design Your Notebook Architecture",
+          "difficulty": "Advanced",
+          "prompt": "Open NotebookLM and review all your existing notebooks. Create a plan: (1) List all notebooks by purpose. (2) Identify notebooks that should be merged (too granular) or split (too broad). (3) Define a naming convention you will use going forward. (4) Decide which notebooks to mount in Gemini for cross-notebook queries. Write this plan as a pasted text source in a new notebook called 'My NotebookLM System'.",
+          "expectedOutcome": "A 'My NotebookLM System' notebook exists with a source document outlining your notebook architecture -- organized by purpose, with a naming convention, merge/split decisions, and a Gemini mounting strategy. This becomes your personal knowledge management blueprint."
+        },
+        {
+          "id": "15.2",
+          "label": "Build a Prompt Templates Library",
+          "difficulty": "Advanced",
+          "prompt": "Create a pasted text source titled 'Prompt Templates' in your system notebook. Include at least 5 reusable prompts organized by category: (1) Analysis prompts (comparison matrix, SWOT, red-team). (2) Synthesis prompts (cross-source themes, contradiction detection). (3) Custom Instruction templates (Research Advisor, Content Strategist, Learning Coach). (4) Report format descriptions. (5) Audio focus prompts. Save this as both a note and a source.",
+          "expectedOutcome": "A structured prompt library exists as a referenceable source in your system notebook. Each prompt is copy-paste ready with clear labels. This library saves time on every new project by providing proven starting points for analysis, synthesis, and content generation."
+        },
+        {
+          "id": "15.3",
+          "label": "Set Up a Weekly Maintenance Workflow",
+          "difficulty": "Advanced",
+          "prompt": "Choose your most active notebook. Perform a weekly maintenance cycle: (1) Check for stale sources -- remove any that are outdated or low-quality. (2) Run Fast Research to find new developments. (3) Import 2-3 new high-quality sources. (4) Refresh any Google Docs sources that may have been updated. (5) Generate an updated report in Briefing Doc format. (6) Compare this week's briefing with last week's (save both as notes). Document this process as a checklist in your system notebook.",
+          "expectedOutcome": "Your active notebook is refreshed with current sources, stale content is removed, and a new weekly briefing is generated. The process is documented as a reusable checklist source in your system notebook. Comparing weekly briefings shows how your knowledge base evolves over time."
+        },
+        {
+          "id": "15.4",
+          "label": "Create a Stakeholder-Ready Package",
+          "difficulty": "Advanced",
+          "prompt": "Using your best-curated notebook, generate a complete stakeholder package in one session: (1) A Briefing Doc report. (2) A slide deck in PPTX. (3) An infographic in Professional style. (4) An audio overview with focus: 'Executive summary of findings and recommended next steps.' Export each artifact. Review all four for consistency and quality.",
+          "expectedOutcome": "Four polished artifacts are generated from the same source material -- a written report, a presentation deck, a visual infographic, and a podcast-style audio summary. All four are consistent in messaging and grounded in the same cited sources, ready to share with stakeholders."
+        }
+      ],
+      "proTip": "The best NotebookLM users spend 20% of their time curating sources and 80% extracting insights. Poor source hygiene -- stale, redundant, or low-quality documents -- degrades every output. Treat source management as part of your job, not overhead.",
+      "takeaways": [
+        "Design notebooks as modular knowledge units with consistent naming and Notebook Guides",
+        "Build a Prompt Templates notebook with proven analysis, synthesis, and instruction frameworks",
+        "Follow a weekly maintenance rhythm: prune stale sources, run research, regenerate reports",
+        "Scale from free to Pro tier when you need 300+ sources and cinematic video",
+        "Source quality determines output quality -- invest in curation"
+      ]
+    }
+  ],
+  "capstones": [
+    {
+      "belt": "white",
+      "title": "White Belt Challenge: Your First Knowledge Base",
+      "description": "Build a complete notebook from scratch, demonstrate cross-source querying, and save your first research notes.",
+      "tasks": [
+        "Create a new notebook named after a topic you are actively researching",
+        "Add 3 sources of different types: one PDF, one web URL, and one pasted text",
+        "Ask 5 questions that require cross-source synthesis",
+        "Trace at least 3 citations back to their source passages and verify accuracy",
+        "Save your 2 best responses as notes",
+        "Convert one note into a source and verify it appears in the Sources panel"
+      ]
+    },
+    {
+      "belt": "brown",
+      "title": "Brown Belt Challenge: Multi-Output Research Briefing",
+      "description": "Build a research briefing using Custom Instructions, reports, audio overviews, and visual tools from a single notebook.",
+      "tasks": [
+        "Create a notebook with 5+ sources on a professional topic",
+        "Configure Custom Instructions with a Research Advisor persona",
+        "Add a Notebook Guide source with key questions and themes",
+        "Generate a Briefing Doc report and export to Google Docs",
+        "Generate an audio overview with a specific focus prompt",
+        "Generate a mind map and explore 5 branches",
+        "Generate an infographic in Professional style",
+        "Create a data table comparing key entities and export to Google Sheets"
+      ]
+    },
+    {
+      "belt": "black",
+      "title": "Black Belt Challenge: Design a Professional Knowledge System",
+      "description": "Architect a multi-notebook knowledge management system with templates, prompt libraries, Gemini integration, and automated workflows.",
+      "tasks": [
+        "Create 3 related notebooks organized by domain (e.g., Market Research, Product Specs, Competitor Analysis)",
+        "Add 10+ sources across all 3 notebooks using a mix of uploads, Drive imports, and Deep Research",
+        "Build a Prompt Templates library with 5+ reusable prompts",
+        "Mount all 3 notebooks in Gemini and run a cross-notebook query",
+        "Run a Perplexity-to-NotebookLM pipeline to discover and import new sources",
+        "Red-team a conclusion by asking NotebookLM to challenge your analysis",
+        "Generate a stakeholder package: report + slides + infographic + audio overview",
+        "Document your maintenance workflow as a checklist in a System notebook"
+      ]
+    }
+  ]
+}

@@ -155,6 +155,33 @@ DOJO_CONFIGS: dict[str, dict] = {
         },
         "default_module": "m11",
     },
+    "notebooklm": {
+        "label": "NotebookLM Dojo",
+        "data_path": DOJO_DIR / "notebooklm" / "data.json",
+        "search_queries": [
+            "NotebookLM new features updates",
+            "NotebookLM tips workflow 2026",
+            "NotebookLM best practices this week",
+        ],
+        "keyword_map": {
+            "m1":  ["notebooklm", "source-grounded", "closed knowledge base", "citation", "vs chatgpt"],
+            "m2":  ["notebook", "source", "upload", "pdf", "youtube", "google docs", "add source"],
+            "m3":  ["chat", "question", "citation", "note", "save note", "suggested questions"],
+            "m4":  ["source management", "toggle", "drive search", "notebook guide", "sync"],
+            "m5":  ["custom instructions", "configure chat", "persona", "learning guide", "response length"],
+            "m6":  ["report", "briefing doc", "study guide", "faq", "timeline", "export"],
+            "m7":  ["audio overview", "podcast", "deep dive", "brief", "focus prompt", "interactive mode"],
+            "m8":  ["mind map", "infographic", "data table", "visual", "google sheets export"],
+            "m9":  ["slide deck", "video overview", "pptx", "cinematic", "veo", "explainer"],
+            "m10": ["quiz", "flashcard", "study mode", "feynman", "active learning"],
+            "m11": ["deep research", "fast research", "web research", "drive research", "source import"],
+            "m12": ["gemini", "cross-notebook", "mount notebook", "web augmentation"],
+            "m13": ["tool chaining", "perplexity", "cross-source", "synthesis", "red-team", "comparison matrix"],
+            "m14": ["literature review", "competitive analysis", "course design", "content pipeline", "playbook"],
+            "m15": ["knowledge system", "template", "prompt library", "maintenance", "scaling", "architecture"],
+        },
+        "default_module": "m14",
+    },
 }
 
 # Legacy alias for backward compatibility

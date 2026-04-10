@@ -1,28 +1,15 @@
 {
-  "generated": "2026-04-09T10:13:33Z",
+  "generated": "2026-04-10T00:58:47Z",
   "digests": [
     {
       "date": "2026-04-09",
       "dayOfWeek": "Thursday",
-      "focusTopics": [
-        {
-          "title": "DeepSeek V4 Nears Launch",
-          "desc": "Prediction markets now assign a 94% probability to the release of DeepSeek V4, which would represent China's most capable frontier model to date. Hugging Face's simultaneous release of Darwin-31B-Opus, a reasoning-focused merge, underscores how the open-weight ecosystem is accelerating independently of any single lab. OpenAI's enterprise push looks increasingly like a race to lock in customers before the next wave of competitive open models lands."
-        },
-        {
-          "title": "Ceasefire Collapse Risks Escalation",
-          "desc": "Israeli bombardment of Lebanon and fresh U.S. strikes inside Iran, including one that destroyed a centuries-old Tehran synagogue, are eroding whatever diplomatic progress the two-week ceasefire achieved. NPR's pointed questioning of what the U.S. campaign has accomplished reflects growing domestic skepticism. Trump's new 50% tariffs on Iran arms suppliers add economic pressure but may also harden Tehran's posture."
-        },
-        {
-          "title": "Meta's Vertical AI Stack",
-          "desc": "Shipping four generations of custom MTIA inference chips in 24 months gives Meta a silicon cadence rivaling Apple's. Pairing that hardware trajectory with TRIBE v2, a model that predicts brain activity from visual stimuli, signals Meta's ambition to own the full stack from transistor to neuroscience. The combination could reshape both the cost structure of large-scale inference and the frontier of brain-computer interface research."
-        }
-      ],
+      "focusTopics": [],
       "kpis": {
-        "aiStories": "8",
-        "worldEvents": "7",
-        "marketMood": "Extreme Fear",
-        "toolsFeatured": "6"
+        "aiStories": "",
+        "worldEvents": "",
+        "marketMood": "",
+        "toolsFeatured": ""
       },
       "hasPodcast": true,
       "hasInfographic": true,

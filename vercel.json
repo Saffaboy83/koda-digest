@@ -10,6 +10,10 @@
     { "source": "/dojo/claude-code/", "destination": "/dojo/claude-code/index.html" },
     { "source": "/dojo/cowork", "destination": "/dojo/cowork/index.html" },
     { "source": "/dojo/cowork/", "destination": "/dojo/cowork/index.html" },
+    { "source": "/dojo/m365-copilot", "destination": "/dojo/m365-copilot/index.html" },
+    { "source": "/dojo/m365-copilot/", "destination": "/dojo/m365-copilot/index.html" },
+    { "source": "/dojo/notebooklm", "destination": "/dojo/notebooklm/index.html" },
+    { "source": "/dojo/notebooklm/", "destination": "/dojo/notebooklm/index.html" },
     { "source": "/media/:path*", "destination": "https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/:path*" }
   ],
   "headers": [
