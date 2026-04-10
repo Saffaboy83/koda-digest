@@ -343,6 +343,14 @@ def generate_html(digest, media_status, date):
             and editorial_status.get("date") == date
         ) else None,
 
+        # Editorial hero image URL (for Deep Dive card)
+        "editorial_hero_url": (
+            editorial_status.get("hero_url", "")
+            if editorial_status and editorial_status.get("success")
+            and editorial_status.get("date") == date
+            else ""
+        ),
+
         # Content sections (passed directly from JSON)
         "summary": digest.get("summary", {}),
         "ai_news": digest.get("ai_news", []),

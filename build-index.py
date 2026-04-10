@@ -140,7 +140,7 @@ def parse_with_regex(filepath):
         result["youtubeId"] = yt_match.group(1)
 
     # Extract sections with their cards
-    # Find all section-title markers first
+    # Find all section-title markers first (v1-v4: old layout with section-title class)
     section_title_pattern = re.compile(
         r'class="[^"]*\bsection-title\b[^"]*"[^>]*>(.*?)</(?:h[1-6]|div|span)>',
         re.DOTALL,
@@ -155,6 +155,27 @@ def parse_with_regex(filepath):
         # Remove leading/trailing punctuation and whitespace
         raw_title = re.sub(r"^[\s\u26A1\u2764\u2728]+|[\s]+$", "", raw_title).strip()
         section_starts.append((m.start(), m.end(), raw_title))
+
+    # v5: Stitch-style layout (April 2026+) — <h2> headings with branded names
+    if not section_starts:
+        stitch_heading_pattern = re.compile(
+            r'<h2\b[^>]*class="[^"]*font-extrabold[^"]*"[^>]*>(.*?)</h2>',
+            re.DOTALL,
+        )
+        # Map branded names to canonical section names
+        stitch_name_map = {
+            "The Wire": "AI Developments",
+            "The Globe": "World News",
+            "The Feed": "Featured Newsletters",
+            "The Lab": "AI Tool Guide",
+            "The Arena": "Competitive Landscape",
+            "Market Snapshot": "Market Snapshot",
+        }
+        for m in stitch_heading_pattern.finditer(html):
+            raw = strip_html(m.group(1)).strip()
+            canonical = stitch_name_map.get(raw, raw)
+            if canonical and canonical not in {"Never miss a Signal.", "Deep Dive", "Listen & Watch"}:
+                section_starts.append((m.start(), m.end(), canonical))
 
     # Skip media sections
     skip_sections = {
@@ -263,6 +284,40 @@ def parse_with_regex(filepath):
             section_html, re.DOTALL,
         ):
             items.append({"headline": strip_html(m.group(1)), "text": strip_html(m.group(2))})
+
+        # Pattern 10: Stitch-style cards — <h4> + <p class="text-on-surface-variant">
+        if not items:
+            for m in re.finditer(
+                r'<h[34]\b[^>]*>(.*?)</h[34]>\s*'
+                r'(?:<p[^>]*class="[^"]*text-on-surface-variant[^"]*"[^>]*>(.*?)</p>)?',
+                section_html, re.DOTALL,
+            ):
+                headline = strip_html(m.group(1)).strip()
+                text = strip_html(m.group(2) or "").strip()
+                if headline and len(headline) > 5 and len(headline) < 200:
+                    items.append({"headline": headline, "text": text})
+
+        # Pattern 11: Stitch newsletter cards — <span class="font-extrabold"> + <li> items
+        if not items and "glass-card" in section_html:
+            for card_m in re.finditer(
+                r'<span[^>]*class="[^"]*font-extrabold[^"]*"[^>]*>(.*?)</span>.*?'
+                r'(<ul.*?</ul>)',
+                section_html, re.DOTALL,
+            ):
+                name = strip_html(card_m.group(1)).strip()
+                li_texts = [strip_html(li.group(1)) for li in
+                            re.finditer(r'<li[^>]*>(.*?)</li>', card_m.group(2), re.DOTALL)]
+                if name and li_texts:
+                    items.append({"headline": name, "text": " | ".join(li_texts)})
+
+        # Pattern 12: Stitch competitive cards — <p class="font-label...font-black"> + <h4>
+        if not items and "border-l-4" in section_html:
+            for m in re.finditer(
+                r'<p[^>]*class="[^"]*font-label[^"]*font-black[^"]*"[^>]*>(.*?)</p>\s*'
+                r'<h4[^>]*>(.*?)</h4>',
+                section_html, re.DOTALL,
+            ):
+                items.append({"headline": strip_html(m.group(1)), "text": strip_html(m.group(2))})
 
         if items:
             result["sections"].append({"title": title, "items": items})

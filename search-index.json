@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-10T01:47:54Z",
+  "generated": "2026-04-10T02:07:05Z",
   "entries": [
     {
       "date": "2026-04-09",
@@ -8,16 +8,182 @@
           "title": "Today's Focus",
           "items": [
             {
-              "headline": "DeepSeek V4 and the Prediction Market Signal",
-              "text": "Prediction markets price DeepSeek V4 at 94% for April release, outpacing GPT-5.5."
+              "headline": "Cybersecurity Models Go Mainstream",
+              "text": "Claude Mythos marks the first major foundation model explicitly branded for defensive cyber operations. Anthropic is betting that governments and enterprises will pay a premium for AI tuned to threat detection rather than general reasoning. If rivals follow, cybersecurity-specific benchmarks could reshape how frontier models are evaluated."
             },
             {
-              "headline": "Enterprise AI Goes Vertical",
-              "text": "OpenAI pivots to deep enterprise integration while Meta builds full-stack AI infrastructure."
+              "headline": "Tariff Spiral Hits 125%",
+              "text": "Trump's decision to raise China tariffs to 125% represents the steepest single-country trade barrier in modern U.S. history. Combined with $1.3 billion in slashed World Food Programme funding, the move pressures supply chains for chips, consumer hardware, and AI infrastructure components. Markets are pricing in prolonged disruption, not a negotiating bluff."
             },
             {
-              "headline": "The Ceasefire Illusion",
-              "text": "Israel strikes Lebanon hours after Iran ceasefire, with markets pricing in fragility."
+              "headline": "Small Teams, Big Models",
+              "text": "Microsoft shipped MAI-Transcribe-1 with a 10-person team, while Clicky v3 launched as a fully open source AI tool. These releases reinforce a growing pattern: capable, production-grade models no longer require thousand-engineer divisions. DeepSeek V4's aggressive 86% discount pricing for its April launch further compresses the cost curve for frontier-adjacent capabilities."
+            }
+          ]
+        },
+        {
+          "title": "Anthropic Unveils Claude Mythos for Defensive Cybersecurity",
+          "items": [
+            {
+              "headline": "Market Snapshot",
+              "text": ""
+            },
+            {
+              "headline": "Today's Focus",
+              "text": ""
+            },
+            {
+              "headline": "Daily Deep Dive",
+              "text": ""
+            },
+            {
+              "headline": "Intelligence Map",
+              "text": ""
+            }
+          ]
+        },
+        {
+          "title": "AI Developments",
+          "items": [
+            {
+              "headline": "Anthropic Unveils Claude Mythos for Defensive Cybersecurity",
+              "text": ""
+            },
+            {
+              "headline": "Microsoft MAI-Transcribe-1 Built by 10-Person Team",
+              "text": "Microsoft released MAI-Transcribe-1, a speech-to-text model CEO Mustafa Suleyman says runs at half the GPU cost of competing state-of-the-art models. The model was built by a team of just 10..."
+            },
+            {
+              "headline": "Google AI Edge Eloquent Ships Offline Dictation",
+              "text": "Google released AI Edge Eloquent on iOS, a free dictation app powered by its Gemma on-device models that transforms messy speech into polished text entirely offline with no subscription. The 67.1..."
+            },
+            {
+              "headline": "DeepSeek V4 Priced at 86% for April Launch",
+              "text": "Prediction markets on Manifold now give DeepSeek V4 an 86% probability of releasing in April 2026, making it the most anticipated model launch this month. GPT-5.5 follows at 79% probability. Neither model has launched as of April 9, but the high..."
+            },
+            {
+              "headline": "Clicky v3 Ships as Open Source AI Tool",
+              "text": "Developer farzaa released Clicky v3 on GitHub on April 7, an open source AI-powered tool that has accumulated 2,200 stars and 411 forks. The project's rapid community adoption highlights continued demand for lightweight, developer-facing AI..."
+            },
+            {
+              "headline": "26-Person Startup Ships Competitive Open Source LLM",
+              "text": "Reports on April 8 highlighted a 26-person startup that released a high-performing open source large language model, though specific model names and benchmark scores were not detailed. The release underscores how small teams continue to challenge..."
+            },
+            {
+              "headline": "March 2026 Averaged One Model Every 24 Hours",
+              "text": "Analysis from SearchCans confirms March 2026 saw over 30 new AI model releases or significant updates in 30 days, spanning OpenAI, Anthropic, Google, NVIDIA, and others. The report argues that public benchmarks are increasingly unreliable due to..."
+            },
+            {
+              "headline": "Meta Plans Partial Open Sourcing of AI Models",
+              "text": "Reports from April 8 indicated Meta is planning to partially open source some of its AI models, though specific model names, licensing terms, and release timelines were not disclosed. The move would extend Meta's open source strategy beyond the..."
+            },
+            {
+              "headline": "Suleyman Pivots Microsoft AI Toward Superintelligence",
+              "text": "Following a March reorganization announced by CEO Satya Nadella, Microsoft AI chief Mustafa Suleyman has shifted away from day-to-day Copilot oversight to focus on frontier model development and superintelligence research. The MAI-Transcribe-1..."
+            }
+          ]
+        },
+        {
+          "title": "World News",
+          "items": [
+            {
+              "headline": "Pakistan to Host U.S.-Iran Peace Talks Friday",
+              "text": ""
+            },
+            {
+              "headline": "North Korea Tests Hwasongpho-11 Ka Tactical Missile",
+              "text": "KCNA reported that North Korea tested multiple military technologies throughout the week, including a surface-to-surface tactical ballistic missile designated Hwasongpho-11 Ka (Hwasong-11A). The..."
+            },
+            {
+              "headline": "Trump Raises China Tariffs to 125%",
+              "text": "President Trump escalated the trade war by raising tariffs on Chinese goods to 125%, citing Beijing's 'lack of respect,' while simultaneously announcing a 90-day pause at 10% for over 75..."
+            },
+            {
+              "headline": "Trump Slashes $1.3B in World Food Aid",
+              "text": "The Trump administration cut $1.3 billion in World Food Program funding covering emergency assistance to 14 famine-affected nations. WFP officials called the decision a 'death sentence for millions,' noting it contradicts prior commitments made..."
+            },
+            {
+              "headline": "Ukraine Sends Negotiators for Minerals-Weapons Deal",
+              "text": "Ukrainian negotiators are heading to Washington for talks next week on a proposed exchange: U.S. weapons and military support in return for American access to Ukraine's critical mineral reserves. The deal would formalize a resources-for-arms..."
+            },
+            {
+              "headline": "Russia Profits From Iran Crisis Oil Surge",
+              "text": "Russia's economy received a windfall from the oil price spike that preceded the U.S.-Iran ceasefire, with Brent crude reaching $117 per barrel before plunging 16% to below $100 after the truce was announced. The revenue boost comes despite..."
+            },
+            {
+              "headline": "Israeli Forces Kill Palestinian in West Bank",
+              "text": "Israeli forces shot and killed Omar Muhammad Rab during a raid near Traasiah in the occupied West Bank, with reports indicating he was struck 11 times. His family is demanding an investigation and accountability. The killing adds to a pattern of..."
+            }
+          ]
+        },
+        {
+          "title": "Featured Newsletters",
+          "items": [
+            {
+              "headline": "TLDR",
+              "text": "•Anthropic's Claude Mythos Preview autonomously identified thousands of zero-day vulnerabilities across major operating systems and browsers as part of Project Glasswing, a coordinated cybersecurity initiative with major tech companies | •Z.ai released GLM-5.1, a flagship agentic model achieving state-of-the-art performance on SWE-Bench Pro, capable of sustaining optimization over hundreds of rounds and thousands of tool calls on long-horizon tasks | •Ryan Greenblatt, chief scientist at Redwood Research, published a detailed situational assessment of AI covering R&D regulations, engineering capabilities, misalignment risks, cyber and bioweapon concerns, and economic effects"
+            },
+            {
+              "headline": "Superhuman",
+              "text": "•Anthropic announces Claude Mythos model, withholds public release citing safety concerns and launches Project Glasswing for early vendor access | •Clicky, an on-screen AI teaching tool, goes viral with over 1M views on its launch video | •Google quietly releases AI Edge Eloquent, a free offline dictation app powered by Gemma models"
+            },
+            {
+              "headline": "TLDR",
+              "text": "•Cluely CEO admitted to inflating ARR figures, spotlighting a widespread trust problem with the growth metric among AI startups | •Databricks 2026 State of AI Agents report: multi-agent systems grew 327% in under four months across 20,000+ organizations | •Agent skills are emerging as the new SDK, with developer infrastructure companies urged to build for AI coding agents as a competitive necessity"
+            },
+            {
+              "headline": "TLDR",
+              "text": "•ElevenLabs launches ElevenMusic iOS app, generating 3-minute songs from text prompts at $9.99/month | •Leaked dummy units reveal Apple's foldable iPhone dimensions: ~7.8-inch unfolded display, under 5mm thick | •Marvel fans roast new Wonder Man minimalist logo as a 'significant downgrade' from the original serif design"
+            },
+            {
+              "headline": "TLDR",
+              "text": "•Anthropic launches Project Glasswing, giving select organizations access to its unreleased Mythos Preview model for defensive cybersecurity | •Microsoft device code phishing campaign bypasses MFA by abusing legitimate authentication flows to capture tokens | •Router hijacking campaign disrupted after attackers stole Microsoft 365 credentials and OAuth tokens via compromised DNS settings"
+            },
+            {
+              "headline": "TLDR",
+              "text": "•Fox Corporation to integrate Kalshi prediction market data across its news broadcasts | •Split Capital winds down as founder Zaheer Ebtikar joins Thiel-backed stablecoin startup Plasma | •CME Group to launch AVAX and SUI futures on May 4"
+            }
+          ]
+        },
+        {
+          "title": "AI Tool Guide",
+          "items": [
+            {
+              "headline": "Taskade AI Agents: Assign Autonomous Sub-Agents to Every Project",
+              "text": "Taskade now lets you spawn dedicated AI agents inside each project workspace that handle research, summarization, and task breakdown without switching tabs. Create a project, describe the goal in plain language, and let the agent generate a structured plan with subtasks and deadlines. Best for small teams drowning in planning overhead who need execution speed, not another dashboard."
+            },
+            {
+              "headline": "Codeium Windsurf Flows: Chain Multi-File Edits Into a Single Prompt",
+              "text": "Windsurf's Flows feature lets you describe a cross-file refactor in natural language and the agent proposes coordinated edits across your entire codebase before you approve. Point it at a feature branch, describe the architectural change you want, and review a unified diff. Particularly useful for migrating API patterns or updating shared types across dozens of files at once."
+            },
+            {
+              "headline": "Zapier Central Bots: Deploy Always-On AI Agents Across 7,000 Apps",
+              "text": "Zapier Central lets you create persistent AI bots that monitor triggers across your connected apps and take autonomous action, from researching inbound leads to drafting follow-up emails. Define a bot's role in plain English, connect it to your CRM and inbox, and set guardrails for when it should escalate to a human. Start with a single low-stakes workflow like meeting prep summaries before expanding scope."
+            },
+            {
+              "headline": "Ideogram 3.0: Generate Typography-Accurate Images for Marketing",
+              "text": "Ideogram 3.0 remains one of the few image generators that reliably renders readable text inside images, making it ideal for social cards, event posters, and product mockups. Type your prompt with the exact text you want embedded, specify font style and placement, and iterate in seconds. Use it to prototype ad creative before handing final assets to a designer."
+            },
+            {
+              "headline": "Audit Your AI Tool Stack Before Adding Another One",
+              "text": "With over 16,000 AI products now listed on public directories and an estimated 50,000 active tools worldwide, tool fatigue is a real productivity drain. Block 30 minutes this week to list every AI tool you pay for or log into, then score each on weekly usage and measurable output. Cut anything you have not opened in 14 days. Fortune reported in March 2026 that AI is doubling time spent on email for some workers rather than reducing it, so fewer, better-configured tools beat a bloated stack."
+            },
+            {
+              "headline": "Test Huawei 950PR Inference Locally for Regional AI Workloads",
+              "text": "Huawei's 950PR chip, now drawing enterprise orders as of April 2026, is designed for fast on-device inference and targets teams building AI products in markets where NVIDIA supply is constrained. If you operate in Asia, the Middle East, or Africa, request a developer kit and benchmark your existing models against it. Localized inference can cut cloud costs and latency for customer-facing applications."
+            }
+          ]
+        },
+        {
+          "title": "Competitive Landscape",
+          "items": [
+            {
+              "headline": "Run-rate revenue triples to $30B as Claude Mythos enters gated cybersecurity deployment.",
+              "text": ""
+            },
+            {
+              "headline": "Gemini 3.1 adds real-time multimodal analysis; AI Edge Gallery brings on-device models to iPhone.",
+              "text": ""
             }
           ]
         }
@@ -966,6 +1132,15 @@
           ]
         },
         {
+          "title": "bolt",
+          "items": [
+            {
+              "headline": "The Signal",
+              "text": ""
+            }
+          ]
+        },
+        {
           "title": "Markets",
           "items": [
             {
@@ -991,6 +1166,19 @@
             {
               "headline": "Sentiment",
               "text": "11 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "image_search",
+          "items": [
+            {
+              "headline": "The Lens",
+              "text": ""
+            },
+            {
+              "headline": "DeepSeek V4 proves frontier-level AI performance no longer requires frontier-lev",
+              "text": ""
             }
           ]
         },
@@ -1226,6 +1414,15 @@
             {
               "headline": "Sentiment",
               "text": "9 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "image_search",
+          "items": [
+            {
+              "headline": "The shift to pay-as-you-go pricing for AI coding tools signals a structural chan",
+              "text": ""
             }
           ]
         },
@@ -1473,6 +1670,15 @@
           ]
         },
         {
+          "title": "image_search",
+          "items": [
+            {
+              "headline": "OpenAI Raises $122 Billion for AI Push",
+              "text": ""
+            }
+          ]
+        },
+        {
           "title": "The Radar",
           "items": [
             {
@@ -1716,6 +1922,15 @@
           ]
         },
         {
+          "title": "image_search",
+          "items": [
+            {
+              "headline": "The Amazon-OpenAI Stateful Runtime partnership signals that memory and tool-use",
+              "text": ""
+            }
+          ]
+        },
+        {
           "title": "The Radar",
           "items": [
             {
@@ -1939,6 +2154,15 @@
           ]
         },
         {
+          "title": "image_search",
+          "items": [
+            {
+              "headline": "The Amazon-OpenAI Stateful Runtime partnership signals that memory and tool-use",
+              "text": ""
+            }
+          ]
+        },
+        {
           "title": "The Radar",
           "items": [
             {
@@ -2158,6 +2382,15 @@
           ]
         },
         {
+          "title": "image_search",
+          "items": [
+            {
+              "headline": "A $700M surveillance aircraft destroyed by a cheap Iranian drone exposes the cor",
+              "text": ""
+            }
+          ]
+        },
+        {
           "title": "The Radar",
           "items": [
             {
@@ -2352,6 +2585,15 @@
             {
               "headline": "Sentiment",
               "text": "12 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "image_search",
+          "items": [
+            {
+              "headline": "OpenAI Launches GPT-5.4 With Million-Token Context",
+              "text": ""
             }
           ]
         },
@@ -2599,6 +2841,15 @@
             {
               "headline": "Sentiment",
               "text": "12 (Extreme Fear)"
+            }
+          ]
+        },
+        {
+          "title": "image_search",
+          "items": [
+            {
+              "headline": "The Open-Weight Flood: Why 78% of March's AI Models Were Free",
+              "text": ""
             }
           ]
         },
@@ -4044,6 +4295,15 @@
           "title": "",
           "items": [
             {
+              "headline": "Daily Intelligence Infographic",
+              "text": ""
+            }
+          ]
+        },
+        {
+          "title": "",
+          "items": [
+            {
               "headline": "S&P 500",
               "text": "6,506.48 (&darr; -1.51%)"
             },
@@ -4155,6 +4415,23 @@
             {
               "headline": "Google Stitch — Free AI Design Tool Disrupts Finance Reporting",
               "text": "Google launched Stitch, a free AI tool that converts plain-language prompts and napkin sketches into production-quality reports. Figma dropped 12% on the news. The finstory AI newsletter tested it on real financials: one photo produced a board-ready CFO report with KPIs, trend charts, and driver callouts — work that normally takes an FP&A analyst 3 hours. The key insight: frame prompts as judgment instructions, not formatting requests."
+            }
+          ]
+        },
+        {
+          "title": "target",
+          "items": [
+            {
+              "headline": "OpenAI Superapp — The Desktop AI Consolidation",
+              "text": ""
+            },
+            {
+              "headline": "Oil at $112/bbl — Hormuz Blockade Reshaping Global Energy",
+              "text": ""
+            },
+            {
+              "headline": "Google Stitch — Free AI Design Tool Disrupts Finance Reporting",
+              "text": ""
             }
           ]
         },

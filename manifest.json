@@ -1,21 +1,21 @@
 {
-  "generated": "2026-04-10T01:47:54Z",
+  "generated": "2026-04-10T02:07:05Z",
   "digests": [
     {
       "date": "2026-04-09",
       "dayOfWeek": "Thursday",
       "focusTopics": [
         {
-          "title": "DeepSeek V4 and the Prediction Market Signal",
-          "desc": "Prediction markets price DeepSeek V4 at 94% for April release, outpacing GPT-5.5."
+          "title": "Cybersecurity Models Go Mainstream",
+          "desc": "Claude Mythos marks the first major foundation model explicitly branded for defensive cyber operations. Anthropic is betting that governments and enterprises will pay a premium for AI tuned to threat detection rather than general reasoning. If rivals follow, cybersecurity-specific benchmarks could reshape how frontier models are evaluated."
         },
         {
-          "title": "Enterprise AI Goes Vertical",
-          "desc": "OpenAI pivots to deep enterprise integration while Meta builds full-stack AI infrastructure."
+          "title": "Tariff Spiral Hits 125%",
+          "desc": "Trump's decision to raise China tariffs to 125% represents the steepest single-country trade barrier in modern U.S. history. Combined with $1.3 billion in slashed World Food Programme funding, the move pressures supply chains for chips, consumer hardware, and AI infrastructure components. Markets are pricing in prolonged disruption, not a negotiating bluff."
         },
         {
-          "title": "The Ceasefire Illusion",
-          "desc": "Israel strikes Lebanon hours after Iran ceasefire, with markets pricing in fragility."
+          "title": "Small Teams, Big Models",
+          "desc": "Microsoft shipped MAI-Transcribe-1 with a 10-person team, while Clicky v3 launched as a fully open source AI tool. These releases reinforce a growing pattern: capable, production-grade models no longer require thousand-engineer divisions. DeepSeek V4's aggressive 86% discount pricing for its April launch further compresses the cost curve for frontier-adjacent capabilities."
         }
       ],
       "kpis": {
@@ -27,7 +27,7 @@
       "hasPodcast": true,
       "hasInfographic": true,
       "hasVideo": true,
-      "youtubeId": "B3YlxwSe1t0",
+      "youtubeId": "ghVOr9j5NZQ",
       "file": "morning-briefing-koda-2026-04-09.html"
     },
     {
