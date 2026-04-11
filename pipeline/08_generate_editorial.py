@@ -1643,6 +1643,23 @@ def main() -> None:
             editorial_media["editorial_video"]["youtube_id"] = yt_result.get("video_id", "")
             editorial_media["editorial_video"]["youtube_url"] = yt_result.get("url", "")
 
+            # Generate and set YouTube thumbnail (non-blocking)
+            try:
+                from pipeline.generate_thumbnail import create_thumbnail, set_thumbnail_on_youtube
+
+                topic_text = topic.get("topic", article_title)
+                hero_path = str(DIGEST_DIR / "editorial" / f"editorial-hero-{args.date}.jpg")
+                thumb = create_thumbnail(
+                    topic=topic_text,
+                    section="editorial",
+                    date=args.date,
+                    hero_path=hero_path,
+                )
+                if thumb:
+                    set_thumbnail_on_youtube(yt_result["video_id"], thumb)
+            except Exception as e:
+                print(f"    Editorial thumbnail failed (non-critical): {e}")
+
         # Re-write editorial-media-status.json with uploaded URLs
         status_path = DIGEST_DIR / "editorial-media-status.json"
         with open(status_path, "w", encoding="utf-8") as f:

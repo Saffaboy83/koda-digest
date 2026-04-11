@@ -37,3 +37,5 @@ content-output/
 viral-content/
 editorial-podcast-raw-*.wav
 gemini_login.py
+thumbnail-*.jpg
+_thumb-base-*.jpg

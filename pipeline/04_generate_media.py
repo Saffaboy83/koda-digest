@@ -944,6 +944,28 @@ def main():
     if not args.skip_video:
         upload_to_youtube(args.date, digest, media)
 
+        # Generate and set YouTube thumbnail (non-blocking)
+        try:
+            from pipeline.generate_thumbnail import create_thumbnail, set_thumbnail_on_youtube
+
+            yt_result_path = DIGEST_DIR / "youtube-result.json"
+            if yt_result_path.exists():
+                with open(yt_result_path, "r") as f:
+                    yt_data = json.load(f)
+                if yt_data.get("date") == args.date and yt_data.get("video_id"):
+                    hook = digest.get("summary", {}).get("hook", "Daily AI Intelligence Briefing")
+                    hero_path = str(DIGEST_DIR / f"hero-{args.date}.jpg")
+                    thumb = create_thumbnail(
+                        topic=hook,
+                        section="signal",
+                        date=args.date,
+                        hero_path=hero_path,
+                    )
+                    if thumb:
+                        set_thumbnail_on_youtube(yt_data["video_id"], thumb)
+        except Exception as e:
+            print(f"    Thumbnail generation failed (non-critical): {e}")
+
     sys.exit(result.returncode)
 
 

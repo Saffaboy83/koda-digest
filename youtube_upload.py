@@ -123,6 +123,21 @@ def upload_video(youtube, file_path, title, description, tags=None, privacy="pub
     return video_id
 
 
+def set_thumbnail(youtube, video_id, thumbnail_path):
+    """Set a custom thumbnail for a YouTube video."""
+    if not os.path.exists(thumbnail_path):
+        print(f"WARNING: Thumbnail not found: {thumbnail_path}")
+        return False
+
+    print(f"Setting thumbnail: {thumbnail_path}")
+    ext = os.path.splitext(thumbnail_path)[1].lower()
+    mime = "image/jpeg" if ext in (".jpg", ".jpeg") else "image/png"
+    media = MediaFileUpload(thumbnail_path, mimetype=mime)
+    youtube.thumbnails().set(videoId=video_id, media_body=media).execute()
+    print(f"Thumbnail set for video {video_id}")
+    return True
+
+
 def main():
     parser = argparse.ArgumentParser(description="Upload video to YouTube (Koda Digest)")
     parser.add_argument("--file", required=True, help="Path to video file (.mp4)")
@@ -141,6 +156,16 @@ def main():
         help="Privacy status",
     )
     parser.add_argument(
+        "--thumbnail",
+        default=None,
+        help="Path to thumbnail image (PNG/JPG) to set after upload",
+    )
+    parser.add_argument(
+        "--set-thumbnail-for",
+        default=None,
+        help="Set thumbnail on an existing video ID (skip upload)",
+    )
+    parser.add_argument(
         "--output-json",
         help="Write result JSON to this path (for automation)",
     )
@@ -152,6 +177,12 @@ def main():
     args = parser.parse_args()
 
     youtube = get_authenticated_service()
+
+    # Standalone thumbnail-only mode
+    if args.set_thumbnail_for and args.thumbnail:
+        set_thumbnail(youtube, args.set_thumbnail_for, args.thumbnail)
+        return args.set_thumbnail_for
+
     video_id = upload_video(
         youtube,
         file_path=args.file,
@@ -160,6 +191,10 @@ def main():
         tags=args.tags,
         privacy=args.privacy,
     )
+
+    # Set thumbnail if provided
+    if args.thumbnail:
+        set_thumbnail(youtube, video_id, args.thumbnail)
 
     result = {
         "video_id": video_id,
