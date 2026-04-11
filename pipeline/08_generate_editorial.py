@@ -31,7 +31,8 @@ import subprocess
 import httpx
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from pipeline.config import DIGEST_DIR, today_str, read_json, write_json
+from pipeline.config import (DIGEST_DIR, today_str, read_json, write_json,
+                              og_image_from_supabase_url, OG_FALLBACK_IMAGE)
 from nav_component import NAV_CSS_V2, build_nav_v2
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
@@ -932,6 +933,13 @@ def render_html(article: str, topic: dict, date: str, hero_url: str | None = Non
     <meta property="og:type" content="article">
     <meta property="og:url" content="{url}">
     <meta property="og:site_name" content="Koda Digest">
+    <meta property="og:image" content="{og_image_from_supabase_url(hero_url or '')}">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{title} | Koda Deep Dive">
+    <meta name="twitter:description" content="{subtitle}">
+    <meta name="twitter:image" content="{og_image_from_supabase_url(hero_url or '')}">
     <meta name="description" content="{subtitle}">
     <script type="application/ld+json">
     {{

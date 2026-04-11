@@ -60,6 +60,31 @@ EMAIL_RECIPIENTS = os.environ.get("EMAIL_RECIPIENTS", "").split(",") if os.envir
     "saffaboyjm@gmail.com",
 ]
 
+# ── Open Graph ──────────────────────────────────────────────────────────────
+
+MEDIA_PROXY = "https://www.koda.community/media"
+OG_FALLBACK_IMAGE = "https://www.koda.community/og-image.png"
+
+
+def og_media_url(filename: str) -> str:
+    """Build a public-facing media URL via the /media/ proxy for OG tags."""
+    return f"{MEDIA_PROXY}/{filename}"
+
+
+def og_image_from_supabase_url(supabase_url: str) -> str:
+    """Convert a raw Supabase storage URL to the /media/ proxy URL.
+
+    Falls back to OG_FALLBACK_IMAGE if the URL is empty or not a Supabase URL.
+    """
+    if not supabase_url:
+        return OG_FALLBACK_IMAGE
+    # Extract filename from: .../koda-media/editorial-hero-2026-04-11.jpg
+    if "/koda-media/" in supabase_url:
+        filename = supabase_url.split("/koda-media/")[-1]
+        return og_media_url(filename)
+    return OG_FALLBACK_IMAGE
+
+
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
 def today_str():

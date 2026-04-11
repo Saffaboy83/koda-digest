@@ -26,6 +26,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from pipeline.config import (
     DIGEST_DIR, FIRECRAWL_API_KEY, OPENROUTER_API_KEY,
     today_str, write_json, read_json, ensure_data_dir,
+    og_image_from_supabase_url, OG_FALLBACK_IMAGE,
 )
 from nav_component import NAV_CSS_V2, build_nav_v2
 
@@ -567,12 +568,31 @@ Return ONLY the HTML content sections. No <!DOCTYPE>, no <html>, no <head>, no t
 
     # Assemble full page with consistent nav + footer
     tool_title = tool.get("title", "AI Tool Review")
+    tool_desc = tool.get("body", tool_title).replace('"', '&quot;').replace("'", '&#39;')[:200]
+    review_slug = slugify(tool_title)
+    review_filename = f"{date}-{review_slug}.html"
+    review_og_url = f"https://www.koda.community/reviews/{review_filename}"
+    review_og_image = og_image_from_supabase_url(hero_url)
+    safe_title = tool_title.replace('"', '&quot;')
 
     return (
         '<!DOCTYPE html>\n<html lang="en">\n<head>\n'
         '<meta charset="UTF-8">\n'
         '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
         '<title>' + tool_title + ' | The Lab | Koda Intelligence</title>\n'
+        '<meta property="og:title" content="' + safe_title + ' | The Lab | Koda Intelligence">\n'
+        '<meta property="og:description" content="' + tool_desc + '">\n'
+        '<meta property="og:type" content="article">\n'
+        '<meta property="og:url" content="' + review_og_url + '">\n'
+        '<meta property="og:site_name" content="Koda Digest">\n'
+        '<meta property="og:image" content="' + review_og_image + '">\n'
+        '<meta property="og:image:width" content="1200">\n'
+        '<meta property="og:image:height" content="630">\n'
+        '<meta name="twitter:card" content="summary_large_image">\n'
+        '<meta name="twitter:title" content="' + safe_title + ' | The Lab">\n'
+        '<meta name="twitter:description" content="' + tool_desc + '">\n'
+        '<meta name="twitter:image" content="' + review_og_image + '">\n'
+        '<meta name="description" content="' + tool_desc + '">\n'
         '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
         '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;'
         '700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">\n'

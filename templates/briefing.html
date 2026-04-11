@@ -13,8 +13,13 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.koda.community/morning-briefing-koda-{{ date }}.html">
 <meta property="og:site_name" content="Koda Digest">
-<meta property="og:image" content="https://www.koda.community/og-image.png">
+<meta property="og:image" content="{{ og_image_url }}">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Signal | {{ date_label }}">
+<meta name="twitter:description" content="{{ (summary.hook or 'Daily AI intelligence briefing') | no_em_dash }}">
+<meta name="twitter:image" content="{{ og_image_url }}">
 <meta name="description" content="{{ (summary.hook or 'Daily AI intelligence briefing') | no_em_dash }}">
 <script type="application/ld+json">
 {

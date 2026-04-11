@@ -20,7 +20,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from pipeline.config import (DIGEST_DIR, LEONARDO_API_KEY, SUPABASE_URL,
-                              today_str, read_json)
+                              today_str, read_json, og_media_url)
 
 # ── Template Setup ──────────────────────────────────────────────────────────
 
@@ -373,6 +373,9 @@ def generate_html(digest, media_status, date):
 
         # Focus hero image (email sketch-note infographic from Supabase)
         "focus_hero_url": media_url(f"email-hero-{date}.jpg"),
+
+        # OG image for social sharing (uses email hero via /media/ proxy)
+        "og_image_url": og_media_url(f"email-hero-{date}.jpg"),
 
         # Editorial (from step 04E — only set if it ran successfully today)
         "editorial": editorial_status if (
