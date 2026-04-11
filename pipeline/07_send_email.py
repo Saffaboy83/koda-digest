@@ -517,7 +517,7 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
                   <a href="{yt_url}" target="_blank"><img src="{yt_thumb}" alt="Watch video" width="264" style="width:100%;height:140px;object-fit:cover;display:block"></a>
                 </td></tr>
                 <tr><td style="padding:0">
-                  <a href="{yt_url}" style="display:block;padding:12px 8px;background:linear-gradient(135deg,#EC4899,#8B5CF6);color:white;text-decoration:none;text-align:center;font-weight:700;font-size:12px" target="_blank">&#9654; Watch Video</a>
+                  <a href="{yt_url}" style="display:block;padding:12px 8px;background-color:#EC4899;background:linear-gradient(135deg,#EC4899,#8B5CF6);color:white;text-decoration:none;text-align:center;font-weight:700;font-size:12px" target="_blank">&#9654; Watch Video</a>
                 </td></tr>
               </table>
             </td>"""
@@ -531,7 +531,7 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
                   <p style="margin:0;font-size:11px;color:#64748B">~22 min deep dive</p>
                 </td></tr>
                 <tr><td style="padding:0">
-                  <a href="{podcast_url}" style="display:block;padding:12px 8px;background:linear-gradient(135deg,#6366F1,#3B82F6);color:white;text-decoration:none;text-align:center;font-weight:700;font-size:12px" target="_blank">&#9654; Listen Now</a>
+                  <a href="{podcast_url}" style="display:block;padding:12px 8px;background-color:#6366F1;background:linear-gradient(135deg,#6366F1,#3B82F6);color:white;text-decoration:none;text-align:center;font-weight:700;font-size:12px" target="_blank">&#9654; Listen Now</a>
                 </td></tr>
               </table>
             </td>"""
@@ -604,7 +604,7 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
                       <a href="https://www.youtube.com/watch?v={ed_yt_id}" target="_blank"><img src="{ed_yt_thumb}" alt="Watch deep dive" width="264" style="width:100%;height:140px;object-fit:cover;display:block"></a>
                     </td></tr>
                     <tr><td style="padding:0">
-                      <a href="https://www.youtube.com/watch?v={ed_yt_id}" style="display:block;padding:12px 8px;background:linear-gradient(135deg,#EC4899,#8B5CF6);color:white;text-decoration:none;text-align:center;font-weight:700;font-size:12px" target="_blank">&#9654; Watch Deep Dive</a>
+                      <a href="https://www.youtube.com/watch?v={ed_yt_id}" style="display:block;padding:12px 8px;background-color:#EC4899;background:linear-gradient(135deg,#EC4899,#8B5CF6);color:white;text-decoration:none;text-align:center;font-weight:700;font-size:12px" target="_blank">&#9654; Watch Deep Dive</a>
                     </td></tr>
                   </table>
                 </td>"""
@@ -619,7 +619,7 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
                       <p style="margin:0;font-size:11px;color:#64748B">~5 min brief</p>
                     </td></tr>
                     <tr><td style="padding:0">
-                      <a href="{ed_audio_url}" style="display:block;padding:12px 8px;background:linear-gradient(135deg,#6366F1,#3B82F6);color:white;text-decoration:none;text-align:center;font-weight:700;font-size:12px" target="_blank">&#9654; Listen Now</a>
+                      <a href="{ed_audio_url}" style="display:block;padding:12px 8px;background-color:#6366F1;background:linear-gradient(135deg,#6366F1,#3B82F6);color:white;text-decoration:none;text-align:center;font-weight:700;font-size:12px" target="_blank">&#9654; Listen Now</a>
                     </td></tr>
                   </table>
                 </td>"""
@@ -750,7 +750,7 @@ def build_email_html(digest: dict, media_status: dict | None, hero_url: str | No
   <!-- CTA -->
   <tr><td style="padding:24px 24px 0;text-align:center">
     <a href="{digest_url}"
-      style="display:inline-block;padding:16px 40px;background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;text-decoration:none;font-weight:800;font-size:15px;letter-spacing:0.5px;border-radius:8px" target="_blank">READ THE FULL DIGEST</a>
+      style="display:inline-block;padding:16px 40px;background-color:#3B82F6;background:linear-gradient(135deg,#3B82F6,#6366F1);color:white;text-decoration:none;font-weight:800;font-size:15px;letter-spacing:0.5px;border-radius:8px" target="_blank">READ THE FULL DIGEST</a>
     <p style="margin:10px 0 0;font-size:12px;color:#94A3B8">Competitive landscape, newsletter intel, changelog, and more</p>
   </td></tr>
 
