@@ -129,12 +129,12 @@ body.kn-locked{overflow:hidden}
     </div>
     <div class="kn-actions">
         <div class="flex items-center" id="dayNav">
-            <div class="relative">
+            <div class="relative" style="display:inline-flex">
                 <button id="datePickerBtn" class="flex items-center gap-1 font-mono text-[10px] font-bold text-[#3B82F6] px-2 py-1 bg-[#3B82F6]/10 rounded-md hover:bg-[#3B82F6]/20 transition-all cursor-pointer border-none" title="Jump to date">
                     <span class="material-symbols-outlined" style="font-size:14px">calendar_month</span>
                     <span id="dateLabel">{{ date }}</span>
                 </button>
-                <input type="date" id="datePicker" class="absolute top-full left-0 mt-1 w-0 h-0" style="opacity:0;position:absolute;pointer-events:none" value="{{ date }}" min="2026-03-24">
+                <input type="date" id="datePicker" value="{{ date }}" min="2026-03-24" style="position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer;-webkit-appearance:none;font-size:16px">
             </div>
         </div>
         <div class="kn-desktop-social">
@@ -642,18 +642,13 @@ body.kn-locked{overflow:hidden}
     if(closeBtn)closeBtn.addEventListener('click',close);
     if(overlay)overlay.addEventListener('click',close);
     document.addEventListener('keydown',function(e){if(e.key==='Escape'){var lb=['infographicLightbox','podcastLightbox'];lb.forEach(function(id){var el=document.getElementById(id);if(el)el.style.display='none'})}});
-    var dpBtn=document.getElementById('datePickerBtn'),dp=document.getElementById('datePicker');
-    if(dpBtn&&dp){
-        dpBtn.addEventListener('click',function(){
-            try{dp.showPicker()}catch(e){dp.style.opacity='1';dp.style.pointerEvents='auto';dp.style.width='auto';dp.style.height='auto';dp.style.position='absolute';dp.focus();dp.click()}
-        });
+    var dp=document.getElementById('datePicker');
+    if(dp){
         dp.addEventListener('change',function(){
             var d=this.value;if(!d)return;
-            dp.style.opacity='0';dp.style.pointerEvents='none';dp.style.width='0';dp.style.height='0';
             var url='./morning-briefing-koda-'+d+'.html';
             fetch(url,{method:'HEAD'}).then(function(r){if(r.ok)window.location.href=url;else alert('No briefing found for '+d)}).catch(function(){alert('No briefing found for '+d)});
         });
-        dp.addEventListener('blur',function(){dp.style.opacity='0';dp.style.pointerEvents='none';dp.style.width='0';dp.style.height='0'});
     }
 })();
 </script>
