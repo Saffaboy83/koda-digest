@@ -90,40 +90,45 @@ OG_HEIGHT = 630
 
 
 def create_og_image(source_path: str, dest_path: str) -> bool:
-    """Crop and compress an image to OG-optimal 1200x630 at <600KB.
+    """Scale full image into a branded 1200x630 OG card.
 
-    Center-crops to 1.91:1 aspect ratio, then resizes to 1200x630.
+    Places the full source image (scaled to fit) on a dark branded background
+    instead of cropping, so square infographics remain fully visible.
     Returns True on success, False on failure.
     """
     try:
-        from PIL import Image
-        img = Image.open(source_path)
-        w, h = img.size
+        from PIL import Image, ImageDraw
 
-        # Crop to 1.91:1 aspect ratio (center crop, favor top half for infographics)
-        target_ratio = OG_WIDTH / OG_HEIGHT  # 1.905
-        current_ratio = w / h
+        canvas = Image.new("RGB", (OG_WIDTH, OG_HEIGHT), (11, 19, 38))  # #0b1326
 
-        if current_ratio > target_ratio:
-            # Image is wider than needed, crop sides
-            new_w = int(h * target_ratio)
-            left = (w - new_w) // 2
-            img = img.crop((left, 0, left + new_w, h))
-        else:
-            # Image is taller than needed (square images), crop bottom
-            new_h = int(w / target_ratio)
-            img = img.crop((0, 0, w, new_h))
+        # Add subtle gradient accent bar at top
+        draw = ImageDraw.Draw(canvas)
+        for x in range(OG_WIDTH):
+            r = int(59 + (139 - 59) * x / OG_WIDTH)   # #3B82F6 -> #8B5CF6
+            g = int(130 + (92 - 130) * x / OG_WIDTH)
+            b = int(246 + (246 - 246) * x / OG_WIDTH)
+            draw.line([(x, 0), (x, 4)], fill=(r, g, b))
 
-        img = img.resize((OG_WIDTH, OG_HEIGHT), Image.LANCZOS)
-        img = img.convert("RGB")
+        # Scale source image to fit inside canvas with padding
+        img = Image.open(source_path).convert("RGB")
+        pad = 16
+        max_w = OG_WIDTH - pad * 2
+        max_h = OG_HEIGHT - pad * 2 - 4  # account for gradient bar
+        scale = min(max_w / img.width, max_h / img.height)
+        new_size = (int(img.width * scale), int(img.height * scale))
+        img = img.resize(new_size, Image.LANCZOS)
+
+        # Center the image on canvas
+        x_off = (OG_WIDTH - new_size[0]) // 2
+        y_off = 4 + (OG_HEIGHT - 4 - new_size[1]) // 2
+        canvas.paste(img, (x_off, y_off))
 
         # Save with quality stepped down until <600KB
-        for quality in (85, 75, 65, 55):
-            img.save(dest_path, "JPEG", quality=quality, optimize=True)
+        for quality in (88, 80, 72, 60):
+            canvas.save(dest_path, "JPEG", quality=quality, optimize=True)
             if Path(dest_path).stat().st_size < 600_000:
                 return True
-        # Last resort: save at quality 45
-        img.save(dest_path, "JPEG", quality=45, optimize=True)
+        canvas.save(dest_path, "JPEG", quality=50, optimize=True)
         return True
     except Exception as e:
         print(f"  OG image creation failed: {e}")
