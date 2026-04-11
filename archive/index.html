@@ -465,7 +465,7 @@ fetch('../manifest.json')
                 title:e.title||'Deep Dive', desc:'',
                 allTopics:[], file:e.file, kpis:{},
                 hasPodcast:false, hasVideo:false, hasInfographic:false,
-                heroUrl:SUPABASE+'editorial-hero-'+e.date+'.jpg',
+                heroUrl:e.heroFilename?SUPABASE+e.heroFilename:SUPABASE+'editorial-hero-'+e.date+'.jpg',
                 tag:e.tag||''
             });
         }

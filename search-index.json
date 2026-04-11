@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-11T22:58:39Z",
+  "generated": "2026-04-11T23:36:53Z",
   "entries": [
     {
       "date": "2026-04-11",
@@ -4994,6 +4994,7 @@
       "file": "editorial/2026-04-11-the-scariest-ai-ever-built-might-be-the-only-thing-that-can-.html",
       "title": "The scariest AI ever built might just save the internet.",
       "tag": "Cybersecurity",
+      "heroFilename": "editorial-hero-cinematic-2026-04-11.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -5084,6 +5085,7 @@
       "file": "editorial/2026-04-11-the-glm-51-vs-claude-mythos-pricing-divide-reveals-two-incom.html",
       "title": "The GLM-5.1 vs Claude Mythos pricing divide reveals two incompatible theories of how AI value gets captured, and",
       "tag": "Strategy",
+      "heroFilename": "editorial-hero-2026-04-11.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -5138,6 +5140,7 @@
       "file": "editorial/2026-04-10-1-bit-quantized-models-like-bonsai-8b-signal-a-coming-shift-.html",
       "title": "1-bit quantized models like Bonsai 8B signal a coming shift where on-device AI becomes the default deployment target,",
       "tag": "Tools",
+      "heroFilename": "editorial-hero-2026-04-10.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -5192,6 +5195,7 @@
       "file": "editorial/2026-04-09-anthropic-launches-project-glasswing-cybersecurity-coalition.html",
       "title": "Anthropic Launches Project Glasswing Cybersecurity Coalition",
       "tag": "Strategy",
+      "heroFilename": "editorial-hero-2026-04-09.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -5246,6 +5250,7 @@
       "file": "editorial/2026-04-09-ai-benchmarks-are-systematically-misleading-due-to-training-.html",
       "title": "AI benchmarks are systematically misleading due to training data contamination, meaning the metrics builders rely on to",
       "tag": "Strategy",
+      "heroFilename": "editorial-hero-2026-04-09.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -5291,6 +5296,7 @@
       "file": "editorial/2026-04-08-the-open-source-ai-benchmark-race-is-compressing-frontier-mo.html",
       "title": "The open-source AI benchmark race is compressing frontier model timelines so fast that prediction markets now price",
       "tag": "Strategy",
+      "heroFilename": "editorial-hero-2026-04-08.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -5345,6 +5351,7 @@
       "file": "editorial/2026-04-07-ai-model-release-cadence-has-compressed-to-one-major-launch-.html",
       "title": "AI model release cadence has compressed to one major launch every 72 hours, creating a strategic crisis for builders",
       "tag": "Strategy",
+      "heroFilename": "editorial-hero-2026-04-07.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -5399,6 +5406,7 @@
       "file": "editorial/2026-04-06-the-case-for-llm-api-abstraction-layers-as-critical-infrastr.html",
       "title": "The case for LLM API abstraction layers as critical infrastructure: why hardcoding a single model provider is now an",
       "tag": "Tools",
+      "heroFilename": "editorial-hero-2026-04-06.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -5453,6 +5461,7 @@
       "file": "editorial/2026-04-05-the-open-weight-model-explosionseven-of-nine-march-releases-.html",
       "title": "The open-weight model explosion -seven of nine March releases were open-weight",
       "tag": "Strategy",
+      "heroFilename": "editorial-hero-2026-04-05.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -5507,6 +5516,7 @@
       "file": "editorial/2026-04-05-pay-as-you-go-pricing-for-ai-coding-tools-signals-the-end-of.html",
       "title": "Pay-as-you-go pricing for AI coding tools signals the end of seat-based SaaS and",
       "tag": "Monetization",
+      "heroFilename": "editorial-hero-2026-04-05.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -5561,6 +5571,7 @@
       "file": "editorial/2026-04-04-deepseek-v4-proves-frontier-level-ai-performance-no-longer-r.html",
       "title": "DeepSeek V4 proves frontier-level AI performance no longer requires frontier-lev",
       "tag": "Strategy",
+      "heroFilename": "editorial-hero-2026-04-04.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -5615,6 +5626,7 @@
       "file": "editorial/2026-04-03-the-shift-to-pay-as-you-go-pricing-for-ai-coding-tools-signa.html",
       "title": "The shift to pay-as-you-go pricing for AI coding tools signals a structural chan",
       "tag": "Monetization",
+      "heroFilename": "editorial-hero-2026-04-03.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -5669,6 +5681,7 @@
       "file": "editorial/2026-04-03-pay-as-you-go-pricing-for-ai-coding-tools-signals-the-end-of.html",
       "title": "Pay-as-you-go pricing for AI coding tools signals the end of seat-based SaaS and",
       "tag": "Monetization",
+      "heroFilename": "editorial-hero-2026-04-03.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -5723,6 +5736,7 @@
       "file": "editorial/2026-04-02-openai-raises-122-billion-for-ai-push.html",
       "title": "OpenAI Raises $122 Billion for AI Push",
       "tag": "Strategy",
+      "heroFilename": "editorial-hero-2026-04-02.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -5777,6 +5791,7 @@
       "file": "editorial/2026-04-01-the-ai-model-release-tsunami-of-q1-2026-is-creating-a-parado.html",
       "title": "The AI model release tsunami of Q1 2026 is creating a paradox of choice that par",
       "tag": "Strategy",
+      "heroFilename": "editorial-hero-2026-04-01.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -5831,6 +5846,7 @@
       "file": "editorial/2026-03-31-the-philippine-pesos-seventh-record-low-in-march-reveals-how.html",
       "title": "The Philippine Peso's seventh record low in March reveals how emerging-market cu",
       "tag": "Markets",
+      "heroFilename": "editorial-hero-2026-03-31.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -5885,6 +5901,7 @@
       "file": "editorial/2026-03-31-the-arc-agi-3-benchmark-reveals-frontier-ai-scores-below-1-a.html",
       "title": "The ARC-AGI-3 benchmark reveals frontier AI scores below 1% against human perfec",
       "tag": "Strategy",
+      "heroFilename": "editorial-hero-2026-03-31.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -5939,6 +5956,7 @@
       "file": "editorial/2026-03-31-the-amazon-openai-stateful-runtime-partnership-signals-that-.html",
       "title": "The Amazon-OpenAI Stateful Runtime partnership signals that memory and tool-use",
       "tag": "Tools",
+      "heroFilename": "editorial-hero-2026-03-31.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -5993,6 +6011,7 @@
       "file": "editorial/2026-03-30-a-700m-surveillance-aircraft-destroyed-by-a-cheap-iranian-dr.html",
       "title": "The Compression Trap: When a $20K Drone Destroys a $500M Aircraft",
       "tag": "Strategy",
+      "heroFilename": "editorial-hero-2026-03-30.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -6047,6 +6066,7 @@
       "file": "editorial/2026-03-29-openai-launches-gpt-54-with-million-token-context.html",
       "title": "OpenAI Launches GPT-5.4 With Million-Token Context",
       "tag": "Strategy",
+      "heroFilename": "editorial-hero-2026-03-29.jpg",
       "sections": [
         {
           "title": "Introduction",
@@ -6101,6 +6121,7 @@
       "file": "editorial/2026-03-28-open-weight-flood.html",
       "title": "The Open-Weight Flood: Why 78% of March's AI Models Were Free",
       "tag": "Strategy",
+      "heroFilename": "editorial-hero-2026-03-28.jpg",
       "sections": [
         {
           "title": "Introduction",

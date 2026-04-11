@@ -419,6 +419,13 @@ def parse_editorial_file(filepath: str) -> dict | None:
     tag_match = re.search(r'class="tag"[^>]*>(.*?)</span>', html, re.DOTALL)
     tag = strip_html(tag_match.group(1)) if tag_match else ""
 
+    # Extract hero image filename from <div class="hero-image ..."> <img src="...">
+    hero_img_match = re.search(
+        r'class="hero-image[^"]*"[^>]*>.*?<img[^>]+src="[^"]*?/([^"/]+\.(?:jpg|png|webp))"',
+        html, re.DOTALL
+    )
+    hero_filename = hero_img_match.group(1) if hero_img_match else ""
+
     # Extract article body sections by h2/h3 headings
     body_match = re.search(
         r'<article\s+class="article-body">(.*?)</article>', html, re.DOTALL
@@ -431,6 +438,7 @@ def parse_editorial_file(filepath: str) -> dict | None:
             "file": "editorial/" + basename,
             "title": title,
             "tag": tag,
+            "heroFilename": hero_filename,
             "sections": [
                 {
                     "title": title,
@@ -481,6 +489,7 @@ def parse_editorial_file(filepath: str) -> dict | None:
         "file": "editorial/" + basename,
         "title": title,
         "tag": tag,
+        "heroFilename": hero_filename,
         "sections": sections,
     }
 
@@ -755,6 +764,7 @@ def main():
                 "title": entry["title"],
                 "tag": entry.get("tag", ""),
                 "file": entry["file"],
+                "heroFilename": entry.get("heroFilename", ""),
             })
 
     # --- Reviews (The Lab) ---
