@@ -897,8 +897,8 @@ def render_html(article: str, topic: dict, date: str, hero_url: str | None = Non
     # Hero image
     hero_img_html = ""
     if hero_url:
-        hero_img_html = f'''    <div class="hero-image fade-in" style="max-width:800px;max-height:420px;margin:32px auto 0;border-radius:16px;overflow:hidden;">
-        <img src="{hero_url}" alt="{title}" loading="eager" style="width:100%;height:420px;object-fit:cover;object-position:center;display:block;border-radius:16px;">
+        hero_img_html = f'''    <div class="hero-image fade-in" style="max-width:800px;margin:32px auto 0;border-radius:16px;overflow:hidden;">
+        <img src="{hero_url}" alt="{title}" loading="eager" style="width:100%;height:auto;display:block;border-radius:16px;">
     </div>'''
 
     slug = slugify(title)
