@@ -368,7 +368,7 @@ def upload_media(hero_path: Path, audio_path: Path | None, date: str) -> dict:
 
     # Upload hero
     if hero_path.exists():
-        hero_filename = f"editorial-hero-{date}.jpg"
+        hero_filename = f"editorial-hero-cinematic-{date}.jpg"
         hero_upload = hero_path
         # If PNG, convert to JPG
         if hero_path.suffix.lower() == ".png":
@@ -396,7 +396,7 @@ def upload_media(hero_path: Path, audio_path: Path | None, date: str) -> dict:
     # Upload audio
     if audio_path and audio_path.exists():
         print(f"  Uploading audio to Supabase...")
-        audio_filename = f"editorial-podcast-{date}.mp3"
+        audio_filename = f"editorial-podcast-cinematic-{date}.mp3"
         try:
             import shutil
             temp_audio = audio_path.parent / audio_filename
@@ -422,7 +422,8 @@ def generate_og_card(hero_path: Path, title: str, subtitle: str,
         print("  WARNING: generate_og_card not importable, skipping OG card")
         return None
 
-    og_filename = f"og-editorial-v2-{date}.jpg"
+    slug_part = slugify(title)[:30]
+    og_filename = f"og-editorial-v2-{date}-{slug_part}.jpg"
     og_path = output_dir / og_filename
 
     print("  Generating branded OG card...")
