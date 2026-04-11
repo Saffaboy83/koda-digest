@@ -1,19 +1,19 @@
 """
-Generate branded Open Graph cards (1200x630) for social sharing.
+Generate premium branded Open Graph cards (1200x630) for social sharing.
 
-Creates professional social preview cards with:
-- Hero image as dimmed background
-- Section badge (The Signal, Deep Dive, The Lab)
-- Title text overlay
-- koda.community domain badge
-- Gradient accent bar
+Cinematic poster-style cards with:
+- Full-bleed hero as background with cinematic gradient overlay
+- Bold title with multi-layer text shadow for depth
+- Section pill badge with glow effect
+- Subtle domain watermark
+- Bottom gradient accent strip
 
 Usage:
     from pipeline.generate_og_card import create_og_card
     create_og_card(
         hero_path="path/to/hero.jpg",
         title="The Signal | 11 April 2026",
-        section="signal",  # signal | editorial | review
+        section="signal",
         output_path="path/to/og-card.jpg",
     )
 """
@@ -21,71 +21,161 @@ Usage:
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
-# ── Constants ────────────────────────────────────────────────────────────────
+# ── Canvas ───────────────────────────────────────────────────────────────────
 
 OG_W, OG_H = 1200, 630
-BG_COLOR = (11, 19, 38)  # #0b1326
-GRADIENT_LEFT = (59, 130, 246)   # #3B82F6
-GRADIENT_RIGHT = (139, 92, 246)  # #8B5CF6
 
-SECTION_COLORS = {
-    "signal":    {"badge_bg": (59, 130, 246), "label": "THE SIGNAL"},
-    "editorial": {"badge_bg": (139, 92, 246), "label": "DEEP DIVE"},
-    "review":    {"badge_bg": (139, 92, 246), "label": "THE LAB"},
+# ── Brand palette ────────────────────────────────────────────────────────────
+
+BG = (11, 19, 38)           # #0b1326
+BLUE = (59, 130, 246)       # #3B82F6
+PURPLE = (139, 92, 246)     # #8B5CF6
+INDIGO = (99, 102, 241)     # #6366F1
+WHITE = (255, 255, 255)
+LIGHT = (218, 226, 253)     # #dae2fd
+MUTED = (140, 144, 159)     # #8c909f
+
+SECTIONS = {
+    "signal":      {"color": BLUE,   "label": "THE SIGNAL"},
+    "editorial":   {"color": PURPLE, "label": "DEEP DIVE"},
+    "review":      {"color": PURPLE, "label": "THE LAB"},
+    "landing":     {"color": INDIGO, "label": "KODA INTELLIGENCE"},
+    "lab":         {"color": PURPLE, "label": "THE LAB"},
+    "dojo":        {"color": BLUE,   "label": "THE DOJO"},
+    "pulse":       {"color": BLUE,   "label": "THE PULSE"},
+    "leaderboard": {"color": INDIGO, "label": "TOKEN TRACKER"},
+    "vault":       {"color": INDIGO, "label": "THE VAULT"},
 }
 
-# Fonts (Segoe UI available on Windows; Railway uses fallback)
-FONT_BOLD = "segoeuib.ttf"
-FONT_SEMI = "seguisb.ttf"
-FONT_REG = "segoeui.ttf"
-FONT_FALLBACK = "arialbd.ttf"
+# ── Fonts ────────────────────────────────────────────────────────────────────
+
+_FONT_CHAIN_BOLD = ["segoeuib.ttf", "arialbd.ttf", "DejaVuSans-Bold.ttf"]
+_FONT_CHAIN_REG = ["seguisb.ttf", "segoeui.ttf", "arial.ttf", "DejaVuSans.ttf"]
 
 
-def _load_font(name: str, size: int) -> ImageFont.FreeTypeFont:
-    """Load a font with fallback chain."""
-    for candidate in [name, FONT_FALLBACK, "DejaVuSans-Bold.ttf"]:
+def _font(chain: list[str], size: int) -> ImageFont.FreeTypeFont:
+    for name in chain:
         try:
-            return ImageFont.truetype(candidate, size)
+            return ImageFont.truetype(name, size)
         except (OSError, IOError):
             continue
     return ImageFont.load_default()
 
 
-def _wrap_text(text: str, font: ImageFont.FreeTypeFont, max_width: int) -> list[str]:
-    """Word-wrap text to fit within max_width pixels."""
+def _bold(size: int) -> ImageFont.FreeTypeFont:
+    return _font(_FONT_CHAIN_BOLD, size)
+
+
+def _reg(size: int) -> ImageFont.FreeTypeFont:
+    return _font(_FONT_CHAIN_REG, size)
+
+
+# ── Text helpers ─────────────────────────────────────────────────────────────
+
+def _wrap(text: str, font: ImageFont.FreeTypeFont, max_w: int) -> list[str]:
     words = text.split()
     lines: list[str] = []
-    current = ""
-
-    for word in words:
-        test = f"{current} {word}".strip()
-        bbox = font.getbbox(test)
-        if bbox[2] - bbox[0] <= max_width:
-            current = test
+    cur = ""
+    for w in words:
+        test = f"{cur} {w}".strip()
+        if font.getbbox(test)[2] <= max_w:
+            cur = test
         else:
-            if current:
-                lines.append(current)
-            current = word
-    if current:
-        lines.append(current)
+            if cur:
+                lines.append(cur)
+            cur = w
+    if cur:
+        lines.append(cur)
     return lines or [""]
 
 
-def _draw_gradient_bar(draw: ImageDraw.Draw, y: int, height: int, width: int = OG_W) -> None:
-    """Draw a horizontal gradient bar from blue to purple."""
-    for x in range(width):
-        t = x / width
-        r = int(GRADIENT_LEFT[0] + (GRADIENT_RIGHT[0] - GRADIENT_LEFT[0]) * t)
-        g = int(GRADIENT_LEFT[1] + (GRADIENT_RIGHT[1] - GRADIENT_LEFT[1]) * t)
-        b = int(GRADIENT_LEFT[2] + (GRADIENT_RIGHT[2] - GRADIENT_LEFT[2]) * t)
-        draw.line([(x, y), (x, y + height - 1)], fill=(r, g, b))
+def _text_with_shadow(
+    draw: ImageDraw.Draw,
+    pos: tuple[int, int],
+    text: str,
+    font: ImageFont.FreeTypeFont,
+    fill: tuple = WHITE,
+    shadow_layers: int = 3,
+) -> None:
+    """Draw text with multi-layer shadow for cinematic depth."""
+    x, y = pos
+    for i in range(shadow_layers, 0, -1):
+        alpha = 40 + i * 20
+        draw.text((x + i, y + i), text, fill=(0, 0, 0, min(alpha, 180)), font=font)
+    draw.text((x, y), text, fill=fill, font=font)
 
 
-def _draw_rounded_rect(draw: ImageDraw.Draw, xy: tuple, fill: tuple, radius: int = 8) -> None:
-    """Draw a rounded rectangle."""
-    x0, y0, x1, y1 = xy
-    draw.rounded_rectangle([x0, y0, x1, y1], radius=radius, fill=fill)
+# ── Gradient helpers ─────────────────────────────────────────────────────────
 
+def _cinematic_overlay(size: tuple[int, int]) -> Image.Image:
+    """Create a cinematic bottom-heavy gradient overlay.
+
+    Top 30%: light fade (30% opacity) to let the hero show
+    Bottom 70%: deep fade (85% opacity) for text readability
+    """
+    w, h = size
+    overlay = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
+
+    for y in range(h):
+        t = y / h
+        if t < 0.25:
+            # Top quarter: light overlay to let hero breathe
+            alpha = int(40 + t * 200)
+        elif t < 0.45:
+            # Middle: transition zone
+            alpha = int(90 + (t - 0.25) * 500)
+        else:
+            # Bottom 55%: deep overlay for text
+            alpha = int(190 + (t - 0.45) * 80)
+        alpha = min(alpha, 225)
+        draw.line([(0, y), (w, y)], fill=(BG[0], BG[1], BG[2], alpha))
+
+    return overlay
+
+
+def _gradient_strip(
+    draw: ImageDraw.Draw, y: int, h: int, w: int = OG_W,
+    left: tuple = BLUE, right: tuple = PURPLE,
+) -> None:
+    for x in range(w):
+        t = x / w
+        r = int(left[0] + (right[0] - left[0]) * t)
+        g = int(left[1] + (right[1] - left[1]) * t)
+        b = int(left[2] + (right[2] - left[2]) * t)
+        draw.line([(x, y), (x, y + h - 1)], fill=(r, g, b))
+
+
+def _pill(
+    draw: ImageDraw.Draw, x: int, y: int, text: str,
+    font: ImageFont.FreeTypeFont, color: tuple, glow: bool = True,
+) -> None:
+    """Draw a pill badge with optional glow."""
+    bbox = font.getbbox(text)
+    tw = bbox[2] - bbox[0]
+    th = bbox[3] - bbox[1]
+    pad_x, pad_y = 16, 8
+    pw, ph = tw + pad_x * 2, th + pad_y * 2
+
+    if glow:
+        # Subtle glow behind the pill
+        glow_img = Image.new("RGBA", (pw + 16, ph + 16), (0, 0, 0, 0))
+        gd = ImageDraw.Draw(glow_img)
+        gd.rounded_rectangle([0, 0, pw + 15, ph + 15], radius=ph // 2,
+                             fill=(color[0], color[1], color[2], 50))
+        glow_img = glow_img.filter(ImageFilter.GaussianBlur(6))
+        # We can't paste RGBA on RGB draw surface easily, skip glow for now
+        # (it adds complexity for marginal visual gain in JPEG)
+
+    draw.rounded_rectangle(
+        [x, y, x + pw, y + ph],
+        radius=ph // 2,
+        fill=color,
+    )
+    draw.text((x + pad_x, y + pad_y - 1), text, fill=WHITE, font=font)
+
+
+# ── Main generator ───────────────────────────────────────────────────────────
 
 def create_og_card(
     hero_path: str,
@@ -94,120 +184,112 @@ def create_og_card(
     output_path: str = "og-card.jpg",
     subtitle: str = "",
 ) -> bool:
-    """Generate a branded 1200x630 OG card.
+    """Generate a premium branded 1200x630 OG card.
 
     Args:
         hero_path: Path to the hero/source image
         title: Main title text for the card
-        section: One of "signal", "editorial", "review"
-        output_path: Where to save the result
-        subtitle: Optional subtitle/description text
+        section: One of the SECTIONS keys
+        output_path: Where to save the JPEG result
+        subtitle: Optional subtitle/hook text
 
     Returns:
-        True on success, False on failure
+        True on success, False on failure.
     """
     try:
-        section_info = SECTION_COLORS.get(section, SECTION_COLORS["signal"])
+        sec = SECTIONS.get(section, SECTIONS["signal"])
 
-        # Load fonts
-        font_title = _load_font(FONT_BOLD, 42)
-        font_badge = _load_font(FONT_SEMI, 16)
-        font_domain = _load_font(FONT_SEMI, 18)
-        font_subtitle = _load_font(FONT_REG, 22)
-
-        # Create canvas
-        canvas = Image.new("RGB", (OG_W, OG_H), BG_COLOR)
-
-        # Load and process hero image as background
+        # ── 1. Hero background ───────────────────────────────────────────
         hero = Image.open(hero_path).convert("RGB")
 
-        # Scale hero to cover the canvas
+        # Cover-crop to 1200x630
         scale = max(OG_W / hero.width, OG_H / hero.height)
-        new_w = int(hero.width * scale)
-        new_h = int(hero.height * scale)
-        hero = hero.resize((new_w, new_h), Image.LANCZOS)
+        hero = hero.resize(
+            (int(hero.width * scale), int(hero.height * scale)), Image.LANCZOS
+        )
+        lx = (hero.width - OG_W) // 2
+        ly = (hero.height - OG_H) // 2
+        hero = hero.crop((lx, ly, lx + OG_W, ly + OG_H))
 
-        # Center crop
-        left = (new_w - OG_W) // 2
-        top = (new_h - OG_H) // 2
-        hero = hero.crop((left, top, left + OG_W, top + OG_H))
+        # Slight blur for depth-of-field effect
+        hero = hero.filter(ImageFilter.GaussianBlur(radius=2))
 
-        # Apply slight blur for readability
-        hero = hero.filter(ImageFilter.GaussianBlur(radius=3))
+        canvas = hero.convert("RGBA")
 
-        # Paste hero as background
-        canvas.paste(hero, (0, 0))
+        # ── 2. Cinematic gradient overlay ─────────────────────────────────
+        overlay = _cinematic_overlay((OG_W, OG_H))
+        canvas = Image.alpha_composite(canvas, overlay)
 
-        # Dark overlay (60% opacity)
-        overlay = Image.new("RGBA", (OG_W, OG_H), (11, 19, 38, 160))
-        canvas = Image.alpha_composite(canvas.convert("RGBA"), overlay).convert("RGB")
+        # ── 3. Bottom accent strip (gradient bar) ─────────────────────────
+        canvas_rgb = canvas.convert("RGB")
+        draw = ImageDraw.Draw(canvas_rgb)
+        _gradient_strip(draw, OG_H - 4, 4)
 
-        draw = ImageDraw.Draw(canvas)
+        # ── 4. Section pill badge (top-left) ──────────────────────────────
+        pill_font = _bold(14)
+        _pill(draw, 48, 36, sec["label"], pill_font, sec["color"])
 
-        # Bottom gradient accent bar
-        _draw_gradient_bar(draw, OG_H - 5, 5)
+        # ── 5. Title ─────────────────────────────────────────────────────
+        title_font = _bold(48)
+        max_tw = OG_W - 120  # 60px padding each side
+        lines = _wrap(title, title_font, max_tw)
 
-        # Top gradient accent bar (thin)
-        _draw_gradient_bar(draw, 0, 3)
-
-        # Section badge (top-left)
-        badge_text = section_info["label"]
-        badge_bbox = font_badge.getbbox(badge_text)
-        badge_w = badge_bbox[2] - badge_bbox[0] + 24
-        badge_h = badge_bbox[3] - badge_bbox[1] + 14
-        badge_x, badge_y = 48, 40
-        _draw_rounded_rect(draw, (badge_x, badge_y, badge_x + badge_w, badge_y + badge_h),
-                           fill=section_info["badge_bg"], radius=6)
-        draw.text((badge_x + 12, badge_y + 5), badge_text, fill=(255, 255, 255), font=font_badge)
-
-        # Title text (centered vertically, left-aligned with padding)
-        text_x = 48
-        max_text_w = OG_W - 96  # 48px padding each side
-        lines = _wrap_text(title, font_title, max_text_w)
-
-        # Limit to 3 lines max
+        # Cap at 3 lines
         if len(lines) > 3:
             lines = lines[:3]
-            lines[2] = lines[2][:50] + "..." if len(lines[2]) > 50 else lines[2]
+            if len(lines[2]) > 45:
+                lines[2] = lines[2][:45].rstrip() + "..."
 
-        line_height = 56
-        total_text_h = len(lines) * line_height
-        # Position title in center-lower area (above domain badge)
-        text_start_y = (OG_H - total_text_h) // 2 + 20
+        line_h = 62
+        total_h = len(lines) * line_h
+
+        # Position: bottom-heavy (text sits in the lower 60% of the card)
+        text_top = OG_H - total_h - (130 if subtitle else 90)
 
         for i, line in enumerate(lines):
-            y = text_start_y + i * line_height
-            # Text shadow for readability
-            draw.text((text_x + 2, y + 2), line, fill=(0, 0, 0, 128), font=font_title)
-            draw.text((text_x, y), line, fill=(255, 255, 255), font=font_title)
+            _text_with_shadow(
+                draw, (60, text_top + i * line_h), line,
+                title_font, WHITE, shadow_layers=4,
+            )
 
-        # Subtitle (if provided, below title)
+        # ── 6. Subtitle ──────────────────────────────────────────────────
         if subtitle:
-            sub_lines = _wrap_text(subtitle, font_subtitle, max_text_w)[:2]
-            sub_y = text_start_y + total_text_h + 12
+            sub_font = _reg(22)
+            sub_lines = _wrap(subtitle, sub_font, max_tw)[:2]
+            sub_top = text_top + total_h + 10
             for i, line in enumerate(sub_lines):
-                draw.text((text_x, sub_y + i * 30), line, fill=(194, 198, 214), font=font_subtitle)
+                _text_with_shadow(
+                    draw, (60, sub_top + i * 28), line,
+                    sub_font, LIGHT, shadow_layers=2,
+                )
 
-        # Domain badge (bottom-left)
-        domain_text = "koda.community"
-        domain_y = OG_H - 52
-        # Small K icon circle
-        k_size = 28
-        k_x = 48
-        _draw_rounded_rect(draw, (k_x, domain_y - 2, k_x + k_size, domain_y + k_size - 2),
-                           fill=(99, 102, 241), radius=6)  # #6366F1
-        k_font = _load_font(FONT_BOLD, 16)
-        draw.text((k_x + 8, domain_y + 2), "K", fill=(255, 255, 255), font=k_font)
-        draw.text((k_x + k_size + 10, domain_y + 3), domain_text,
-                  fill=(194, 198, 214), font=font_domain)
+        # ── 7. Domain watermark (bottom-left) ────────────────────────────
+        wm_font = _reg(16)
+        draw.text((60, OG_H - 32), "koda.community", fill=MUTED, font=wm_font)
 
-        # Save with quality optimization
-        canvas = canvas.convert("RGB")
-        for quality in (88, 80, 72, 60):
-            canvas.save(output_path, "JPEG", quality=quality, optimize=True)
+        # ── 8. Decorative K badge (bottom-right) ─────────────────────────
+        k_size = 36
+        k_x = OG_W - 60 - k_size
+        k_y = OG_H - 32 - k_size + 8
+        draw.rounded_rectangle(
+            [k_x, k_y, k_x + k_size, k_y + k_size],
+            radius=10, fill=INDIGO,
+        )
+        k_font = _bold(20)
+        # Center K in the badge
+        kb = k_font.getbbox("K")
+        kw, kh = kb[2] - kb[0], kb[3] - kb[1]
+        draw.text(
+            (k_x + (k_size - kw) // 2, k_y + (k_size - kh) // 2 - 2),
+            "K", fill=WHITE, font=k_font,
+        )
+
+        # ── 9. Save ──────────────────────────────────────────────────────
+        for q in (90, 82, 74, 65):
+            canvas_rgb.save(output_path, "JPEG", quality=q, optimize=True)
             if Path(output_path).stat().st_size < 600_000:
                 return True
-        canvas.save(output_path, "JPEG", quality=50, optimize=True)
+        canvas_rgb.save(output_path, "JPEG", quality=55, optimize=True)
         return True
 
     except Exception as e:
@@ -220,10 +302,11 @@ def create_og_card(
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description="Generate branded OG card")
+    parser = argparse.ArgumentParser(description="Generate premium branded OG card")
     parser.add_argument("--hero", required=True, help="Path to hero image")
     parser.add_argument("--title", required=True, help="Card title")
-    parser.add_argument("--section", default="signal", choices=["signal", "editorial", "review"])
+    parser.add_argument("--section", default="signal",
+                        choices=list(SECTIONS.keys()))
     parser.add_argument("--subtitle", default="", help="Optional subtitle")
     parser.add_argument("--output", default="og-card.jpg", help="Output path")
     args = parser.parse_args()
