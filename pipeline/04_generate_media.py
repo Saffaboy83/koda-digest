@@ -701,6 +701,19 @@ def upload_to_supabase(date, media):
         except Exception as e:
             print(f"    FAILED: {e}")
 
+    # Create OG-optimized image (1200x630) from the infographic for social sharing
+    infographic_path = DIGEST_DIR / f"infographic-{date}.jpg"
+    if infographic_path.exists():
+        from pipeline.config import create_og_image
+        og_path = DIGEST_DIR / "pipeline" / "data" / f"og-signal-{date}.jpg"
+        if create_og_image(str(infographic_path), str(og_path)):
+            print(f"    OG signal image: {og_path.name} ({og_path.stat().st_size // 1024}KB)")
+            try:
+                url = upload_file(str(og_path), SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
+                print(f"    OG uploaded: {url}")
+            except Exception as e:
+                print(f"    OG upload failed (non-critical): {e}")
+
 
 def upload_to_youtube(date, digest, media):
     """Upload video to YouTube and write youtube-result.json for step 05."""

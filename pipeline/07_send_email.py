@@ -26,8 +26,7 @@ from pathlib import Path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from pipeline.config import (EMAIL_RECIPIENTS, DIGEST_DIR, SUPABASE_URL,
                               BEEHIIV_API_KEY, BEEHIIV_PUBLICATION_ID,
-                              today_str, write_json, read_json,
-                              create_og_image)
+                              today_str, write_json, read_json)
 
 UNSUBSCRIBE_SECRET = os.environ.get("UNSUBSCRIBE_SECRET", BEEHIIV_API_KEY[:16] if BEEHIIV_API_KEY else "koda-unsub-key")
 
@@ -978,27 +977,7 @@ def main():
     print("  Generating email hero image...")
     hero_url = generate_email_hero(digest, args.date)
 
-    # Create OG-optimized image (1200x630) for social sharing
-    hero_path = DIGEST_DIR / "pipeline" / "data" / f"email-hero-{args.date}.jpg"
-    og_path = DIGEST_DIR / "pipeline" / "data" / f"og-signal-{args.date}.jpg"
-    if hero_path.exists():
-        if create_og_image(str(hero_path), str(og_path)):
-            print(f"  OG image created: {og_path.name} ({og_path.stat().st_size // 1024}KB)")
-            service_key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
-            if SUPABASE_URL and service_key:
-                try:
-                    with open(og_path, "rb") as f:
-                        resp = httpx.put(
-                            f"{SUPABASE_URL}/storage/v1/object/koda-media/{og_path.name}",
-                            content=f.read(),
-                            headers={"Authorization": f"Bearer {service_key}",
-                                     "Content-Type": "image/jpeg", "x-upsert": "true"},
-                            timeout=30,
-                        )
-                    if resp.status_code in (200, 201):
-                        print(f"  OG image uploaded to Supabase: {og_path.name}")
-                except Exception as e:
-                    print(f"  WARNING: OG image upload failed (non-critical): {e}")
+    # OG signal image is now created in step 04 (from infographic) before deploy
 
     subject = build_email_subject(digest)
     html_body = build_email_html(digest, media_status, hero_url=hero_url, send_date=args.date)
