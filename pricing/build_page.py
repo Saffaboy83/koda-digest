@@ -263,7 +263,7 @@ footer .inner{{max-width:1280px;margin:0 auto;display:flex;flex-direction:column
     </div>
     <div class="stat">
         <div class="stat-value">{date_label}</div>
-        <div class="stat-label">Last Scraped</div>
+        <div class="stat-label">Last Scanned</div>
     </div>
 </div>
 

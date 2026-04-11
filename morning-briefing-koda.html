@@ -126,13 +126,13 @@ body.kn-locked{overflow:hidden}
         <a href="./index.html" class="kn-link" style="background:linear-gradient(135deg,#3B82F6,#6366F1);color:white!important">&larr; Home</a>
     </div>
     <div class="kn-actions">
-        <div class="hidden md:flex items-center" id="dayNav">
+        <div class="flex items-center" id="dayNav">
             <div class="relative">
                 <button id="datePickerBtn" class="flex items-center gap-1 font-mono text-[10px] font-bold text-[#3B82F6] px-2 py-1 bg-[#3B82F6]/10 rounded-md hover:bg-[#3B82F6]/20 transition-all cursor-pointer border-none" title="Jump to date">
                     <span class="material-symbols-outlined" style="font-size:14px">calendar_month</span>
                     <span id="dateLabel">2026-04-10</span>
                 </button>
-                <input type="date" id="datePicker" class="absolute top-full left-0 mt-1 opacity-0 pointer-events-none w-0 h-0" value="2026-04-10" min="2026-03-24">
+                <input type="date" id="datePicker" class="absolute top-full left-0 mt-1 w-0 h-0" style="opacity:0;position:absolute;pointer-events:none" value="2026-04-10" min="2026-03-24">
             </div>
         </div>
         <div class="kn-desktop-social">
@@ -490,8 +490,8 @@ body.kn-locked{overflow:hidden}
     <a href="./editorial/2026-04-10-1-bit-quantized-models-like-bonsai-8b-signal-a-coming-shift-.html" class="block rounded-2xl overflow-hidden bg-surface-container/80 border border-outline-variant/15 hover:border-primary/30 transition-all group" style="box-shadow:0 20px 60px -15px rgba(0,0,0,0.5)">
         <div class="grid grid-cols-1 md:grid-cols-5">
             
-            <div class="md:col-span-2 relative h-44 md:h-auto overflow-hidden">
-                <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/editorial-hero-2026-04-10.jpg" alt="Editorial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
+            <div class="md:col-span-2 relative overflow-hidden">
+                <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/editorial-hero-2026-04-10.jpg" alt="Editorial" class="w-full h-auto group-hover:scale-105 transition-transform duration-700" style="display:block"/>
                 <div class="absolute inset-0 bg-gradient-to-r from-transparent to-[#171f33]/90 hidden md:block"></div>
             </div>
             
@@ -831,8 +831,11 @@ body.kn-locked{overflow:hidden}
             <span class="px-3 py-1 font-label text-[10px] tracking-widest uppercase w-fit rounded mb-6" style="background:#3B82F615;color:#3B82F6">Productivity</span>
             <h4 class="text-2xl font-bold leading-tight mb-4 group-hover:opacity-80 transition-colors">NovaVoice: Control Apps and Dictate With a Single Voice Layer</h4>
             <p class="text-on-surface-variant text-sm leading-relaxed flex-grow">NovaVoice, the top-ranked product on Product Hunt for April 2026, combines smart dictation, an AI assistant, and full app control through voice commands. Instead of toggling between Siri, dictation apps, and automation tools, try NovaVoice as a unified voice interface across your desktop workflow. It is especially useful for hands-free task switching during deep work sessions.</p>
-            
-            <a href="https://www.producthunt.com/products" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm mt-6 hover:underline" style="color:#3B82F6">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+
+            <div class="flex flex-wrap items-center gap-4 mt-6">
+            <a href="https://www.producthunt.com/products" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm hover:underline" style="color:#3B82F6">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+            <a href="./reviews/2026-04-09-novavoice-control-apps-and-dictate-with-a-single-voice-layer.html" class="inline-flex items-center gap-2 font-bold text-sm hover:underline" style="color:#8B5CF6">Lab Report <span class="material-symbols-outlined text-sm">science</span></a>
+            </div>
             
         </article>
         
@@ -841,8 +844,11 @@ body.kn-locked{overflow:hidden}
             <span class="px-3 py-1 font-label text-[10px] tracking-widest uppercase w-fit rounded mb-6" style="background:#8B5CF615;color:#8B5CF6">Build</span>
             <h4 class="text-2xl font-bold leading-tight mb-4 group-hover:opacity-80 transition-colors">Lessie AI: Describe Your Target Customer, Let the Agent Find Them</h4>
             <p class="text-on-surface-variant text-sm leading-relaxed flex-grow">Lessie AI replaces traditional lead-gen filters with natural language targeting. Describe the type of person or company you want to reach, and Lessie crawls the web to surface high-quality matches and automate personalized outreach. Sales teams spending hours on LinkedIn Boolean searches should test this as a first-pass prospecting layer before manual qualification.</p>
-            
-            <a href="https://www.producthunt.com/products/lessie-ai-2/awards" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm mt-6 hover:underline" style="color:#8B5CF6">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+
+            <div class="flex flex-wrap items-center gap-4 mt-6">
+            <a href="https://www.producthunt.com/products/lessie-ai-2/awards" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm hover:underline" style="color:#8B5CF6">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+            <a href="./reviews/2026-04-10-lessie-ai-describe-your-target-customer-let-the-agent-find-them.html" class="inline-flex items-center gap-2 font-bold text-sm hover:underline" style="color:#8B5CF6">Lab Report <span class="material-symbols-outlined text-sm">science</span></a>
+            </div>
             
         </article>
         
@@ -851,8 +857,11 @@ body.kn-locked{overflow:hidden}
             <span class="px-3 py-1 font-label text-[10px] tracking-widest uppercase w-fit rounded mb-6" style="background:#EC489915;color:#EC4899">Productivity</span>
             <h4 class="text-2xl font-bold leading-tight mb-4 group-hover:opacity-80 transition-colors">OrbitMeet: Get Real-Time Transcription and Action Items During Calls</h4>
             <p class="text-on-surface-variant text-sm leading-relaxed flex-grow">OrbitMeet acts as a meeting co-pilot that transcribes conversations in real time and surfaces instant summaries and action items as the call progresses. Rather than reviewing a 45-minute recording after the fact, you can confirm takeaways with participants before hanging up. Plug it into your next client call to test whether it catches commitments your note-taking misses.</p>
-            
-            <a href="https://theresanaiforthat.com/ai/orbitmeet/" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm mt-6 hover:underline" style="color:#EC4899">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+
+            <div class="flex flex-wrap items-center gap-4 mt-6">
+            <a href="https://theresanaiforthat.com/ai/orbitmeet/" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm hover:underline" style="color:#EC4899">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+            <a href="./reviews/2026-04-10-orbitmeet-get-real-time-transcription-and-action-items-during-calls.html" class="inline-flex items-center gap-2 font-bold text-sm hover:underline" style="color:#8B5CF6">Lab Report <span class="material-symbols-outlined text-sm">science</span></a>
+            </div>
             
         </article>
         
@@ -881,8 +890,11 @@ body.kn-locked{overflow:hidden}
             <span class="px-3 py-1 font-label text-[10px] tracking-widest uppercase w-fit rounded mb-6" style="background:#F59E0B15;color:#F59E0B">Build</span>
             <h4 class="text-2xl font-bold leading-tight mb-4 group-hover:opacity-80 transition-colors">WidgetVox: Add a Voice AI Agent to Your Website in Minutes</h4>
             <p class="text-on-surface-variant text-sm leading-relaxed flex-grow">WidgetVox lets you embed an AI voice agent directly on your site to interact with visitors through spoken conversation. Unlike chatbots that require typing, voice agents reduce friction for mobile users and accessibility-focused audiences. If you run a service business, deploy WidgetVox on your pricing or FAQ page and measure whether it reduces support ticket volume within a week.</p>
-            
-            <a href="https://theresanaiforthat.com/ai/widgetvox/" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm mt-6 hover:underline" style="color:#F59E0B">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+
+            <div class="flex flex-wrap items-center gap-4 mt-6">
+            <a href="https://theresanaiforthat.com/ai/widgetvox/" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm hover:underline" style="color:#F59E0B">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+            <a href="./reviews/2026-04-10-widgetvox-add-a-voice-ai-agent-to-your-website-in-minutes.html" class="inline-flex items-center gap-2 font-bold text-sm hover:underline" style="color:#8B5CF6">Lab Report <span class="material-symbols-outlined text-sm">science</span></a>
+            </div>
             
         </article>
         
@@ -981,12 +993,16 @@ body.kn-locked{overflow:hidden}
     document.addEventListener('keydown',function(e){if(e.key==='Escape'){var lb=['infographicLightbox','podcastLightbox'];lb.forEach(function(id){var el=document.getElementById(id);if(el)el.style.display='none'})}});
     var dpBtn=document.getElementById('datePickerBtn'),dp=document.getElementById('datePicker');
     if(dpBtn&&dp){
-        dpBtn.addEventListener('click',function(){dp.showPicker?dp.showPicker():dp.click()});
+        dpBtn.addEventListener('click',function(){
+            try{dp.showPicker()}catch(e){dp.style.opacity='1';dp.style.pointerEvents='auto';dp.style.width='auto';dp.style.height='auto';dp.style.position='absolute';dp.focus();dp.click()}
+        });
         dp.addEventListener('change',function(){
             var d=this.value;if(!d)return;
+            dp.style.opacity='0';dp.style.pointerEvents='none';dp.style.width='0';dp.style.height='0';
             var url='./morning-briefing-koda-'+d+'.html';
             fetch(url,{method:'HEAD'}).then(function(r){if(r.ok)window.location.href=url;else alert('No briefing found for '+d)}).catch(function(){alert('No briefing found for '+d)});
         });
+        dp.addEventListener('blur',function(){dp.style.opacity='0';dp.style.pointerEvents='none';dp.style.width='0';dp.style.height='0'});
     }
 })();
 </script>

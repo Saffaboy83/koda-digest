@@ -213,7 +213,7 @@ footer .inner{{max-width:1280px;margin:0 auto;display:flex;flex-direction:column
 <div class="stats animate-in">
     <div class="stat"><div class="stat-value">{benchmark_count}</div><div class="stat-label">Benchmarks</div></div>
     <div class="stat"><div class="stat-value">{total_models}</div><div class="stat-label">Rankings</div></div>
-    <div class="stat"><div class="stat-value">{date_label}</div><div class="stat-label">Last Scraped</div></div>
+    <div class="stat"><div class="stat-value">{date_label}</div><div class="stat-label">Last Scanned</div></div>
 </div>
 <div class="container">
     <div class="section-header animate-in">

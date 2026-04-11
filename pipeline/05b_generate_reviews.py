@@ -540,7 +540,7 @@ DESIGN SYSTEM (for your content sections only):
 SECTIONS TO GENERATE (use inline styles, each section gets class="animate-in" and an id attribute, and scroll-margin-top:80px):
 1. Hero section (id="hero", padding-top: 100px): purple badge "Lab Report", tool name as gradient h1 (clamp 28px-48px, padding-bottom:0.15em for descenders), tagline, prominent "Try It" CTA button linking to {tool.get('url', '')}. If a hero image URL is provided, render it below the hero text as: <img src="HERO_URL" alt="Tool screenshot" style="max-width:800px;width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.08);margin:24px auto 0;display:block" loading="eager">
 2. Verdict (id="verdict"): 2-3 sentence editorial verdict in a highlighted card (who is this for, is it worth it)
-3. Pricing (id="pricing"): all tiers with features using the scraped data. Grid on desktop, stack on mobile.
+3. Pricing (id="pricing"): all tiers with features using the collected data. Grid on desktop, stack on mobile.
 4. Key Features (id="features"): 2-column grid of feature cards (5-8 features) with material icon per card
 5. Use Cases (id="usecases"): who should use this and why
 6. Limitations (id="limitations"): honest assessment of gaps (be direct, not mean)
@@ -919,7 +919,7 @@ def _build_review_index_html(entries: list[dict]) -> str:
         '<section class="hero animate-in">\n'
         '    <div class="badge">Hands-On Tool Intelligence</div>\n'
         '    <h1>The Lab</h1>\n'
-        '    <p>We scrape, test, and break down the AI tools everyone is talking about. '
+        '    <p>We test, evaluate, and break down the AI tools everyone is talking about. '
         'Pricing, features, and honest verdicts so you do not have to guess.</p>\n'
         '</section>\n'
         '<div class="stats animate-in">\n'

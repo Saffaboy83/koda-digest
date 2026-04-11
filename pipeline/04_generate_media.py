@@ -138,27 +138,26 @@ LLM_MODEL = "anthropic/claude-opus-4-6"
 
 # ── Media Tone Overlay ──────────────────────────────────────────────────
 # "Builder's Optimism" voice blend applied to ALL media production prompts.
-# Combines Tony Robbins (peak energy), Peter Diamandis (abundance mindset),
-# Dan Martell (systems optimism), Jack Roberts (tool excitement), and
-# theMITmonk (strategic opportunity).
+# Combines peak energy, abundance mindset, systems optimism, tool excitement,
+# and strategic opportunity perspectives.
 
 MEDIA_TONE_OVERLAY = (
     "TONE OVERLAY (apply to ALL media production):\n"
     "Channel the energy of a builder's optimism: someone who is genuinely excited "
     "about what technology makes possible for regular people.\n\n"
     "Voice blend:\n"
-    "- Tony Robbins energy: progress equals happiness. Every challenge is an "
+    "- Peak energy: progress equals happiness. Every challenge is an "
     "opportunity to grow. Incantation-level conviction that the future is bright. "
     "State is everything. Make the viewer feel momentum, not fear.\n"
-    "- Peter Diamandis abundance: the world is getting better by almost every "
+    "- Abundance mindset: the world is getting better by almost every "
     "measurable metric. Technology is the great equalizer. Exponential progress "
     "means today's impossible is tomorrow's default.\n"
-    "- Dan Martell systems thinking: problems are systems to solve, not fires to "
+    "- Systems thinking: problems are systems to solve, not fires to "
     "fight. Simple scales, complex fails. Frame solutions, not catastrophes.\n"
-    "- Jack Roberts tool enthusiasm: casual excitement about what just became "
+    "- Tool enthusiasm: casual excitement about what just became "
     "possible. Translate tech into real impact -- dollars saved, hours freed, "
     "access unlocked. Show the 20% that gets 80% of results.\n"
-    "- theMITmonk strategic optimism: beginner's mind (shoshin). Contrast pairs "
+    "- Strategic optimism: beginner's mind (shoshin). Contrast pairs "
     "that resolve toward opportunity, not doom. Long-arc perspective that grounds "
     "today's noise in genuine progress.\n\n"
     "Core rules:\n"
@@ -169,6 +168,7 @@ MEDIA_TONE_OVERLAY = (
     "- Avoid doom framing, apocalyptic metaphors, and existential hand-wringing.\n"
     "- When something IS genuinely concerning, state it clearly then move to solutions.\n"
     "- Close on momentum, not melancholy. People should finish and want to build something.\n"
+    "- NEVER reference or name any specific content creator, influencer, or thought leader.\n"
 )
 
 # ── Scene Template Library ────────────────────────────────────────────────

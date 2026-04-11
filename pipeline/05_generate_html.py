@@ -13,6 +13,7 @@ import json
 import sys
 import os
 from datetime import datetime
+from pathlib import Path
 
 import re
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -24,6 +25,43 @@ from pipeline.config import (DIGEST_DIR, LEONARDO_API_KEY, SUPABASE_URL,
 # ── Template Setup ──────────────────────────────────────────────────────────
 
 TEMPLATE_DIR = DIGEST_DIR / "templates"
+REVIEWS_DIR = DIGEST_DIR / "reviews"
+
+
+def _slugify(text: str) -> str:
+    """Convert tool name to URL-safe slug (mirrors 05b logic)."""
+    slug = text.lower().strip()
+    slug = re.sub(r'[^a-z0-9\s-]', '', slug)
+    slug = re.sub(r'[\s-]+', '-', slug)
+    return slug.strip('-')
+
+
+def _build_review_slug_map() -> dict[str, str]:
+    """Build a map from tool slug -> review relative URL."""
+    slug_map: dict[str, str] = {}
+    if not REVIEWS_DIR.is_dir():
+        return slug_map
+    for f in REVIEWS_DIR.glob("20??-??-??-*.html"):
+        # filename: 2026-04-10-tool-slug-here.html
+        # strip date prefix (11 chars: YYYY-MM-DD-)
+        tool_slug = f.stem[11:]
+        if tool_slug:
+            slug_map[tool_slug] = f"./reviews/{f.name}"
+    return slug_map
+
+
+def _enrich_tools_with_reviews(tools: list[dict]) -> list[dict]:
+    """Add review_url to tools that have a Lab Report."""
+    slug_map = _build_review_slug_map()
+    enriched = []
+    for tool in tools:
+        tool_copy = dict(tool)
+        title = tool_copy.get("title", "")
+        slug = _slugify(title)
+        if slug in slug_map:
+            tool_copy["review_url"] = slug_map[slug]
+        enriched.append(tool_copy)
+    return enriched
 
 
 def format_date_label(date_str):
@@ -358,7 +396,7 @@ def generate_html(digest, media_status, date):
         "markets": digest.get("markets", {}),
         "newsletters": digest.get("newsletters", []),
         "competitive": digest.get("competitive", []),
-        "tools": digest.get("tools", []),
+        "tools": _enrich_tools_with_reviews(digest.get("tools", [])),
 
         # Inline assets
         "css": load_css(),

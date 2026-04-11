@@ -51,31 +51,31 @@ SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
 SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
 
 EXPERT_ROUTING = {
-    "tools": "Jack Roberts",
-    "automation": "Jack Roberts",
-    "agents": "Jack Roberts",
-    "apis": "Jack Roberts",
-    "monetization": "Paul J Lipsky",
-    "business model": "Paul J Lipsky",
-    "side hustle": "Paul J Lipsky",
-    "scaling": "Dan Martell",
-    "leadership": "Dan Martell",
-    "saas": "Dan Martell",
-    "hiring": "Dan Martell",
-    "strategy": "theMITmonk",
-    "career": "theMITmonk",
-    "investing": "theMITmonk",
-    "content creation": "Sabrina Ramonov",
-    "personal brand": "Sabrina Ramonov",
-    "sales": "Alex Hormozi",
-    "pricing": "Alex Hormozi",
-    "marketing": "Alex Hormozi",
-    "open-source": "theMITmonk",
-    "open-weight": "theMITmonk",
-    "model release": "Jack Roberts",
-    "benchmark": "Jack Roberts",
-    "geopolitics": "theMITmonk",
-    "regulation": "theMITmonk",
+    "tools": "a tools-and-automation specialist",
+    "automation": "a tools-and-automation specialist",
+    "agents": "a tools-and-automation specialist",
+    "apis": "a tools-and-automation specialist",
+    "monetization": "a monetization strategist",
+    "business model": "a monetization strategist",
+    "side hustle": "a monetization strategist",
+    "scaling": "a systems-thinking scaling expert",
+    "leadership": "a systems-thinking scaling expert",
+    "saas": "a systems-thinking scaling expert",
+    "hiring": "a systems-thinking scaling expert",
+    "strategy": "a long-arc strategic thinker",
+    "career": "a long-arc strategic thinker",
+    "investing": "a long-arc strategic thinker",
+    "content creation": "a content creation specialist",
+    "personal brand": "a content creation specialist",
+    "sales": "a sales and pricing expert",
+    "pricing": "a sales and pricing expert",
+    "marketing": "a sales and pricing expert",
+    "open-source": "a long-arc strategic thinker",
+    "open-weight": "a long-arc strategic thinker",
+    "model release": "a tools-and-automation specialist",
+    "benchmark": "a tools-and-automation specialist",
+    "geopolitics": "a long-arc strategic thinker",
+    "regulation": "a long-arc strategic thinker",
 }
 
 
@@ -299,12 +299,12 @@ Output ONLY valid JSON (no markdown):
 {{"topic": "one sentence topic statement", "story_title": "which story this came from", "expert_overlay": "name from routing table", "data_points": ["point 1", "point 2", "point 3"], "score": total_score, "tag": "one word category tag like Strategy, Tools, Markets, etc"}}
 
 Expert routing table:
-- Tools/automation/APIs/agents -> Jack Roberts
-- Monetization/business models -> Paul J Lipsky
-- Scaling/leadership/SaaS -> Dan Martell
-- Strategy/career/investing/open-source -> theMITmonk
-- Content creation/personal brand -> Sabrina Ramonov
-- Sales/pricing/marketing -> Alex Hormozi"""
+- Tools/automation/APIs/agents -> a tools-and-automation specialist
+- Monetization/business models -> a monetization strategist
+- Scaling/leadership/SaaS -> a systems-thinking scaling expert
+- Strategy/career/investing/open-source -> a long-arc strategic thinker
+- Content creation/personal brand -> a content creation specialist
+- Sales/pricing/marketing -> a sales and pricing expert"""
 
     result = _llm_call(prompt, model=SONNET_MODEL, max_tokens=500, temperature=0.3)
     if not result:
@@ -322,7 +322,7 @@ Expert routing table:
         return {
             "topic": first["title"],
             "story_title": first["title"],
-            "expert_overlay": "theMITmonk",
+            "expert_overlay": "a long-arc strategic thinker",
             "data_points": [first["body"][:150]],
             "score": 15,
             "tag": "Strategy",
@@ -410,7 +410,7 @@ def draft_article(topic: dict, research: dict, voice_guide: str, digest: dict) -
     for tool in digest.get("tools", [])[:4]:
         tools_text += f"- {tool['title']}: {tool.get('body', '')[:100]}\n"
 
-    expert = topic.get("expert_overlay", "theMITmonk")
+    expert = topic.get("expert_overlay", "a long-arc strategic thinker")
     tag = topic.get("tag", "Strategy")
 
     system_prompt = f"""You are writing a Koda editorial article. Follow the voice guide EXACTLY.
@@ -418,7 +418,7 @@ def draft_article(topic: dict, research: dict, voice_guide: str, digest: dict) -
 {voice_guide}
 
 EXPERT OVERLAY FOR THIS ARTICLE: {expert}
-The deep dive section (section 3) should use {expert}'s vocabulary and teaching style.
+The deep dive section (section 3) should use this expert perspective's vocabulary and teaching style.
 
 MANDATORY CONSTRAINTS:
 - Zero em dashes (use commas, periods, or "and" instead)
@@ -429,7 +429,8 @@ MANDATORY CONSTRAINTS:
 - At least one editorial opinion ("I think..." or "My read on this...")
 - At least one hedge ("It is unclear whether..." or "The data is mixed on...")
 - Word count: 1,200-1,800 words total
-- Do NOT include a Sources or References section at the end"""
+- Do NOT include a Sources or References section at the end
+- NEVER reference or name any specific content creator, influencer, YouTuber, or thought leader in the article text. Do not write phrases like "X would call this" or "as Y would say". The voice style is internalized, not attributed."""
 
     user_prompt = f"""Write a Koda editorial article on this topic:
 
@@ -841,7 +842,7 @@ def render_html(article: str, topic: dict, date: str, hero_url: str | None = Non
     article = _clean_em_dashes(article)
     topic = {k: _clean_em_dashes(v) if isinstance(v, str) else v for k, v in topic.items()}
     tag = topic.get("tag", "Strategy")
-    expert = topic.get("expert_overlay", "theMITmonk")
+    expert = topic.get("expert_overlay", "a long-arc strategic thinker")
 
     # Parse article into sections
     # Hook is everything before the first ##
