@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-11T10:24:05Z",
+  "generated": "2026-04-11T22:58:39Z",
   "digests": [
     {
       "date": "2026-04-11",
@@ -641,6 +641,12 @@
     }
   ],
   "editorials": [
+    {
+      "date": "2026-04-11",
+      "title": "The scariest AI ever built might just save the internet.",
+      "tag": "Cybersecurity",
+      "file": "editorial/2026-04-11-the-scariest-ai-ever-built-might-be-the-only-thing-that-can-.html"
+    },
     {
       "date": "2026-04-11",
       "title": "The GLM-5.1 vs Claude Mythos pricing divide reveals two incompatible theories of how AI value gets captured, and",
