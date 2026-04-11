@@ -1,4 +1,60 @@
 {
+  "2026-04-11": {
+    "hook": "Hugging Face merged Gemma with Claude into one model, and nobody asked permission.",
+    "top_themes": [
+      "Frankenstein Models Go Mainstream",
+      "Tariff Spiral Hits 125%",
+      "Self-Improving AI Arrives at Meta"
+    ],
+    "top_stories": [
+      "OpenAI Responds to Axios Developer Tool Compromise",
+      "MIT CompreSSM Cuts AI Training Compute Costs",
+      "Meta Publishes HyperAgents Self-Improving AI Research",
+      "Hugging Face Darwin-31B-Opus Merges Gemma and Claude",
+      "Claude Mythos Gated to 50 Orgs Under Glasswing",
+      "GLM-5.1 vs Mythos Exposes Industry Philosophy Split",
+      "Hugging Face Reports Open Source AI Spring 2026",
+      "Eight AI Models Ship in Seven Days",
+      "US-Iran Talks Open in Pakistan Amid Conflict",
+      "UK Pauses Chagos Islands Transfer After US Opposition",
+      "China Raises Tariffs on US Goods to 125%",
+      "Dominican Republic Nightclub Collapse Kills Over 220",
+      "Nigerian Court Convicts Over 300 in Terrorism Trial",
+      "Djibouti President Wins Reelection With 97.8% Vote",
+      "Four Die in Failed Channel Crossing to UK"
+    ],
+    "featured_tools": [
+      "Pensieve: Give Your AI Agents Full Organizational Context",
+      "Lovable: Go From Prompt to Full-Stack App With GitHub and Supabase Wired In",
+      "LikeClaw: A Cloud-Native Platform for Secure AI Agent Deployment",
+      "Nebils: An AI Social Network Where Humans and Agents Coexist",
+      "MyClaw.ai: Automate Emails, Scheduling, and File Management From One Agent",
+      "Join Product Hunt Alpha Day to Stress-Test Tools Before Everyone Else"
+    ],
+    "source_urls": [
+      "https://openai.com/index/axios-developer-tool-compromise/",
+      "https://radicaldatascience.wordpress.com/2026/04/09/ai-news-briefs-bulletin-board-for-april-2026/",
+      "https://ai.meta.com/global_search/",
+      "https://huggingface.co/posts",
+      "https://whatllm.org/blog/new-ai-models-april-2026",
+      "https://whatllm.org/blog/new-ai-models-april-2026",
+      "https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026",
+      "https://whatllm.org/blog/new-ai-models-april-2026",
+      "https://www.usnews.com/news/world/articles/2026-04-11/factbox-what-are-the-main-talking-points-at-the-us-iran-negotiations-in-pakistan",
+      "https://www.usnews.com/news/world/articles/2026-04-11/uk-pauses-its-plan-to-cede-chagos-islands-after-us-opposition",
+      "https://www.youtube.com/watch?v=gPUexV2AfJ0",
+      "https://www.youtube.com/watch?v=gPUexV2AfJ0",
+      "https://abcnews.com/International/wireStory/nigerian-court-convicts-300-mass-terrorism-trial-131932620",
+      "https://www.usnews.com/news/world/articles/2026-04-11/djibouti-president-wins-election-with-97-8-of-vote-state-media-says",
+      "https://abcnews.com/International/wireStory/suspect-arrested-england-after-4-die-failed-channel-131923610"
+    ],
+    "story_angles": [
+      "Darwin-31B-Opus, a community-built merge of Google's Gemma and Anthropic's Claud",
+      "A nightclub collapse in the Dominican Republic has killed over 220 people, makin",
+      "Sentiment remains locked in Extreme Fear as China's retaliatory tariff hike to 1",
+      "MIT's CompreSSM research offers a rare piece of good news for smaller players: d"
+    ]
+  },
   "2026-04-10": {
     "hook": "JPMorgan just called a single AI product launch a turning point for the world's sixth-largest company.",
     "top_themes": [

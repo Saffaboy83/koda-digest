@@ -121,13 +121,13 @@ body.kn-locked{overflow:hidden}
         <a href="./index.html" class="kn-link" style="background:linear-gradient(135deg,#3B82F6,#6366F1);color:white!important">&larr; Home</a>
     </div>
     <div class="kn-actions">
-        <div class="flex items-center" id="dayNav">
+        <div class="hidden md:flex items-center" id="dayNav">
             <div class="relative">
                 <button id="datePickerBtn" class="flex items-center gap-1 font-mono text-[10px] font-bold text-[#3B82F6] px-2 py-1 bg-[#3B82F6]/10 rounded-md hover:bg-[#3B82F6]/20 transition-all cursor-pointer border-none" title="Jump to date">
                     <span class="material-symbols-outlined" style="font-size:14px">calendar_month</span>
                     <span id="dateLabel">2026-04-11</span>
                 </button>
-                <input type="date" id="datePicker" class="absolute top-full left-0 mt-1 w-0 h-0" style="opacity:0;position:absolute;pointer-events:none" value="2026-04-11" min="2026-03-24">
+                <input type="date" id="datePicker" class="absolute top-full left-0 mt-1 opacity-0 pointer-events-none w-0 h-0" value="2026-04-11" min="2026-03-24">
             </div>
         </div>
         <div class="kn-desktop-social">
@@ -485,8 +485,8 @@ body.kn-locked{overflow:hidden}
     <a href="./editorial/2026-04-11-the-glm-51-vs-claude-mythos-pricing-divide-reveals-two-incom.html" class="block rounded-2xl overflow-hidden bg-surface-container/80 border border-outline-variant/15 hover:border-primary/30 transition-all group" style="box-shadow:0 20px 60px -15px rgba(0,0,0,0.5)">
         <div class="grid grid-cols-1 md:grid-cols-5">
             
-            <div class="md:col-span-2 relative overflow-hidden">
-                <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/editorial-hero-2026-04-11.jpg" alt="Editorial" class="w-full h-auto group-hover:scale-105 transition-transform duration-700" style="display:block"/>
+            <div class="md:col-span-2 relative h-44 md:h-auto overflow-hidden">
+                <img src="https://lfwymyfaeihoglmlvbaj.supabase.co/storage/v1/object/public/koda-media/editorial-hero-2026-04-11.jpg" alt="Editorial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
                 <div class="absolute inset-0 bg-gradient-to-r from-transparent to-[#171f33]/90 hidden md:block"></div>
             </div>
             
@@ -807,10 +807,7 @@ body.kn-locked{overflow:hidden}
             <h4 class="text-2xl font-bold leading-tight mb-4 group-hover:opacity-80 transition-colors">Pensieve: Give Your AI Agents Full Organizational Context</h4>
             <p class="text-on-surface-variant text-sm leading-relaxed flex-grow">Pensieve connects to your existing tools and builds a living knowledge graph of your organization: people, projects, processes, and history. It integrates with Anthropic, OpenAI, or Google inference so your AI agents stop hallucinating about internal context. Connect it to your workspace this week and measure whether agent output accuracy improves on company-specific queries.</p>
             
-            <div class="flex flex-wrap items-center gap-4 mt-6">
-            <a href="https://www.producthunt.com/products/pensieve-5" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm hover:underline" style="color:#3B82F6">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
-            <a href="./reviews/2026-04-11-pensieve-give-your-ai-agents-full-organizational-context.html" class="inline-flex items-center gap-2 font-bold text-sm hover:underline" style="color:#8B5CF6">Lab Report <span class="material-symbols-outlined text-sm">science</span></a>
-            </div>
+            <a href="https://www.producthunt.com/products/pensieve-5" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm mt-6 hover:underline" style="color:#3B82F6">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
             
         </article>
         
@@ -830,10 +827,7 @@ body.kn-locked{overflow:hidden}
             <h4 class="text-2xl font-bold leading-tight mb-4 group-hover:opacity-80 transition-colors">LikeClaw: A Cloud-Native Platform for Secure AI Agent Deployment</h4>
             <p class="text-on-surface-variant text-sm leading-relaxed flex-grow">LikeClaw is a new cloud-native AI agent platform designed for teams that need secure, sandboxed execution of AI tasks. It surfaced on TAAFT this week and targets enterprise workflows where data governance matters. If you are evaluating agent infrastructure beyond the big three providers, add LikeClaw to your shortlist and benchmark its latency against your current setup.</p>
             
-            <div class="flex flex-wrap items-center gap-4 mt-6">
-            <a href="https://theresanaiforthat.com/ai/likeclaw/" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm hover:underline" style="color:#EC4899">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
-            <a href="./reviews/2026-04-11-likeclaw-a-cloud-native-platform-for-secure-ai-agent-deployment.html" class="inline-flex items-center gap-2 font-bold text-sm hover:underline" style="color:#8B5CF6">Lab Report <span class="material-symbols-outlined text-sm">science</span></a>
-            </div>
+            <a href="https://theresanaiforthat.com/ai/likeclaw/" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm mt-6 hover:underline" style="color:#EC4899">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
             
         </article>
         
@@ -853,10 +847,7 @@ body.kn-locked{overflow:hidden}
             <h4 class="text-2xl font-bold leading-tight mb-4 group-hover:opacity-80 transition-colors">MyClaw.ai: Automate Emails, Scheduling, and File Management From One Agent</h4>
             <p class="text-on-surface-variant text-sm leading-relaxed flex-grow">MyClaw.ai bundles email automation, reminders, scheduling, file management, and home assistant control into a single AI-powered agent layer. It appeared on TAAFT this week as a lightweight alternative to stitching together multiple single-purpose bots. Route your most repetitive daily admin tasks through it for one week and track how many minutes you reclaim.</p>
             
-            <div class="flex flex-wrap items-center gap-4 mt-6">
-            <a href="https://theresanaiforthat.com/ai/myclaw-ai/" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm hover:underline" style="color:#10B981">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
-            <a href="./reviews/2026-04-11-myclawai-automate-emails-scheduling-and-file-management-from-one-agent.html" class="inline-flex items-center gap-2 font-bold text-sm hover:underline" style="color:#8B5CF6">Lab Report <span class="material-symbols-outlined text-sm">science</span></a>
-            </div>
+            <a href="https://theresanaiforthat.com/ai/myclaw-ai/" target="_blank" class="inline-flex items-center gap-2 font-bold text-sm mt-6 hover:underline" style="color:#10B981">Try It <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
             
         </article>
         
@@ -972,16 +963,12 @@ body.kn-locked{overflow:hidden}
     document.addEventListener('keydown',function(e){if(e.key==='Escape'){var lb=['infographicLightbox','podcastLightbox'];lb.forEach(function(id){var el=document.getElementById(id);if(el)el.style.display='none'})}});
     var dpBtn=document.getElementById('datePickerBtn'),dp=document.getElementById('datePicker');
     if(dpBtn&&dp){
-        dpBtn.addEventListener('click',function(){
-            try{dp.showPicker()}catch(e){dp.style.opacity='1';dp.style.pointerEvents='auto';dp.style.width='auto';dp.style.height='auto';dp.style.position='absolute';dp.focus();dp.click()}
-        });
+        dpBtn.addEventListener('click',function(){dp.showPicker?dp.showPicker():dp.click()});
         dp.addEventListener('change',function(){
             var d=this.value;if(!d)return;
-            dp.style.opacity='0';dp.style.pointerEvents='none';dp.style.width='0';dp.style.height='0';
             var url='./morning-briefing-koda-'+d+'.html';
             fetch(url,{method:'HEAD'}).then(function(r){if(r.ok)window.location.href=url;else alert('No briefing found for '+d)}).catch(function(){alert('No briefing found for '+d)});
         });
-        dp.addEventListener('blur',function(){dp.style.opacity='0';dp.style.pointerEvents='none';dp.style.width='0';dp.style.height='0'});
     }
 })();
 </script>
