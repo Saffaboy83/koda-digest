@@ -929,17 +929,17 @@ def render_html(article: str, topic: dict, date: str, hero_url: str | None = Non
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%236366F1'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='white' font-family='system-ui' font-weight='800'>K</text></svg>">
     <meta property="og:title" content="{title} | Koda Deep Dive">
-    <meta property="og:description" content="{subtitle}">
+    <meta property="og:description" content="{subtitle} Daily analysis of what matters in AI, written for builders.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="{url}">
     <meta property="og:site_name" content="Koda Digest">
-    <meta property="og:image" content="{og_image_from_supabase_url(hero_url or '')}">
-    <meta property="og:image:width" content="1024">
-    <meta property="og:image:height" content="1024">
+    <meta property="og:image" content="{og_image_from_supabase_url(hero_url or '').replace('editorial-hero-', 'og-editorial-')}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{title} | Koda Deep Dive">
-    <meta name="twitter:description" content="{subtitle}">
-    <meta name="twitter:image" content="{og_image_from_supabase_url(hero_url or '')}">
+    <meta name="twitter:description" content="{subtitle} Daily analysis of what matters in AI, written for builders.">
+    <meta name="twitter:image" content="{og_image_from_supabase_url(hero_url or '').replace('editorial-hero-', 'og-editorial-')}">
     <meta name="description" content="{subtitle}">
     <script type="application/ld+json">
     {{
@@ -1598,6 +1598,26 @@ def main() -> None:
     hero_url = generate_editorial_hero(topic, args.date, article_text=article)
     if hero_url:
         print(f"  Hero URL: {hero_url}")
+        # Create OG-optimized version (1200x630) for social sharing
+        from pipeline.config import create_og_image
+        src_path = DIGEST_DIR / "pipeline" / "data" / f"editorial-hero-{args.date}.jpg"
+        og_path = DIGEST_DIR / "pipeline" / "data" / f"og-editorial-{args.date}.jpg"
+        if src_path.exists() and create_og_image(str(src_path), str(og_path)):
+            print(f"  OG editorial image: {og_path.name} ({og_path.stat().st_size // 1024}KB)")
+            supa_url = os.environ.get("SUPABASE_URL", "")
+            supa_key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
+            if supa_url and supa_key:
+                try:
+                    import httpx as _hx
+                    with open(og_path, "rb") as f:
+                        _hx.put(f"{supa_url}/storage/v1/object/koda-media/{og_path.name}",
+                                content=f.read(),
+                                headers={"Authorization": f"Bearer {supa_key}",
+                                         "Content-Type": "image/jpeg", "x-upsert": "true"},
+                                timeout=30)
+                    print(f"  OG editorial image uploaded to Supabase")
+                except Exception as e:
+                    print(f"  WARNING: OG editorial upload failed (non-critical): {e}")
     else:
         print("  No hero image (skipped or failed)")
 

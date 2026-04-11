@@ -374,8 +374,8 @@ def generate_html(digest, media_status, date):
         # Focus hero image (email sketch-note infographic from Supabase)
         "focus_hero_url": media_url(f"email-hero-{date}.jpg"),
 
-        # OG image for social sharing (uses email hero via /media/ proxy)
-        "og_image_url": og_media_url(f"email-hero-{date}.jpg"),
+        # OG image for social sharing (1200x630 optimized version via /media/ proxy)
+        "og_image_url": og_media_url(f"og-signal-{date}.jpg"),
 
         # Editorial (from step 04E — only set if it ran successfully today)
         "editorial": editorial_status if (

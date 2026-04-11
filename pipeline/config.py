@@ -85,6 +85,51 @@ def og_image_from_supabase_url(supabase_url: str) -> str:
     return OG_FALLBACK_IMAGE
 
 
+OG_WIDTH = 1200
+OG_HEIGHT = 630
+
+
+def create_og_image(source_path: str, dest_path: str) -> bool:
+    """Crop and compress an image to OG-optimal 1200x630 at <600KB.
+
+    Center-crops to 1.91:1 aspect ratio, then resizes to 1200x630.
+    Returns True on success, False on failure.
+    """
+    try:
+        from PIL import Image
+        img = Image.open(source_path)
+        w, h = img.size
+
+        # Crop to 1.91:1 aspect ratio (center crop, favor top half for infographics)
+        target_ratio = OG_WIDTH / OG_HEIGHT  # 1.905
+        current_ratio = w / h
+
+        if current_ratio > target_ratio:
+            # Image is wider than needed, crop sides
+            new_w = int(h * target_ratio)
+            left = (w - new_w) // 2
+            img = img.crop((left, 0, left + new_w, h))
+        else:
+            # Image is taller than needed (square images), crop bottom
+            new_h = int(w / target_ratio)
+            img = img.crop((0, 0, w, new_h))
+
+        img = img.resize((OG_WIDTH, OG_HEIGHT), Image.LANCZOS)
+        img = img.convert("RGB")
+
+        # Save with quality stepped down until <600KB
+        for quality in (85, 75, 65, 55):
+            img.save(dest_path, "JPEG", quality=quality, optimize=True)
+            if Path(dest_path).stat().st_size < 600_000:
+                return True
+        # Last resort: save at quality 45
+        img.save(dest_path, "JPEG", quality=45, optimize=True)
+        return True
+    except Exception as e:
+        print(f"  OG image creation failed: {e}")
+        return False
+
+
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
 def today_str():
