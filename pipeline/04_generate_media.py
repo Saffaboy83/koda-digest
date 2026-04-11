@@ -674,7 +674,7 @@ Do NOT use em dashes."""
     return _sonnet_call(prompt, max_tokens=2000, temperature=0.6)
 
 
-def upload_to_supabase(date, media):
+def upload_to_supabase(date, media, digest=None):
     """Upload podcast and infographic to Supabase Storage."""
     if not SUPABASE_URL or not SUPABASE_SERVICE_ROLE_KEY:
         print("\n  Supabase: skipping (credentials not set)")
@@ -701,13 +701,23 @@ def upload_to_supabase(date, media):
         except Exception as e:
             print(f"    FAILED: {e}")
 
-    # Create OG-optimized image (1200x630) from the infographic for social sharing
+    # Create branded OG card (1200x630) for social sharing
     infographic_path = DIGEST_DIR / f"infographic-{date}.jpg"
     if infographic_path.exists():
-        from pipeline.config import create_og_image
+        from pipeline.generate_og_card import create_og_card
+        from datetime import datetime
         og_path = DIGEST_DIR / "pipeline" / "data" / f"og-signal-{date}.jpg"
-        if create_og_image(str(infographic_path), str(og_path)):
-            print(f"    OG signal image: {og_path.name} ({og_path.stat().st_size // 1024}KB)")
+        date_label = datetime.strptime(date, "%Y-%m-%d").strftime("%d %B %Y").lstrip("0")
+        hook = (digest or {}).get("summary", {}).get("hook", "")
+        ok = create_og_card(
+            hero_path=str(infographic_path),
+            title=f"The Signal | {date_label} - Daily AI Intelligence Briefing",
+            section="signal",
+            subtitle=hook,
+            output_path=str(og_path),
+        )
+        if ok:
+            print(f"    OG signal card: {og_path.name} ({og_path.stat().st_size // 1024}KB)")
             try:
                 url = upload_file(str(og_path), SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
                 print(f"    OG uploaded: {url}")
@@ -928,7 +938,7 @@ def main():
     media = status.get("media", {})
 
     # Upload podcast + infographic to Supabase Storage
-    upload_to_supabase(args.date, media)
+    upload_to_supabase(args.date, media, digest=digest)
 
     # Upload video to YouTube
     if not args.skip_video:

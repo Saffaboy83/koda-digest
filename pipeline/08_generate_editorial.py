@@ -1598,12 +1598,17 @@ def main() -> None:
     hero_url = generate_editorial_hero(topic, args.date, article_text=article)
     if hero_url:
         print(f"  Hero URL: {hero_url}")
-        # Create OG-optimized version (1200x630) for social sharing
-        from pipeline.config import create_og_image
+        # Create branded OG card (1200x630) for social sharing
+        from pipeline.generate_og_card import create_og_card
         src_path = DIGEST_DIR / "pipeline" / "data" / f"editorial-hero-{args.date}.jpg"
         og_path = DIGEST_DIR / "pipeline" / "data" / f"og-editorial-{args.date}.jpg"
-        if src_path.exists() and create_og_image(str(src_path), str(og_path)):
-            print(f"  OG editorial image: {og_path.name} ({og_path.stat().st_size // 1024}KB)")
+        title = topic.get("title", "Koda Deep Dive")
+        subtitle = topic.get("topic", "")[:150]
+        if src_path.exists() and create_og_card(
+            hero_path=str(src_path), title=title, section="editorial",
+            subtitle=subtitle, output_path=str(og_path),
+        ):
+            print(f"  OG editorial card: {og_path.name} ({og_path.stat().st_size // 1024}KB)")
             supa_url = os.environ.get("SUPABASE_URL", "")
             supa_key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
             if supa_url and supa_key:
@@ -1615,7 +1620,7 @@ def main() -> None:
                                 headers={"Authorization": f"Bearer {supa_key}",
                                          "Content-Type": "image/jpeg", "x-upsert": "true"},
                                 timeout=30)
-                    print(f"  OG editorial image uploaded to Supabase")
+                    print(f"  OG editorial card uploaded to Supabase")
                 except Exception as e:
                     print(f"  WARNING: OG editorial upload failed (non-critical): {e}")
     else:
