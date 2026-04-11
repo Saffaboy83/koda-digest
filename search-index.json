@@ -1,6 +1,200 @@
 {
-  "generated": "2026-04-10T10:36:06Z",
+  "generated": "2026-04-11T10:24:05Z",
   "entries": [
+    {
+      "date": "2026-04-11",
+      "sections": [
+        {
+          "title": "Today's Focus",
+          "items": [
+            {
+              "headline": "Frankenstein Models Go Mainstream",
+              "text": "Darwin-31B-Opus represents a new class of community-merged models that combine weights from competing labs, in this case Gemma and Claude, without formal licensing agreements. The legal and technical implications are enormous: if merged models perform at or near frontier quality, the moat around proprietary systems narrows fast. Expect both Google and Anthropic to respond with tighter weight distribution terms."
+            },
+            {
+              "headline": "Tariff Spiral Hits 125%",
+              "text": "China's decision to raise tariffs on US goods to 125% marks the steepest escalation since the trade war reignited. For AI specifically, this threatens the flow of rare earth materials and semiconductor components critical to training infrastructure. With US-Iran talks opening simultaneously in Pakistan, policymakers are juggling economic warfare on one front and kinetic conflict prevention on another."
+            },
+            {
+              "headline": "Self-Improving AI Arrives at Meta",
+              "text": "Meta's HyperAgents paper outlines a framework for AI systems that autonomously refine their own capabilities, a research direction that has long been theoretical but is now backed by concrete benchmarks. Published alongside Anthropic's gated Glasswing rollout limiting Claude Mythos to just 50 organizations, the contrast is stark: one lab is opening the door to recursive self-improvement while another is tightening access controls on its most powerful system."
+            }
+          ]
+        },
+        {
+          "title": "OpenAI Responds to Axios Developer Tool Compromise",
+          "items": [
+            {
+              "headline": "Market Snapshot",
+              "text": ""
+            },
+            {
+              "headline": "Today's Focus",
+              "text": ""
+            },
+            {
+              "headline": "Daily Deep Dive",
+              "text": ""
+            },
+            {
+              "headline": "Video Briefing",
+              "text": ""
+            },
+            {
+              "headline": "Intelligence Map",
+              "text": ""
+            },
+            {
+              "headline": "The GLM-5.1 vs Claude Mythos pricing divide reveals two incompatible theories of how AI value gets captured, and",
+              "text": ""
+            }
+          ]
+        },
+        {
+          "title": "AI Developments",
+          "items": [
+            {
+              "headline": "OpenAI Responds to Axios Developer Tool Compromise",
+              "text": ""
+            },
+            {
+              "headline": "MIT CompreSSM Cuts AI Training Compute Costs",
+              "text": "MIT researchers on April 9 introduced CompreSSM, a technique using control theory to reduce model complexity during training without sacrificing performance. The method targets state-space models..."
+            },
+            {
+              "headline": "Meta Publishes HyperAgents Self-Improving AI Research",
+              "text": "Meta AI's research division published work on HyperAgents, a framework for self-improving AI systems that learn to enhance their own learning and problem-solving processes. The goal is to reduce..."
+            },
+            {
+              "headline": "Hugging Face Darwin-31B-Opus Merges Gemma and Claude",
+              "text": "The Hugging Face community released Darwin-31B-Opus, a reasoning-enhanced model created by merging Google's Gemma-4-31B-it and TeichAI's Claude Opus Distill using the Darwin V6 engine. The hybrid approach aims to combine Gemma 4's open-weight..."
+            },
+            {
+              "headline": "Claude Mythos Gated to 50 Orgs Under Glasswing",
+              "text": "Anthropic's Claude Mythos, its 10-trillion-parameter flagship, is restricted to 50 organizations under a program called Project Glasswing, according to WhatLLM's detailed breakdown. Preview pricing sits at $25 per million input tokens and $125..."
+            },
+            {
+              "headline": "GLM-5.1 vs Mythos Exposes Industry Philosophy Split",
+              "text": "WhatLLM's April 8 analysis framed the simultaneous releases of Zhipu AI's free MIT-licensed GLM-5.1 and Anthropic's $125-per-million-token Mythos as a defining philosophical fracture in AI. The price range between the week's most powerful models..."
+            },
+            {
+              "headline": "Hugging Face Reports Open Source AI Spring 2026",
+              "text": "Hugging Face published its State of Open Source on Hugging Face: Spring 2026 report, examining shifts in competition, geography, technical trends, and emerging communities across the open-source AI landscape. The report arrives as five of the..."
+            },
+            {
+              "headline": "Eight AI Models Ship in Seven Days",
+              "text": "The first week of April 2026 saw eight or more model releases in seven days, spanning Claude Mythos, GLM-5.1, Google Gemma 4, Microsoft's MAI trio, and several open-source entries. Five of the releases carried open weights. The pace confirms the..."
+            }
+          ]
+        },
+        {
+          "title": "World News",
+          "items": [
+            {
+              "headline": "US-Iran Talks Open in Pakistan Amid Conflict",
+              "text": ""
+            },
+            {
+              "headline": "UK Pauses Chagos Islands Transfer After US Opposition",
+              "text": "Britain has frozen its plan to cede sovereignty of the Chagos Islands following opposition from the United States, Reuters reported on April 11. The archipelago in the Indian Ocean hosts the..."
+            },
+            {
+              "headline": "China Raises Tariffs on US Goods to 125%",
+              "text": "China escalated the trade war on April 11 by raising tariffs on American products from 84% to 125%, matching the rate Trump imposed on Chinese goods. The tit-for-tat increases now place effective..."
+            },
+            {
+              "headline": "Dominican Republic Nightclub Collapse Kills Over 220",
+              "text": "The death toll from a nightclub roof collapse in Santo Domingo on Tuesday has surpassed 220, making it one of the deadliest structural disasters in recent memory. Among the victims are Moren singer Ruby Pettz and two former Major League Baseball..."
+            },
+            {
+              "headline": "Nigerian Court Convicts Over 300 in Terrorism Trial",
+              "text": "A Nigerian court has convicted more than 300 people in a mass terrorism trial, ABC News reported on April 11. The proceedings represent one of the largest single terrorism prosecutions in the country's history. Details on sentencing and the..."
+            },
+            {
+              "headline": "Djibouti President Wins Reelection With 97.8% Vote",
+              "text": "Djibouti's president has won reelection with 97.8% of the vote, according to state media reports on April 11. The result continues a pattern of dominant incumbency in the strategically located Horn of Africa nation, which hosts military bases for..."
+            },
+            {
+              "headline": "Four Die in Failed Channel Crossing to UK",
+              "text": "Four people died during a failed attempt to cross the English Channel from France to the United Kingdom, and a suspect has been arrested in England in connection with the incident. The tragedy adds to the mounting death toll from irregular..."
+            }
+          ]
+        },
+        {
+          "title": "Featured Newsletters",
+          "items": [
+            {
+              "headline": "The Rundown AI",
+              "text": "•The Rundown AI promotes live training on building an AI-powered Reddit opportunity finder | •Reddit highlighted as a critical growth channel for 2026 with over 1 billion monthly active users | •AI Growth Systems: a 3-week program teaching teams to automate Reddit prospecting and response drafting"
+            },
+            {
+              "headline": "The Rundown AI",
+              "text": "•Snap's Spectacles get a Qualcomm engine for next-gen AR glasses launching later this year | •Tesla may build a low-priced SUV after all | •Meta bans the ads being used to sue it"
+            },
+            {
+              "headline": "TLDR",
+              "text": "•OpenAI introduced a new $100/month ChatGPT Pro tier aimed at power users, filling the gap between the $20 Plus and $200 Pro plans | •Anthropic's Claude Cowork reaches general availability with enterprise-ready features including role-based access, group spend limits, and expanded observability for admins | •Perplexity launches a comprehensive personal finance dashboard powered by Plaid, letting users link bank, credit card, and loan accounts for spending analysis and net worth tracking"
+            },
+            {
+              "headline": "Superhuman",
+              "text": "•Poke raises $10M at a $300M valuation to build AI agents that manage your personal life | •Perplexity Computer integrates with 12,000+ financial institutions via Plaid for custom personal finance tools | •Google Gemini rolls out interactive visualizations and dedicated notebook workspaces"
+            },
+            {
+              "headline": "TLDR",
+              "text": "•Morgan Stanley launches MSBT, the first spot Bitcoin ETF issued by a major US bank | •Coinbase debuts AI Trading Arena for natural-language strategy creation | •Michael Saylor says Bitcoin likely bottomed near $60K, dismisses quantum risk as decades away"
+            },
+            {
+              "headline": "TLDR",
+              "text": "•Financially motivated group compromises BPO call centers and help desks to breach high-value enterprises | •CISA funding cuts collide with escalating cyber threats to critical infrastructure | •Enterprises begin building hybrid and on-prem AI data centers, signaling a potential infrastructure wave"
+            }
+          ]
+        },
+        {
+          "title": "AI Tool Guide",
+          "items": [
+            {
+              "headline": "Pensieve: Give Your AI Agents Full Organizational Context",
+              "text": "Pensieve connects to your existing tools and builds a living knowledge graph of your organization: people, projects, processes, and history. It integrates with Anthropic, OpenAI, or Google inference so your AI agents stop hallucinating about internal context. Connect it to your workspace this week and measure whether agent output accuracy improves on company-specific queries."
+            },
+            {
+              "headline": "Lovable: Go From Prompt to Full-Stack App With GitHub and Supabase Wired In",
+              "text": "Lovable positions itself as an AI fullstack engineer that generates working web applications from natural language descriptions, with native GitHub and Supabase integration baked in. The free tier lets solo founders and small teams prototype rapidly without writing boilerplate. Test it on your next internal tool or landing page before committing engineering hours to a manual build."
+            },
+            {
+              "headline": "LikeClaw: A Cloud-Native Platform for Secure AI Agent Deployment",
+              "text": "LikeClaw is a new cloud-native AI agent platform designed for teams that need secure, sandboxed execution of AI tasks. It surfaced on TAAFT this week and targets enterprise workflows where data governance matters. If you are evaluating agent infrastructure beyond the big three providers, add LikeClaw to your shortlist and benchmark its latency against your current setup."
+            },
+            {
+              "headline": "Nebils: An AI Social Network Where Humans and Agents Coexist",
+              "text": "Nebils offers forkable conversations across 120+ AI models, with separate interfaces for human users and AI agents. Developers can publish and monetize their own models on the platform. It is free to use; sign up and experiment with forking a single prompt across multiple models to compare reasoning quality side by side."
+            },
+            {
+              "headline": "MyClaw.ai: Automate Emails, Scheduling, and File Management From One Agent",
+              "text": "MyClaw.ai bundles email automation, reminders, scheduling, file management, and home assistant control into a single AI-powered agent layer. It appeared on TAAFT this week as a lightweight alternative to stitching together multiple single-purpose bots. Route your most repetitive daily admin tasks through it for one week and track how many minutes you reclaim."
+            },
+            {
+              "headline": "Join Product Hunt Alpha Day to Stress-Test Tools Before Everyone Else",
+              "text": "Product Hunt's Alpha Day on April 9 lets early adopters try brand-new products on launch day, provide feedback that shapes development, and earn rewards for participation. Treat it as a structured scouting session: block 30 minutes, test two or three alpha products, and log your findings. Discovering tools at this stage gives you a weeks-long head start on competitors."
+            }
+          ]
+        },
+        {
+          "title": "Competitive Landscape",
+          "items": [
+            {
+              "headline": "Meta signs $21 billion CoreWeave compute deal alongside Muse Spark launch",
+              "text": ""
+            },
+            {
+              "headline": "OpenAI discloses response to Axios developer tool security compromise",
+              "text": ""
+            }
+          ]
+        }
+      ],
+      "type": "digest",
+      "file": "morning-briefing-koda-2026-04-11.html"
+    },
     {
       "date": "2026-04-10",
       "sections": [
@@ -4795,6 +4989,60 @@
       "file": "morning-briefing-koda-2026-03-21.html"
     },
     {
+      "date": "2026-04-11",
+      "type": "editorial",
+      "file": "editorial/2026-04-11-the-glm-51-vs-claude-mythos-pricing-divide-reveals-two-incom.html",
+      "title": "The GLM-5.1 vs Claude Mythos pricing divide reveals two incompatible theories of how AI value gets captured, and",
+      "tag": "Strategy",
+      "sections": [
+        {
+          "title": "Introduction",
+          "items": [
+            {
+              "headline": "The GLM-5.1 vs Claude Mythos pricing divide reveals two incompatible theories of how AI value gets captured, and",
+              "text": "Anthropic charges $125 per million output tokens for Claude Mythos. Zhipu AI charges $3.20 for GLM-5.1. That is a 39x price difference for models that, on coding benchmarks, perform within 6% of each other. Eight major model releases shipped in a single week in April 2026. And the two most interesting ones sit at opposite ends of a pricing spectrum so wide it stops being a pricing debate and becomes a philosophical one. One company believes AI value lives in scarcity. The other believes it lives"
+            }
+          ]
+        },
+        {
+          "title": "The Toll Road vs. The Interstate",
+          "items": [
+            {
+              "headline": "The Toll Road vs. The Interstate",
+              "text": "Here is the framework. Call it the Toll Road vs. The Interstate. Anthropic is building a toll road. Ten trillion parameters. A 245-page system card. The model autonomously discovered thousands of zero-day vulnerabilities, including a 27-year-old OpenBSD bug and a 16-year-old FFmpeg flaw that automated tools missed after 5 million runs. Anthropic looked at that capability and decided the correct response was restriction, not distribution. Premium pricing is not a revenue strategy. It is a contain"
+            }
+          ]
+        },
+        {
+          "title": "Two Theories of Value, One Uncomfortable Truth",
+          "items": [
+            {
+              "headline": "Two Theories of Value, One Uncomfortable Truth",
+              "text": "Let me frame this the way I think about asymmetric bets. The question is not \"which model is better.\" The question is \"which theory of value capture survives the next compression cycle.\" Salary buys furniture, equity buys your future. That principle applies here. Choosing the $125 per million token model is like choosing salary. You get predictable, high-quality output today. Choosing the $1 per million token model is like choosing equity. You get optionality, scale, and the compounding advantag"
+            }
+          ]
+        },
+        {
+          "title": "2031",
+          "items": [
+            {
+              "headline": "2031",
+              "text": "Pull the lens back five years. Where does this fork lead? If the Interstate theory wins, AI inference becomes a commodity like cloud compute. Margins collapse toward zero. Value migrates to the application layer, to the companies that build the best products on top of cheap intelligence. This is the Costco hot dog model. Lose money on the hot dog. Make it back on everything else in the store. Zhipu, DeepSeek, and every open-weights provider become the hot dog vendors of AI. If the Toll Road theo"
+            }
+          ]
+        },
+        {
+          "title": "What to Build This Weekend",
+          "items": [
+            {
+              "headline": "What to Build This Weekend",
+              "text": "Stop debating which model is better. Build something that tests both. Step 1: Pick one workflow you run repeatedly. Code review, customer support drafting, data extraction, anything with clear inputs and outputs. Step 2: Set up a simple A/B routing system. Use Lovable to scaffold a basic web app that sends the same prompt to GLM-5.1 via Z.ai's API and to Claude Sonnet via Anthropic's API. Log the outputs, the latency, and the cost per request. Lovable generates full-stack apps from natural langu"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-04-10",
       "type": "editorial",
       "file": "editorial/2026-04-10-1-bit-quantized-models-like-bonsai-8b-signal-a-coming-shift-.html",
@@ -5824,6 +6072,226 @@
             {
               "headline": "What to Build This Weekend",
               "text": "Stop reading about open-weight models. Start using one. Here is your weekend plan: 1. Pick one model and run it locally. Download Qwen3.5-7B or Mistral Small 4 via Ollama. This takes 15 minutes. You now have a model running on your laptop with zero API costs and zero data leaving your machine. 2. Fine-tune it on your domain. Use Unsloth or Axolotl to fine-tune on 500 examples from your industry. Customer support tickets, internal docs, sales emails. Whatever your team touches daily. Three hours "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-11",
+      "type": "review",
+      "file": "reviews/2026-04-11-pensieve-give-your-ai-agents-full-organizational-context.html",
+      "title": "Pensieve",
+      "sections": [
+        {
+          "title": "Verdict",
+          "anchor": "verdict",
+          "items": [
+            {
+              "headline": "Pensieve",
+              "text": "Pensieve is a lightweight, fast-capture notes app built for creatives, multitaskers, and people with ADHD who need to externalize thoughts before they vanish. It is not the organizational knowledge graph for AI agents that its recent marketing suggests. If you need a frictionless personal note-taking tool with cross-device sync, the free tier is worth trying. If you came here expecting to plug it into your AI agent stack as a company-wide context layer, you will be disappointed; the product's ac"
+            }
+          ]
+        },
+        {
+          "title": "Key Features",
+          "anchor": "features",
+          "items": [
+            {
+              "headline": "Quick Capture",
+              "text": "Designed for speed. Open the app, dump your thought, move on. The interface is deliberately minimal to reduce friction between having an idea and recording it."
+            },
+            {
+              "headline": "Cross-Device Sync",
+              "text": "Notes sync across your devices so you can capture on your phone and review on your laptop. Standard but essential for a tool in this category."
+            },
+            {
+              "headline": "Multiple Media Formats",
+              "text": "Supports text, images, and other media types within notes. Useful for creatives who think in mixed formats rather than pure text."
+            },
+            {
+              "headline": "Reminders",
+              "text": "Set reminders on captured notes so ideas do not just sit in a graveyard. Particularly valuable for ADHD users who capture prolifically but struggle with follow-through."
+            },
+            {
+              "headline": "Task Lists",
+              "text": "Built-in task list functionality bridges the gap between \"idea captured\" and \"action taken.\" Lightweight compared to dedicated task managers, but sufficient for personal workflows."
+            },
+            {
+              "headline": "Minimal UI",
+              "text": "The interface is clean and intentionally simple. No nested menus, no complex organizational hierarchies. This is a feature, not a limitation, for its target audience."
+            }
+          ]
+        },
+        {
+          "title": "Use Cases",
+          "anchor": "usecases",
+          "items": [
+            {
+              "headline": "Use Cases",
+              "text": "If you constantly have fragments of ideas, dialogue snippets, or visual references that need a home, Pensieve's quick capture is built for you. It is not a writing tool; it is a pre-writing tool. Pensieve explicitly targets this audience, and it shows. The low-friction capture, reminders, and simple organization reduce the cognitive overhead that makes most note apps feel like chores. If you are switching between meetings, commutes, and conversations and need to capture thoughts in seconds, the "
+            }
+          ]
+        },
+        {
+          "title": "Limitations",
+          "anchor": "limitations",
+          "items": [
+            {
+              "headline": "Limitations",
+              "text": "warning The marketing does not match the product. Pensieve has been positioned in some channels as an organizational knowledge graph that gives AI agents full company context. The actual product is a personal note-taking app. There is no evidence of a knowledge graph, AI agent integration, or connections to Anthropic, OpenAI, or Google inference on the current website. If you came here for that use case, this is not the tool. warning Opaque pricing. The paid tier exists but the price is not list"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-11",
+      "type": "review",
+      "file": "reviews/2026-04-11-myclawai-automate-emails-scheduling-and-file-management-from-one-agent.html",
+      "title": "MyClaw.ai: One AI Agent for Email, Scheduling, and File Management",
+      "sections": [
+        {
+          "title": "Verdict",
+          "anchor": "verdict",
+          "items": [
+            {
+              "headline": "MyClaw.ai: One AI Agent for Email, Scheduling, and File Management",
+              "text": "MyClaw.ai is best suited for solo operators, freelancers, and small-team leads who are tired of juggling Zapier, a calendar bot, a file organizer, and a separate home automation app. The value proposition is consolidation: one always-on cloud agent that handles background admin tasks across multiple domains. At $16/mo for the Lite tier, it is priced competitively against running even two or three single-purpose automations. The catch is that this is still a young product, and the breadth of its "
+            }
+          ]
+        },
+        {
+          "title": "Key Features",
+          "anchor": "features",
+          "items": [
+            {
+              "headline": "Email Automation",
+              "text": "Draft, sort, and respond to emails based on rules you define. The agent runs in the background so your inbox stays managed even when you are offline."
+            },
+            {
+              "headline": "Scheduling & Reminders",
+              "text": "Set reminders, manage calendar events, and coordinate scheduling through natural language. No separate calendar bot required."
+            },
+            {
+              "headline": "File & System Management",
+              "text": "Organize, move, rename, and back up files on your dedicated instance. Useful for managing downloads, documents, or project assets without manual sorting."
+            },
+            {
+              "headline": "Browser Control",
+              "text": "The agent can navigate web pages, scrape data, fill forms, and perform browser-based tasks autonomously. Think headless Chrome with an AI brain."
+            },
+            {
+              "headline": "Smart Home Control",
+              "text": "Connect to smart home devices and trigger automations. This is an unusual addition for a productivity agent, but it extends the \"single control plane\" concept to your physical environment."
+            },
+            {
+              "headline": "App & API Integration",
+              "text": "Native integrations with Slack, Discord, and GitHub. For everything else, it supports connecting to any API, which gives it a long tail of potential automations."
+            },
+            {
+              "headline": "Code & Dev Tools",
+              "text": "Run scripts, manage repos, and automate dev workflows directly on your instance. Developers can treat it as a lightweight CI companion or scripting sandbox."
+            },
+            {
+              "headline": "Private & Encrypted Instance",
+              "text": "Each user gets a dedicated cloud instance. Your data is not shared with other users, and daily backups are included on every plan. Encryption is on by default."
+            }
+          ]
+        },
+        {
+          "title": "Use Cases",
+          "anchor": "usecases",
+          "items": [
+            {
+              "headline": "Use Cases",
+              "text": "MyClaw is broad by design. Here is where it makes the most sense. If you spend 30+ minutes a day on email triage, scheduling calls, and organizing project files, routing all of that through a single agent could reclaim meaningful time. The $16/mo Lite plan is cheaper than most standalone scheduling tools. The combination of GitHub integration, script execution, browser automation, and API connectivity makes this a viable lightweight DevOps companion. Run cron-like tasks, monitor endpoints, or au"
+            }
+          ]
+        },
+        {
+          "title": "Limitations",
+          "anchor": "limitations",
+          "items": [
+            {
+              "headline": "Limitations",
+              "text": "What to watch out for before committing. MyClaw tries to do email, scheduling, file management, browser automation, dev tools, content creation, AND smart home control. That is an enormous surface area. Expect some of these capabilities to be shallow compared to dedicated tools like Zapier, Calendly, or n8n. Test the specific features you need before relying on them. You are handing over email credentials, file access, and potentially smart home controls to a cloud service. MyClaw claims full en"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-11",
+      "type": "review",
+      "file": "reviews/2026-04-11-likeclaw-a-cloud-native-platform-for-secure-ai-agent-deployment.html",
+      "title": "LikeClaw: Cloud-Native AI Agent Deployment",
+      "sections": [
+        {
+          "title": "Verdict",
+          "anchor": "verdict",
+          "items": [
+            {
+              "headline": "LikeClaw: Cloud-Native AI Agent Deployment",
+              "text": "LikeClaw is built for developers and small teams who want sandboxed AI agent execution without stitching together five different services. If your workflow involves running code, automating API calls, or processing files through AI models, and you care about data governance, this is a credible option at a price point that undercuts most enterprise alternatives. The free tier is tight at 50 tasks per month, but it is enough to validate whether the platform fits your stack before committing to the"
+            }
+          ]
+        },
+        {
+          "title": "Key Features",
+          "anchor": "features",
+          "items": [
+            {
+              "headline": "Sandboxed Code Execution",
+              "text": "Run Python, JavaScript, and Bash directly in secure E2B-isolated containers. No local setup, no risk to your host environment. This is the core differentiator: agents can actually execute code, not just generate it."
+            },
+            {
+              "headline": "Multi-Model Access",
+              "text": "Claude, GPT-4, and DeepSeek available through a single interface. Switch models mid-conversation or let the platform route to the best option. No separate API keys needed on the Pro tier."
+            },
+            {
+              "headline": "Skills Marketplace",
+              "text": "Pre-built, vetted automations you can deploy without writing code. Think of it as an app store for agent capabilities. The marketplace is still growing, but the curation approach prioritizes security over volume."
+            },
+            {
+              "headline": "Persistent Workspaces",
+              "text": "Your AI agent retains context across sessions. Files, conversation history, and project state persist in your workspace. This eliminates the constant re-prompting problem that plagues stateless chat interfaces."
+            },
+            {
+              "headline": "File System & Storage",
+              "text": "Upload files, save agent outputs, and access everything through a built-in file manager. Useful for data processing pipelines where you need to chain multiple agent tasks together."
+            },
+            {
+              "headline": "Enterprise Security (SOC 2)",
+              "text": "SOC 2 compliant with E2B isolation for all code execution. This matters if you are in a regulated industry or your compliance team needs to sign off before you can use AI tooling in production."
+            },
+            {
+              "headline": "30-Second Setup",
+              "text": "Email signup, no installation, no CLI configuration. You are running agents within a minute. This is a genuine advantage over self-hosted alternatives that require Docker, Kubernetes, or cloud infrastructure setup."
+            },
+            {
+              "headline": "BYOK (Bring Your Own Key)",
+              "text": "On the Power plan, plug in your own API keys for the underlying models. This gives you direct cost control and lets you use enterprise agreements you may already have with OpenAI or Anthropic."
+            }
+          ]
+        },
+        {
+          "title": "Use Cases",
+          "anchor": "usecases",
+          "items": [
+            {
+              "headline": "Use Cases",
+              "text": "LikeClaw targets a specific set of workflows. Here is where it makes the most sense. Safe code execution, debugging assistance, and DevOps task automation in isolated containers. If you need an AI that can run your scripts without touching your production environment, this is the primary use case. Code auditing, log analysis, and penetration testing workflows. The sandboxed execution environment means you can run potentially risky analysis scripts without compromising your workstation. API integ"
+            }
+          ]
+        },
+        {
+          "title": "Limitations",
+          "anchor": "limitations",
+          "items": [
+            {
+              "headline": "Limitations",
+              "text": "What to know before you commit. 50 tasks per month is barely enough for evaluation. If you are doing any real testing, you will burn through that in a day or two. Plan to upgrade to Pro quickly if you are serious about benchmarking. The sandboxing that makes LikeClaw secure also means you cannot access underlying system resources directly. If your workflow requires low-level OS access, GPU passthrough, or custom kernel modules, this is not the right tool. The platform does not advertise native i"
             }
           ]
         }
