@@ -61,7 +61,7 @@ STEP_TIMEOUTS = {
     "04":  3660,  # Inner timeout 3600s + 60s cleanup buffer for Supabase/YouTube uploads
     "04E": 2400,  # Editorial: research + draft + fact-check + hero + media: up to 40 min
     "04R":  600,  # Reviews: 3 tools x scrape + LLM: ~10 min
-    "01D":  900,  # Changelog: scrape 25 companies: up to 15 min
+    "01D": 1500,  # Changelog: scrape 25 companies: up to 25 min
 }
 DEFAULT_TIMEOUT = 900
 
@@ -216,10 +216,10 @@ def main():
             for sid, info in block_results.items():
                 results[sid] = info
                 if not info["success"]:
-                    all_passed = False
                     if sid in NON_CRITICAL:
                         print(f"  Non-critical step {sid} failed -- continuing...")
                     else:
+                        all_passed = False
                         print(f"\n  Critical step {sid} failed. Pipeline stopped.")
                         break
         else:
@@ -234,10 +234,10 @@ def main():
             results[step_id] = {"name": name, "success": success, "duration": duration}
 
             if not success:
-                all_passed = False
                 if step_id in NON_CRITICAL:
                     print(f"  Non-critical step {step_id} failed -- continuing...")
                 else:
+                    all_passed = False
                     print(f"\n  Critical step {step_id} failed. Pipeline stopped.")
                     print(f"  To resume: python -m pipeline.run_all --from {step_id} --date {args.date}")
                     break
@@ -245,13 +245,20 @@ def main():
 
     # Summary
     total_duration = (datetime.now() - pipeline_start).total_seconds()
+    has_warnings = any(not info["success"] for info in results.values())
+    if all_passed and not has_warnings:
+        status = "COMPLETED"
+    elif all_passed:
+        status = "COMPLETED (non-critical warnings)"
+    else:
+        status = "INCOMPLETE"
     print(f"\n{'='*60}")
-    print(f"  Pipeline {'COMPLETED' if all_passed else 'INCOMPLETE'}")
+    print(f"  Pipeline {status}")
     print(f"  Total time: {total_duration:.1f}s")
     print(f"{'='*60}")
 
     for step_id, info in results.items():
-        icon = "OK" if info["success"] else "FAIL"
+        icon = "OK" if info["success"] else ("WARN" if step_id in NON_CRITICAL else "FAIL")
         print(f"  [{icon}] {step_id} {info['name']} ({info['duration']:.1f}s)")
 
     # Save pipeline state
