@@ -607,15 +607,93 @@ Return ONLY the HTML content sections. No <!DOCTYPE>, no <html>, no <head>, no t
 
 # ── Archive Index ──────────────────────────────────────────────────────────
 
-def update_review_index(reviews_dir: Path) -> None:
-    """Regenerate reviews/index.html from all review files."""
-    review_files = sorted(reviews_dir.glob("*.html"), reverse=True)
-    review_files = [f for f in review_files if f.name != "index.html"]
+def _extract_review_meta(html: str) -> dict[str, str]:
+    """Extract rich metadata from a review HTML file."""
+    meta: dict[str, str] = {}
 
-    # Extract metadata from filenames (YYYY-MM-DD-slug.html)
+    # Title from h1
+    h1 = re.search(r"<h1[^>]*>([^<]+)</h1>", html)
+    meta["title"] = h1.group(1).strip() if h1 else ""
+
+    # Verdict from verdict section
+    v = re.search(r'(?:verdict|Verdict)[^>]*>.*?<p[^>]*>([^<]+)', html, re.DOTALL)
+    meta["verdict"] = v.group(1).strip()[:160] if v else ""
+
+    # Pricing
+    meta["pricing"] = ""
+    for pat in [
+        r'(Free(?:\s+(?:plan|tier|forever))?)',
+        r'(From\s+\$[\d,]+(?:/\w+)?)',
+        r'(Starting\s+at\s+\$[\d,]+)',
+        r'(\$[\d,]+/\w+)',
+    ]:
+        m = re.search(pat, html)
+        if m:
+            meta["pricing"] = m.group(1).strip()[:30]
+            break
+
+    # Hero image URL (Supabase CDN or local)
+    img = re.search(r'<img[^>]+src=["\']([^"\']+review-hero[^"\']+)["\']', html)
+    if not img:
+        img = re.search(r'<img[^>]+src=["\']([^"\']+supabase[^"\']+\.(?:jpg|png|webp))["\']', html)
+    meta["hero_url"] = img.group(1) if img else ""
+
+    # Category inference from content keywords
+    lower = html.lower()
+    if any(w in lower for w in ["voice ai", "speech", "dictation", "voice agent"]):
+        meta["cat"] = "voice"
+    elif any(w in lower for w in ["coding agent", "code editor", "refactor", "terminal", "ide", "developer tool"]):
+        meta["cat"] = "coding"
+    elif any(w in lower for w in ["marketing", "influencer", "campaign", "lead gen", "outreach", "customer discovery"]):
+        meta["cat"] = "marketing"
+    elif any(w in lower for w in ["analytics", "tracking", "visitor", "metrics", "dashboard"]):
+        meta["cat"] = "analytics"
+    elif any(w in lower for w in ["design", "ui component", "tailwind", "visual", "e-commerce visuals"]):
+        meta["cat"] = "design"
+    elif any(w in lower for w in ["kyc", "biometric", "security", "identity verification"]):
+        meta["cat"] = "security"
+    elif any(w in lower for w in ["productivity", "email", "transcription", "workflow", "automat"]):
+        meta["cat"] = "productivity"
+    else:
+        meta["cat"] = "ai"
+
+    return meta
+
+
+# Category display config
+_CAT_LABELS = {
+    "coding": "Dev Tools", "ai": "AI Platform", "marketing": "Marketing",
+    "productivity": "Productivity", "analytics": "Analytics", "design": "Design",
+    "voice": "Voice AI", "security": "Security",
+}
+_CAT_BADGE_CSS = {
+    "coding": "badge-coding", "ai": "badge-ai", "marketing": "badge-marketing",
+    "productivity": "badge-productivity", "analytics": "badge-analytics",
+    "design": "badge-design", "voice": "badge-voice", "security": "badge-security",
+}
+_CAT_GRAD_CSS = {
+    "coding": "grad-coding", "ai": "grad-ai", "marketing": "grad-marketing",
+    "productivity": "grad-productivity", "analytics": "grad-analytics",
+    "design": "grad-design", "voice": "grad-voice", "security": "grad-security",
+}
+_CAT_ICONS = {
+    "coding": "code", "ai": "auto_awesome", "marketing": "campaign",
+    "productivity": "task_alt", "analytics": "monitoring", "design": "palette",
+    "voice": "record_voice_over", "security": "shield",
+}
+
+
+def update_review_index(reviews_dir: Path) -> None:
+    """Regenerate reviews/index.html from all review files with rich cards."""
+    review_files = sorted(reviews_dir.glob("*.html"), reverse=True)
+    review_files = [
+        f for f in review_files
+        if f.name not in ("index.html", "index-prototype.html", "index-old.html")
+    ]
+
     entries = []
     for f in review_files:
-        name = f.stem  # e.g. "2026-04-04-fabricate"
+        name = f.stem
         parts = name.split("-", 3)
         if len(parts) >= 4:
             date_str = f"{parts[0]}-{parts[1]}-{parts[2]}"
@@ -624,13 +702,24 @@ def update_review_index(reviews_dir: Path) -> None:
         else:
             date_str = ""
             display_name = name.replace("-", " ").title()
+
+        # Extract rich metadata from review HTML
+        try:
+            html_content = f.read_text(encoding="utf-8", errors="ignore")
+            meta = _extract_review_meta(html_content)
+        except Exception:
+            meta = {"title": "", "verdict": "", "pricing": "", "hero_url": "", "cat": "ai"}
+
         entries.append({
             "file": f.name,
             "date": date_str,
-            "name": display_name,
+            "name": meta.get("title") or display_name,
+            "verdict": meta.get("verdict", ""),
+            "pricing": meta.get("pricing", ""),
+            "hero_url": meta.get("hero_url", ""),
+            "cat": meta.get("cat", "ai"),
         })
 
-    # Read the template approach from editorial index
     html = _build_review_index_html(entries)
     index_path = reviews_dir / "index.html"
     index_path.write_text(html, encoding="utf-8")
@@ -638,7 +727,7 @@ def update_review_index(reviews_dir: Path) -> None:
 
 
 def _build_review_index_html(entries: list[dict]) -> str:
-    """Build the reviews archive index page matching site design system."""
+    """Build the reviews archive index page with rich visual cards + search."""
     _css, reviews_nav_html, reviews_nav_js = build_nav_v2(
         current_page="reviews",
         url_prefix="../",
@@ -646,25 +735,95 @@ def _build_review_index_html(entries: list[dict]) -> str:
         page_icon="science",
         share_url="https://www.koda.community/reviews/",
     )
+
+    # Build rich card HTML for each entry
+    def _card_html(e: dict, is_featured: bool = False) -> str:
+        cat = e.get("cat", "ai")
+        badge_cls = _CAT_BADGE_CSS.get(cat, "badge-ai")
+        grad_cls = _CAT_GRAD_CSS.get(cat, "grad-ai")
+        cat_label = _CAT_LABELS.get(cat, "AI Platform")
+        cat_icon = _CAT_ICONS.get(cat, "auto_awesome")
+        hero = e.get("hero_url", "")
+        pricing = e.get("pricing", "")
+        verdict = e.get("verdict", "")
+        title = e.get("name", "")
+        date = e.get("date", "")
+        f_cls = " lab-card--featured" if is_featured else ""
+
+        # Image or gradient placeholder
+        if hero:
+            img_html = '<img src="' + hero + '" alt="' + _html_esc(title) + '" loading="lazy">'
+        else:
+            img_html = (
+                '<div class="lab-card-placeholder ' + grad_cls + '">'
+                '<span class="material-symbols-outlined" style="font-size:48px;color:rgba(255,255,255,0.3)">'
+                + cat_icon + '</span></div>'
+            )
+
+        # Featured label
+        feat_label = ""
+        if is_featured:
+            feat_label = '<div class="lab-card-featured-label">Latest</div>'
+
+        # Price tag
+        price_html = ""
+        if pricing:
+            price_html = '<span class="lab-card-price">' + _html_esc(pricing) + '</span>'
+
+        return (
+            '<a href="./' + e["file"] + '" class="lab-card' + f_cls + ' animate-in">\n'
+            '  <div class="lab-card-img-wrap">\n'
+            '    ' + feat_label + '\n'
+            '    <span class="lab-card-badge ' + badge_cls + '">' + cat_label + '</span>\n'
+            '    ' + price_html + '\n'
+            '    ' + img_html + '\n'
+            '  </div>\n'
+            '  <div class="lab-card-body">\n'
+            '    <div class="lab-card-title">' + _html_esc(title) + '</div>\n'
+            '    <div class="lab-card-verdict">' + _html_esc(verdict) + '</div>\n'
+            '    <div class="lab-card-meta">\n'
+            '      <span class="lab-card-date">' + date + '</span>\n'
+            '      <span class="lab-card-link">Read Report <span class="material-symbols-outlined">arrow_forward</span></span>\n'
+            '    </div>\n'
+            '  </div>\n'
+            '</a>\n'
+        )
+
     cards = ""
-    for e in entries:
-        cards += f"""
-        <a href="./{e['file']}" class="review-card animate-in" style="text-decoration:none">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-                <div style="min-width:0">
-                    <div style="font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{e['name']}</div>
-                    <div style="font-size:12px;color:#8c909f">{e['date']}</div>
-                </div>
-                <span style="color:#8B5CF6;font-size:13px;font-weight:600;white-space:nowrap;margin-left:16px" class="material-symbols-outlined" title="Read">arrow_forward</span>
-            </div>
-        </a>"""
+    for i, e in enumerate(entries):
+        cards += _card_html(e, is_featured=(i == 0))
 
     if not cards:
-        cards = '<div class="empty-state animate-in"><span class="material-symbols-outlined" style="font-size:48px;color:#3B82F6;margin-bottom:16px;display:block">science</span><p style="color:#8c909f;font-size:15px">No lab reports yet. First reviews drop with tomorrow\'s digest.</p></div>'
+        cards = (
+            '<div class="empty-state animate-in">'
+            '<span class="material-symbols-outlined" style="font-size:48px;color:#3B82F6;margin-bottom:16px;display:block">science</span>'
+            '<p style="color:#8c909f;font-size:15px">No lab reports yet. First reviews drop with tomorrow\'s digest.</p>'
+            '</div>'
+        )
 
     review_count = len(entries)
 
-    # Build page CSS separately to avoid double-brace issue with NAV_CSS_V2
+    # Read the prototype HTML as template (it has all CSS/JS inline)
+    # Instead of maintaining a second copy, we build from the prototype structure
+    proto_path = Path(__file__).resolve().parent.parent / "reviews" / "index-prototype.html"
+    if proto_path.exists():
+        template = proto_path.read_text(encoding="utf-8")
+        # Replace the card grid content between lab-grid markers
+        # Find the lab-grid div and replace its contents
+        grid_start = template.find('<div class="lab-grid">')
+        grid_end = template.find('</div>\n</div>\n\n<section style="width:100%')
+        if grid_start > 0 and grid_end > grid_start:
+            grid_inner_start = grid_start + len('<div class="lab-grid">')
+            # Update stat count
+            result = template[:grid_inner_start] + "\n\n" + cards + "\n    " + template[grid_end:]
+            result = re.sub(
+                r'<div class="stat-value">\d+</div><div class="stat-label">Lab Reports',
+                '<div class="stat-value">' + str(review_count) + '</div><div class="stat-label">Lab Reports',
+                result,
+            )
+            return result
+
+    # Fallback: build from scratch using string concatenation (no f-strings for CSS/JS)
     page_css = (
         "*{margin:0;padding:0;box-sizing:border-box}\n"
         "body{font-family:'Inter',sans-serif;background:#0b1326;color:#dae2fd;min-height:100vh;overflow-x:hidden}\n"
@@ -680,26 +839,61 @@ def _build_review_index_html(entries: list[dict]) -> str:
         ".stat{background:rgba(23,31,51,0.4);backdrop-filter:blur(20px);border:1px solid rgba(173,198,255,0.1);border-radius:12px;padding:16px 24px;text-align:center;min-width:120px}\n"
         ".stat-value{font-size:24px;font-weight:800;color:#dae2fd}\n"
         ".stat-label{font-size:11px;color:#8c909f;margin-top:2px;text-transform:uppercase;letter-spacing:0.05em}\n"
-        ".container{max-width:900px;margin:0 auto;padding:0 24px 64px}\n"
-        ".review-card{display:block;background:rgba(23,31,51,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:18px 20px;margin-bottom:10px;transition:all 0.2s}\n"
-        ".review-card:hover{background:rgba(23,31,51,0.7);border-color:rgba(139,92,246,0.3)}\n"
+        ".lab-container{max-width:1100px;margin:0 auto;padding:0 24px 64px}\n"
+        ".lab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}\n"
+        "@media(max-width:768px){.lab-grid{grid-template-columns:1fr}}\n"
+        ".lab-card{display:block;text-decoration:none;color:inherit;background:rgba(23,31,51,0.4);border:1px solid rgba(203,195,215,0.08);border-radius:16px;overflow:hidden;transition:transform 0.3s cubic-bezier(0.16,1,0.3,1),border-color 0.3s,box-shadow 0.3s;position:relative}\n"
+        ".lab-card:hover{transform:translateY(-4px) scale(1.01);border-color:rgba(139,92,246,0.25);box-shadow:0 20px 40px rgba(0,0,0,0.3),0 0 20px rgba(139,92,246,0.08)}\n"
+        ".lab-card--featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}\n"
+        "@media(max-width:768px){.lab-card--featured{grid-template-columns:1fr}}\n"
+        ".lab-card-img-wrap{position:relative;overflow:hidden}\n"
+        ".lab-card-img-wrap img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)}\n"
+        ".lab-card:hover .lab-card-img-wrap img{transform:scale(1.04)}\n"
+        ".lab-card--featured .lab-card-img-wrap img{aspect-ratio:auto;height:100%;min-height:280px}\n"
+        ".lab-card-placeholder{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:48px;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)}\n"
+        ".lab-card--featured .lab-card-placeholder{aspect-ratio:auto;height:100%;min-height:280px}\n"
+        ".lab-card:hover .lab-card-placeholder{transform:scale(1.04)}\n"
+        ".lab-card-img-wrap::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(to top,rgba(11,19,38,0.7),transparent);pointer-events:none}\n"
+        ".lab-card-badge{position:absolute;top:12px;left:12px;padding:4px 10px;border-radius:8px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;z-index:2;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}\n"
+        ".lab-card-price{position:absolute;top:12px;right:12px;padding:4px 10px;border-radius:8px;font-size:11px;font-weight:700;z-index:2;background:rgba(11,19,38,0.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#dae2fd;border:1px solid rgba(255,255,255,0.1)}\n"
+        ".badge-ai{background:rgba(99,102,241,0.15);color:#818CF8;border:1px solid rgba(99,102,241,0.2)}\n"
+        ".badge-coding{background:rgba(59,130,246,0.15);color:#60A5FA;border:1px solid rgba(59,130,246,0.2)}\n"
+        ".badge-marketing{background:rgba(236,72,153,0.15);color:#F472B6;border:1px solid rgba(236,72,153,0.2)}\n"
+        ".badge-productivity{background:rgba(139,92,246,0.15);color:#A78BFA;border:1px solid rgba(139,92,246,0.2)}\n"
+        ".badge-analytics{background:rgba(16,185,129,0.15);color:#34D399;border:1px solid rgba(16,185,129,0.2)}\n"
+        ".badge-design{background:rgba(245,158,11,0.15);color:#FBBF24;border:1px solid rgba(245,158,11,0.2)}\n"
+        ".badge-security{background:rgba(239,68,68,0.15);color:#F87171;border:1px solid rgba(239,68,68,0.2)}\n"
+        ".badge-voice{background:rgba(6,182,212,0.15);color:#22D3EE;border:1px solid rgba(6,182,212,0.2)}\n"
+        ".grad-ai{background:linear-gradient(135deg,#4338CA 0%,#6366F1 50%,#818CF8 100%)}\n"
+        ".grad-coding{background:linear-gradient(135deg,#1D4ED8 0%,#3B82F6 50%,#60A5FA 100%)}\n"
+        ".grad-marketing{background:linear-gradient(135deg,#BE185D 0%,#EC4899 50%,#F472B6 100%)}\n"
+        ".grad-productivity{background:linear-gradient(135deg,#6D28D9 0%,#8B5CF6 50%,#A78BFA 100%)}\n"
+        ".grad-analytics{background:linear-gradient(135deg,#047857 0%,#10B981 50%,#34D399 100%)}\n"
+        ".grad-design{background:linear-gradient(135deg,#B45309 0%,#F59E0B 50%,#FBBF24 100%)}\n"
+        ".grad-security{background:linear-gradient(135deg,#B91C1C 0%,#EF4444 50%,#F87171 100%)}\n"
+        ".grad-voice{background:linear-gradient(135deg,#0E7490 0%,#06B6D4 50%,#22D3EE 100%)}\n"
+        ".lab-card-body{padding:20px}\n"
+        ".lab-card--featured .lab-card-body{display:flex;flex-direction:column;justify-content:center;padding:32px}\n"
+        ".lab-card-title{font-size:17px;font-weight:700;color:#dae2fd;margin-bottom:8px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}\n"
+        ".lab-card--featured .lab-card-title{font-size:22px;-webkit-line-clamp:3}\n"
+        ".lab-card-verdict{font-size:13px;color:#8c909f;line-height:1.5;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}\n"
+        ".lab-card--featured .lab-card-verdict{font-size:14px;-webkit-line-clamp:3;color:#c2c6d6}\n"
+        ".lab-card-meta{display:flex;align-items:center;justify-content:space-between}\n"
+        ".lab-card-date{font-size:11px;font-family:'JetBrains Mono',monospace;color:#6b7280;font-weight:500}\n"
+        ".lab-card-link{font-size:12px;font-weight:600;color:#8B5CF6;display:flex;align-items:center;gap:4px;transition:gap 0.2s}\n"
+        ".lab-card:hover .lab-card-link{gap:8px;color:#A78BFA}\n"
+        ".lab-card-link .material-symbols-outlined{font-size:16px}\n"
+        ".lab-card-featured-label{position:absolute;top:12px;left:12px;z-index:3;padding:4px 12px;border-radius:8px;background:linear-gradient(135deg,#8B5CF6,#3B82F6);color:white;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:0.15em}\n"
         ".empty-state{text-align:center;padding:60px 24px}\n"
-        "footer{background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto}\n"
-        "footer .inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;padding:32px 24px;gap:12px;text-align:center}\n"
-        "@media(min-width:768px){footer .inner{flex-direction:row;justify-content:space-between;text-align:left}}\n"
         ".animate-in{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}\n"
         ".animate-in.visible{opacity:1;transform:translateY(0)}\n"
     )
 
-    # Use string concatenation (not f-string) to avoid brace-escaping issues
-    # in CSS selectors and JS function bodies
     scroll_js = (
         "<script>\n"
-        "// Scroll progress\n"
         "window.addEventListener('scroll',function(){var p=document.getElementById('scrollProgress');"
         "if(p){var h=document.documentElement.scrollHeight-window.innerHeight;"
         "p.style.width=h>0?(window.scrollY/h*100)+'%':'0%'}});\n"
-        "// Animate in\n"
         "var obs=new IntersectionObserver(function(e){e.forEach(function(en){"
         "if(en.isIntersecting)en.target.classList.add('visible')});},{threshold:0.1});\n"
         "document.querySelectorAll('.animate-in').forEach(function(el){obs.observe(el)});\n"
@@ -734,8 +928,8 @@ def _build_review_index_html(entries: list[dict]) -> str:
         '    <div class="stat"><div class="stat-value">3</div>'
         '<div class="stat-label">New Per Day</div></div>\n'
         '</div>\n'
-        '<div class="container">\n    ' + cards + '\n</div>\n'
-        # Subscribe CTA
+        '<div class="lab-container">\n<div class="lab-grid">\n' + cards + '</div>\n</div>\n'
+        # Subscribe + footer + scripts (same as before)
         '<section style="width:100%;padding:64px 24px">\n'
         '    <div style="max-width:36rem;margin:0 auto;text-align:center">\n'
         '        <div style="background:rgba(11,19,38,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:40px;position:relative;overflow:hidden">\n'
@@ -752,7 +946,6 @@ def _build_review_index_html(entries: list[dict]) -> str:
         '        </div>\n'
         '    </div>\n'
         '</section>\n'
-        # Footer (matches editorial/archive)
         '<footer style="background:#060e20;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto">\n'
         '    <div style="max-width:40rem;margin:0 auto;text-align:center;padding:64px 24px;position:relative">\n'
         '        <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:500px;height:200px;background:linear-gradient(to top,rgba(139,92,246,0.04),transparent);border-radius:50%;filter:blur(48px);pointer-events:none"></div>\n'
@@ -773,7 +966,6 @@ def _build_review_index_html(entries: list[dict]) -> str:
         '        </div>\n'
         '    </div>\n'
         '</footer>\n'
-        # Subscribe JS
         '<script>\n'
         'function kodaSubscribe(form) {\n'
         '    var btn = form.querySelector("button");\n'
@@ -804,6 +996,11 @@ def _build_review_index_html(entries: list[dict]) -> str:
         + reviews_nav_js + '\n'
         '</body>\n</html>'
     )
+
+
+def _html_esc(text: str) -> str:
+    """Minimal HTML escaping for card content."""
+    return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
 
 # ── Main ───────────────────────────────────────────────────────────────────
