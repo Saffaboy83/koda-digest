@@ -1021,7 +1021,7 @@ def main() -> None:
         return
 
     # Step 4: Generate hero image
-    hero_path = DIGEST_DIR / "pipeline" / "data" / f"editorial-hero-{date}.jpg"
+    hero_path = DIGEST_DIR / "pipeline" / "data" / f"editorial-hero-{date}-cinematic.jpg"
     hero_path.parent.mkdir(parents=True, exist_ok=True)
     print("\n  Step 4: Generating hero image...")
     hero_ok = generate_hero(blog_data, assets, hero_path)
